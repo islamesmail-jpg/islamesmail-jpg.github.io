@@ -49,7 +49,17 @@
     .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
     .btn i{font-size:16px}
 
-    /* Box */
+    /* Destinations (الكروت) */
+    .dest{max-width:1100px; margin:28px auto 0; padding:0 18px;
+          display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px}
+    .card{position:relative; overflow:hidden; border-radius:16px; background:#0f1a2e; border:1px solid rgba(255,255,255,.10)}
+    .card img{width:100%; height:160px; object-fit:cover; opacity:.85; display:block; filter:brightness(.9)}
+    .card .label{position:absolute; inset:auto 0 0 0; padding:14px; background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));}
+    .card h3{margin:0 0 6px; font-size:22px; color:#fff}
+    .card p{margin:0; color:#cfd6e4; font-size:14px}
+    .card .go{position:absolute; top:12px; left:12px; padding:8px 14px; border-radius:999px; background:var(--gold); color:var(--ink); font-weight:800; text-decoration:none}
+
+    /* Box (WhatsApp form) */
     .box{margin:32px auto 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:20px; max-width:680px}
     .box label{display:block; margin-bottom:10px; font-weight:800}
     .select,.input{
@@ -96,13 +106,45 @@
       <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
 
       <div class="cta">
-        <!-- ✳️ عدّل هنا إن حبيت -->
         <a class="btn" id="btn-call" href="tel:+201050072527"><i class="fa-solid fa-phone"></i><span data-i="btnCall">اتصال مباشر</span></a>
         <a class="btn" id="btn-wa" href="https://wa.me/201050072527?text=%D8%A7%D9%87%D9%84%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
         <a class="btn" id="btn-mail" href="mailto:eslam.realty.eg@gmail.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
       </div>
 
-      <!-- Interest -->
+      <!-- Destinations cards -->
+      <div class="dest" aria-label="الوجهات">
+        <!-- Sokhna -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd90f2?q=80&w=1200&auto=format&fit=crop" alt="العين السخنة">
+          <a class="go" href="sokhna.html">ادخل</a>
+          <div class="label">
+            <h3>العين السخنة</h3>
+            <p>مشاريع جديدة – خطط تقسيط 6–8 سنوات</p>
+          </div>
+        </article>
+
+        <!-- North Coast -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?q=80&w=1200&auto=format&fit=crop" alt="الساحل الشمالي">
+          <a class="go" href="northcoast.html">ادخل</a>
+          <div class="label">
+            <h3>الساحل الشمالي</h3>
+            <p>قرى من العلمين لحد سيدي حنيش</p>
+          </div>
+        </article>
+
+        <!-- New Cairo -->
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="القاهرة الجديدة">
+          <a class="go" href="cairo.html">ادخل</a>
+          <div class="label">
+            <h3>القاهرة الجديدة</h3>
+            <p>كمبوندات ومناطق سكنية مميزة</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- WhatsApp form (اختياري) -->
       <div class="box">
         <label for="area" data-i="formArea">اختر المنطقة:</label>
         <select id="area" class="select">
@@ -159,23 +201,24 @@
       const msgAr = place ? `مهتم بعقار في ${areaTxt} - ${place}` : `مهتم بعقار في ${areaTxt}`;
       const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
       const msg = (lang==="ar" ? msgAr : msgEn);
-      // ✳️ استخدم نفس رقم الواتساب اللي فوق
       waBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
     }
 
-    // Placeholder حسب المنطقة واللغة
+    // Placeholder
     function updatePlaceholder(){
       const isCairo = areaSel.value === "cairo";
       if(lang==="ar"){
-        placeIn.placeholder = isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Porto ElSokhna / IL Monte Galala)";
+        placeIn.placeholder = isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Marassi / IL Monte Galala)";
       } else {
         placeIn.placeholder = isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)";
       }
     }
 
-    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWhatsApp(); });
-    placeIn.addEventListener('input',  updateWhatsApp);
-    updatePlaceholder(); updateWhatsApp();
+    if(areaSel && placeIn){
+      areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWhatsApp(); });
+      placeIn.addEventListener('input',  updateWhatsApp);
+      updatePlaceholder(); updateWhatsApp();
+    }
 
     // الترجمة
     const dict = {
@@ -187,7 +230,7 @@
         heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
         btnCall:"اتصال مباشر", btnWhatsApp:"استشارة واتساب",
         formArea:"اختر المنطقة:", formBtn:"تابع على واتساب",
-        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: The 5th Settlement / Madinaty / Hyde Park)"
+        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)"
       },
       en:{
         brand:"Eslam Realty",
