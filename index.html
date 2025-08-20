@@ -39,7 +39,7 @@
     .subtitle{margin-top:10px; font-weight:800; font-size:clamp(16px,2.8vw,26px); color:var(--gold2)}
     .areas{margin-top:10px; color:#e9eef4; opacity:.9; font-weight:700}
 
-    /* Buttons */
+    /* CTA */
     .cta{margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px}
     .btn{
       display:inline-flex; align-items:center; gap:10px;
@@ -49,24 +49,23 @@
     .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
     .btn i{font-size:16px}
 
-    /* Destinations (الكروت) */
+    /* Destinations (cards) */
     .dest{max-width:1100px; margin:28px auto 0; padding:0 18px;
           display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px}
     .card{position:relative; overflow:hidden; border-radius:16px; background:#0f1a2e; border:1px solid rgba(255,255,255,.10)}
-    .card img{width:100%; height:160px; object-fit:cover; opacity:.85; display:block; filter:brightness(.9)}
+    .card img{width:100%; height:160px; object-fit:cover; opacity:.9; display:block; filter:brightness(.9)}
     .card .label{position:absolute; inset:auto 0 0 0; padding:14px; background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));}
     .card h3{margin:0 0 6px; font-size:22px; color:#fff}
     .card p{margin:0; color:#cfd6e4; font-size:14px}
     .card .go{position:absolute; top:12px; left:12px; padding:8px 14px; border-radius:999px; background:var(--gold); color:var(--ink); font-weight:800; text-decoration:none}
 
-    /* Box (WhatsApp form) */
+    /* Box (Resale WhatsApp) */
     .box{margin:32px auto 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:20px; max-width:680px}
     .box label{display:block; margin-bottom:10px; font-weight:800}
-    .select,.input{
+    .select{
       width:100%; background:#0f1a2e; color:#fff; border:1px solid #2c3b57;
       padding:12px 14px; border-radius:12px; font-weight:700; outline:none;
     }
-    .input{margin-top:10px}
     .hint{margin-top:6px; color:var(--muted); font-size:.92rem}
 
     /* Footer */
@@ -106,6 +105,7 @@
       <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
 
       <div class="cta">
+        <!-- غيّر الرقم/الإيميل لو عايز -->
         <a class="btn" id="btn-call" href="tel:+201050072527"><i class="fa-solid fa-phone"></i><span data-i="btnCall">اتصال مباشر</span></a>
         <a class="btn" id="btn-wa" href="https://wa.me/201050072527?text=%D8%A7%D9%87%D9%84%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
         <a class="btn" id="btn-mail" href="mailto:eslam.realty.eg@gmail.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
@@ -113,49 +113,50 @@
 
       <!-- Destinations cards -->
       <div class="dest" aria-label="الوجهات">
-        <!-- Sokhna -->
+        <!-- Sokhna (sea view from terrace) -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1526481280698-8fcc13fd90f2?q=80&w=1200&auto=format&fit=crop" alt="العين السخنة">
-          <a class="go" href="sokhna.html">ادخل</a>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="العين السخنة - فيو بحر من تراس">
+          <a class="go" href="sokhna.html" data-i="go">ادخل</a>
           <div class="label">
-            <h3>العين السخنة</h3>
-            <p>مشاريع جديدة – خطط تقسيط 6–10 سنوات</p>
+            <h3 data-i="destSokhna">العين السخنة</h3>
+            <p data-i="destSokhnaSub">مشاريع جديدة – خطط تقسيط 6–8 سنوات</p>
           </div>
         </article>
 
-        <!-- North Coast -->
+        <!-- North Coast (South Med style) -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?q=80&w=1200&auto=format&fit=crop" alt="الساحل الشمالي">
-          <a class="go" href="northcoast.html">ادخل</a>
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1200&auto=format&fit=crop" alt="الساحل الشمالي - South Med">
+          <a class="go" href="northcoast.html" data-i="go">ادخل</a>
           <div class="label">
-            <h3>الساحل الشمالي</h3>
-            <p> قرى من العلمين لحد سيدي حنيش خطط تقسيط لحد 12 سنه</p>
+            <h3 data-i="destCoast">الساحل الشمالي</h3>
+            <p data-i="destCoastSub">قرى من العلمين حتى سيدي حنيش</p>
           </div>
         </article>
 
-        <!-- New Cairo -->
+        <!-- New Cairo (SODIC look) -->
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="القاهرة الجديدة">
-          <a class="go" href="cairo.html">ادخل</a>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="القاهرة الجديدة - سوديك">
+          <a class="go" href="cairo.html" data-i="go">ادخل</a>
           <div class="label">
-            <h3>القاهرة الجديدة</h3>
-            <p>كمبوندات ومناطق سكنية مميزة</p>
+            <h3 data-i="destCairo">القاهرة الجديدة</h3>
+            <p data-i="destCairoSub">كمبوندات ومناطق سكنية مميزة</p>
           </div>
         </article>
       </div>
 
-      <!-- WhatsApp form (اختياري) -->
-      <div class="box">
-        <label for="area" data-i="formArea">ريسيل اختار المنطقه المهتم بيها :</label>
+      <!-- Resale box -->
+      <div class="box" style="margin-top:28px">
+        <label for="area" data-i="resaleTitle">ريسيل - اختر المنطقة اللي مهتم بيها:</label>
         <select id="area" class="select">
-          <option value="sokhna">العين السخنة</option>
-          <option value="northcoast">الساحل الشمالي</option>
-          <option value="cairo">القاهرة الجديدة</option>
+          <option value="sokhna" data-i="optSokhna">العين السخنة</option>
+          <option value="northcoast" data-i="optCoast">الساحل الشمالي</option>
+          <option value="cairo" data-i="optCairo">القاهرة الجديدة</option>
         </select>
 
-        <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" />
+        <select id="place" class="select" style="margin-top:12px"></select>
+
         <div class="hint" data-i="hint">
-          اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: The 5th Settlement / Madinaty / Hyde Park)
+          اختر المنطقة والكمبوند/المكان، واضغط واتساب للتواصل السريع
         </div>
 
         <div class="cta" style="margin-top:16px">
@@ -183,44 +184,70 @@
 
     // عناصر
     const areaSel = document.getElementById('area');
-    const placeIn = document.getElementById('place');
+    const placeSel = document.getElementById('place');
     const waBtn   = document.getElementById('goWhatsApp');
 
-    // اللغة الافتراضية
+    // اللغة
     let lang = "ar";
 
-    // تكوين رسالة واتساب
+    // قوائم الريسيل (AR/EN)
+    const PLACES = {
+      ar: {
+        sokhna: [
+          {v:"porto", t:"بورتو السخنة"},
+          {v:"lavista", t:"لافيستا"}
+        ],
+        northcoast: [
+          {v:"ramla", t:"رامله"},
+          {v:"southmed", t:"ساوز ميد"}
+        ],
+        cairo: [
+          {v:"rehab", t:"الرحاب"},
+          {v:"tagmo3", t:"التجمع الخامس"}
+        ]
+      },
+      en: {
+        sokhna: [
+          {v:"porto", t:"Porto Sokhna"},
+          {v:"lavista", t:"La Vista"}
+        ],
+        northcoast: [
+          {v:"ramla", t:"Ramla"},
+          {v:"southmed", t:"South Med"}
+        ],
+        cairo: [
+          {v:"rehab", t:"Al Rehab"},
+          {v:"tagmo3", t:"New Cairo (Tagamoa 5)"}
+        ]
+      }
+    };
+
+    // تحديث القائمة الفرعية
+    function updatePlaces(){
+      const list = PLACES[lang][areaSel.value] || [];
+      placeSel.innerHTML = "";
+      list.forEach(p=>{
+        const opt=document.createElement("option");
+        opt.value=p.v; opt.textContent=p.t;
+        placeSel.appendChild(opt);
+      });
+      updateWhatsApp();
+    }
+
+    // رسالة واتساب
     function updateWhatsApp(){
-      const LABELS = {
-        sokhna: lang==="ar" ? "العين السخنة" : "Ain Sokhna",
-        northcoast: lang==="ar" ? "الساحل الشمالي" : "North Coast",
-        cairo: lang==="ar" ? "القاهرة الجديدة" : "New Cairo"
-      };
-      const areaTxt = LABELS[areaSel.value] || "";
-      const place   = placeIn.value.trim();
-      const msgAr = place ? `مهتم بعقار في ${areaTxt} - ${place}` : `مهتم بعقار في ${areaTxt}`;
-      const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
+      const areaTxt = areaSel.options[areaSel.selectedIndex]?.text || "";
+      const placeTxt = placeSel.options[placeSel.selectedIndex]?.text || "";
+      const msgAr = `مهتم بعقار ريسيل في ${areaTxt} - ${placeTxt}`;
+      const msgEn = `Interested in a resale property in ${areaTxt} - ${placeTxt}`;
       const msg = (lang==="ar" ? msgAr : msgEn);
       waBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
     }
 
-    // Placeholder
-    function updatePlaceholder(){
-      const isCairo = areaSel.value === "cairo";
-      if(lang==="ar"){
-        placeIn.placeholder = isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Porto / IL Monte Galala)";
-      } else {
-        placeIn.placeholder = isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)";
-      }
-    }
+    areaSel?.addEventListener('change', ()=>{ updatePlaces(); });
+    placeSel?.addEventListener('change', updateWhatsApp);
 
-    if(areaSel && placeIn){
-      areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWhatsApp(); });
-      placeIn.addEventListener('input',  updateWhatsApp);
-      updatePlaceholder(); updateWhatsApp();
-    }
-
-    // الترجمة
+    // ترجمة واجهة الموقع
     const dict = {
       ar:{
         brand:"Eslam Realty",
@@ -229,8 +256,18 @@
         heroSub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
         heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
         btnCall:"اتصال مباشر", btnWhatsApp:"استشارة واتساب",
-        formArea:"اختر المنطقة:", formBtn:"تابع على واتساب",
-        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)"
+
+        // Dest cards
+        go:"ادخل",
+        destSokhna:"العين السخنة", destSokhnaSub:"مشاريع جديدة – خطط تقسيط 6–8 سنوات",
+        destCoast:"الساحل الشمالي", destCoastSub:"قرى من العلمين حتى سيدي حنيش",
+        destCairo:"القاهرة الجديدة", destCairoSub:"كمبوندات ومناطق سكنية مميزة",
+
+        // Resale
+        resaleTitle:"ريسيل - اختر المنطقة اللي مهتم بيها:",
+        optSokhna:"العين السخنة", optCoast:"الساحل الشمالي", optCairo:"القاهرة الجديدة",
+        formBtn:"تابع على واتساب",
+        hint:"اختر المنطقة والكمبوند/المكان، واضغط واتساب للتواصل السريع"
       },
       en:{
         brand:"Eslam Realty",
@@ -239,23 +276,53 @@
         heroSub:"Private service for buying, selling & investing in prime locations",
         heroAreas:"Ain Sokhna • North Coast • New Cairo",
         btnCall:"Call Now", btnWhatsApp:"WhatsApp Consultation",
-        formArea:"Select area:", formBtn:"Continue on WhatsApp",
-        hint:"Type the village name for Sokhna/North Coast, or the place name in New Cairo (e.g., Marassi / Madinaty / Hyde Park)"
+
+        // Dest cards
+        go:"Open",
+        destSokhna:"Ain Sokhna", destSokhnaSub:"New projects – 6–8y payment plans",
+        destCoast:"North Coast", destCoastSub:"Villages from Alamein to Sidi Heneish",
+        destCairo:"New Cairo", destCairoSub:"Premium compounds & neighborhoods",
+
+        // Resale
+        resaleTitle:"Resale – choose the area you’re interested in:",
+        optSokhna:"Ain Sokhna", optCoast:"North Coast", optCairo:"New Cairo",
+        formBtn:"Continue on WhatsApp",
+        hint:"Pick area and compound/place, then WhatsApp to connect fast"
       }
     };
 
     function setLang(l){
       lang = l;
       const map = dict[l];
+      // نصوص
       document.querySelectorAll("[data-i]").forEach(el=>{
         const k = el.getAttribute("data-i");
         if(map[k]) el.textContent = map[k];
       });
+      // اتجاه وسمات
       document.documentElement.lang = (l==="ar"?"ar":"en");
       document.documentElement.dir  = (l==="ar"?"rtl":"ltr");
-      updatePlaceholder(); updateWhatsApp();
+
+      // إعادة ملء الخيارات حسب اللغة
+      // أولاً حدّث أسماء الخيارات الرئيسية (area)
+      const areaOptions = [
+        {val:"sokhna", key:"optSokhna"},
+        {val:"northcoast", key:"optCoast"},
+        {val:"cairo", key:"optCairo"}
+      ];
+      areaOptions.forEach(({val,key})=>{
+        const opt = Array.from(areaSel.options).find(o=>o.value===val);
+        if(opt && map[key]) opt.textContent = map[key];
+      });
+
+      updatePlaces();
+      updateWhatsApp();
     }
+
     document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
+
+    // تحميل مبدئي
+    setLang("ar");
   </script>
 </body>
 </html>
