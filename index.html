@@ -10,8 +10,10 @@
 <style>
 :root{
   --ink:#0b0f19;
+  --panel:#0f1627;
   --gold:#e4c24a;
-  --gold-2:#f0d86a;
+  --gold2:#f0d86a;
+  --muted:#cbd5e1;
   --white:#ffffff;
 }
 
@@ -19,182 +21,156 @@
 html,body{height:100%}
 body{margin:0; font-family:"Tajawal",system-ui,Arial,sans-serif; background:var(--ink); color:var(--white)}
 
-/* شريط علوي */
-.nav{position:sticky; top:0; background:#f2f2f2; border-bottom:1px solid #ddd; z-index:50}
-.nav .inner{max-width:1200px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
-.brand{font-weight:800; color:#b58b00}
-.nav a{color:#111; text-decoration:none; font-weight:700; margin-inline:6px}
-.lang{margin-inline-start:auto; border:1px solid #b58b00; color:#b58b00; background:transparent;
-  border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
+/* Top bar */
+.nav{position:sticky; top:0; background:#f2f2f2; border-bottom:1px solid #e5e7eb; z-index:50}
+.nav .inner{max-width:1100px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
+.brand{margin-inline-start:auto; font-weight:800; color:#b58b00}
+.nav a{color:#111; text-decoration:none; font-weight:700; margin-inline:8px}
+.nav a:hover{opacity:.8}
 
-/* الهيرو */
-.hero{
-  position:relative; min-height:85vh;
-  background:url('https://images.unsplash.com/photo-1468581264429-2548ef9eb732?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-  display:grid; place-items:center
-}
-.overlay{background:rgba(11,15,25,.7); width:100%; height:100%; padding:56px 18px; display:grid; place-items:center}
+/* Hero */
+.hero{position:relative; min-height:78vh;
+  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  display:grid; place-items:center}
+.overlay{background:rgba(11,15,25,.68); width:100%; height:100%; padding:52px 18px; display:grid; place-items:center}
 .hero-inner{text-align:center; max-width:900px}
-.title{font-size:clamp(28px,5vw,52px); font-weight:800; text-shadow:0 6px 18px rgba(0,0,0,.5)}
-.sub{margin-top:12px; font-size:clamp(16px,2.5vw,22px); color:var(--gold-2); font-weight:700}
-.areas{margin-top:8px; font-weight:600}
+.title{font-size:clamp(28px,5.8vw,54px); font-weight:800; text-shadow:0 6px 18px rgba(0,0,0,.5)}
+.sub{margin-top:12px; font-size:clamp(16px,2.5vw,22px); color:var(--gold2); font-weight:700}
+.areas{margin-top:10px; font-weight:600}
 
-/* أزرار الهيرو جنب بعض */
-.actions{
-  margin-top:26px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  max-width:520px;
-  margin-inline:auto;
-}
-.actions .full{grid-column:1 / -1}
-
+.actions{margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
 .btn{
-  padding:12px 18px; border-radius:999px; border:1.5px solid var(--gold); color:var(--gold);
-  font-weight:800; text-decoration:none; display:inline-flex; gap:8px; align-items:center; justify-content:center
+  padding:12px 22px; border-radius:999px; border:1.6px solid var(--gold); color:var(--gold);
+  font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:10px; min-width:190px; justify-content:center;
 }
 .btn:hover{background:var(--gold); color:#111}
+.actions .btn{flex:1 1 220px; max-width:320px}
 
-/* بطاقات المناطق */
+/* Sections & cards */
 .section{padding:28px 16px}
 .container{max-width:1100px; margin:auto}
 .cards{display:grid; gap:16px; grid-template-columns:1fr}
-.card{position:relative; border-radius:16px; overflow:hidden; cursor:pointer; text-decoration:none}
-.card img{width:100%; height:160px; object-fit:cover; transition:transform .35s}
+.card{position:relative; border-radius:16px; overflow:hidden; text-decoration:none; cursor:pointer; background:#000}
+.card img{width:100%; height:180px; object-fit:cover; transition:transform .45s ease}
 .card:hover img{transform:scale(1.05)}
 .card .label{
   position:absolute; bottom:12px; left:12px; right:12px;
-  background:rgba(0,0,0,.55);
-  color:var(--gold); border:1px solid var(--gold);
-  border-radius:12px; padding:8px 14px; font-weight:700; display:flex; justify-content:space-between
+  background:rgba(0,0,0,.55); color:var(--gold); border:1px solid var(--gold);
+  border-radius:12px; padding:8px 14px; font-weight:800; display:flex; justify-content:space-between; align-items:center
 }
 @media(min-width:800px){
   .cards{grid-template-columns:repeat(3,1fr)}
-  .card img{height:180px}
+  .card img{height:170px}
 }
 
-/* فورم الريسيل */
-.box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:18px}
-.box h3{margin:0 0 10px 0; font-size:1.25rem}
-.select,.input{width:100%; margin-top:8px; padding:12px; border-radius:10px; border:1px solid #2a3958; background:#0f1627; color:#fff}
-.hint{margin-top:6px; font-size:.9rem; color:#ccc}
+/* Resale box */
+.box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px}
+.box h3{margin:0 0 10px; font-size:20px}
+.select,.input{width:100%; margin-top:8px; padding:12px; border-radius:10px; border:1px solid #2a3958; background:var(--panel); color:#fff; font-weight:700}
+.input::placeholder{color:#8ea0bf}
+.hint{margin-top:8px; font-size:.92rem; color:var(--muted)}
 .go{margin-top:14px; text-align:center}
 
-/* فوتر */
-footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1); margin-top:22px; color:#aaa}
-.footer-actions{display:flex; justify-content:center; gap:16px; margin-top:8px}
-.footer-actions a{color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:8px 14px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; font-weight:700}
-.footer-actions a:hover{background:var(--gold); color:#111}
+/* Footer */
+footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1); color:#aab4c3}
+.foot-icons{margin-top:8px; display:flex; gap:12px; justify-content:center}
+.foot-icons a{display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--gold); border-radius:999px; color:var(--gold); text-decoration:none; font-weight:800}
+.foot-icons a:hover{background:var(--gold); color:#111}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <header class="nav">
   <div class="inner">
-    <div class="brand">Eslam Realty</div>
-    <a href="#">الرئيسية</a>
     <a href="#contact">تواصل معنا</a>
-    <button id="lang" class="lang">AR / EN</button>
+    <a href="#">الرئيسية</a>
+    <div class="brand">Eslam Realty</div>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="overlay">
     <div class="hero-inner">
-      <h1 class="title" id="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
-      <div class="sub" id="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
-      <div class="areas" id="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+      <h1 class="title">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <div class="sub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+      <div class="areas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
 
       <div class="actions">
-        <a class="btn" href="https://wa.me/201050072527?text=%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank">💬 استشارة واتساب</a>
         <a class="btn" href="tel:+201050072527">📞 اتصال مباشر</a>
-        <a class="btn full" href="mailto:eslam.realty.eg@gmail.com">✉️ Email</a>
+        <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener">💬 استشارة واتساب</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CARDS -->
 <section class="section container">
   <div class="cards">
-    <!-- العين السخنة -->
-    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بعقار%20في%20العين%20السخنة" target="_blank">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1400&auto=format&fit=crop" alt="العين السخنة">
-      <div class="label">العين السخنة 🏖️</div>
+    <!-- Sokhna: Sea view -->
+    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D8%AE%D9%86%D8%A9" target="_blank" rel="noopener" aria-label="العين السخنة">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="العين السخنة - بحر">
+      <div class="label">العين السخنة <span>🏖️</span></div>
     </a>
-    <!-- الساحل الشمالي -->
-    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بعقار%20في%20الساحل%20الشمالي" target="_blank">
-      <img src="https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?q=80&w=1400&auto=format&fit=crop" alt="الساحل الشمالي">
-      <div class="label">الساحل الشمالي 🌊</div>
+
+    <!-- North Coast: different sea -->
+    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AD%D9%84%20%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A" target="_blank" rel="noopener" aria-label="الساحل الشمالي">
+      <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1400&q=80" alt="الساحل الشمالي - بحر">
+      <div class="label">الساحل الشمالي <span>🌊</span></div>
     </a>
-    <!-- القاهرة الجديدة / فيلا فخمة -->
-    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بعقار%20في%20القاهرة%20الجديدة" target="_blank">
-      <img src="https://images.unsplash.com/photo-1600585154154-1b84a70c9dad?q=80&w=1400&auto=format&fit=crop" alt="فيلا فخمة - القاهرة الجديدة">
-      <div class="label">القاهرة الجديدة 🏡</div>
+
+    <!-- New Cairo: Luxury villa -->
+    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9" target="_blank" rel="noopener" aria-label="القاهرة الجديدة">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80" alt="فيلا فخمة - القاهرة الجديدة">
+      <div class="label">القاهرة الجديدة <span>🏡</span></div>
     </a>
   </div>
 </section>
 
-<section id="resale" class="section container">
+<!-- RESALE -->
+<section class="section container" id="resale">
   <div class="box">
-    <h3 id="formTitle">ريسيل — اختر المنطقة:</h3>
+    <h3>ريسيل — اختر المنطقة:</h3>
     <select id="area" class="select">
       <option value="sokhna">العين السخنة</option>
       <option value="northcoast">الساحل الشمالي</option>
       <option value="cairo">القاهرة الجديدة</option>
     </select>
-    <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان (Marassi / Porto Sokhna / مدينتي)">
-    <div class="hint" id="hint">اكتب اسم القرية للسخنة/الساحل أو المكان بالقاهرة الجديدة</div>
-    <div class="go"><a id="goWhatsApp" class="btn" href="#">💬 تابع على واتساب</a></div>
+    <input id="place" class="input" type="text" placeholder="اكتب اسم القرية/المكان (Marassi / Porto Sokhna / مدينتي)">
+    <div class="hint">اكتب اسم القرية للسخنة/الساحل أو المكان بالقاهرة الجديدة</div>
+    <div class="go"><a id="goWhatsApp" class="btn" href="#" target="_blank" rel="noopener">💬 تابع على واتساب</a></div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer id="contact">
   <div>© <span id="y"></span> Eslam Realty</div>
-  <div class="footer-actions">
+  <div class="foot-icons">
     <a href="tel:+201050072527">📞 اتصال</a>
-    <a href="mailto:eslam.realty.eg@gmail.com">🪪📨 Email</a>
+    <a href="mailto:eslam.realty.eg@gmail.com">📧 إيميل</a>
   </div>
 </footer>
 
 <script>
-document.getElementById('y').textContent=new Date().getFullYear();
+document.getElementById('y').textContent = new Date().getFullYear();
 
-/* واتساب الريسيل */
-const area=document.getElementById('area');
-const place=document.getElementById('place');
-const go=document.getElementById('goWhatsApp');
+// ربط رسالة الواتساب في قسم ريسيل
+const areaSel = document.getElementById('area');
+const placeIn = document.getElementById('place');
+const waBtn   = document.getElementById('goWhatsApp');
+
 function updateWA(){
-  let msg="ريسيل — مهتم بعقار في "+area.options[area.selectedIndex].text;
-  if(place.value.trim()!==""){msg+=" | "+place.value.trim()}
-  go.href="https://wa.me/201050072527?text="+encodeURIComponent(msg);
+  const areaTxt = areaSel.options[areaSel.selectedIndex].text;
+  const extra   = placeIn.value.trim();
+  let msg = "ريسيل — مهتم بعقار في " + areaTxt;
+  if(extra) msg += " | " + extra;
+  waBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
 }
-area.addEventListener('change',updateWA);
-place.addEventListener('input',updateWA);
+areaSel.addEventListener('change', updateWA);
+placeIn.addEventListener('input', updateWA);
 updateWA();
-
-/* تبديل اللغة */
-let lang="ar";
-document.getElementById("lang").onclick=()=>{lang=lang==="ar"?"en":"ar";setLang()}
-function setLang(){
-  if(lang==="en"){
-    document.getElementById("heroTitle").textContent="Turn your property investment into a luxury experience";
-    document.getElementById("heroSub").textContent="Private service for buying, selling & investing in prime locations";
-    document.getElementById("heroAreas").textContent="Ain Sokhna • North Coast • New Cairo";
-    document.getElementById("formTitle").textContent="Resale — select area:";
-    document.getElementById("hint").textContent="Type the village or place (e.g., Porto Sokhna, Marassi, Madinaty)";
-    place.placeholder="Type village / place (Marassi / Porto Sokhna / Madinaty)";
-    document.documentElement.dir="ltr";
-  }else{
-    document.getElementById("heroTitle").textContent="حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي";
-    document.getElementById("heroSub").textContent="خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية";
-    document.getElementById("heroAreas").textContent="العين السخنة • الساحل الشمالي • القاهرة الجديدة";
-    document.getElementById("formTitle").textContent="ريسيل — اختر المنطقة:";
-    document.getElementById("hint").textContent="اكتب اسم القرية للسخنة/الساحل أو المكان بالقاهرة الجديدة";
-    place.placeholder="اكتب اسم القرية / المكان (Marassi / Porto Sokhna / مدينتي)";
-    document.documentElement.dir="rtl";
-  }
-}
 </script>
+
 </body>
 </html>
