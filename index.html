@@ -6,136 +6,96 @@
   <title>Eslam Realty | إسلام محمد</title>
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root{
-      --ink:#0b1220;
-      --bg:#0c1526;
-      --nav:#0e1930;
-      --gold:#d4af37;
-      --gold-2:#f0d27a;
-      --muted:#b6c2d3;
-      --card:#101b34;
-      --line:rgba(255,255,255,.12);
+      --bg:#0b1220; --nav:#0f1a2e; --gold:#d4af37; --gold2:#e6c76d; --ink:#0b1220; --muted:#cbd5e1; --line:rgba(255,255,255,.12);
       --accent:#59d36a;
-      --chip:#162446;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background:var(--bg)}
+    body{margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:#fff}
 
-    /* topbar + nav */
-    .topbar{background:#07101f; color:#c9d3e6; font-size:.92rem; border-bottom:1px solid var(--line)}
-    .topbar .wrap{max-width:1200px; margin:auto; padding:6px 16px; display:flex; justify-content:space-between; gap:10px}
-    .topbar .info{display:flex; gap:16px; opacity:.9}
-    .topbar a{color:#c9d3e6; text-decoration:none}
-    .nav{position:sticky; top:0; z-index:40; background:rgba(14,25,48,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
-    .nav .wrap{max-width:1200px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:16px}
+    /* Header */
+    .nav{position:sticky; top:0; z-index:40; background:rgba(15,26,46,.88); border-bottom:1px solid var(--line); backdrop-filter:blur(8px)}
+    .nav-inner{max-width:1200px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:16px}
     .brand{font-weight:800}
-    .brand span:last-child{color:var(--gold)}
+    .brand i{color:var(--gold); margin-inline-start:6px}
+    .brand strong{color:var(--gold)}
     .spacer{flex:1}
-    .menu{display:flex; gap:22px; align-items:center}
+    .menu{display:flex; gap:20px; align-items:center}
     .menu a{color:#e8edf5; text-decoration:none; font-weight:700}
     .menu a:hover{color:var(--gold)}
-    .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:8px 14px; font-weight:800; cursor:pointer}
-    .lang:hover{background:var(--gold); color:var(--ink)}
+    .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
 
-    /* hero */
+    /* Hero (simple, luxurious) */
     .hero{
-      min-height:78vh; display:grid; place-items:end center; position:relative;
+      position:relative; min-height:84vh; display:grid; place-items:center;
       background:
-        linear-gradient(180deg, rgba(8,14,26,.25) 0%, rgba(8,14,26,.55) 40%, rgba(8,14,26,.85) 100%),
+        linear-gradient(0deg, rgba(11,18,32,.68), rgba(11,18,32,.68)),
+        /* صورة بحر/تراس رايقة */
         url('https://images.unsplash.com/photo-1502920917128-1aa500764b8a?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
     }
-    .hero-inner{max-width:1200px; width:100%; padding:64px 16px 24px}
-    .hero-text{max-width:820px}
-    .title{margin:0; font-weight:900; line-height:1.15; font-size:clamp(28px,6vw,56px)}
-    .subtitle{margin:10px 0 12px; font-weight:700; font-size:clamp(16px,2.6vw,22px); color:var(--gold-2)}
-    .areas{color:#e9eef4; font-weight:700; opacity:.95}
+    .hero-inner{max-width:1050px; padding:56px 18px; text-align:center}
+    .title{font-weight:900; line-height:1.2; font-size:clamp(30px,6vw,60px); color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .subtitle{margin-top:10px; font-weight:800; font-size:clamp(16px,2.6vw,24px); color:var(--gold2)}
+    .areas{margin-top:8px; color:#e9eef4; opacity:.95; font-weight:700}
 
-    /* mini projects row */
-    .projects{
-      margin-top:18px;
-      background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:16px;
-      padding:12px;
+    /* CTA buttons */
+    .cta{margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:900; letter-spacing:.3px;
+      border:1px solid var(--gold); color:var(--gold); background:transparent; transition:.25s;
     }
-    .projects h4{margin:0 0 10px; font-weight:800; color:#fff}
-    .chips{
-      display:flex; gap:10px; overflow:auto; padding-bottom:4px; scrollbar-width:thin;
-    }
-    .chip{
-      display:flex; align-items:center; gap:8px;
-      background:var(--chip); color:#e9eef5; border:1px solid #2b3b5f;
-      padding:8px 12px; border-radius:999px; font-weight:800; white-space:nowrap;
-      text-decoration:none;
-    }
-    .chip i{color:var(--gold)}
-    .chip:hover{filter:brightness(1.05)}
+    .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
+    .btn i{font-size:16px}
 
-    /* search / resale box */
-    .search{
-      margin-top:16px; background:rgba(255,255,255,.08); border:1px solid var(--line);
-      border-radius:16px; padding:12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; max-width:960px;
-    }
-    .label{font-weight:800}
+    /* Explore links to subpages (optional) */
+    .explore{margin-top:18px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+    .pill{border:1px solid var(--line); background:rgba(255,255,255,.06); color:#fff; padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:800}
+    .pill:hover{background:rgba(255,255,255,.12)}
+
+    /* Resale box */
+    .box{margin:28px auto 0; background:rgba(255,255,255,.08); border:1px solid var(--line); border-radius:16px; padding:18px; max-width:720px}
+    .box label{display:block; margin-bottom:10px; font-weight:800}
     .select,.input{
-      appearance:none; background:#0f1a2e; color:#fff; border:1px solid #31405d;
+      width:100%; background:#0f1a2e; color:#fff; border:1px solid #2c3b57;
       padding:12px 14px; border-radius:12px; font-weight:700; outline:none;
     }
-    .select{min-width:210px}
-    .input{min-width:260px; flex:1}
-    .input::placeholder{color:#cfe2ff}
-    .go{background:var(--accent); color:#0b1220; border:none; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:900; display:inline-flex; align-items:center; gap:10px}
-    .hint{font-size:.92rem; color:#cbd6ea; margin-top:6px; opacity:.95}
+    .input{margin-top:10px}
+    .go{margin-top:12px; width:100%; background:var(--accent); color:#0b1220; border:none; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:900; display:inline-flex; align-items:center; justify-content:center; gap:10px}
+    .hint{margin-top:6px; color:var(--muted); font-size:.92rem}
 
-    /* section title */
-    .sec{max-width:1200px; margin:28px auto 0; padding:0 16px}
-
-    /* footer */
-    footer{margin-top:30px; border-top:1px solid var(--line); background:var(--bg)}
-    .foot{max-width:1200px; margin:auto; padding:18px 16px; text-align:center; color:#b9c5d3}
-    .social{margin-top:8px; display:flex; gap:14px; justify-content:center}
+    /* Footer */
+    footer{ text-align:center; padding:18px; color:#b9c5d3; border-top:1px solid var(--line); background:var(--bg) }
+    .social{margin-top:8px; display:flex; gap:12px; justify-content:center}
     .social a{ color:var(--gold); font-size:18px; text-decoration:none }
     .social a:hover{ color:#fff }
 
     @media (prefers-color-scheme:light){
-      body{color:#101828}
-      .nav{background:#ffffffd9; border-color:#e8edf5}
-      .menu a{color:#101828}
-      .projects,.search{background:#fff; border-color:#eef1f6}
-      .chip{background:#f5f7fb; border-color:#e3e8f3; color:#0f1a2e}
+      body{color:#111827}
+      .nav{background:#ffffffcc; border-color:#e5e7eb}
+      .menu a{color:#111827}
       .title{color:#0b1220}
-    }
-    @media (max-width:640px){
-      .select{min-width:100%}
-      .input{min-width:100%}
+      .box{background:#fff; border-color:#e9eef3}
+      .pill{background:#fff}
     }
   </style>
 </head>
 <body>
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="wrap">
-      <div class="info">
-        <span><i class="fa-solid fa-phone"></i> <a href="tel:+201050072527">01050072527</a></span>
-        <span><i class="fa-solid fa-envelope"></i> <a href="mailto:eslam.realty.eg@gmail.com">eslam.realty.eg@gmail.com</a></span>
-      </div>
-      <div class="info"><i class="fa-solid fa-location-dot"></i> Egypt</div>
-    </div>
-  </div>
-
-  <!-- Nav -->
+  <!-- Header -->
   <header class="nav">
-    <div class="wrap">
-      <div class="brand"><span>Eslam</span> <span style="color:var(--gold)">Realty</span></div>
+    <div class="nav-inner">
+      <div class="brand"><i class="fa-solid fa-house-chimney"></i><strong>Eslam</strong>&nbsp;Realty</div>
       <div class="spacer"></div>
       <nav class="menu">
         <a href="#" data-i="navHome">الرئيسية</a>
         <a href="#contact" data-i="navContact">تواصل معنا</a>
-        <button id="lang" class="lang">AR / EN</button>
+        <button id="lang" class="lang" aria-label="Toggle language">AR / EN</button>
       </nav>
     </div>
   </header>
@@ -143,58 +103,49 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-text">
-        <h1 class="title" data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
-        <p class="subtitle" data-i="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</p>
-        <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+      <h1 class="title" data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <div class="subtitle" data-i="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+      <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
 
-        <!-- Mini Projects (NEW) -->
-        <div class="projects">
-          <h4 data-i="projTitle">مشاريع جديدة</h4>
-          <div class="chips" id="chips">
-            <!-- Sokhna -->
-            <a class="chip" href="#" data-proj="Morano"><i class="fa-solid fa-building"></i><span>مورانو</span></a>
-            <a class="chip" href="#" data-proj="Lugano"><i class="fa-solid fa-building"></i><span>لاوجانو</span></a>
-            <a class="chip" href="#" data-proj="Lolo Beach"><i class="fa-solid fa-umbrella-beach"></i><span>لولو بيتش</span></a>
-            <a class="chip" href="#" data-proj="Dolphin Beach"><i class="fa-solid fa-water"></i><span>دولفين بيتش</span></a>
-            <a class="chip" href="#" data-proj="El-Hegaz"><i class="fa-solid fa-house-chimney"></i><span>الحجاز</span></a>
-            <!-- North Coast -->
-            <a class="chip" href="#" data-proj="South Med"><i class="fa-solid fa-location-dot"></i><span>South Med</span></a>
-            <a class="chip" href="#" data-proj="Fouka Bay"><i class="fa-solid fa-location-dot"></i><span>Fouka Bay</span></a>
-            <a class="chip" href="#" data-proj="Amwaj"><i class="fa-solid fa-location-dot"></i><span>Amwaj</span></a>
-            <!-- New Cairo -->
-            <a class="chip" href="#" data-proj="SODIC"><i class="fa-solid fa-city"></i><span>SODIC</span></a>
-            <a class="chip" href="#" data-proj="Hyde Park"><i class="fa-solid fa-tree"></i><span>Hyde Park</span></a>
-            <a class="chip" href="#" data-proj="Al Rehab"><i class="fa-solid fa-city"></i><span>الرحاب</span></a>
-          </div>
+      <div class="cta">
+        <a class="btn" href="tel:+201050072527"><i class="fa-solid fa-phone"></i><span data-i="btnCall">اتصال مباشر</span></a>
+        <a class="btn" href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
+        <a class="btn" href="mailto:eslam.realty.eg@gmail.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+      </div>
+
+      <!-- اختياري: روابط للصفحات الفرعية هنكمّلها بعدين -->
+      <div class="explore">
+        <a class="pill" href="sokhna.html">العين السخنة</a>
+        <a class="pill" href="northcoast.html">الساحل الشمالي</a>
+        <a class="pill" href="cairo.html">القاهرة الجديدة</a>
+      </div>
+
+      <!-- Resale -->
+      <div class="box">
+        <label for="area" data-i="formArea">ريسيل — اختر المنطقة:</label>
+        <select id="area" class="select">
+          <option value="sokhna" data-i="optSokhna">العين السخنة</option>
+          <option value="northcoast" data-i="optNorth">الساحل الشمالي</option>
+          <option value="cairo" data-i="optCairo">القاهرة الجديدة</option>
+        </select>
+
+        <!-- الحقل الحر: يكتب فيه القرية/المكان اللي مهتم بيه -->
+        <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" />
+        <button id="goWhatsApp" class="go"><i class="fa-brands fa-whatsapp"></i><span data-i="goBtn">تابع على واتساب</span></button>
+        <div class="hint" data-i="hint">
+          اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)
         </div>
-
-        <!-- Resale Box -->
-        <div class="search" role="region" aria-label="Resale">
-          <span class="label" data-i="findLbl">ريسيل — اختر المنطقة:</span>
-          <select id="area" class="select" aria-label="Area">
-            <option value="sokhna" data-i="optSokhna">العين السخنة</option>
-            <option value="northcoast" data-i="optNorth">الساحل الشمالي</option>
-            <option value="cairo" data-i="optCairo">القاهرة الجديدة</option>
-          </select>
-          <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" aria-label="Place">
-          <button id="goWhatsApp" class="go"><i class="fa-brands fa-whatsapp"></i><span data-i="goBtn">تابع على واتساب</span></button>
-          <div class="hint" data-i="hint">اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)</div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer id="contact">
-    <div class="foot">
-      <div>© <span id="y"></span> <strong>Eslam Realty</strong></div>
-      <div class="social">
-        <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="mailto:eslam.realty.eg@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-      </div>
+    <div>© <span id="y"></span> Eslam Realty</div>
+    <div class="social">
+      <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="mailto:eslam.realty.eg@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
     </div>
   </footer>
 
@@ -202,27 +153,16 @@
     // السنة
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // عناصر
     const areaSel = document.getElementById('area');
     const placeIn = document.getElementById('place');
     const waBtn   = document.getElementById('goWhatsApp');
 
-    let lang="ar";
+    // لغة افتراضية
+    let lang = "ar";
 
-    // اضغط على أي "مشروع جديد" يملالك الخانة ويوديك واتساب
-    document.getElementById('chips').addEventListener('click', (e)=>{
-      const a = e.target.closest('a.chip');
-      if(!a) return;
-      e.preventDefault();
-      placeIn.value = a.dataset.proj;
-      updateWhatsApp(true);
-    });
-
-    function goWA(msg){
-      const url = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
-      window.open(url, "_blank");
-    }
-
-    function updateWhatsApp(openNow=false){
+    // رسالة واتساب بحسب المدخلات
+    function buildMsg(){
       const LABELS = {
         sokhna: lang==="ar" ? "العين السخنة" : "Ain Sokhna",
         northcoast: lang==="ar" ? "الساحل الشمالي" : "North Coast",
@@ -232,34 +172,28 @@
       const place   = placeIn.value.trim();
       const msgAr = place ? `مهتم بعقار في ${areaTxt} - ${place}` : `مهتم بعقار في ${areaTxt}`;
       const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
-      const msg = (lang==="ar" ? msgAr : msgEn);
-      waBtn.onclick = (e)=>{ e.preventDefault(); goWA(msg); };
-      if(openNow){ goWA(msg); }
+      return (lang==="ar" ? msgAr : msgEn);
     }
-
+    function updateWA(){ waBtn.onclick = (e)=>{ e.preventDefault(); window.open("https://wa.me/201050072527?text="+encodeURIComponent(buildMsg()), "_blank"); }; }
     function updatePlaceholder(){
       const isCairo = areaSel.value === "cairo";
-      if(lang==="ar"){
-        placeIn.placeholder = isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Marassi / IL Monte Galala)";
-      } else {
-        placeIn.placeholder = isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)";
-      }
+      placeIn.placeholder = lang==="ar"
+        ? (isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Marassi / IL Monte Galala)")
+        : (isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)");
     }
+    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWA(); });
+    placeIn.addEventListener('input', updateWA);
+    updatePlaceholder(); updateWA();
 
-    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWhatsApp(); });
-    placeIn.addEventListener('input',  updateWhatsApp);
-    updatePlaceholder(); updateWhatsApp();
-
-    // ترجمة
+    // ترجمة AR/EN
     const dict = {
       ar:{
         navHome:"الرئيسية", navContact:"تواصل معنا",
         heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
         heroSub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
         heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
-        projTitle:"مشاريع جديدة",
-        findLbl:"ريسيل — اختر المنطقة:",
-        optSokhna:"العين السخنة", optNorth:"الساحل الشمالي", optCairo:"القاهرة الجديدة",
+        btnCall:"اتصال مباشر", btnWhatsApp:"استشارة واتساب",
+        formArea:"ريسيل — اختر المنطقة:", optSokhna:"العين السخنة", optNorth:"الساحل الشمالي", optCairo:"القاهرة الجديدة",
         goBtn:"تابع على واتساب",
         hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)"
       },
@@ -268,24 +202,18 @@
         heroTitle:"Turn your property investment into a luxury experience",
         heroSub:"Private service for buying, selling & investing in prime locations",
         heroAreas:"Ain Sokhna • North Coast • New Cairo",
-        projTitle:"New Projects",
-        findLbl:"Resale — Select area:",
-        optSokhna:"Ain Sokhna", optNorth:"North Coast", optCairo:"New Cairo",
+        btnCall:"Call Now", btnWhatsApp:"WhatsApp Consultation",
+        formArea:"Resale — Select area:", optSokhna:"Ain Sokhna", optNorth:"North Coast", optCairo:"New Cairo",
         goBtn:"Continue on WhatsApp",
         hint:"Type the village for Sokhna/North Coast, or the place in New Cairo (e.g., Marassi / Madinaty / Hyde Park)"
       }
     };
-
     function setLang(l){
-      lang=l;
-      const t = dict[l];
-      document.querySelectorAll("[data-i]").forEach(el=>{
-        const k = el.getAttribute("data-i");
-        if(t[k]) el.textContent = t[k];
-      });
+      lang=l; const map=dict[l];
+      document.querySelectorAll("[data-i]").forEach(el=>{ const k=el.getAttribute("data-i"); if(map[k]) el.textContent = map[k]; });
       document.documentElement.lang = (l==="ar"?"ar":"en");
       document.documentElement.dir  = (l==="ar"?"rtl":"ltr");
-      updatePlaceholder(); updateWhatsApp();
+      updatePlaceholder(); updateWA();
     }
     document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
   </script>
