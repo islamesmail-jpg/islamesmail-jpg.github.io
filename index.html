@@ -44,19 +44,19 @@ body{margin:0;font-family:"Tajawal",system-ui,Arial,sans-serif;background:var(--
 .iconcard img{width:100%;height:170px;object-fit:cover;display:block}
 .iconlabel{position:absolute;inset:auto 14px 14px 14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);border-radius:12px;padding:8px 12px;font-weight:800;text-align:center}
 /* AREA PAGE */
+.backbar{padding:10px 16px;background:#0f1627;border-bottom:1px solid #22314f}
 .header{padding:22px 16px;background:#0f1627;border-bottom:1px solid #22314f}
 .h1{margin:0;font-size:clamp(22px,4vw,34px);font-weight:800}
 .grid{padding:16px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
 @media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.logo{width:100%;height:120px;object-fit:contain;display:block;background:#000;padding:10px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.logo{width:100%;height:120px;display:flex;align-items:center;justify-content:center;background:#000}
+.logo img{max-width:100%;max-height:100%}
 .cap{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 b{color:var(--gold);font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .minibtn{border:1.4px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:6px 10px;font-weight:800}
 .minibtn:hover{background:var(--gold);color:#111}
-.backbar{padding:10px 16px;background:#0f1627;border-bottom:1px solid #22314f}
 .footer{padding:18px 16px;text-align:center;color:#cbd5e1;border-top:1px solid rgba(255,255,255,.12);margin-top:18px}
-.hidden{display:none}
 </style>
 </head>
 <body>
@@ -70,25 +70,37 @@ b{color:var(--gold);font-size:.98rem;white-space:nowrap;overflow:hidden;text-ove
   </div>
 </header>
 
-<!-- VIEWS CONTAINER -->
+<!-- APP CONTAINER -->
 <main id="app"></main>
 
 <!-- FOOTER -->
-<footer id="contact" class="section container" style="text-align:center;color:#cbd5e1;border-top:1px solid rgba(255,255,255,.12)">
-  <div>© <span id="y"></span> Eslam Realty</div>
+<footer id="contact" class="footer">
+  © <span id="y"></span> Eslam Realty
 </footer>
 
 <script>
-/* ====== CONSTANTS / DATA ====== */
+/* ========= Basics ========= */
 document.getElementById('y').textContent=new Date().getFullYear();
-const BADGE = "badge.png"; // ضع badge.png بجوار هذا الملف
 
-// Projects (يمكنك الزيادة بحرية)
+/* أيقونة الشعار (SVG مضمن) كصورة Base64 */
+const BADGE_DATAURI = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="black"/>
+<g stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<path d="M74 214h112" stroke="#f00"/>
+<path d="M186 214v214h160v-80" stroke="#ffcc00"/>
+<path d="M346 348l46-46V186L256 114 120 186" stroke="#fff"/>
+<path d="M186 214l70-36 140 72" stroke="#d00"/>
+</g>
+<rect x="228" y="346" width="56" height="56" rx="8" fill="#ffcc00"/>
+</svg>`);
+
+/* ========= DATA ========= */
 const DATA = {
   sokhna: {
-    titleAr: "مشاريع العين السخنة",
-    titleEn: "Ain Sokhna Projects",
-    items: [
+    arTitle:"مشاريع العين السخنة", enTitle:"Ain Sokhna Projects",
+    unitHint:"شقة/فيلا/شاليه/استوديو",
+    items:[
       "IL Monte Galala (المونت جلالة)",
       "Telal Sokhna (تلال)",
       "La Vista (لافيستا)",
@@ -99,30 +111,28 @@ const DATA = {
       "Lasirena Palm Beach",
       "Lugano AOG",
       "Murano (مورانو)"
-    ],
-    unitHint: "شقة/فيلا/شاليه/استوديو"
+    ]
   },
   north: {
-    titleAr: "مشاريع الساحل الشمالي",
-    titleEn: "North Coast Projects",
-    items: [
+    arTitle:"مشاريع الساحل الشمالي", enTitle:"North Coast Projects",
+    unitHint:"شاليه/فيلا/شقة/استوديو",
+    items:[
       "Madin Ras El Hekma (مدن رأس الحكمة)",
       "Solare (سولاري)",
       "Hacienda West",
       "Salt (سولت)",
       "The Med (ذا مِد)",
-      "June SODIC",
+      "June (SODIC)",
       "Ramlah (Marakez)",
       "Mountain View Ras El Hekma",
       "Swan Lake North Coast",
       "El Masif (المصيف)"
-    ],
-    unitHint: "شاليه/فيلا/شقة/استوديو"
+    ]
   },
   cairo: {
-    titleAr: "مشاريع القاهرة الجديدة",
-    titleEn: "New Cairo Projects",
-    items: [
+    arTitle:"مشاريع القاهرة الجديدة", enTitle:"New Cairo Projects",
+    unitHint:"شقة/فيلا/استوديو/تاون/توين",
+    items:[
       "Mivida (مافيدا)",
       "iCity Mountain View",
       "Sarai (سراي)",
@@ -133,15 +143,14 @@ const DATA = {
       "El Patio Oro (La Vista)",
       "Villette (SODIC)",
       "Palm Hills New Cairo"
-    ],
-    unitHint: "شقة/فيلا/استوديو/تاون/توين"
+    ]
   }
 };
 
-/* ====== VIEWS ====== */
-function viewHome(){
+/* ========= VIEWS ========= */
+function homeView(){
   return `
-  <section id="top" class="hero">
+  <section class="hero">
     <div class="overlay">
       <div class="hero-inner">
         <h1 class="title" id="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرُّقي</h1>
@@ -156,41 +165,39 @@ function viewHome(){
     </div>
   </section>
 
-  <!-- Resale lead -->
   <section class="section container">
     <div class="box">
       <h3 id="leadTitle">ريسيل — اختَر المنطقة واكتب المكان</h3>
       <div class="row">
         <select id="leadArea" class="select">
-          <option value="العين السخنة">العين السخنة</option>
-          <option value="الساحل الشمالي">الساحل الشمالي</option>
-          <option value="التجمع الخامس">التجمع الخامس</option>
-          <option value="التجمع الأول">التجمع الأول</option>
-          <option value="التجمع الثالث">التجمع الثالث</option>
-          <option value="الرحاب">الرحاب</option>
-          <option value="مدينتي">مدينتي</option>
-          <option value="القاهرة الجديدة">القاهرة الجديدة</option>
+          <option>العين السخنة</option>
+          <option>الساحل الشمالي</option>
+          <option>التجمع الخامس</option>
+          <option>التجمع الأول</option>
+          <option>التجمع الثالث</option>
+          <option>الرحاب</option>
+          <option>مدينتي</option>
+          <option>القاهرة الجديدة</option>
         </select>
         <input id="leadPlace" class="input" placeholder="اكتب اسم المكان/القرية (مثال: Marassi / Porto Sokhna / النرجس)">
-        <a id="leadGo" class="btn" href="#">➡️ <span id="leadBtnNext">إرسال</span></a>
+        <a id="leadGo" class="btn" href="#">إرسال ➡️</a>
       </div>
       <div class="hint" id="leadHint">بعد الإرسال هنطلب تفاصيل الوحدة ثم نرسلها على واتساب تلقائيًا.</div>
     </div>
   </section>
 
-  <!-- Area icons -->
   <section class="section container">
     <div class="area-icons">
       <a class="iconcard" href="#/sokhna">
-        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1000&q=60" alt="العين السخنة">
+        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=60" alt="Ain Sokhna">
         <div class="iconlabel">العين السخنة 🏖️</div>
       </a>
       <a class="iconcard" href="#/north">
-        <img src="https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?auto=format&fit=crop&w=1000&q=60" alt="الساحل الشمالي">
+        <img src="https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?auto=format&fit=crop&w=1200&q=60" alt="North Coast">
         <div class="iconlabel">الساحل الشمالي 🌊</div>
       </a>
       <a class="iconcard" href="#/cairo">
-        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=1000&q=60" alt="القاهرة الجديدة">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=1200&q=60" alt="New Cairo">
         <div class="iconlabel">القاهرة الجديدة 🏙️</div>
       </a>
     </div>
@@ -198,60 +205,65 @@ function viewHome(){
   `;
 }
 
-function viewArea(areaKey){
-  const cfg = DATA[areaKey];
-  const title = (lang==='ar'? cfg.titleAr : cfg.titleEn);
-  const items = cfg.items.map(name => `
+function areaView(key){
+  const cfg = DATA[key];
+  const title = (lang==='ar'? cfg.arTitle : cfg.enTitle);
+  const tiles = cfg.items.map(name=>`
     <div class="tile">
-      <img class="logo" src="${BADGE}" alt="logo">
+      <div class="logo"><img src="${BADGE_DATAURI}" alt="badge"></div>
       <div class="cap">
         <b>${name}</b>
-        <a class="minibtn" href="#" onclick="ask('${name}','${areaKey}');return false;">اسأل</a>
+        <a class="minibtn" href="#" onclick="ask('${name}','${key}');return false;">اسأل</a>
       </div>
     </div>
   `).join('');
+  const backLabel = (lang==='ar'?'⬅ رجوع للرئيسية':'⬅ Back to Home');
   return `
-    <div class="backbar">
-      <div class="container"><a class="minibtn" href="#/home">⬅ رجوع للرئيسية</a></div>
-    </div>
+    <div class="backbar"><div class="container"><a class="minibtn" href="#/home">${backLabel}</a></div></div>
     <div class="header"><div class="container"><h1 class="h1">${title}</h1></div></div>
-    <div class="container grid">${items}</div>
+    <div class="container grid">${tiles}</div>
   `;
 }
 
-/* ====== ROUTER ====== */
+/* ========= ROUTER ========= */
 const app = document.getElementById('app');
+function normalizeHash(){
+  let h = location.hash || '#/home';
+  if(!h.startsWith('#/')){ h = '#/home'; location.replace(h); }
+  return h.split('?')[0];
+}
 function render(){
-  const hash = location.hash.replace('#','') || '/home';
-  if(hash==='/home'){ app.innerHTML = viewHome(); bindResale(); if(lang==='en') setLangTexts(); return; }
-  if(hash==='/sokhna'){ app.innerHTML = viewArea('sokhna'); return; }
-  if(hash==='/north'){ app.innerHTML = viewArea('north'); return; }
-  if(hash==='/cairo'){ app.innerHTML = viewArea('cairo'); return; }
-  // fallback
-  app.innerHTML = viewHome(); bindResale();
+  const h = normalizeHash();
+  if(h==='#/home'){ app.innerHTML = homeView(); bindLead(); if(lang==='en') setLangTexts(); return; }
+  if(h==='#/sokhna'){ app.innerHTML = areaView('sokhna'); return; }
+  if(h==='#/north'){ app.innerHTML = areaView('north'); return; }
+  if(h==='#/cairo'){ app.innerHTML = areaView('cairo'); return; }
+  app.innerHTML = homeView(); bindLead();
 }
 window.addEventListener('hashchange', render);
+if(!location.hash){ location.hash = '#/home'; }
 render();
 
-/* ====== RESELL WHATSAPP ====== */
-function bindResale(){
-  const leadArea=document.getElementById('leadArea');
-  const leadPlace=document.getElementById('leadPlace');
-  const leadGo=document.getElementById('leadGo');
-  if(!leadGo) return;
-  leadGo.addEventListener('click',e=>{
+/* ========= Lead (Resale) ========= */
+function bindLead(){
+  const area = document.getElementById('leadArea');
+  const place= document.getElementById('leadPlace');
+  const go   = document.getElementById('leadGo');
+  if(!go) return;
+  go.addEventListener('click', e=>{
     e.preventDefault();
-    const msg=`ريسيل — مهتم بعقار في ${leadArea.value}${leadPlace.value.trim()? " | "+leadPlace.value.trim() : ""}`;
+    const msg = `ريسيل — مهتم بعقار في ${area.value}${place.value.trim()? " | "+place.value.trim(): ""}`;
     window.open('https://wa.me/201050072527?text='+encodeURIComponent(msg),'_blank');
   });
 }
 
-/* ====== ASK WHATSAPP FOR PROJECTS ====== */
-function areaLabel(k){return k==='sokhna'?'العين السخنة':(k==='north'?'الساحل الشمالي':'القاهرة الجديدة')}
-function ask(project, areaKey){
-  const areaText = areaLabel(areaKey);
-  const hint = DATA[areaKey].unitHint;
-  const msg = `استفسار عن مشروع: ${project} — ${areaText}.
+/* ========= WhatsApp ask ========= */
+function areaName(k){
+  return k==='sokhna' ? 'العين السخنة' : (k==='north' ? 'الساحل الشمالي' : 'القاهرة الجديدة');
+}
+function ask(project, key){
+  const hint = DATA[key].unitHint;
+  const msg = `استفسار عن مشروع: ${project} — ${areaName(key)}.
 نوع الوحدة: (${hint})
 المساحة المفضلة:
 عدد الغرف:
@@ -261,32 +273,41 @@ function ask(project, areaKey){
   window.open('https://wa.me/201050072527?text='+encodeURIComponent(msg),'_blank');
 }
 
-/* ====== LANGUAGE ====== */
+/* ========= Language ========= */
 let lang='ar';
 document.getElementById('lang').onclick=()=>{lang=(lang==='ar'?'en':'ar'); setLangTexts();};
 function setLangTexts(){
-  if(lang==='en'){
-    document.getElementById('navHome').textContent='Home';
-    document.getElementById('navContact').textContent='Contact';
-    if(location.hash==='' || location.hash==='#/home'){
-      // translate only visible home texts
-      const t = document.getElementById('heroTitle'); if(t) t.textContent='Turn your property investment into a luxury experience';
-      const s = document.getElementById('heroSub');   if(s) s.textContent='Private service for buying, selling & investing in prime locations';
-      const a = document.getElementById('heroAreas'); if(a) a.textContent='Ain Sokhna • North Coast • New Cairo';
-      const c = document.getElementById('btnCall');   if(c) c.textContent='Call Now';
-      const w = document.getElementById('btnWhatsApp'); if(w) w.textContent='WhatsApp Consultation';
-      const lt= document.getElementById('leadTitle'); if(lt) lt.textContent='Resale — pick the area and type the place';
-      const lb= document.getElementById('leadBtnNext'); if(lb) lb.textContent='Send';
-      const lh= document.getElementById('leadHint'); if(lh) lh.textContent="After sending, we'll ask for unit details and send it on WhatsApp.";
-      document.documentElement.dir='ltr';
-    }else{
-      // area titles get English automatically from DATA via render()
-      render();
-      document.documentElement.dir='ltr';
-    }
+  const homeHash = (location.hash==='#/home');
+  document.getElementById('navHome').textContent=(lang==='ar'?'الرئيسية':'Home');
+  document.getElementById('navContact').textContent=(lang==='ar'?'تواصل معنا':'Contact');
+  if(homeHash){
+    const T = {
+      heroTitle:{
+        ar:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرُّقي",
+        en:"Turn your property investment into a luxury experience"
+      },
+      heroSub:{
+        ar:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
+        en:"Private service for buying, selling & investing in prime locations"
+      },
+      heroAreas:{
+        ar:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
+        en:"Ain Sokhna • North Coast • New Cairo"
+      },
+      btnCall:{ar:"اتصال مباشر",en:"Call Now"},
+      btnWhatsApp:{ar:"استشارة واتساب",en:"WhatsApp Consultation"},
+      leadTitle:{ar:"ريسيل — اختَر المنطقة واكتب المكان",en:"Resale — pick the area & type the place"},
+      leadHint:{ar:"بعد الإرسال هنطلب تفاصيل الوحدة ثم نرسلها على واتساب تلقائيًا.",en:"After sending, we'll ask for unit details and send it on WhatsApp."}
+    };
+    const set=(id,k)=>{const el=document.getElementById(id); if(el) el.textContent=T[k][lang];};
+    set('heroTitle','heroTitle'); set('heroSub','heroSub'); set('heroAreas','heroAreas');
+    set('btnCall','btnCall'); set('btnWhatsApp','btnWhatsApp');
+    set('leadTitle','leadTitle'); set('leadHint','leadHint');
+    document.documentElement.dir=(lang==='ar'?'rtl':'ltr');
   }else{
-    document.documentElement.dir='rtl';
-    render(); // إعادة عرض بالعربية
+    // صفحات المشاريع تتغير عَرضها بإعادة render علشان العنوان يبقى بالعربي/الإنجليزي
+    document.documentElement.dir=(lang==='ar'?'rtl':'ltr');
+    render();
   }
 }
 </script>
