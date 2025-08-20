@@ -13,69 +13,74 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0; font-family:"Tajawal",system-ui,Arial,sans-serif; background:var(--ink); color:var(--white)}
-a{color:inherit}
+a{color:inherit; text-decoration:none}
 
 /* Top bar */
-.nav{position:sticky; top:0; z-index:50; background:#f2f2f2; border-bottom:1px solid #ddd}
+.nav{position:sticky; top:0; z-index:60; background:#f2f2f2; border-bottom:1px solid #ddd}
 .nav .inner{max-width:1200px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
 .brand{font-weight:800; color:#b58b00}
-.nav a{color:#111; text-decoration:none; font-weight:700; margin-inline:8px}
+.nav a{color:#111; font-weight:800; margin-inline:8px}
 .lang{margin-inline-start:auto; border:1px solid #b58b00; color:#b58b00; background:transparent; border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
 
 /* Hero */
-.hero{position:relative; min-height:84vh;
+.hero{position:relative; min-height:64vh;
   background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
   display:grid; place-items:center}
-.overlay{background:rgba(11,15,25,.78); width:100%; height:100%; padding:56px 18px; display:grid; place-items:center}
+.overlay{background:rgba(11,15,25,.78); width:100%; height:100%; padding:46px 18px; display:grid; place-items:center}
 .hero-inner{text-align:center; max-width:980px}
-.title{font-size:clamp(28px,5.8vw,54px); font-weight:800; text-shadow:0 10px 22px rgba(0,0,0,.5)}
+.title{font-size:clamp(28px,5.6vw,54px); font-weight:800; text-shadow:0 10px 22px rgba(0,0,0,.5)}
 .sub{margin-top:12px; font-size:clamp(16px,2.4vw,22px); color:var(--gold2); font-weight:700}
-.areas{margin-top:10px; font-weight:700}
-.actions{margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
-.btn{padding:12px 20px; border-radius:999px; border:1.6px solid var(--gold); color:var(--gold); font-weight:800; text-decoration:none; display:inline-flex; gap:8px; align-items:center}
+.areas{margin-top:10px; font-weight:800}
+.actions{margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+.btn{padding:12px 18px; border-radius:999px; border:1.6px solid var(--gold); color:var(--gold); font-weight:800; display:inline-flex; gap:8px; align-items:center}
 .btn:hover{background:var(--gold); color:#111}
 
-/* Home – destination cards */
-.section{padding:30px 16px}
-.container{max-width:1150px; margin:auto}
-.cards{display:grid; gap:18px; grid-template-columns:1fr}
-.card{position:relative; border-radius:18px; overflow:hidden; cursor:pointer; text-decoration:none; background:#000}
-.card img{width:100%; height:220px; object-fit:cover; display:block; transition:transform .4s}
-.card:hover img{transform:scale(1.04)}
-.card .label{position:absolute; bottom:14px; left:14px; right:14px; background:rgba(0,0,0,.55);
-  color:var(--gold); border:1px solid var(--gold); border-radius:14px; padding:8px 14px; font-weight:800; display:flex; justify-content:space-between; align-items:center}
-@media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)} .card img{height:220px}}
+/* Containers */
+.section{padding:28px 16px}
+.container{max-width:1180px; margin:auto}
 
-/* Area page */
-.pagetitle{display:flex; align-items:center; gap:10px; margin:8px 0 18px}
-.pagetitle .badge{border:1px solid var(--gold); color:var(--gold); padding:6px 10px; border-radius:999px; font-weight:800}
-.grid{display:grid; gap:14px; grid-template-columns:1fr 1fr}
-@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+/* Resale lead */
+.box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:16px}
+.box h3{margin:0 0 10px; font-weight:800}
+.row{display:grid; gap:10px; grid-template-columns:1fr}
+@media(min-width:720px){.row{grid-template-columns:1fr 2fr 160px}}
+.select,.input{width:100%; padding:12px; border-radius:10px; border:1px solid #2a3958; background:#0f1627; color:#fff}
+.hint{margin-top:6px; font-size:.9rem; color:#cbd5e1}
+
+/* Area sections (three blocks under each other) */
+.area-head{display:flex; align-items:center; gap:10px; margin:18px 0 12px}
+.badge{border:1px solid var(--gold); color:var(--gold); padding:6px 10px; border-radius:999px; font-weight:800}
+.cards{display:grid; gap:14px; grid-template-columns:1fr 1fr}
+@media(min-width:1000px){.cards{grid-template-columns:repeat(4,1fr)}}
 .tile{background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column}
 .tile img{width:100%; height:120px; object-fit:cover; background:#000}
-.tile .tcap{padding:10px 12px; display:flex; justify-content:space-between; align-items:center}
-.tile .tcap b{color:var(--gold)}
-.tile .tcap button{border:1px solid var(--gold); background:transparent; color:var(--gold); border-radius:999px; padding:6px 10px; font-weight:800; cursor:pointer}
-.tile .tcap button:hover{background:var(--gold); color:#111}
+.tcap{padding:10px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px}
+.tcap b{color:var(--gold); font-weight:800; font-size:.98rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.tcap .mini{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:6px 10px; font-weight:800; cursor:pointer}
+.tcap .mini:hover{background:var(--gold); color:#111}
 
-/* Ask box */
-.ask{margin-top:18px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
-  border-radius:14px; padding:14px}
-.ask h3{margin:0 0 8px}
-.row{display:grid; gap:10px; grid-template-columns:1fr}
-@media(min-width:720px){.row{grid-template-columns:repeat(5,1fr)}}
-.input,.select{width:100%; padding:10px 12px; border-radius:10px; border:1px solid #2a3958; background:#0f1627; color:#fff}
-.action{margin-top:10px}
-.action .btn{width:100%; justify-content:center}
+/* Ask-any row per area */
+.askrow{margin-top:10px; display:grid; gap:10px; grid-template-columns:1fr}
+@media(min-width:900px){.askrow{grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 160px}}
+.note{font-size:.9rem; color:#cbd5e1; margin-top:6px}
+
+/* Modal */
+.modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.5); z-index:80}
+.modal.show{display:grid}
+.modal .sheet{width:min(780px,92vw); background:#0f1627; border:1px solid #22314f; border-radius:16px; padding:16px}
+.sheet h3{margin:0 0 10px; font-weight:800}
+.formgrid{display:grid; gap:10px; grid-template-columns:1fr}
+@media(min-width:720px){.formgrid{grid-template-columns:repeat(3,1fr)}}
+.full{grid-column:1/-1}
+.actions-modal{margin-top:10px; display:flex; gap:10px; justify-content:flex-end}
+.close{border:1px solid #666; color:#ccc; background:transparent; border-radius:10px; padding:8px 12px; cursor:pointer}
+.close:hover{background:#1b253a}
+.send{border:1.6px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:10px 14px; font-weight:800; cursor:pointer}
+.send:hover{background:var(--gold); color:#111}
 
 /* Footer */
-footer{text-align:center; padding:20px 16px; border-top:1px solid rgba(255,255,255,.1); margin-top:24px; color:#aaa}
+footer{text-align:center; padding:20px 16px; border-top:1px solid rgba(255,255,255,.12); margin-top:26px; color:#aab4c3}
 .f-actions{margin-top:8px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap}
-.f-actions a{display:inline-flex; align-items:center; gap:8px}
-
-/* Helpers */
-.hidden{display:none}
-.center{display:flex; justify-content:center; align-items:center}
 </style>
 </head>
 <body>
@@ -84,14 +89,14 @@ footer{text-align:center; padding:20px 16px; border-top:1px solid rgba(255,255,2
 <header class="nav">
   <div class="inner">
     <div class="brand">Eslam Realty</div>
-    <a href="index.html">الرئيسية</a>
-    <a href="#contact">تواصل معنا</a>
+    <a href="#top" id="navHome">الرئيسية</a>
+    <a href="#contact" id="navContact">تواصل معنا</a>
     <button id="lang" class="lang">AR / EN</button>
   </div>
 </header>
 
-<!-- HOME (shows when no ?area=...) -->
-<section id="home" class="hero">
+<!-- HERO -->
+<section id="top" class="hero">
   <div class="overlay">
     <div class="hero-inner">
       <h1 class="title" id="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرُّقي</h1>
@@ -106,53 +111,107 @@ footer{text-align:center; padding:20px 16px; border-top:1px solid rgba(255,255,2
   </div>
 </section>
 
-<section id="homeCards" class="section container">
-  <div class="cards">
-    <!-- Sokhna -->
-    <a class="card" href="?area=sokhna" aria-label="العين السخنة">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop" alt="">
-      <div class="label"><span>العين السخنة</span><span>🏖️</span></div>
-    </a>
-    <!-- North Coast -->
-    <a class="card" href="?area=north" aria-label="الساحل الشمالي">
-      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop" alt="">
-      <div class="label"><span>الساحل الشمالي</span><span>🌊</span></div>
-    </a>
-    <!-- New Cairo -->
-    <a class="card" href="?area=cairo" aria-label="القاهرة الجديدة">
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1600&auto=format&fit=crop" alt="">
-      <div class="label"><span>القاهرة الجديدة</span><span>🏙️</span></div>
-    </a>
+<!-- RESELL LEAD -->
+<section class="section container">
+  <div class="box">
+    <h3 id="leadTitle">ريسيل — اختَر المنطقة واكتب المكان</h3>
+    <div class="row">
+      <select id="leadArea" class="select" aria-label="area">
+        <option value="العين السخنة">العين السخنة</option>
+        <option value="الساحل الشمالي">الساحل الشمالي</option>
+        <option value="التجمع الخامس">التجمع الخامس</option>
+        <option value="التجمع الأول">التجمع الأول</option>
+        <option value="التجمع الثالث">التجمع الثالث</option>
+        <option value="الرحاب">الرحاب</option>
+        <option value="مدينتي">مدينتي</option>
+        <option value="القاهرة الجديدة">القاهرة الجديدة</option>
+      </select>
+      <input id="leadPlace" class="input" placeholder="اكتب اسم المكان/القرية (مثال: Marassi / Porto Sokhna / النرجس)">
+      <a id="leadGo" class="btn" href="#">➡️ <span id="leadBtnNext">إرسال</span></a>
+    </div>
+    <div class="hint" id="leadHint">بعد الإرسال هنطلب تفاصيل الوحدة ثم نرسلها على واتساب تلقائيًا.</div>
   </div>
 </section>
 
-<!-- AREA PAGE (shows when ?area=...) -->
-<section id="areaPage" class="section container hidden">
-  <div class="pagetitle">
-    <h2 id="areaTitle" style="margin:0;font-weight:800"></h2>
-    <span class="badge" id="countBadge"></span>
+<!-- AREA: SOKHNA -->
+<section class="section container" id="sec-sokhna">
+  <div class="area-head">
+    <h2 style="margin:0;font-weight:800">مشاريع العين السخنة</h2>
+    <span class="badge" id="cSokhna"></span>
   </div>
+  <div class="cards" id="grid-sokhna"></div>
 
-  <div id="projectsGrid" class="grid"></div>
-
-  <!-- ASK ANY PROJECT -->
-  <div class="ask">
-    <h3 style="margin-bottom:10px">اسأل عن أي مشروع</h3>
-    <div class="row">
-      <input id="fProject" class="input" placeholder="اسم المشروع (مثال: Madinaty / Marassi)">
-      <select id="fType" class="select">
+  <!-- ask any in sokhna -->
+  <div class="box" style="margin-top:12px">
+    <div class="askrow">
+      <input id="ask-sokhna-name" class="input" placeholder="اكتب اسم المشروع">
+      <select id="ask-sokhna-type" class="select">
         <option value="شقة">شقة</option>
         <option value="فيلا">فيلا</option>
         <option value="شاليه">شاليه</option>
         <option value="استوديو">استوديو</option>
       </select>
-      <input id="fSize" class="input" placeholder="المساحة المفضلة (م²)">
-      <input id="fRooms" class="input" placeholder="عدد الغرف">
-      <input id="fFloor" class="input" placeholder="الدور المفضل">
+      <input id="ask-sokhna-size" class="input" placeholder="المساحة (م²)">
+      <input id="ask-sokhna-rooms" class="input" placeholder="عدد الغرف">
+      <input id="ask-sokhna-floor" class="input" placeholder="الدور المفضل">
+      <input id="ask-sokhna-budget" class="input" placeholder="الميزانية (جنيه)">
+      <a id="ask-sokhna-send" class="btn" href="#">💬 اسأل عن أي مشروع</a>
     </div>
-    <div class="action">
-      <a id="askSend" class="btn" href="#" target="_blank">💬 إرسال الاستفسار على واتساب</a>
+    <div class="note">هيتبعثلك رسالة واتساب جاهزة بكل التفاصيل.</div>
+  </div>
+</section>
+
+<!-- AREA: NORTH -->
+<section class="section container" id="sec-north">
+  <div class="area-head">
+    <h2 style="margin:0;font-weight:800">مشاريع الساحل الشمالي</h2>
+    <span class="badge" id="cNorth"></span>
+  </div>
+  <div class="cards" id="grid-north"></div>
+
+  <div class="box" style="margin-top:12px">
+    <div class="askrow">
+      <input id="ask-north-name" class="input" placeholder="اكتب اسم المشروع">
+      <select id="ask-north-type" class="select">
+        <option value="شاليه">شاليه</option>
+        <option value="فيلا">فيلا</option>
+        <option value="شقة">شقة</option>
+        <option value="استوديو">استوديو</option>
+      </select>
+      <input id="ask-north-size" class="input" placeholder="المساحة (م²)">
+      <input id="ask-north-rooms" class="input" placeholder="عدد الغرف">
+      <input id="ask-north-floor" class="input" placeholder="الدور المفضل">
+      <input id="ask-north-budget" class="input" placeholder="الميزانية (جنيه)">
+      <a id="ask-north-send" class="btn" href="#">💬 اسأل عن أي مشروع</a>
     </div>
+    <div class="note">هيتبعثلك رسالة واتساب جاهزة بكل التفاصيل.</div>
+  </div>
+</section>
+
+<!-- AREA: CAIRO -->
+<section class="section container" id="sec-cairo">
+  <div class="area-head">
+    <h2 style="margin:0;font-weight:800">مشاريع القاهرة الجديدة</h2>
+    <span class="badge" id="cCairo"></span>
+  </div>
+  <div class="cards" id="grid-cairo"></div>
+
+  <div class="box" style="margin-top:12px">
+    <div class="askrow">
+      <input id="ask-cairo-name" class="input" placeholder="اكتب اسم المشروع / الحي">
+      <select id="ask-cairo-type" class="select">
+        <option value="شقة">شقة</option>
+        <option value="فيلا">فيلا</option>
+        <option value="استوديو">استوديو</option>
+        <option value="تاون/توين">تاون/توين</option>
+      </select>
+      <input id="ask-cairo-size" class="input" placeholder="المساحة (م²)">
+      <input id="ask-cairo-rooms" class="input" placeholder="عدد الغرف">
+      <input id="ask-cairo-floor" class="input" placeholder="الدور المفضل">
+      <input id="ask-cairo-budget" class="input" placeholder="الميزانية (جنيه)">
+      <a id="ask-cairo-send" class="btn" href="#">💬 اسأل عن أي مشروع</a>
+    </div>
+    <div class="note">هيتبعثلك رسالة واتساب جاهزة بكل التفاصيل.</div>
   </div>
 </section>
 
@@ -165,166 +224,213 @@ footer{text-align:center; padding:20px 16px; border-top:1px solid rgba(255,255,2
   </div>
 </footer>
 
+<!-- MODAL -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <h3 id="mTitle">تفاصيل الاستفسار</h3>
+    <div class="formgrid">
+      <input id="mProject" class="input" placeholder="اسم المشروع">
+      <select id="mType" class="select">
+        <option value="شقة">شقة</option>
+        <option value="فيلا">فيلا</option>
+        <option value="شاليه">شاليه</option>
+        <option value="استوديو">استوديو</option>
+      </select>
+      <input id="mSize" class="input" placeholder="المساحة (م²)">
+      <input id="mRooms" class="input" placeholder="عدد الغرف">
+      <input id="mFloor" class="input" placeholder="الدور المفضل">
+      <input id="mBudget" class="input" placeholder="الميزانية (جنيه)">
+      <textarea id="mNotes" class="input full" rows="3" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+    </div>
+    <div class="actions-modal">
+      <button class="close" id="mClose">إلغاء</button>
+      <button class="send" id="mSend">إرسال على واتساب</button>
+    </div>
+  </div>
+</div>
+
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 
-/* ================== DATA ================== */
-/* ملاحظة: img حالياً صور محايدة (شاطئ/مدينة/فلل).
-   لما توفّر شعارات PNG للمشاريع، استبدل قيمة img بكل مشروع.
-*/
-const PROJECTS = {
-  sokhna: [
-    {name:"IL Monte Galala (المونت جلالة)", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&auto=format&fit=crop"},
-    {name:"Telal Sokhna (تلال)", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"La Vista (لافيستا)", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&auto=format&fit=crop"},
-    {name:"Porto Sokhna (بورتو السخنة)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"AZHA (ازها)", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&auto=format&fit=crop"},
-    {name:"Ain Hills (العين هيلز)", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&auto=format&fit=crop"},
-    {name:"Bella Romance (بيلا رومانس)", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"Lasirena Palm Beach (لاسرينا بالم بيتش)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"Lugano AOG (لوجانو AOG)", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&auto=format&fit=crop"},
-    {name:"Murano (مورانو) - وادي دجلة", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&auto=format&fit=crop"},
-    // زيادات مقترحة
-    {name:"Galala Plateau Residences", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"IL Monte Galala - Phia", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"}
-  ],
-  north: [
-    {name:"Madin Ras El Hekma (مدن رأس الحكمة)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"Solare (سولاري)", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&auto=format&fit=crop"},
-    {name:"Hacienda West (هاسيندا ويست)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"Salt (سولت)", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"The Med (ذا مِد) الساحل الشمالي", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"June Sodic (جون سوديك)", img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&auto=format&fit=crop"},
-    {name:"Ramlah by Marakez (رامله)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"Mountain View Ras El Hekma", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"Swan Lake North Coast", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"El Masif (المصيف)", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&auto=format&fit=crop"},
-    // زيادات مقترحة
-    {name:"Marassi", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&auto=format&fit=crop"},
-    {name:"Amwaj", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&auto=format&fit=crop"},
-    {name:"Fouka Bay", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?q=80&auto=format&fit=crop"}
-  ],
-  cairo: [
-    {name:"Mivida (مافيدا)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"iCity Mountain View (آي سيتي)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Sarai (سراي)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Hyde Park", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"The Waterway", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Taj City", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Eastown Residence (Sodic)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"El Patio Oro (La Vista)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Villette (Sodic)", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"Palm Hills New Cairo", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    // زيادات مقترحة – مناطق التجمع
-    {name:"النرجس فيلات", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"النرجس عمارات", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"اللوتس الشمالية", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"اللوتس الجنوبية", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"الياسمين", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"},
-    {name:"الأندلس", img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop"}
-  ]
-};
+/* ====== Data (بدّل img بروابط شعارات رسمية لاحقًا) ====== */
+const IMG_BEACH="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=600&q=60";
+const IMG_VILLA="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=600&q=60";
 
-/* ============== ROUTER ============== */
-const qs = new URLSearchParams(location.search);
-const area = qs.get("area"); // 'sokhna' | 'north' | 'cairo' | null
-const home = document.getElementById("home");
-const homeCards = document.getElementById("homeCards");
-const areaPage = document.getElementById("areaPage");
+const SOKHNA = [
+  {name:"IL Monte Galala (المونت جلالة)", img:IMG_BEACH},
+  {name:"Telal Sokhna (تلال)", img:IMG_BEACH},
+  {name:"La Vista (لافيستا)", img:IMG_BEACH},
+  {name:"Porto Sokhna", img:IMG_BEACH},
+  {name:"AZHA (ازها)", img:IMG_BEACH},
+  {name:"Ain Hills", img:IMG_BEACH},
+  {name:"Bella Romance", img:IMG_BEACH},
+  {name:"Lasirena Palm Beach", img:IMG_BEACH},
+  {name:"Lugano AOG", img:IMG_BEACH},
+  {name:"Murano (مورانو)", img:IMG_BEACH},
+  // زيادات
+  {name:"IL Monte Galala - Phia", img:IMG_BEACH},
+  {name:"Stella Di Mare", img:IMG_BEACH}
+];
 
-if(area && PROJECTS[area]){
-  // Show area page
-  home.classList.add("hidden");
-  homeCards.classList.add("hidden");
-  areaPage.classList.remove("hidden");
-  const titleMap = {sokhna:"العين السخنة", north:"الساحل الشمالي", cairo:"القاهرة الجديدة"};
-  document.getElementById("areaTitle").textContent = "مشاريع " + titleMap[area];
-  const list = PROJECTS[area];
-  document.getElementById("countBadge").textContent = list.length + " مشروع";
-  renderProjects(list, area);
-} else {
-  // Show home
-  home.classList.remove("hidden");
-  homeCards.classList.remove("hidden");
-  areaPage.classList.add("hidden");
-}
+const NORTH = [
+  {name:"Madin Ras El Hekma (مدن رأس الحكمة)", img:IMG_BEACH},
+  {name:"Solare (سولاري)", img:IMG_BEACH},
+  {name:"Hacienda West", img:IMG_BEACH},
+  {name:"Salt (سولت)", img:IMG_BEACH},
+  {name:"The Med (ذا مِد)", img:IMG_BEACH},
+  {name:"June Sodic", img:IMG_BEACH},
+  {name:"Ramlah (Marakez)", img:IMG_BEACH},
+  {name:"Mountain View Ras El Hekma", img:IMG_BEACH},
+  {name:"Swan Lake North Coast", img:IMG_BEACH},
+  {name:"El Masif (المصيف)", img:IMG_BEACH},
+  // زيادات
+  {name:"Marassi", img:IMG_BEACH},
+  {name:"Fouka Bay", img:IMG_BEACH},
+  {name:"Amwaj", img:IMG_BEACH}
+];
 
-/* Render grid */
-function renderProjects(list, areaKey){
-  const grid = document.getElementById("projectsGrid");
+const CAIRO = [
+  {name:"Mivida (مافيدا)", img:IMG_VILLA},
+  {name:"iCity Mountain View", img:IMG_VILLA},
+  {name:"Sarai (سراي)", img:IMG_VILLA},
+  {name:"Hyde Park", img:IMG_VILLA},
+  {name:"The Waterway", img:IMG_VILLA},
+  {name:"Taj City", img:IMG_VILLA},
+  {name:"Eastown Residence (SODIC)", img:IMG_VILLA},
+  {name:"El Patio Oro (La Vista)", img:IMG_VILLA},
+  {name:"Villette (SODIC)", img:IMG_VILLA},
+  {name:"Palm Hills New Cairo", img:IMG_VILLA},
+  // أحياء التجمع
+  {name:"النرجس فيلات", img:IMG_VILLA},
+  {name:"النرجس عمارات", img:IMG_VILLA},
+  {name:"اللوتس الشمالية", img:IMG_VILLA},
+  {name:"اللوتس الجنوبية", img:IMG_VILLA},
+  {name:"الياسمين", img:IMG_VILLA},
+  {name:"الأندلس", img:IMG_VILLA}
+];
+
+/* ====== Render helpers ====== */
+function renderArea(list, gridId, countId, areaKey){
+  const grid=document.getElementById(gridId);
   grid.innerHTML = "";
+  document.getElementById(countId).textContent = list.length + " مشروع";
+
   list.forEach(p=>{
-    const el = document.createElement("div");
-    el.className="tile";
-    el.innerHTML = `
+    const card=document.createElement("div");
+    card.className="tile";
+    card.innerHTML = `
       <img src="${p.img}" alt="${p.name}">
       <div class="tcap">
         <b>${p.name}</b>
-        <button type="button">اسأل</button>
-      </div>
-    `;
-    // open ask form with prefilled project
-    el.querySelector("button").addEventListener("click", ()=>{
-      openAsk(projectName=p.name, areaKey);
-    });
-    grid.appendChild(el);
-  });
-
-  // global ask button
-  document.getElementById("askSend").onclick = (e)=>{
-    e.preventDefault();
-    sendWhatsApp({
+        <button class="mini" type="button">اسأل</button>
+      </div>`;
+    card.querySelector("button").addEventListener("click",()=> openModal({
       area: areaKey,
-      project: document.getElementById("fProject").value.trim(),
-      type: document.getElementById("fType").value,
-      size: document.getElementById("fSize").value.trim(),
-      rooms: document.getElementById("fRooms").value.trim(),
-      floor: document.getElementById("fFloor").value.trim()
+      project: p.name
+    }));
+    grid.appendChild(card);
+  });
+}
+
+/* ====== Ask-any row handlers ====== */
+function bindAskRow(prefix, areaKey){
+  document.getElementById(`${prefix}-send`).addEventListener("click", (e)=>{
+    e.preventDefault();
+    openModal({
+      area: areaKey,
+      project: document.getElementById(`${prefix}-name`).value.trim(),
+      type:   document.getElementById(`${prefix}-type`).value,
+      size:   document.getElementById(`${prefix}-size`).value.trim(),
+      rooms:  document.getElementById(`${prefix}-rooms`).value.trim(),
+      floor:  document.getElementById(`${prefix}-floor`).value.trim(),
+      budget: document.getElementById(`${prefix}-budget`).value.trim()
     });
-  };
+  });
 }
 
-/* Open ask prefilled */
-function openAsk(projectName, areaKey){
-  document.getElementById("fProject").value = projectName;
-  document.getElementById("fType").value = (areaKey==="north" ? "شاليه" : "شقة");
-  window.scrollTo({top:document.getElementById("areaPage").offsetTop, behavior:"smooth"});
-}
+/* ====== Modal ====== */
+const modal = document.getElementById("modal");
+const mProject = document.getElementById("mProject");
+const mType    = document.getElementById("mType");
+const mSize    = document.getElementById("mSize");
+const mRooms   = document.getElementById("mRooms");
+const mFloor   = document.getElementById("mFloor");
+const mBudget  = document.getElementById("mBudget");
+const mNotes   = document.getElementById("mNotes");
+let modalArea = "sokhna"; // default
 
-/* Compose WhatsApp */
-function sendWhatsApp({area, project, type, size, rooms, floor}){
-  const areaName = area==="sokhna"?"العين السخنة":(area==="north"?"الساحل الشمالي":"القاهرة الجديدة");
-  const lines = [
-    `مرحبًا، أنا مهتم بمشروع: ${project || "(اكتب اسم المشروع)"} في منطقة ${areaName}.`,
-    `نوع الوحدة: ${type || "-"}`,
-    `المساحة المفضلة: ${size || "-"} م²`,
-    `عدد الغرف: ${rooms || "-"}`,
-    `الدور المفضل: ${floor || "-"}`,
-    ``,
-    `من فضلك ابعتلي كل التفاصيل المتاحة (المساحات/الأسعار/طرق السداد)، وأنا هرد بالتأكيد لتأكيد المناسب. شكرًا.`
-  ];
-  const msg = encodeURIComponent(lines.join("\n"));
-  const wa = `https://wa.me/201050072527?text=${msg}`;
-  window.open(wa, "_blank");
+function openModal({area, project="", type="", size="", rooms="", floor="", budget=""}){
+  modalArea = area;
+  mProject.value = project;
+  // default type: north -> شاليه
+  mType.value = type || (area==="north" ? "شاليه" : "شقة");
+  mSize.value = size; mRooms.value=rooms; mFloor.value=floor; mBudget.value=budget; mNotes.value="";
+  modal.classList.add("show");
 }
+document.getElementById("mClose").onclick=()=> modal.classList.remove("show");
 
-/* ============== RESALE SHORT FORM (on home)? not used on area page now ============== */
-/* Translation toggle (basic) */
+document.getElementById("mSend").onclick=()=>{
+  const areaName = modalArea==="sokhna" ? "العين السخنة" : modalArea==="north" ? "الساحل الشمالي" : "القاهرة الجديدة";
+  const msg = [
+    `مرحبًا، أنا مهتم بمشروع: ${mProject.value || "(اكتب اسم المشروع)"} في ${areaName}.`,
+    `نوع الوحدة: ${mType.value || "-"}`,
+    `المساحة المفضلة: ${mSize.value || "-"} م²`,
+    `عدد الغرف: ${mRooms.value || "-"}`,
+    `الدور المفضل: ${mFloor.value || "-"}`,
+    `الميزانية: ${mBudget.value || "-"} جنيه`,
+    (mNotes.value.trim()? `ملاحظات: ${mNotes.value.trim()}` : ""),
+    "",
+    "من فضلك ابعتلي كل التفاصيل المتاحة (المساحات/الأسعار/طرق السداد). هنتظر ردّك بالتفاصيل الكاملة."
+  ].join("\n");
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,"_blank");
+};
+
+/* ====== Resale lead -> open modal with prefilled ====== */
+document.getElementById("leadGo").addEventListener("click",(e)=>{
+  e.preventDefault();
+  const a = document.getElementById("leadArea").value;
+  const p = document.getElementById("leadPlace").value.trim();
+  const key = a.includes("السخنة") ? "sokhna" : a.includes("الساحل") ? "north" : "cairo";
+  openModal({area:key, project:p});
+});
+
+/* ====== Initial renders ====== */
+renderArea(SOKHNA,"grid-sokhna","cSokhna","sokhna");
+renderArea(NORTH ,"grid-north" ,"cNorth" ,"north");
+renderArea(CAIRO ,"grid-cairo" ,"cCairo" ,"cairo");
+bindAskRow("ask-sokhna","sokhna");
+bindAskRow("ask-north","north");
+bindAskRow("ask-cairo","cairo");
+
+/* ====== Language toggle (basic UI only) ====== */
 let lang="ar";
-document.getElementById("lang").onclick=()=>{
-  lang = (lang==="ar"?"en":"ar");
-  setLang();
-}
+document.getElementById("lang").onclick=()=>{lang=(lang==="ar"?"en":"ar");setLang();};
 function setLang(){
   if(lang==="en"){
+    document.getElementById("navHome").textContent="Home";
+    document.getElementById("navContact").textContent="Contact";
     document.getElementById("heroTitle").textContent="Turn your property investment into a luxury experience";
     document.getElementById("heroSub").textContent="Private service for buying, selling & investing in prime locations";
     document.getElementById("heroAreas").textContent="Ain Sokhna • North Coast • New Cairo";
+    document.getElementById("btnCall").textContent="Call Now";
+    document.getElementById("btnWhatsApp").textContent="WhatsApp Consultation";
+    document.getElementById("leadTitle").textContent="Resale — pick the area and type the place";
+    document.getElementById("leadBtnNext").textContent="Send";
+    document.getElementById("leadHint").textContent="After sending, we'll ask for unit details and send it on WhatsApp.";
+    document.getElementById("mTitle").textContent="Inquiry details";
     document.documentElement.dir="ltr";
   }else{
+    document.getElementById("navHome").textContent="الرئيسية";
+    document.getElementById("navContact").textContent="تواصل معنا";
     document.getElementById("heroTitle").textContent="حوِّل استثمارك العقاري إلى تجربة من الفخامة والرُّقي";
     document.getElementById("heroSub").textContent="خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية";
     document.getElementById("heroAreas").textContent="العين السخنة • الساحل الشمالي • القاهرة الجديدة";
+    document.getElementById("btnCall").textContent="اتصال مباشر";
+    document.getElementById("btnWhatsApp").textContent="استشارة واتساب";
+    document.getElementById("leadTitle").textContent="ريسيل — اختَر المنطقة واكتب المكان";
+    document.getElementById("leadBtnNext").textContent="إرسال";
+    document.getElementById("leadHint").textContent="بعد الإرسال هنطلب تفاصيل الوحدة ثم نرسلها على واتساب تلقائيًا.";
+    document.getElementById("mTitle").textContent="تفاصيل الاستفسار";
     document.documentElement.dir="rtl";
   }
 }
