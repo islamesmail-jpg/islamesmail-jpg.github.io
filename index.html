@@ -16,7 +16,7 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .navwrap{max-width:1200px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:18px}
 .logo{font-weight:800;color:var(--gold)}
 .navlinks{list-style:none;display:flex;gap:18px;margin:0 0 0 auto;padding:0}
-.navlinks a{font-weight:800;color:#e5e7eb;cursor:pointer}
+.navlinks a{font-weight:800;color:#e5e7eb}
 .navlinks a:hover{color:var(--gold)}
 .dropdown{position:relative}
 .dropdown .menu{display:none;position:absolute;top:120%;right:0;min-width:210px;background:#111827;border:1px solid #26334e;border-radius:12px;overflow:hidden;box-shadow:0 12px 24px rgba(0,0,0,.25)}
@@ -50,13 +50,13 @@ a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
 .hint{margin-top:6px;color:var(--muted);font-size:.94rem}
 .row-center{display:flex;justify-content:center} .btn-w{margin-top:14px}
 
-/* CATEGORY CARDS (3 مربعات) */
+/* CATEGORY CARDS */
 .grid3{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
-.card{position:relative;border-radius:16px;overflow:hidden;background:#0f1627;border:1px solid #1e2a44;cursor:pointer}
+.card{position:relative;border-radius:16px;overflow:hidden;background:#0f1627;border:1px solid #1e2a44}
 .card img{width:100%;height:160px;object-fit:cover}
 .card .label{position:absolute;bottom:10px;right:10px;left:10px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);font-weight:800;padding:8px 14px;border-radius:12px;text-align:center}
 
-/* PROJECT GRID – 3 أعمدة دائمًا */
+/* PROJECT GRID – 3 أعمدة على كل الأجهزة */
 .proj-grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 .proj{position:relative;border:1px solid #243453;background:#0f1627;border-radius:16px;overflow:hidden}
 .proj img{height:140px;object-fit:cover;width:100%}
@@ -90,20 +90,20 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
   <div class="navwrap">
     <div class="logo">إسلام</div>
     <ul class="navlinks">
-      <li><a onclick="nav('home')">الرئيسية</a></li>
+      <li><a href="#home">الرئيسية</a></li>
       <li class="dropdown">
         <a>المشاريع ▾</a>
         <div class="menu">
-          <a onclick="nav('page-sokhna')">العين السخنة</a>
-          <a onclick="nav('page-north')">الساحل الشمالي</a>
-          <a onclick="nav('page-cairo')">القاهرة الجديدة</a>
+          <a href="#page-sokhna">العين السخنة</a>
+          <a href="#page-north">الساحل الشمالي</a>
+          <a href="#page-cairo">القاهرة الجديدة</a>
         </div>
       </li>
       <li class="dropdown">
         <a>التواصل ▾</a>
         <div class="menu">
           <a href="tel:+201050072527">📞 اتصال هاتف</a>
-          <a href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B4%D9%8A%D8%A1%20%D9%85%D8%B9%D9%8A%D9%86.%20%D9%85%D9%86%20%D9%81%D8%B6%D9%84%D9%83%D9%85%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84." target="_blank" rel="noopener">💬 واتساب</a>
+          <a href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B4%D9%8A%D8%A1%20%D9%85%D8%B9%D9%8A%D9%86." target="_blank" rel="noopener">💬 واتساب</a>
           <a href="mailto:eslam.realty.eg@gmail.com">✉️ إيميل</a>
         </div>
       </li>
@@ -171,7 +171,7 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
       <input id="note" class="input" type="text" placeholder="ملاحظة (اختياري)">
       <div class="row-center btn-w">
         <a id="sendResale" class="btn" href="#" target="_blank" rel="noopener">📩 إرسال على واتساب</a>
-        <a class="btn" style="margin-inline-start:8px" onclick="nav('home')">⬅ رجوع</a>
+        <a class="btn" style="margin-inline-start:8px" href="#home">⬅ رجوع</a>
       </div>
     </div>
   </section>
@@ -179,18 +179,18 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
   <!-- 3 CATEGORY CARDS -->
   <section id="projects" class="section container">
     <div class="grid3">
-      <div class="card" onclick="nav('page-cairo')">
+      <a class="card" href="#page-cairo">
         <img src="https://c.top4top.io/p_3519jxl5h0.jpeg" alt="القاهرة الجديدة">
         <div class="label">القاهرة الجديدة 🏡</div>
-      </div>
-      <div class="card" onclick="nav('page-north')">
+      </a>
+      <a class="card" href="#page-north">
         <img src="https://e.top4top.io/p_3519u11ut2.jpeg" alt="الساحل الشمالي">
         <div class="label">الساحل الشمالي 🌊</div>
-      </div>
-      <div class="card" onclick="nav('page-sokhna')">
+      </a>
+      <a class="card" href="#page-sokhna">
         <img src="https://d.top4top.io/p_3519kp98h1.jpeg" alt="العين السخنة">
         <div class="label">العين السخنة 🏖️</div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -199,7 +199,7 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
     <div class="icons">
       <a href="mailto:eslam.realty.eg@gmail.com" aria-label="Email">✉️</a>
       <a href="tel:+201050072527" aria-label="Phone">📞</a>
-      <a href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B4%D9%8A%D8%A1%20%D9%85%D8%B9%D9%8A%D9%86.%20%D9%85%D9%86%20%D9%81%D8%B6%D9%84%D9%83%D9%85%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+      <a id="quickWA" href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B4%D9%8A%D8%A1%20%D9%85%D8%B9%D9%8A%D9%86." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
     </div>
   </footer>
 </main>
@@ -207,7 +207,7 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
 <!-- ========== PAGE: SOKHNA ========== -->
 <section id="page-sokhna" class="page">
   <section class="section container">
-    <a class="btn" onclick="nav('home')">⬅ رجوع</a>
+    <a class="btn" href="#home">⬅ رجوع</a>
     <h2 style="margin:14px 0 12px">مشروعات العين السخنة</h2>
     <div class="proj-grid" id="sxGrid"></div>
 
@@ -248,7 +248,7 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
 <!-- ========== PAGE: NORTH ========== -->
 <section id="page-north" class="page">
   <section class="section container">
-    <a class="btn" onclick="nav('home')">⬅ رجوع</a>
+    <a class="btn" href="#home">⬅ رجوع</a>
     <h2 style="margin:14px 0 12px">مشروعات الساحل الشمالي</h2>
     <div class="proj-grid" id="ncGrid"></div>
 
@@ -289,7 +289,7 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
 <!-- ========== PAGE: CAIRO ========== -->
 <section id="page-cairo" class="page">
   <section class="section container">
-    <a class="btn" onclick="nav('home')">⬅ رجوع</a>
+    <a class="btn" href="#home">⬅ رجوع</a>
     <h2 style="margin:14px 0 12px">مشروعات القاهرة الجديدة</h2>
     <div class="proj-grid" id="crGrid"></div>
 
@@ -330,26 +330,25 @@ footer{text-align:center;padding:20px;color:#b9c5d3;border-top:1px solid rgba(25
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* بسيط وواضح: إظهار صفحة */
+/* تنقّل بالهاش: يظهر الصفحة المطلوبة ويخفي الباقي */
 const PAGES=['home','page-sokhna','page-north','page-cairo'];
-function show(id){ PAGES.forEach(p=>document.getElementById(p).classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
-function nav(id){ show(id); location.hash='#'+id; }
+function showFromHash(){
+  const id=(location.hash||'#home').slice(1);
+  PAGES.forEach(pid=>document.getElementById(pid).classList.toggle('active', pid===id));
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',showFromHash);
+showFromHash();
 
-/* افتح الهوم افتراضياً */
-if(!location.hash){ location.hash='#home'; }
-show(location.hash.replace('#','')||'home');
-
-/* RESELL step2 */
-const step2=document.getElementById('step2');
-document.getElementById('goStep2').addEventListener('click', ()=>{
-  step2.style.display='block';
-  step2.scrollIntoView({behavior:'smooth'});
-});
-
-/* رسائل ريسيل */
+/* ريسيل: فتح الخطوة الثانية وتجهيز واتساب */
 const areaSel=document.getElementById('area'), placeIn=document.getElementById('place');
-const unitType=document.getElementById('unitType'), rooms=document.getElementById('rooms'), floor=document.getElementById('floor');
-const budget=document.getElementById('budget'), note=document.getElementById('note'), sendResale=document.getElementById('sendResale');
+const step2=document.getElementById('step2');
+document.getElementById('goStep2').addEventListener('click', ()=>{ step2.style.display='block'; step2.scrollIntoView({behavior:'smooth'}); });
+
+const unitType=document.getElementById('unitType'), rooms=document.getElementById('rooms'),
+      floor=document.getElementById('floor'), budget=document.getElementById('budget'),
+      note=document.getElementById('note'), sendResale=document.getElementById('sendResale');
+
 function resaleHref(){
   const txt=`طلب ريسيل
 المنطقة: ${areaSel.value}
@@ -365,4 +364,11 @@ function resaleHref(){
 function updR(){ sendResale.href=resaleHref(); }
 ['input','change'].forEach(ev=>[areaSel,placeIn,unitType,rooms,floor,budget,note].forEach(el=>el.addEventListener(ev,updR))); updR();
 
-/* بيانات وأيقونة الم
+/* بيانات وأيقونة المشاريع */
+const iconURL="https://a.top4top.io/p_3519hjfzt0.png";
+const IMG_SOKHNA="https://d.top4top.io/p_3519kp98h1.jpeg";
+const IMG_NORTH ="https://e.top4top.io/p_3519u11ut2.jpeg";
+const IMG_CAIRO ="https://c.top4top.io/p_3519jxl5h0.jpeg";
+
+/* قوائم المشاريع */
+const north=["مدن رأس الحكمة","Solaré","Hacienda West","Salt","The Med","June SODIC","Ramlah (Marakez)","Mountain View Ras El Hekma","Swan La
