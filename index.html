@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eslam Realty | إسلام اسماعيل</title>
+  <title>Eslam Realty | إسلام محمد</title>
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -11,77 +11,98 @@
 
   <style>
     :root{
-      --bg:#0b1220; --nav:#0f1a2e; --gold:#d4af37; --gold2:#e6c76d; --ink:#0b1220; --muted:#cbd5e1; --line:rgba(255,255,255,.12);
-      --accent:#59d36a;
+      --bg:#0b1220;        /* خلفية كحلي داكن */
+      --nav:#0f1a2e;       /* شريط علوي */
+      --gold:#d4af37;      /* ذهبي أساسي */
+      --gold2:#f2d375;     /* ذهبي فاتح */
+      --white:#ffffff;
+      --ink:#0b1220;
+      --muted:#cbd5e1;
+      --line:rgba(255,255,255,.14);
+      --accent:#d4af37;    /* الأزرار ذهبي */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:#fff}
+    body{margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--white)}
 
     /* Header */
-    .nav{position:sticky; top:0; z-index:40; background:rgba(15,26,46,.88); border-bottom:1px solid var(--line); backdrop-filter:blur(8px)}
+    .nav{position:sticky; top:0; z-index:40; background:rgba(15,26,46,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(8px)}
     .nav-inner{max-width:1200px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:16px}
-    .brand{font-weight:800}
+    .brand{font-weight:800; color:var(--white)}
     .brand i{color:var(--gold); margin-inline-start:6px}
     .brand strong{color:var(--gold)}
     .spacer{flex:1}
     .menu{display:flex; gap:20px; align-items:center}
-    .menu a{color:#e8edf5; text-decoration:none; font-weight:700}
+    .menu a{color:var(--white); text-decoration:none; font-weight:800}
     .menu a:hover{color:var(--gold)}
     .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
 
-    /* Hero (simple, luxurious) */
+    /* Hero */
     .hero{
       position:relative; min-height:84vh; display:grid; place-items:center;
       background:
         linear-gradient(0deg, rgba(11,18,32,.68), rgba(11,18,32,.68)),
-        /* صورة بحر/تراس رايقة */
         url('https://images.unsplash.com/photo-1502920917128-1aa500764b8a?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
     }
     .hero-inner{max-width:1050px; padding:56px 18px; text-align:center}
-    .title{font-weight:900; line-height:1.2; font-size:clamp(30px,6vw,60px); color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .title{font-weight:900; line-height:1.2; font-size:clamp(30px,6vw,60px); color:var(--white); text-shadow:0 2px 12px rgba(0,0,0,.35)}
     .subtitle{margin-top:10px; font-weight:800; font-size:clamp(16px,2.6vw,24px); color:var(--gold2)}
-    .areas{margin-top:8px; color:#e9eef4; opacity:.95; font-weight:700}
+    .areas{margin-top:8px; color:var(--white); opacity:.95; font-weight:800}
 
-    /* CTA buttons */
+    /* CTA buttons (ذهبي/أبيض) */
     .cta{margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px}
     .btn{
       display:inline-flex; align-items:center; gap:10px;
       text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:900; letter-spacing:.3px;
-      border:1px solid var(--gold); color:var(--gold); background:transparent; transition:.25s;
+      border:1px solid var(--gold); color:var(--white); background:transparent; transition:.25s;
     }
     .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
-    .btn i{font-size:16px}
+    .btn i{font-size:16px; color:var(--gold)}
+    .btn:hover i{color:var(--ink)}
 
-    /* Explore links to subpages (optional) */
-    .explore{margin-top:18px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
-    .pill{border:1px solid var(--line); background:rgba(255,255,255,.06); color:#fff; padding:10px 14px; border-radius:999px; text-decoration:none; font-weight:800}
-    .pill:hover{background:rgba(255,255,255,.12)}
+    /* Explore: image cards for subpages */
+    .explore{max-width:1050px; margin:18px auto 0; padding:0 18px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .xcard{
+      position:relative; display:block; height:120px; border-radius:14px; overflow:hidden; text-decoration:none; border:1px solid var(--line);
+      background-size:cover; background-position:center;
+    }
+    .xcard::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55));
+    }
+    .xcard .label{
+      position:absolute; inset-inline:10px; bottom:10px; z-index:2;
+      color:var(--white); font-weight:900; display:inline-flex; align-items:center; gap:8px;
+      background:rgba(0,0,0,.35); border:1px solid var(--gold); padding:6px 10px; border-radius:999px;
+    }
+    .xcard .label i{color:var(--gold)}
 
     /* Resale box */
-    .box{margin:28px auto 0; background:rgba(255,255,255,.08); border:1px solid var(--line); border-radius:16px; padding:18px; max-width:720px}
-    .box label{display:block; margin-bottom:10px; font-weight:800}
+    .box{margin:28px auto 0; background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:16px; padding:18px; max-width:720px}
+    .box label{display:block; margin-bottom:10px; font-weight:900; color:var(--white)}
     .select,.input{
-      width:100%; background:#0f1a2e; color:#fff; border:1px solid #2c3b57;
-      padding:12px 14px; border-radius:12px; font-weight:700; outline:none;
+      width:100%; background:#0f1a2e; color:var(--white); border:1px solid #2c3b57;
+      padding:12px 14px; border-radius:12px; font-weight:800; outline:none;
     }
     .input{margin-top:10px}
     .go{margin-top:12px; width:100%; background:var(--accent); color:#0b1220; border:none; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:900; display:inline-flex; align-items:center; justify-content:center; gap:10px}
     .hint{margin-top:6px; color:var(--muted); font-size:.92rem}
 
     /* Footer */
-    footer{ text-align:center; padding:18px; color:#b9c5d3; border-top:1px solid var(--line); background:var(--bg) }
+    footer{ text-align:center; padding:18px; color:#e2e8f0; border-top:1px solid var(--line); background:var(--bg) }
     .social{margin-top:8px; display:flex; gap:12px; justify-content:center}
     .social a{ color:var(--gold); font-size:18px; text-decoration:none }
-    .social a:hover{ color:#fff }
+    .social a:hover{ color:var(--white) }
 
+    @media (max-width:900px){
+      .explore{grid-template-columns:1fr; gap:12px}
+      .xcard{height:140px}
+    }
     @media (prefers-color-scheme:light){
       body{color:#111827}
       .nav{background:#ffffffcc; border-color:#e5e7eb}
       .menu a{color:#111827}
       .title{color:#0b1220}
       .box{background:#fff; border-color:#e9eef3}
-      .pill{background:#fff}
     }
   </style>
 </head>
@@ -112,29 +133,45 @@
         <a class="btn" href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
         <a class="btn" href="mailto:eslam.realty.eg@gmail.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
       </div>
+    </div>
+  </section>
 
-      <!-- اختياري: روابط للصفحات الفرعية هنكمّلها بعدين -->
-      <div class="explore">
-        <a class="pill" href="sokhna.html">العين السخنة</a>
-        <a class="pill" href="northcoast.html">الساحل الشمالي</a>
-        <a class="pill" href="cairo.html">القاهرة الجديدة</a>
-      </div>
+  <!-- Image Cards to subpages -->
+  <div class="explore">
+    <!-- Sokhna: beach image #1 -->
+    <a class="xcard" href="sokhna.html"
+       style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop')">
+      <span class="label"><i class="fa-solid fa-umbrella-beach"></i><span>العين السخنة</span></span>
+    </a>
 
-      <!-- Resale -->
-      <div class="box">
-        <label for="area" data-i="formArea">ريسيل — اختر المنطقة:</label>
-        <select id="area" class="select">
-          <option value="sokhna" data-i="optSokhna">العين السخنة</option>
-          <option value="northcoast" data-i="optNorth">الساحل الشمالي</option>
-          <option value="cairo" data-i="optCairo">القاهرة الجديدة</option>
-        </select>
+    <!-- North Coast: different beach #2 -->
+    <a class="xcard" href="northcoast.html"
+       style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1600&auto=format&fit=crop')">
+      <span class="label"><i class="fa-solid fa-water"></i><span>الساحل الشمالي</span></span>
+    </a>
 
-        <!-- الحقل الحر: يكتب فيه القرية/المكان اللي مهتم بيه -->
-        <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" />
-        <button id="goWhatsApp" class="go"><i class="fa-brands fa-whatsapp"></i><span data-i="goBtn">تابع على واتساب</span></button>
-        <div class="hint" data-i="hint">
-          اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)
-        </div>
+    <!-- New Cairo: city/Madinaty-like -->
+    <a class="xcard" href="cairo.html"
+       style="background-image:url('https://images.unsplash.com/photo-1523430410476-0185cb1f6ff8?q=80&w=1600&auto=format&fit=crop')">
+      <span class="label"><i class="fa-solid fa-city"></i><span>القاهرة الجديدة</span></span>
+    </a>
+  </div>
+
+  <!-- Resale -->
+  <section style="padding:0 18px">
+    <div class="box">
+      <label for="area" data-i="formArea">ريسيل — اختر المنطقة:</label>
+      <select id="area" class="select">
+        <option value="sokhna" data-i="optSokhna">العين السخنة</option>
+        <option value="northcoast" data-i="optNorth">الساحل الشمالي</option>
+        <option value="cairo" data-i="optCairo">القاهرة الجديدة</option>
+      </select>
+
+      <!-- حقل حر لاسم القرية/المكان -->
+      <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" />
+      <button id="goWhatsApp" class="go"><i class="fa-brands fa-whatsapp"></i><span data-i="goBtn">تابع على واتساب</span></button>
+      <div class="hint" data-i="hint">
+        اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)
       </div>
     </div>
   </section>
@@ -174,16 +211,18 @@
       const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
       return (lang==="ar" ? msgAr : msgEn);
     }
-    function updateWA(){ waBtn.onclick = (e)=>{ e.preventDefault(); window.open("https://wa.me/201050072527?text="+encodeURIComponent(buildMsg()), "_blank"); }; }
+    function wireWA(){
+      waBtn.onclick = (e)=>{ e.preventDefault(); window.open("https://wa.me/201050072527?text="+encodeURIComponent(buildMsg()), "_blank"); };
+    }
     function updatePlaceholder(){
       const isCairo = areaSel.value === "cairo";
       placeIn.placeholder = lang==="ar"
         ? (isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Marassi / IL Monte Galala)")
         : (isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)");
     }
-    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWA(); });
-    placeIn.addEventListener('input', updateWA);
-    updatePlaceholder(); updateWA();
+    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); wireWA(); });
+    placeIn.addEventListener('input', wireWA);
+    updatePlaceholder(); wireWA();
 
     // ترجمة AR/EN
     const dict = {
@@ -213,9 +252,9 @@
       document.querySelectorAll("[data-i]").forEach(el=>{ const k=el.getAttribute("data-i"); if(map[k]) el.textContent = map[k]; });
       document.documentElement.lang = (l==="ar"?"ar":"en");
       document.documentElement.dir  = (l==="ar"?"rtl":"ltr");
-      updatePlaceholder(); updateWA();
+      updatePlaceholder(); wireWA();
     }
     document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
   </script>
 </body>
-        </html>
+</html>
