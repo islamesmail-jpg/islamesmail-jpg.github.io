@@ -52,16 +52,15 @@ a{color:inherit;text-decoration:none}
 .badge{border:1px solid var(--gold);color:var(--gold);padding:6px 10px;border-radius:999px;font-weight:800}
 .cards{display:grid;gap:14px;grid-template-columns:1fr 1fr}
 @media(min-width:1000px){.cards{grid-template-columns:repeat(4,1fr)}}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative}
-.tile .stamp{position:absolute;top:8px;left:8px;width:34px;height:34px;border-radius:8px;background:#000000aa;border:1px solid #444;display:block;object-fit:contain;padding:4px}
-.tile img.main{width:100%;height:120px;object-fit:cover;background:#000}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.tile img{width:100%;height:120px;object-fit:cover;background:#000}
 .tcap{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .tcap b{color:var(--gold);font-weight:800;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mini{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:6px 10px;font-weight:800;cursor:pointer}
 .mini:hover{background:var(--gold);color:#111}
 .hide{display:none}
 
-/* Ask any */
+/* Ask any (per area) */
 .askrow{margin-top:10px;display:grid;gap:10px;grid-template-columns:1fr}
 @media(min-width:900px){.askrow{grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 160px}}
 .note{font-size:.9rem;color:#cbd5e1;margin-top:6px}
@@ -135,9 +134,10 @@ footer{text-align:center;padding:20px 16px;border-top:1px solid rgba(255,255,255
   </div>
 </section>
 
-<!-- AREA ICONS -->
+<!-- AREA ICONS (three side by side) -->
 <section class="section container">
   <div class="area-icons">
+    <!-- بدّل رابط الصور دي بصورك -->
     <div class="iconcard" onclick="showArea('sokhna')">
       <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1000&q=60" alt="العين السخنة">
       <div class="iconlabel">العين السخنة 🏖️</div>
@@ -153,7 +153,7 @@ footer{text-align:center;padding:20px 16px;border-top:1px solid rgba(255,255,255
   </div>
 </section>
 
-<!-- ========== AREAS (hidden until click) ========== -->
+<!-- ====== SECTIONS (مخفية لحد ما تختار) ====== -->
 <section class="section container hide" id="sec-sokhna">
   <div class="area-head">
     <h2 style="margin:0;font-weight:800">مشاريع العين السخنة</h2>
@@ -261,7 +261,7 @@ footer{text-align:center;padding:20px 16px;border-top:1px solid rgba(255,255,255
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 
-/* ========== Toggle areas ========== */
+/* ==== area icons toggle ==== */
 function showArea(key){
   ["sokhna","north","cairo"].forEach(k=>{
     document.getElementById("sec-"+k).classList.toggle("hide", k!==key);
@@ -269,14 +269,11 @@ function showArea(key){
   document.getElementById("sec-"+key).scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-/* -------- badge icon (ضع badge.png بجوار index.html) -------- */
-const BADGE_URL = "badge.png";
-
-/* Placeholder images */
+/* ==== pics placeholders ==== */
 const IMG_BEACH="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=600&q=60";
 const IMG_VILLA="https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=600&q=60";
 
-/* Data */
+/* ==== Projects data ==== */
 const SOKHNA = [
   {name:"IL Monte Galala (المونت جلالة)", img:IMG_BEACH},
   {name:"Telal Sokhna (تلال)", img:IMG_BEACH},
@@ -316,7 +313,7 @@ const CAIRO = [
   {name:"Palm Hills New Cairo", img:IMG_VILLA}
 ];
 
-/* Render */
+/* ==== Render helpers ==== */
 function renderArea(list, gridId, countId, areaKey){
   const grid=document.getElementById(gridId);
   grid.innerHTML="";
@@ -324,9 +321,7 @@ function renderArea(list, gridId, countId, areaKey){
   list.forEach(p=>{
     const el=document.createElement("div");
     el.className="tile";
-    el.innerHTML=`
-      <img class="stamp" src="${BADGE_URL}" alt="badge" onerror="this.style.display='none'">
-      <img class="main" src="${p.img}" alt="${p.name}">
+    el.innerHTML=`<img src="${p.img}" alt="${p.name}">
       <div class="tcap"><b>${p.name}</b><button class="mini" type="button">اسأل</button></div>`;
     el.querySelector(".mini").addEventListener("click",()=>openModal({area:areaKey, project:p.name}));
     grid.appendChild(el);
@@ -337,7 +332,7 @@ renderArea(SOKHNA,"grid-sokhna","cSokhna","sokhna");
 renderArea(NORTH ,"grid-north" ,"cNorth" ,"north");
 renderArea(CAIRO ,"grid-cairo" ,"cCairo" ,"cairo");
 
-/* Ask-any rows */
+/* ==== Ask-any rows ==== */
 function bindAsk(prefix, areaKey){
   document.getElementById(`${prefix}-send`).addEventListener("click",(e)=>{
     e.preventDefault();
@@ -356,7 +351,7 @@ bindAsk("ask-sokhna","sokhna");
 bindAsk("ask-north","north");
 bindAsk("ask-cairo","cairo");
 
-/* Modal */
+/* ==== Modal ==== */
 const modal=document.getElementById("modal");
 const mProject=document.getElementById("mProject");
 const mType=document.getElementById("mType");
@@ -385,7 +380,7 @@ document.getElementById("mSend").onclick=()=>{
   window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,"_blank");
 };
 
-/* Resale -> open modal */
+/* ==== Resale -> open modal ==== */
 document.getElementById("leadGo").addEventListener("click",(e)=>{
   e.preventDefault();
   const a=document.getElementById("leadArea").value;
@@ -394,7 +389,7 @@ document.getElementById("leadGo").addEventListener("click",(e)=>{
   openModal({area:key, project:p});
 });
 
-/* Language toggle */
+/* ==== Language toggle ==== */
 let lang="ar";
 document.getElementById("lang").onclick=()=>{lang=(lang==="ar"?"en":"ar");setLang();};
 function setLang(){
@@ -413,4 +408,8 @@ function setLang(){
     document.getElementById("navHome").textContent="الرئيسية";
     document.getElementById("navContact").textContent="تواصل معنا";
     document.getElementById("heroTitle").textContent="حوِّل استثمارك العقاري إلى تجربة من الفخامة والرُّقي";
-    document.getElementById("heroSub").textContent="خدمة خاصة للبيع والشراء والاستثمار في المواقع ا
+    document.getElementById("heroSub").textContent="خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية";
+    document.getElementById("heroAreas").textContent="العين السخنة • الساحل الشمالي • القاهرة الجديدة";
+    document.getElementById("leadTitle").textContent="ريسيل — اختَر المنطقة واكتب المكان";
+    document.getElementById("leadBtnNext").textContent="إرسال";
+ 
