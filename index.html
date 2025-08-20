@@ -13,67 +13,57 @@
   --panel:#0f1627;
   --gold:#e4c24a;
   --gold2:#f0d86a;
-  --muted:#cbd5e1;
   --white:#ffffff;
 }
 
 *{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0; font-family:"Tajawal",system-ui,Arial,sans-serif; background:var(--ink); color:var(--white)}
+body{margin:0; font-family:"Tajawal",Arial,sans-serif; background:var(--ink); color:var(--white)}
 
-/* Top bar */
-.nav{position:sticky; top:0; background:#f2f2f2; border-bottom:1px solid #e5e7eb; z-index:50}
-.nav .inner{max-width:1100px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
-.brand{margin-inline-start:auto; font-weight:800; color:#b58b00}
-.nav a{color:#111; text-decoration:none; font-weight:700; margin-inline:8px}
-.nav a:hover{opacity:.8}
+/* NAV */
+header{background:#f2f2f2; border-bottom:1px solid #ddd; position:sticky; top:0; z-index:50}
+header .inner{max-width:1100px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:14px}
+header a{color:#111; text-decoration:none; font-weight:700; margin-inline:8px}
+header .brand{margin-inline-start:auto; font-weight:800; color:#b58b00}
 
-/* Hero */
-.hero{position:relative; min-height:78vh;
-  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  display:grid; place-items:center}
-.overlay{background:rgba(11,15,25,.68); width:100%; height:100%; padding:52px 18px; display:grid; place-items:center}
-.hero-inner{text-align:center; max-width:900px}
-.title{font-size:clamp(28px,5.8vw,54px); font-weight:800; text-shadow:0 6px 18px rgba(0,0,0,.5)}
-.sub{margin-top:12px; font-size:clamp(16px,2.5vw,22px); color:var(--gold2); font-weight:700}
-.areas{margin-top:10px; font-weight:600}
-
-.actions{margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+/* HERO */
+.hero{background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60') center/cover no-repeat;
+      min-height:70vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.hero-inner{position:relative; z-index:1; padding:20px}
+.hero h1{font-size:clamp(26px,6vw,48px); font-weight:800; margin:0}
+.hero .sub{margin-top:12px; font-size:18px; color:var(--gold2); font-weight:700}
+.hero .areas{margin-top:8px; font-weight:600}
+.actions{margin-top:20px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
 .btn{
-  padding:12px 22px; border-radius:999px; border:1.6px solid var(--gold); color:var(--gold);
-  font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:10px; min-width:190px; justify-content:center;
+  padding:10px 18px; border-radius:999px; border:1.5px solid var(--gold); color:var(--gold);
+  font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
 }
 .btn:hover{background:var(--gold); color:#111}
-.actions .btn{flex:1 1 220px; max-width:320px}
 
-/* Sections & cards */
-.section{padding:28px 16px}
+/* CARDS (صغيرة زي المثال) */
+.section{padding:30px 16px}
 .container{max-width:1100px; margin:auto}
 .cards{display:grid; gap:16px; grid-template-columns:1fr}
-.card{position:relative; border-radius:16px; overflow:hidden; text-decoration:none; cursor:pointer; background:#000}
-.card img{width:100%; height:180px; object-fit:cover; transition:transform .45s ease}
-.card:hover img{transform:scale(1.05)}
-.card .label{
-  position:absolute; bottom:12px; left:12px; right:12px;
-  background:rgba(0,0,0,.55); color:var(--gold); border:1px solid var(--gold);
-  border-radius:12px; padding:8px 14px; font-weight:800; display:flex; justify-content:space-between; align-items:center
-}
-@media(min-width:800px){
+.card{background:#fff; color:#111; border-radius:12px; overflow:hidden; text-decoration:none; transition:transform .3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%; height:140px; object-fit:cover}
+.card .info{padding:12px; font-weight:800; text-align:center; color:#111}
+.card .info span{color:#b58b00}
+@media(min-width:768px){
   .cards{grid-template-columns:repeat(3,1fr)}
-  .card img{height:170px}
+  .card img{height:160px}
 }
 
 /* Resale box */
-.box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px}
+.box{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px}
 .box h3{margin:0 0 10px; font-size:20px}
-.select,.input{width:100%; margin-top:8px; padding:12px; border-radius:10px; border:1px solid #2a3958; background:var(--panel); color:#fff; font-weight:700}
+.select,.input{width:100%; margin-top:8px; padding:10px; border-radius:8px; border:1px solid #2a3958; background:var(--panel); color:#fff; font-weight:700}
 .input::placeholder{color:#8ea0bf}
-.hint{margin-top:8px; font-size:.92rem; color:var(--muted)}
-.go{margin-top:14px; text-align:center}
+.go{text-align:center; margin-top:14px}
 
-/* Footer */
-footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1); color:#aab4c3}
-.foot-icons{margin-top:8px; display:flex; gap:12px; justify-content:center}
+/* FOOTER */
+footer{text-align:center; padding:20px; border-top:1px solid rgba(255,255,255,.1); color:#aab4c3}
+.foot-icons{margin-top:10px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
 .foot-icons a{display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border:1px solid var(--gold); border-radius:999px; color:var(--gold); text-decoration:none; font-weight:800}
 .foot-icons a:hover{background:var(--gold); color:#111}
 </style>
@@ -81,7 +71,7 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
 <body>
 
 <!-- NAV -->
-<header class="nav">
+<header>
   <div class="inner">
     <a href="#contact">تواصل معنا</a>
     <a href="#">الرئيسية</a>
@@ -91,16 +81,13 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
 
 <!-- HERO -->
 <section class="hero">
-  <div class="overlay">
-    <div class="hero-inner">
-      <h1 class="title">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
-      <div class="sub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
-      <div class="areas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
-
-      <div class="actions">
-        <a class="btn" href="tel:+201050072527">📞 اتصال مباشر</a>
-        <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D9%82%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener">💬 استشارة واتساب</a>
-      </div>
+  <div class="hero-inner">
+    <h1>حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+    <div class="sub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+    <div class="areas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+    <div class="actions">
+      <a class="btn" href="tel:+201050072527">📞 اتصال مباشر</a>
+      <a class="btn" href="https://wa.me/201050072527?text=أرغب%20باستشارة%20عقارية" target="_blank">💬 استشارة واتساب</a>
     </div>
   </div>
 </section>
@@ -108,22 +95,17 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
 <!-- CARDS -->
 <section class="section container">
   <div class="cards">
-    <!-- Sokhna: Sea view -->
-    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B9%D9%8A%D9%86%20%D8%A7%D9%84%D8%B3%D8%AE%D9%86%D8%A9" target="_blank" rel="noopener" aria-label="العين السخنة">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="العين السخنة - بحر">
-      <div class="label">العين السخنة <span>🏖️</span></div>
+    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بالعين%20السخنة" target="_blank">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=60" alt="العين السخنة">
+      <div class="info"><span>العين السخنة</span> 🏖️</div>
     </a>
-
-    <!-- North Coast: different sea -->
-    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%A7%D8%AD%D9%84%20%D8%A7%D9%84%D8%B4%D9%85%D8%A7%D9%84%D9%8A" target="_blank" rel="noopener" aria-label="الساحل الشمالي">
-      <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1400&q=80" alt="الساحل الشمالي - بحر">
-      <div class="label">الساحل الشمالي <span>🌊</span></div>
+    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بالساحل%20الشمالي" target="_blank">
+      <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=500&q=60" alt="الساحل الشمالي">
+      <div class="info"><span>الساحل الشمالي</span> 🌊</div>
     </a>
-
-    <!-- New Cairo: Luxury villa -->
-    <a class="card" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1%20%D9%81%D9%8A%20%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9" target="_blank" rel="noopener" aria-label="القاهرة الجديدة">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80" alt="فيلا فخمة - القاهرة الجديدة">
-      <div class="label">القاهرة الجديدة <span>🏡</span></div>
+    <a class="card" href="https://wa.me/201050072527?text=مهتم%20بالقاهرة%20الجديدة" target="_blank">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=500&q=60" alt="القاهرة الجديدة">
+      <div class="info"><span>القاهرة الجديدة</span> 🏡</div>
     </a>
   </div>
 </section>
@@ -138,8 +120,7 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
       <option value="cairo">القاهرة الجديدة</option>
     </select>
     <input id="place" class="input" type="text" placeholder="اكتب اسم القرية/المكان (Marassi / Porto Sokhna / مدينتي)">
-    <div class="hint">اكتب اسم القرية للسخنة/الساحل أو المكان بالقاهرة الجديدة</div>
-    <div class="go"><a id="goWhatsApp" class="btn" href="#" target="_blank" rel="noopener">💬 تابع على واتساب</a></div>
+    <div class="go"><a id="goWhatsApp" class="btn" href="#" target="_blank">💬 تابع على واتساب</a></div>
   </div>
 </section>
 
@@ -154,21 +135,18 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
 
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
-
-// ربط رسالة الواتساب في قسم ريسيل
-const areaSel = document.getElementById('area');
-const placeIn = document.getElementById('place');
-const waBtn   = document.getElementById('goWhatsApp');
-
+const areaSel=document.getElementById('area');
+const placeIn=document.getElementById('place');
+const waBtn=document.getElementById('goWhatsApp');
 function updateWA(){
-  const areaTxt = areaSel.options[areaSel.selectedIndex].text;
-  const extra   = placeIn.value.trim();
-  let msg = "ريسيل — مهتم بعقار في " + areaTxt;
-  if(extra) msg += " | " + extra;
-  waBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
+  const areaTxt=areaSel.options[areaSel.selectedIndex].text;
+  const extra=placeIn.value.trim();
+  let msg="ريسيل — مهتم بعقار في "+areaTxt;
+  if(extra) msg+=" | "+extra;
+  waBtn.href="https://wa.me/201050072527?text="+encodeURIComponent(msg);
 }
-areaSel.addEventListener('change', updateWA);
-placeIn.addEventListener('input', updateWA);
+areaSel.addEventListener('change',updateWA);
+placeIn.addEventListener('input',updateWA);
 updateWA();
 </script>
 
