@@ -17,10 +17,10 @@ body{margin:0;font-family:"Tajawal",system-ui,Arial,sans-serif;background:var(--
 .nav a{color:#111;text-decoration:none;font-weight:800}
 .brand{margin-inline-start:auto;font-weight:800;color:#b58b00}
 .lang{border:1.5px solid #b58b00;color:#b58b00;background:transparent;border-radius:999px;padding:6px 12px;font-weight:800;cursor:pointer}
-/* Sections base */
+/* Views */
 .view{display:none;min-height:60vh}
 .view.active{display:block}
-/* Hero (home) */
+/* Hero home */
 .hero{
   min-height:88vh; display:grid; place-items:center; position:relative;
   background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;
@@ -34,7 +34,7 @@ body{margin:0;font-family:"Tajawal",system-ui,Arial,sans-serif;background:var(--
 .btn{padding:12px 20px;border-radius:999px;border:1.8px solid var(--gold);color:var(--gold);
      font-weight:800;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
 .btn:hover{background:var(--gold);color:#111}
-/* Cards section (home) */
+/* Cards (home) */
 .section{padding:28px 16px}
 .container{max-width:1100px;margin:auto}
 .cards{display:grid;gap:18px;grid-template-columns:1fr}
@@ -45,18 +45,20 @@ body{margin:0;font-family:"Tajawal",system-ui,Arial,sans-serif;background:var(--
   background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--gold);
   border-radius:12px;padding:8px 14px;font-weight:800;display:flex;justify-content:space-between}
 @media(min-width:800px){.cards{grid-template-columns:repeat(3,1fr)}.card img{height:200px}}
-/* Resale box (home) */
+/* Resale box */
 .box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px}
 .box label{font-weight:800;font-size:1.15rem}
 .select,.input{width:100%;margin-top:10px;padding:12px;border-radius:10px;border:1px solid #2a3958;background:#0f1627;color:#fff}
 .hint{margin-top:6px;color:var(--muted);font-size:.95rem}
 .go{text-align:center;margin-top:14px}
-/* Subpages (router views) */
-.hero-mini{min-height:42vh;display:flex;align-items:center;justify-content:center;position:relative;text-align:center}
+/* Subpages */
+.hero-mini{min-height:44vh;display:flex;align-items:center;justify-content:center;position:relative;text-align:center}
 .hero-mini::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
 .hero-mini .inner{position:relative;z-index:1;padding:22px}
-.hero-mini h1{margin:0;font-size:clamp(22px,5.2vw,44px);font-weight:800}
+.hero-mini h1{margin:0;font-size:clamp(24px,5.2vw,44px);font-weight:800}
 .hero-mini .sub{margin-top:8px}
+.bar{max-width:1100px;margin:-28px auto 18px;padding:8px 14px;border:1px dashed rgba(255,255,255,.25);border-radius:10px;color:#ddd;display:flex;align-items:center;gap:10px}
+.bar a{color:var(--gold);text-decoration:none;font-weight:800}
 .grid{display:grid;gap:14px;grid-template-columns:1fr}
 .item{background:#fff;color:#111;border-radius:12px;overflow:hidden;display:flex;align-items:center;gap:12px;text-decoration:none;padding:10px;transition:transform .25s}
 .item:hover{transform:translateY(-4px)}
@@ -71,7 +73,6 @@ footer{text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,.1);
 </head>
 <body>
 
-<!-- NAV -->
 <header class="nav">
   <div class="inner">
     <a href="#/">الرئيسية</a>
@@ -81,7 +82,7 @@ footer{text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,.1);
   </div>
 </header>
 
-<!-- HOME VIEW -->
+<!-- HOME -->
 <main id="home" class="view active">
   <section class="hero">
     <div class="hero-inner">
@@ -128,43 +129,40 @@ footer{text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,.1);
   </section>
 </main>
 
-<!-- SOKHNA VIEW -->
+<!-- SOKHNA PAGE -->
 <section id="v-sokhna" class="view">
   <div class="hero-mini" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat">
     <div class="inner">
-      <h1>العين السخنة 🏖️</h1>
-      <div class="sub">مشروعات مختارة — تقسيط 6–8 سنوات</div>
+      <h1>العين السخنة</h1>
+      <div class="sub">مشاريع جديدة — تقسيط 6–8 سنوات</div>
     </div>
   </div>
-  <div class="section container">
-    <div id="list-sokhna" class="grid"></div>
-  </div>
+  <div class="bar">📍 <a href="#/">الرئيسية</a> › العين السخنة</div>
+  <div class="section container"><div id="list-sokhna" class="grid"></div></div>
 </section>
 
-<!-- NORTH COAST VIEW -->
+<!-- NORTH COAST PAGE -->
 <section id="v-northcoast" class="view">
   <div class="hero-mini" style="background:url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat">
     <div class="inner">
-      <h1>الساحل الشمالي 🌊</h1>
-      <div class="sub">من العلمين حتى مطروح — اختيارات مميزة</div>
+      <h1>الساحل الشمالي</h1>
+      <div class="sub">من العلمين حتى مطروح — مشاريع مختارة</div>
     </div>
   </div>
-  <div class="section container">
-    <div id="list-north" class="grid"></div>
-  </div>
+  <div class="bar">📍 <a href="#/">الرئيسية</a> › الساحل الشمالي</div>
+  <div class="section container"><div id="list-north" class="grid"></div></div>
 </section>
 
-<!-- CAIRO VIEW -->
+<!-- CAIRO PAGE -->
 <section id="v-cairo" class="view">
   <div class="hero-mini" style="background:url('https://images.unsplash.com/photo-1560185007-c5ca9d2c4d16?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat">
     <div class="inner">
-      <h1>القاهرة الجديدة 🏡</h1>
-      <div class="sub">التجمع ومدينتي — سكني واستثماري</div>
+      <h1>القاهرة الجديدة</h1>
+      <div class="sub">التجمع ومدينتي — مشاريع جديدة</div>
     </div>
   </div>
-  <div class="section container">
-    <div id="list-cairo" class="grid"></div>
-  </div>
+  <div class="bar">📍 <a href="#/">الرئيسية</a> › القاهرة الجديدة</div>
+  <div class="section container"><div id="list-cairo" class="grid"></div></div>
 </section>
 
 <footer>
@@ -179,7 +177,7 @@ footer{text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,.1);
 /* Year */
 document.getElementById('y').textContent=new Date().getFullYear();
 
-/* WhatsApp builder (home) */
+/* WhatsApp builder (Resale box) */
 const sel=document.getElementById('sel-area');
 const inp=document.getElementById('inp-place');
 const waBtn=document.getElementById('wa-go');
@@ -192,14 +190,8 @@ sel.addEventListener('change',updateWA);
 inp.addEventListener('input',updateWA);
 updateWA();
 
-/* Simple hash router */
-const VIEWS={
-  "/":"home",
-  "/sokhna":"v-sokhna",
-  "/northcoast":"v-northcoast",
-  "/cairo":"v-cairo",
-  "/contact":"home" // نفس الصفحة وفيها وسائل التواصل
-};
+/* Router (hash) */
+const VIEWS={ "/":"home", "/sokhna":"v-sokhna", "/northcoast":"v-northcoast", "/cairo":"v-cairo", "/contact":"home" };
 function showView(){
   const hash=location.hash.replace("#","") || "/";
   document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
@@ -207,49 +199,46 @@ function showView(){
   document.getElementById(id).classList.add("active");
   window.scrollTo({top:0,behavior:"instant"});
 }
-window.addEventListener("hashchange",showView);
-showView();
+window.addEventListener("hashchange",showView); showView();
 
-/* Subpages data -> cards to WhatsApp */
+/* Data for subpages (مشاريع جديدة) */
 const DATA_SOKHNA=[
-  {name:"مورانو (Murano)", img:"https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=420&q=60"},
-  {name:"لاجونا/لاجانو باي", img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=420&q=60"},
-  {name:"لولو بيتش", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=420&q=60"},
-  {name:"دولفين بيتش", img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=420&q=60"},
-  {name:"الحجاز", img:"https://images.unsplash.com/photo-1526481280698-8fcc13fd87e1?auto=format&fit=crop&w=420&q=60"},
-  {name:"IL Monte Galala", img:"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=420&q=60"}
+  {name:"Murano (مورانو)", img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=420&q=60"},
+  {name:"IL Monte Galala", img:"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=420&q=60"},
+  {name:"Lagoona / لاجونا", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=420&q=60"},
+  {name:"Lulu Beach", img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=420&q=60"},
+  {name:"Dolphin Beach", img:"https://images.unsplash.com/photo-1526481280698-8fcc13fd87e1?auto=format&fit=crop&w=420&q=60"}
 ];
 const DATA_NORTH=[
-  {name:"مراسي (Marassi)", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=420&q=60"},
-  {name:"فوكا باي (Fouka Bay)", img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=420&q=60"},
-  {name:"أمواج (Amwaj)", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=420&q=60"},
-  {name:"ماونتن فيو رأس الحكمة", img:"https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?auto=format&fit=crop&w=420&q=60"},
-  {name:"سيان / سيدي عبد الرحمن", img:"https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=420&q=60"},
-  {name:"هااسيندا/لاجونا", img:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=420&q=60"}
+  {name:"Marassi", img:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=420&q=60"},
+  {name:"Fouka Bay", img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=420&q=60"},
+  {name:"Amwaj", img:"https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=420&q=60"},
+  {name:"Mountain View Ras El Hekma", img:"https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?auto=format&fit=crop&w=420&q=60"},
+  {name:"Sidi Abd Elrahman / Hacienda", img:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=420&q=60"}
 ];
 const DATA_CAIRO=[
-  {name:"الرحاب", img:"https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=420&q=60"},
-  {name:"مدينتي", img:"https://images.unsplash.com/photo-1560185007-c5ca9d2c4d16?auto=format&fit=crop&w=420&q=60"},
-  {name:"هايد بارك", img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=420&q=60"},
-  {name:"ميفيدا", img:"https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=420&q=60"},
-  {name:"لاروز/النرجس", img:"https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=420&q=60"},
-  {name:"كمبوندات اللوتس/الياسمين", img:"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=420&q=60"}
+  {name:"Madinaty", img:"https://images.unsplash.com/photo-1560185007-c5ca9d2c4d16?auto=format&fit=crop&w=420&q=60"},
+  {name:"El Rehab", img:"https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=420&q=60"},
+  {name:"Hyde Park", img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=420&q=60"},
+  {name:"Mivida", img:"https://images.unsplash.com/photo-1505691723518-36a5ac3b2d95?auto=format&fit=crop&w=420&q=60"},
+  {name:"Districts of Lotus/Yasmine", img:"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=420&q=60"}
 ];
-function render(list, elId, area){
+function render(list, elId){
   const wrap=document.getElementById(elId); wrap.innerHTML="";
   for(const v of list){
-    const a=document.createElement('a');
-    a.className="item"; a.target="_blank";
-    a.href="https://wa.me/201050072527?text="+encodeURIComponent(`مهتم بمشروع في ${area}: ${v.name}`);
-    a.innerHTML=`<img src="${v.img}" alt="${v.name}"><div class="t">${v.name}</div><div class="w">واتساب →</div>`;
-    wrap.appendChild(a);
+    const d=document.createElement('div');
+    d.className="item";
+    d.innerHTML=`<img src="${v.img}" alt="${v.name}">
+                 <div class="t">${v.name}</div>
+                 <a class="w" href="https://wa.me/201050072527?text=${encodeURIComponent('مهتم بمشروع: '+v.name)}" target="_blank">اطلب التفاصيل</a>`;
+    wrap.appendChild(d);
   }
 }
-render(DATA_SOKHNA,"list-sokhna","العين السخنة");
-render(DATA_NORTH,"list-north","الساحل الشمالي");
-render(DATA_CAIRO,"list-cairo","القاهرة الجديدة");
+render(DATA_SOKHNA,"list-sokhna");
+render(DATA_NORTH,"list-north");
+render(DATA_CAIRO,"list-cairo");
 
-/* AR/EN toggle (نصوص أساسية بالصفحة الرئيسية) */
+/* AR/EN toggle (home texts only) */
 let lang="ar";
 document.getElementById("lang").onclick=()=>{lang=lang==="ar"?"en":"ar";applyLang()};
 function applyLang(){
@@ -278,3 +267,4 @@ function applyLang(){
 </script>
 </body>
 </html>
+```0
