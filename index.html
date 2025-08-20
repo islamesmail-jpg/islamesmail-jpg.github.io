@@ -104,10 +104,10 @@ footer{text-align:center; padding:18px; border-top:1px solid rgba(255,255,255,.1
       <img src="https://images.unsplash.com/photo-1507525428034-0f5a5ca7e40c?q=80&w=1400&auto=format&fit=crop" alt="الساحل الشمالي">
       <div class="label">الساحل الشمالي 🌊</div>
     </a>
-    <!-- القاهرة الجديدة / مدينتي -->
+    <!-- القاهرة الجديدة / فيلا -->
     <a class="card" href="https://wa.me/201050072527?text=مهتم بعقار في القاهرة الجديدة" target="_blank">
-      <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1400&auto=format&fit=crop" alt="القاهرة الجديدة">
-      <div class="label">القاهرة الجديدة 🏙️</div>
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1400&auto=format&fit=crop" alt="القاهرة الجديدة فيلا">
+      <div class="label">القاهرة الجديدة 🏡</div>
     </a>
   </div>
 </section>
@@ -140,33 +140,6 @@ document.getElementById('y').textContent=new Date().getFullYear();
 const area=document.getElementById('area');const place=document.getElementById('place');const go=document.getElementById('goWhatsApp');
 function updateWA(){let msg="ريسيل — مهتم بعقار في "+area.options[area.selectedIndex].text;if(place.value.trim()!==""){msg+=" | "+place.value.trim()}go.href="https://wa.me/201050072527?text="+encodeURIComponent(msg)}
 area.addEventListener('change',updateWA);place.addEventListener('input',updateWA);updateWA();
-
-// لغة
-let lang="ar";
-document.getElementById("lang").onclick=()=>{lang=lang==="ar"?"en":"ar";setLang()}
-function setLang(){
-  if(lang==="en"){
-    document.getElementById("heroTitle").textContent="Turn your property investment into a luxury experience";
-    document.getElementById("heroSub").textContent="Private service for buying, selling & investing in prime locations";
-    document.getElementById("heroAreas").textContent="Ain Sokhna • North Coast • New Cairo";
-    document.getElementById("btnCall").textContent="Call Now";
-    document.getElementById("btnWhatsApp").textContent="WhatsApp Consultation";
-    document.getElementById("formArea").textContent="Resale — select area:";
-    document.getElementById("hint").textContent="Type the village or place name (e.g., Porto Sokhna, Marassi, Madinaty)";
-    place.placeholder="Type village / place (Marassi / Porto Sokhna / Madinaty)";
-    document.documentElement.dir="ltr";
-  }else{
-    document.getElementById("heroTitle").textContent="حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي";
-    document.getElementById("heroSub").textContent="خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية";
-    document.getElementById("heroAreas").textContent="العين السخنة • الساحل الشمالي • القاهرة الجديدة";
-    document.getElementById("btnCall").textContent="اتصال مباشر";
-    document.getElementById("btnWhatsApp").textContent="استشارة واتساب";
-    document.getElementById("formArea").textContent="ريسيل — اختر المنطقة:";
-    document.getElementById("hint").textContent="اكتب اسم القرية للسخنة/الساحل أو المكان بالقاهرة الجديدة";
-    place.placeholder="اكتب اسم القرية / المكان (Marassi / Porto Sokhna / مدينتي)";
-    document.documentElement.dir="rtl";
-  }
-}
 </script>
 </body>
 </html>
