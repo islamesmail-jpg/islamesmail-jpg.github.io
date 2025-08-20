@@ -18,148 +18,119 @@
       --gold-2:#f0d27a;
       --muted:#b6c2d3;
       --card:#101b34;
-      --line:rgba(255,255,255,.10);
-      --accent:#65c466; /* أخضر خفيف لزر البحث – ممكن تغييره */
+      --line:rgba(255,255,255,.12);
+      --accent:#59d36a;
+      --chip:#162446;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:#fff; background:var(--bg);
-    }
+    body{margin:0; font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:#fff; background:var(--bg)}
 
-    /* Header */
-    .topbar{
-      background:#07101f;
-      color:#c9d3e6;
-      font-size:.92rem;
-      border-bottom:1px solid var(--line);
-    }
-    .topbar .wrap{
-      max-width:1200px; margin:auto; padding:6px 16px;
-      display:flex; align-items:center; gap:14px; justify-content:space-between;
-    }
-    .topbar .info{display:flex; gap:16px; opacity:.85}
+    /* topbar + nav */
+    .topbar{background:#07101f; color:#c9d3e6; font-size:.92rem; border-bottom:1px solid var(--line)}
+    .topbar .wrap{max-width:1200px; margin:auto; padding:6px 16px; display:flex; justify-content:space-between; gap:10px}
+    .topbar .info{display:flex; gap:16px; opacity:.9}
     .topbar a{color:#c9d3e6; text-decoration:none}
-    .topbar a:hover{color:#fff}
-
-    .nav{
-      position:sticky; top:0; z-index:40;
-      background:rgba(14,25,48,.9); backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--line);
-    }
-    .nav .wrap{
-      max-width:1200px; margin:auto; padding:12px 16px;
-      display:flex; align-items:center; gap:16px;
-    }
-    .brand{font-weight:800; letter-spacing:.4px}
-    .brand span:first-child{color:#fff}
+    .nav{position:sticky; top:0; z-index:40; background:rgba(14,25,48,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+    .nav .wrap{max-width:1200px; margin:auto; padding:12px 16px; display:flex; align-items:center; gap:16px}
+    .brand{font-weight:800}
     .brand span:last-child{color:var(--gold)}
     .spacer{flex:1}
-    .menu{display:flex; gap:24px; align-items:center}
+    .menu{display:flex; gap:22px; align-items:center}
     .menu a{color:#e8edf5; text-decoration:none; font-weight:700}
     .menu a:hover{color:var(--gold)}
-    .lang{
-      border:1px solid var(--gold); color:var(--gold);
-      background:transparent; border-radius:999px; padding:8px 14px;
-      font-weight:800; cursor:pointer;
-    }
+    .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:8px 14px; font-weight:800; cursor:pointer}
     .lang:hover{background:var(--gold); color:var(--ink)}
 
-    /* Hero */
+    /* hero */
     .hero{
-      position:relative; min-height:82vh; display:grid; place-items:center;
+      min-height:78vh; display:grid; place-items:end center; position:relative;
       background:
-        linear-gradient(180deg, rgba(7,12,22,.25) 0%, rgba(7,12,22,.60) 40%, rgba(7,12,22,.85) 100%),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+        linear-gradient(180deg, rgba(8,14,26,.25) 0%, rgba(8,14,26,.55) 40%, rgba(8,14,26,.85) 100%),
+        url('https://images.unsplash.com/photo-1502920917128-1aa500764b8a?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
     }
-    .hero-inner{max-width:1200px; padding:72px 16px 56px; width:100%}
-    .hero-text{max-width:750px}
-    .title{margin:0; font-weight:900; line-height:1.15; font-size:clamp(28px,6vw,58px)}
-    .subtitle{margin:10px 0 16px; font-weight:700; font-size:clamp(16px,2.6vw,22px); color:var(--gold-2)}
+    .hero-inner{max-width:1200px; width:100%; padding:64px 16px 24px}
+    .hero-text{max-width:820px}
+    .title{margin:0; font-weight:900; line-height:1.15; font-size:clamp(28px,6vw,56px)}
+    .subtitle{margin:10px 0 12px; font-weight:700; font-size:clamp(16px,2.6vw,22px); color:var(--gold-2)}
     .areas{color:#e9eef4; font-weight:700; opacity:.95}
 
-    /* Search Bar (Resale Box) */
-    .search{
-      margin-top:24px; background:rgba(255,255,255,.06); border:1px solid var(--line);
-      border-radius:16px; padding:12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;
-      max-width:920px;
+    /* mini projects row */
+    .projects{
+      margin-top:18px;
+      background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:16px;
+      padding:12px;
     }
-    .search .label{font-weight:800; color:#fff; margin-inline:8px}
+    .projects h4{margin:0 0 10px; font-weight:800; color:#fff}
+    .chips{
+      display:flex; gap:10px; overflow:auto; padding-bottom:4px; scrollbar-width:thin;
+    }
+    .chip{
+      display:flex; align-items:center; gap:8px;
+      background:var(--chip); color:#e9eef5; border:1px solid #2b3b5f;
+      padding:8px 12px; border-radius:999px; font-weight:800; white-space:nowrap;
+      text-decoration:none;
+    }
+    .chip i{color:var(--gold)}
+    .chip:hover{filter:brightness(1.05)}
+
+    /* search / resale box */
+    .search{
+      margin-top:16px; background:rgba(255,255,255,.08); border:1px solid var(--line);
+      border-radius:16px; padding:12px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; max-width:960px;
+    }
+    .label{font-weight:800}
     .select,.input{
-      appearance:none; -webkit-appearance:none;
-      background:#0f1a2e; color:#fff; border:1px solid #31405d;
+      appearance:none; background:#0f1a2e; color:#fff; border:1px solid #31405d;
       padding:12px 14px; border-radius:12px; font-weight:700; outline:none;
     }
     .select{min-width:210px}
     .input{min-width:260px; flex:1}
-    .go{
-      background:var(--accent); color:#0b1220; border:none; cursor:pointer;
-      padding:12px 18px; border-radius:12px; font-weight:900; display:inline-flex; align-items:center; gap:10px;
-    }
-    .go:hover{filter:brightness(1.04)}
-    .hint{font-size:.92rem; color:#cbd6ea; margin-top:6px; opacity:.9}
+    .input::placeholder{color:#cfe2ff}
+    .go{background:var(--accent); color:#0b1220; border:none; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:900; display:inline-flex; align-items:center; gap:10px}
+    .hint{font-size:.92rem; color:#cbd6ea; margin-top:6px; opacity:.95}
 
-    /* Destinations grid */
-    .dest{
-      max-width:1200px; margin:36px auto; padding:0 16px;
-      display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    }
-    .card{position:relative; border-radius:16px; overflow:hidden; background:var(--card); border:1px solid var(--line)}
-    .card img{width:100%; height:230px; object-fit:cover; display:block}
-    .card .pad{padding:16px}
-    .card h3{margin:0 0 6px 0}
-    .card p{margin:0; color:#cfd7e3}
-    .badge{
-      position:absolute; top:12px; right:12px; background:var(--gold); color:#0b1220;
-      font-weight:800; padding:7px 12px; border-radius:999px; font-size:.9rem
-    }
-    .more{margin-top:10px; display:inline-flex; align-items:center; gap:8px; color:var(--gold); text-decoration:none; font-weight:800}
-    .more:hover{color:#fff}
+    /* section title */
+    .sec{max-width:1200px; margin:28px auto 0; padding:0 16px}
 
-    /* Footer */
-    footer{margin-top:36px; border-top:1px solid var(--line); background:var(--bg)}
+    /* footer */
+    footer{margin-top:30px; border-top:1px solid var(--line); background:var(--bg)}
     .foot{max-width:1200px; margin:auto; padding:18px 16px; text-align:center; color:#b9c5d3}
     .social{margin-top:8px; display:flex; gap:14px; justify-content:center}
     .social a{ color:var(--gold); font-size:18px; text-decoration:none }
     .social a:hover{ color:#fff }
 
-    /* Light scheme */
     @media (prefers-color-scheme:light){
       body{color:#101828}
       .nav{background:#ffffffd9; border-color:#e8edf5}
       .menu a{color:#101828}
-      .card{background:#fff; border-color:#eef1f6}
-      .search{background:#fff; border-color:#eef1f6}
+      .projects,.search{background:#fff; border-color:#eef1f6}
+      .chip{background:#f5f7fb; border-color:#e3e8f3; color:#0f1a2e}
       .title{color:#0b1220}
     }
-
-    /* Small */
     @media (max-width:640px){
       .select{min-width:100%}
       .input{min-width:100%}
-      .search{padding:12px 12px 8px}
     }
   </style>
 </head>
 <body>
 
-  <!-- Top bar (optional quick contact) -->
+  <!-- Topbar -->
   <div class="topbar">
     <div class="wrap">
       <div class="info">
-        <span><i class="fa-solid fa-phone"></i> <a id="topPhone" href="tel:+201050072527">01050072527</a></span>
-        <span><i class="fa-solid fa-envelope"></i> <a id="topMail" href="mailto:eslam.realty.eg@gmail.com">eslam.realty.eg@gmail.com</a></span>
+        <span><i class="fa-solid fa-phone"></i> <a href="tel:+201050072527">01050072527</a></span>
+        <span><i class="fa-solid fa-envelope"></i> <a href="mailto:eslam.realty.eg@gmail.com">eslam.realty.eg@gmail.com</a></span>
       </div>
       <div class="info"><i class="fa-solid fa-location-dot"></i> Egypt</div>
     </div>
   </div>
 
-  <!-- Navbar -->
+  <!-- Nav -->
   <header class="nav">
     <div class="wrap">
-      <div class="brand"><span>Eslam</span> <span>Realty</span></div>
+      <div class="brand"><span>Eslam</span> <span style="color:var(--gold)">Realty</span></div>
       <div class="spacer"></div>
       <nav class="menu">
         <a href="#" data-i="navHome">الرئيسية</a>
@@ -177,7 +148,28 @@
         <p class="subtitle" data-i="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</p>
         <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
 
-        <!-- Search-like Resale box -->
+        <!-- Mini Projects (NEW) -->
+        <div class="projects">
+          <h4 data-i="projTitle">مشاريع جديدة</h4>
+          <div class="chips" id="chips">
+            <!-- Sokhna -->
+            <a class="chip" href="#" data-proj="Morano"><i class="fa-solid fa-building"></i><span>مورانو</span></a>
+            <a class="chip" href="#" data-proj="Lugano"><i class="fa-solid fa-building"></i><span>لاوجانو</span></a>
+            <a class="chip" href="#" data-proj="Lolo Beach"><i class="fa-solid fa-umbrella-beach"></i><span>لولو بيتش</span></a>
+            <a class="chip" href="#" data-proj="Dolphin Beach"><i class="fa-solid fa-water"></i><span>دولفين بيتش</span></a>
+            <a class="chip" href="#" data-proj="El-Hegaz"><i class="fa-solid fa-house-chimney"></i><span>الحجاز</span></a>
+            <!-- North Coast -->
+            <a class="chip" href="#" data-proj="South Med"><i class="fa-solid fa-location-dot"></i><span>South Med</span></a>
+            <a class="chip" href="#" data-proj="Fouka Bay"><i class="fa-solid fa-location-dot"></i><span>Fouka Bay</span></a>
+            <a class="chip" href="#" data-proj="Amwaj"><i class="fa-solid fa-location-dot"></i><span>Amwaj</span></a>
+            <!-- New Cairo -->
+            <a class="chip" href="#" data-proj="SODIC"><i class="fa-solid fa-city"></i><span>SODIC</span></a>
+            <a class="chip" href="#" data-proj="Hyde Park"><i class="fa-solid fa-tree"></i><span>Hyde Park</span></a>
+            <a class="chip" href="#" data-proj="Al Rehab"><i class="fa-solid fa-city"></i><span>الرحاب</span></a>
+          </div>
+        </div>
+
+        <!-- Resale Box -->
         <div class="search" role="region" aria-label="Resale">
           <span class="label" data-i="findLbl">ريسيل — اختر المنطقة:</span>
           <select id="area" class="select" aria-label="Area">
@@ -189,44 +181,9 @@
           <button id="goWhatsApp" class="go"><i class="fa-brands fa-whatsapp"></i><span data-i="goBtn">تابع على واتساب</span></button>
           <div class="hint" data-i="hint">اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)</div>
         </div>
+
       </div>
     </div>
-  </section>
-
-  <!-- Destinations -->
-  <section class="dest" aria-label="Destinations">
-    <!-- Sokhna -->
-    <article class="card">
-      <span class="badge" data-i="badgeNew">مقترحات</span>
-      <img id="imgSokhna" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1400&auto=format&fit=crop" alt="Ain Sokhna view" />
-      <div class="pad">
-        <h3 data-i="sokhnaH">العين السخنة</h3>
-        <p data-i="sokhnaP">فيو بحر من تراس ومشروعات مميزة بمرونة سداد .</p>
-        <a class="more" href="#" onclick="scrollToForm('sokhna')"><i class="fa-solid fa-arrow-left"></i><span data-i="viewMore">اختَر المنطقة في الريسيل</span></a>
-      </div>
-    </article>
-
-    <!-- North Coast -->
-    <article class="card">
-      <span class="badge" data-i="badgeHot">الأكثر طلبًا</span>
-      <img id="imgNorth" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400&auto=format&fit=crop" alt="North Coast beach" />
-      <div class="pad">
-        <h3 data-i="northH">الساحل الشمالي</h3>
-        <p data-i="northP">مواقع مميزة مثل South Med / Fouka Bay / Amwaj وغيرها.</p>
-        <a class="more" href="#" onclick="scrollToForm('northcoast')"><i class="fa-solid fa-arrow-left"></i><span data-i="viewMore">اختَر المنطقة في الريسيل</span></a>
-      </div>
-    </article>
-
-    <!-- New Cairo -->
-    <article class="card">
-      <span class="badge" data-i="badgePrime">موقع مميز</span>
-      <img id="imgCairo" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop" alt="New Cairo compounds" />
-      <div class="pad">
-        <h3 data-i="cairoH">القاهرة الجديدة</h3>
-        <p data-i="cairoP">اختيارات مثل الرحاب، التجمع الخامس، سوديك، هايد بارك..</p>
-        <a class="more" href="#" onclick="scrollToForm('cairo')"><i class="fa-solid fa-arrow-left"></i><span data-i="viewMore">اختَر المنطقة في الريسيل</span></a>
-      </div>
-    </article>
   </section>
 
   <!-- Footer -->
@@ -242,36 +199,30 @@
   </footer>
 
   <script>
-    // سنة
+    // السنة
     document.getElementById('y').textContent = new Date().getFullYear();
 
     const areaSel = document.getElementById('area');
     const placeIn = document.getElementById('place');
     const waBtn   = document.getElementById('goWhatsApp');
 
-    // Scroll helper from cards
-    function scrollToForm(val){
-      areaSel.value = val;
-      updatePlaceholder();
-      document.querySelector('.search').scrollIntoView({behavior:'smooth', block:'center'});
-      placeIn.focus();
-    }
-
-    // لغة
     let lang="ar";
 
-    // صور لكل منطقة (تقدر تغيّر الروابط بحرية)
-    const IMAGES = {
-      sokhna:"https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1400&auto=format&fit=crop",
-      north:"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400&auto=format&fit=crop", // South Med vibes
-      cairo:"https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop"  // Sodic/Hyde-park style city
-    };
-    document.getElementById('imgSokhna').src = IMAGES.sokhna;
-    document.getElementById('imgNorth').src  = IMAGES.north;
-    document.getElementById('imgCairo').src  = IMAGES.cairo;
+    // اضغط على أي "مشروع جديد" يملالك الخانة ويوديك واتساب
+    document.getElementById('chips').addEventListener('click', (e)=>{
+      const a = e.target.closest('a.chip');
+      if(!a) return;
+      e.preventDefault();
+      placeIn.value = a.dataset.proj;
+      updateWhatsApp(true);
+    });
 
-    // تحديث واتساب
-    function updateWhatsApp(){
+    function goWA(msg){
+      const url = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank");
+    }
+
+    function updateWhatsApp(openNow=false){
       const LABELS = {
         sokhna: lang==="ar" ? "العين السخنة" : "Ain Sokhna",
         northcoast: lang==="ar" ? "الساحل الشمالي" : "North Coast",
@@ -282,14 +233,10 @@
       const msgAr = place ? `مهتم بعقار في ${areaTxt} - ${place}` : `مهتم بعقار في ${areaTxt}`;
       const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
       const msg = (lang==="ar" ? msgAr : msgEn);
-      waBtn.onclick = (e)=>{
-        e.preventDefault();
-        const url = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
-        window.open(url, "_blank");
-      };
+      waBtn.onclick = (e)=>{ e.preventDefault(); goWA(msg); };
+      if(openNow){ goWA(msg); }
     }
 
-    // Placeholder حسب المنطقة واللغة
     function updatePlaceholder(){
       const isCairo = areaSel.value === "cairo";
       if(lang==="ar"){
@@ -310,30 +257,22 @@
         heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
         heroSub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
         heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
+        projTitle:"مشاريع جديدة",
         findLbl:"ريسيل — اختر المنطقة:",
         optSokhna:"العين السخنة", optNorth:"الساحل الشمالي", optCairo:"القاهرة الجديدة",
         goBtn:"تابع على واتساب",
-        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)",
-        badgeNew:"مقترحات", badgeHot:"الأكثر طلبًا", badgePrime:"موقع مميز",
-        sokhnaH:"العين السخنة", sokhnaP:"فيو بحر من تراس ومشروعات مميزة بمرونة سداد.",
-        northH:"الساحل الشمالي", northP:"مواقع مميزة مثل South Med / Fouka Bay / Amwaj وغيرها.",
-        cairoH:"القاهرة الجديدة", cairoP:"اختيارات مثل الرحاب، التجمع الخامس، سوديك، هايد بارك..",
-        viewMore:"اختَر المنطقة في الريسيل"
+        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)"
       },
       en:{
         navHome:"Home", navContact:"Contact",
         heroTitle:"Turn your property investment into a luxury experience",
         heroSub:"Private service for buying, selling & investing in prime locations",
         heroAreas:"Ain Sokhna • North Coast • New Cairo",
+        projTitle:"New Projects",
         findLbl:"Resale — Select area:",
         optSokhna:"Ain Sokhna", optNorth:"North Coast", optCairo:"New Cairo",
         goBtn:"Continue on WhatsApp",
-        hint:"Type the village for Sokhna/North Coast, or the place in New Cairo (e.g., Marassi / Madinaty / Hyde Park)",
-        badgeNew:"Featured", badgeHot:"Hot", badgePrime:"Prime",
-        sokhnaH:"Ain Sokhna", sokhnaP:"Sea-view terraces & flexible plans up to 6–8 years.",
-        northH:"North Coast", northP:"Prime spots like South Med, Fouka Bay, Amwaj & more.",
-        cairoH:"New Cairo", cairoP:"Choices like Al Rehab, Fifth Settlement, SODIC, Hyde Park.",
-        viewMore:"Pick area in the resale box"
+        hint:"Type the village for Sokhna/North Coast, or the place in New Cairo (e.g., Marassi / Madinaty / Hyde Park)"
       }
     };
 
@@ -351,4 +290,4 @@
     document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
   </script>
 </body>
-  </html>
+</html>
