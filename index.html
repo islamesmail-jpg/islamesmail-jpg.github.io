@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>إسلام محمد | وسيط عقاري</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220; --nav:#0f1a2e; --gold:#d4af37; --gold2:#e6c76d; --ink:#0b1220;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:"Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:#fff}
+
+    /* Header */
+    .nav{position:sticky; top:0; z-index:50; background:rgba(15,26,46,.85); border-bottom:1px solid rgba(255,255,255,.08); backdrop-filter:blur(8px)}
+    .nav-inner{max-width:1200px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
+    .brand{font-weight:800; color:var(--gold)}
+    .spacer{flex:1}
+    .menu{display:flex; gap:18px; align-items:center}
+    .menu a{color:#e8edf5; text-decoration:none; font-weight:700}
+    .menu a:hover{color:var(--gold)}
+    .lang{border:1px solid var(--gold); color:var(--gold); background:transparent; border-radius:999px; padding:6px 12px; font-weight:800; cursor:pointer}
+
+    /* Hero */
+    .hero{position:relative; min-height:78vh; display:grid; place-items:center;
+      background:
+        linear-gradient(0deg, rgba(11,18,32,.65), rgba(11,18,32,.65)),
+        url('hero.jpg') center/cover no-repeat;}
+    .hero-inner{max-width:1050px; padding:48px 18px; text-align:center}
+    .title{font-weight:800; line-height:1.2; font-size:clamp(28px,6vw,64px); color:#fff; text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .subtitle{margin-top:10px; font-weight:800; font-size:clamp(16px,2.8vw,26px); color:var(--gold2)}
+    .areas{margin-top:10px; color:#e9eef4; opacity:.9; font-weight:700}
+
+    /* Buttons */
+    .cta{margin-top:24px; display:flex; flex-wrap:wrap; justify-content:center; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; padding:12px 20px; border-radius:999px; font-weight:900; letter-spacing:.3px;
+      border:1px solid var(--gold); color:var(--gold); background:transparent; transition:.25s;
+    }
+    .btn:hover{background:var(--gold); color:var(--ink); box-shadow:0 8px 18px rgba(212,175,55,.25)}
+    .btn i{font-size:16px}
+
+    /* Interest box */
+    .box{margin:28px auto 0; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:20px; max-width:640px}
+    .box label{display:block; margin-bottom:10px; font-weight:800}
+    .select,.input{
+      width:100%; background:#0f1a2e; color:#fff; border:1px solid #2c3b57;
+      padding:12px 14px; border-radius:12px; font-weight:700; outline:none;
+    }
+    .input{margin-top:10px}
+    .hint{margin-top:6px; color:#d0dae6; font-size:.9rem}
+
+    /* Footer */
+    footer{ text-align:center; padding:16px; color:#b9c5d3; border-top:1px solid rgba(255,255,255,.08); background:var(--bg) }
+    .social{margin-top:8px; display:flex; gap:10px; justify-content:center}
+    .social a{ color:var(--gold); font-size:18px; text-decoration:none }
+    .social a:hover{ color:#fff }
+
+    @media (prefers-color-scheme:light){
+      body{color:#111827}
+      .nav{background:#ffffffcc; border-color:#e5e7eb}
+      .menu a{color:#111827}
+      .title{color:#0b1220}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand" data-i="brand">Eslam Realty</div>
+      <div class="spacer"></div>
+      <nav class="menu">
+        <a href="#" data-i="navHome">الرئيسية</a>
+        <a href="#contact" data-i="navContact">تواصل معنا</a>
+        <button id="lang" class="lang" aria-label="Toggle language">AR / EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="title" data-i="heroTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <div class="subtitle" data-i="heroSub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+      <div class="areas" data-i="heroAreas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+
+      <div class="cta">
+        <a class="btn" id="btn-call" href="tel:+201050072527"><i class="fa-solid fa-phone"></i><span data-i="btnCall">اتصال مباشر</span></a>
+        <a class="btn" id="btn-wa" href="https://wa.me/201050072527?text=%D8%A7%D9%87%D9%84%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%B9%D9%82%D8%A7%D8%B1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i="btnWhatsApp">استشارة واتساب</span></a>
+        <a class="btn" id="btn-mail" href="mailto:yourmail@example.com?subject=Property%20Inquiry"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+      </div>
+
+      <!-- Interest -->
+      <div class="box">
+        <label for="area" data-i="formArea">اختر المنطقة:</label>
+        <select id="area" class="select">
+          <option value="sokhna">العين السخنة</option>
+          <option value="northcoast">الساحل الشمالي</option>
+          <option value="cairo">القاهرة الجديدة</option>
+        </select>
+
+        <input id="place" class="input" type="text" placeholder="اكتب اسم القرية / المكان" />
+        <div class="hint" data-i="hint">
+          اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)
+        </div>
+
+        <div class="cta" style="margin-top:16px">
+          <a id="goWhatsApp" class="btn" href="#" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i><span data-i="formBtn">تابع على واتساب</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div>© <span id="y"></span> <span data-i="brand">Eslam Realty</span></div>
+    <div class="social">
+      <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="mailto:yourmail@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Elements
+    const areaSel = document.getElementById('area');
+    const placeIn = document.getElementById('place');
+    const waBtn   = document.getElementById('goWhatsApp');
+
+    // Build WA message
+    function updateWhatsApp(){
+      const LABELS = {
+        sokhna: lang==="ar" ? "العين السخنة" : "Ain Sokhna",
+        northcoast: lang==="ar" ? "الساحل الشمالي" : "North Coast",
+        cairo: lang==="ar" ? "القاهرة الجديدة" : "New Cairo"
+      };
+      const areaTxt = LABELS[areaSel.value] || "";
+      const place   = placeIn.value.trim();
+      const msgAr = place ? `مهتم بعقار في ${areaTxt} - ${place}` : `مهتم بعقار في ${areaTxt}`;
+      const msgEn = place ? `Interested in a property in ${areaTxt} - ${place}` : `Interested in a property in ${areaTxt}`;
+      const msg = (lang==="ar" ? msgAr : msgEn);
+      waBtn.href = "https://wa.me/201050072527?text=" + encodeURIComponent(msg);
+    }
+
+    // Placeholder per area & language
+    function updatePlaceholder(){
+      const isCairo = areaSel.value === "cairo";
+      if(lang==="ar"){
+        placeIn.placeholder = isCairo ? "اكتب اسم المكان (مثال: Madinaty / Hyde Park)" : "اكتب اسم القرية (مثال: Marassi / IL Monte Galala)";
+      } else {
+        placeIn.placeholder = isCairo ? "Type the place name (e.g., Madinaty / Hyde Park)" : "Type the village name (e.g., Marassi / IL Monte Galala)";
+      }
+    }
+
+    areaSel.addEventListener('change', ()=>{ updatePlaceholder(); updateWhatsApp(); });
+    placeIn.addEventListener('input',  updateWhatsApp);
+    updatePlaceholder(); updateWhatsApp();
+
+    // Language dictionary
+    const dict = {
+      ar:{
+        brand:"Eslam Realty",
+        navHome:"الرئيسية", navContact:"تواصل معنا",
+        heroTitle:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
+        heroSub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
+        heroAreas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
+        btnCall:"اتصال مباشر", btnWhatsApp:"استشارة واتساب",
+        formArea:"اختر المنطقة:", formBtn:"تابع على واتساب",
+        hint:"اكتب اسم القرية لو السخنة/الساحل، أو اسم المكان في القاهرة الجديدة (مثال: Marassi / Madinaty / Hyde Park)"
+      },
+      en:{
+        brand:"Eslam Realty",
+        navHome:"Home", navContact:"Contact",
+        heroTitle:"Turn your property investment into a luxury experience",
+        heroSub:"Private service for buying, selling & investing in prime locations",
+        heroAreas:"Ain Sokhna • North Coast • New Cairo",
+        btnCall:"Call Now", btnWhatsApp:"WhatsApp Consultation",
+        formArea:"Select area:", formBtn:"Continue on WhatsApp",
+        hint:"Type the village name for Sokhna/North Coast, or the place name in New Cairo (e.g., Marassi / Madinaty / Hyde Park)"
+      }
+    };
+
+    // Toggle language
+    let lang = "ar";
+    function setLang(l){
+      lang = l;
+      const map = dict[l];
+      document.querySelectorAll("[data-i]").forEach(el=>{
+        const k = el.getAttribute("data-i");
+        if(map[k]) el.textContent = map[k];
+      });
+      document.documentElement.lang = (l==="ar"?"ar":"en");
+      document.documentElement.dir  = (l==="ar"?"rtl":"ltr");
+      updatePlaceholder(); updateWhatsApp();
+    }
+    document.getElementById("lang").addEventListener("click", ()=> setLang(lang==="ar"?"en":"ar"));
+  </script>
+</body>
+  </html>
