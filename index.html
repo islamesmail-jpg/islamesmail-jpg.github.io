@@ -14,7 +14,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .nav{position:sticky;top:0;z-index:60;background:#f3f4f6;border-bottom:1px solid #e5e7eb}
 .navin{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
 .brand{font-weight:800;color:#b58b00}
-.navlinks{list-style:none;display:flex;gap:16px;margin:0}
+.navlinks{list-style:none;display:flex;gap:16px;margin:0;padding:0}
 .navlinks a{color:#111827;text-decoration:none;font-weight:800}
 .navlinks a:hover{color:#b58b00}
 .lang{margin-inline-start:auto;display:flex;gap:8px}
@@ -271,53 +271,67 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   </div>
 </section>
 
-<footer class="section container page" id="footF" style="display:none"></footer>
-
 <script>
-/* ===== Helpers ===== */
+/* ===== Utilities ===== */
+const $ = (id)=>document.getElementById(id);
+
+/* Static */
 const WA="201050072527";
-const ICON="https://i.top4top.io/p_3520bchvg0.png"; // أيقونة المشروع
-year.textContent=new Date().getFullYear();
+const ICON="https://i.top4top.io/p_3520bchvg0.png";
 
-/* Contact dropdown */
-contactBtn.addEventListener('click', (e)=>{
-  e.stopPropagation();
-  contactMenu.style.display = contactMenu.style.display==='block' ? 'none' : 'block';
-});
-document.addEventListener('click', ()=> contactMenu.style.display='none');
+/* Year */
+const yearEl = $('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ===== Router ===== */
+/* Contact dropdown (robust) */
+const contactBtnEl=$('contactBtn'), contactMenuEl=$('contactMenu');
+if(contactBtnEl && contactMenuEl){
+  contactBtnEl.addEventListener('click',(e)=>{e.stopPropagation();contactMenuEl.style.display=contactMenuEl.style.display==='block'?'none':'block';});
+  document.addEventListener('click',()=>contactMenuEl.style.display='none');
+}
+
+/* ===== Router (no globals) ===== */
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
   (document.getElementById(id)||document.getElementById('home')).classList.add('show');
-  window.scrollTo({top:0,behavior:'instant'});
+  try{window.scrollTo({top:0,behavior:'instant'});}catch{window.scrollTo(0,0);}
 }
 function goto(id){ location.hash=id; showPage(id); }
-window.addEventListener('hashchange', ()=> showPage(location.hash.slice(1)||'home') );
-window.addEventListener('load', ()=> showPage(location.hash.slice(1)||'home') );
+window.addEventListener('hashchange',()=>showPage(location.hash.slice(1)||'home'));
+window.addEventListener('load',()=>showPage(location.hash.slice(1)||'home'));
 document.body.addEventListener('click',(e)=>{
-  const t=e.target.closest('[data-route]'); if(t){e.preventDefault(); goto(t.getAttribute('data-route')); }
+  const t=e.target.closest('[data-route]'); if(t){ e.preventDefault(); goto(t.getAttribute('data-route')); }
 });
 
 /* ===== Resale flow ===== */
-goNext.addEventListener('click',()=>{
-  const area=resaleArea.value; const place=resalePlace.value.trim();
-  sessionStorage.setItem('r_area',area); sessionStorage.setItem('r_place',place);
-  document.querySelector('#uType .shaleh').disabled = !/(السخنة|الساحل)/.test(area);
-});
-sendResale.onclick=()=>{
-  const msg=[
-    "طلب ريسيل",
-    `المنطقة: ${sessionStorage.getItem('r_area')||'—'}`,
-    `المكان: ${sessionStorage.getItem('r_place')||'—'}`,
-    `نوع الوحدة: ${uType.value}`,
-    `الغرف: ${rooms.value}`,
-    `الدور: ${floor.value}`,
-    `الميزانية: ${budget.value||'—'}`,
-    `ملاحظات: ${note.value||'—'}`
-  ].join(" | ");
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
-};
+const resaleArea=$('resaleArea'), resalePlace=$('resalePlace'), goNext=$('goNext');
+if(goNext){
+  goNext.addEventListener('click',()=>{
+    sessionStorage.setItem('r_area',resaleArea?resaleArea.value:'');
+    sessionStorage.setItem('r_place',resalePlace?resalePlace.value.trim():'');
+    const shaleh = document.querySelector('#uType .shaleh');
+    if(shaleh){
+      const a = sessionStorage.getItem('r_area')||'';
+      shaleh.disabled = !/(السخنة|الساحل)/.test(a);
+    }
+  });
+}
+const sendResale=$('sendResale');
+if(sendResale){
+  sendResale.addEventListener('click',()=>{
+    const uType=$('uType'), rooms=$('rooms'), floor=$('floor'), budget=$('budget'), note=$('note');
+    const msg=[
+      "طلب ريسيل",
+      `المنطقة: ${sessionStorage.getItem('r_area')||'—'}`,
+      `المكان: ${sessionStorage.getItem('r_place')||'—'}`,
+      `نوع الوحدة: ${uType?uType.value:'—'}`,
+      `الغرف: ${rooms?rooms.value:'—'}`,
+      `الدور: ${floor?floor.value:'—'}`,
+      `الميزانية: ${budget&&(budget.value||'—')}`,
+      `ملاحظات: ${note&&(note.value||'—')}`
+    ].join(" | ");
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+  });
+}
 
 /* ===== Data (30/30/40 تقريبًا) ===== */
 const NORTH=[ "MADIN Ras El Hekma","Solare","Hacienda West","Salt","The Med North Coast",
@@ -341,15 +355,18 @@ const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway",
 
 /* ===== Draw project cards ===== */
 function draw(list,wrapId,isSea){
-  const wrap=document.getElementById(wrapId); wrap.innerHTML="";
+  const wrap=$(wrapId); if(!wrap){return;}
+  wrap.innerHTML="";
   list.forEach(name=>{
-    const card=document.createElement('div'); card.className='card';
     const add=isSea?" / شاليه":"";
-    const text=`استفسار عن مشروع: ${name} | احتياجي (شقة/فيلا/استوديو/بنتهاوس/دوبلكس/روف${isSea?add:''}) + عدد الغرف + الدور + الميزانية. برجاء إرسال الأسعار والتفاصيل.`;
-    card.innerHTML=`<img src="${ICON}" alt="${name}">
+    const msg=`استفسار عن مشروع: ${name} | احتياجي (شقة/فيلا/استوديو/بنتهاوس/دوبلكس/روف${isSea?add:''}) + عدد الغرف + الدور + الميزانية. برجاء إرسال الأسعار والتفاصيل.`;
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`
+      <img src="${ICON}" alt="${name}">
       <div class="body">
         <div class="name">${name}</div>
-        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(text)}">${currentLang==='ar'?'اسأل':'Ask'}</a>
+        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">${currentLang==='ar'?'اسأل':'Ask'}</a>
       </div>`;
     wrap.appendChild(card);
   });
@@ -360,15 +377,17 @@ draw(CAIRO,'wrap-cairo',false);
 
 /* ===== Can't-find forms -> WA ===== */
 function sendAny(prefix){
-  const n=document.getElementById(prefix+'Name').value;
-  const t=document.getElementById(prefix+'Type').value;
-  const r=document.getElementById(prefix+'Rooms').value;
-  const h=document.getElementById(prefix+'Hand').value;
-  const no=document.getElementById(prefix+'Note').value;
-  const msg=`مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'} | من فضلك ابعت كل التفاصيل والأسعار.`;
+  const n=$(prefix+'Name')?.value;
+  const t=$(prefix+'Type')?.value;
+  const r=$(prefix+'Rooms')?.value;
+  const h=$(prefix+'Hand')?.value;
+  const no=$(prefix+'Note')?.value;
+  const msg=`مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t||'—'} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'} | من فضلك ابعت كل التفاصيل والأسعار.`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
-anSend.onclick=()=>sendAny('an'); asSend.onclick=()=>sendAny('as'); acSend.onclick=()=>sendAny('ac');
+$('anSend')?.addEventListener('click',()=>sendAny('an'));
+$('asSend')?.addEventListener('click',()=>sendAny('as'));
+$('acSend')?.addEventListener('click',()=>sendAny('ac'));
 
 /* ===== Language ===== */
 let currentLang='ar';
@@ -383,13 +402,4 @@ const T={
       rNext:"إرسال / التالي »",
       rHint:"بعد «التالي» هتدخل نوع الوحدة والغرف والدور والميزانية ثم نرسلها على واتساب.",
       capS:"العين السخنة 🏖️",capN:"الساحل الشمالي 🌊",capC:"القاهرة الجديدة 🏡",
-      r2:"تفاصيل الوحدة",lType:"نوع الوحدة",lRooms:"عدد الغرف",lFloor:"الدور المفضل",lBudget:"الميزانية (جنيه)",
-      sendWa:"إرسال إلى واتساب",back:"رجوع",
-      pS:"مشاريع العين السخنة",pN:"مشاريع الساحل الشمالي",pC:"مشاريع القاهرة الجديدة",
-      miss:"مش لاقي مشروعك؟ ابعتلنا:",
-      fWa:"💬 واتساب",fCall:"📞 اتصال",fMail:"✉️ Email"},
-  en:{brand:"Eslam",home:"Home",pro:"Projects",contact:"Contact",
-      call:"Call Now",wa:"WhatsApp Advice",mail:"Email ✉️",
-      cCall:"📞 Call",cWa:"💬 WhatsApp",cMail:"✉️ Email",
-      h1:"Turn your property investment into a luxury experience",
-      hs:"Private servi
+      r2:"تفاص
