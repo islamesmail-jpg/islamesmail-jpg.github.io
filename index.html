@@ -7,8 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--gold2:#f0d86a;--card:#101829;--line:#2a3958;--bg2:#0f1627}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,Arial}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,Arial}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:60;background:#f3f4f6;border-bottom:1px solid #e5e7eb}
@@ -25,43 +24,42 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .menu a:hover{background:#f3f4f6}
 
 /* HERO */
-.hero{position:relative;min-height:64vh;display:grid;place-items:center;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover}
-.overlay{background:rgba(11,15,25,.76);width:100%;height:100%;display:grid;place-items:center;padding:48px 16px}
+.hero{position:relative;min-height:58vh;display:grid;place-items:center;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover}
+.overlay{background:rgba(11,15,25,.76);width:100%;height:100%;display:grid;place-items:center;padding:40px 16px}
 .hinner{max-width:980px;text-align:center}
-.h1{margin:0;font-size:clamp(26px,5.6vw,52px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.5)}
-.hsub{margin-top:10px;color:var(--gold2);font-weight:800;font-size:clamp(15px,2.2vw,21px)}
+.h1{margin:0;font-size:clamp(26px,5.6vw,50px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.5)}
+.hsub{margin-top:10px;color:var(--gold2);font-weight:800;font-size:clamp(15px,2.2vw,20px)}
 .hareas{margin-top:8px;font-weight:700}
 .hact{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 .btn{padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
 .btn:hover{background:var(--gold);color:#111}
 
 /* SECTION + containers */
-.section{padding:26px 16px}
+.section{padding:24px 16px}
 .container{max-width:1100px;margin:auto}
 
 /* RESELL */
 .box{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px}
-.box h3{margin:0 0 12px;font-size:1.25rem}
+.box h3{margin:0 0 12px;font-size:1.15rem}
 .select,.input,.textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
 .mt8{margin-top:8px}.mt12{margin-top:12px}
 .row{display:grid;gap:12px}.col-2{grid-template-columns:repeat(2,1fr)}
 .center{display:flex;justify-content:center}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
 
-/* Tiles: 3 أعمدة دايمًا */
+/* Tiles (3 أعمدة على كل المقاسات) */
 .tiles{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 .tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer}
 .tile img{width:100%;height:160px;object-fit:cover;display:block}
 .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
 
 /* Pages */
-.page{display:none}
-.page.show{display:block}
+.page{display:none}.page.show{display:block}
 .pg-hero{position:relative;border:1px solid #2b3a57;border-radius:16px;overflow:hidden}
-.pg-hero img{width:100%;height:190px;object-fit:cover;display:block;opacity:.95}
+.pg-hero img{width:100%;height:190px;object-fit:cover;display:block}
 .pg-hero .title{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800}
 
-/* Projects grid: 3 عبر كل المقاسات */
+/* Projects grid: 3 أعمدة دائمًا */
 .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .card img{width:100%;height:78px;object-fit:contain;background:#0e1425}
@@ -272,24 +270,19 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 </section>
 
 <script>
-/* ===== Utilities ===== */
+/* ===== Helpers ===== */
 const $ = (id)=>document.getElementById(id);
-
-/* Static */
 const WA="201050072527";
 const ICON="https://i.top4top.io/p_3520bchvg0.png";
 
 /* Year */
-const yearEl = $('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
+$('year').textContent=new Date().getFullYear();
 
-/* Contact dropdown (robust) */
-const contactBtnEl=$('contactBtn'), contactMenuEl=$('contactMenu');
-if(contactBtnEl && contactMenuEl){
-  contactBtnEl.addEventListener('click',(e)=>{e.stopPropagation();contactMenuEl.style.display=contactMenuEl.style.display==='block'?'none':'block';});
-  document.addEventListener('click',()=>contactMenuEl.style.display='none');
-}
+/* Contact dropdown */
+$('contactBtn').addEventListener('click',(e)=>{e.stopPropagation();const m=$('contactMenu');m.style.display=m.style.display==='block'?'none':'block';});
+document.addEventListener('click',()=>{const m=$('contactMenu'); if(m) m.style.display='none';});
 
-/* ===== Router (no globals) ===== */
+/* ===== Router ===== */
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
   (document.getElementById(id)||document.getElementById('home')).classList.add('show');
@@ -299,41 +292,31 @@ function goto(id){ location.hash=id; showPage(id); }
 window.addEventListener('hashchange',()=>showPage(location.hash.slice(1)||'home'));
 window.addEventListener('load',()=>showPage(location.hash.slice(1)||'home'));
 document.body.addEventListener('click',(e)=>{
-  const t=e.target.closest('[data-route]'); if(t){ e.preventDefault(); goto(t.getAttribute('data-route')); }
+  const t=e.target.closest('[data-route]'); if(t){e.preventDefault();goto(t.getAttribute('data-route'));}
 });
 
 /* ===== Resale flow ===== */
-const resaleArea=$('resaleArea'), resalePlace=$('resalePlace'), goNext=$('goNext');
-if(goNext){
-  goNext.addEventListener('click',()=>{
-    sessionStorage.setItem('r_area',resaleArea?resaleArea.value:'');
-    sessionStorage.setItem('r_place',resalePlace?resalePlace.value.trim():'');
-    const shaleh = document.querySelector('#uType .shaleh');
-    if(shaleh){
-      const a = sessionStorage.getItem('r_area')||'';
-      shaleh.disabled = !/(السخنة|الساحل)/.test(a);
-    }
-  });
-}
-const sendResale=$('sendResale');
-if(sendResale){
-  sendResale.addEventListener('click',()=>{
-    const uType=$('uType'), rooms=$('rooms'), floor=$('floor'), budget=$('budget'), note=$('note');
-    const msg=[
-      "طلب ريسيل",
-      `المنطقة: ${sessionStorage.getItem('r_area')||'—'}`,
-      `المكان: ${sessionStorage.getItem('r_place')||'—'}`,
-      `نوع الوحدة: ${uType?uType.value:'—'}`,
-      `الغرف: ${rooms?rooms.value:'—'}`,
-      `الدور: ${floor?floor.value:'—'}`,
-      `الميزانية: ${budget&&(budget.value||'—')}`,
-      `ملاحظات: ${note&&(note.value||'—')}`
-    ].join(" | ");
-    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
-  });
-}
+$('goNext').addEventListener('click',()=>{
+  sessionStorage.setItem('r_area',$('resaleArea').value);
+  sessionStorage.setItem('r_place',$('resalePlace').value.trim());
+  const shaleh=document.querySelector('#uType .shaleh');
+  if(shaleh){ shaleh.disabled=!/(السخنة|الساحل)/.test(sessionStorage.getItem('r_area')||''); }
+});
+$('sendResale').addEventListener('click',()=>{
+  const msg=[
+    "طلب ريسيل",
+    `المنطقة: ${sessionStorage.getItem('r_area')||'—'}`,
+    `المكان: ${sessionStorage.getItem('r_place')||'—'}`,
+    `نوع الوحدة: ${$('uType').value}`,
+    `الغرف: ${$('rooms').value}`,
+    `الدور: ${$('floor').value}`,
+    `الميزانية: ${$('budget').value||'—'}`,
+    `ملاحظات: ${$('note').value||'—'}`
+  ].join(" | ");
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+});
 
-/* ===== Data (30/30/40 تقريبًا) ===== */
+/* ===== Data ===== */
 const NORTH=[ "MADIN Ras El Hekma","Solare","Hacienda West","Salt","The Med North Coast",
   "June SODIC","Ramlah (Marakez)","Mountain View Ras El Hekma","Swan Lake North Coast","El Maseef",
   "Hyde Park North","D-BAY (Tatweer Misr)","Silversands (ORA)","Direction White","UUD Ras El Hekma",
@@ -348,15 +331,19 @@ const SOKHNA=[ "Lugano AOG","La Vista Topaz","La Vista 7","Telal Sokhna","La Vis
   "Stella Di Mare","Majada","Kai Sokhna","Ein Bay","El Galala City",
   "Sokhna Hills","Azadir Sokhna","Sokhna View","Blue Blue","Mountain View Sokhna"];
 
-const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway","Taj City","Eastown Residence (SODIC)","El Patio Oro (La Vista)","Villette (SODIC)","Palm Hills New Cairo",
-  "Fifth Square","Bloomfields","Zed East","Cairo Festival City","Galleria Moon Valley","Layan","Katameya Dunes","Katameya Heights (Resale)","Lake View Residence","Trio Gardens",
-  "Palm Hills Gardens","Mountain View Hyde Park","La Mirada","Regents Park","Creek Town","District 5 (Marakez)","Nyoum New Cairo","The Brooks","The Iconic City","The Square",
-  "Swan Lake Residences","The MarQ","90 Avenue","Odyssia (Mostakbal)","Il Bosco City","La Vista City","Al Burouj","Midtown Sky","The City of Odyssia - Aria","Bloomfields IO"];
+const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway","Taj City",
+  "Eastown Residence (SODIC)","El Patio Oro (La Vista)","Villette (SODIC)","Palm Hills New Cairo",
+  "Fifth Square","Bloomfields","Zed East","Cairo Festival City","Galleria Moon Valley","Layan",
+  "Katameya Dunes","Katameya Heights (Resale)","Lake View Residence","Trio Gardens",
+  "Palm Hills Gardens","Mountain View Hyde Park","La Mirada","Regents Park","Creek Town",
+  "District 5 (Marakez)","Nyoum New Cairo","The Brooks","The Iconic City","The Square",
+  "Swan Lake Residences","The MarQ","90 Avenue","Odyssia (Mostakbal)","Il Bosco City",
+  "La Vista City","Al Burouj","Midtown Sky","The City of Odyssia - Aria","Bloomfields IO"];
 
 /* ===== Draw project cards ===== */
+const current = { lang:'ar' };
 function draw(list,wrapId,isSea){
-  const wrap=$(wrapId); if(!wrap){return;}
-  wrap.innerHTML="";
+  const wrap=$(wrapId); wrap.innerHTML="";
   list.forEach(name=>{
     const add=isSea?" / شاليه":"";
     const msg=`استفسار عن مشروع: ${name} | احتياجي (شقة/فيلا/استوديو/بنتهاوس/دوبلكس/روف${isSea?add:''}) + عدد الغرف + الدور + الميزانية. برجاء إرسال الأسعار والتفاصيل.`;
@@ -366,7 +353,7 @@ function draw(list,wrapId,isSea){
       <img src="${ICON}" alt="${name}">
       <div class="body">
         <div class="name">${name}</div>
-        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">${currentLang==='ar'?'اسأل':'Ask'}</a>
+        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">${current.lang==='ar'?'اسأل':'Ask'}</a>
       </div>`;
     wrap.appendChild(card);
   });
@@ -377,20 +364,15 @@ draw(CAIRO,'wrap-cairo',false);
 
 /* ===== Can't-find forms -> WA ===== */
 function sendAny(prefix){
-  const n=$(prefix+'Name')?.value;
-  const t=$(prefix+'Type')?.value;
-  const r=$(prefix+'Rooms')?.value;
-  const h=$(prefix+'Hand')?.value;
-  const no=$(prefix+'Note')?.value;
+  const n=$(prefix+'Name').value, t=$(prefix+'Type').value, r=$(prefix+'Rooms').value, h=$(prefix+'Hand').value, no=$(prefix+'Note').value;
   const msg=`مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t||'—'} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'} | من فضلك ابعت كل التفاصيل والأسعار.`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
-$('anSend')?.addEventListener('click',()=>sendAny('an'));
-$('asSend')?.addEventListener('click',()=>sendAny('as'));
-$('acSend')?.addEventListener('click',()=>sendAny('ac'));
+$('anSend').onclick=()=>sendAny('an');
+$('asSend').onclick=()=>sendAny('as');
+$('acSend').onclick=()=>sendAny('ac');
 
 /* ===== Language ===== */
-let currentLang='ar';
 const T={
   ar:{brand:"إسلام",home:"الرئيسية",pro:"المشاريع",contact:"التواصل",
       call:"اتصال مباشر",wa:"استشارة واتساب",mail:"Email ✉️",
@@ -402,4 +384,49 @@ const T={
       rNext:"إرسال / التالي »",
       rHint:"بعد «التالي» هتدخل نوع الوحدة والغرف والدور والميزانية ثم نرسلها على واتساب.",
       capS:"العين السخنة 🏖️",capN:"الساحل الشمالي 🌊",capC:"القاهرة الجديدة 🏡",
-      r2:"تفاص
+      r2:"تفاصيل الوحدة",lType:"نوع الوحدة",lRooms:"عدد الغرف",lFloor:"الدور المفضل",lBudget:"الميزانية (جنيه)",
+      sendWa:"إرسال إلى واتساب",back:"رجوع",
+      pS:"مشاريع العين السخنة",pN:"مشاريع الساحل الشمالي",pC:"مشاريع القاهرة الجديدة",
+      miss:"مش لاقي مشروعك؟ ابعتلنا:",
+      fWa:"💬 واتساب",fCall:"📞 اتصال",fMail:"✉️ Email"},
+  en:{brand:"Eslam",home:"Home",pro:"Projects",contact:"Contact",
+      call:"Call Now",wa:"WhatsApp Advice",mail:"Email ✉️",
+      cCall:"📞 Call",cWa:"💬 WhatsApp",cMail:"✉️ Email",
+      h1:"Turn your property investment into a luxury experience",
+      hs:"Private service for buying, selling & investing in prime locations",
+      ha:"Ain Sokhna • North Coast • New Cairo",
+      r1:"Resale — choose area and type the place",
+      rNext:"Send / Next »",
+      rHint:"After Next, add unit details (type/rooms/floor/budget), then we'll send on WhatsApp.",
+      capS:"Ain Sokhna 🏖️",capN:"North Coast 🌊",capC:"New Cairo 🏡",
+      r2:"Unit Details",lType:"Unit Type",lRooms:"Bedrooms",lFloor:"Preferred floor",lBudget:"Budget (EGP)",
+      sendWa:"Send to WhatsApp",back:"Back",
+      pS:"Ain Sokhna Projects",pN:"North Coast Projects",pC:"New Cairo Projects",
+      miss:"Can't find your project? Send:",
+      fWa:"💬 WhatsApp",fCall:"📞 Call",fMail:"✉️ Email"}
+};
+function applyLang(l){
+  document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.documentElement.lang=l;
+  $('brand').textContent=T[l].brand; $('navHome').textContent=T[l].home; $('navProjects').textContent=T[l].pro;
+  $('contactBtn').textContent=T[l].contact;
+  $('hTitle').textContent=T[l].h1; $('hSub').textContent=T[l].hs; $('hAreas').textContent=T[l].ha;
+  $('hCall').textContent=T[l].call; $('hWa').textContent=T[l].wa; $('hMail').textContent=T[l].mail;
+  $('cPhone').textContent=T[l].cCall; $('cWhats').textContent=T[l].cWa; $('cMail').textContent=T[l].cMail;
+  $('rTitle').textContent=T[l].r1; $('goNext').textContent=T[l].rNext; $('rHint').textContent=T[l].rHint;
+  $('capS').textContent=T[l].capS; $('capN').textContent=T[l].capN; $('capC').textContent=T[l].capC;
+  $('r2Title').textContent=T[l].r2; $('lType').textContent=T[l].lType; $('lRooms').textContent=T[l].lRooms; $('lFloor').textContent=T[l].lFloor; $('lBudget').textContent=T[l].lBudget;
+  $('sendResale').textContent=T[l].sendWa; $('backHome').textContent=T[l].back;
+  $('phS').textContent=T[l].pS; $('phN').textContent=T[l].pN; $('phC').textContent=T[l].pC;
+  $('missS').textContent=T[l].miss; $('missN').textContent=T[l].miss; $('missC').textContent=T[l].miss;
+  $('fWa').textContent=T[l].fWa; $('fCall').textContent=T[l].fCall; $('fMail').textContent=T[l].fMail;
+  current.lang=l;
+  draw(NORTH,'wrap-north',true);
+  draw(SOKHNA,'wrap-sokhna',true);
+  draw(CAIRO,'wrap-cairo',false);
+}
+$('langToggle').onclick=()=>applyLang(current.lang==='ar'?'en':'ar');
+applyLang('ar');
+</script>
+</body>
+</html>
