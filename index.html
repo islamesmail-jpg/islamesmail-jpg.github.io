@@ -53,11 +53,24 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .center{display:flex;justify-content:center}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
 
-/* Tiles */
+/* ===== Tiles (تحسين الشكل) ===== */
 .tiles{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
-.tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer}
-.tile img{width:100%;height:160px;object-fit:cover;display:block}
-.cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
+.tile{
+  position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid #3a4b70;background:#0d1629;cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease
+}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.35);border-color:#45629c}
+.tile img{width:100%;height:180px;object-fit:cover;display:block;filter:saturate(1.07) contrast(1.03)}
+.cap{
+  position:absolute;left:12px;right:12px;bottom:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  color:var(--gold);border:1px solid rgba(228,194,74,.6);
+  padding:10px 14px;border-radius:14px;font-weight:800;text-align:center;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)
+}
 
 /* Pages */
 .page{display:none}.page.show{display:block}
@@ -65,13 +78,34 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .pg-hero img{width:100%;height:190px;object-fit:cover;display:block}
 .pg-hero .title{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800}
 
-/* Projects grid */
-.grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;height:74px;object-fit:contain;background:#0e1425}
-.card .body{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.name{font-weight:800}
-.ask{white-space:nowrap}
+/* ===== Projects grid (تحسين الكارت) ===== */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);margin-top:16px}
+.card{
+  background:linear-gradient(180deg,#0f1729 0%, #0b1323 100%);
+  border:1px solid #2f3f64;border-radius:16px;overflow:hidden;
+  display:flex;flex-direction:column;min-height:160px;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.35);border-color:#425a8a}
+
+/* أيقونة صغيرة ومتمركزة */
+.card img{
+  width:72px;height:72px;object-fit:contain;display:block;
+  margin:14px auto 0 auto;background:transparent;filter:contrast(1.1) saturate(1.05)
+}
+
+/* منطقة العنوان والزر */
+.card .body{
+  padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  margin-top:8px;border-top:1px solid rgba(255,255,255,.06)
+}
+.name{font-weight:800;line-height:1.2;font-size:clamp(14px,2.2vw,15px)}
+.ask{
+  white-space:nowrap;padding:8px 14px;border-radius:999px;border:1.6px solid var(--gold);
+  color:var(--gold);background:transparent;font-weight:900;text-decoration:none
+}
+.ask:hover{background:var(--gold);color:#111}
 
 /* mini form */
 .form-mini{margin-top:18px;border-top:1px dashed #334;padding-top:12px}
@@ -433,9 +467,7 @@ function setLang(lang){
   $('sendResale').textContent=t.sendWa; $('backHome').textContent=t.back;
   $('phS').textContent=t.pS; $('phN').textContent=t.pN; $('phC').textContent=t.pC;
   $('missN').textContent=t.miss; $('missS').textContent=t.miss; $('missC').textContent=t.miss;
-  // buttons in cards
-  const asks=document.querySelectorAll('.ask'); asks.forEach(b=>b.textContent=t.ask);
-  // contact menu
+  document.querySelectorAll('.ask').forEach(b=>b.textContent=t.ask);
   $('cPhone').textContent=t.cCall; $('cWhats').textContent=t.cWa; $('cMail').textContent=t.cMail;
 }
 let CUR='ar';
