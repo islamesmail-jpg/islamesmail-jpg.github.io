@@ -25,30 +25,30 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .menu a:hover{background:#f3f4f6}
 
 /* HERO */
-.hero{position:relative;min-height:70vh;display:grid;place-items:center;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover}
-.overlay{background:rgba(11,15,25,.76);width:100%;height:100%;display:grid;place-items:center;padding:56px 16px}
+.hero{position:relative;min-height:64vh;display:grid;place-items:center;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover}
+.overlay{background:rgba(11,15,25,.76);width:100%;height:100%;display:grid;place-items:center;padding:48px 16px}
 .hinner{max-width:980px;text-align:center}
-.h1{margin:0;font-size:clamp(28px,6vw,56px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.5)}
-.hsub{margin-top:10px;color:var(--gold2);font-weight:800;font-size:clamp(16px,2.4vw,22px)}
+.h1{margin:0;font-size:clamp(26px,5.6vw,52px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.5)}
+.hsub{margin-top:10px;color:var(--gold2);font-weight:800;font-size:clamp(15px,2.2vw,21px)}
 .hareas{margin-top:8px;font-weight:700}
 .hact{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 .btn{padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
 .btn:hover{background:var(--gold);color:#111}
 
 /* SECTION + containers */
-.section{padding:28px 16px}
+.section{padding:26px 16px}
 .container{max-width:1100px;margin:auto}
 
 /* RESELL */
 .box{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px}
-.box h3{margin:0 0 12px;font-size:1.35rem}
+.box h3{margin:0 0 12px;font-size:1.25rem}
 .select,.input,.textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
 .mt8{margin-top:8px}.mt12{margin-top:12px}
 .row{display:grid;gap:12px}.col-2{grid-template-columns:repeat(2,1fr)}
 .center{display:flex;justify-content:center}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
 
-/* Tiles */
+/* Tiles: 3 أعمدة دايمًا */
 .tiles{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 .tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer}
 .tile img{width:100%;height:160px;object-fit:cover;display:block}
@@ -57,14 +57,14 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 /* Pages */
 .page{display:none}
 .page.show{display:block}
-.pg-hero{position:relative;border:1px solid #2b3a57;border-radius:16px;overflow:hidden;background:url('https://d.top4top.io/p_3520alr3r0.png') center/cover}
-.pg-hero img{width:100%;height:210px;object-fit:cover;display:block;opacity:.92}
+.pg-hero{position:relative;border:1px solid #2b3a57;border-radius:16px;overflow:hidden}
+.pg-hero img{width:100%;height:190px;object-fit:cover;display:block;opacity:.95}
 .pg-hero .title{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800}
 
-/* Projects grid */
+/* Projects grid: 3 عبر كل المقاسات */
 .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;height:74px;object-fit:contain;background:#0e1425}
+.card img{width:100%;height:78px;object-fit:contain;background:#0e1425}
 .card .body{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .name{font-weight:800}
 .ask{white-space:nowrap}
@@ -74,7 +74,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .form-mini h4{margin:0 0 10px}
 
 /* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px;margin-top:24px}
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:22px}
 .social{margin-top:10px;display:flex;gap:10px;justify-content:center}
 .sbtn{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:800}
 </style>
@@ -103,7 +103,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </div>
 </header>
 
-<!-- ===== HOME ===== -->
+<!-- ============= HOME ============= -->
 <main id="home" class="page show">
   <section class="hero">
     <div class="overlay">
@@ -143,13 +143,13 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   <!-- TILES -->
   <section class="section container">
     <div class="tiles">
-      <button class="tile" data-route="sokhna">
-        <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
-        <div class="cap" id="capS">العين السخنة 🏖️</div>
-      </button>
       <button class="tile" data-route="north">
         <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
         <div class="cap" id="capN">الساحل الشمالي 🌊</div>
+      </button>
+      <button class="tile" data-route="sokhna">
+        <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
+        <div class="cap" id="capS">العين السخنة 🏖️</div>
       </button>
       <button class="tile" data-route="cairo">
         <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
@@ -168,7 +168,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </footer>
 </main>
 
-<!-- ===== RESELL step 2 ===== -->
+<!-- ============= RESELL step 2 ============= -->
 <section id="resale2" class="page section container">
   <div class="box">
     <h3 id="r2Title">تفاصيل الوحدة</h3>
@@ -202,33 +202,10 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </div>
 </section>
 
-<!-- ===== SOKHNA ===== -->
-<section id="sokhna" class="page section container">
-  <div class="pg-hero">
-    <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
-    <div class="title" id="phS">مشاريع العين السخنة</div>
-  </div>
-  <div id="wrap-sokhna" class="grid"></div>
-  <div class="form-mini">
-    <h4 id="missS">مش لاقي مشروعك؟ ابعتلنا:</h4>
-    <div class="row col-2">
-      <input id="asName" class="input" placeholder="اسم المشروع">
-      <select id="asType" class="select"><option>فيلا</option><option>شقة</option><option>استوديو</option><option>بنتهاوس</option><option>دوبلكس</option><option>روف</option><option>شاليه</option></select>
-      <input id="asRooms" class="input" placeholder="عدد الغرف">
-      <input id="asHand" class="input" placeholder="مدة الاستلام المفضلة">
-    </div>
-    <textarea id="asNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
-    <div class="center mt12">
-      <a class="btn" id="asSend">إرسال واتساب</a>
-      <button class="btn" data-route="home" id="homeBtnS">الرئيسية</button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== NORTH ===== -->
+<!-- ============= NORTH PROJECTS ============= -->
 <section id="north" class="page section container">
   <div class="pg-hero">
-    <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
+    <img id="northHero" src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
     <div class="title" id="phN">مشاريع الساحل الشمالي</div>
   </div>
   <div id="wrap-north" class="grid"></div>
@@ -248,10 +225,33 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </div>
 </section>
 
-<!-- ===== CAIRO ===== -->
+<!-- ============= SOKHNA PROJECTS ============= -->
+<section id="sokhna" class="page section container">
+  <div class="pg-hero">
+    <img id="sokhnaHero" src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
+    <div class="title" id="phS">مشاريع العين السخنة</div>
+  </div>
+  <div id="wrap-sokhna" class="grid"></div>
+  <div class="form-mini">
+    <h4 id="missS">مش لاقي مشروعك؟ ابعتلنا:</h4>
+    <div class="row col-2">
+      <input id="asName" class="input" placeholder="اسم المشروع">
+      <select id="asType" class="select"><option>فيلا</option><option>شقة</option><option>استوديو</option><option>بنتهاوس</option><option>دوبلكس</option><option>روف</option><option>شاليه</option></select>
+      <input id="asRooms" class="input" placeholder="عدد الغرف">
+      <input id="asHand" class="input" placeholder="مدة الاستلام المفضلة">
+    </div>
+    <textarea id="asNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
+    <div class="center mt12">
+      <a class="btn" id="asSend">إرسال واتساب</a>
+      <button class="btn" data-route="home" id="homeBtnS">الرئيسية</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CAIRO PROJECTS ============= -->
 <section id="cairo" class="page section container">
   <div class="pg-hero">
-    <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
+    <img id="cairoHero" src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
     <div class="title" id="phC">مشاريع القاهرة الجديدة</div>
   </div>
   <div id="wrap-cairo" class="grid"></div>
@@ -271,10 +271,12 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </div>
 </section>
 
+<footer class="section container page" id="footF" style="display:none"></footer>
+
 <script>
 /* ===== Helpers ===== */
 const WA="201050072527";
-const ICON="https://j.top4top.io/p_3520bu1hn0.png";
+const ICON="https://i.top4top.io/p_3520bchvg0.png"; // أيقونة المشروع
 year.textContent=new Date().getFullYear();
 
 /* Contact dropdown */
@@ -284,7 +286,7 @@ contactBtn.addEventListener('click', (e)=>{
 });
 document.addEventListener('click', ()=> contactMenu.style.display='none');
 
-/* Router */
+/* ===== Router ===== */
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
   (document.getElementById(id)||document.getElementById('home')).classList.add('show');
@@ -297,7 +299,7 @@ document.body.addEventListener('click',(e)=>{
   const t=e.target.closest('[data-route]'); if(t){e.preventDefault(); goto(t.getAttribute('data-route')); }
 });
 
-/* Resale step1 -> step2 */
+/* ===== Resale flow ===== */
 goNext.addEventListener('click',()=>{
   const area=resaleArea.value; const place=resalePlace.value.trim();
   sessionStorage.setItem('r_area',area); sessionStorage.setItem('r_place',place);
@@ -317,14 +319,7 @@ sendResale.onclick=()=>{
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 };
 
-/* Data */
-const SOKHNA=[ "Lugano AOG","La Vista Topaz","La Vista 7","Telal Sokhna","La Vista",
-  "Porto Sokhna","AZHA","Ain Hills","Bella Romance","Lasirena Palm Beach",
-  "IL Monte Galala","Murano Wadi Degla","Blumar Sokhna","BOHO","Bella Vento",
-  "Bella East","The Groove","Little Venice","LaLuna Beach","Carnelia",
-  "Stella Di Mare","Majada","Kai Sokhna","Ein Bay","El Galala City",
-  "Sokhna Hills","Azadir Sokhna","Sokhna View","Blue Blue","Mountain View Sokhna"];
-
+/* ===== Data (30/30/40 تقريبًا) ===== */
 const NORTH=[ "MADIN Ras El Hekma","Solare","Hacienda West","Salt","The Med North Coast",
   "June SODIC","Ramlah (Marakez)","Mountain View Ras El Hekma","Swan Lake North Coast","El Maseef",
   "Hyde Park North","D-BAY (Tatweer Misr)","Silversands (ORA)","Direction White","UUD Ras El Hekma",
@@ -332,12 +327,19 @@ const NORTH=[ "MADIN Ras El Hekma","Solare","Hacienda West","Salt","The Med Nort
   "Jefaira","Gaia","Zoya Ghazala","Bo Islands","Naya Bay",
   "Bianchi Ilios","Le Sidi","Cali Coast","Katameya Coast","SeaShell"];
 
+const SOKHNA=[ "Lugano AOG","La Vista Topaz","La Vista 7","Telal Sokhna","La Vista",
+  "Porto Sokhna","AZHA","Ain Hills","Bella Romance","Lasirena Palm Beach",
+  "IL Monte Galala","Murano Wadi Degla","Blumar Sokhna","BOHO","Bella Vento",
+  "Bella East","The Groove","Little Venice","LaLuna Beach","Carnelia",
+  "Stella Di Mare","Majada","Kai Sokhna","Ein Bay","El Galala City",
+  "Sokhna Hills","Azadir Sokhna","Sokhna View","Blue Blue","Mountain View Sokhna"];
+
 const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway","Taj City","Eastown Residence (SODIC)","El Patio Oro (La Vista)","Villette (SODIC)","Palm Hills New Cairo",
   "Fifth Square","Bloomfields","Zed East","Cairo Festival City","Galleria Moon Valley","Layan","Katameya Dunes","Katameya Heights (Resale)","Lake View Residence","Trio Gardens",
   "Palm Hills Gardens","Mountain View Hyde Park","La Mirada","Regents Park","Creek Town","District 5 (Marakez)","Nyoum New Cairo","The Brooks","The Iconic City","The Square",
   "Swan Lake Residences","The MarQ","90 Avenue","Odyssia (Mostakbal)","Il Bosco City","La Vista City","Al Burouj","Midtown Sky","The City of Odyssia - Aria","Bloomfields IO"];
 
-/* draw cards */
+/* ===== Draw project cards ===== */
 function draw(list,wrapId,isSea){
   const wrap=document.getElementById(wrapId); wrap.innerHTML="";
   list.forEach(name=>{
@@ -347,16 +349,16 @@ function draw(list,wrapId,isSea){
     card.innerHTML=`<img src="${ICON}" alt="${name}">
       <div class="body">
         <div class="name">${name}</div>
-        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(text)}">${lang==='ar'?'اسأل':'Ask'}</a>
+        <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(text)}">${currentLang==='ar'?'اسأل':'Ask'}</a>
       </div>`;
     wrap.appendChild(card);
   });
 }
-draw(SOKHNA,'wrap-sokhna',true);
 draw(NORTH,'wrap-north',true);
+draw(SOKHNA,'wrap-sokhna',true);
 draw(CAIRO,'wrap-cairo',false);
 
-/* can't-find forms */
+/* ===== Can't-find forms -> WA ===== */
 function sendAny(prefix){
   const n=document.getElementById(prefix+'Name').value;
   const t=document.getElementById(prefix+'Type').value;
@@ -366,10 +368,10 @@ function sendAny(prefix){
   const msg=`مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'} | من فضلك ابعت كل التفاصيل والأسعار.`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
-asSend.onclick=()=>sendAny('as'); anSend.onclick=()=>sendAny('an'); acSend.onclick=()=>sendAny('ac');
+anSend.onclick=()=>sendAny('an'); asSend.onclick=()=>sendAny('as'); acSend.onclick=()=>sendAny('ac');
 
 /* ===== Language ===== */
-let lang='ar';
+let currentLang='ar';
 const T={
   ar:{brand:"إسلام",home:"الرئيسية",pro:"المشاريع",contact:"التواصل",
       call:"اتصال مباشر",wa:"استشارة واتساب",mail:"Email ✉️",
@@ -390,9 +392,4 @@ const T={
       call:"Call Now",wa:"WhatsApp Advice",mail:"Email ✉️",
       cCall:"📞 Call",cWa:"💬 WhatsApp",cMail:"✉️ Email",
       h1:"Turn your property investment into a luxury experience",
-      hs:"Private service for buying, selling & investing in prime locations",
-      ha:"Ain Sokhna • North Coast • New Cairo",
-      r1:"Resale — choose area and type the place",
-      rNext:"Send / Next »",
-      rHint:"After Next, add unit details (type/rooms/floor/budget), then we'll send on WhatsApp.",
-      capS:"Ain Sokhna 🏖️",capN
+      hs:"Private servi
