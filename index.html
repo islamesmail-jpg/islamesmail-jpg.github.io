@@ -49,7 +49,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .center{display:flex;justify-content:center}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
 
-/* Tiles (3 across always) */
+/* Tiles (3 عبر كل الشاشات) */
 .tiles{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 .tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer}
 .tile img{width:100%;height:160px;object-fit:cover;display:block}
@@ -62,7 +62,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .pg-hero img{width:100%;height:210px;object-fit:cover;display:block;opacity:.92}
 .pg-hero .title{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800}
 
-/* Grid of projects (3 across always) */
+/* Projects grid (3 عبر كل الشاشات) */
 .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .card img{width:100%;height:74px;object-fit:contain;background:#0e1425}
@@ -87,8 +87,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   <div class="navin">
     <div class="brand" id="brand">إسلام</div>
     <ul class="navlinks">
-      <li><a href="#home" id="navHome">الرئيسية</a></li>
-      <li><a href="#hub" id="navProjects">المشاريع</a></li>
+      <li><a href="#home" data-route="home" id="navHome">الرئيسية</a></li>
+      <li><a href="#hub" data-route="home" id="navProjects">المشاريع</a></li>
     </ul>
     <div class="lang">
       <button class="btnx" id="langToggle">AR / EN</button>
@@ -104,7 +104,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </div>
 </header>
 
-<!-- ============= HOME (page) ============= -->
+<!-- ============= HOME ============= -->
 <main id="home" class="page show">
   <section class="hero">
     <div class="overlay">
@@ -122,7 +122,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </section>
 
   <!-- RESELL step 1 -->
-  <section class="section container">
+  <section class="section container" id="hub">
     <div class="box">
       <h3 id="rTitle">ريسيل — اختر المنطقة واكتب المكان</h3>
       <select id="resaleArea" class="select">
@@ -136,26 +136,26 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
         <option value="القاهرة الجديدة">القاهرة الجديدة</option>
       </select>
       <input id="resalePlace" class="input mt8" placeholder="حدد مكان مهتم بالشراء فيه (مثال: Marassi / Porto Sokhna / النرجس)">
-      <div class="center mt12"><a class="btn" href="#resale2" id="goNext">إرسال / التالي »</a></div>
+      <div class="center mt12"><a class="btn" href="#resale2" id="goNext" data-route="resale2">إرسال / التالي »</a></div>
       <div class="hint" id="rHint">بعد «التالي» هتدخل نوع الوحدة والغرف والدور والميزانية، وبعدين هنرسل الطلب على واتساب تلقائيًا.</div>
     </div>
   </section>
 
-  <!-- Tiles Hub -->
-  <section id="hub" class="section container">
+  <!-- Tiles -->
+  <section class="section container">
     <div class="tiles">
-      <a class="tile" href="#sokhna">
+      <button class="tile" data-route="sokhna">
         <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
         <div class="cap" id="capS">العين السخنة 🏖️</div>
-      </a>
-      <a class="tile" href="#north">
+      </button>
+      <button class="tile" data-route="north">
         <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
         <div class="cap" id="capN">الساحل الشمالي 🌊</div>
-      </a>
-      <a class="tile" href="#cairo">
+      </button>
+      <button class="tile" data-route="cairo">
         <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
         <div class="cap" id="capC">القاهرة الجديدة 🏡</div>
-      </a>
+      </button>
     </div>
   </section>
 
@@ -169,7 +169,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
   </footer>
 </main>
 
-<!-- ============= RESELL step 2 (page) ============= -->
+<!-- ============= RESELL step 2 ============= -->
 <section id="resale2" class="page section container">
   <div class="box">
     <h3 id="r2Title">تفاصيل الوحدة</h3>
@@ -198,12 +198,12 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
     <textarea id="note" class="textarea mt12" rows="3" placeholder="ملاحظات إضافية (اختياري)"></textarea>
     <div class="center mt12">
       <a id="sendResale" class="btn">إرسال إلى واتساب</a>
-      <a class="btn" href="#home">رجوع</a>
+      <button class="btn" data-route="home">رجوع</button>
     </div>
   </div>
 </section>
 
-<!-- ============= PROJECTS: SOKHNA (page) ============= -->
+<!-- ============= SOKHNA ============= -->
 <section id="sokhna" class="page section container">
   <div class="pg-hero">
     <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
@@ -221,12 +221,12 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
     <textarea id="asNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
     <div class="center mt12">
       <a class="btn" id="asSend">إرسال واتساب</a>
-      <a class="btn" href="#home">الرئيسية</a>
+      <button class="btn" data-route="home">الرئيسية</button>
     </div>
   </div>
 </section>
 
-<!-- ============= PROJECTS: NORTH (page) ============= -->
+<!-- ============= NORTH ============= -->
 <section id="north" class="page section container">
   <div class="pg-hero">
     <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
@@ -244,12 +244,12 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
     <textarea id="anNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
     <div class="center mt12">
       <a class="btn" id="anSend">إرسال واتساب</a>
-      <a class="btn" href="#home">الرئيسية</a>
+      <button class="btn" data-route="home">الرئيسية</button>
     </div>
   </div>
 </section>
 
-<!-- ============= PROJECTS: CAIRO (page) ============= -->
+<!-- ============= CAIRO ============= -->
 <section id="cairo" class="page section container">
   <div class="pg-hero">
     <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
@@ -267,40 +267,45 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:20px
     <textarea id="acNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
     <div class="center mt12">
       <a class="btn" id="acSend">إرسال واتساب</a>
-      <a class="btn" href="#home">الرئيسية</a>
+      <button class="btn" data-route="home">الرئيسية</button>
     </div>
   </div>
 </section>
 
 <script>
-/* Utilities */
+/* ====== Helpers & constants ====== */
 const WA="201050072527";
 const ICON="https://j.top4top.io/p_3520bu1hn0.png";
 year.textContent=new Date().getFullYear();
 
-/* Contact menu */
-contactBtn.onclick=()=>{contactMenu.style.display=contactMenu.style.display==='block'?'block':'block'};
-document.addEventListener('click',e=>{if(!e.target.closest('.cta')) contactMenu.style.display='none'});
+/* Contact dropdown */
+contactBtn.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  contactMenu.style.display = contactMenu.style.display==='block' ? 'none' : 'block';
+});
+document.addEventListener('click', ()=> contactMenu.style.display='none');
 
-/* Hash Router */
+/* ====== Router (robust) ====== */
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
-  const el=document.getElementById(id)||document.getElementById('home');
-  el.classList.add('show'); window.scrollTo(0,0);
+  (document.getElementById(id)||document.getElementById('home')).classList.add('show');
+  window.scrollTo({top:0,behavior:'instant'});
 }
-function parseHash(){
-  const h=location.hash.replace('#','')||'home';
-  showPage(h);
-}
-window.addEventListener('hashchange',parseHash);
-window.addEventListener('load',parseHash);
+function goto(id){ location.hash = id; showPage(id); }
+window.addEventListener('hashchange', ()=> showPage(location.hash.slice(1)||'home') );
+window.addEventListener('load', ()=> showPage(location.hash.slice(1)||'home') );
 
-/* Save resale step1 and enable chalet if ساحل/سخنة */
+/* Make any element with data-route navigate */
+document.body.addEventListener('click',(e)=>{
+  const t=e.target.closest('[data-route]');
+  if(t){ e.preventDefault(); goto(t.getAttribute('data-route')); }
+});
+
+/* Resale step1 -> step2 */
 goNext.addEventListener('click',()=>{
-  const area=resaleArea.value;
-  const place=resalePlace.value.trim();
-  sessionStorage.setItem('r_area',area);
-  sessionStorage.setItem('r_place',place);
+  const area=resaleArea.value; const place=resalePlace.value.trim();
+  sessionStorage.setItem('r_area',area); sessionStorage.setItem('r_place',place);
+  // enable/disable "شاليه"
   document.querySelector('#uType .shaleh').disabled = !/(السخنة|الساحل)/.test(area);
 });
 
@@ -319,7 +324,7 @@ sendResale.onclick=()=>{
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 };
 
-/* Projects data (30/30/40 تقريبًا) */
+/* ====== Projects Data ====== */
 const SOKHNA=[ "Lugano AOG","La Vista Topaz","La Vista 7","Telal Sokhna","La Vista",
   "Porto Sokhna","AZHA","Ain Hills","Bella Romance","Lasirena Palm Beach",
   "IL Monte Galala","Murano Wadi Degla","Blumar Sokhna","BOHO","Bella Vento",
@@ -339,14 +344,14 @@ const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway",
   "Palm Hills Gardens","Mountain View Hyde Park","La Mirada","Regents Park","Creek Town","District 5 (Marakez)","Nyoum New Cairo","The Brooks","The Iconic City","The Square",
   "Swan Lake Residences","The MarQ","90 Avenue","Odyssia (Mostakbal)","Il Bosco City","La Vista City","Al Burouj","Midtown Sky","The City of Odyssia - Aria","Bloomfields IO"];
 
-/* draw helpers */
+/* draw */
 function draw(list,wrapId,isSea){
   const wrap=document.getElementById(wrapId); wrap.innerHTML="";
   list.forEach(name=>{
     const card=document.createElement('div'); card.className='card';
     const add= isSea ? " / شاليه" : "";
     const text = `استفسار عن مشروع: ${name} | احتياجي (شقة/فيلا/استوديو/بنتهاوس/دوبلكس/روف${isSea?add:''}) + عدد الغرف + الدور + الميزانية. برجاء إرسال الأسعار والتفاصيل.`;
-    card.innerHTML=`<img src="https://j.top4top.io/p_3520bu1hn0.png" alt="${name}">
+    card.innerHTML=`<img src="${ICON}" alt="${name}">
       <div class="body">
         <div class="name">${name}</div>
         <a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(text)}">اسأل</a>
@@ -370,7 +375,7 @@ function sendAny(prefix){
 }
 asSend.onclick=()=>sendAny('as'); anSend.onclick=()=>sendAny('an'); acSend.onclick=()=>sendAny('ac');
 
-/* Language */
+/* ====== Language ====== */
 let lang='ar';
 const t={
   ar:{brand:"إسلام",home:"الرئيسية",pro:"المشاريع",
@@ -395,9 +400,4 @@ const t={
     miss:"Can't find your project? Send:"}
 };
 function apply(l){
-  document.documentElement.dir=l==='ar'?'rtl':'ltr';
-  document.documentElement.lang=l;
-  brand.textContent=t[l].brand; navHome.textContent=t[l].home; navProjects.textContent=t[l].pro;
-  hTitle.textContent=t[l].h1; hSub.textContent=t[l].hs; hAreas.textContent=t[l].ha;
-  rTitle.textContent=t[l].r1; rHint.textContent=t[l].rHint;
-  capS.textContent=t[l].capS; capN.textContent=t[l].capN; capC.tex
+  
