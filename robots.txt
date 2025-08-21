@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://islamesmail-jpg.github.io/sitemap.xml
