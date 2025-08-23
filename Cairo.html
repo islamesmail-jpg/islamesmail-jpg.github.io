@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eslam Realty | القاهرة الجديدة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://islamesmail-jpg.github.io/cairo.html">
+</head>
+<body>
+<header class="nav">
+  <div class="navin">
+    <a class="brand" id="brand" href="index.html">إسلام</a>
+    <ul class="navlinks">
+      <li><a id="navHome" href="index.html">الرئيسية</a></li>
+      <li><a id="navProjects" href="north.html">المشاريع</a></li>
+    </ul>
+    <div class="lang">
+      <button class="btnx" id="langToggle">AR / EN</button>
+      <div class="cta">
+        <button class="btnx" id="contactBtn">التواصل</button>
+        <div class="menu" id="contactMenu">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527?text=Hello">💬 واتساب</a>
+          <a href="mailto:eslam.realty.eg@gmail.com?subject=Inquiry">✉️ بريد</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section container">
+  <div class="pg-hero">
+    <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
+    <div class="title" data-i18n="p_cairo">مشاريع القاهرة الجديدة</div>
+  </div>
+
+  <div id="wrap-cairo" class="grid"></div>
+
+  <div class="form-mini">
+    <h4 data-i18n="cant_find">مش لاقي مشروعك؟ ابعتلنا:</h4>
+    <div class="row col-2">
+      <input id="acName" class="input" placeholder="اسم المشروع">
+      <select id="acType" class="select"><option>فيلا</option><option>شقة</option><option>استوديو</option><option>بنتهاوس</option><option>دوبلكس</option><option>روف</option></select>
+      <input id="acRooms" class="input" placeholder="عدد الغرف">
+      <input id="acHand" class="input" placeholder="مدة الاستلام المفضلة">
+    </div>
+    <textarea id="acNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
+    <div class="center mt12">
+      <a class="btn" id="acSend" data-i18n="send_wa">إرسال إلى واتساب</a>
+      <a class="btn" href="index.html" data-i18n="back">رجوع</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Eslam Realty</footer>
+
+<script src="app.js"></script>
+<script>
+/* القاهرة الجديدة 40 مشروع (قائمة كبيرة) */
+const CAIRO=[ "Mivida","Mountain View iCity","Sarai","Hyde Park","The Waterway","Taj City",
+  "Eastown Residence (SODIC)","El Patio Oro (La Vista)","Villette (SODIC)","Palm Hills New Cairo",
+  "Fifth Square","Bloomfields","Zed East","Cairo Festival City","Galleria Moon Valley","Layan",
+  "Katameya Dunes","Katameya Heights (Resale)","Lake View Residence","Trio Gardens",
+  "Palm Hills Gardens","Mountain View Hyde Park","La Mirada","Regents Park","Creek Town",
+  "District 5 (Marakez)","Nyoum New Cairo","The Brooks","The Iconic City","The Square",
+  "Swan Lake Residences","The MarQ","90 Avenue","Odyssia (Mostakbal)","Il Bosco City",
+  "La Vista City","Al Burouj","Midtown Sky","Aria - City of Odyssia","Bloomfields IO" ];
+drawProjects(CAIRO,'wrap-cairo',{sea:false});
+
+document.getElementById('acSend').onclick=()=>{
+  const n=acName.value,t=acType.value,r=acRooms.value,h=acHand.value,no=acNote.value;
+  const msg=`القاهرة الجديدة | مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t||'—'} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+};
+</script>
+</body>
+</html>
