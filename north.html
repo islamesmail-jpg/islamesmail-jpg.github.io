@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eslam Realty | الساحل الشمالي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://islamesmail-jpg.github.io/north.html">
+</head>
+<body>
+<header class="nav">
+  <div class="navin">
+    <a class="brand" id="brand" href="index.html">إسلام</a>
+    <ul class="navlinks">
+      <li><a id="navHome" href="index.html">الرئيسية</a></li>
+      <li><a id="navProjects" href="north.html">المشاريع</a></li>
+    </ul>
+    <div class="lang">
+      <button class="btnx" id="langToggle">AR / EN</button>
+      <div class="cta">
+        <button class="btnx" id="contactBtn">التواصل</button>
+        <div class="menu" id="contactMenu">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527?text=Hello">💬 واتساب</a>
+          <a href="mailto:eslam.realty.eg@gmail.com?subject=Inquiry">✉️ بريد</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section container">
+  <div class="pg-hero">
+    <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
+    <div class="title" data-i18n="p_north">مشاريع الساحل الشمالي</div>
+  </div>
+
+  <div id="wrap-north" class="grid"></div>
+
+  <div class="form-mini">
+    <h4 data-i18n="cant_find">مش لاقي مشروعك؟ ابعتلنا:</h4>
+    <div class="row col-2">
+      <input id="anName" class="input" placeholder="اسم المشروع">
+      <select id="anType" class="select"><option>فيلا</option><option>شقة</option><option>استوديو</option><option>بنتهاوس</option><option>دوبلكس</option><option>روف</option><option>شاليه</option></select>
+      <input id="anRooms" class="input" placeholder="عدد الغرف">
+      <input id="anHand" class="input" placeholder="مدة الاستلام المفضلة">
+    </div>
+    <textarea id="anNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
+    <div class="center mt12">
+      <a class="btn" id="anSend" data-i18n="send_wa">إرسال إلى واتساب</a>
+      <a class="btn" href="index.html" data-i18n="back">رجوع</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Eslam Realty</footer>
+
+<script src="app.js"></script>
+<script>
+/* الساحل 30 مشروع */
+const NORTH=[ "MADIN Ras El Hekma","Solare","Hacienda West","Salt","The Med North Coast",
+  "June SODIC","Ramlah (Marakez)","Mountain View Ras El Hekma","Swan Lake North Coast","El Maseef",
+  "Hyde Park North","D-BAY (Tatweer Misr)","Silversands (ORA)","Direction White","UUD Ras El Hekma",
+  "AZHA North","Marassi","Hacienda Bay","Amwaj","Fouka Bay",
+  "Jefaira","Gaia","Zoya Ghazala","Bo Islands","Naya Bay",
+  "Bianchi Ilios","Le Sidi","Cali Coast","Katameya Coast","SeaShell"];
+drawProjects(NORTH,'wrap-north',{sea:true});
+
+document.getElementById('anSend').onclick=()=>{
+  const n=anName.value,t=anType.value,r=anRooms.value,h=anHand.value,no=anNote.value;
+  const msg=`ساحل | مشروع غير مذكور | الاسم: ${n||'—'} | نوع: ${t||'—'} | غرف: ${r||'—'} | استلام: ${h||'—'} | ملاحظات: ${no||'—'}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+};
+</script>
+</body>
+</html>
