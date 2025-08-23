@@ -15,12 +15,10 @@
 html,body{height:100%}
 body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,Arial}
 
-/* ===== Topbar (Navbar) ===== */
+/* ===== NAVBAR (أسود) ===== */
 .topbar{
   position:sticky; top:0; z-index:1000;
-  backdrop-filter:saturate(140%) blur(8px);
-  background:rgba(18,22,34,.65);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  background:#000; border-bottom:1px solid rgba(255,255,255,.08);
 }
 .topbar__in{
   max-width:1200px; margin:auto;
@@ -29,21 +27,22 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
   grid-template-columns: 1fr auto 1fr; /* left – logo – right */
   align-items:center; gap:12px;
 }
-.topbar__left{ display:flex; gap:8px; justify-content:flex-start; }
-.topbar__right{ display:flex; gap:8px; justify-content:flex-end; }
+.topbar__left{ display:flex; gap:10px; justify-content:flex-start; }
+.topbar__right{ display:flex; gap:10px; justify-content:flex-end; }
 
+/* Logo circle */
 .brandlogo{
-  width:74px; height:74px; display:grid; place-items:center;
-  border-radius:999px; background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 6px 18px rgba(0,0,0,.25), inset 0 0 0 6px rgba(255,255,255,.02);
+  width:78px; height:78px; display:grid; place-items:center;
+  border-radius:999px; background:#0b0b0b;
+  border:2px solid rgba(255,255,255,.14);
+  box-shadow:0 8px 22px rgba(0,0,0,.45), inset 0 0 0 6px rgba(255,255,255,.02);
   margin-inline:auto;
 }
 .brandlogo img{
-  width:64px; height:64px; object-fit:cover; border-radius:50%;
+  width:68px; height:68px; object-fit:cover; border-radius:50%;
 }
 
-/* Buttons */
+/* Buttons / Dropdown */
 .btn{padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
 .btn:hover{background:var(--gold);color:#111}
 .btnx{
@@ -51,8 +50,6 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
   border-radius:999px; padding:9px 14px; font-weight:800; cursor:pointer
 }
 .btnx:hover{ background:#e4c24a; color:#111; }
-
-/* Dropdowns */
 .dropdown{ position:relative; }
 .dropbtn{ white-space:nowrap; }
 .dropdown__menu{
@@ -67,9 +64,19 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .dropdown__menu a:hover{ background:#16233b; }
 #contactMenu{ inset-inline-start:auto; inset-inline-end:0; }
 
-/* HERO */
-.hero{position:relative;min-height:56vh;display:grid;place-items:center;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover}
-.overlay{background:rgba(11,15,25,.76);width:100%;height:100%;display:grid;place-items:center;padding:40px 16px}
+/* ===== HERO VIDEO ===== */
+.hero{
+  position:relative; min-height:56vh; display:grid; place-items:center; overflow:hidden;
+}
+.bgvid{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover;
+}
+.overlay{
+  position:relative; z-index:2;
+  background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.55));
+  width:100%; height:100%; display:grid; place-items:center; padding:40px 16px
+}
 .hinner{max-width:980px;text-align:center}
 .h1{margin:0;font-size:clamp(26px,5.6vw,50px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.5)}
 .hsub{margin-top:10px;color:var(--gold2);font-weight:800;font-size:clamp(15px,2.2vw,20px)}
@@ -110,7 +117,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 </head>
 <body>
 
-<!-- ===== NAVBAR الجديد ===== -->
+<!-- ===== NAVBAR ===== -->
 <header class="topbar">
   <div class="topbar__in">
     <!-- يمين: المشاريع -->
@@ -146,8 +153,13 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO (VIDEO) ===== -->
 <section class="hero">
+  <!-- فيديو الخلفية -->
+  <video class="bgvid" autoplay loop muted playsinline preload="auto">
+    <source src="https://a.top4top.io/m_3522dyzqc0.mp4" type="video/mp4">
+  </video>
+
   <div class="overlay">
     <div class="hinner">
       <h1 class="h1" id="hTitle">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
@@ -162,7 +174,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   </div>
 </section>
 
-<!-- ===== Resale step 1 (نفس الموجود) ===== -->
+<!-- ===== Resale step 1 ===== -->
 <section class="section container" id="hub">
   <div class="box">
     <h3 id="rTitle">ريسيل — اختر المنطقة واكتب المكان</h3>
@@ -231,13 +243,12 @@ document.addEventListener('click', ()=> {
   });
 });
 
-// زر اللغة (مبدّل بسيط)
+// زر اللغة (تبديل اتجاه بسيط)
 let CUR='ar';
 document.getElementById('langToggle').addEventListener('click',()=>{
   CUR = (CUR==='ar')?'en':'ar';
   document.documentElement.dir = (CUR==='ar')?'rtl':'ltr';
   document.documentElement.lang = CUR;
-  // تقدر تكمل ترجمة النصوص هنا لو حابب
 });
 </script>
 </body>
