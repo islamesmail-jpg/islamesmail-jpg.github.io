@@ -9,25 +9,40 @@
 <body>
 
 <!-- NAV -->
-<header class="nav">
-  <div class="navin">
-    <!-- LOGO -->
-    <a href="index.html" class="logo">
-      <img src="https://g.top4top.io/p_3522sdm4n0.jpg" alt="Logo">
+<header class="topbar">
+  <div class="topbar__in">
+    <!-- اليمين: قائمة المشاريع -->
+    <div class="topbar__left">
+      <div class="dropdown">
+        <button class="btnx dropbtn" id="projectsBtn">المشاريع ▾</button>
+        <div class="dropdown__menu" id="projectsMenu">
+          <a href="#/sokhna" data-route="sokhna">العين السخنة</a>
+          <a href="#/north"  data-route="north">الساحل الشمالي</a>
+          <a href="#/cairo"  data-route="cairo">القاهرة الجديدة</a>
+          <a href="#/resale" data-route="resale2">ريسيل</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوسط: اللوجو -->
+    <a href="#/home" data-route="home" class="brandlogo" aria-label="الرئيسية">
+      <img src="https://g.top4top.io/p_3522sdm4n0.jpg" alt="Eslam Realty Logo">
     </a>
 
-    <!-- NAV LINKS -->
-    <ul class="navlinks">
-      <li class="dropdown">
-        <a href="#">المشاريع ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="sokhna.html">العين السخنة</a></li>
-          <li><a href="north.html">الساحل الشمالي</a></li>
-          <li><a href="Cairo.html">القاهرة الجديدة</a></li>
-          <li><a href="Resale.html">ريسيل</a></li>
-        </ul>
-      </li>
-    </ul>
+    <!-- الشمال: اللغة + التواصل -->
+    <div class="topbar__right">
+      <button class="btnx" id="langToggle">AR / EN</button>
+      <div class="dropdown">
+        <button class="btnx dropbtn" id="contactBtn">التواصل ▾</button>
+        <div class="dropdown__menu" id="contactMenu">
+          <a href="tel:+201050072527" id="cPhone">📞 اتصال</a>
+          <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9" id="cWhats">💬 واتساب</a>
+          <a href="mailto:eslam.realty.eg@gmail.com?subject=Inquiry" id="cMail">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
     <!-- ACTIONS -->
     <div class="lang">
