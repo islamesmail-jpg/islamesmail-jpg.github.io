@@ -178,9 +178,16 @@ img{max-width:100%;display:block}
 .card .name{font-weight:800}
 .card .ask{white-space:nowrap}
 
-/* mini "not found" form */
-.form-mini{margin-top:18px;border-top:1px dashed #334;padding-top:12px}
-.form-mini h4{margin:0 0 10px}
+/* Project card image fit */
+.card img{
+  width:100%;
+  height:140px;        /* ارتفاع مناسب للموبايل */
+  object-fit:cover;    /* يملأ المساحة بدون تمدد مشوّه */
+  background:#0e1425;
+}
+@media (min-width:768px){
+  .card img{height:160px;}
+}
 
 /* Footer */
 footer{
