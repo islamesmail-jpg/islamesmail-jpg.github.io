@@ -13,7 +13,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 
 /* NAVBAR */
 .topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-/* موبايل/تابلت: فلكس — الترتيب: مشاريع، اتصل، لغة، (اللوجو على اليمين) */
+/* موبايل/تابلت: فلكس — الترتيب: لغه، اتصل، مشاريع، (اللوجو على اليمين) */
 .topbar__in{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
 .nav-left{display:flex;gap:10px;align-items:center;order:1}
 .nav-right{display:flex;gap:10px;align-items:center;order:0} /* المشاريع تطلع قبل اليسار */
@@ -35,10 +35,10 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 /* ديسكتوب: اللوجو في النص، يمينه المشاريع، شماله اتصل+لغة */
 @media(min-width:992px){
   .topbar__in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
-  .nav-left{order:0;justify-content:flex-start}   /* اتصل + لغة */
+  .nav-left{order:0;justify-content:flex-start}   /* اتصل + مشاريع */
   .brandlogo{order:0;margin:0;justify-self:center}
   .brandlogo img{height:72px}
-  .nav-right{order:0;justify-content:flex-end}    /* المشاريع */
+  .nav-right{order:0;justify-content:flex-end}    /* لغه */
 }
 
 /* HERO VIDEO (كما هو) */
@@ -116,7 +116,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   <div class="overlay">
     <div class="hinner">
       <h1 class="h1" id="t-h1">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
-      <div class="hsub" id="t-hsub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+      <div class="hsub" id="t-hsub">خدمة خاصة للبيع والشراء والاستثمار في المشاريع الراقية</div>
       <div class="hareas" id="t-areas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
       <div class="hact">
         <a class="btn" href="tel:+201050072527" id="t-call">اتصال مباشر</a>
@@ -196,11 +196,11 @@ const T = {
     navProjects:"المشاريع ▾", ddSokhna:"العين السخنة", ddNorth:"الساحل الشمالي", ddCairo:"القاهرة الجديدة", ddResale:"ريسيل",
     navContact:"التواصل ▾", cCall:"📞 اتصال", cWa:"💬 واتساب", cMail:"✉️ بريد إلكتروني",
     h1:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
-    hsub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
+    hsub:"خدمة خاصة للبيع والشراء والاستثمار في المشاريع الراقية",
     areas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
     call:"اتصال مباشر", wa:"استشارة واتساب", mail:"Email ✉️",
     rTitle:"ريسيل — اختر المنطقة واكتب المكان",
-    rPH:"حدد مكان مهتم بالشراء فيه (مثال: Marassi / Porto Sokhna)",
+    rPH:"حدد مكان مهتم بالشراء فيه (مثال: The 5th Settlement / Ein ElSokhna)",
     rNext:"إرسال / التالي »",
     rHint:"بعد «التالي» هتدخل نوع الوحدة والغرف والدور والميزانية، وبعدين هنرسل الطلب على واتساب تلقائيًا.",
     optSokhna:"العين السخنة", optNorth:"الساحل الشمالي", optCairo:"القاهرة الجديدة",
