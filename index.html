@@ -11,17 +11,16 @@
 *{box-sizing:border-box}html,body{height:100%}
 body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,Arial}
 
-/* NAVBAR أسود */
+/* NAVBAR */
 .topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.topbar__in{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.topbar__left{display:flex;gap:10px;align-items:center}
-.topbar__right{display:flex;gap:12px;align-items:center}
+/* موبايل/تابلت: فلكس — الترتيب: مشاريع، اتصل، لغة، (اللوجو على اليمين) */
+.topbar__in{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.nav-left{display:flex;gap:10px;align-items:center;order:1}
+.nav-right{display:flex;gap:10px;align-items:center;order:0} /* المشاريع تطلع قبل اليسار */
+.brandlogo{order:2;margin-inline-start:auto;display:flex;align-items:center}
+.brandlogo img{height:48px;width:auto;display:block} /* يظهر كامل بدون قص */
 
-/* Logo على اليمين – يظهر كامل بدون قص */
-.brandlogo{display:flex;align-items:center}
-.brandlogo img{height:44px;width:auto;display:block}
-
-/* Buttons / Dropdown */
+/* أزرار وقوايم */
 .btn{padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
 .btn:hover{background:var(--gold);color:#111}
 .btnx{border:1px solid #e4c24a;color:#e4c24a;background:transparent;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer}
@@ -33,7 +32,16 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .dropdown__menu a:hover{background:#16233b}
 #contactMenu{inset-inline-start:auto;inset-inline-end:0}
 
-/* HERO VIDEO */
+/* ديسكتوب: اللوجو في النص، يمينه المشاريع، شماله اتصل+لغة */
+@media(min-width:992px){
+  .topbar__in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .nav-left{order:0;justify-content:flex-start}   /* اتصل + لغة */
+  .brandlogo{order:0;margin:0;justify-self:center}
+  .brandlogo img{height:72px}
+  .nav-right{order:0;justify-content:flex-end}    /* المشاريع */
+}
+
+/* HERO VIDEO (كما هو) */
 .hero{position:relative;min-height:56vh;display:grid;place-items:center;overflow:hidden}
 .bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .overlay{position:relative;z-index:2;background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.55));width:100%;height:100%;display:grid;place-items:center;padding:40px 16px}
@@ -43,34 +51,23 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,A
 .hareas{margin-top:8px;font-weight:700}
 .hact{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 
-/* SECTION */
+/* SECTION + RESELL + Tiles + Footer (كما هي) */
 .section{padding:24px 16px}
 .container{max-width:1100px;margin:auto}
-
-/* RESELL */
 .box{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px}
 .box h3{margin:0 0 12px;font-size:1.15rem}
 .select,.input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
 .mt8{margin-top:8px}.mt12{margin-top:12px}
 .center{display:flex;justify-content:center}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
-
-/* Tiles */
 .tiles{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
 .tile{position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer}
 .tile img{width:100%;height:160px;object-fit:cover;display:block}
 .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
-
-/* Footer */
 footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:22px}
 .social{margin-top:10px;display:flex;gap:10px;justify-content:center}
 .sbtn{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:800}
-
-/* Tablet/Desktop */
-@media(min-width:768px){
-  .tiles{grid-template-columns:repeat(3,1fr)}
-  .brandlogo img{height:52px}
-}
+@media(min-width:768px){.tiles{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -78,8 +75,26 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 <!-- NAVBAR -->
 <header class="topbar">
   <div class="topbar__in">
-    <!-- يسار: المشاريع -->
-    <div class="topbar__left">
+    <!-- يسار (سيتحول شمال في الديسكتوب): اتصل + اللغة -->
+    <div class="nav-left">
+      <div class="dropdown">
+        <button class="btnx dropbtn" id="contactBtn"><span id="t-nav-contact">التواصل ▾</span></button>
+        <div class="dropdown__menu" id="contactMenu">
+          <a href="tel:+201050072527" id="t-c-call">📞 اتصال</a>
+          <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9" id="t-c-wa">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com?subject=Inquiry" id="t-c-mail">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+      <button class="btnx" id="langToggle">AR/EN</button>
+    </div>
+
+    <!-- اللوجو -->
+    <a href="index.html" class="brandlogo" aria-label="Home">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty Logo">
+    </a>
+
+    <!-- يمين (سيتحول يمين في الديسكتوب): المشاريع -->
+    <div class="nav-right">
       <div class="dropdown">
         <button class="btnx dropbtn" id="projectsBtn"><span id="t-nav-projects">المشاريع ▾</span></button>
         <div class="dropdown__menu" id="projectsMenu">
@@ -87,22 +102,6 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
           <a href="north.html" id="t-dd-north">الساحل الشمالي</a>
           <a href="Cairo.html" id="t-dd-cairo">القاهرة الجديدة</a>
           <a href="Resale.html" id="t-dd-resale">ريسيل</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- يمين: اللوجو + اللغة + التواصل -->
-    <div class="topbar__right">
-      <a href="index.html" class="brandlogo" aria-label="Home">
-        <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty Logo">
-      </a>
-      <button class="btnx" id="langToggle">AR/EN</button>
-      <div class="dropdown">
-        <button class="btnx dropbtn" id="contactBtn"><span id="t-nav-contact">التواصل ▾</span></button>
-        <div class="dropdown__menu" id="contactMenu">
-          <a href="tel:+201050072527" id="t-c-call">📞 اتصال</a>
-          <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9" id="t-c-wa">💬 واتساب</a>
-          <a href="mailto:islammesmail@gmail.com?subject=Inquiry" id="t-c-mail">✉️ بريد إلكتروني</a>
         </div>
       </div>
     </div>
@@ -216,7 +215,7 @@ const T = {
     areas:"Ain Sokhna • North Coast • New Cairo",
     call:"Call Now", wa:"WhatsApp Advice", mail:"Email ✉️",
     rTitle:"Resale — choose area & type location",
-    rPH:"Specify a place of interest (e.g., The 5th Settlement / Porto Sokhna)",
+    rPH:"Specify a place of interest (e.g., Marassi / Porto Sokhna)",
     rNext:"Send / Next »",
     rHint:"After next, choose unit type, rooms, floor & budget. We'll send it on WhatsApp.",
     optSokhna:"Ain Sokhna", optNorth:"North Coast", optCairo:"New Cairo",
@@ -249,7 +248,7 @@ function setLang(lang){
   document.getElementById('t-wa').textContent   = t.wa;
   document.getElementById('t-mail').textContent = t.mail;
 
-  // resale box
+  // resale
   document.getElementById('t-r-title').textContent = t.rTitle;
   document.getElementById('t-r-ph').placeholder    = t.rPH;
   document.getElementById('t-r-next').textContent  = t.rNext;
@@ -277,4 +276,4 @@ document.getElementById('langToggle').addEventListener('click',()=>{
 });
 </script>
 </body>
-</html>
+  </html>
