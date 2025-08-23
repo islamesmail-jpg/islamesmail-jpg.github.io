@@ -3,107 +3,49 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مشاريع العين السخنة | Eslam Realty</title>
+<title>دليل مشاريع العين السخنة | Eslam Realty</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="https://f.top4top.io/p_3522l3j7c0.png">
+<link rel="stylesheet" href="style.css">
 <style>
-:root{--ink:#0b0f19;--gold:#e4c24a;--gold2:#f0d86a;--card:#101829;--line:#2a3958;--bg2:#0f1627}
-*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial}
-.container{max-width:1100px;margin:auto}
-.btn{padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
-.btn:hover{background:var(--gold);color:#111}
-.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer}
-.btnx:hover{background:var(--gold);color:#111}
-
-/* NAV (نفس الهوم) */
-.topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.topbar__in{max-width:1200px;margin:auto;padding:10px 16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
-.topbar__left,.topbar__right{display:flex;gap:10px}
-.topbar__left{justify-content:flex-start}
-.topbar__right{justify-content:flex-end}
-.brandlogo{width:90px;height:90px;display:grid;place-items:center;margin-inline:auto}
-.brandlogo img{width:78px;height:78px;object-fit:contain}
-
-/* Mobile: اللوجو يمين – العناصر يسار */
-@media(max-width:991px){
-  .topbar__in{grid-template-columns:auto 1fr auto}
-  .brandlogo{order:3;margin-inline:0}
-  .topbar__left{order:1}
-  .topbar__right{order:2;justify-content:flex-start}
-}
-/* Desktop: اللوجو في المنتصف */
-@media(min-width:992px){
-  .brandlogo img{width:95px;height:95px}
-}
-
-/* Dropdown */
-.dropdown{position:relative}
-.dropdown__menu{display:none;position:absolute;inset-inline-start:0;top:110%;min-width:220px;background:#0f1627;border:1px solid #2a3958;border-radius:12px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-.dropdown__menu a{display:block;padding:10px 12px;border-radius:10px;color:#e7eefb;text-decoration:none;font-weight:700}
-.dropdown__menu a:hover{background:#16233b}
-#contactMenu{inset-inline-start:auto;inset-inline-end:0}
-
-/* HERO VIDEO */
-.section{padding:24px 16px}
-.hero{position:relative;min-height:48vh;display:grid;place-items:center;overflow:hidden}
-.bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.overlay{position:relative;z-index:2;background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.55));width:100%;height:100%;display:grid;place-items:center;padding:36px 16px}
-.h1{margin:0 0 10px;font-size:clamp(22px,5vw,40px);font-weight:800}
-.pgTitle{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800}
-
-/* Projects grid */
-.grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.card img{width:100%;height:74px;object-fit:contain;background:#0e1425}
-.card .body{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.name{font-weight:800}
-.ask{white-space:nowrap}
-
-/* form-mini */
-.box{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px}
-.box h3{margin:0 0 12px;font-size:1.15rem}
-.select,.input,.textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
-.row{display:grid;gap:12px}
-.col-2{grid-template-columns:1fr}
-.center{display:flex;justify-content:center}
-.mt12{margin-top:12px}
-
-/* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:22px}
-.sbtn{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:800;margin:0 6px}
-
-/* wider */
-@media(min-width:768px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .col-2{grid-template-columns:repeat(2,1fr)}
-}
+/* إضافات خفيفة خاصة بالصفحة */
+.hero-mini video{width:100%;height:240px;object-fit:cover;border-radius:16px;border:1px solid #2b3a57}
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px}
+.lead h2{margin:0 0 8px;font-size:1.2rem}
+.accord{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.acc-h{background:#0c1323;padding:12px 14px;font-weight:800;cursor:pointer}
+.acc-b{display:none;padding:12px 14px;background:#0f1627;border-top:1px solid #223351}
+.acc-open .acc-b{display:block}
+.row-2{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:14px}
+.tile-lg{position:relative;border:1px solid #3a4b70;border-radius:16px;overflow:hidden;cursor:pointer}
+.tile-lg img{width:100%;height:180px;object-fit:cover;display:block}
+.tile-lg .cap{position:absolute;left:12px;bottom:12px;right:12px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
+@media(max-width:520px){.row-2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar__in">
-    <div class="topbar__left">
-      <div class="dropdown">
-        <button class="btnx" id="projectsBtn">المشاريع ▾</button>
-        <div class="dropdown__menu" id="projectsMenu">
-          <a href="sokhna.html">العين السخنة</a>
-          <a href="north.html">الساحل الشمالي</a>
-          <a href="Cairo.html">القاهرة الجديدة</a>
-          <a href="Resale.html">ريسيل</a>
+<!-- NAV -->
+<header class="topbar" style="background:#000;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div class="container">
+    <div class="left">
+      <div class="menu" id="menu-projects">
+        <button class="btnx menu-btn" onclick="toggleMenu('menu-projects')">المشاريع ▾</button>
+        <div class="menu-panel">
+          <a class="item" href="sokhna.html">العين السخنة</a>
+          <a class="item" href="north.html">الساحل الشمالي</a>
+          <a class="item" href="Cairo.html">القاهرة الجديدة</a>
+          <a class="item" href="Resale.html">ريسيل</a>
         </div>
       </div>
     </div>
-
-    <a href="index.html" class="brandlogo" aria-label="Home">
-      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
+    <a href="index.html" class="brand-circle" style="border:none;background:transparent;width:84px;height:84px">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Logo" style="border-radius:50%">
     </a>
-
-    <div class="topbar__right">
+    <div class="right">
       <button class="btnx" id="langToggle">AR/EN</button>
-      <div class="dropdown">
-        <button class="btnx" id="contactBtn">التواصل ▾</button>
-        <div class="dropdown__menu" id="contactMenu">
+      <div class="contact" id="menu-contact">
+        <button class="btnx" onclick="toggleMenu('menu-contact')">التواصل ▾</button>
+        <div class="contact-panel">
           <a href="tel:+201050072527">📞 اتصال</a>
           <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9">💬 واتساب</a>
           <a href="mailto:islammesmail@gmail.com?subject=Inquiry">✉️ بريد إلكتروني</a>
@@ -113,94 +55,66 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <video class="bgvid" autoplay loop muted playsinline preload="auto">
-    <source src="https://j.top4top.io/m_3522heoog0.mp4" type="video/mp4">
-  </video>
-  <div class="overlay container">
-    <h1 class="h1">مشاريع العين السخنة</h1>
-  </div>
-</section>
-
-<!-- GRID -->
+<!-- HERO VIDEO -->
 <section class="section container">
-  <div id="wrap" class="grid"></div>
-</section>
+  <div class="hero-mini">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="https://j.top4top.io/m_3522heoog0.mp4" type="video/mp4">
+    </video>
+  </div>
 
-<!-- can't-find -->
-<section class="section container">
-  <div class="box">
-    <h3>مش لاقي مشروعك؟ ابعتلنا:</h3>
-    <div class="row col-2">
-      <input id="pName" class="input" placeholder="اسم المشروع">
-      <select id="pType" class="select"><option>فيلا</option><option>شقة</option><option>استوديو</option><option>بنتهاوس</option><option>دوبلكس</option><option>روف</option><option>شاليه</option></select>
-      <input id="pRooms" class="input" placeholder="عدد الغرف">
-      <input id="pHand" class="input" placeholder="مدة الاستلام المفضلة">
+  <div class="lead">
+    <h2>دليل مشاريع العين السخنة</h2>
+    <p>
+      العين السخنة واحدة من أجمل المدن السياحية الساحلية في مصر، تتميز بمناخ مناسب طوال العام وبخاصة الشتاء،
+      وشواطئ رملية ومياه فيروزية وجبال عالية. سُميت بالعين السخنة لكثرة ينابيع المياه الكبريتية (حرارتها 35°م)
+      المستخدمة في الاستشفاء. قربها من القاهرة يجعلها وجهة مثالية للاسترخاء والأنشطة البحرية وتسلق الجبال
+      وركوب التليفريك والصيد.
+    </p>
+
+    <div class="accord" id="acc1">
+      <div class="acc-h" onclick="toggleAcc('acc1')">1) موقع العين السخنة</div>
+      <div class="acc-b">
+        تقع على بعد 55 كم جنوب السويس على ساحل البحر الأحمر، وتبعد عن القاهرة ~133 كم (حوالي ساعة ونصف).
+        المسافة من الإسكندرية ~348 كم (4–4.5 ساعات). تبعد عن الغردقة ~332 كم، وبالقرب من العاصمة الإدارية (~ساعة).
+        <div class="row-2">
+          <a class="tile-lg" href="zafarana.html">
+            <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
+            <div class="cap">طريق الزعفرانة</div>
+          </a>
+          <a class="tile-lg" href="suez.html">
+            <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
+            <div class="cap">طريق السويس</div>
+          </a>
+        </div>
+      </div>
     </div>
-    <textarea id="pNote" class="textarea mt12" rows="2" placeholder="ملاحظات"></textarea>
-    <div class="center mt12">
-      <a class="btn" id="pSend">إرسال إلى واتساب</a>
-      <a class="btn" href="index.html">رجوع</a>
+
+    <div class="accord" id="acc2">
+      <div class="acc-h" onclick="toggleAcc('acc2')">2) العين السخنة تابعة لأي محافظة؟</div>
+      <div class="acc-b">
+        تتبع محافظة السويس، وتقع على ساحل خليج السويس بالبحر الأحمر. تبعد 55 كم عن مدينة السويس وهي أقرب منتجعات
+        البحر الأحمر إلى القاهرة.
+      </div>
+    </div>
+
+    <div class="accord" id="acc3">
+      <div class="acc-h" onclick="toggleAcc('acc3')">3) الطرق القريبة</div>
+      <div class="acc-b">
+        طريق القاهرة – العين السخنة • طريق الزعفرانة • طريق هضبة الجلالة • طريق السويس • طريق الغردقة–الإسماعيلية
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  © <span id="year"></span> Eslam Realty
-  <div style="margin-top:10px">
-    <a class="sbtn" href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%D8%A7%D9%8B%20%D8%B3%D8%B1%D9%8A%D8%B9%D8%A7%D9%8B">💬 واتساب</a>
-    <a class="sbtn" href="tel:+201050072527">📞 اتصال</a>
-    <a class="sbtn" href="mailto:islammesmail@gmail.com">✉️ Email</a>
-  </div>
-</footer>
+<footer>© <span id="year"></span> Eslam Realty</footer>
 
 <script>
-// year
-document.getElementById('year').textContent=new Date().getFullYear();
-
-// dropdowns
-const toggle=(b,m)=>document.getElementById(b).addEventListener('click',e=>{
-  e.stopPropagation();const d=document.getElementById(m);d.style.display=d.style.display==='block'?'none':'block';
-});
-toggle('projectsBtn','projectsMenu');toggle('contactBtn','contactMenu');
-document.addEventListener('click',()=>['projectsMenu','contactMenu'].forEach(id=>{const el=document.getElementById(id); if(el) el.style.display='none';}));
-
-// language (عربي/إنجليزي) – نصوص بسيطة للعنوان فقط هنا
-const T={ar:"مشاريع العين السخنة",en:"Ain Sokhna Projects"};
-let CUR='ar';
-document.getElementById('langToggle').onclick=()=>{
-  CUR=(CUR==='ar')?'en':'ar';
-  document.documentElement.dir=(CUR==='ar')?'rtl':'ltr';
-  document.documentElement.lang=CUR;
-  document.querySelector('.h1').textContent=T[CUR];
-};
-
-// Projects
-const ICON="https://i.top4top.io/p_3520bchvg0.png";
-const WA="201050072527";
-const LIST=[
-"Lugano AOG","La Vista Topaz","La Vista 7","Telal Sokhna","La Vista",
-"Porto Sokhna","AZHA","Ain Hills","Bella Romance","Lasirena Palm Beach",
-"IL Monte Galala","Murano Wadi Degla","Blumar Sokhna","BOHO","Bella Vento",
-"Bella East","The Groove","Little Venice","LaLuna Beach","Carnelia",
-"Stella Di Mare","Majada","Kai Sokhna","Ein Bay","El Galala City",
-"Sokhna Hills","Azadir Sokhna","Sokhna View","Blue Blue","Mountain View Sokhna"
-];
-const wrap=document.getElementById('wrap');
-LIST.forEach(name=>{
-  const msg=`استفسار عن مشروع (${name}) في العين السخنة | نوع الوحدة + غرف + الدور + الميزانية`;
-  const card=document.createElement('div');card.className='card';
-  card.innerHTML=`<img src="${ICON}" alt="${name}"><div class="body"><div class="name">${name}</div><a class="btn ask" target="_blank" href="https://wa.me/${WA}?text=${encodeURIComponent(msg)}">اسأل</a></div>`;
-  wrap.appendChild(card);
-});
-
-// Can't-find send
-document.getElementById('pSend').onclick=()=>{
-  const n=pName.value,t=pType.value,r=pRooms.value,h=pHand.value,no=pNote.value;
-  const msg=`(العين السخنة) مشروع غير مذكور | الاسم:${n||'—'} | نوع:${t||'—'} | غرف:${r||'—'} | استلام:${h||'—'} | ملاحظات:${no||'—'}`;
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
-};
+document.getElementById('year').textContent = new Date().getFullYear();
+function toggleMenu(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact,.acc-h')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'))});
+function toggleAcc(id){document.getElementById(id).classList.toggle('acc-open')}
+langToggle.addEventListener('click',()=>{document.documentElement.dir=(document.documentElement.dir==='rtl'?'ltr':'rtl');document.documentElement.lang=(document.documentElement.lang==='ar'?'en':'ar')});
 </script>
 </body>
 </html>
