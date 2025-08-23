@@ -7,24 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* إضافات خفيفة خاصة بالصفحة */
+/* إضافي للصفحة */
 .hero-mini video{width:100%;height:240px;object-fit:cover;border-radius:16px;border:1px solid #2b3a57}
-.lead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px}
-.lead h2{margin:0 0 8px;font-size:1.2rem}
-.accord{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.acc-h{background:#0c1323;padding:12px 14px;font-weight:800;cursor:pointer}
-.acc-b{display:none;padding:12px 14px;background:#0f1627;border-top:1px solid #223351}
-.acc-open .acc-b{display:block}
 .row-2{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:14px}
 .tile-lg{position:relative;border:1px solid #3a4b70;border-radius:16px;overflow:hidden;cursor:pointer}
 .tile-lg img{width:100%;height:180px;object-fit:cover;display:block}
 .tile-lg .cap{position:absolute;left:12px;bottom:12px;right:12px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px}
+.lead h2{margin:0 0 8px}
+.accord{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.acc-h{background:#0c1323;padding:12px 14px;font-weight:800;cursor:pointer}
+.acc-b{display:none;padding:12px 14px;background:#0f1627;border-top:1px solid #223351}
+.acc-open .acc-b{display:block}
 @media(max-width:520px){.row-2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAV أسود موحد -->
 <header class="topbar" style="background:#000;border-bottom:1px solid rgba(255,255,255,.08)">
   <div class="container">
     <div class="left">
@@ -55,54 +55,50 @@
   </div>
 </header>
 
-<!-- HERO VIDEO -->
 <section class="section container">
+  <!-- فيديو -->
   <div class="hero-mini">
     <video autoplay muted loop playsinline preload="auto">
       <source src="https://j.top4top.io/m_3522heoog0.mp4" type="video/mp4">
     </video>
   </div>
 
+  <!-- روابط الطريقين (فوق الوصف) -->
+  <div class="row-2">
+    <a class="tile-lg" href="zafarana.html">
+      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="">
+      <div class="cap">طريق الزعفرانة</div>
+    </a>
+    <a class="tile-lg" href="suez.html">
+      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="">
+      <div class="cap">طريق السويس</div>
+    </a>
+  </div>
+
+  <!-- الوصف والأكواردنز -->
   <div class="lead">
     <h2>دليل مشاريع العين السخنة</h2>
     <p>
-      العين السخنة واحدة من أجمل المدن السياحية الساحلية في مصر، تتميز بمناخ مناسب طوال العام وبخاصة الشتاء،
-      وشواطئ رملية ومياه فيروزية وجبال عالية. سُميت بالعين السخنة لكثرة ينابيع المياه الكبريتية (حرارتها 35°م)
-      المستخدمة في الاستشفاء. قربها من القاهرة يجعلها وجهة مثالية للاسترخاء والأنشطة البحرية وتسلق الجبال
-      وركوب التليفريك والصيد.
+      العين السخنة واحدة من أجمل المدن الساحلية في مصر… سُميت لكثرة ينابيع المياه الكبريتية (حرارتها 35°م)
+      المستخدمة في الاستشفاء. قربها من القاهرة يجعلها وجهة مثالية للاسترخاء والأنشطة البحرية وتسلق الجبال.
     </p>
 
     <div class="accord" id="acc1">
       <div class="acc-h" onclick="toggleAcc('acc1')">1) موقع العين السخنة</div>
       <div class="acc-b">
-        تقع على بعد 55 كم جنوب السويس على ساحل البحر الأحمر، وتبعد عن القاهرة ~133 كم (حوالي ساعة ونصف).
-        المسافة من الإسكندرية ~348 كم (4–4.5 ساعات). تبعد عن الغردقة ~332 كم، وبالقرب من العاصمة الإدارية (~ساعة).
-        <div class="row-2">
-          <a class="tile-lg" href="zafarana.html">
-            <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
-            <div class="cap">طريق الزعفرانة</div>
-          </a>
-          <a class="tile-lg" href="suez.html">
-            <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
-            <div class="cap">طريق السويس</div>
-          </a>
-        </div>
+        تقع 55 كم جنوب السويس على ساحل البحر الأحمر. تبعد عن القاهرة ~133 كم (ساعة ونصف)،
+        الإسكندرية ~348 كم (4–4.5 ساعات)، الغردقة ~332 كم، وقريبة من العاصمة الإدارية (~ساعة).
       </div>
     </div>
 
     <div class="accord" id="acc2">
       <div class="acc-h" onclick="toggleAcc('acc2')">2) العين السخنة تابعة لأي محافظة؟</div>
-      <div class="acc-b">
-        تتبع محافظة السويس، وتقع على ساحل خليج السويس بالبحر الأحمر. تبعد 55 كم عن مدينة السويس وهي أقرب منتجعات
-        البحر الأحمر إلى القاهرة.
-      </div>
+      <div class="acc-b">محافظة السويس، وعلى ساحل خليج السويس بالبحر الأحمر.</div>
     </div>
 
     <div class="accord" id="acc3">
       <div class="acc-h" onclick="toggleAcc('acc3')">3) الطرق القريبة</div>
-      <div class="acc-b">
-        طريق القاهرة – العين السخنة • طريق الزعفرانة • طريق هضبة الجلالة • طريق السويس • طريق الغردقة–الإسماعيلية
-      </div>
+      <div class="acc-b">القاهرة–السخنة • الزعفرانة • هضبة الجلالة • السويس • الغردقة–الإسماعيلية</div>
     </div>
   </div>
 </section>
