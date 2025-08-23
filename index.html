@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eslam Realty | الرئيسية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية: العين السخنة، الساحل الشمالي، القاهرة الجديدة.">
+<link rel="canonical" href="https://islamesmail-jpg.github.io/">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="navin">
+    <a class="brand" id="brand" href="index.html">إسلام</a>
+    <ul class="navlinks">
+      <li><a id="navHome" href="index.html">الرئيسية</a></li>
+      <li><a id="navProjects" href="north.html">المشاريع</a></li>
+    </ul>
+    <div class="lang">
+      <button class="btnx" id="langToggle">AR / EN</button>
+      <div class="cta">
+        <button class="btnx" id="contactBtn" data-i18n="contact">التواصل</button>
+        <div class="menu" id="contactMenu">
+          <a href="tel:+201050072527">📞</a>
+          <a href="https://wa.me/201050072527?text=Hello">💬</a>
+          <a href="mailto:eslam.realty.eg@gmail.com?subject=Inquiry">✉️</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop')">
+  <div class="overlay">
+    <div class="hinner">
+      <h1 class="h1" data-i18n="hero_h1">حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي</h1>
+      <div class="hsub" data-i18n="hero_sub">خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية</div>
+      <div class="hareas" data-i18n="hero_areas">العين السخنة • الساحل الشمالي • القاهرة الجديدة</div>
+      <div class="hact">
+        <a class="btn" href="tel:+201050072527" data-i18n="call">اتصال مباشر</a>
+        <a class="btn" href="https://wa.me/201050072527?text=%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B9%D8%A7%D9%85%D8%A9" data-i18n="wa">استشارة واتساب</a>
+        <a class="btn" href="mailto:eslam.realty.eg@gmail.com?subject=Inquiry" data-i18n="mail">Email ✉️</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resale Step 1 -->
+<section class="section container">
+  <div class="box">
+    <h3 data-i18n="resale_title">ريسيل — اختر المنطقة واكتب المكان</h3>
+    <select id="resaleArea" class="select">
+      <option value="العين السخنة">العين السخنة</option>
+      <option value="الساحل الشمالي">الساحل الشمالي</option>
+      <option value="التجمع الخامس">التجمع الخامس</option>
+      <option value="التجمع الأول">التجمع الأول</option>
+      <option value="التجمع الثالث">التجمع الثالث</option>
+      <option value="الرحاب">الرحاب</option>
+      <option value="مدينتي">مدينتي</option>
+      <option value="القاهرة الجديدة">القاهرة الجديدة</option>
+    </select>
+    <input id="resalePlace" class="input mt8" placeholder="حدد مكان مهتم بالشراء فيه (مثال: Marassi / Porto Sokhna / النرجس)">
+    <div class="center mt12"><button class="btn" id="goNext" data-i18n="next">إرسال / التالي »</button></div>
+    <div class="hint" data-i18n="resale_hint">بعد «التالي» هتدخل نوع الوحدة والغرف والدور والميزانية ثم نرسلها على واتساب.</div>
+  </div>
+</section>
+
+<!-- Tiles -->
+<section class="section container">
+  <div class="tiles">
+    <a class="tile" href="north.html">
+      <img src="https://d.top4top.io/p_35205kscf2.jpeg" alt="">
+      <div class="cap" data-i18n="cap_north">الساحل الشمالي 🌊</div>
+    </a>
+    <a class="tile" href="sokhna.html">
+      <img src="https://c.top4top.io/p_3520pn0w11.jpeg" alt="">
+      <div class="cap" data-i18n="cap_sokhna">العين السخنة 🏖️</div>
+    </a>
+    <a class="tile" href="cairo.html">
+      <img src="https://b.top4top.io/p_3520wg6dc0.jpeg" alt="">
+      <div class="cap" data-i18n="cap_cairo">القاهرة الجديدة 🏡</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Eslam Realty
+  <div class="social">
+    <a class="sbtn" href="https://wa.me/201050072527?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%D8%A7%D9%8B%20%D8%B3%D8%B1%D9%8A%D8%B9%D8%A7%D9%8B">💬 واتساب</a>
+    <a class="sbtn" href="tel:+201050072527">📞 اتصال</a>
+    <a class="sbtn" href="mailto:eslam.realty.eg@gmail.com">✉️ Email</a>
+  </div>
+</footer>
+
+<!-- shared JS -->
+<?/* put at end to ensure elements exist */?>
+<script src="app.js"></script>
+</body>
+  </html>
