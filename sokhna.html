@@ -7,36 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ===== إضافات خاصة بالصفحة ===== */
+/* هيدر أسود موحّد */
 .topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.brand-circle{border:none;background:transparent;width:90px;height:90px}
-.brand-circle img{border-radius:50%}
+.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:center}
+.brandbox img{max-width:100%;max-height:100%;object-fit:contain}
 
-.hero-mini video{width:100%;height:240px;object-fit:cover;border-radius:16px;border:1px solid #2b3a57}
-.row-2{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:14px}
-.tile-lg{position:relative;border:1px solid #3a4b70;border-radius:16px;overflow:hidden}
-.tile-lg img{width:100%;height:180px;object-fit:cover;display:block}
-.tile-lg .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);border:1px solid var(--gold);color:var(--gold);padding:8px 12px;border-radius:12px;text-align:center;font-weight:800}
-.lead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px}
-.lead h2{margin:0 0 8px}
-.accord{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.acc-h{background:#0c1323;padding:12px 14px;font-weight:800;cursor:pointer}
-.acc-b{display:none;padding:12px 14px;background:#0f1627;border-top:1px solid #223351}
-.acc-open .acc-b{display:block}
-@media(max-width:520px){
-  .row-2{grid-template-columns:1fr}
-  .brand-circle{width:76px;height:76px}
-}
+/* كارت رابط الطريق */
+.big-link{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#0e1425}
+.big-link img{width:100%;height:220px;object-fit:cover;display:block;opacity:.95}
+.big-link .cap{position:absolute;left:16px;right:16px;bottom:14px;text-align:center;padding:10px;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.5);border-radius:12px;font-weight:800}
+
+.lead{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
 </style>
 </head>
 <body>
 
-<!-- NAV موحّد أسود -->
 <header class="topbar">
-  <div class="container">
-    <div class="left">
-      <div class="menu" id="m-proj">
-        <button class="btnx menu-btn" onclick="toggleMenu('m-proj')">المشاريع ▾</button>
+  <div class="container" style="display:flex;align-items:center;justify-content:center;height:72px;position:relative">
+    <div class="left" style="position:absolute;right:16px;display:flex;gap:10px;align-items:center">
+      <div class="menu" id="m-proj"><button class="btnx" onclick="toggleMenu('m-proj')">المشاريع ▾</button>
         <div class="menu-panel">
           <a class="item" href="sokhna.html">العين السخنة</a>
           <a class="item" href="north.html">الساحل الشمالي</a>
@@ -45,19 +34,15 @@
         </div>
       </div>
     </div>
-
-    <a class="brand-circle" href="index.html" aria-label="Home">
-      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
-    </a>
-
-    <div class="right">
+    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
+    <div class="right" style="position:absolute;left:16px;display:flex;gap:10px;align-items:center">
       <button class="btnx" id="langToggle">AR/EN</button>
       <div class="contact" id="m-contact">
         <button class="btnx" onclick="toggleMenu('m-contact')">التواصل ▾</button>
         <div class="contact-panel">
           <a href="tel:+201050072527">📞 اتصال</a>
-          <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9">💬 واتساب</a>
-          <a href="mailto:islammesmail@gmail.com?subject=Inquiry">✉️ بريد إلكتروني</a>
+          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
         </div>
       </div>
     </div>
@@ -66,41 +51,49 @@
 
 <section class="section container">
   <!-- فيديو -->
-  <div class="hero-mini">
-    <video autoplay muted loop playsinline preload="auto">
+  <div class="pg-hero" style="margin-bottom:14px">
+    <video autoplay loop muted playsinline preload="auto" style="width:100%;height:210px;object-fit:cover;display:block">
       <source src="https://j.top4top.io/m_3522heoog0.mp4" type="video/mp4">
     </video>
   </div>
 
-  <!-- الطريقان (فوق الوصف) -->
-  <div class="row-2">
-    <a class="tile-lg" href="zafarana.html">
+  <div class="lead">
+    <h2 style="margin:0 0 8px">دليل مشاريع العين السخنة</h2>
+    <p>العين السخنة واحدة من أجمل المدن السياحية الساحلية في مصر… سُمّيت بالعين السخنة لكثرة ينابيع المياه الكبريتية (حرارتها 35°م) المستخدمة في الاستشفاء… قربها من القاهرة يجعلها وجهة مثالية للاسترخاء والأنشطة البحرية وتسلق الجبال وركوب التليفريك والصيد.</p>
+  </div>
+
+  <div class="lead" style="margin-top:14px">
+    <h3 style="margin:0 0 8px">(1) موقع العين السخنة</h3>
+    <p>تقع على بعد 55 كم جنوب السويس على ساحل البحر الأحمر. تبعد عن القاهرة ~133 كم (حوالي ساعة ونصف)؛ المسافة من الإسكندرية ~348 كم (4–4.5 ساعات)؛ عن الغردقة ~332 كم؛ وبالقرب من العاصمة الإدارية (~ساعة).</p>
+  </div>
+
+  <!-- روابط الطرق -->
+  <div class="section" style="padding-top:12px">
+    <a class="big-link" href="zafarana.html">
       <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="">
       <div class="cap">طريق الزعفرانة</div>
     </a>
-    <a class="tile-lg" href="suez.html">
+    <div style="height:12px"></div>
+    <a class="big-link" href="suez.html">
       <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="">
       <div class="cap">طريق السويس</div>
     </a>
   </div>
 
-  <!-- وصف -->
   <div class="lead">
-    <h2>دليل مشاريع العين السخنة</h2>
-    <p>العين السخنة واحدة من أجمل المدن الساحلية في مصر… سُميت لكثرة ينابيع المياه الكبريتية (حرارتها 35°م) المستخدمة في الاستشفاء. قربها من القاهرة يجعلها وجهة مثالية للاسترخاء والأنشطة البحرية.</p>
+    <h3 style="margin:0 0 8px">(2) العين السخنة تابعة لأي محافظة؟</h3>
+    <p>تتبع محافظة السويس، وتقع على ساحل خليج السويس في البحر الأحمر، وتبعد 55 كم عن مدينة السويس وهي أقرب منتجعات البحر الأحمر إلى القاهرة.</p>
+  </div>
 
-    <div class="accord" id="acc1">
-      <div class="acc-h" onclick="toggleAcc('acc1')">1) موقع العين السخنة</div>
-      <div class="acc-b">تقع 55 كم جنوب السويس… القاهرة ~133 كم (ساعة ونصف)، الإسكندرية ~348 كم، الغردقة ~332 كم، وقريبة من العاصمة الإدارية (~ساعة).</div>
-    </div>
-    <div class="accord" id="acc2">
-      <div class="acc-h" onclick="toggleAcc('acc2')">2) العين السخنة تابعة لأي محافظة؟</div>
-      <div class="acc-b">محافظة السويس وعلى ساحل خليج السويس بالبحر الأحمر.</div>
-    </div>
-    <div class="accord" id="acc3">
-      <div class="acc-h" onclick="toggleAcc('acc3')">3) الطرق القريبة</div>
-      <div class="acc-b">القاهرة–السخنة • الزعفرانة • هضبة الجلالة • السويس • الغردقة–الإسماعيلية.</div>
-    </div>
+  <div class="lead" style="margin-top:14px">
+    <h3 style="margin:0 0 8px">(3) الطرق القريبة</h3>
+    <ul>
+      <li>طريق القاهرة – العين السخنة</li>
+      <li>طريق الزعفرانة</li>
+      <li>طريق هضبة الجلالة</li>
+      <li>طريق السويس</li>
+      <li>طريق الغردقة – الإسماعيلية</li>
+    </ul>
   </div>
 </section>
 
@@ -109,9 +102,8 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 function toggleMenu(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open')}
-document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'))});
-function toggleAcc(id){document.getElementById(id).classList.toggle('acc-open')}
-langToggle.addEventListener('click',()=>{document.documentElement.dir=(document.documentElement.dir==='rtl'?'ltr':'rtl');document.documentElement.lang=(document.documentElement.lang==='ar'?'en':'ar')});
+document.addEventListener('click',e=>{ if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open')); });
+langToggle?.addEventListener('click',()=>{document.documentElement.dir=(document.documentElement.dir==='rtl'?'ltr':'rtl');document.documentElement.lang=(document.documentElement.lang==='ar'?'en':'ar')});
 </script>
 </body>
 </html>
