@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>مشاريع طريق السويس | Eslam Realty</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.section h2{margin:0 0 8px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.badge{border:1px solid var(--gold);color:var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;background:rgba(0,0,0,.25)}
+.carousel{position:relative;border:1px solid #2b3a57;border-radius:16px;overflow:hidden}
+.track{display:flex;transition:transform .35s ease}
+.slide{min-width:100%}
+.slide img{width:100%;height:240px;object-fit:cover;display:block}
+.c-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 6px}
+.c-btn{background:rgba(0,0,0,.45);border:1px solid #999;color:#fff;border-radius:999px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar" style="background:#000;border-bottom:1px solid rgba(255,255,255,.08)">
+  <div class="container">
+    <div class="left">
+      <div class="menu" id="menu-projects">
+        <button class="btnx menu-btn" onclick="toggleMenu('menu-projects')">المشاريع ▾</button>
+        <div class="menu-panel">
+          <a class="item" href="sokhna.html">العين السخنة</a>
+          <a class="item" href="north.html">الساحل الشمالي</a>
+          <a class="item" href="Cairo.html">القاهرة الجديدة</a>
+          <a class="item" href="Resale.html">ريسيل</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html" class="brand-circle" style="border:none;background:transparent;width:84px;height:84px">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Logo" style="border-radius:50%">
+    </a>
+    <div class="right">
+      <button class="btnx" id="langToggle">AR/EN</button>
+      <div class="contact" id="menu-contact">
+        <button class="btnx" onclick="toggleMenu('menu-contact')">التواصل ▾</button>
+        <div class="contact-panel">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527?text=%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com?subject=Inquiry">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section container">
+  <h1 style="margin:0 0 8px">مشاريع طريق السويس</h1>
+  <p class="hint">الأسعار تتغيّر باستمرار — راسلنا لآخر تحديث.</p>
+
+  <!-- AZHA -->
+  <div class="box" id="azha">
+    <h2>AZHA Ain Sokhna — ازها العين السخنة</h2>
+
+    <div class="carousel" data-idx="0">
+      <div class="track">
+        <div class="slide"><img src="https://i.top4top.io/p_3522qxaug0.jpg" alt=""></div>
+        <div class="slide"><img src="https://j.top4top.io/p_35220n8hh1.jpg" alt=""></div>
+        <div class="slide"><img src="https://k.top4top.io/p_3522jfhvc2.jpg" alt=""></div>
+        <div class="slide"><img src="https://e.top4top.io/p_35222t7lv0.jpg" alt=""></div>
+      </div>
+      <div class="c-nav">
+        <button class="c-btn" onclick="prevSlide(this)">‹</button>
+        <button class="c-btn" onclick="nextSlide(this)">›</button>
+      </div>
+    </div>
+
+    <div class="badges">
+      <div class="badge">سعر المطور: 24,700,000 (مثال)</div>
+      <div class="badge">إعادة البيع يبدأ من: 7,500,000</div>
+      <div class="badge">الموقع: كم 34 السخنة/السويس — 12 كم من البوابات</div>
+    </div>
+
+    <p>
+      مشروع سكني متكامل بفكر مختلف؛ موقع استراتيجي يسهل الوصول منه وإليه، قرب القاهرة والعاصمة الجديدة
+      والقاهرة الجديدة. خدمات ورفاهية على مدار الساعة، وتصميمات حديثة ومساحات متنوعة.
+    </p>
+
+    <h3>الموقع بالتفصيل</h3>
+    <ul>
+      <li>الكيلو 34 طريق السخنة/السويس</li>
+      <li>12 كم من بوابات السخنة – بجانب بلومار وستيلّا دي ماري</li>
+      <li>ساعة ونصف إلى القاهرة • 30 دقيقة للعاصمة الجديدة • 45 دقيقة للقاهرة الجديدة</li>
+    </ul>
+
+    <h3>عن المطوّر</h3>
+    <p>
+      Madaar Development (2015) — من الشركات المؤثرة بمشروعات ناجحة مثل «ازها الساحل الشمالي» و«ازها السخنة».
+    </p>
+
+    <div class="center mt12">
+      <a class="btn" target="_blank"
+         href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20AZHA%20Ain%20Sokhna%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A2%D8%AE%D8%B1%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA%20(%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%2C%20%D8%B9%D8%AF%D8%AF%20%D8%A7%D9%84%D8%BA%D8%B1%D9%81%2C%20%D8%AA%D9%82%D8%B3%D9%8A%D8%B7%2F%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%A8%D9%8A%D8%B9).">
+        استعلام عن الأسعار (واتساب)
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<footer>© <span id="year"></span> Eslam Realty</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function toggleMenu(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'))});
+langToggle.addEventListener('click',()=>{document.documentElement.dir=(document.documentElement.dir==='rtl'?'ltr':'rtl');document.documentElement.lang=(document.documentElement.lang==='ar'?'en':'ar')});
+function getCarousel(el){const c=el.closest('.carousel');return {c,track:c.querySelector('.track'),slides:c.querySelectorAll('.slide'),idx:parseInt(c.dataset.idx||'0')}}
+function go(c,idx){idx=(idx+ c.slides.length)%c.slides.length;c.c.dataset.idx=idx;c.track.style.transform=`translateX(${-idx*100}%)`}
+function prevSlide(btn){const c=getCarousel(btn);go(c,c.idx-1)}
+function nextSlide(btn){const c=getCarousel(btn);go(c,c.idx+1)}
+</script>
+</body>
+</html>
