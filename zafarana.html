@@ -4,54 +4,49 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>مشاريع طريق الزعفرانة</title>
-
-<!-- خطوط + ستايل عام -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-<!-- فافيكون (لو مش مضاف قبل كده) -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://c.top4top.io/p_3523kk98b0.png">
-<link rel="icon" type="image/png" sizes="64x64" href="https://c.top4top.io/p_3523kk98b0.png">
-<link rel="apple-touch-icon" href="https://c.top4top.io/p_3523kk98b0.png">
-
 <style>
-:root{--card:#101829;--line:#2a3958}
-body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial}
+:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--surface:#0f1627;--card:#101829;--line:#2a3958;--light:#f8fafc}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.65}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:auto;padding:0 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900;cursor:pointer}
+.btn:hover{background:var(--gold);color:#111}
+.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
+.btnx:hover{background:#fff2c255}
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:24px}
 
-/* Topbar أسود */
-.topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
+/* Header */
+.topbar{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid #ffffff12}
 .navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
-.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:center}
+.brandbox{width:160px;height:54px;display:inline-flex;align-items:center;justify-content:center}
 .brandbox img{max-width:100%;max-height:100%;object-fit:contain}
 .actions{display:flex;gap:10px;align-items:center}
-.btnx{border:1px solid #e4c24a;color:#e4c24a;background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
-.btnx:hover{background:#fff2c2}
 .menu,.contact{position:relative}
 .menu-panel,.contact-panel{position:absolute;top:100%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
 .menu.open .menu-panel{display:block}.contact.open .contact-panel{display:block}
 .menu-panel a,.contact-panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
 .menu-panel a:hover,.contact-panel a:hover{background:#f3f4f6}
 
-/* المحتوى */
-.section{padding:24px 16px}
-.container{max-width:1100px;margin:auto}
-
-/* الشبكة */
+/* Grid */
+.section{padding:22px 0}
+h1{margin:0 0 14px;font-size:clamp(22px,4.5vw,34px)}
 .proj-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
 @media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
 .proj-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer}
-.proj-title{padding:10px 12px;font-weight:800}
+.proj-title{padding:10px 12px;font-weight:800;display:flex;align-items:center;justify-content:space-between}
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 12px}
-.price-box{background:#fff;color:#111;padding:8px 10px;border-radius:10px;font-weight:800;text-align:center;border:1px solid #e5e7eb}
+.price-box{background:#fff;color:#111;padding:10px;border-radius:10px;font-weight:800;text-align:center;border:1px solid #e5e7eb}
 
-/* جاليري صغير على الكارت */
-.miniGal{position:relative;height:190px;border-bottom:1px solid var(--line);background:#0e1425}
+/* mini gallery */
+.miniGal{position:relative;height:210px;border-bottom:1px solid var(--line);background:#0e1425}
 .miniGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .miniGal img.show{display:block}
-.miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center}
+.miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center;z-index:2;cursor:pointer}
 .miniPrev{left:8px}.miniNext{right:8px}
 
-/* مودال */
+/* Modal */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:2000}
 .modal.open{display:block}
 .modal__in{position:absolute;inset:20px;max-width:920px;margin:auto;background:#0f1627;border:1px solid var(--line);border-radius:16px;overflow:auto}
@@ -59,38 +54,27 @@ body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Aria
 .modal__title{font-weight:800}
 .closeX{margin-inline-start:auto;border:1px solid #e5e7eb;background:#fff;color:#111;border-radius:999px;padding:6px 10px}
 .ctaBar{display:flex;gap:8px;flex-wrap:wrap;padding:12px}
-.btn{padding:12px 18px;border-radius:999px;border:1.6px solid #e4c24a;color:#e4c24a;background:transparent;text-decoration:none;font-weight:900;cursor:pointer}
-.btn:hover{background:#e4c24a;color:#111}
 .inq{border-top:1px dashed #334;padding:12px;display:grid;gap:8px}
 .inq-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px}
 .inq select{padding:10px;border-radius:10px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
 .waBtn{white-space:nowrap}
-
-/* جاليري كبير بالمودال */
-.bigGal{position:relative;margin:0 12px 12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0b1323;height:320px}
+.bigGal{position:relative;margin:0 12px 12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0b1323;height:340px}
 .bigGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .bigGal img.show{display:block}
-.bigBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center}
+.bigBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center;z-index:2;cursor:pointer}
 .bigPrev{left:10px}.bigNext{right:10px}
-
-/* مواصفات */
 .spec{padding:0 12px 18px}
 .spec h3{margin:12px 0 8px}
 .spec ul{margin:6px 0 0;padding:0 20px}
-
-/* فوتر بسيط */
-footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px;margin-top:22px}
 </style>
 </head>
 <body>
 
-<!-- الشريط العلوي -->
 <header class="topbar">
   <div class="container navbar">
     <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
     <div class="actions">
-      <div class="menu" id="m-proj">
-        <button class="btnx" onclick="toggleMenu('m-proj')">المشاريع ▾</button>
+      <div class="menu" id="m-proj"><button class="btnx" onclick="toggleMenu('m-proj')">المشاريع ▾</button>
         <div class="menu-panel">
           <a href="sokhna.html">العين السخنة</a>
           <a href="zafarana.html">طريق الزعفرانة</a>
@@ -105,7 +89,7 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
         <button class="btnx" onclick="toggleMenu('m-contact')">التواصل ▾</button>
         <div class="contact-panel">
           <a href="tel:+201050072527">📞 اتصال</a>
-          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
           <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
         </div>
       </div>
@@ -113,7 +97,6 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
   </div>
 </header>
 
-<!-- المحتوى -->
 <section class="section container">
   <h1>مشاريع طريق الزعفرانة</h1>
 
@@ -122,9 +105,9 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     <!-- Murano -->
     <article class="proj-card" data-modal="murano">
       <div class="miniGal" data-gal="murano-mini">
-        <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg">
-        <img src="https://g.top4top.io/p_3522d8wi91.jpg">
-        <img src="https://h.top4top.io/p_35224yrbd2.jpg">
+        <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg" alt="">
+        <img src="https://g.top4top.io/p_3522d8wi91.jpg" alt="">
+        <img src="https://h.top4top.io/p_35224yrbd2.jpg" alt="">
         <button class="miniBtn miniPrev">‹</button><button class="miniBtn miniNext">›</button>
       </div>
       <div class="proj-title">مورانو وادي دجلة – Murano</div>
@@ -137,12 +120,12 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     <!-- Lugano -->
     <article class="proj-card" data-modal="lugano">
       <div class="miniGal" data-gal="lugano-mini">
-        <img class="show" src="https://d.top4top.io/p_3522abwq45.jpg">
-        <img src="https://c.top4top.io/p_35221lwi74.jpg">
-        <img src="https://b.top4top.io/p_352289sd73.jpg">
-        <img src="https://a.top4top.io/p_3522d3jof2.jpg">
-        <img src="https://l.top4top.io/p_3522v489z1.jpg">
-        <img src="https://k.top4top.io/p_35226tylr0.jpg">
+        <img class="show" src="https://d.top4top.io/p_3522abwq45.jpg" alt="">
+        <img src="https://c.top4top.io/p_35221lwi74.jpg" alt="">
+        <img src="https://b.top4top.io/p_352289sd73.jpg" alt="">
+        <img src="https://a.top4top.io/p_3522d3jof2.jpg" alt="">
+        <img src="https://l.top4top.io/p_3522v489z1.jpg" alt="">
+        <img src="https://k.top4top.io/p_35226tylr0.jpg" alt="">
         <button class="miniBtn miniPrev">‹</button><button class="miniBtn miniNext">›</button>
       </div>
       <div class="proj-title">لوجانو الجلالة (AOG) – Lugano</div>
@@ -155,9 +138,9 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     <!-- Dolphin -->
     <article class="proj-card" data-modal="dolphin">
       <div class="miniGal" data-gal="dolphin-mini">
-        <img class="show" src="https://a.top4top.io/p_3522tebkk0.jpeg">
-        <img src="https://b.top4top.io/p_3522sasm11.jpeg">
-        <img src="https://c.top4top.io/p_35225yyet2.jpeg">
+        <img class="show" src="https://a.top4top.io/p_3522tebkk0.jpeg" alt="">
+        <img src="https://b.top4top.io/p_3522sasm11.jpeg" alt="">
+        <img src="https://c.top4top.io/p_35225yyet2.jpeg" alt="">
         <button class="miniBtn miniPrev">‹</button><button class="miniBtn miniNext">›</button>
       </div>
       <div class="proj-title">دولفين بيتش – Dolphin Beach</div>
@@ -170,10 +153,10 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     <!-- Sokhna Hills -->
     <article class="proj-card" data-modal="sokhna-hills">
       <div class="miniGal" data-gal="sokhna-mini">
-        <img class="show" src="https://j.top4top.io/p_35225ufd20.jpg">
-        <img src="https://l.top4top.io/p_352235fak2.jpg">
-        <img src="https://k.top4top.io/p_3522mg22k1.jpg">
-        <img src="https://a.top4top.io/p_3522ewmly3.jpg">
+        <img class="show" src="https://j.top4top.io/p_35225ufd20.jpg" alt="">
+        <img src="https://l.top4top.io/p_352235fak2.jpg" alt="">
+        <img src="https://k.top4top.io/p_3522mg22k1.jpg" alt="">
+        <img src="https://a.top4top.io/p_3522ewmly3.jpg" alt="">
         <button class="miniBtn miniPrev">‹</button><button class="miniBtn miniNext">›</button>
       </div>
       <div class="proj-title">السخنة هيلز – Sokhna Hills</div>
@@ -183,18 +166,18 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
       </div>
     </article>
 
-    <!-- NEW: Al Hejaz Oasis -->
+    <!-- Al Hejaz Oasis (NEW) -->
     <article class="proj-card" data-modal="hejaz">
       <div class="miniGal" data-gal="hejaz-mini">
-        <img class="show" src="https://h.top4top.io/p_3523oz3cm1.jpeg">
-        <img src="https://g.top4top.io/p_3523911nq0.jpg">
-        <img src="https://g.top4top.io/p_3523b191s0.jpeg">
-        <img src="https://i.top4top.io/p_3523k107v2.jpeg">
+        <img class="show" src="https://h.top4top.io/p_3523oz3cm1.jpeg" alt="">
+        <img src="https://g.top4top.io/p_3523911nq0.jpg" alt="">
+        <img src="https://g.top4top.io/p_3523b191s0.jpeg" alt="">
+        <img src="https://i.top4top.io/p_3523k107v2.jpeg" alt="">
         <button class="miniBtn miniPrev">‹</button><button class="miniBtn miniNext">›</button>
       </div>
       <div class="proj-title">واحة الحجاز – Al Hejaz Oasis</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: لا يوجد وحدات</div>
+        <div class="price-box">سعر المطوّر: لا توجد وحدات</div>
         <div class="price-box">إعادة البيع: يبدأ من 2,200,000</div>
       </div>
     </article>
@@ -206,12 +189,11 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
 <div class="modal" id="murano"><div class="modal__in" data-project="مورانو وادي دجلة – Murano">
   <div class="modal__head"><div class="modal__title">مورانو وادي دجلة – Murano</div><button class="closeX" data-close>إغلاق ✕</button></div>
   <div class="ctaBar">
-    <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
+    <a class="btn" target="_blank" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
     <a class="btn" href="tel:+201050072527">📞 اتصال</a>
     <a class="btn" href="mailto:islammesmail@gmail.com?subject=Murano">✉️ Email</a>
   </div>
-  <div class="inq">
-    <strong>استعلام سريع:</strong>
+  <div class="inq"><strong>استعلام سريع:</strong>
     <div class="inq-row">
       <select class="inq-type"><option>ستوديو</option><option>شاليه</option><option>تاون هاوس</option><option>توين هاوس</option><option>فيلا</option></select>
       <select class="inq-bed"><option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option></select>
@@ -220,20 +202,17 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     </div>
   </div>
   <div class="bigGal" data-gal="murano-big">
-    <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg">
-    <img src="https://g.top4top.io/p_3522d8wi91.jpg">
-    <img src="https://h.top4top.io/p_35224yrbd2.jpg">
+    <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg"><img src="https://g.top4top.io/p_3522d8wi91.jpg"><img src="https://h.top4top.io/p_35224yrbd2.jpg">
     <button class="bigBtn bigPrev">‹</button><button class="bigBtn bigNext">›</button>
   </div>
   <div class="spec">
     <h3>مواصفات مشروع مورانو</h3>
-    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة... مع ينابيع مياه ساخنة طبيعية.</p>
-    <h3>الموقع</h3>
-    <p>في نهاية طريق السخنة وبداية الزعفرانة؛ أقرب منطقة ساحلية للعاصمة مع سهولة الوصول للمحاور.</p>
+    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة... وتم تصميم Murano Wadi Degla بعناية لتوفير بيئة تُركز على الهدوء والسكينة مع وسائل راحة وترفيه متنوعة ووجود ينابيع مياه ساخنة طبيعية.</p>
+    <h3>الموقع</h3><p>نهاية طريق السخنة وبداية طريق الزعفرانة؛ أقرب منطقة ساحلية للعاصمة وقريبة من الطرق والمحاور الرئيسية.</p>
     <h3>أهم الطرق والمحاور</h3>
-    <ul><li>طريق الجلالة 18 كم</li><li>محطة قطار 14 كم</li><li>القاهرة 136 كم</li><li>القطامية 112 كم</li></ul>
+    <ul><li>طريق الجلالة 18 كم</li><li>محطة قطار العين السخنة 14 كم</li><li>القاهرة 136 كم</li><li>القطامية 112 كم</li></ul>
     <h3>المساحة والخدمات</h3>
-    <p>مساحات واسعة + توزيع ذكي + مسطحات خضراء ومائية، شاطئ 750م، مارينا 100م، فندق 4★، مطاعم وكافيهات، منطقة تجارية، سبا، ملاعب، ينابيع طبيعية.</p>
+    <p>مساحات واسعة موزعة بذكاء + مسطحات خضراء ومائية، شاطئ رملي 750م، مارينا 100م، منتجع 4 نجوم، مطاعم وكافيهات، منطقة تجارية، سبا، ملاعب، ينابيع طبيعية.</p>
   </div>
 </div></div>
 
@@ -241,12 +220,11 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
 <div class="modal" id="lugano"><div class="modal__in" data-project="لوجانو الجلالة – Lugano">
   <div class="modal__head"><div class="modal__title">لوجانو الجلالة – Lugano (AOG)</div><button class="closeX" data-close>إغلاق ✕</button></div>
   <div class="ctaBar">
-    <a class="btn" href="https://wa.me/201050072527?text=%D9%84%D9%88%D8%AC%D8%A7%D9%86%D9%88%20%D8%A7%D9%84%D8%AC%D9%84%D8%A7%D9%84%D8%A9%20-%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1">💬 واتساب</a>
+    <a class="btn" target="_blank" href="https://wa.me/201050072527?text=%D9%84%D9%88%D8%AC%D8%A7%D9%86%D9%88%20%D8%A7%D9%84%D8%AC%D9%84%D8%A7%D9%84%D8%A9%20-%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1">💬 واتساب</a>
     <a class="btn" href="tel:+201050072527">📞 اتصال</a>
     <a class="btn" href="mailto:islammesmail@gmail.com?subject=Lugano">✉️ Email</a>
   </div>
-  <div class="inq">
-    <strong>استعلام سريع:</strong>
+  <div class="inq"><strong>استعلام سريع:</strong>
     <div class="inq-row">
       <select class="inq-type"><option>ستوديو</option><option>شاليه</option><option>تاون هاوس</option><option>توين هاوس</option><option>فيلا</option></select>
       <select class="inq-bed"><option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option></select>
@@ -265,11 +243,10 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
   </div>
   <div class="spec">
     <h3>مواصفات لوجانو الجلالة</h3>
-    <p>الشركة: AOG Developments… نشأة المجموعة والتوسع حتى 2025.</p>
-    <h3>اللوكيشن</h3>
-    <p>طريق الزعفرانة – أول نقطة في الجلالة؛ بعد البوابات بـ10 دق، وقبل بورتو بـ20 كم، 60 دقيقة من التجمع.</p>
+    <p>الشركة: AOG Developments … نشأة المجموعة والتوسع حتى 2025.</p>
+    <h3>اللوكيشن</h3><p>في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة… بعد البوابات بـ10 دقائق، 60 دقيقة من التجمع.</p>
     <h3>المساحة والخدمات</h3>
-    <p>40 فدان/3 مصاطب… شاطئ خاص 400م… ClubHouse, Alma Hotel (IHG), Triple Play, Padel, Kids, Gym, Mosque… إلخ.</p>
+    <p>40 فدان/3 مصاطب… شاطئ خاص 400م، Alma Hotel (IHG)، Triple Play، كلوب هاوس، Padel، Kids، جيم، مسجد…</p>
     <h3>الأسعار والسداد</h3>
     <p>Studio 40m: 2.46–2.89م • 2Bed 75m: 4.29–4.39م • 3Bed 95–100m: 4.35–6.17م • 4Bed 125m: 5.40–6.45م.<br>10%/7 سنين (خصم 5%) – 15%/8 سنين (خصم 10%)، التسليم 3–4 سنوات.</p>
   </div>
@@ -279,12 +256,11 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
 <div class="modal" id="dolphin"><div class="modal__in" data-project="دولفين بيتش – Dolphin Beach">
   <div class="modal__head"><div class="modal__title">دولفين بيتش – Dolphin Beach</div><button class="closeX" data-close>إغلاق ✕</button></div>
   <div class="ctaBar">
-    <a class="btn" href="https://wa.me/201050072527?text=Dolphin%20Beach%20-%20%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1">💬 واتساب</a>
+    <a class="btn" target="_blank" href="https://wa.me/201050072527?text=Dolphin%20Beach%20-%20%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1">💬 واتساب</a>
     <a class="btn" href="tel:+201050072527">📞 اتصال</a>
     <a class="btn" href="mailto:islammesmail@gmail.com?subject=Dolphin">✉️ Email</a>
   </div>
-  <div class="inq">
-    <strong>استعلام سريع:</strong>
+  <div class="inq"><strong>استعلام سريع:</strong>
     <div class="inq-row">
       <select class="inq-type"><option>ستوديو</option><option>شاليه</option><option>فيلا</option></select>
       <select class="inq-bed"><option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option></select>
@@ -300,7 +276,7 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
   </div>
   <div class="spec">
     <h3>مواصفات دولفين بيتش</h3>
-    <p>قرية على طريق الزعفرانة (الكيلو 66)؛ وحدات 60–120م وفيلات حتى 850م، خدمات فندقية، حمامات سباحة، ملاعب، جيم، منطقة تجارية، أمان عالي… إلخ.</p>
+    <p>قرية على طريق الزعفرانة (الكيلو 66)، وحدات 60–120م وفيلات كبيرة، خدمات فندقية، حمامات سباحة، ملاعب، جيم، مناطق تجارية… إلخ.</p>
     <p><strong>سعر المطوّر:</strong> لا يوجد وحدات — <strong>إعادة البيع:</strong> يبدأ من 2,250,000</p>
   </div>
 </div></div>
@@ -309,12 +285,11 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
 <div class="modal" id="sokhna-hills"><div class="modal__in" data-project="السخنة هيلز – Sokhna Hills">
   <div class="modal__head"><div class="modal__title">السخنة هيلز – Sokhna Hills</div><button class="closeX" data-close>إغلاق ✕</button></div>
   <div class="ctaBar">
-    <a class="btn" href="https://wa.me/201050072527?text=Sokhna%20Hills%20-%20%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85">💬 واتساب</a>
+    <a class="btn" target="_blank" href="https://wa.me/201050072527?text=Sokhna%20Hills%20-%20%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85">💬 واتساب</a>
     <a class="btn" href="tel:+201050072527">📞 اتصال</a>
     <a class="btn" href="mailto:islammesmail@gmail.com?subject=Sokhna%20Hills">✉️ Email</a>
   </div>
-  <div class="inq">
-    <strong>استعلام سريع:</strong>
+  <div class="inq"><strong>استعلام سريع:</strong>
     <div class="inq-row">
       <select class="inq-type"><option>شاليه</option><option>تاون هاوس</option><option>فيلا</option></select>
       <select class="inq-bed"><option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option></select>
@@ -331,30 +306,27 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
   </div>
   <div class="spec">
     <h3>مواصفات السخنة هيلز</h3>
-    <p>على هضبة الجلالة ~100 فدان، شاطئ خاص، تصميم مصاطب يرى البحر، فندق 4★، أكوا بارك، سينما، مناطق تجارية 24/7…<br>
+    <p>على هضبة الجلالة ~100 فدان، تصميم مصاطب يرى البحر، شاطئ خاص، فندق 4★، أكوا بارك، سينما، مناطق تجارية 24/7…<br>
     <strong>إعادة البيع:</strong> 4,700,000 — <strong>سعر المطوّر:</strong> —</p>
   </div>
 </div></div>
 
-<!-- NEW: Al Hejaz Oasis Modal -->
+<!-- Al Hejaz Modal -->
 <div class="modal" id="hejaz"><div class="modal__in" data-project="واحة الحجاز – Al Hejaz Oasis">
   <div class="modal__head"><div class="modal__title">واحة الحجاز – Al Hejaz Oasis</div><button class="closeX" data-close>إغلاق ✕</button></div>
   <div class="ctaBar">
-    <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%88%D8%A7%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D8%B2%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
+    <a class="btn" target="_blank" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%88%D8%A7%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D8%B2%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
     <a class="btn" href="tel:+201050072527">📞 اتصال</a>
     <a class="btn" href="mailto:islammesmail@gmail.com?subject=Al%20Hejaz%20Oasis">✉️ Email</a>
   </div>
-
-  <div class="inq">
-    <strong>استعلام سريع:</strong>
+  <div class="inq"><strong>استعلام سريع:</strong>
     <div class="inq-row">
-      <select class="inq-type"><option>شاليه</option><option>تاون هاوس</option><option>فيلا</option></select>
+      <select class="inq-type"><option>ستوديو</option><option>شاليه</option><option>تاون هاوس</option><option>توين هاوس</option><option>فيلا</option></select>
       <select class="inq-bed"><option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option></select>
       <select class="inq-mode"><option>تقسيط</option><option>إعادة بيع</option></select>
       <button class="btn waBtn" onclick="sendWA(this)">إرسال</button>
     </div>
   </div>
-
   <div class="bigGal" data-gal="hejaz-big">
     <img class="show" src="https://h.top4top.io/p_3523oz3cm1.jpeg">
     <img src="https://g.top4top.io/p_3523911nq0.jpg">
@@ -362,8 +334,6 @@ footer{color:#9fb0c8;text-align:center;border-top:1px solid #1a2438;padding:18px
     <img src="https://i.top4top.io/p_3523k107v2.jpeg">
     <button class="bigBtn bigPrev">‹</button><button class="bigBtn bigNext">›</button>
   </div>
-
   <div class="spec">
-    <h3>مواصفات مشروع قرية واحة الحجاز</h3>
-    <p>منتجع واحة الحجاز العين السخنة منتجع ساحلي يقع على شاطئ البحر الأحمر، ويتميز بموقعه عند الكيلو 66 على طريق العين السخنة السويس، ويسهل الوصول له من القاهرة في خلال ساعة ونصف بالسيارة.</p>
-    <p>ينقسم منتجع واحة الحجاز إلي 4 مراحل وتضم كل مرحلة وحدات متنوع
+    <h3>نبذة ومواصفات المشروع</h3>
+    <p>منتج
