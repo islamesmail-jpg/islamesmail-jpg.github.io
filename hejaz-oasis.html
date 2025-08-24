@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>واحة الحجاز | مشروعات العين السخنة - طريق الزعفرانة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
+<style>
+:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--card:#101829;--line:#2a3958;--surface:#0f1627}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:0 16px}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:flex-start}
+.brandbox img{max-width:100%;max-height:100%;object-fit:contain}
+.actions{display:flex;gap:10px;align-items:center}
+.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
+.btnx:hover{background:#fff2c2;color:#111}
+.menu,.contact{position:relative}
+.panel{position:absolute;top:100%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
+.menu.open .panel,.contact.open .panel{display:block}
+.panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
+.panel a:hover{background:#f3f4f6}
+
+/* Subnav (breadcrumb) */
+.subnav{background:#0f1627;border-bottom:1px solid #1a2438}
+.subnav .inner{display:flex;align-items:center;gap:10px;padding:10px 0;font-weight:800;color:#e7eefb}
+.subnav a{color:#e7eefb}
+.sep{opacity:.45}
+
+/* Search bar */
+.searchwrap{padding:12px 0}
+.searchbar{position:relative}
+#psearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
+.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
+.suggestions a:last-child{border-bottom:0}
+.suggestions a:hover{background:#16233b}
+
+/* Title */
+.head{padding:18px 0}
+.h1{margin:0;font-size:clamp(22px,4.8vw,34px);font-weight:800}
+.meta{color:#cbd5e1;margin-top:4px}
+
+/* Gallery */
+.gallery{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b1323}
+.gallery .stage{position:relative;height:360px}
+.gallery .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.gallery .stage img.show{display:block}
+.gbtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer}
+.prev{left:10px}.next{right:10px}
+
+/* Prices */
+.row{display:grid;gap:14px;margin-top:14px}
+.cols-2{grid-template-columns:1fr 1fr}
+.box{background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;padding:12px;font-weight:800;text-align:center}
+
+/* Content */
+.section{padding:18px 0}
+h2{margin:18px 0 8px;font-size:1.25rem}
+ul{margin:8px 0 0;padding:0 20px}
+p{margin:8px 0}
+
+/* Inquiry CTA (bottom) */
+.cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
+.btn:hover{background:var(--gold);color:#111}
+
+/* Footer */
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:24px}
+
+/* Responsive */
+@media(max-width:560px){.cols-2{grid-template-columns:1fr}.gallery .stage{height:250px}}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <div class="container nav">
+    <a class="brandbox" href="index.html" aria-label="الرئيسية">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
+    </a>
+    <div class="actions">
+      <button class="btnx" id="langToggle">AR/EN</button>
+      <div class="contact" id="m-contact">
+        <button class="btnx" onclick="toggleDrop('m-contact')">التواصل ▾</button>
+        <div class="panel">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+      <div class="menu" id="m-proj">
+        <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
+        <div class="panel">
+          <a href="sokhna.html">العين السخنة</a>
+          <a href="zafarana.html">طريق الزعفرانة</a>
+          <a href="suez.html">طريق السويس</a>
+          <a href="north.html">الساحل الشمالي</a>
+          <a href="Cairo.html">القاهرة الجديدة</a>
+          <a href="Resale.html">ريسيل</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb -->
+  <div class="subnav">
+    <div class="container inner">
+      <a href="sokhna.html">مشروعات العين السخنة</a>
+      <span class="sep">›</span>
+      <a href="zafarana.html">طريق الزعفرانة</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Search -->
+  <div class="searchwrap">
+    <div class="searchbar">
+      <input id="psearch" type="search" placeholder="ابحث عن مشروع (مثال: مورانو، لوجانو، ازها، واحة الحجاز)…">
+      <div class="suggestions" id="psuggest"></div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="head">
+    <h1 class="h1">مشروع واحة الحجاز</h1>
+    <div class="meta">المطور: شركة الحجاز للتنمية السياحية والعقارية</div>
+  </div>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gal">
+    <div class="stage">
+      <img class="show" src="https://h.top4top.io/p_3523oz3cm1.jpeg" alt="">
+      <img src="https://g.top4top.io/p_3523911nq0.jpg" alt="">
+      <img src="https://g.top4top.io/p_3523b191s0.jpeg" alt="">
+      <img src="https://i.top4top.io/p_3523k107v2.jpeg" alt="">
+    </div>
+    <button class="gbtn prev">‹</button>
+    <button class="gbtn next">›</button>
+  </section>
+
+  <!-- Prices -->
+  <section class="row cols-2">
+    <div class="box">سعر المطوّر: لا يوجد وحدات متاحة</div>
+    <div class="box">إعادة البيع: يبدأ من 2,200,000</div>
+  </section>
+
+  <!-- Details -->
+  <section class="section">
+    <h2>عن المشروع</h2>
+    <p>منتجع واحة الحجاز العين السخنة منتجع ساحلي يقع على شاطئ البحر الأحمر، ويتميز بموقعه عند الكيلو 66 على طريق العين السخنة – السويس، ويمكن الوصول من القاهرة في ساعة ونصف. القرية مقسّمة إلى 4 مراحل تتضمن نحو 1200 وحدة متنوعة (شاليهات بمساحات متعددة)، مع حمامات سباحة وشاطئ خاص وخدمات ترفيهية متكاملة.</p>
+
+    <h2>الشركة المطوّرة</h2>
+    <p>شركة الحجاز للتنمية السياحية والعقارية (منذ 1988) وتملك محفظة مشروعات قوية في السخنة: واحة الحجاز، دولفين بيتش، السخنة هيلز… وتهتم باختيار مواقع قوية وتقديم خدمات عالية الجودة والالتزام بالمواعيد.</p>
+
+    <h2>الموقع</h2>
+    <p>الكيلو 66 بطريق الغردقة – الإسماعيلية/السويس – السخنة. قريب من منتجع دولفين بيتش، وقرية السخنة هيلز، ورامادا السخنة، وموفنبيك، ومسجد السخنة، مع توافر مطاعم وكافيهات وسوبرماركت ومناطق ترفيه.</p>
+
+    <h2>استعلام الأسعار</h2>
+    <p>راسلنا على واتساب وحدد نوع الوحدة وعدد الغرف وطريقة الشراء (تقسيط/إعادة بيع) لمعرفة أحدث الأسعار المتاحة.</p>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%88%D8%A7%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D8%B2%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
+      <a class="btn" href="tel:+201050072527">📞 اتصال</a>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Eslam Realty</footer>
+
+<script>
+/* year */
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* dropdowns */
+function toggleDrop(id){
+  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+});
+document.getElementById('langToggle').addEventListener('click',()=>{
+  const isAR=document.documentElement.lang==='ar';
+  document.documentElement.lang=isAR?'en':'ar';
+  document.documentElement.dir=isAR?'ltr':'rtl';
+});
+
+/* search index (حدّث الروابط حسب ملفاتك) */
+const PROJECTS=[
+  {name:'مورانو', url:'murano.html'},
+  {name:'لوجانو', url:'lugano.html'},
+  {name:'دولفين بيتش', url:'dolphin.html'},
+  {name:'السخنة هيلز', url:'sokhna-hills.html'},
+  {name:'واحة الحجاز', url:'hejaz-oasis.html'},
+  {name:'ازها', url:'azha.html'},
+  // EN aliases
+  {name:'Murano', url:'murano.html'},
+  {name:'Lugano', url:'lugano.html'},
+  {name:'Dolphin', url:'dolphin.html'},
+  {name:'Sokhna Hills', url:'sokhna-hills.html'},
+  {name:'Hejaz Oasis', url:'hejaz-oasis.html'},
+  {name:'AZHA', url:'azha.html'}
+];
+
+/* search autocomplete */
+(function(){
+  const input=document.getElementById('psearch');
+  const box=document.getElementById('psuggest');
+  function render(list){
+    box.innerHTML='';
+    if(!list.length){ box.style.display='none'; return; }
+    list.forEach(it=>{
+      const a=document.createElement('a');
+      a.href=it.url; a.textContent=it.name;
+      box.appendChild(a);
+    });
+    box.style.display='block';
+  }
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    if(!q){ box.style.display='none'; return; }
+    const out=PROJECTS.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
+    render(out);
+  });
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.searchbar')) box.style.display='none';
+  });
+})();
+
+/* Gallery + swipe */
+(function(){
+  const stage=document.querySelector('#gal .stage');
+  const imgs=stage.querySelectorAll('img'); let i=0,sx=0;
+  const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
+  const next=()=>show(i+1), prev=()=>show(i-1); show(0);
+  document.querySelector('#gal .next').addEventListener('click',next);
+  document.querySelector('#gal .prev').addEventListener('click',prev);
+  stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  stage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
+})();
+</script>
+</body>
+</html>
