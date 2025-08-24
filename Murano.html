@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>مورانو وادي دجلة – Murano</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--line:#2a3958}
+body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui}
+.container{max-width:1100px;margin:auto;padding:0 16px}
+.topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:center}
+.brandbox img{max-width:100%;max-height:100%;object-fit:contain}
+.actions{display:flex;gap:10px;align-items:center}
+.btnx{border:1px solid #e4c24a;color:#e4c24a;background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
+.btnx:hover{background:#fff2c2;color:#111}
+
+.hero{padding:14px 0 0}
+.gal{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b1323;height:360px}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.gal img.show{display:block}
+.bigBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center}
+.prev{left:10px}.next{right:10px}
+
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.badge{background:#fff;color:#111;padding:10px;border-radius:12px;font-weight:900;text-align:center;border:1px solid #e5e7eb}
+
+.section{padding:16px 0}
+h1{margin:10px 0}
+.block{background:#101829;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1.6px solid #e4c24a;color:#e4c24a;background:transparent;border-radius:999px;padding:12px 18px;font-weight:900;text-decoration:none}
+.btn:hover{background:#e4c24a;color:#111}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container navbar">
+    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
+    <div class="actions">
+      <a class="btnx" href="zafarana.html">← عودة لطريق الزعفرانة</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>مورانو وادي دجلة – Murano</h1>
+    <div class="gal" id="gal">
+      <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg" alt="">
+      <img src="https://g.top4top.io/p_3522d8wi91.jpg" alt="">
+      <img src="https://h.top4top.io/p_35224yrbd2.jpg" alt="">
+      <button class="bigBtn prev" type="button">‹</button>
+      <button class="bigBtn next" type="button">›</button>
+    </div>
+    <div class="badges">
+      <div class="badge">سعر المطوّر: —</div>
+      <div class="badge">إعادة البيع: 5,600,000+</div>
+    </div>
+    <div class="cta">
+      <a class="btn" href="tel:+201050072527">📞 اتصل الآن</a>
+      <a class="btn" target="_blank" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9">💬 واتساب</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="block">
+      <h3>نبذة عن المشروع</h3>
+      <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام المدينة، بتجربة تجمع بين سحر البحر الأحمر ورفاهية الحياة. تصميم يهتم بالهدوء والسكينة ومرافق متنوعة، مع ينابيع مياه ساخنة طبيعية.</p>
+      <h3>الموقع</h3>
+      <p>نهاية طريق السخنة وبداية الزعفرانة. قريب من: طريق الجلالة 18 كم، محطة القطار 14 كم، القاهرة 136 كم، القطامية 112 كم.</p>
+      <h3>الخدمات</h3>
+      <ul>
+        <li>شاطئ رملي 750م، مارينا 100م</li>
+        <li>فندق 4★، مطاعم وكافيهات، منطقة تجارية</li>
+        <li>سبا، ملاعب (قدم الشاطئ/طائرة)، ينابيع طبيعية</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  const root=document.getElementById('gal');
+  const imgs=[...root.querySelectorAll('img')];
+  let i=0; const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
+  root.querySelector('.prev').addEventListener('click',()=>show(i-1));
+  root.querySelector('.next').addEventListener('click',()=>show(i+1));
+  let sx=0;
+  root.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?show(i+1):show(i-1);}}, {passive:true});
+})();
+</script>
+</body>
+</html>
