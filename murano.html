@@ -1,81 +1,250 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>مورانو وادي دجلة – Murano</title>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>مورانو وادي دجلة – Murano | Islam Realty</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0b0f19;--card:#101829;--line:#22314e;--gold:#e4c24a}
-*{box-sizing:border-box}html,body{margin:0;height:100%}body{background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui}
+:root{--ink:#0b0f19;--bg:#0b0f19;--card:#101829;--line:#22314e;--muted:#93a3b8;--gold:#e4c24a}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:#fff;font-family:"Tajawal",system-ui}
 .container{max-width:1100px;margin:auto;padding:0 16px}
+
+/* ====== Header ====== */
 .topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{height:72px;display:flex;align-items:center;gap:12px}
-.back{border:1.6px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:10px 14px;font-weight:800;text-decoration:none}
-.brand{margin-inline-start:auto;height:54px;display:flex;align-items:center}
+.nav{height:74px;display:flex;align-items:center;gap:16px}
+.brand{height:56px;display:flex;align-items:center}
 .brand img{height:100%;object-fit:contain}
-h1{margin:14px 0 12px;font-size:28px}
-.gal{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b1323;height:420px}
+.navspace{flex:1}
+.navlinks{display:flex;gap:10px;align-items:center}
+.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:9px 14px;font-weight:800;cursor:pointer;text-decoration:none}
+.btnx:hover{background:#fff2c2;color:#111}
+.menu{position:relative}
+.menu-panel{position:absolute;top:110%;inset-inline-end:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
+.menu.open .menu-panel{display:block}
+.menu-panel a{display:block;color:#111;text-decoration:none;font-weight:700;padding:10px;border-radius:10px}
+.menu-panel a:hover{background:#f3f4f6}
+
+/* ====== Breadcrumb + Search ====== */
+.breadwrap{background:#0e1526;border-bottom:1px solid var(--line)}
+.bread{display:flex;align-items:center;gap:8px;padding:10px 0;color:var(--muted);font-size:14px}
+.sep{opacity:.6}
+.searchbar{position:relative;margin:12px 0 6px}
+.searchbar input{width:100%;background:#0f1627;border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:#fff;font-weight:700}
+.suggest{position:absolute;top:100%;inset-inline:0;background:#0f1627;border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;display:none;z-index:20}
+.suggest a{display:block;padding:10px 14px;color:#fff;text-decoration:none;border-top:1px solid #142039}
+.suggest a:hover{background:#121e36}
+
+/* ====== Title / meta ====== */
+.headbox{padding:14px 0 6px}
+h1{margin:0 0 6px;font-size:28px}
+.dev{color:var(--muted);font-weight:700}
+
+/* ====== Gallery ====== */
+.gal{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b1323;height:420px;margin-top:10px}
 .gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .gal img.show{display:block}
 .gbtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center}
 .gprev{left:10px}.gnext{right:10px}
 .dots{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px}
 .dot{width:8px;height:8px;border-radius:50%;background:#7a8aaa;opacity:.6}.dot.on{opacity:1;background:#fff}
+
+/* ====== Prices & contact ====== */
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
 .price{background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;font-weight:900;text-align:center}
 .price b{display:block;margin-bottom:4px;color:#475569;font-weight:800}
-.contact-strip{display:flex;justify-content:center;gap:12px;margin:8px 0 16px}
-.iconbtn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;border:1.8px solid var(--gold);color:var(--gold);text-decoration:none;font-size:22px}
-.iconbtn:hover{background:var(--gold);color:#111}
+.contact-line{display:flex;gap:14px;align-items:center;justify-content:center;margin:6px 0 12px}
+.contact-line a{font-size:20px;color:var(--gold);text-decoration:none}
+.contact-line a:hover{color:#fff}
+
+/* ====== Sections ====== */
 .block{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0}
-.block h3{margin:0 0 10px}.block ul{margin:8px 0 0;padding:0 20px}
-@media(max-width:640px){.gal{height:320px}h1{font-size:24px}}
-</style></head><body>
-<header class="topbar"><div class="container nav">
-  <a class="back" href="zafarana.html">← عودة لطريق الزعفرانة</a>
-  <div class="brand"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Islam Esmail"></div>
-</div></header>
+.block h3{margin:0 0 10px}
+.block ul{margin:8px 0 0;padding:0 20px}
+
+/* ====== Footer ====== */
+footer{margin:22px 0 28px;color:var(--muted)}
+.foot{display:flex;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px}
+.ficons{display:flex;gap:12px}
+.ficons a{color:#9fb0c9;text-decoration:none;font-size:18px}
+.ficons a:hover{color:#fff}
+
+@media(max-width:640px){
+  .gal{height:320px} h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="container nav">
+    <div class="brand"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Islam Esmail"></div>
+    <div class="navspace"></div>
+    <a class="btnx" id="lang">AR/EN</a>
+    <a class="btnx" href="tel:+201050072527">اتصل بنا</a>
+    <div class="menu" id="m-proj">
+      <a class="btnx" href="javascript:void(0)">المشاريع ▾</a>
+      <div class="menu-panel">
+        <a href="sokhna.html">مشروعات العين السخنة</a>
+        <a href="zafarana.html">طريق الزعفرانة</a>
+        <a href="suez.html">طريق السويس</a>
+        <a href="north.html">الساحل الشمالي</a>
+        <a href="Resale.html">ريسيل</a>
+      </div>
+    </div>
+  </div>
+  <div class="breadwrap">
+    <div class="container">
+      <div class="bread">
+        <span>مشروعات العين السخنة</span>
+        <span class="sep">›</span>
+        <span>طريق الزعفرانة</span>
+      </div>
+      <!-- Search -->
+      <div class="searchbar">
+        <input id="projSearch" type="text" placeholder="ابحث باسم المشروع (مثال: مورانو، لوجانو، أزها)"/>
+        <div id="suggest" class="suggest"></div>
+      </div>
+    </div>
+  </div>
+</header>
 
 <main class="container">
-  <h1>مورانو وادي دجلة – Murano</h1>
+  <!-- Title -->
+  <div class="headbox">
+    <h1>مورانو وادي دجلة – Murano</h1>
+    <div class="dev">المطوّر: وادي دجلة للتطوير العقاري</div>
+  </div>
+
+  <!-- Gallery -->
   <div class="gal" id="gal">
     <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg" alt="Murano 1">
     <img src="https://g.top4top.io/p_3522d8wi91.jpg" alt="Murano 2">
     <img src="https://h.top4top.io/p_35224yrbd2.jpg" alt="Murano 3">
-    <button class="gbtn gprev" type="button">‹</button><button class="gbtn gnext" type="button">›</button>
+    <button class="gbtn gprev" type="button">‹</button>
+    <button class="gbtn gnext" type="button">›</button>
     <div class="dots" id="dots"></div>
   </div>
+
+  <!-- Prices -->
   <div class="prices">
     <div class="price"><b>سعر المطوّر</b>—</div>
     <div class="price"><b>إعادة البيع</b>5,600,000+</div>
   </div>
-  <div class="contact-strip">
-    <a class="iconbtn" href="tel:+201050072527" title="اتصال">📞</a>
-    <a class="iconbtn" target="_blank" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9" title="واتساب">💬</a>
-    <a class="iconbtn" href="mailto:islammesmail@gmail.com?subject=Murano%20Inquiry" title="Email">✉️</a>
+
+  <!-- Contact small icons -->
+  <div class="contact-line">
+    <a title="اتصال" href="tel:+201050072527">📞</a>
+    <a title="واتساب" target="_blank" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9">💬</a>
+    <a title="Email" href="mailto:islammesmail@gmail.com?subject=Murano%20Inquiry">✉️</a>
   </div>
 
-  <section class="block"><h3>نبذة عن المشروع</h3>
-    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام المدينة… مع ينابيع مياه ساخنة طبيعية.</p>
+  <!-- Sections -->
+  <section class="block">
+    <h3>نبذة عن المشروع</h3>
+    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة، على شواطئ البحر الأحمر، تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، مع ينابيع مياه ساخنة طبيعية تضيف طابعاً مميزاً.</p>
   </section>
-  <section class="block"><h3>الموقع</h3>
-    <p>نهاية طريق السخنة وبداية الزعفرانة؛ قريب من القاهرة والطرق الرئيسية.</p>
-    <ul><li>طريق الجلالة: 18 كم</li><li>محطة قطار السخنة: 14 كم</li><li>القاهرة: 136 كم</li><li>القطامية: 112 كم</li></ul>
+
+  <section class="block">
+    <h3>الموقع</h3>
+    <p>نهاية طريق العين السخنة وبداية طريق الزعفرانة، أقرب منطقة ساحلية للعاصمة، وقريبة من الطرق والمحاور الرئيسية.</p>
+    <ul>
+      <li>طريق الجلالة على بعد 18 كم</li>
+      <li>محطة قطار السخنة 14 كم</li>
+      <li>القاهرة 136 كم</li>
+      <li>القطامية 112 كم</li>
+    </ul>
   </section>
-  <section class="block"><h3>الخدمات والمرافق</h3>
-    <ul><li>شاطئ رملي ~750م</li><li>مارينا ~100م</li><li>فندق 4★</li><li>مطاعم وكافيهات ومنطقة تجارية</li><li>سبا وجيم وملاعب</li><li>ينابيع مياه ساخنة</li></ul>
+
+  <section class="block">
+    <h3>الخدمات والمرافق</h3>
+    <ul>
+      <li>شاطئ رملي بطول ~750 م</li>
+      <li>مارينا بطول ~100 م</li>
+      <li>فندق 4 نجوم</li>
+      <li>مطاعم ومقاهي ومنطقة تجارية</li>
+      <li>سبا وجيم وملاعب (كرة/شاطئية)</li>
+      <li>ينابيع مياه طبيعية ساخنة</li>
+    </ul>
   </section>
 </main>
 
+<!-- Footer -->
+<footer class="container">
+  <div class="foot">
+    <div>© <span id="year"></span> <strong>Islam Realty</strong></div>
+    <div class="ficons">
+      <a title="اتصال" href="tel:+201050072527">📞</a>
+      <a title="واتساب" target="_blank" href="https://wa.me/201050072527">💬</a>
+      <a title="Email" href="mailto:islammesmail@gmail.com">✉️</a>
+    </div>
+  </div>
+</footer>
+
 <script>
+/* ====== year ====== */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ====== menu toggle ====== */
+const menu = document.getElementById('m-proj');
+menu.querySelector('.btnx').addEventListener('click',()=>menu.classList.toggle('open'));
+document.addEventListener('click',e=>{ if(!e.target.closest('#m-proj')) menu.classList.remove('open');});
+
+/* ====== gallery (arrows + swipe + dots) ====== */
 (function(){
-  const root=document.getElementById('gal'),imgs=[...root.querySelectorAll('img')];
+  const root=document.getElementById('gal'), imgs=[...root.querySelectorAll('img')].filter(im=>im.tagName==='IMG');
   const dotsBox=document.getElementById('dots'); if(!imgs.length) return;
   imgs.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i?'':' on');d.onclick=()=>show(i);dotsBox.appendChild(d)});
   const dots=[...dotsBox.children]; let i=0;
   const show=k=>{i=(k+imgs.length)%imgs.length;imgs.forEach((im,ix)=>im.classList.toggle('show',ix===i));dots.forEach((d,ix)=>d.classList.toggle('on',ix===i));}
-  const next=()=>show(i+1), prev=()=>show(i-1);
+  const next=()=>show(i+1), prev=()=>show(i-1); show(0);
   root.querySelector('.gprev').onclick=prev; root.querySelector('.gnext').onclick=next;
   let sx=0; root.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
 })();
+
+/* ====== lang dummy ====== */
+document.getElementById('lang').addEventListener('click',()=>{
+  const html=document.documentElement;
+  html.dir = html.dir==='rtl' ? 'ltr':'rtl';
+  html.lang = html.lang==='ar' ? 'en':'ar';
+});
+
+/* ====== Search with suggestions ======
+   عدّل الخريطة أدناه لإضافة/تحديث المشاريع وروابطها */
+const PROJECTS_INDEX = [
+  {name:'مورانو وادي دجلة', url:'murano.html', tags:['murano','مورانو','وادي دجلة','الزعفرانة']},
+  {name:'لوجانو الجلالة (AOG)', url:'lugano.html', tags:['lugano','لوجانو','الجلالة','AOG','الزعفرانة']},
+  {name:'دولفين بيتش', url:'dolphin-beach.html', tags:['dolphin','دولفين','الزعفرانة']},
+  {name:'السخنة هيلز', url:'sokhna-hills.html', tags:['sokhna hills','هيلز','الجلالة','الزعفرانة']},
+  {name:'واحة الحجاز', url:'al-hejaz-oasis.html', tags:['الحجاز','hejaz','الزعفرانة']},
+  {name:'أزها العين السخنة', url:'azha.html', tags:['azha','أزها','طريق السويس','السخنة']},
+];
+
+const input = document.getElementById('projSearch');
+const sugBox = document.getElementById('suggest');
+
+function renderSuggest(list){
+  sugBox.innerHTML = list.map(p=>`<a href="${p.url}">${p.name}</a>`).join('');
+  sugBox.style.display = list.length ? 'block' : 'none';
+}
+input.addEventListener('input', e=>{
+  const q = e.target.value.trim().toLowerCase();
+  if(!q){ renderSuggest([]); return; }
+  const res = PROJECTS_INDEX.filter(p => (p.name+p.tags.join(' ')).toLowerCase().includes(q)).slice(0,7);
+  renderSuggest(res);
+});
+input.addEventListener('focus', ()=>{ if(input.value) input.dispatchEvent(new Event('input')); });
+document.addEventListener('click', e=>{ if(!e.target.closest('.searchbar')) sugBox.style.display='none';});
+/* عند الضغط Enter يفتح أول نتيجة */
+input.addEventListener('keydown', e=>{
+  if(e.key==='Enter'){
+    const first = sugBox.querySelector('a');
+    if(first){ window.location.href = first.getAttribute('href'); }
+  }
+});
 </script>
-</body></html>
+
+</body>
+</html>
