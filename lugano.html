@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مشروع لوجانو الجلالة</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>lugano algalala Ein elsokhna | مشروع لوجانو الجلالة العين السخنة</title>
+  <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، المساحات والخدمات، وفورم تواصل سريع." />
+
   <style>
-    :root{--bg:#0b0d1a;--card:#111326;--text:#fff;--accent:#f0c30f;--muted:#c9c9c9;}
+    :root{
+      --bg:#0b0d1a; --card:#111326; --text:#ffffff; --muted:#c9c9c9;
+      --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+    }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.8}
-    .wrapper{max-width:1100px;margin:auto;padding:0 16px}
+    .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-    /* العنوان سطر واحد وخط أصغر */
-    header{padding:18px 0;text-align:center}
-    header h1{margin:0;font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    header{padding:22px 0;text-align:center}
+    header h1{margin:0;font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.2px}
 
-    /* صور المشروع فول ويدث لكن أقل ارتفاعًا للتنسيق */
-    .gallery{display:grid;gap:12px;margin:8px 0 18px}
-    .gallery img{width:100%;height:280px;object-fit:cover;border-radius:14px;display:block}
-    @media (min-width:680px){.gallery{grid-template-columns:1fr 1fr}}
-    @media (min-width:1024px){.gallery img{height:320px}}
+    .video-wrap{margin:10px 0 20px;border-radius:var(--radius);overflow:hidden;background:#0f1224}
+    .video-wrap video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover}
 
-    .content h2{font-size:20px;margin:10px 0 6px;color:var(--accent)}
-    .content p{margin:0 0 8px;color:var(--muted)}
+    .gallery{display:grid;gap:12px;margin:10px 0 24px;grid-template-columns:1fr}
+    @media(min-width:680px){.gallery{grid-template-columns:1fr 1fr}}
+    .frame{position:relative;border-radius:var(--radius);overflow:hidden;background:#0f1224;aspect-ratio:16/9}
+    .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.98)}
 
-    /* الفورم */
-    .form-card{background:var(--card);border-radius:14px;padding:18px;margin:18px 0}
-    .form-card .icon{font-size:28px;text-align:center;margin:0 0 6px} /* 📨 بدون دائرة */
+    section h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
+    section p{margin:0 0 10px;color:var(--muted)}
+
+    .form-card{background:var(--card);border-radius:var(--radius);padding:20px;margin:24px 0;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    .form-card .icon{font-size:28px;text-align:center;margin:0 0 6px}
     .form-card h3{margin:6px 0 6px;font-size:18px;text-align:center}
-    .form-card .sub{margin:0 0 14px;text-align:center;color:var(--muted);font-size:14px}
-    .grid{display:grid;gap:10px}
-    @media (min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+    .form-card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+
+    .grid{display:grid;gap:12px}
+    @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+
     label{font-size:13px;color:#d7d7d7}
-    input,select,textarea,button{width:100%;padding:11px 12px;margin-top:6px;border:none;border-radius:10px;font-size:14px}
-    input,select,textarea{background:#181b31;color:var(--text)}
-    textarea{min-height:90px;resize:vertical}
+    input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+    textarea{min-height:100px;resize:vertical}
+
     .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-    button{background:var(--accent);color:#000;font-weight:700;cursor:pointer;transition:.2s}
+    button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s ease}
     button:hover{filter:brightness(.95)}
 
-    footer{margin:22px 0 12px;text-align:center;color:#9e9e9e}
+    footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   </style>
 </head>
 <body>
@@ -48,59 +55,82 @@
       <h1>مشروع لوجانو الجلالة</h1>
     </header>
 
-    <!-- صور المشروع فول ويدث -->
+    <!-- فيديو المشروع -->
+    <div class="video-wrap">
+      <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- صور المشروع -->
     <section class="gallery">
-      <img src="project1.jpg" alt="لوجانو الجلالة - صورة 1">
-      <img src="project2.jpg" alt="لوجانو الجلالة - صورة 2">
+      <figure class="frame"><img src="https://j.top4top.io/p_3524tp87p1.jpg" alt="لوجانو الجلالة 1"></figure>
+      <figure class="frame"><img src="https://k.top4top.io/p_3524sitnk2.jpg" alt="لوجانو الجلالة 2"></figure>
+      <figure class="frame"><img src="https://l.top4top.io/p_3524aroza3.jpg" alt="لوجانو الجلالة 3"></figure>
+      <figure class="frame"><img src="https://a.top4top.io/p_3524ak1ie4.jpg" alt="لوجانو الجلالة 4"></figure>
+      <figure class="frame"><img src="https://b.top4top.io/p_3524m4xl55.jpg" alt="لوجانو الجلالة 5"></figure>
+      <figure class="frame"><img src="https://c.top4top.io/p_3524173zh6.jpg" alt="لوجانو الجلالة 6"></figure>
+      <figure class="frame"><img src="https://d.top4top.io/p_3524hqsj87.jpg" alt="لوجانو الجلالة 7"></figure>
+      <figure class="frame"><img src="https://e.top4top.io/p_3524j0tlb8.jpg" alt="لوجانو الجلالة 8"></figure>
+      <figure class="frame"><img src="https://f.top4top.io/p_352421fg69.jpg" alt="لوجانو الجلالة 9"></figure>
+      <figure class="frame"><img src="https://e.top4top.io/p_3524hr2rn0.jpg" alt="لوجانو الجلالة 10"></figure>
+      <figure class="frame"><img src="https://f.top4top.io/p_35241ix5u1.jpg" alt="لوجانو الجلالة 11"></figure>
+      <figure class="frame"><img src="https://g.top4top.io/p_3524wjkfp2.jpg" alt="لوجانو الجلالة 12"></figure>
     </section>
 
     <!-- الوصف -->
-    <section class="content">
-      <h2>عن لوجانو الجلالة</h2>
-      <p>AOG Developments – شركة مطوّرة يقودها أ/ محمود عمر… وأغلب مشروعاتها المُسلَّمة ناجحة.</p>
-      <p>تأسست AOG عام 2025 لتقديم معادلة جديدة تُعيد القيمة الاستثمارية.</p>
-      <p>الموقع: العين السخنة – طريق الزعفرانة، 15 دقيقة من منتجع الجلالة، حوالي 60 دقيقة من التجمع.</p>
+    <section>
+      <h2>عن لوجانو الجلالة العين السخنة</h2>
+      <p><strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر، وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضي في أكتر من مشروع ومناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.</p>
 
-      <h2>المساحة والخدمات</h2>
-      <p>40 فدان / 3 مصاطب، شاطئ خاص 400م، Alma (IHG)، Triple Play، كلوب هاوس، Padel، مسار دراجات، Kids Area، Gym، مسجد، جولف كار، تشطيب كامل، الاستشاري MK.</p>
+      <h2>نشأة AOG Developments</h2>
+      <p>١- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group).</p>
+      <p>٢- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.</p>
+      <p>٣- في بداية 2025، قام الجيل الثاني باستخدام الخبرات والملاءة المالية الضخمة بإنشاء <strong>AOG Developments</strong> لتغيير “المعادلة العقارية” وتقديم العقار باختلاف تصنيفاته ليكون معبرًا عن قيمته الحقيقية مما يعيد الجدوى الاستثمارية.</p>
+
+      <h2>الموقع</h2>
+      <p>العين السخنة – طريق الزعفرانة – أول نقطة في جبل الجلالة، بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كيلومتر، 15 دقيقة من منتجع الجلالة، 60 دقيقة من التجمع.</p>
+
+      <h2>مساحة المشروع</h2>
+      <p>المساحة 40 فدان، مكون من 3 مصاطب: الأولى 7م فوق سطح البحر، الثانية 20م (تشمل 90% من المشروع)، الثالثة 35م.</p>
+
+      <h2>الخدمات</h2>
+      <p>Hotel five star (Alma hotel) — إدارة IHG — Triple Play — كلوب هاوس — مطاعم وكافيهات — Padel — مسار دراجات — Kids area — Gym — مسجد — جسر — Golf Car — Facility Management (FM & IHG) — شاطئ خاص بعرض 400م — تشطيب كامل — الاستشاري MK.</p>
     </section>
 
     <!-- الفورم -->
     <section class="form-card">
       <div class="icon">📨</div>
       <h3>تحتاج إلى مساعدة عقارية؟</h3>
-      <p class="sub">املأ بياناتك و سوف يقوم بالاتصال بك فى أقرب وقت</p>
+      <p class="sub">املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت</p>
 
-      <form id="leadForm">
+      <form id="leadForm" novalidate>
         <div class="grid">
           <div>
             <label for="name">الاسم</label>
-            <input id="name" name="name" type="text" placeholder="اكتب اسمك" required>
+            <input id="name" type="text" placeholder="اكتب اسمك" required>
           </div>
           <div>
             <label for="project">الموقع المفضل (اسم المشروع)</label>
-            <input id="project" name="project" type="text" placeholder="Lugano Al Galala" required>
+            <input id="project" type="text" value="Lugano Al Galala" required>
           </div>
           <div>
             <label for="unit">نوع الوحدة</label>
-            <select id="unit" name="unit" required>
-              <option value="" selected disabled>اختر نوع الوحدة</option>
+            <select id="unit" required>
+              <option value="" disabled selected>اختر نوع الوحدة</option>
               <option>استوديو</option><option>شاليه</option><option>شقة</option>
-              <option>تاون هاوس</option><option>توين هاوس</option><option>فيلا مستقلة</option><option>أخرى</option>
+              <option>تاون هاوس</option><option>توين هاوس</option><option>فيلا مستقلة</option>
             </select>
           </div>
           <div>
             <label for="rooms">عدد الغرف</label>
-            <select id="rooms" name="rooms" required>
-              <option value="" selected disabled>اختر عدد الغرف</option>
+            <select id="rooms" required>
+              <option value="" disabled selected>اختر عدد الغرف</option>
               <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
             </select>
           </div>
         </div>
-
-        <div style="margin-top:10px">
+        <div style="margin-top:12px">
           <label for="note">ملحوظة</label>
-          <textarea id="note" name="note" placeholder="أي تفاصيل إضافية تحب تقولها…"></textarea>
+          <textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea>
         </div>
 
         <div class="btns">
@@ -110,34 +140,30 @@
       </form>
     </section>
 
-    <footer>
-      © eslam reality 2025 — جميع الحقوق محفوظة
-    </footer>
+    <footer>© eslam reality 2025 — جميع الحقوق محفوظة</footer>
   </div>
 
   <script>
-    // عدّل دول
-    const WHATSAPP_NUMBER = "201050072527";          // رقم واتساب بصيغة دولية (من غير +)
-    const EMAIL_ADDRESS   = "islammesmail@gmail.com"; // إيميلك
+    const WHATSAPP_NUMBER = "201050072527"; // رقمك واتساب بصيغة دولية
+    const EMAIL_ADDRESS   = "islammesmail@gmail.com";
 
-    function getMessage(){
-      const name    = document.getElementById("name").value.trim();
-      const project = document.getElementById("project").value.trim();
-      const unit    = document.getElementById("unit").value;
-      const rooms   = document.getElementById("rooms").value;
-      const note    = document.getElementById("note").value.trim();
-      return `eslam reality\nالاسم: ${name}\nالموقع المفضل: ${project}\nنوع الوحدة: ${unit}\nعدد الغرف: ${rooms}\nملحوظة: ${note || "—"}`;
+    function msg(){
+      const name=document.getElementById('name').value.trim();
+      const project=document.getElementById('project').value.trim();
+      const unit=document.getElementById('unit').value||"-";
+      const rooms=document.getElementById('rooms').value||"-";
+      const note=document.getElementById('note').value.trim()||"—";
+      return `eslam reality\nالاسم: ${name}\nالموقع المفضل: ${project}\nنوع الوحدة: ${unit}\nعدد الغرف: ${rooms}\nملحوظة: ${note}`;
     }
 
     function sendWhatsApp(){
-      const msg = encodeURIComponent(getMessage());
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+      const text=encodeURIComponent(msg());
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`,'_blank');
     }
-
     function sendEmail(){
-      const subject = encodeURIComponent("استفسار عقاري - eslam reality (Lugano Al Galala)");
-      const body    = encodeURIComponent(getMessage());
-      window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+      const subject=encodeURIComponent("استفسار عقاري - eslam reality (Lugano Al Galala)");
+      const body=encodeURIComponent(msg());
+      window.location.href=`mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
     }
   </script>
 </body>
