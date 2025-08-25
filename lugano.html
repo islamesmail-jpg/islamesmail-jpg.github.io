@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>lugano algalala Ein elsokhna | مشروع لوجانو الجلالة العين السخنة</title>
   <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، المساحات والخدمات، وفورم تواصل سريع." />
+  <!-- خط عربي أنيق -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
@@ -13,18 +15,18 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.8}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
     /* ====== NAVBAR ====== */
     .navbar{
       position:sticky; top:0; z-index:1000;
       backdrop-filter: blur(8px);
-      background:rgba(9,11,22,0.7);
+      background:rgba(9,11,22,0.72);
       border-bottom:1px solid #13152a;
     }
     .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
     .logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
-    .logo-img{height:34px;width:auto;border-radius:8px;display:block}
+    .logo-img{height:36px;width:auto;border-radius:8px;display:block}
     .spacer{flex:1}
     .nav-links{display:flex;align-items:center;gap:10px}
     .nav-links a, .lang-btn, .projects-btn{
@@ -44,16 +46,18 @@
     .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
     /* ====== HERO (Video header) ====== */
-    .hero{position:relative;height:56vw;max-height:520px;min-height:280px;border-bottom:1px solid #12142a;overflow:hidden}
+    .hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
     .hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
-    .hero h1{margin:0;font-size:28px;line-height:1.3;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-    @media(min-width:720px){.hero h1{font-size:34px}}
+    .hero-title{margin:0;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+    .hero-top{display:block;font-weight:800;font-size:32px}
+    .hero-sub{display:block;font-weight:700;font-size:26px;opacity:.95}
+    @media(min-width:720px){.hero-top{font-size:40px}.hero-sub{font-size:30px}}
 
     /* ====== Slider ====== */
     .slider-wrap{position:relative;margin:18px auto 10px}
     .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-    .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:var(--radius);overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow)}
+    .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow)}
     .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     @media(min-width:820px){ .slide{flex-basis:48%;max-width:48%} }
     .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
@@ -62,11 +66,13 @@
     .arrow.right{inset-inline-end:8px}
 
     /* ====== Price boxes + masterplan ====== */
-    .price-row{display:grid;grid-template-columns:1fr;gap:10px;margin:12px 0}
-    .price{background:#fff;color:#000;border-radius:12px;padding:12px 14px;font-weight:700;text-align:center}
-    @media(min-width:640px){.price-row{grid-template-columns:1fr 1fr}}
-    .master-btn{display:inline-block;margin:8px auto 22px;background:#fff;color:#000;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none}
-    .center{text-align:center}
+    .prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+    .price-card{background:#fff;color:#000;border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+    .price-title{font-weight:800;font-size:16px;margin:0 0 6px;text-align:center}
+    .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px}
+    .price-link:hover{filter:brightness(.97)}
+    .master-wrap{text-align:center;margin:10px 0 20px}
+    .master-pill{display:inline-block;background:#fff;color:#000;padding:12px 18px;border-radius:14px;font-weight:800;text-decoration:none;box-shadow:var(--shadow)}
 
     /* ====== Sections/Text ====== */
     section h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
@@ -89,7 +95,7 @@
 
     footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 
-    /* ====== Modal ====== */
+    /* ====== Modals ====== */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:1200}
     .modal.open{display:flex}
     .modal-card{background:#0f1224;border:1px solid #1d2143;border-radius:16px;box-shadow:var(--shadow);max-width:95vw;max-height:90vh;overflow:auto}
@@ -102,7 +108,7 @@
     .contact-grid a{display:block;text-align:center;background:#f0c30f;color:#000;padding:12px;border-radius:12px;font-weight:800;text-decoration:none}
 
     /* image modal */
-    .img-fluid{width:100%;height:auto;display:block}
+    .img-fluid{width:auto;max-width:95vw;max-height:85vh;height:auto;display:block}
   </style>
 </head>
 <body>
@@ -112,7 +118,7 @@
     <div class="nav-inner">
       <!-- logo image -> home -->
       <a class="logo-link" href="/" title="الرئيسية">
-        <img class="logo-img" src="https://i.top4top.io/p_35246zjmk0.jpg" alt="eslam reality logo">
+        <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
       </a>
       <div class="spacer"></div>
 
@@ -141,7 +147,10 @@
   <section class="hero" id="hero" aria-label="فيديو مشروع لوجانو">
     <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
     <div class="overlay">
-      <h1 id="i-hero-title">مشروع لوجانو الجلالة — العين السخنة</h1>
+      <h1 class="hero-title" id="i-hero-title">
+        <span class="hero-top" id="i-hero-top">مشروع لوجانو الجلالة</span>
+        <span class="hero-sub" id="i-hero-sub">العين السخنة</span>
+      </h1>
     </div>
   </section>
 
@@ -167,12 +176,18 @@
     </div>
 
     <!-- Prices + Masterplan -->
-    <div class="price-row" id="prices">
-      <div class="price" id="i-dev-price">سعر المطوّر — اتصل لمعرفة السعر</div>
-      <div class="price" id="i-resale-price">سعر إعادة البيع — اتصل لمعرفة السعر</div>
+    <div class="prices">
+      <div class="price-card">
+        <div class="price-title" id="i-dev-title">سعر المطوّر</div>
+        <a class="price-link" href="#contact" id="i-dev-link">استفسر عن العروض</a>
+      </div>
+      <div class="price-card">
+        <div class="price-title" id="i-resale-title">سعر إعادة البيع</div>
+        <a class="price-link" href="#contact" id="i-resale-link">تواصل لمعرفة السعر</a>
+      </div>
     </div>
-    <div class="center">
-      <a href="#" class="master-btn" id="masterBtn">ماستر بلان المشروع</a>
+    <div class="master-wrap">
+      <a href="#" class="master-pill" id="masterBtn">ماستر بلان المشروع</a>
     </div>
 
     <!-- الوصف -->
@@ -313,6 +328,11 @@
     projBtn.addEventListener('click', (e)=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
     document.addEventListener('click', ()=> wrap.classList.remove('open'));
 
+    /* ===== روابط الأسعار تنقل للفورم ===== */
+    document.querySelectorAll('.price-link').forEach(a=>{
+      a.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
+    });
+
     /* ===== نافذة اتصل بنا ===== */
     const contactLink = document.getElementById('i-contact');
     const contactModal = document.getElementById('contactModal');
@@ -334,17 +354,8 @@
       ar: {
         dir:"rtl", htmlLang:"ar",
         projectsBtn:"المشاريع ▾", contact:"اتصل بنا",
-        heroTitle:"مشروع لوجانو الجلالة — العين السخنة",
-        devPrice:"سعر المطوّر — اتصل لمعرفة السعر",
-        resalePrice:"سعر إعادة البيع — اتصل لمعرفة السعر",
+        heroTop:"مشروع لوجانو الجلالة", heroSub:"العين السخنة",
+        devTitle:"سعر المطوّر", devLink:"استفسر عن العروض",
+        resaleTitle:"سعر إعادة البيع", resaleLink:"تواصل لمعرفة السعر",
         masterBtn:"ماستر بلان المشروع",
-        aboutTitle:"عن لوجانو الجلالة العين السخنة",
-        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من مشروع وفي مناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.",
-        originTitle:"نشأة AOG Developments",
-        origin1:"1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group).",
-        origin2:"2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.",
-        origin3:"3- في بداية 2025، قام الجيل الثاني باستخدام الخبرات والملاءة المالية الضخمة بإنشاء <strong>AOG Developments</strong> لتغيير “المعادلة العقارية” وتقديم العقار باختلاف تصنيفاته ليكون معبّرًا عن قيمته الحقيقية مما يعيد الجدوى الاستثمارية للعقار وقيمته.",
-        locationTitle:"الموقع",
-        location:"في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة — بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و60 دقيقة من التجمع.",
-        areaTitle:"مساحة المشروع",
-        area:"المساحة الإجمالية 40 فدان مكوّن
+        aboutTitle:"عن لوجانو الجلالة العين ا
