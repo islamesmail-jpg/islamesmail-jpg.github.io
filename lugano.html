@@ -8,7 +8,7 @@
 <style>
 :root{
   --bg:#0c1323;--card:#0f1627;--line:#1f2a44;--txt:#ffffff;--muted:#b9c3d6;
-  --brand:#e4c24a;--chip:#101a33;--chipbd:#4a587a;--accent:#111826;
+  --brand:#e4c24a;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--txt);font-family:"Tajawal",system-ui,-apple-system,"Segoe UI",Roboto,Arial}
@@ -27,7 +27,6 @@ h3{font-size:18px}
 .brand img{height:100%;display:block}
 .nav-right{display:flex;align-items:center;gap:8px}
 .chip{background:transparent;border:1px solid var(--brand);color:#fff;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
-.chip:focus{outline:none}
 .menu{position:relative}
 .menu-panel{position:absolute;top:110%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:220px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;z-index:60}
 .menu.open .menu-panel{display:block}
@@ -36,28 +35,37 @@ h3{font-size:18px}
 
 /* Breadcrumb */
 .breadcrumb{border-top:1px dashed rgba(255,255,255,.12);border-bottom:1px dashed rgba(255,255,255,.12);margin-top:6px}
-.bc{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 0;color:var(--muted);font-weight:700}
-.bc a{color:var(--muted)}
+.bc{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 0;color:#b9c3d6;font-weight:700}
+.bc a{color:#b9c3d6}
 .bc .sep{opacity:.5}
 
-/* Search (dummy nav search) */
+/* Search */
 .search-wrap{padding:10px 0}
-.search{width:100%;background:#0e1a33;border:1px solid var(--chipbd);border-radius:14px;padding:12px 14px;color:#fff}
+.search{width:100%;background:#0e1a33;border:1px solid #4a587a;border-radius:14px;padding:12px 14px;color:#fff}
 .search::placeholder{color:#9fb0cf}
 
 /* Hero video */
 .hero{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
 .hero video{width:100%;height:62vw;max-height:520px;object-fit:cover;display:block}
-.hero .overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.25) 40%,rgba(0,0,0,.35))}
-.hero .texts{position:absolute;inset:auto auto 10% 50%;transform:translateX(-50%);text-align:center}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.25) 40%,rgba(0,0,0,.35))}
+.hero .texts{position:absolute;left:50%;bottom:10%;transform:translateX(-50%);text-align:center}
 .hero h1{font-size:34px;margin:0 0 6px}
 .hero h2{font-size:22px;margin:0 0 4px}
 .hero .dev{font-size:18px;opacity:.95}
 
 /* Card + gallery */
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px}
-.gallery{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1323}
-.gallery img{position:absolute;inset:0;width:100%;height:60vw;max-height:460px;object-fit:cover;display:none}
+
+/* FIXED: gallery now has its own height via aspect-ratio */
+.gallery{
+  position:relative;
+  border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0b1323;
+  aspect-ratio:16/9;           /* يجعل للكونتينر ارتفاع ثابت */
+  min-height:240px;            /* حماية للأجهزة اللي مش بتدعم aspect-ratio */
+}
+.gallery img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;
+}
 .gallery img.show{display:block}
 .gbtn{position:absolute;top:50%;transform:translateY(-50%);border:1px solid #fff;background:rgba(0,0,0,.45);color:#fff;width:42px;height:42px;border-radius:999px;display:grid;place-items:center;font-size:20px}
 .gprev{left:10px}.gnext{right:10px}
@@ -91,14 +99,12 @@ footer a{color:#ffd76a}
 </head>
 <body>
 
-<!-- TOPBAR -->
 <header class="topbar">
   <div class="container nav">
     <a class="brand" href="index.html" title="الصفحة الرئيسية">
       <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Islam Esmail ARSAM">
     </a>
     <div class="nav-right">
-      <!-- Sokhna dropdown -->
       <div class="menu" id="m-sokhna">
         <button class="chip" data-i18n="sokhnaBtn">العين السخنة ▾</button>
         <div class="menu-panel">
@@ -106,7 +112,6 @@ footer a{color:#ffd76a}
           <a href="suez.html" data-i18n="suez">طريق السويس</a>
         </div>
       </div>
-      <!-- Contact -->
       <div class="menu" id="m-contact">
         <button class="chip" data-i18n="contact">اتصل بنا ▾</button>
         <div class="menu-panel">
@@ -115,13 +120,11 @@ footer a{color:#ffd76a}
           <a href="mailto:islammesmail@gmail.com">✉️ <span data-i18n="email">بريد إلكتروني</span></a>
         </div>
       </div>
-      <!-- Language -->
       <button class="chip" id="langToggle">AR/EN</button>
     </div>
   </div>
 </header>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="container bc">
     <a href="sokhna.html" data-i18n="sokhnaTxt">العين السخنة</a><span class="sep">›</span>
@@ -130,15 +133,13 @@ footer a{color:#ffd76a}
   </div>
 </div>
 
-<!-- SEARCH -->
 <div class="container search-wrap">
   <input class="search" id="searchInput" type="search" placeholder="إبحث عن مشروع… (اكتب مثلاً: مورانو، لوجانو)">
 </div>
 
-<!-- HERO VIDEO -->
 <section class="section container">
   <div class="hero">
-    <video id="heroVid" autoplay muted playsinline loop controlslist="nodownload noplaybackrate">
+    <video id="heroVid" autoplay muted playsinline loop>
       <source src="https://i.top4top.io/m_3524hxvwj0.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
@@ -150,7 +151,6 @@ footer a{color:#ffd76a}
   </div>
 </section>
 
-<!-- GALLERY + PRICES + MASTERPLAN -->
 <section class="section container">
   <div class="card">
     <div class="gallery" id="gal">
@@ -181,7 +181,6 @@ footer a{color:#ffd76a}
   </div>
 </section>
 
-<!-- CONTENT -->
 <section class="section container">
   <div class="block">
     <h2 data-i18n="aboutLugano">عن لوجانو الجلالة</h2>
@@ -216,7 +215,6 @@ footer a{color:#ffd76a}
   </div>
 </section>
 
-<!-- MASTERPLAN MODAL -->
 <div class="modal" id="mp">
   <div class="modal-in">
     <div class="modal-head">
@@ -235,7 +233,7 @@ footer a{color:#ffd76a}
 /* Year */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Simple dropdowns */
+/* Menus */
 function toggleMenu(id){
   document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'));
   document.getElementById(id).classList.toggle('open');
@@ -246,9 +244,9 @@ document.addEventListener('click',e=>{
   if(!e.target.closest('.menu,.chip')) document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'));
 });
 
-/* Autoplay assist (mobile) */
+/* Autoplay assist */
 const hv=document.getElementById('heroVid');
-hv.muted=true; hv.play().catch(()=>{ /* will play on user interaction if blocked */ });
+hv.muted=true; hv.play().catch(()=>{});
 
 /* Gallery */
 (function(){
@@ -268,7 +266,7 @@ document.getElementById('openMP').addEventListener('click',()=>document.getEleme
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('open')));
 document.getElementById('mp').addEventListener('click',e=>{if(e.target.id==='mp') e.currentTarget.classList.remove('open')});
 
-/* Search quick-nav: redirect by common project names */
+/* Quick search redirect */
 const searchMap = {
   "مورانو":"murano.html","murano":"murano.html",
   "لوجانو":"lugano.html","lugano":"lugano.html",
@@ -284,40 +282,31 @@ document.getElementById('searchInput').addEventListener('keydown',e=>{
 
 /* i18n */
 const dict = {
-  ar:{
-    sokhnaBtn:"العين السخنة ▾", sokhnaTxt:"العين السخنة",
-    zafarana:"طريق الزعفرانة", suez:"طريق السويس",
-    contact:"اتصل بنا ▾", call:"اتصال", whatsapp:"واتساب", email:"بريد إلكتروني",
-    luganoShort:"لوجانو الجلالة",
-    luganoTitleAr:"مشروع لوجانو الجلالة", developer:"المطوّر:",
-    devPrice:"سعر المطوّر:", resalePrice:"سعر إعادة البيع:",
-    showMaster:"عرض الماستر بلان", masterTitle:"الماستر بلان",
-    aboutLugano:"عن لوجانو الجلالة",
-    aboutLuganoTxt:"AOG Developments — شركة مطوّرة يقودها أ/ محمود عمر ... وأغلب مشروعاتها المستلمة ناجحة.",
-    origin:"نشأة AOG Developments",
-    originTxt:"18 عامًا من إنجاز الجيل الأول... وتأسست AOG في 2025 لتقديم معادلة جديدة تعيد القيمة الاستثمارية.",
-    location:"الموقع",
-    locationTxt:"العين السخنة – طريق الزعفرانة، أول نقطة في جبل الجلالة. 10 دقائق من البوابات، 15 دقيقة من منتجع الجلالة، 60 دقيقة من التجمع.",
-    areaServices:"المساحة والخدمات",
-    areaServicesTxt:"40 فدان/3 مصاطب... شاطئ خاص 400م، Alma (IHG)، Triple Play، كلوب هاوس، Padel، مسار دراجات، Kids، Gym، مسجد، جولف كار، تشطيب كامل، الاستشاري MK."
+  ar:{ sokhnaBtn:"العين السخنة ▾", sokhnaTxt:"العين السخنة", zafarana:"طريق الزعفرانة", suez:"طريق السويس",
+       contact:"اتصل بنا ▾", call:"اتصال", whatsapp:"واتساب", email:"بريد إلكتروني",
+       luganoShort:"لوجانو الجلالة", luganoTitleAr:"مشروع لوجانو الجلالة", developer:"المطوّر:",
+       devPrice:"سعر المطوّر:", resalePrice:"سعر إعادة البيع:", showMaster:"عرض الماستر بلان",
+       masterTitle:"الماستر بلان", aboutLugano:"عن لوجانو الجلالة",
+       aboutLuganoTxt:"AOG Developments — شركة مطوّرة يقودها أ/ محمود عمر ... وأغلب مشروعاتها المستلمة ناجحة.",
+       origin:"نشأة AOG Developments",
+       originTxt:"18 عامًا من إنجاز الجيل الأول... وتأسست AOG في 2025 لتقديم معادلة جديدة تعيد القيمة الاستثمارية.",
+       location:"الموقع",
+       locationTxt:"العين السخنة – طريق الزعفرانة، أول نقطة في جبل الجلالة. 10 دقائق من البوابات، 15 دقيقة من منتجع الجلالة، 60 دقيقة من التجمع.",
+       areaServices:"المساحة والخدمات",
+       areaServicesTxt:"40 فدان/3 مصاطب… شاطئ خاص 400م، Alma (IHG)، Triple Play، كلوب هاوس، Padel، مسار دراجات، Kids، Gym، مسجد، جولف كار، تشطيب كامل، الاستشاري MK."
   },
-  en:{
-    sokhnaBtn:"Ain Sokhna ▾", sokhnaTxt:"Ain Sokhna",
-    zafarana:"Zafarana Road", suez:"Suez Road",
-    contact:"Contact ▾", call:"Call", whatsapp:"WhatsApp", email:"Email",
-    luganoShort:"Lugano Al Galala",
-    luganoTitleAr:"Lugano Al Galala Project",
-    developer:"Developer:",
-    devPrice:"Developer Price:", resalePrice:"Resale Price:",
-    showMaster:"View Masterplan", masterTitle:"Masterplan",
-    aboutLugano:"About Lugano Al Galala",
-    aboutLuganoTxt:"AOG Developments led by Mr. Mahmoud Omar with a strong coastal portfolio and real deliveries.",
-    origin:"AOG Origins",
-    originTxt:"18 years of achievements by the first generation (Lasirena Group). In 2025 AOG launched a new equation restoring real estate value.",
-    location:"Location",
-    locationTxt:"Ain Sokhna – Zafarana Rd, first point at Galala Mountain. 10 min from gates, 15 min from Galala Resort, 60 min from New Cairo.",
-    areaServices:"Area & Amenities",
-    areaServicesTxt:"40 acres / 3 terraces • 400m private beach • Alma Hotel by IHG • Triple Play • Clubhouse • Padel • Bike path • Kids area • Gym • Mosque • Golf carts • Full finishing • Consultant MK."
+  en:{ sokhnaBtn:"Ain Sokhna ▾", sokhnaTxt:"Ain Sokhna", zafarana:"Zafarana Road", suez:"Suez Road",
+       contact:"Contact ▾", call:"Call", whatsapp:"WhatsApp", email:"Email",
+       luganoShort:"Lugano Al Galala", luganoTitleAr:"Lugano Al Galala Project", developer:"Developer:",
+       devPrice:"Developer Price:", resalePrice:"Resale Price:", showMaster:"View Masterplan",
+       masterTitle:"Masterplan", aboutLugano:"About Lugano Al Galala",
+       aboutLuganoTxt:"AOG Developments led by Mr. Mahmoud Omar with a strong coastal portfolio and real deliveries.",
+       origin:"AOG Origins",
+       originTxt:"18 years of achievements by the first generation (Lasirena Group). In 2025 AOG launched a new equation restoring real estate value.",
+       location:"Location",
+       locationTxt:"Ain Sokhna – Zafarana Rd, first point at Galala Mountain. 10 min from gates, 15 min from Galala Resort, 60 min from New Cairo.",
+       areaServices:"Area & Amenities",
+       areaServicesTxt:"40 acres / 3 terraces • 400m private beach • Alma Hotel by IHG • Triple Play • Clubhouse • Padel • Bike path • Kids area • Gym • Mosque • Golf carts • Full finishing • Consultant MK."
   }
 };
 const i18nElems = document.querySelectorAll('[data-i18n]');
@@ -330,10 +319,8 @@ function setLang(lang){
     const k = el.getAttribute('data-i18n');
     if(d[k]) el.textContent = d[k];
   });
-  // placeholder
   const si=document.getElementById('searchInput');
   si.placeholder = (lang==='ar'?'إبحث عن مشروع… (اكتب مثلاً: مورانو، لوجانو)':'Search a project… (e.g., Murano, Lugano)');
-  // switch label
   langBtn.textContent = (lang==='ar'?'AR/EN':'EN/AR');
   localStorage.setItem('lang',lang);
 }
@@ -344,4 +331,4 @@ langBtn.addEventListener('click',()=>{
 setLang(localStorage.getItem('lang')||'ar');
 </script>
 </body>
-  </html>
+</html>
