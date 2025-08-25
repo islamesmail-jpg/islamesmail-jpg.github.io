@@ -93,19 +93,6 @@
     button:hover{filter:brightness(.95)}
 
     footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
-
-    /* ===== MODALS ===== */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:2000}
-    .modal.open{display:flex}
-    .modal-card{background:#0f1224;border:1px solid #1d2143;border-radius:16px;box-shadow:var(--shadow);max-width:95vw;max-height:90vh;overflow:auto}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #1d2143}
-    .modal-title{font-weight:700}
-    .close-btn{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer}
-    .modal-body{padding:16px}
-    .contact-grid{display:grid;gap:10px}
-    @media(min-width:520px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
-    .contact-grid a{display:block;text-align:center;background:#f0c30f;color:#000;padding:12px;border-radius:12px;font-weight:800;text-decoration:none}
-    .img-fluid{width:auto;max-width:95vw;max-height:85vh;height:auto;display:block}
   </style>
 </head>
 <body>
@@ -121,10 +108,9 @@
         <div class="projects-wrap" id="projectsWrap">
           <button class="projects-btn" id="i-projects-btn">المشاريع ▾</button>
           <div class="projects-menu" id="projectsMenu">
-            <!-- غيّر الروابط لصفحاتك الفعلية لو موجودة -->
-            <a href="ain-sokhna.html" id="i-proj-lugano">العين السخنة</a>
-            <a href="north-coast.html" id="i-proj-north">الساحل الشمالي</a>
-            <a href="new-cairo.html" id="i-proj-cairo">القاهرة الجديدة</a>
+            <a href="https://islamesmail-jpg.github.io/sokhna.html"   id="i-proj-sokhna">العين السخنة</a>
+            <a href="https://islamesmail-jpg.github.io/north.html"    id="i-proj-north">الساحل الشمالي</a>
+            <a href="https://islamesmail-jpg.github.io/Cairo.html"    id="i-proj-cairo">القاهرة الجديدة</a>
           </div>
         </div>
         <a href="#contact" id="i-contact">اتصل بنا</a>
@@ -177,7 +163,8 @@
       </div>
     </div>
     <div class="master-wrap">
-      <a href="#" class="master-pill" id="masterBtn">ماستر بلان المشروع</a>
+      <!-- يفتح الصورة في تبويب جديد (صفحة مستقلة) -->
+      <a class="master-pill" id="masterBtn" href="https://f.top4top.io/p_3524k51250.jpg" target="_blank" rel="noopener">ماستر بلان المشروع</a>
     </div>
 
     <!-- DESCRIPTION -->
@@ -252,36 +239,6 @@
     <footer id="i-footer">© eslam reality 2025 — جميع الحقوق محفوظة</footer>
   </div>
 
-  <!-- CONTACT MODAL -->
-  <div class="modal" id="contactModal" aria-hidden="true">
-    <div class="modal-card" style="width:min(520px,95vw)">
-      <div class="modal-header">
-        <div class="modal-title" id="i-contact-title">طرق التواصل</div>
-        <button class="close-btn" data-close>×</button>
-      </div>
-      <div class="modal-body">
-        <div class="contact-grid">
-          <a id="callLink" href="tel:+201050072527">☎️ <span id="i-call">اتصال</span></a>
-          <a id="waLink" href="https://wa.me/201050072527" target="_blank">🟢 <span id="i-wa">واتساب</span></a>
-          <a id="mailLink" href="mailto:islammesmail@gmail.com">✉️ <span id="i-mail">إيميل</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MASTERPLAN MODAL -->
-  <div class="modal" id="planModal" aria-hidden="true">
-    <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title" id="i-plan-title">ماستر بلان المشروع</div>
-        <button class="close-btn" data-close>×</button>
-      </div>
-      <div class="modal-body" style="padding:0">
-        <img class="img-fluid" src="https://f.top4top.io/p_3524k51250.jpg" alt="Masterplan">
-      </div>
-    </div>
-  </div>
-
   <script>
     /* ===== CONTACT INFO ===== */
     const WHATSAPP_NUMBER = "201050072527";
@@ -322,20 +279,6 @@
       a.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
     });
 
-    /* ===== CONTACT MODAL ===== */
-    const contactLink = document.getElementById('i-contact');
-    const contactModal = document.getElementById('contactModal');
-    contactLink.addEventListener('click', (e)=>{ e.preventDefault(); openModal(contactModal); });
-
-    /* ===== MASTERPLAN MODAL ===== */
-    const planModal = document.getElementById('planModal');
-    document.getElementById('masterBtn').addEventListener('click', (e)=>{ e.preventDefault(); openModal(planModal); });
-
-    function openModal(mod){ mod.classList.add('open'); }
-    function closeModal(mod){ mod.classList.remove('open'); }
-    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click', e=> closeModal(e.target.closest('.modal'))));
-    document.querySelectorAll('.modal').forEach(m=> m.addEventListener('click', e=>{ if(e.target===m) closeModal(m); }));
-
     /* ===== LANGUAGE TOGGLE (AR <-> EN) ===== */
     const langToggle = document.getElementById('langToggle');
     const i18n = {
@@ -347,4 +290,41 @@
         resaleTitle:"سعر إعادة البيع", resaleLink:"تواصل لمعرفة السعر",
         masterBtn:"ماستر بلان المشروع",
         aboutTitle:"عن لوجانو الجلالة العين السخنة",
-        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السن
+        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من مشروع وفي مناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.",
+        originTitle:"نشأة AOG Developments",
+        origin1:"1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group).",
+        origin2:"2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.",
+        origin3:"3- في بداية 2025، قام الجيل الثاني باستخدام الخبرات والملاءة المالية الضخمة بإنشاء <strong>AOG Developments</strong> لتغيير “المعادلة العقارية” وتقديم العقار باختلاف تصنيفاته ليكون معبّرًا عن قيمته الحقيقية مما يعيد الجدوى الاستثمارية للعقار وقيمته.",
+        locationTitle:"الموقع",
+        location:"في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة — بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و60 دقيقة من التجمع.",
+        areaTitle:"مساحة المشروع",
+        area:"المساحة الإجمالية 40 فدان مكوّنة من 3 مصاطب: الأولى 7م أعلى من مستوى سطح البحر، الثانية 20م (تشمل 90% من المشروع)، الثالثة 35م.",
+        servicesTitle:"الخدمات",
+        services:"Hotel five star (Alma hotel) — إدارة كبرى الشركات (IHG) — Triple Play (هاتف أرضي + إنترنت + IPTV) — Club House — مطاعم وكافيهات — Padel — مسار دراجات — Kids Area — Gym — مسجد — Bridge — Golf Car — Facility Management (FM & IHG) — شاطئ خاص بعرض 400م — تشطيب كامل — الاستشاري الهندسي MK.",
+        formTitle:"تحتاج إلى مساعدة عقارية؟",
+        formSub:"املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت",
+        nameLabel:"الاسم",
+        projectLabel:"الموقع المفضل (اسم المشروع)",
+        unitLabel:"نوع الوحدة",
+        unitPH:"اختر نوع الوحدة",
+        unit1:"استوديو", unit2:"شاليه", unit3:"شقة", unit4:"تاون هاوس", unit5:"توين هاوس", unit6:"فيلا مستقلة",
+        roomsLabel:"عدد الغرف",
+        roomsPH:"اختر عدد الغرف",
+        noteLabel:"ملحوظة",
+        sendWA:"إرسال عبر واتساب",
+        sendMail:"إرسال عبر الإيميل",
+        footer:"© eslam reality 2025 — جميع الحقوق محفوظة",
+        langBtn:"EN",
+        phName:"اكتب اسمك", phProject:"Lugano Al Galala", phNote:"أي تفاصيل إضافية…",
+        contactTitle:"طرق التواصل", call:"اتصال", wa:"واتساب", mail:"إيميل",
+        projSokhna:"العين السخنة", projNorth:"الساحل الشمالي", projCairo:"القاهرة الجديدة"
+      },
+      en: {
+        dir:"ltr", htmlLang:"en",
+        projectsBtn:"Projects ▾", contact:"Contact",
+        heroTop:"Lugano Al Galala", heroSub:"Ain Sokhna",
+        devTitle:"Developer price", devLink:"Ask for offers",
+        resaleTitle:"Resale price", resaleLink:"Contact for price",
+        masterBtn:"Project Masterplan",
+        aboutTitle:"About Lugano Al Galala",
+        about1:"<strong>AOG Developments</strong>, led by Mr. Mahmoud Omar, is a coastal developer with a strong delivery record. This year the company launches a land bank across multiple destinations: Ain Sokhna, 
