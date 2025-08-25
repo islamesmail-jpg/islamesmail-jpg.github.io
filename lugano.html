@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>lugano algalala Ein elsokhna | مشروع لوجانو الجلالة العين السخنة</title>
   <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، المساحات والخدمات، وفورم تواصل سريع." />
-  <!-- خط عربي أنيق -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -17,11 +16,11 @@
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
-    /* ====== NAVBAR ====== */
+    /* ===== NAVBAR ===== */
     .navbar{
-      position:sticky; top:0; z-index:1000;
+      position:sticky; top:0; z-index:1500;
       backdrop-filter: blur(8px);
-      background:rgba(9,11,22,0.72);
+      background:rgba(9,11,22,.72);
       border-bottom:1px solid #13152a;
     }
     .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
@@ -36,16 +35,16 @@
     .projects-wrap{position:relative}
     .projects-menu{
       position:absolute; top:calc(100% + 6px); inset-inline-start:0;
-      background:#0f1224; border:1px solid #1d2143; border-radius:12px; padding:6px; display:none; min-width:220px; box-shadow:var(--shadow); z-index:999;
+      background:#0f1224; border:1px solid #1d2143; border-radius:12px; padding:6px; display:none; min-width:220px; box-shadow:var(--shadow); z-index:3000;
     }
     .projects-menu a{display:block; padding:8px 10px; border-radius:8px}
     .projects-menu a:hover{background:#121638}
     .projects-wrap.open .projects-menu{display:block}
 
-    /* ====== LAYOUT ====== */
+    /* ===== LAYOUT ===== */
     .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-    /* ====== HERO (Video header) ====== */
+    /* ===== HERO ===== */
     .hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
     .hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
@@ -54,10 +53,10 @@
     .hero-sub{display:block;font-weight:700;font-size:26px;opacity:.95}
     @media(min-width:720px){.hero-top{font-size:40px}.hero-sub{font-size:30px}}
 
-    /* ====== Slider ====== */
+    /* ===== SLIDER ===== */
     .slider-wrap{position:relative;margin:18px auto 10px}
     .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-    .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow)}
+    .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)}
     .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     @media(min-width:820px){ .slide{flex-basis:48%;max-width:48%} }
     .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
@@ -65,20 +64,20 @@
     .arrow.left{inset-inline-start:8px}
     .arrow.right{inset-inline-end:8px}
 
-    /* ====== Price boxes + masterplan ====== */
-    .prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-    .price-card{background:#fff;color:#000;border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
-    .price-title{font-weight:800;font-size:16px;margin:0 0 6px;text-align:center}
-    .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px}
+    /* ===== PRICES + MASTERPLAN ===== */
+    .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+    .price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+    .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+    .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
     .price-link:hover{filter:brightness(.97)}
-    .master-wrap{text-align:center;margin:10px 0 20px}
-    .master-pill{display:inline-block;background:#fff;color:#000;padding:12px 18px;border-radius:14px;font-weight:800;text-decoration:none;box-shadow:var(--shadow)}
+    .master-wrap{text-align:center;margin:6px 0 18px}
+    .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
 
-    /* ====== Sections/Text ====== */
+    /* ===== SECTIONS/TEXT ===== */
     section h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
     section p{margin:0 0 10px;color:var(--muted)}
 
-    /* ====== Card / Form ====== */
+    /* ===== CARD / FORM ===== */
     .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
     .card .icon{font-size:28px;text-align:center;margin:0 0 6px}
     .card h3{margin:6px 0;text-align:center;font-size:18px}
@@ -95,8 +94,8 @@
 
     footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 
-    /* ====== Modals ====== */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:1200}
+    /* ===== MODALS ===== */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:2000}
     .modal.open{display:flex}
     .modal-card{background:#0f1224;border:1px solid #1d2143;border-radius:16px;box-shadow:var(--shadow);max-width:95vw;max-height:90vh;overflow:auto}
     .modal-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #1d2143}
@@ -106,8 +105,6 @@
     .contact-grid{display:grid;gap:10px}
     @media(min-width:520px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
     .contact-grid a{display:block;text-align:center;background:#f0c30f;color:#000;padding:12px;border-radius:12px;font-weight:800;text-decoration:none}
-
-    /* image modal */
     .img-fluid{width:auto;max-width:95vw;max-height:85vh;height:auto;display:block}
   </style>
 </head>
@@ -116,28 +113,21 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
-      <!-- logo image -> home -->
       <a class="logo-link" href="/" title="الرئيسية">
         <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
       </a>
       <div class="spacer"></div>
-
       <div class="nav-links">
-        <!-- projects dropdown -->
         <div class="projects-wrap" id="projectsWrap">
           <button class="projects-btn" id="i-projects-btn">المشاريع ▾</button>
           <div class="projects-menu" id="projectsMenu">
-            <a href="#hero" id="i-proj-lugano">العين السخنة</a>
-            <a href="#" id="i-proj-zaafrana">طريق الزعفرانة</a>
-            <a href="#" id="i-proj-suez">طريق السويس</a>
-            <a href="#" id="i-proj-north">الساحل الشمالي</a>
-            <a href="#" id="i-proj-cairo">القاهرة الجديدة</a>
+            <!-- غيّر الروابط لصفحاتك الفعلية لو موجودة -->
+            <a href="ain-sokhna.html" id="i-proj-lugano">العين السخنة</a>
+            <a href="north-coast.html" id="i-proj-north">الساحل الشمالي</a>
+            <a href="new-cairo.html" id="i-proj-cairo">القاهرة الجديدة</a>
           </div>
         </div>
-
-        <!-- contact modal trigger -->
         <a href="#contact" id="i-contact">اتصل بنا</a>
-
         <button class="lang-btn" id="langToggle" aria-label="تبديل اللغة">EN</button>
       </div>
     </div>
@@ -147,7 +137,7 @@
   <section class="hero" id="hero" aria-label="فيديو مشروع لوجانو">
     <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
     <div class="overlay">
-      <h1 class="hero-title" id="i-hero-title">
+      <h1 class="hero-title">
         <span class="hero-top" id="i-hero-top">مشروع لوجانو الجلالة</span>
         <span class="hero-sub" id="i-hero-sub">العين السخنة</span>
       </h1>
@@ -175,7 +165,7 @@
       </div>
     </div>
 
-    <!-- Prices + Masterplan -->
+    <!-- PRICES + MASTERPLAN -->
     <div class="prices">
       <div class="price-card">
         <div class="price-title" id="i-dev-title">سعر المطوّر</div>
@@ -190,7 +180,7 @@
       <a href="#" class="master-pill" id="masterBtn">ماستر بلان المشروع</a>
     </div>
 
-    <!-- الوصف -->
+    <!-- DESCRIPTION -->
     <section>
       <h2 id="i-about-title">عن لوجانو الجلالة العين السخنة</h2>
       <p id="i-about-1"><strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من مشروع وفي مناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.</p>
@@ -210,7 +200,7 @@
       <p id="i-services">Hotel five star (Alma hotel) — إدارة كبرى الشركات (IHG) — Triple Play (هاتف أرضي + إنترنت + IPTV) — Club House — مطاعم وكافيهات — Padel — مسار دراجات — Kids Area — Gym — مسجد — Bridge — Golf Car — Facility Management (FM & IHG) — شاطئ خاص بعرض 400م — تشطيب كامل — الاستشاري الهندسي MK.</p>
     </section>
 
-    <!-- فورم -->
+    <!-- CONTACT FORM -->
     <section class="card" id="contact">
       <div class="icon">📨</div>
       <h3 id="i-form-title">تحتاج إلى مساعدة عقارية؟</h3>
@@ -262,7 +252,7 @@
     <footer id="i-footer">© eslam reality 2025 — جميع الحقوق محفوظة</footer>
   </div>
 
-  <!-- Contact Modal -->
+  <!-- CONTACT MODAL -->
   <div class="modal" id="contactModal" aria-hidden="true">
     <div class="modal-card" style="width:min(520px,95vw)">
       <div class="modal-header">
@@ -271,15 +261,15 @@
       </div>
       <div class="modal-body">
         <div class="contact-grid">
-          <a id="callLink"   href="tel:+201050072527">☎️ <span id="i-call">اتصال</span></a>
-          <a id="waLink"     href="https://wa.me/201050072527" target="_blank">🟢 <span id="i-wa">واتساب</span></a>
-          <a id="mailLink"   href="mailto:islammesmail@gmail.com">✉️ <span id="i-mail">إيميل</span></a>
+          <a id="callLink" href="tel:+201050072527">☎️ <span id="i-call">اتصال</span></a>
+          <a id="waLink" href="https://wa.me/201050072527" target="_blank">🟢 <span id="i-wa">واتساب</span></a>
+          <a id="mailLink" href="mailto:islammesmail@gmail.com">✉️ <span id="i-mail">إيميل</span></a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Masterplan Modal -->
+  <!-- MASTERPLAN MODAL -->
   <div class="modal" id="planModal" aria-hidden="true">
     <div class="modal-card">
       <div class="modal-header">
@@ -287,17 +277,16 @@
         <button class="close-btn" data-close>×</button>
       </div>
       <div class="modal-body" style="padding:0">
-        <img class="img-fluid" src="https://j.top4top.io/p_3524lfn4j1.jpg" alt="Masterplan">
+        <img class="img-fluid" src="https://f.top4top.io/p_3524k51250.jpg" alt="Masterplan">
       </div>
     </div>
   </div>
 
   <script>
-    /* ===== بياناتك ===== */
+    /* ===== CONTACT INFO ===== */
     const WHATSAPP_NUMBER = "201050072527";
     const EMAIL_ADDRESS   = "islammesmail@gmail.com";
 
-    /* رسالة موحّدة للواتساب/الإيميل */
     function msg(){
       const name  = document.getElementById('name').value.trim();
       const proj  = document.getElementById('project').value.trim();
@@ -309,7 +298,7 @@
     function sendWhatsApp(){ const t=encodeURIComponent(msg()); window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${t}`,'_blank'); }
     function sendEmail(){ const s=encodeURIComponent("استفسار عقاري - eslam reality (Lugano Al Galala)"); const b=encodeURIComponent(msg()); window.location.href=`mailto:${EMAIL_ADDRESS}?subject=${s}&body=${b}`; }
 
-    /* ===== سلايدر: أسهم + سحب ===== */
+    /* ===== SLIDER: arrows + drag ===== */
     const slider  = document.getElementById('slider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -322,23 +311,23 @@
     slider.addEventListener('mouseleave',()=>{isDown=false;});
     slider.addEventListener('mousemove',e=>{if(!isDown)return; const dx=e.pageX-startX; slider.scrollLeft=scrollLeft-dx;});
 
-    /* ===== قائمة المشاريع (Dropdown) ===== */
+    /* ===== PROJECTS DROPDOWN ===== */
     const wrap = document.getElementById('projectsWrap');
     const projBtn  = document.getElementById('i-projects-btn');
     projBtn.addEventListener('click', (e)=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
     document.addEventListener('click', ()=> wrap.classList.remove('open'));
 
-    /* ===== روابط الأسعار تنقل للفورم ===== */
+    /* ===== PRICE LINKS -> SCROLL TO FORM ===== */
     document.querySelectorAll('.price-link').forEach(a=>{
       a.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
     });
 
-    /* ===== نافذة اتصل بنا ===== */
+    /* ===== CONTACT MODAL ===== */
     const contactLink = document.getElementById('i-contact');
     const contactModal = document.getElementById('contactModal');
     contactLink.addEventListener('click', (e)=>{ e.preventDefault(); openModal(contactModal); });
 
-    /* ===== نافذة الماستر بلان ===== */
+    /* ===== MASTERPLAN MODAL ===== */
     const planModal = document.getElementById('planModal');
     document.getElementById('masterBtn').addEventListener('click', (e)=>{ e.preventDefault(); openModal(planModal); });
 
@@ -347,9 +336,8 @@
     document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click', e=> closeModal(e.target.closest('.modal'))));
     document.querySelectorAll('.modal').forEach(m=> m.addEventListener('click', e=>{ if(e.target===m) closeModal(m); }));
 
-    /* ===== تبديل اللغة (AR/EN) ===== */
+    /* ===== LANGUAGE TOGGLE (AR <-> EN) ===== */
     const langToggle = document.getElementById('langToggle');
-
     const i18n = {
       ar: {
         dir:"rtl", htmlLang:"ar",
@@ -358,4 +346,5 @@
         devTitle:"سعر المطوّر", devLink:"استفسر عن العروض",
         resaleTitle:"سعر إعادة البيع", resaleLink:"تواصل لمعرفة السعر",
         masterBtn:"ماستر بلان المشروع",
-        aboutTitle:"عن لوجانو الجلالة العين ا
+        aboutTitle:"عن لوجانو الجلالة العين السخنة",
+        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السن
