@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>lugano algalala Ein elsokhna | مشروع لوجانو الجلالة العين السخنة</title>
-  <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، المساحات والخدمات، وفورم تواصل سريع." />
+  <title>Lugano Al Galala | مشروع لوجانو الجلالة العين السخنة</title>
+  <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، الخدمات، والتواصل." />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -16,44 +16,35 @@
     html,body{height:100%}
     body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
-    /* ===== NAVBAR ===== */
-    .navbar{
-      position:sticky; top:0; z-index:1500;
-      backdrop-filter: blur(8px);
-      background:rgba(9,11,22,.72);
-      border-bottom:1px solid #13152a;
-    }
+    /* NAVBAR */
+    .navbar{position:sticky; top:0; z-index:1500; backdrop-filter:blur(8px); background:rgba(9,11,22,.72); border-bottom:1px solid #13152a}
     .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
     .logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
     .logo-img{height:36px;width:auto;border-radius:8px;display:block}
     .spacer{flex:1}
     .nav-links{display:flex;align-items:center;gap:10px}
-    .nav-links a, .lang-btn, .projects-btn{
-      color:var(--text); text-decoration:none; font-size:14px; padding:8px 10px; border-radius:10px; background:transparent; border:1px solid transparent; cursor:pointer;
-    }
+    .nav-links a, .lang-btn, .projects-btn{color:var(--text);text-decoration:none;font-size:14px;padding:8px 10px;border-radius:10px;background:transparent;border:1px solid transparent;cursor:pointer}
     .nav-links a:hover, .lang-btn:hover, .projects-btn:hover{background:#111326}
     .projects-wrap{position:relative}
-    .projects-menu{
-      position:absolute; top:calc(100% + 6px); inset-inline-start:0;
-      background:#0f1224; border:1px solid #1d2143; border-radius:12px; padding:6px; display:none; min-width:220px; box-shadow:var(--shadow); z-index:3000;
-    }
-    .projects-menu a{display:block; padding:8px 10px; border-radius:8px}
+    .projects-menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;display:none;min-width:220px;box-shadow:var(--shadow);z-index:3000}
+    .projects-menu a{display:block;padding:8px 10px;border-radius:8px}
     .projects-menu a:hover{background:#121638}
     .projects-wrap.open .projects-menu{display:block}
 
-    /* ===== LAYOUT ===== */
+    /* LAYOUT */
     .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
+    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
     .hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
-    .hero-title{margin:0;line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-    .hero-top{display:block;font-weight:800;font-size:32px}
-    .hero-sub{display:block;font-weight:700;font-size:26px;opacity:.95}
-    @media(min-width:720px){.hero-top{font-size:40px}.hero-sub{font-size:30px}}
+    .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+    .hero .line-top{display:block;font-weight:800;font-size:36px}
+    .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
+    .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
+    @media(min-width:720px){.hero .line-top{font-size:44px}.hero .line-sub{font-size:30px}.hero .dev{font-size:20px}}
 
-    /* ===== SLIDER ===== */
+    /* SLIDER */
     .slider-wrap{position:relative;margin:18px auto 10px}
     .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
     .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)}
@@ -64,20 +55,11 @@
     .arrow.left{inset-inline-start:8px}
     .arrow.right{inset-inline-end:8px}
 
-    /* ===== PRICES + MASTERPLAN ===== */
-    .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
-    .price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
-    .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
-    .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
-    .price-link:hover{filter:brightness(.97)}
-    .master-wrap{text-align:center;margin:6px 0 18px}
-    .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
-
-    /* ===== SECTIONS/TEXT ===== */
+    /* TEXT SECTIONS */
     section h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
     section p{margin:0 0 10px;color:var(--muted)}
 
-    /* ===== CARD / FORM ===== */
+    /* CARD / FORM */
     .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
     .card .icon{font-size:28px;text-align:center;margin:0 0 6px}
     .card h3{margin:6px 0;text-align:center;font-size:18px}
@@ -108,9 +90,9 @@
         <div class="projects-wrap" id="projectsWrap">
           <button class="projects-btn" id="i-projects-btn">المشاريع ▾</button>
           <div class="projects-menu" id="projectsMenu">
-            <a href="https://islamesmail-jpg.github.io/sokhna.html"   id="i-proj-sokhna">العين السخنة</a>
-            <a href="https://islamesmail-jpg.github.io/north.html"    id="i-proj-north">الساحل الشمالي</a>
-            <a href="https://islamesmail-jpg.github.io/Cairo.html"    id="i-proj-cairo">القاهرة الجديدة</a>
+            <a href="https://islamesmail-jpg.github.io/sokhna.html" id="i-proj-sokhna">العين السخنة</a>
+            <a href="https://islamesmail-jpg.github.io/north.html"  id="i-proj-north">الساحل الشمالي</a>
+            <a href="https://islamesmail-jpg.github.io/Cairo.html"  id="i-proj-cairo">القاهرة الجديدة</a>
           </div>
         </div>
         <a href="#contact" id="i-contact">اتصل بنا</a>
@@ -123,9 +105,10 @@
   <section class="hero" id="hero" aria-label="فيديو مشروع لوجانو">
     <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
     <div class="overlay">
-      <h1 class="hero-title">
-        <span class="hero-top" id="i-hero-top">مشروع لوجانو الجلالة</span>
-        <span class="hero-sub" id="i-hero-sub">العين السخنة</span>
+      <h1>
+        <span class="line-top" id="i-hero-top">مشروع لوجانو الجلالة</span>
+        <span class="line-sub" id="i-hero-sub">Lugano Al Galala</span>
+        <span class="dev" id="i-hero-dev">المطوّر: AOG Developments</span>
       </h1>
     </div>
   </section>
@@ -151,43 +134,13 @@
       </div>
     </div>
 
-    <!-- PRICES + MASTERPLAN -->
-    <div class="prices">
-      <div class="price-card">
-        <div class="price-title" id="i-dev-title">سعر المطوّر</div>
-        <a class="price-link" href="#contact" id="i-dev-link">استفسر عن العروض</a>
-      </div>
-      <div class="price-card">
-        <div class="price-title" id="i-resale-title">سعر إعادة البيع</div>
-        <a class="price-link" href="#contact" id="i-resale-link">تواصل لمعرفة السعر</a>
-      </div>
-    </div>
-    <div class="master-wrap">
-      <!-- يفتح الصورة في تبويب جديد (صفحة مستقلة) -->
-      <a class="master-pill" id="masterBtn" href="https://f.top4top.io/p_3524k51250.jpg" target="_blank" rel="noopener">ماستر بلان المشروع</a>
-    </div>
-
-    <!-- DESCRIPTION -->
+    <!-- SIMPLE CONTENT (اختصرته للتركيز على المطلوب) -->
     <section>
       <h2 id="i-about-title">عن لوجانو الجلالة العين السخنة</h2>
-      <p id="i-about-1"><strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من مشروع وفي مناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.</p>
-
-      <h2 id="i-origin-title">نشأة AOG Developments</h2>
-      <p id="i-origin-1">1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group).</p>
-      <p id="i-origin-2">2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.</p>
-      <p id="i-origin-3">3- في بداية 2025، قام الجيل الثاني باستخدام الخبرات والملاءة المالية الضخمة بإنشاء <strong>AOG Developments</strong> لتغيير “المعادلة العقارية” وتقديم العقار باختلاف تصنيفاته ليكون معبّرًا عن قيمته الحقيقية مما يعيد الجدوى الاستثمارية للعقار وقيمته.</p>
-
-      <h2 id="i-location-title">الموقع</h2>
-      <p id="i-location">في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة — بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و60 دقيقة من التجمع.</p>
-
-      <h2 id="i-area-title">مساحة المشروع</h2>
-      <p id="i-area">المساحة الإجمالية 40 فدان مكوّنة من 3 مصاطب: الأولى 7م أعلى من مستوى سطح البحر، الثانية 20م (تشمل 90% من المشروع)، الثالثة 35م.</p>
-
-      <h2 id="i-services-title">الخدمات</h2>
-      <p id="i-services">Hotel five star (Alma hotel) — إدارة كبرى الشركات (IHG) — Triple Play (هاتف أرضي + إنترنت + IPTV) — Club House — مطاعم وكافيهات — Padel — مسار دراجات — Kids Area — Gym — مسجد — Bridge — Golf Car — Facility Management (FM & IHG) — شاطئ خاص بعرض 400م — تشطيب كامل — الاستشاري الهندسي MK.</p>
+      <p id="i-about-1"><strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة.</p>
     </section>
 
-    <!-- CONTACT FORM -->
+    <!-- CONTACT -->
     <section class="card" id="contact">
       <div class="icon">📨</div>
       <h3 id="i-form-title">تحتاج إلى مساعدة عقارية؟</h3>
@@ -240,7 +193,7 @@
   </div>
 
   <script>
-    /* ===== CONTACT INFO ===== */
+    /* CONTACT INFO */
     const WHATSAPP_NUMBER = "201050072527";
     const EMAIL_ADDRESS   = "islammesmail@gmail.com";
 
@@ -255,7 +208,7 @@
     function sendWhatsApp(){ const t=encodeURIComponent(msg()); window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${t}`,'_blank'); }
     function sendEmail(){ const s=encodeURIComponent("استفسار عقاري - eslam reality (Lugano Al Galala)"); const b=encodeURIComponent(msg()); window.location.href=`mailto:${EMAIL_ADDRESS}?subject=${s}&body=${b}`; }
 
-    /* ===== SLIDER: arrows + drag ===== */
+    /* SLIDER: arrows + drag */
     const slider  = document.getElementById('slider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -268,63 +221,105 @@
     slider.addEventListener('mouseleave',()=>{isDown=false;});
     slider.addEventListener('mousemove',e=>{if(!isDown)return; const dx=e.pageX-startX; slider.scrollLeft=scrollLeft-dx;});
 
-    /* ===== PROJECTS DROPDOWN ===== */
+    /* PROJECTS DROPDOWN */
     const wrap = document.getElementById('projectsWrap');
     const projBtn  = document.getElementById('i-projects-btn');
     projBtn.addEventListener('click', (e)=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
     document.addEventListener('click', ()=> wrap.classList.remove('open'));
 
-    /* ===== PRICE LINKS -> SCROLL TO FORM ===== */
-    document.querySelectorAll('.price-link').forEach(a=>{
-      a.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
-    });
-
-    /* ===== LANGUAGE TOGGLE (AR <-> EN) ===== */
+    /* LANGUAGE TOGGLE (AR <-> EN) */
     const langToggle = document.getElementById('langToggle');
     const i18n = {
       ar: {
         dir:"rtl", htmlLang:"ar",
         projectsBtn:"المشاريع ▾", contact:"اتصل بنا",
-        heroTop:"مشروع لوجانو الجلالة", heroSub:"العين السخنة",
-        devTitle:"سعر المطوّر", devLink:"استفسر عن العروض",
-        resaleTitle:"سعر إعادة البيع", resaleLink:"تواصل لمعرفة السعر",
-        masterBtn:"ماستر بلان المشروع",
+        heroTop:"مشروع لوجانو الجلالة", heroSub:"Lugano Al Galala", heroDev:"المطوّر: AOG Developments",
         aboutTitle:"عن لوجانو الجلالة العين السخنة",
-        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من مشروع وفي مناطق: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.",
-        originTitle:"نشأة AOG Developments",
-        origin1:"1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group).",
-        origin2:"2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.",
-        origin3:"3- في بداية 2025، قام الجيل الثاني باستخدام الخبرات والملاءة المالية الضخمة بإنشاء <strong>AOG Developments</strong> لتغيير “المعادلة العقارية” وتقديم العقار باختلاف تصنيفاته ليكون معبّرًا عن قيمته الحقيقية مما يعيد الجدوى الاستثمارية للعقار وقيمته.",
-        locationTitle:"الموقع",
-        location:"في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة — بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و60 دقيقة من التجمع.",
-        areaTitle:"مساحة المشروع",
-        area:"المساحة الإجمالية 40 فدان مكوّنة من 3 مصاطب: الأولى 7م أعلى من مستوى سطح البحر، الثانية 20م (تشمل 90% من المشروع)، الثالثة 35م.",
-        servicesTitle:"الخدمات",
-        services:"Hotel five star (Alma hotel) — إدارة كبرى الشركات (IHG) — Triple Play (هاتف أرضي + إنترنت + IPTV) — Club House — مطاعم وكافيهات — Padel — مسار دراجات — Kids Area — Gym — مسجد — Bridge — Golf Car — Facility Management (FM & IHG) — شاطئ خاص بعرض 400م — تشطيب كامل — الاستشاري الهندسي MK.",
-        formTitle:"تحتاج إلى مساعدة عقارية؟",
-        formSub:"املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت",
-        nameLabel:"الاسم",
-        projectLabel:"الموقع المفضل (اسم المشروع)",
-        unitLabel:"نوع الوحدة",
-        unitPH:"اختر نوع الوحدة",
-        unit1:"استوديو", unit2:"شاليه", unit3:"شقة", unit4:"تاون هاوس", unit5:"توين هاوس", unit6:"فيلا مستقلة",
-        roomsLabel:"عدد الغرف",
-        roomsPH:"اختر عدد الغرف",
-        noteLabel:"ملحوظة",
-        sendWA:"إرسال عبر واتساب",
-        sendMail:"إرسال عبر الإيميل",
+        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة.",
+        formTitle:"تحتاج إلى مساعدة عقارية؟", formSub:"املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت",
+        nameLabel:"الاسم", projectLabel:"الموقع المفضل (اسم المشروع)", unitLabel:"نوع الوحدة",
+        unitPH:"اختر نوع الوحدة", unit1:"استوديو", unit2:"شاليه", unit3:"شقة", unit4:"تاون هاوس", unit5:"توين هاوس", unit6:"فيلا مستقلة",
+        roomsLabel:"عدد الغرف", roomsPH:"اختر عدد الغرف", noteLabel:"ملحوظة",
+        sendWA:"إرسال عبر واتساب", sendMail:"إرسال عبر الإيميل",
         footer:"© eslam reality 2025 — جميع الحقوق محفوظة",
         langBtn:"EN",
         phName:"اكتب اسمك", phProject:"Lugano Al Galala", phNote:"أي تفاصيل إضافية…",
-        contactTitle:"طرق التواصل", call:"اتصال", wa:"واتساب", mail:"إيميل",
         projSokhna:"العين السخنة", projNorth:"الساحل الشمالي", projCairo:"القاهرة الجديدة"
       },
       en: {
         dir:"ltr", htmlLang:"en",
         projectsBtn:"Projects ▾", contact:"Contact",
-        heroTop:"Lugano Al Galala", heroSub:"Ain Sokhna",
-        devTitle:"Developer price", devLink:"Ask for offers",
-        resaleTitle:"Resale price", resaleLink:"Contact for price",
-        masterBtn:"Project Masterplan",
+        heroTop:"Lugano Al Galala", heroSub:"Ain Sokhna", heroDev:"Developer: AOG Developments",
         aboutTitle:"About Lugano Al Galala",
-        about1:"<strong>AOG Developments</strong>, led by Mr. Mahmoud Omar, is a coastal developer with a strong delivery record. This year the company launches a land bank across multiple destinations: Ain Sokhna, 
+        about1:"<strong>AOG Developments</strong>, led by Mr. Mahmoud Omar, is a coastal developer with a strong delivery record.",
+        formTitle:"Need real-estate help?", formSub:"Fill your details and we’ll contact you shortly.",
+        nameLabel:"Name", projectLabel:"Preferred location (Project name)", unitLabel:"Unit type",
+        unitPH:"Choose unit type", unit1:"Studio", unit2:"Chalet", unit3:"Apartment", unit4:"Townhouse", unit5:"Twin House", unit6:"Standalone Villa",
+        roomsLabel:"Bedrooms", roomsPH:"Choose bedrooms", noteLabel:"Note",
+        sendWA:"Send via WhatsApp", sendMail:"Send via Email",
+        footer:"© eslam reality 2025 — All rights reserved",
+        langBtn:"AR",
+        phName:"Your name", phProject:"Lugano Al Galala", phNote:"Any extra details…",
+        projSokhna:"Ain Sokhna", projNorth:"North Coast", projCairo:"New Cairo"
+      }
+    };
+
+    function applyLang(lang){
+      const t=i18n[lang];
+      document.documentElement.dir=t.dir;
+      document.documentElement.lang=t.htmlLang;
+
+      // navbar + projects
+      document.getElementById('i-projects-btn').textContent=t.projectsBtn;
+      document.getElementById('i-contact').textContent=t.contact;
+      document.getElementById('i-proj-sokhna').textContent=t.projSokhna;
+      document.getElementById('i-proj-north').textContent=t.projNorth;
+      document.getElementById('i-proj-cairo').textContent=t.projCairo;
+
+      // hero
+      document.getElementById('i-hero-top').textContent=t.heroTop;
+      document.getElementById('i-hero-sub').textContent=t.heroSub;
+      document.getElementById('i-hero-dev').textContent=t.heroDev;
+
+      // about
+      document.getElementById('i-about-title').textContent=t.aboutTitle;
+      document.getElementById('i-about-1').innerHTML=t.about1;
+
+      // form
+      document.getElementById('i-form-title').textContent=t.formTitle;
+      document.getElementById('i-form-sub').textContent=t.formSub;
+      document.getElementById('i-name-label').textContent=t.nameLabel;
+      document.getElementById('i-project-label').textContent=t.projectLabel;
+      document.getElementById('i-unit-label').textContent=t.unitLabel;
+      document.getElementById('i-rooms-label').textContent=t.roomsLabel;
+      document.getElementById('i-note-label').textContent=t.noteLabel;
+
+      document.getElementById('unit').querySelector('option[disabled]').textContent=t.unitPH;
+      document.getElementById('i-unit-1').textContent=t.unit1;
+      document.getElementById('i-unit-2').textContent=t.unit2;
+      document.getElementById('i-unit-3').textContent=t.unit3;
+      document.getElementById('i-unit-4').textContent=t.unit4;
+      document.getElementById('i-unit-5').textContent=t.unit5;
+      document.getElementById('i-unit-6').textContent=t.unit6;
+      document.getElementById('rooms').querySelector('option[disabled]').textContent=t.roomsPH;
+
+      document.getElementById('i-send-wa').textContent=t.sendWA;
+      document.getElementById('i-send-mail').textContent=t.sendMail;
+      document.getElementById('i-footer').textContent=t.footer;
+      document.getElementById('langToggle').textContent=t.langBtn;
+
+      // placeholders
+      document.getElementById('name').placeholder=t.phName;
+      document.getElementById('project').placeholder=t.phProject;
+      document.getElementById('note').placeholder=t.phNote;
+    }
+
+    let currentLang='ar';
+    applyLang(currentLang);
+    document.getElementById('langToggle').addEventListener('click',()=>{
+      currentLang = currentLang==='ar' ? 'en' : 'ar';
+      applyLang(currentLang);
+    });
+  </script>
+</body>
+</html>
