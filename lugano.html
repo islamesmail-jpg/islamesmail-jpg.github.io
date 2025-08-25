@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lugano Al Galala | مشروع لوجانو الجلالة العين السخنة</title>
-  <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، الخدمات، والتواصل." />
+  <meta name="description" content="مشروع لوجانو الجلالة العين السخنة | فيديو وصور المشروع، الموقع، المساحات والخدمات، وفورم تواصل سريع." />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -55,9 +55,19 @@
     .arrow.left{inset-inline-start:8px}
     .arrow.right{inset-inline-end:8px}
 
+    /* PRICES + MASTERPLAN */
+    .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+    .price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+    .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+    .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+    .price-link:hover{filter:brightness(.97)}
+    .master-wrap{text-align:center;margin:6px 0 18px}
+    .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
+
     /* TEXT SECTIONS */
-    section h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
-    section p{margin:0 0 10px;color:var(--muted)}
+    section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+    section p, section li{color:var(--muted)}
+    ul{margin:8px 0 12px}
 
     /* CARD / FORM */
     .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
@@ -75,6 +85,16 @@
     button:hover{filter:brightness(.95)}
 
     footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
+
+    /* MODALS */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:2000}
+    .modal.open{display:flex}
+    .modal-card{background:#0f1224;border:1px solid #1d2143;border-radius:16px;box-shadow:var(--shadow);max-width:95vw;max-height:90vh;overflow:auto}
+    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #1d2143}
+    .modal-title{font-weight:800}
+    .close-btn{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer}
+    .modal-body{padding:0}
+    .img-fluid{width:100%;height:auto;display:block}
   </style>
 </head>
 <body>
@@ -82,7 +102,7 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-inner">
-      <a class="logo-link" href="/" title="الرئيسية">
+      <a class="logo-link" href="/" title="Home">
         <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
       </a>
       <div class="spacer"></div>
@@ -96,13 +116,13 @@
           </div>
         </div>
         <a href="#contact" id="i-contact">اتصل بنا</a>
-        <button class="lang-btn" id="langToggle" aria-label="تبديل اللغة">EN</button>
+        <button class="lang-btn" id="langToggle" aria-label="Toggle language">EN</button>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="hero" aria-label="فيديو مشروع لوجانو">
+  <section class="hero" id="hero" aria-label="Lugano header video">
     <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
     <div class="overlay">
       <h1>
@@ -134,17 +154,78 @@
       </div>
     </div>
 
-    <!-- SIMPLE CONTENT (اختصرته للتركيز على المطلوب) -->
+    <!-- PRICES + MASTERPLAN -->
+    <div class="prices">
+      <div class="price-card">
+        <div class="price-title" id="i-dev-title">سعر المطوّر</div>
+        <a class="price-link" href="#contact" id="i-dev-link">استفسر عن العروض</a>
+      </div>
+      <div class="price-card">
+        <div class="price-title" id="i-resale-title">سعر إعادة البيع</div>
+        <a class="price-link" href="#contact" id="i-resale-link">تواصل لمعرفة السعر</a>
+      </div>
+    </div>
+    <div class="master-wrap">
+      <a href="#" class="master-pill" id="masterBtn">ماستر بلان المشروع</a>
+    </div>
+
+    <!-- الوصف الكامل كما أرسلت -->
     <section>
-      <h2 id="i-about-title">عن لوجانو الجلالة العين السخنة</h2>
-      <p id="i-about-1"><strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة.</p>
+      <h2 id="i-about-title">عن لوجانو الجلالة العين السخنه</h2>
+      <p id="i-about-1"><strong>AOG Developments</strong><br>
+        لصاحبها رجل الاعمال مستر محمود عمر وهو شريك في مجموعة شركات مطورة ساحلية واغلب المشاريع متسلمة، والشركة نازلة السنة دي بمحفظة اراضي في اكتر من مشروع في اكتر من منطقة:</p>
+      <ul id="i-about-list">
+        <li>العين السخنة</li>
+        <li>راس سدر</li>
+        <li>زايد الجديدة</li>
+        <li>الساحل الشمالي</li>
+      </ul>
+
+      <h2 id="i-origin-title">نشاة AOG Developments</h2>
+      <p id="i-origin-1">1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group ).</p>
+      <p id="i-origin-2">2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.</p>
+      <p id="i-origin-3">3- في بداية 2025، قام الجيل الثانى باستخدام الخبرات والملاءة المالية الضخمة بوضع معادلة جديدة من خلال إنشاء AOG developments لتغير "المعادلة العقارية" وتقديم العقار باختلاف تصنيفاته ليكون عقارا معبرًا عن القيمة الفعلية للعقار مما يعيد الجدوى الاستثمارية للعقار وقيمته .</p>
+      <p id="i-origin-4">المعادلة الجديدة ستكون عند اختيار عقار بقيمته الحقيقية.<br>عقار من AOG Developments</p>
+
+      <h2 id="i-location-title">اللوكيشن</h2>
+      <p id="i-location">
+        في العين السخنة طريق الزعفرانة اول نقطة في جبل الجلالة — بعد بوابات السخنة ب ١٠ دقايق — قبل بورتو ب ٢٠ كيلو — و١٥ دقيقة من منتجع الجلالة — ٦٠ دقيقة من التجمع.
+      </p>
+
+      <h2 id="i-area-title">مساحة المشروع</h2>
+      <p id="i-area">
+        ٤٠ فدان — مكون من ٣ مصاطب:<br>
+        • اول مصطبة ٧ متر اعلى من مستوى سطح البحر<br>
+        • تاني مصطبة ٢٠ متر (90% من المشروع )<br>
+        • ٣ مصطبة ٣٥ متر
+      </p>
+
+      <h2 id="i-services-title">خدمات المشروع</h2>
+      <ul id="i-services-list">
+        <li>Hotel five star (Alma hotel)</li>
+        <li>Major hotel management companies (IHG)</li>
+        <li>Triple play (landline + internet + iptv)</li>
+        <li>Club house</li>
+        <li>Restaurant and cafe</li>
+        <li>Padel court</li>
+        <li>Bike path</li>
+        <li>Kids area</li>
+        <li>Gym</li>
+        <li>Mosque</li>
+        <li>Bridge</li>
+        <li>Golf car</li>
+        <li>Facility management (FM) & (IHG)</li>
+        <li>Private beach — Beach width 400m</li>
+        <li>Fully finished</li>
+        <li>استشاري هندسي شركة MK</li>
+      </ul>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT FORM -->
     <section class="card" id="contact">
       <div class="icon">📨</div>
       <h3 id="i-form-title">تحتاج إلى مساعدة عقارية؟</h3>
-      <p class="sub" id="i-form-sub">املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت</p>
+      <p class="sub" id="i-form-sub">املأ بياناتك و سوف يقوم بالاتصال بك فى اقرب وقت</p>
 
       <form id="leadForm" novalidate>
         <div class="grid">
@@ -157,7 +238,7 @@
             <input id="project" type="text" value="Lugano Al Galala" required>
           </div>
           <div>
-            <label for="unit" id="i-unit-label">نوع الوحدة</label>
+            <label for="unit" id="i-unit-label">نوع الوحده</label>
             <select id="unit" required>
               <option value="" disabled selected id="i-unit-placeholder">اختر نوع الوحدة</option>
               <option id="i-unit-1">استوديو</option>
@@ -178,7 +259,7 @@
         </div>
 
         <div style="margin-top:12px">
-          <label for="note" id="i-note-label">ملحوظة</label>
+          <label for="note" id="i-note-label">ملحوظه</label>
           <textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea>
         </div>
 
@@ -192,11 +273,25 @@
     <footer id="i-footer">© eslam reality 2025 — جميع الحقوق محفوظة</footer>
   </div>
 
+  <!-- Masterplan Modal -->
+  <div class="modal" id="planModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title" id="i-plan-title">ماستر بلان المشروع</div>
+        <button class="close-btn" data-close>×</button>
+      </div>
+      <div class="modal-body">
+        <img class="img-fluid" src="https://f.top4top.io/p_3524k51250.jpg" alt="Masterplan">
+      </div>
+    </div>
+  </div>
+
   <script>
-    /* CONTACT INFO */
+    /* CONTACT DESTINATIONS */
     const WHATSAPP_NUMBER = "201050072527";
     const EMAIL_ADDRESS   = "islammesmail@gmail.com";
 
+    /* unified message */
     function msg(){
       const name  = document.getElementById('name').value.trim();
       const proj  = document.getElementById('project').value.trim();
@@ -206,9 +301,9 @@
       return `eslam reality\nالاسم: ${name}\nالموقع المفضل: ${proj}\nنوع الوحدة: ${unit}\nعدد الغرف: ${rooms}\nملحوظة: ${note}`;
     }
     function sendWhatsApp(){ const t=encodeURIComponent(msg()); window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${t}`,'_blank'); }
-    function sendEmail(){ const s=encodeURIComponent("استفسار عقاري - eslam reality (Lugano Al Galala)"); const b=encodeURIComponent(msg()); window.location.href=`mailto:${EMAIL_ADDRESS}?subject=${s}&body=${b}`; }
+    function sendEmail(){ const s=encodeURIComponent("Real estate inquiry - eslam reality (Lugano Al Galala)"); const b=encodeURIComponent(msg()); window.location.href=`mailto:${EMAIL_ADDRESS}?subject=${s}&body=${b}`; }
 
-    /* SLIDER: arrows + drag */
+    /* SLIDER */
     const slider  = document.getElementById('slider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -227,99 +322,41 @@
     projBtn.addEventListener('click', (e)=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
     document.addEventListener('click', ()=> wrap.classList.remove('open'));
 
-    /* LANGUAGE TOGGLE (AR <-> EN) */
+    /* MASTERPLAN MODAL */
+    const planModal = document.getElementById('planModal');
+    document.getElementById('masterBtn').addEventListener('click', (e)=>{ e.preventDefault(); planModal.classList.add('open'); });
+    document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>planModal.classList.remove('open')));
+    planModal.addEventListener('click',e=>{ if(e.target===planModal) planModal.classList.remove('open'); });
+
+    /* PRICE LINKS -> smooth scroll to contact */
+    document.querySelectorAll('.price-link').forEach(a=>{
+      a.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
+    });
+
+    /* i18n (AR/EN) — نصوص إنجليزية مختصرة للحفاظ على التحويل */
     const langToggle = document.getElementById('langToggle');
     const i18n = {
       ar: {
         dir:"rtl", htmlLang:"ar",
         projectsBtn:"المشاريع ▾", contact:"اتصل بنا",
         heroTop:"مشروع لوجانو الجلالة", heroSub:"Lugano Al Galala", heroDev:"المطوّر: AOG Developments",
-        aboutTitle:"عن لوجانو الجلالة العين السخنة",
-        about1:"<strong>AOG Developments</strong> لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع مُسلَّمة.",
-        formTitle:"تحتاج إلى مساعدة عقارية؟", formSub:"املأ بياناتك وسوف نقوم بالاتصال بك فى أقرب وقت",
-        nameLabel:"الاسم", projectLabel:"الموقع المفضل (اسم المشروع)", unitLabel:"نوع الوحدة",
-        unitPH:"اختر نوع الوحدة", unit1:"استوديو", unit2:"شاليه", unit3:"شقة", unit4:"تاون هاوس", unit5:"توين هاوس", unit6:"فيلا مستقلة",
-        roomsLabel:"عدد الغرف", roomsPH:"اختر عدد الغرف", noteLabel:"ملحوظة",
-        sendWA:"إرسال عبر واتساب", sendMail:"إرسال عبر الإيميل",
+        devTitle:"سعر المطوّر", devLink:"استفسر عن العروض",
+        resaleTitle:"سعر إعادة البيع", resaleLink:"تواصل لمعرفة السعر",
+        masterBtn:"ماستر بلان المشروع",
+        aboutTitle:"عن لوجانو الجلالة العين السخنه",
+        formTitle:"تحتاج إلى مساعدة عقارية؟",
+        formSub:"املأ بياناتك و سوف يقوم بالاتصال بك فى اقرب وقت",
+        nameLabel:"الاسم", projectLabel:"الموقع المفضل (اسم المشروع)",
+        unitLabel:"نوع الوحده", unitPH:"اختر نوع الوحدة",
+        unit1:"استوديو", unit2:"شاليه", unit3:"شقة", unit4:"تاون هاوس", unit5:"توين هاوس", unit6:"فيلا مستقلة",
+        roomsLabel:"عدد الغرف", roomsPH:"اختر عدد الغرف",
+        noteLabel:"ملحوظه", sendWA:"إرسال عبر واتساب", sendMail:"إرسال عبر الإيميل",
         footer:"© eslam reality 2025 — جميع الحقوق محفوظة",
-        langBtn:"EN",
-        phName:"اكتب اسمك", phProject:"Lugano Al Galala", phNote:"أي تفاصيل إضافية…",
-        projSokhna:"العين السخنة", projNorth:"الساحل الشمالي", projCairo:"القاهرة الجديدة"
+        langBtn:"EN"
       },
       en: {
         dir:"ltr", htmlLang:"en",
         projectsBtn:"Projects ▾", contact:"Contact",
         heroTop:"Lugano Al Galala", heroSub:"Ain Sokhna", heroDev:"Developer: AOG Developments",
-        aboutTitle:"About Lugano Al Galala",
-        about1:"<strong>AOG Developments</strong>, led by Mr. Mahmoud Omar, is a coastal developer with a strong delivery record.",
-        formTitle:"Need real-estate help?", formSub:"Fill your details and we’ll contact you shortly.",
-        nameLabel:"Name", projectLabel:"Preferred location (Project name)", unitLabel:"Unit type",
-        unitPH:"Choose unit type", unit1:"Studio", unit2:"Chalet", unit3:"Apartment", unit4:"Townhouse", unit5:"Twin House", unit6:"Standalone Villa",
-        roomsLabel:"Bedrooms", roomsPH:"Choose bedrooms", noteLabel:"Note",
-        sendWA:"Send via WhatsApp", sendMail:"Send via Email",
-        footer:"© eslam reality 2025 — All rights reserved",
-        langBtn:"AR",
-        phName:"Your name", phProject:"Lugano Al Galala", phNote:"Any extra details…",
-        projSokhna:"Ain Sokhna", projNorth:"North Coast", projCairo:"New Cairo"
-      }
-    };
-
-    function applyLang(lang){
-      const t=i18n[lang];
-      document.documentElement.dir=t.dir;
-      document.documentElement.lang=t.htmlLang;
-
-      // navbar + projects
-      document.getElementById('i-projects-btn').textContent=t.projectsBtn;
-      document.getElementById('i-contact').textContent=t.contact;
-      document.getElementById('i-proj-sokhna').textContent=t.projSokhna;
-      document.getElementById('i-proj-north').textContent=t.projNorth;
-      document.getElementById('i-proj-cairo').textContent=t.projCairo;
-
-      // hero
-      document.getElementById('i-hero-top').textContent=t.heroTop;
-      document.getElementById('i-hero-sub').textContent=t.heroSub;
-      document.getElementById('i-hero-dev').textContent=t.heroDev;
-
-      // about
-      document.getElementById('i-about-title').textContent=t.aboutTitle;
-      document.getElementById('i-about-1').innerHTML=t.about1;
-
-      // form
-      document.getElementById('i-form-title').textContent=t.formTitle;
-      document.getElementById('i-form-sub').textContent=t.formSub;
-      document.getElementById('i-name-label').textContent=t.nameLabel;
-      document.getElementById('i-project-label').textContent=t.projectLabel;
-      document.getElementById('i-unit-label').textContent=t.unitLabel;
-      document.getElementById('i-rooms-label').textContent=t.roomsLabel;
-      document.getElementById('i-note-label').textContent=t.noteLabel;
-
-      document.getElementById('unit').querySelector('option[disabled]').textContent=t.unitPH;
-      document.getElementById('i-unit-1').textContent=t.unit1;
-      document.getElementById('i-unit-2').textContent=t.unit2;
-      document.getElementById('i-unit-3').textContent=t.unit3;
-      document.getElementById('i-unit-4').textContent=t.unit4;
-      document.getElementById('i-unit-5').textContent=t.unit5;
-      document.getElementById('i-unit-6').textContent=t.unit6;
-      document.getElementById('rooms').querySelector('option[disabled]').textContent=t.roomsPH;
-
-      document.getElementById('i-send-wa').textContent=t.sendWA;
-      document.getElementById('i-send-mail').textContent=t.sendMail;
-      document.getElementById('i-footer').textContent=t.footer;
-      document.getElementById('langToggle').textContent=t.langBtn;
-
-      // placeholders
-      document.getElementById('name').placeholder=t.phName;
-      document.getElementById('project').placeholder=t.phProject;
-      document.getElementById('note').placeholder=t.phNote;
-    }
-
-    let currentLang='ar';
-    applyLang(currentLang);
-    document.getElementById('langToggle').addEventListener('click',()=>{
-      currentLang = currentLang==='ar' ? 'en' : 'ar';
-      applyLang(currentLang);
-    });
-  </script>
-</body>
-</html>
+        devTitle:"Developer price", devLink:"Ask for offers",
+        resaleTitle:"Resale price", resaleLink:"Contact
