@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مورانو وادي دجلة | مشروعات العين السخنة - طريق الزعفرانة</title>
+<title>Murano Wadi Degla | مشروع مورانو وادي دجلة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
 <style>
-:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--card:#101829;--line:#2a3958;--surface:#0f1627}
+:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--line:#2a3958;--surface:#0f1627}
 *{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial;line-height:1.7}
-a{color:inherit;text-decoration:none}
+body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial;line-height:1.8}
+a{text-decoration:none;color:inherit}
 .container{max-width:1100px;margin:auto;padding:0 16px}
 
 /* Topbar */
@@ -27,65 +27,58 @@ a{color:inherit;text-decoration:none}
 .panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
 .panel a:hover{background:#f3f4f6}
 
-/* Subnav (breadcrumb) */
+/* Subnav */
 .subnav{background:#0f1627;border-bottom:1px solid #1a2438}
 .subnav .inner{display:flex;align-items:center;gap:10px;padding:10px 0;font-weight:800;color:#e7eefb}
-.subnav a{color:#e7eefb}
-.sep{opacity:.45}
+.subnav a{color:#e7eefb}.sep{opacity:.45}
 
-/* Search bar */
-.searchwrap{padding:12px 0}
-.searchbar{position:relative}
-#psearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
-.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
-.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
-.suggestions a:last-child{border-bottom:0}
-.suggestions a:hover{background:#16233b}
-
-/* Title */
-.head{padding:18px 0}
-.h1{margin:0;font-size:clamp(22px,4.8vw,34px);font-weight:800}
-.meta{color:#cbd5e1;margin-top:4px}
+/* Hero video */
+.hero{position:relative;min-height:46vh;display:grid;place-items:center;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .overlay{position:relative;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,.6));width:100%;height:100%;display:grid;place-items:center;padding:32px 16px}
+.hero .inner{text-align:center;max-width:900px}
+h1{margin:0 0 6px;font-size:clamp(26px,5.5vw,42px);font-weight:800}
+.dev{color:#f0d86a;font-weight:800}
+.meta{display:flex;gap:10px;justify-content:center;margin-top:8px;color:#cbd5e1}
 
 /* Gallery */
-.gallery{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0b1323}
-.gallery .stage{position:relative;height:360px}
-.gallery .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
-.gallery .stage img.show{display:block}
-.gbtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer}
-.prev{left:10px}.next{right:10px}
+.section{padding:22px 0}
+.bigGal{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0b1323;height:360px}
+.bigGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.bigGal img.show{display:block}
+.bigBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:42px;height:42px;display:grid;place-items:center}
+.bigPrev{left:10px}.bigNext{right:10px}
 
 /* Prices */
-.row{display:grid;gap:14px;margin-top:14px}
-.cols-2{grid-template-columns:1fr 1fr}
-.box{background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;padding:12px;font-weight:800;text-align:center}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.price-box{background:#fff;color:#111;padding:10px;border-radius:12px;border:1px solid #e5e7eb;text-align:center;font-weight:800}
 
 /* Content */
-.section{padding:18px 0}
-h2{margin:18px 0 8px;font-size:1.25rem}
+h2{margin:16px 0 8px;font-size:1.2rem}
+p,li{color:#e7eefb}
 ul{margin:8px 0 0;padding:0 20px}
-p{margin:8px 0}
 
-/* Inquiry CTA (bottom) */
-.cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;font-weight:900}
+/* Contact strip at bottom */
+.ctaWrap{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1.6px solid var(--gold);color:var(--gold);background:transparent;font-weight:900}
 .btn:hover{background:var(--gold);color:#111}
 
-/* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:24px}
+/* Inquiry form */
+.formBox{margin-top:16px;border:1px dashed #355;padding:12px;border-radius:12px}
+.row{display:grid;gap:10px}
+@media(min-width:700px){.row{grid-template-columns:repeat(2,1fr)}}
+.input,.select,.textarea{width:100%;padding:12px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.sendBtn{margin-top:10px}
 
-/* Responsive */
-@media(max-width:560px){.cols-2{grid-template-columns:1fr}.gallery .stage{height:250px}}
+/* Footer */
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:26px}
 </style>
 </head>
 <body>
 
-<!-- Topbar -->
 <header class="topbar">
   <div class="container nav">
-    <a class="brandbox" href="index.html" aria-label="الرئيسية">
-      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
-    </a>
+    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
     <div class="actions">
       <button class="btnx" id="langToggle">AR/EN</button>
       <div class="contact" id="m-contact">
@@ -109,86 +102,108 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </div>
     </div>
   </div>
-  <!-- breadcrumb -->
-  <div class="subnav">
-    <div class="container inner">
-      <a href="sokhna.html">مشروعات العين السخنة</a>
-      <span class="sep">›</span>
-      <a href="zafarana.html">طريق الزعفرانة</a>
-    </div>
-  </div>
+  <div class="subnav"><div class="container inner">
+    <a href="sokhna.html">مشروعات العين السخنة</a><span class="sep">›</span>
+    <a href="zafarana.html">طريق الزعفرانة</a><span class="sep">›</span><span>Murano Wadi Degla</span>
+  </div></div>
 </header>
 
-<main class="container">
-  <!-- Search -->
-  <div class="searchwrap">
-    <div class="searchbar">
-      <input id="psearch" type="search" placeholder="ابحث عن مشروع (مثال: مورانو، لوجانو، ازها) …">
-      <div class="suggestions" id="psuggest"></div>
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <div class="inner">
+      <h1>Murano Wadi Degla | مشروع مورانو وادي دجلة</h1>
+      <div class="dev">المطور: وادي دجلة للتطوير العقاري</div>
+      <div class="meta">العين السخنة — طريق الزعفرانة</div>
     </div>
   </div>
+</section>
 
-  <!-- Title -->
-  <div class="head">
-    <h1 class="h1">مشروع مورانو وادي دجلة – Murano</h1>
-    <div class="meta">المطور: وادي دجلة للتطوير العقاري</div>
-  </div>
-
+<main class="container section">
   <!-- Gallery -->
-  <section class="gallery" id="gal">
-    <div class="stage">
-      <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg" alt="">
-      <img src="https://g.top4top.io/p_3522d8wi91.jpg" alt="">
-      <img src="https://h.top4top.io/p_35224yrbd2.jpg" alt="">
-    </div>
-    <button class="gbtn prev">‹</button>
-    <button class="gbtn next">›</button>
-  </section>
+  <div class="bigGal" id="gal">
+    <img class="show" src="https://c.top4top.io/p_35249hfap2.jpg" alt="">
+    <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="">
+    <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="">
+    <img src="https://d.top4top.io/p_35241i6053.jpg" alt="">
+    <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="">
+    <img src="https://f.top4top.io/p_3524tljl25.jpg" alt="">
+    <button class="bigBtn bigPrev" type="button">‹</button>
+    <button class="bigBtn bigNext" type="button">›</button>
+  </div>
 
   <!-- Prices -->
-  <section class="row cols-2">
-    <div class="box">سعر المطوّر: —</div>
-    <div class="box">إعادة البيع: يبدأ من 5,600,000</div>
-  </section>
+  <div class="prices">
+    <div class="price-box">سعر المطوّر: —</div>
+    <div class="price-box">إعادة البيع: —</div>
+  </div>
 
-  <!-- Details -->
-  <section class="section">
-    <h2>مواصفات مشروع مورانو</h2>
+  <!-- Content -->
+  <section>
+    <h2>1- عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
 
-    <h2>موقع قرية مورانو العين السخنة</h2>
+    <h2>2- موقع قرية مورانو العين السخنة</h2>
     <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
 
-    <h2>أهم الطرق والمحاور بالقرب من Murano</h2>
+    <h2>3- أهم الطرق والمحاور بالقرب من Murano</h2>
     <ul>
-      <li>طريق الجلالة 18 كم</li>
-      <li>محطة قطار العين السخنة 14 كم</li>
-      <li>القاهرة 136 كم</li>
-      <li>القطامية 112 كم</li>
+      <li>طريق الجلالة: 18 كم</li>
+      <li>محطة قطار العين السخنة: 14 كم</li>
+      <li>القاهرة: 136 كم</li>
+      <li>طريق القطامية: 112 كم</li>
     </ul>
 
-    <h2>مساحة مورانو وادي دجلة</h2>
-    <p>… (النص التفصيلي كما أرسلته — مساحة واسعة، توزيع ذكي، مساحات خضراء ومائية…)</p>
+    <h2>4- مساحة مورانو وادي دجلة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها. أدى اتساع مساحة المشروع وتقسيمتها المميزة إلى الجمع بين الخصوصية والراحة داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
 
-    <h2>مرافق قرية مورانو السخنة</h2>
+    <h2>5- ماستر بلان ومرافق القرية</h2>
     <ul>
-      <li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4★</li>
-      <li>مطاعم وكافيهات ومنطقة تجارية</li><li>سبا وملاعب</li><li>ينابيع ساخنة طبيعية</li>
+      <li>حمامات سباحة متنوعة.</li>
+      <li>مناطق ترفيه للأطفال بمعايير أمان عالية.</li>
+      <li>مطاعم ومقاهي بمستويات عالمية.</li>
+      <li>محلات ومنطقة تجارية متكاملة.</li>
+      <li>ممرات للمشي وركوب الدراجات وسط المساحات الخضراء.</li>
+      <li>شاطئ رملي بطول ~750م، ومارينا بطول ~100م.</li>
+      <li>منتجع فندقي 4 نجوم، سبا، ملاعب شاطئية.</li>
+      <li>ينابيع مياه ساخنة طبيعية.</li>
     </ul>
 
-    <h2>استعلام الأسعار</h2>
-    <p>أرسل لنا على واتساب بأنك مهتم بمشروع مورانو وادي دجلة وحدد نوع الوحدة وعدد الغرف وطريقة الشراء (تقسيط/إعادة بيع) لمعرفة أحدث الأسعار.</p>
-    <div class="cta">
-      <a class="btn" href="https://wa.me/201050072527?text=%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D9%88%D8%B1%D8%A7%D9%86%D9%88%20%D9%88%D8%A7%D8%AF%D9%8A%20%D8%AF%D8%AC%D9%84%D8%A9%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B3%D8%B9%D8%A7%D8%B1%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A7%D8%AA">💬 واتساب</a>
-      <a class="btn" href="tel:+201050072527">📞 اتصال</a>
-    </div>
+    <h2>6- عن وادي دجلة للتطوير العقاري</h2>
+    <p>تأسست شركة وادي دجلة للتطوير العقاري في عام 2005، وتمتد محفظتها إلى 16 مشروعاً (12 مشروعاً مكتملًا) تضم أكثر من 10,000 وحدة على القاهرة والجيزة والساحل الشمالي والعين السخنة… مع معايير فخامة وبنية تحتية وخدمات متكاملة.</p>
   </section>
+
+  <!-- Contact strip at bottom -->
+  <div class="ctaWrap">
+    <a class="btn" href="tel:+201050072527">📞 مكالمة</a>
+    <a class="btn" href="https://wa.me/201050072527?text=eslam%20reality%0A%0Aأرغب%20في%20تفاصيل%20مشروع%20مورانو%20وادي%20دجلة" target="_blank">💬 واتساب</a>
+  </div>
+
+  <!-- Inquiry form -->
+  <div class="formBox">
+    <div style="font-weight:800;margin-bottom:6px;">📨 تحتاج إلى مساعدة عقارية؟</div>
+    <div style="margin-bottom:10px;color:#cbd5e1">املأ بياناتك وسوف يقوم فريق <b>eslam reality</b> بالتواصل معك</div>
+    <div class="row">
+      <input class="input" id="f-name" placeholder="الاسم">
+      <input class="input" id="f-project" placeholder="الموقع المفضل (اسم المشروع)" value="Murano Wadi Degla">
+      <select class="select" id="f-type">
+        <option>ستوديو</option><option>شاليه</option><option>تاون هاوس</option><option>توين هاوس</option><option>فيلا</option>
+      </select>
+      <select class="select" id="f-rooms">
+        <option>1 غرفة</option><option>2 غرفة</option><option>3 غرف</option><option>4 غرف</option><option>5+</option>
+      </select>
+    </div>
+    <textarea class="textarea" id="f-note" rows="3" placeholder="ملحوظة (اختياري)"></textarea>
+    <button class="btn sendBtn" onclick="sendWA()">إرسال عبر واتساب</button>
+  </div>
 </main>
 
 <footer>© <span id="year"></span> Eslam Realty</footer>
 
 <script>
-/* year */
 document.getElementById('year').textContent=new Date().getFullYear();
 
 /* dropdowns */
@@ -205,56 +220,33 @@ document.getElementById('langToggle').addEventListener('click',()=>{
   document.documentElement.dir=isAR?'ltr':'rtl';
 });
 
-/* small projects index used by search (ضيف أو عدّل الروابط بحرية) */
-const PROJECTS=[
-  {name:'مورانو', url:'murano.html'},
-  {name:'Murano', url:'murano.html'},
-  {name:'لوجانو', url:'lugano.html'},
-  {name:'Lugano', url:'lugano.html'},
-  {name:'دولفين بيتش', url:'dolphin.html'},
-  {name:'Dolphin', url:'dolphin.html'},
-  {name:'السخنة هيلز', url:'sokhna-hills.html'},
-  {name:'Sokhna Hills', url:'sokhna-hills.html'},
-  {name:'ازها', url:'azha.html'},             // من طريق السويس – مفيش مشكلة يظهر في البحث
-  {name:'AZHA', url:'azha.html'}
-];
-
-/* search autocomplete */
+/* gallery */
 (function(){
-  const input=document.getElementById('psearch');
-  const box=document.getElementById('psuggest');
-  function render(list){
-    box.innerHTML='';
-    if(!list.length){ box.style.display='none'; return; }
-    list.forEach(it=>{
-      const a=document.createElement('a');
-      a.href=it.url; a.textContent=it.name;
-      box.appendChild(a);
-    });
-    box.style.display='block';
-  }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    const out=PROJECTS.filter(p=>p.name.toLowerCase().includes(q)).slice(0,8);
-    render(out);
-  });
-  document.addEventListener('click',e=>{
-    if(!e.target.closest('.searchbar')) box.style.display='none';
-  });
-})();
-
-/* Gallery + swipe */
-(function(){
-  const stage=document.querySelector('#gal .stage');
-  const imgs=stage.querySelectorAll('img'); let i=0,sx=0;
+  const box=document.getElementById('gal'); if(!box) return;
+  const imgs=[...box.querySelectorAll('img')]; let i=0,sx=0;
   const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
   const next=()=>show(i+1), prev=()=>show(i-1); show(0);
-  document.querySelector('#gal .next').addEventListener('click',next);
-  document.querySelector('#gal .prev').addEventListener('click',prev);
-  stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  stage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
+  box.querySelector('.bigNext')?.addEventListener('click',next);
+  box.querySelector('.bigPrev')?.addEventListener('click',prev);
+  box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  box.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
 })();
+
+/* WhatsApp form */
+function sendWA(){
+  const n=document.getElementById('f-name').value||'—';
+  const p=document.getElementById('f-project').value||'Murano Wadi Degla';
+  const t=document.getElementById('f-type').value||'—';
+  const r=document.getElementById('f-rooms').value||'—';
+  const note=document.getElementById('f-note').value||'—';
+  const msg=`eslam reality
+الاسم: ${n}
+المشروع: ${p}
+نوع الوحدة: ${t}
+عدد الغرف: ${r}
+ملاحظة: ${note}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+}
 </script>
 </body>
 </html>
