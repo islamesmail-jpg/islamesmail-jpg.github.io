@@ -5,58 +5,81 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>مشاريع طريق الزعفرانة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
 <style>
-:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--card:#101829;--line:#2a3958}
-*{box-sizing:border-box}
-body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui}
+:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--line:#2a3958;--surface:#0f1627}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial;line-height:1.7}
+a{text-decoration:none;color:inherit}
 .container{max-width:1100px;margin:auto;padding:0 16px}
-.btnx{border:1px solid #e4c24a;color:#e4c24a;background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
-.btnx:hover{background:#fff2c2;color:#111}
 
 /* Topbar */
-.topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
-.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:center}
+.topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brandbox{width:150px;height:54px;display:inline-flex;align-items:center;justify-content:flex-start}
 .brandbox img{max-width:100%;max-height:100%;object-fit:contain}
 .actions{display:flex;gap:10px;align-items:center}
+.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
+.btnx:hover{background:#fff2c2;color:#111}
 .menu,.contact{position:relative}
-.menu-panel,.contact-panel{position:absolute;top:100%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
-.menu.open .menu-panel{display:block}.contact.open .contact-panel{display:block}
-.menu-panel a,.contact-panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
-.menu-panel a:hover,.contact-panel a:hover{background:#f3f4f6}
+.panel{position:absolute;top:100%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
+.menu.open .panel,.contact.open .panel{display:block}
+.panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
+.panel a:hover{background:#f3f4f6}
+
+/* Subnav */
+.subnav{background:#0f1627;border-bottom:1px solid #1a2438}
+.subnav .inner{display:flex;align-items:center;gap:10px;padding:10px 0;font-weight:800;color:#e7eefb}
+.subnav a{color:#e7eefb}.sep{opacity:.45}
 
 /* Search */
-.searchbar{margin:16px 0 8px;display:flex;gap:8px}
-.searchbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.searchwrap{padding:12px 0}
+.searchbar{position:relative}
+#psearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
+.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
+.suggestions a:last-child{border-bottom:0}
+.suggestions a:hover{background:#16233b}
 
 /* Grid */
-.proj-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+.proj-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);margin-top:16px}
 @media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
-.proj-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.proj-title{padding:10px 12px;font-weight:800;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.proj-title a{color:#fff;text-decoration:none}
-.proj-title a:hover{text-decoration:underline}
+.proj-card{background:#101829;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.proj-title{padding:10px 12px;font-weight:800}
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 12px}
 .price-box{background:#fff;color:#111;padding:8px 10px;border-radius:10px;font-weight:800;text-align:center;border:1px solid #e5e7eb}
 
-/* Mini gallery in card */
-.miniGal{position:relative;height:190px;border-bottom:1px solid var(--line);background:#0e1425}
-.miniGal a.cover{position:absolute;inset:0;display:block}
+/* Mini gallery in cards */
+.miniGal{position:relative;height:190px;border-bottom:1px solid var(--line);background:#0e1425;cursor:pointer}
 .miniGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .miniGal img.show{display:block}
-.miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center;z-index:2}
+.miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center}
 .miniPrev{left:8px}.miniNext{right:8px}
+
+/* Footer */
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:24px}
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <div class="container navbar">
-    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
+  <div class="container nav">
+    <a class="brandbox" href="index.html" aria-label="Home">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
+    </a>
     <div class="actions">
-      <div class="menu" id="m-proj"><button class="btnx" onclick="toggleMenu('m-proj')">المشاريع ▾</button>
-        <div class="menu-panel">
+      <button class="btnx" id="langToggle">AR/EN</button>
+      <div class="contact" id="m-contact">
+        <button class="btnx" onclick="toggleDrop('m-contact')">التواصل ▾</button>
+        <div class="panel">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+      <div class="menu" id="m-proj">
+        <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
+        <div class="panel">
           <a href="sokhna.html">العين السخنة</a>
           <a href="zafarana.html">طريق الزعفرانة</a>
           <a href="suez.html">طريق السويس</a>
@@ -65,182 +88,180 @@ body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui}
           <a href="Resale.html">ريسيل</a>
         </div>
       </div>
-      <button class="btnx" id="langToggle">AR/EN</button>
-      <div class="contact" id="m-contact">
-        <button class="btnx" onclick="toggleMenu('m-contact')">التواصل ▾</button>
-        <div class="contact-panel">
-          <a href="tel:+201050072527">📞 اتصال</a>
-          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
-        </div>
-      </div>
     </div>
   </div>
+  <div class="subnav"><div class="container inner">
+    <a href="sokhna.html">مشروعات العين السخنة</a><span class="sep">›</span><span>طريق الزعفرانة</span>
+  </div></div>
 </header>
 
-<section class="section container">
-  <h1>مشاريع طريق الزعفرانة</h1>
-
+<main class="container">
   <!-- Search -->
-  <div class="searchbar">
-    <input id="projSearch" type="search" placeholder="ابحث باسم المشروع (مثال: مورانو، لوجانو، دولفين...)">
+  <div class="searchwrap">
+    <div class="searchbar">
+      <input id="psearch" type="search" placeholder="ابحث عن مشروع …">
+      <div class="suggestions" id="psuggest"></div>
+    </div>
   </div>
 
-  <div class="proj-grid" id="projGrid">
+  <h1>مشاريع طريق الزعفرانة</h1>
+
+  <div class="proj-grid">
 
     <!-- Murano -->
-    <article class="proj-card" data-name="مورانو Murano وادي دجلة">
-      <div class="miniGal" data-gal="murano-mini">
-        <a class="cover" href="murano.html" aria-label="فتح صفحة مورانو"></a>
-        <img class="show" src="https://f.top4top.io/p_35221k8lc0.jpg" alt="">
-        <img src="https://g.top4top.io/p_3522d8wi91.jpg" alt="">
-        <img src="https://h.top4top.io/p_35224yrbd2.jpg" alt="">
-        <button class="miniBtn miniPrev" type="button">‹</button>
-        <button class="miniBtn miniNext" type="button">›</button>
-      </div>
-      <div class="proj-title">
-        <a href="murano.html">مورانو وادي دجلة – Murano</a>
-      </div>
+    <article class="proj-card">
+      <a href="murano.html" title="Murano Wadi Degla">
+        <div class="miniGal" data-gal="murano-mini">
+          <img class="show" src="https://c.top4top.io/p_35249hfap2.jpg" alt="">
+          <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="">
+          <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="">
+          <img src="https://d.top4top.io/p_35241i6053.jpg" alt="">
+          <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="">
+          <img src="https://f.top4top.io/p_3524tljl25.jpg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Murano Wadi Degla | مشروع مورانو وادي دجلة</div>
       <div class="prices">
         <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: 5,600,000+</div>
-      </div>
-    </article>
-
-    <!-- Lugano -->
-    <article class="proj-card" data-name="لوجانو Lugano الجلالة AOG">
-      <div class="miniGal" data-gal="lugano-mini">
-        <a class="cover" href="lugano.html" aria-label="فتح صفحة لوجانو"></a>
-        <img class="show" src="https://d.top4top.io/p_3522abwq45.jpg" alt="">
-        <img src="https://c.top4top.io/p_35221lwi74.jpg" alt="">
-        <img src="https://b.top4top.io/p_352289sd73.jpg" alt="">
-        <img src="https://a.top4top.io/p_3522d3jof2.jpg" alt="">
-        <img src="https://l.top4top.io/p_3522v489z1.jpg" alt="">
-        <img src="https://k.top4top.io/p_35226tylr0.jpg" alt="">
-        <button class="miniBtn miniPrev" type="button">‹</button>
-        <button class="miniBtn miniNext" type="button">›</button>
-      </div>
-      <div class="proj-title">
-        <a href="lugano.html">لوجانو الجلالة (AOG) – Lugano</a>
-      </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: 3,500,000</div>
         <div class="price-box">إعادة البيع: —</div>
       </div>
     </article>
 
-    <!-- Dolphin -->
-    <article class="proj-card" data-name="دولفين Dolphin Beach">
-      <div class="miniGal" data-gal="dolphin-mini">
-        <a class="cover" href="dolphin-beach.html" aria-label="فتح صفحة دولفين"></a>
-        <img class="show" src="https://a.top4top.io/p_3522tebkk0.jpeg" alt="">
-        <img src="https://b.top4top.io/p_3522sasm11.jpeg" alt="">
-        <img src="https://c.top4top.io/p_35225yyet2.jpeg" alt="">
-        <button class="miniBtn miniPrev" type="button">‹</button>
-        <button class="miniBtn miniNext" type="button">›</button>
-      </div>
-      <div class="proj-title">
-        <a href="dolphin-beach.html">دولفين بيتش – Dolphin Beach</a>
-      </div>
+    <!-- Lugano -->
+    <article class="proj-card">
+      <a href="lugano.html" title="Lugano El Galala">
+        <div class="miniGal" data-gal="lugano-mini">
+          <img class="show" src="https://j.top4top.io/p_3524tp87p1.jpg" alt="">
+          <img src="https://k.top4top.io/p_3524sitnk2.jpg" alt="">
+          <img src="https://l.top4top.io/p_3524aroza3.jpg" alt="">
+          <img src="https://a.top4top.io/p_3524ak1ie4.jpg" alt="">
+          <img src="https://b.top4top.io/p_3524m4xl55.jpg" alt="">
+          <img src="https://c.top4top.io/p_3524173zh6.jpg" alt="">
+          <img src="https://d.top4top.io/p_3524hqsj87.jpg" alt="">
+          <img src="https://e.top4top.io/p_3524j0tlb8.jpg" alt="">
+          <img src="https://f.top4top.io/p_352421fg69.jpg" alt="">
+          <img src="https://e.top4top.io/p_3524hr2rn0.jpg" alt="">
+          <img src="https://f.top4top.io/p_35241ix5u1.jpg" alt="">
+          <img src="https://g.top4top.io/p_3524wjkfp2.jpg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Lugano El Galala | مشروع لوجانو الجلالة</div>
       <div class="prices">
         <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: 2,250,000+</div>
+        <div class="price-box">إعادة البيع: —</div>
       </div>
     </article>
 
-    <!-- Sokhna Hills -->
-    <article class="proj-card" data-name="السخنة هيلز Sokhna Hills">
-      <div class="miniGal" data-gal="sokhna-mini">
-        <a class="cover" href="sokhna-hills.html" aria-label="فتح صفحة السخنة هيلز"></a>
-        <img class="show" src="https://j.top4top.io/p_35225ufd20.jpg" alt="">
-        <img src="https://l.top4top.io/p_352235fak2.jpg" alt="">
-        <img src="https://k.top4top.io/p_3522mg22k1.jpg" alt="">
-        <img src="https://a.top4top.io/p_3522ewmly3.jpg" alt="">
-        <button class="miniBtn miniPrev" type="button">‹</button>
-        <button class="miniBtn miniNext" type="button">›</button>
-      </div>
-      <div class="proj-title">
-        <a href="sokhna-hills.html">السخنة هيلز – Sokhna Hills</a>
-      </div>
+    <!-- Ein Hills -->
+    <article class="proj-card">
+      <a href="ein-hills.html" title="Ein Hills El Sokhna">
+        <div class="miniGal" data-gal="ein-mini">
+          <img class="show" src="https://h.top4top.io/p_352441ln20.jpg" alt="">
+          <img src="https://i.top4top.io/p_352429epr1.jpg" alt="">
+          <img src="https://j.top4top.io/p_3524zdxka2.jpg" alt="">
+          <img src="https://k.top4top.io/p_352452k6p3.jpg" alt="">
+          <img src="https://l.top4top.io/p_3524m7cxa4.jpg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Ein Hills ElSokhna | مشروع العين هيلز</div>
       <div class="prices">
         <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: 4,700,000</div>
+        <div class="price-box">إعادة البيع: —</div>
       </div>
     </article>
 
-    <!-- Al Hejaz Oasis -->
-    <article class="proj-card" data-name="واحة الحجاز Al Hejaz Oasis الحجاز">
-      <div class="miniGal" data-gal="hejaz-mini">
-        <a class="cover" href="al-hejaz-oasis.html" aria-label="فتح صفحة واحة الحجاز"></a>
-        <img class="show" src="https://h.top4top.io/p_3523oz3cm1.jpeg" alt="">
-        <img src="https://g.top4top.io/p_3523911nq0.jpg" alt="">
-        <img src="https://g.top4top.io/p_3523b191s0.jpeg" alt="">
-        <img src="https://i.top4top.io/p_3523k107v2.jpeg" alt="">
-        <button class="miniBtn miniPrev" type="button">‹</button>
-        <button class="miniBtn miniNext" type="button">›</button>
-      </div>
-      <div class="proj-title">
-        <a href="al-hejaz-oasis.html">واحة الحجاز – Al Hejaz Oasis</a>
-      </div>
+    <!-- Loly Beach -->
+    <article class="proj-card">
+      <a href="loly-beach.html" title="Loly Beach">
+        <div class="miniGal" data-gal="loly-mini">
+          <img class="show" src="https://j.top4top.io/p_35249oiip0.jpeg" alt="">
+          <img src="https://k.top4top.io/p_3524gw1zg1.jpg" alt="">
+          <img src="https://l.top4top.io/p_3524sibka2.jpg" alt="">
+          <img src="https://a.top4top.io/p_3524tgjfp3.jpg" alt="">
+          <img src="https://b.top4top.io/p_35243qiu34.jpg" alt="">
+          <img src="https://c.top4top.io/p_35249fzcv5.jpg" alt="">
+          <img src="https://d.top4top.io/p_3524o0bc16.jpg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Loly Beach | مشروع لولي بيتش</div>
       <div class="prices">
         <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: 2,200,000+</div>
+        <div class="price-box">إعادة البيع: —</div>
       </div>
     </article>
 
   </div>
-</section>
+</main>
 
-<footer class="container" style="color:#9fb0c8;padding:18px 0;border-top:1px solid #1a2438;margin-top:22px">
-  © <span id="year"></span> Eslam Realty
-</footer>
+<footer>© <span id="year"></span> Eslam Realty</footer>
 
 <script>
-/* Topbar */
+/* year */
 document.getElementById('year').textContent=new Date().getFullYear();
-function toggleMenu(id){
+
+/* dropdowns */
+function toggleDrop(id){
   document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-  document.getElementById(id)?.classList.toggle('open');
+  document.getElementById(id).classList.toggle('open');
 }
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.menu,.contact,.btnx'))
-    document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
 });
-langToggle?.addEventListener('click',()=>{
-  document.documentElement.dir=(document.documentElement.dir==='rtl'?'ltr':'rtl');
-  document.documentElement.lang=(document.documentElement.lang==='ar'?'en':'ar');
-});
-
-/* Search — يعمل على النص وعن طريق data-name */
-const searchInput=document.getElementById('projSearch');
-const cards=[...document.querySelectorAll('.proj-card')];
-searchInput.addEventListener('input',()=>{
-  const q=searchInput.value.trim().toLowerCase();
-  cards.forEach(card=>{
-    const title=card.querySelector('.proj-title')?.innerText.toLowerCase()||'';
-    const data=(card.dataset.name||'').toLowerCase();
-    card.style.display=(title.includes(q)||data.includes(q))?'':'none';
-  });
+document.getElementById('langToggle').addEventListener('click',()=>{
+  const isAR=document.documentElement.lang==='ar';
+  document.documentElement.lang=isAR?'en':'ar';
+  document.documentElement.dir=isAR?'ltr':'rtl';
 });
 
-/* Galleries in cards */
+/* mini galleries + swipe */
 function setupGallery(root){
-  const imgs=[...root.querySelectorAll('img')];
-  if(!imgs.length) return;
-  let i=imgs.findIndex(im=>im.classList.contains('show')); if(i<0){i=0; imgs[0].classList.add('show');}
+  const box=document.querySelector(`[data-gal="${root}"]`); if(!box) return;
+  const imgs=[...box.querySelectorAll('img')]; let i=0,sx=0;
   const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
-  const prevBtn=root.querySelector('.miniPrev');
-  const nextBtn=root.querySelector('.miniNext');
-  prevBtn?.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();show(i-1);});
-  nextBtn?.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();show(i+1);});
-  let sx=0;
-  root.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  root.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-sx;
-    if(Math.abs(dx)>40){dx<0?show(i+1):show(i-1);}
-  },{passive:true});
+  const next=()=>show(i+1), prev=()=>show(i-1); show(0);
+  box.querySelector('.miniNext')?.addEventListener('click',(ev)=>{ev.preventDefault();next();});
+  box.querySelector('.miniPrev')?.addEventListener('click',(ev)=>{ev.preventDefault();prev();});
+  box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  box.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
 }
-document.querySelectorAll('.miniGal').forEach(setupGallery);
+['murano-mini','lugano-mini','ein-mini','loly-mini'].forEach(setupGallery);
+
+/* Search suggestions (global) */
+const PROJECTS=[
+  {name:'مورانو', url:'murano.html'},
+  {name:'لوجانو', url:'lugano.html'},
+  {name:'العين هيلز', url:'ein-hills.html'},
+  {name:'لولي بيتش', url:'loly-beach.html'},
+  // كمان عربي/إنجليزي
+  {name:'Murano', url:'murano.html'},
+  {name:'Lugano', url:'lugano.html'},
+  {name:'Ein Hills', url:'ein-hills.html'},
+  {name:'Loly Beach', url:'loly-beach.html'}
+];
+(function(){
+  const input=document.getElementById('psearch');
+  const box=document.getElementById('psuggest');
+  function render(list){
+    box.innerHTML=''; if(!list.length){box.style.display='none'; return;}
+    list.forEach(it=>{const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a);});
+    box.style.display='block';
+  }
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    if(!q){ box.style.display='none'; return; }
+    const out=PROJECTS.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
+    render(out);
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none';});
+})();
 </script>
 </body>
 </html>
