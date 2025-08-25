@@ -1,318 +1,245 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مشروع لوجانو الجلالة | Lugano Al Galala</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مشروع لوجانو الجلالة | Eslam Realty</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png" type="image/png">
-<link rel="apple-touch-icon" href="https://c.top4top.io/p_3523kk98b0.png">
+<!-- نفس الستايلات المختصرة من القالب (منسوخة كما هي) -->
 <style>
-:root{
-  --bg:#0b1220; --card:#0f1627; --line:#1f2a44; --gold:#e4c24a; --text:#fff;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:"Tajawal",system-ui,Segoe UI,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-a{color:inherit;text-decoration:none}
-
-/* top bar */
-.topbar{background:#000;border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:500}
-.container{max-width:980px;margin:0 auto;padding:0 14px}
-.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.brand{height:44px;display:flex;align-items:center;gap:12px}
-.brand img{height:44px;object-fit:contain}
-.pills{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.pill{border:1px solid var(--gold);border-radius:999px;padding:10px 16px;font-weight:800;background:transparent}
-.pill:hover{background:#1b1b1b}
-
-/* breadcrumbs + search */
-.crumbs{background:#0e1526;border-bottom:1px solid var(--line)}
-.crumbs .inner{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 14px}
-.crumbs a{opacity:.9}
-.crumbs span.sep{opacity:.5}
-.searchWrap{padding:8px 14px;border-top:1px dashed #2a375a}
-.search{width:100%;background:#0d1425;border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:#fff;font-weight:700}
-.suggest{display:none;position:absolute;background:#0f1627;border:1px solid var(--line);border-radius:12px;margin-top:6px;width:calc(100% - 28px);max-height:260px;overflow:auto;z-index:40}
-.suggest a{display:block;padding:10px 12px;border-bottom:1px solid #13203b}
-.suggest a:last-child{border-bottom:0}
-
-/* hero video */
-.hero{position:relative;height:58vh;min-height:360px;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.35),rgba(0,0,0,.6));
-  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px}
-.hero h1{margin:0 0 6px;font-size:30px;font-weight:800}
-.hero h2{margin:0 0 10px;font-size:22px}
-.hero p{margin:0;font-size:18px}
-
-/* body sections */
-.section{padding:22px 0}
-.h2{font-size:24px;font-weight:800;margin:0 0 12px}
-.h3{font-size:18px;font-weight:800;margin:16px 0 8px;color:#ddd}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
-
-/* gallery */
-.gal{position:relative;border-radius:16px;overflow:hidden;background:#0b1323;border:1px solid var(--line)}
-.gal .frame{position:relative;height:420px}
-@media(max-width:640px){.gal .frame{height:310px}}
-.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
-.gal img.show{display:block}
-.gal .btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:999px;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.45);display:grid;place-items:center;cursor:pointer}
-.gal .prev{left:10px}.gal .next{right:10px}
-
-/* prices */
-.prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.pbox{background:#fff;color:#111;border-radius:12px;border:1px solid #e5e7eb;padding:12px;text-align:center;font-weight:800}
-
-/* master plan */
-.masterBtn{margin-top:12px;display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:12px;padding:10px 14px;font-weight:800}
-.masterBtn:hover{background:rgba(228,194,74,.08)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:900}
+:root{--bg:#0c1323;--card:#0f1627;--line:#223;--brand:#e4c24a;--muted:#97a3b6}
+*{box-sizing:border-box} body{margin:0;font-family:Tajawal,system-ui;background:var(--bg);color:#fff}
+a{color:inherit;text-decoration:none}.container{max-width:1100px;margin:auto;padding:0 14px}
+.topbar{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand img{height:38px}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.chip{border:1px solid var(--brand);border-radius:999px;padding:10px 16px;font-weight:800;background:transparent;cursor:pointer}
+.dropdown{position:relative}.menu{position:absolute;top:100%;right:0;background:#0f1627;border:1px solid var(--line);border-radius:12px;min-width:230px;display:none;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.menu a{display:block;padding:10px 12px;border-bottom:1px solid #132}.menu a:last-child{border-bottom:0}
+.dropdown.open .menu{display:block}
+.bread{border-top:1px dashed #233;border-bottom:1px dashed #233;background:#0e1425}
+.bread .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0}
+.searchbox{margin:10px 0}
+.searchbox input{width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#0f172a;color:#fff}
+.hero{position:relative;overflow:hidden}
+.hero video{width:100%;height:min(62vw,640px);object-fit:cover;display:block}
+.hero .overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.35))}
+.hero .title{text-align:center}
+.hero h1{margin:0 0 6px;font-size:clamp(22px,4.6vw,42px)}
+.hero .en{opacity:.95;font-size:clamp(16px,3.3vw,26px);margin-bottom:4px}
+.hero .dev{font-weight:800}
+.gallery{margin:18px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.slide{position:relative;height:min(70vw,520px);background:#0b1323}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.slide img.show{display:block}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+.arrow.prev{left:10px}.arrow.next{right:10px}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
+.price{background:#fff;color:#111;border-radius:12px;padding:14px 12px;text-align:center;font-weight:800;border:1px solid #e5e7eb}
+.mplan{display:block;margin:6px auto 16px;width:max-content;padding:11px 16px;border:1px solid var(--brand);border-radius:12px;color:#000;background:var(--brand);font-weight:800}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:60}
 .modal.open{display:block}
-.modal .in{position:absolute;inset:20px;max-width:1000px;margin:auto;background:#0f1627;border:1px solid var(--line);border-radius:16px;overflow:auto}
-.modal header{position:sticky;top:0;background:#0c1323;border-bottom:1px solid var(--line);padding:10px 12px;display:flex;align-items:center;gap:10px}
-.modal header b{font-weight:800}
-.closeX{margin-inline-start:auto;border:1px solid #e5e7eb;background:#fff;color:#111;border-radius:999px;padding:6px 10px;cursor:pointer}
-.modal .content{padding:12px}
-.modal img{width:100%;border-radius:10px}
-
-/* details */
-.details p{line-height:1.9;margin:0 0 10px}
-.details ul{margin:6px 0 12px;padding:0 22px}
-.details li{margin:6px 0}
-
-/* form */
-.formBox{background:#0f1627;border:1px solid var(--line);border-radius:16px;padding:16px}
-.formBox h3{margin:0 0 10px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:640px){.row{grid-template-columns:1fr}}
-input,select,textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
-textarea{min-height:120px;resize:vertical}
-button.send{margin-top:10px;width:100%;background:var(--gold);color:#111;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
-
-/* footer */
-footer{margin-top:30px;border-top:1px solid var(--line);padding:18px 0 32px;color:#cbd5e1}
-.icons{display:flex;gap:12px;margin-top:8px}
-.icons a{font-size:20px}
-.small{font-size:12px;opacity:.8}
+.modal .in{position:absolute;inset:24px;max-width:980px;margin:auto;background:#0f1627;border:1px solid var(--line);border-radius:14px;overflow:auto}
+.modal .head{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px;border-bottom:1px solid var(--line)}
+.section{padding:8px 0 22px}
+.section h2{color:var(--brand);font-size:28px;margin:10px 0 8px}
+.section p{color:#dbe1ee;line-height:1.9}
+.formwrap{margin:18px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.formwrap h3{margin:6px 0 14px}
+label{display:block;margin:8px 0 6px;color:#dbe1ee}
+input,select,textarea{width:100%;background:#0b1323;color:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+textarea{min-height:110px;resize:vertical}
+.send{margin-top:12px;background:var(--brand);color:#000;border:0;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer}
+footer{margin-top:24px;border-top:1px solid #1a2237;padding:16px 0;color:#c9d3e0}
+.frow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.icons a{margin-inline-start:12px;font-size:20px}
 </style>
 </head>
 <body>
 
-<!-- TOP -->
 <header class="topbar">
-  <div class="container navbar">
-    <div class="brand">
-      <a href="index.html" title="الصفحة الرئيسية">
-        <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Islam Esmail - ARSAM">
-      </a>
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Islam Esmail"></a>
+    <div class="nav-actions">
+      <div class="dropdown" id="projDD">
+        <button class="chip" id="projBtn">مشروعات العين السخنة ▾</button>
+        <div class="menu">
+          <a href="zafarana.html">طريق الزعفرانة</a>
+          <a href="suez.html">طريق السويس</a>
+        </div>
+      </div>
+      <button class="chip" id="langBtn">AR/EN</button>
     </div>
-    <nav class="pills">
-      <a class="pill" href="sokhna.html">العين السخنة</a>
-      <a class="pill" href="zafarana.html">طريق الزعفرانة</a>
-      <a class="pill" href="suez.html">السويس</a>
-    </nav>
   </div>
 </header>
 
-<!-- BREADCRUMBS + SEARCH -->
-<div class="crumbs">
+<div class="bread">
   <div class="container">
-    <div class="inner">
-      <a href="sokhna.html">العين السخنة</a><span class="sep">›</span>
-      <a href="zafarana.html">طريق الزعفرانة</a><span class="sep">›</span>
+    <div class="row">
+      <a href="sokhna.html">العين السخنة</a><span>›</span>
+      <a href="zafarana.html">طريق الزعفرانة</a><span>›</span>
       <span>لوجانو الجلالة</span>
     </div>
-    <div class="searchWrap" style="position:relative">
-      <input id="q" class="search" placeholder="ابحث عن مشروع… (اكتب مثلاً: مورانو، لوجانو)"/>
-      <div id="sg" class="suggest"></div>
+    <div class="searchbox">
+      <input id="search" type="search" placeholder="ابحث عن مشروع… (اكتب مثلاً: مورانو، لوجانو)">
     </div>
   </div>
 </div>
 
-<!-- HERO VIDEO -->
 <section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="https://i.top4top.io/m_3524hxvwj0.mp4" type="video/mp4">
-  </video>
+  <video id="heroVideo" src="https://i.top4top.io/m_3524hxvwj0.mp4" playsinline muted controls></video>
   <div class="overlay">
-    <h1>مشروع لوجانو الجلالة</h1>
-    <h2>Lugano Al Galala</h2>
-    <p>المطور: <strong>AOG Developments</strong></p>
+    <div class="title">
+      <h1>مشروع لوجانو الجلالة</h1>
+      <div class="en">Lugano Al Galala</div>
+      <div class="dev">المطور: AOG Developments</div>
+    </div>
   </div>
 </section>
 
-<main class="container">
-
-  <!-- GALLERY + PRICES -->
-  <section class="section">
-    <div class="gal card" id="gallery">
-      <div class="frame" id="galFrame">
-        <img class="show" src="https://j.top4top.io/p_3524tp87p1.jpg" alt="">
-        <img src="https://k.top4top.io/p_3524sitnk2.jpg" alt="">
-        <img src="https://l.top4top.io/p_3524aroza3.jpg" alt="">
-        <img src="https://a.top4top.io/p_3524ak1ie4.jpg" alt="">
-        <img src="https://b.top4top.io/p_3524m4xl55.jpg" alt="">
-        <img src="https://c.top4top.io/p_3524173zh6.jpg" alt="">
-        <img src="https://d.top4top.io/p_3524hqsj87.jpg" alt="">
-        <img src="https://e.top4top.io/p_3524j0tlb8.jpg" alt="">
-        <img src="https://f.top4top.io/p_352421fg69.jpg" alt="">
-        <img src="https://e.top4top.io/p_3524hr2rn0.jpg" alt="">
-        <img src="https://f.top4top.io/p_35241ix5u1.jpg" alt="">
-        <img src="https://g.top4top.io/p_3524wjkfp2.jpg" alt="">
-      </div>
-      <button class="btn prev" aria-label="السابق">‹</button>
-      <button class="btn next" aria-label="التالي">›</button>
-
-      <div class="prices">
-        <div class="pbox">سعر المطوّر: —</div>
-        <div class="pbox">سعر إعادة البيع: —</div>
-      </div>
-
-      <a class="masterBtn" id="openPlan">عرض الماستر بلان</a>
+<div class="container">
+  <div class="gallery">
+    <div class="slide" id="gal">
+      <img class="show" src="https://j.top4top.io/p_3524tp87p1.jpg">
+      <img src="https://k.top4top.io/p_3524sitnk2.jpg">
+      <img src="https://l.top4top.io/p_3524aroza3.jpg">
+      <img src="https://a.top4top.io/p_3524ak1ie4.jpg">
+      <img src="https://b.top4top.io/p_3524m4xl55.jpg">
+      <img src="https://c.top4top.io/p_3524173zh6.jpg">
+      <img src="https://d.top4top.io/p_3524hqsj87.jpg">
+      <img src="https://e.top4top.io/p_3524j0tlb8.jpg">
+      <img src="https://f.top4top.io/p_352421fg69.jpg">
+      <img src="https://e.top4top.io/p_3524hr2rn0.jpg">
+      <img src="https://f.top4top.io/p_35241ix5u1.jpg">
+      <img src="https://g.top4top.io/p_3524wjkfp2.jpg">
+      <button class="arrow prev">‹</button><button class="arrow next">›</button>
     </div>
-  </section>
-
-  <!-- MODAL: MASTER PLAN -->
-  <div class="modal" id="planModal">
-    <div class="in">
-      <header><b>الماستر بلان – لوجانو الجلالة</b><button class="closeX" id="closePlan">إغلاق ✕</button></header>
-      <div class="content">
-        <img src="https://j.top4top.io/p_3524r52b20.jpg" alt="Master Plan">
-      </div>
+    <div class="prices">
+      <div class="price">سعر المطوّر: <b>—</b></div>
+      <div class="price">سعر إعادة البيع: <b>—</b></div>
     </div>
+    <a class="mplan" id="openPlan" href="javascript:void(0)">عرض الماستر بلان</a>
   </div>
+</div>
 
-  <!-- DETAILS -->
-  <section class="section details">
-    <h2 class="h2">عن لوجانو الجلالة العين السخنة</h2>
-    <p><strong>AOG Developments</strong> – لصاحبها رجل الأعمال مستر محمود عمر وهو شريك في مجموعة شركات مطوّرة ساحلية وأغلب المشاريع متسلّمة. الشركة نازلة السنة دي بمحفظة أراضٍ في أكثر من منطقة: العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.</p>
-
-    <h3 class="h3">نشأة AOG Developments</h3>
-    <ul>
-      <li>18 عامًا من الإنجاز على يد الجيل الأول: الأب المؤسس أحمد عمر (Lasirena Group).</li>
-      <li>2020: دخول الجيل الثاني بقيادة أ/ محمود عمر بإنشاء Manara Developments (رائدة تطوير الجلالة).</li>
-      <li>2025: تأسيس AOG Developments بمعادلة جديدة تعيد القيمة الاستثمارية الحقيقية للعقار.</li>
-    </ul>
-
-    <h3 class="h3">الموقع</h3>
-    <p>في العين السخنة – طريق الزعفرانة – أول نقطة في جبل الجلالة. بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و 60 دقيقة من التجمع.</p>
-
-    <h3 class="h3">المساحة والخدمات</h3>
-    <ul>
-      <li>المساحة: 40 فدان – 3 مصاطب (7م – 20م – 35م أعلى من سطح البحر).</li>
-      <li>شاطئ خاص بعرض 400م.</li>
-      <li>Hotel five star (Alma) – إدارة فندقية كبرى (IHG).</li>
-      <li>Triple Play (Landline + Internet + IPTV).</li>
-      <li>Club House – مطاعم وكافيهات – Padel – مسار دراجات – Kids Area – Gym – Mosque – Bridge – Golf Car.</li>
-      <li>Facility Management (FM) بالتعاون مع IHG – تشطيبات كاملة – الاستشاري الهندسي شركة MK.</li>
-    </ul>
-  </section>
-
-  <!-- FORM (BOTTOM ONLY) -->
-  <section class="section">
-    <div class="formBox">
-      <h3>📨 تحتاج إلى مساعدة عقارية؟</h3>
-      <form id="f" onsubmit="sendForm(event)">
-        <div class="row">
-          <div><label>الاسم<input id="name" required></label></div>
-          <div><label>الموقع المفضل (اسم المشروع)<input id="proj" value="لوجانو الجلالة" required></label></div>
-        </div>
-        <div class="row">
-          <div>
-            <label>نوع الوحدة
-              <select id="type">
-                <option>ستوديو</option><option>شاليه</option><option>تاون هاوس</option>
-                <option>توين هاوس</option><option>فيلا</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>عدد الغرف
-              <select id="beds">
-                <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
-              </select>
-            </label>
-          </div>
-        </div>
-        <label>ملاحظات<textarea id="note"></textarea></label>
-        <button class="send">إرسال!</button>
-      </form>
-      <div class="small">سيتم توجيه الطلب إلى واتساب Islam Esmail – ARSAM.</div>
+<div class="modal" id="planModal">
+  <div class="in">
+    <div class="head">
+      <strong>الماستر بلان</strong>
+      <button class="chip" id="closePlan" style="padding:6px 12px">✕</button>
     </div>
-  </section>
+    <img src="https://j.top4top.io/p_3524r52b20.jpg" alt="Master Plan">
+  </div>
+</div>
 
-</main>
+<section class="container section">
+  <h2>عن لوجانو الجلالة</h2>
+  <p>
+AOG Developments — لصاحبها رجل الأعمال محمود عمر، شريك في شركات مطوّرة ساحلية، ومع محفظة أراضٍ في العين السخنة، رأس سدر، زايد الجديدة، والساحل الشمالي.
+  </p>
 
-<footer class="container">
-  <div>© <span id="y"></span> Eslam Realty — ARSAM Real Estate</div>
-  <div class="icons">
-    <a href="tel:+201050072527" title="اتصال">📞</a>
-    <a href="https://wa.me/201050072527" title="واتساب">💬</a>
-    <a href="mailto:islammesmail@gmail.com" title="إيميل">✉️</a>
+  <h2>نشأة AOG Developments</h2>
+  <p>
+1) 18 عامًا من الإنجاز على يد المؤسس أحمد عمر (Lasirena Group).<br>
+2) 2020: انطلاق الجيل الثاني بإنشاء Manara Developments رائدة تطوير الجلالة.<br>
+3) 2025: تأسيس AOG developments لوضع «المعادلة العقارية» الجديدة وتقديم العقار بقيمته الحقيقية.
+  </p>
+
+  <h2>الموقع</h2>
+  <p>
+في العين السخنة – طريق الزعفرانة أول نقطة في جبل الجلالة؛ بعد بوابات السخنة بـ 10 دقائق، قبل بورتو بـ 20 كم، 15 دقيقة من منتجع الجلالة، و60 دقيقة من التجمع.
+  </p>
+
+  <h2>المساحة والخدمات</h2>
+  <p>
+المساحة 40 فدان – 3 مصاطب (7م – 20م – 35م). شاطئ خاص بعرض 400م. Alma Hotel بإدارة IHG – Triple Play – كلوب هاوس – مطاعم وكافيهات – Padel – مسار دراجات – Kids Area – Gym – مسجد – Bridge – عربات جولف – Facility Management (FM & IHG) – تشطيب كامل. الاستشاري: شركة MK.
+  </p>
+</section>
+
+<section class="container formwrap">
+  <h3>✉️ تحتاج إلى مساعدة عقارية؟</h3>
+  <form id="inqForm">
+    <label>الاسم</label>
+    <input id="name" required>
+    <label>الموقع المفضل (اسم المشروع)</label>
+    <input id="proj" value="لوجانو الجلالة" required>
+    <label>نوع الوحدة</label>
+    <select id="type">
+      <option>ستوديو</option><option>شاليه</option><option>شقة</option>
+      <option>تاون هاوس</option><option>توين هاوس</option><option>فيلا</option>
+    </select>
+    <label>عدد الغرف</label>
+    <select id="beds"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+    <label>ملاحظات</label>
+    <textarea id="note"></textarea>
+    <button class="send">إرسال!</button>
+  </form>
+</section>
+
+<footer>
+  <div class="container frow">
+    <div>© <span id="year"></span> Eslam Realty</div>
+    <div class="icons">
+      <a href="tel:+201050072527">📞</a>
+      <a href="https://wa.me/201050072527">💬</a>
+      <a href="mailto:islammesmail@gmail.com">✉️</a>
+    </div>
   </div>
 </footer>
 
 <script>
-document.getElementById('y').textContent=new Date().getFullYear();
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelector('#projDD #projBtn').onclick=()=>document.getElementById('projDD').classList.toggle('open');
+document.addEventListener('click',e=>{if(!e.target.closest('#projDD')) document.getElementById('projDD').classList.remove('open');});
 
-/* ---------- gallery ---------- */
+// slider
 (function(){
-  const frame=document.getElementById('galFrame');
-  const imgs=[...frame.querySelectorAll('img')];
-  let i=0,sx=0;
-  const show=k=>{i=(k+imgs.length)%imgs.length;imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
-  const next=()=>show(i+1), prev=()=>show(i-1);
-  show(0);
-  document.querySelector('.gal .next').addEventListener('click',next);
-  document.querySelector('.gal .prev').addEventListener('click',prev);
-  frame.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  frame.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
+  const root=document.getElementById('gal'); const imgs=[...root.querySelectorAll('img')];
+  let i=0,sx=0; const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
+  if(imgs.length) show(0);
+  root.querySelector('.prev').addEventListener('click',()=>show(i-1));
+  root.querySelector('.next').addEventListener('click',()=>show(i+1));
+  root.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  root.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?show(i+1):show(i-1)}},{passive:true});
 })();
 
-/* ---------- master plan modal ---------- */
-const plan=document.getElementById('planModal');
-document.getElementById('openPlan').addEventListener('click',()=>plan.classList.add('open'));
-document.getElementById('closePlan').addEventListener('click',()=>plan.classList.remove('open'));
-plan.addEventListener('click',e=>{if(e.target===plan) plan.classList.remove('open');});
+// plan modal
+const planModal=document.getElementById('planModal');
+document.getElementById('openPlan').onclick=()=>planModal.classList.add('open');
+document.getElementById('closePlan').onclick=()=>planModal.classList.remove('open');
+planModal.addEventListener('click',e=>{if(e.target===planModal) planModal.classList.remove('open')});
 
-/* ---------- search suggestions ---------- */
-const projects=[
-  {name:'مورانو وادي دجلة', url:'murano.html'},
-  {name:'لوجانو الجلالة', url:'lugano.html'},
-  {name:'دولفين بيتش', url:'dolphin.html'},
-  {name:'السخنة هيلز', url:'sokhna-hills.html'},
-  {name:'ازها', url:'azha.html'},
-  {name:'صفحة طريق الزعفرانة', url:'zafarana.html'},
-  {name:'صفحة العين السخنة', url:'sokhna.html'}
-];
-const q=document.getElementById('q'), sg=document.getElementById('sg');
-q.addEventListener('input',()=>{
-  const v=q.value.trim();
-  if(!v){sg.style.display='none'; sg.innerHTML=''; return;}
-  const list=projects.filter(p=>p.name.includes(v));
-  sg.innerHTML=list.map(p=>`<a href="${p.url}">${p.name}</a>`).join('') || `<a>لا نتائج</a>`;
-  sg.style.display='block';
+// search quick jump
+document.getElementById('search').addEventListener('input',e=>{
+  const v=e.target.value.trim(); if(!v) return;
+  const map=[['مورانو','murano.html'],['لوجانو','lugano.html'],['عين هيلز','ein-hills.html'],['لولي','loly.html']];
+  const hit=map.find(([k])=>k.includes(v)||v.includes(k)); if(hit){e.target.style.borderColor='#38bdf8'; e.target.onkeydown=(ev)=>{if(ev.key==='Enter'){location.href=hit[1];}}}
 });
-document.addEventListener('click',e=>{if(!e.target.closest('.searchWrap')) sg.style.display='none';});
 
-/* ---------- form to WhatsApp ---------- */
-function sendForm(ev){
-  ev.preventDefault();
-  const name=document.getElementById('name').value.trim();
-  const proj=document.getElementById('proj').value.trim();
-  const type=document.getElementById('type').value;
-  const beds=document.getElementById('beds').value;
-  const note=document.getElementById('note').value.trim();
-  const msg=`ESLAM REALTY FORM
-الاسم: ${name}
-المشروع: ${proj}
-نوع الوحدة: ${type}
-عدد الغرف: ${beds}
-ملاحظات: ${note}`;
-  const url=`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`;
-  window.open(url,'_blank');
-}
+// form -> WhatsApp
+document.getElementById('inqForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=`Eslam Realty\nالاسم: ${name.value}\nالمشروع: ${proj.value}\nنوع الوحدة: ${type.value}\nالغرف: ${beds.value}\nملاحظات: ${note.value||'-'}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+});
+
+// بسيطة: زر AR/EN يبدّل واجهة أساسية (العناوين فقط)
+let ar=true;
+document.getElementById('langBtn').onclick=()=>{
+  ar=!ar;
+  document.documentElement.dir=ar?'rtl':'ltr';
+  document.documentElement.lang=ar?'ar':'en';
+  document.querySelector('.en').textContent= ar?'Lugano Al Galala':'Lugano Al Galala';
+  document.querySelector('.dev').innerHTML= ar?'المطور: AOG Developments':'Developer: AOG Developments';
+  document.querySelector('#projBtn').textContent= ar?'مشروعات العين السخنة ▾':'Sokhna Projects ▾';
+  document.querySelector('.bread a:nth-child(1)').textContent= ar?'العين السخنة':'Ain Sokhna';
+  document.querySelector('.bread a:nth-child(3)').textContent= ar?'طريق الزعفرانة':'Zafarana Rd';
+  document.querySelector('.mplan').textContent= ar?'عرض الماستر بلان':'View Master Plan';
+  document.querySelector('h2').textContent= ar?'عن لوجانو الجلالة':'About Lugano Al Galala';
+  document.querySelectorAll('.price')[0].firstChild.textContent = ar?'سعر المطوّر: ':'Developer Price: ';
+  document.querySelectorAll('.price')[1].firstChild.textContent = ar?'سعر إعادة البيع: ':'Resale Price: ';
+};
 </script>
 </body>
 </html>
