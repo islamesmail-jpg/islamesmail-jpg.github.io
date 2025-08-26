@@ -2,328 +2,199 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مشاريع طريق الزعفرانة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>eslam reality | تواصل معنا</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
 <style>
-:root{--ink:#0b0f19;--muted:#cbd5e1;--gold:#e4c24a;--line:#2a3958;--surface:#0f1627}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:#0b0f19;color:#fff;font-family:"Tajawal",system-ui,Arial;line-height:1.7}
-a{text-decoration:none;color:inherit}
-.container{max-width:1100px;margin:auto;padding:0 16px}
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25); --line:#1a2038;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
-/* Topbar (adjusted logo like Lugano) */
-.topbar{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.brandbox{display:flex;align-items:center;gap:10px}
-.brandbox img{height:40px;width:auto;border-radius:10px;display:block}
-.brandname{font-weight:800;letter-spacing:.5px;opacity:.9}
-.actions{display:flex;gap:10px;align-items:center}
-.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
-.btnx:hover{background:#fff2c2;color:#111}
-.menu,.contact{position:relative}
-.panel{position:absolute;top:100%;right:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none;z-index:30}
-.menu.open .panel,.contact.open .panel{display:block}
-.panel a{display:flex;gap:8px;padding:10px;border-radius:10px;color:#111;text-decoration:none;font-weight:700}
-.panel a:hover{background:#f3f4f6}
+/* ===== NAVBAR (مثل الصورة) ===== */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{justify-self:end;display:flex;align-items:center;text-decoration:none;gap:10px}
+.logo-img{height:44px;width:auto;border-radius:10px}
+.brand{font-weight:800;opacity:.95}
+.center{justify-self:center}
+.left{justify-self:start;display:flex;align-items:center;gap:18px}
+.nav-link,.nav-btn{color:var(--text);background:transparent;border:0;font-size:16px;font-weight:800;cursor:pointer;text-decoration:none}
+.nav-link:hover,.nav-btn:hover{opacity:.9}
 
-/* Subnav */
-.subnav{background:#0f1627;border-bottom:1px solid #1a2438}
-.subnav .inner{display:flex;align-items:center;gap:10px;padding:10px 0;font-weight:800;color:#e7eefb}
-.subnav a{color:#e7eefb}.sep{opacity:.45}
+/* قائمة المشاريع */
+.projects-wrap{position:relative}
+.menu{position:absolute;top:calc(100% + 8px);inset-inline-start:50%;transform:translateX(-50%);
+  background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:8px;min-width:240px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:10px 12px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}
+.menu a:hover{background:#121638}
+.projects-wrap.open .menu{display:block}
 
-/* Search */
-.searchwrap{padding:12px 0}
-.searchbar{position:relative}
-#psearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
-.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
-.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
-.suggestions a:last-child{border-bottom:0}
-.suggestions a:hover{background:#16233b}
+/* CONTENT WRAPPER */
+.wrapper{max-width:var(--wrap);margin:auto;padding:24px 16px 40px}
 
-/* Grid */
-.proj-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr);margin-top:16px}
-@media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
-.proj-card{background:#101829;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.proj-title{padding:10px 12px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.enlink{font-size:12px;font-weight:800;background:#18233c;border:1px solid #2b3c63;color:#e7eefb;border-radius:999px;padding:4px 8px}
-.enlink:hover{filter:brightness(1.1)}
-.prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 12px}
-.price-box{background:#fff;color:#111;padding:8px 10px;border-radius:10px;font-weight:800;text-align:center;border:1px solid #e5e7eb}
+/* CONTACT (أسفل الصفحة) */
+.contact-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin:28px 0}
+.icon{font-size:40px;line-height:1}
+.h3{margin:8px 0 6px;font-size:20px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--muted)}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:14px;color:#d7d7d7;font-weight:700}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:110px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:800;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
 
-/* Mini gallery in cards */
-.miniGal{position:relative;height:190px;border-bottom:1px solid var(--line);background:#0e1425;cursor:pointer}
-.miniGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
-.miniGal img.show{display:block}
-.miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;color:#fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center}
-.miniPrev{left:8px}.miniNext{right:8px}
-
-/* Not found block */
-.ask-card{background:#0f1627;border:1px solid #1a2438;border-radius:16px;padding:16px;margin-top:18px}
-.ask-title{font-weight:800;margin:0 0 8px}
-.ask-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.ask-actions a{border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:8px 12px;font-weight:800}
-
-/* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:24px}
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="container nav">
-    <a class="brandbox" href="index.html" aria-label="Home">
-      <!-- نفس لوجو صفحات لوجانو -->
-      <img src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
-      <span class="brandname">eslam reality</span>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <!-- يمين: لوجو + اسم -->
+    <a class="logo-link" href="index.html" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+      <span class="brand">Islam Esmail • ARSAM</span>
     </a>
-    <div class="actions">
-      <button class="btnx" id="langToggle">AR/EN</button>
-      <div class="contact" id="m-contact">
-        <button class="btnx" onclick="toggleDrop('m-contact')">التواصل ▾</button>
-        <div class="panel">
-          <a href="tel:+201050072527">📞 اتصال</a>
-          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
-        </div>
-      </div>
-      <div class="menu" id="m-proj">
-        <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
-        <div class="panel">
-          <a href="sokhna.html">العين السخنة</a>
-          <a href="zafarana.html">طريق الزعفرانة</a>
-          <a href="suez.html">طريق السويس</a>
-          <a href="north.html">الساحل الشمالي</a>
-          <a href="Cairo.html">القاهرة الجديدة</a>
-          <a href="Resale.html">ريسيل</a>
+
+    <!-- نص: المشاريع ▾ -->
+    <div class="center">
+      <div class="projects-wrap" id="projectsWrap">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false">المشاريع ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/dolphin.html">دولفين بيتش</a>
+          <a href="https://islamesmail-jpg.github.io/dolphin-en.html" target="_blank">Dolphin Beach (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/lugano.html">لوجانو الجلالة</a>
+          <a href="https://islamesmail-jpg.github.io/lugano-en.html" target="_blank">Lugano (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/murano.html">مورانو وادي دجلة</a>
+          <a href="https://islamesmail-jpg.github.io/murano-en.html" target="_blank">Murano (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/einhills.html">العين هيلز</a>
+          <a href="https://islamesmail-jpg.github.io/einhills-en.html" target="_blank">Ein Hills (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/lolybeach.html">لولي بيتش</a>
+          <a href="https://islamesmail-jpg.github.io/lolybeach-en.html" target="_blank">Loly Beach (EN)</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="subnav"><div class="container inner">
-    <a href="sokhna.html">مشروعات العين السخنة</a><span class="sep">›</span><span>طريق الزعفرانة</span>
-  </div></div>
-</header>
 
-<main class="container">
-  <!-- Search -->
-  <div class="searchwrap">
-    <div class="searchbar">
-      <input id="psearch" type="search" placeholder="ابحث عن مشروع …">
-      <div class="suggestions" id="psuggest"></div>
+    <!-- يسار: EN + اتصل بنا -->
+    <div class="left">
+      <button class="nav-btn" id="btnLang" aria-label="English">EN</button>
+      <a class="nav-link" href="#contact">اتصل بنا</a>
     </div>
   </div>
+</nav>
 
-  <h1>مشاريع طريق الزعفرانة</h1>
+<div class="wrapper">
 
-  <div class="proj-grid">
+  <!-- ===== CONTACT (أسفل الصفحة) ===== -->
+  <section class="contact-card" id="contact">
+    <div class="icon">📨</div>
+    <div class="h3">تحتاج إلى مساعدة عقارية؟</div>
+    <p class="sub">املأ بياناتك و سوف يقوم بالاتصال بك فى اقرب وقت</p>
 
-    <!-- Murano -->
-    <article class="proj-card">
-      <a href="murano.html" title="Murano Wadi Degla">
-        <div class="miniGal" data-gal="murano-mini">
-          <img class="show" src="https://c.top4top.io/p_35249hfap2.jpg" alt="">
-          <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="">
-          <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="">
-          <img src="https://d.top4top.io/p_35241i6053.jpg" alt="">
-          <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="">
-          <img src="https://f.top4top.io/p_3524tljl25.jpg" alt="">
-          <button class="miniBtn miniPrev" type="button">‹</button>
-          <button class="miniBtn miniNext" type="button">›</button>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">الاسم</label>
+          <input id="name" type="text" placeholder="اكتب اسمك" required>
         </div>
-      </a>
-      <div class="proj-title">
-        <span>Murano Wadi Degla | مشروع مورانو وادي دجلة</span>
-        <a class="enlink" href="murano-en.html">EN</a>
-      </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: —</div>
-      </div>
-    </article>
-
-    <!-- Lugano -->
-    <article class="proj-card">
-      <a href="lugano.html" title="Lugano El Galala">
-        <div class="miniGal" data-gal="lugano-mini">
-          <img class="show" src="https://j.top4top.io/p_3524tp87p1.jpg" alt="">
-          <img src="https://k.top4top.io/p_3524sitnk2.jpg" alt="">
-          <img src="https://l.top4top.io/p_3524aroza3.jpg" alt="">
-          <img src="https://a.top4top.io/p_3524ak1ie4.jpg" alt="">
-          <img src="https://b.top4top.io/p_3524m4xl55.jpg" alt="">
-          <img src="https://c.top4top.io/p_3524173zh6.jpg" alt="">
-          <img src="https://d.top4top.io/p_3524hqsj87.jpg" alt="">
-          <img src="https://e.top4top.io/p_3524j0tlb8.jpg" alt="">
-          <img src="https://f.top4top.io/p_352421fg69.jpg" alt="">
-          <img src="https://e.top4top.io/p_3524hr2rn0.jpg" alt="">
-          <img src="https://f.top4top.io/p_35241ix5u1.jpg" alt="">
-          <img src="https://g.top4top.io/p_3524wjkfp2.jpg" alt="">
-          <button class="miniBtn miniPrev" type="button">‹</button>
-          <button class="miniBtn miniNext" type="button">›</button>
+        <div>
+          <label for="project">الموقع المفضل ( اسم المشروع)</label>
+          <input id="project" type="text" placeholder="اكتب اسم المشروع">
         </div>
-      </a>
-      <div class="proj-title">
-        <span>Lugano El Galala | مشروع لوجانو الجلالة</span>
-        <a class="enlink" href="lugano-en.html">EN</a>
-      </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: —</div>
-      </div>
-    </article>
-
-    <!-- Ein Hills -->
-    <article class="proj-card">
-      <a href="einhills.html" title="Ein Hills El Sokhna">
-        <div class="miniGal" data-gal="ein-mini">
-          <img class="show" src="https://h.top4top.io/p_352441ln20.jpg" alt="">
-          <img src="https://i.top4top.io/p_352429epr1.jpg" alt="">
-          <img src="https://j.top4top.io/p_3524zdxka2.jpg" alt="">
-          <img src="https://k.top4top.io/p_352452k6p3.jpg" alt="">
-          <img src="https://l.top4top.io/p_3524m7cxa4.jpg" alt="">
-          <button class="miniBtn miniPrev" type="button">‹</button>
-          <button class="miniBtn miniNext" type="button">›</button>
+        <div>
+          <label for="unit">نوع الوحده</label>
+          <select id="unit" required>
+            <option value="" disabled selected>اختر نوع الوحدة</option>
+            <option>استوديو</option>
+            <option>شاليه</option>
+            <option>شقة</option>
+            <option>تاون هاوس</option>
+            <option>توين هاوس</option>
+            <option>فيلا مستقلة</option>
+          </select>
         </div>
-      </a>
-      <div class="proj-title">
-        <span>Ein Hills ElSokhna | مشروع العين هيلز</span>
-        <a class="enlink" href="einhills-en.html">EN</a>
-      </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: —</div>
-      </div>
-    </article>
-
-    <!-- Loly Beach -->
-    <article class="proj-card">
-      <a href="lolybeach.html" title="Loly Beach">
-        <div class="miniGal" data-gal="loly-mini">
-          <img class="show" src="https://j.top4top.io/p_35249oiip0.jpeg" alt="">
-          <img src="https://k.top4top.io/p_3524gw1zg1.jpg" alt="">
-          <img src="https://l.top4top.io/p_3524sibka2.jpg" alt="">
-          <img src="https://a.top4top.io/p_3524tgjfp3.jpg" alt="">
-          <img src="https://b.top4top.io/p_35243qiu34.jpg" alt="">
-          <img src="https://c.top4top.io/p_35249fzcv5.jpg" alt="">
-          <img src="https://d.top4top.io/p_3524o0bc16.jpg" alt="">
-          <button class="miniBtn miniPrev" type="button">‹</button>
-          <button class="miniBtn miniNext" type="button">›</button>
+        <div>
+          <label for="rooms">عدد الغرف</label>
+          <select id="rooms" required>
+            <option value="" disabled selected>اختر عدد الغرف</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
         </div>
-      </a>
-      <div class="proj-title">
-        <span>Loly Beach | مشروع لولي بيتش</span>
-        <a class="enlink" href="lolybeach-en.html">EN</a>
       </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: —</div>
-      </div>
-    </article>
 
-    <!-- Dolphin Beach (NEW) -->
-    <article class="proj-card">
-      <a href="https://islamesmail-jpg.github.io/dolphin.html" title="Dolphin Beach Ain Sokhna">
-        <div class="miniGal" data-gal="dolphin-mini">
-          <img class="show" src="https://c.top4top.io/p_3525x6wg20.jpg" alt="">
-          <img src="https://j.top4top.io/p_352529zmf7.jpeg" alt="">
-          <img src="https://d.top4top.io/p_3525ilftx1.jpg" alt="">
-          <img src="https://e.top4top.io/p_3525jmi6s2.jpg" alt="">
-          <img src="https://f.top4top.io/p_352590oox3.jpg" alt="">
-          <img src="https://g.top4top.io/p_3525tkccn4.jpg" alt="">
-          <img src="https://h.top4top.io/p_3525gvdgi5.jpg" alt="">
-          <img src="https://i.top4top.io/p_35257tstr6.jpg" alt="">
-          <button class="miniBtn miniPrev" type="button">‹</button>
-          <button class="miniBtn miniNext" type="button">›</button>
-        </div>
-      </a>
-      <div class="proj-title">
-        <span>Dolphin Beach | مشروع دولفين بيتش</span>
-        <a class="enlink" href="https://islamesmail-jpg.github.io/dolphin-en.html" target="_blank" rel="noopener">EN</a>
+      <div style="margin-top:12px">
+        <label for="note">ملحوظه</label>
+        <textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea>
       </div>
-      <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+
+      <div class="btns">
+        <button type="button" id="btnWA">إرسال عبر واتساب</button>
+        <button type="button" id="btnMail">إرسال عبر الإيميل</button>
       </div>
-    </article>
-
-  </div>
-
-  <!-- Not found? Contact us -->
-  <section class="ask-card">
-    <h3 class="ask-title">مش لاقي المشروع اللي بتدور عليه؟</h3>
-    <p class="ask-text">ابعتلنا اسم المشروع أو المنطقة واحنا هنرجعلك بعروض مناسبة فورًا.</p>
-    <div class="ask-actions">
-      <a href="https://wa.me/201050072527?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%88%D8%B6%20%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D9%85%D8%B4%20%D9%84%D8%A7%D9%82%D9%8A%D9%87%20%D8%B9%D9%84%D9%89%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9" target="_blank">💬 واتساب</a>
-      <a href="mailto:islammesmail@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%BA%D9%8A%D8%B1%20%D9%85%D9%88%D8%AC%D9%88%D8%AF&body=%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D9%8A%D8%B2%D8%A7%D9%86%D9%8A%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D8%A9%3A%20%0A%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%3A%20">✉️ ابعت إيميل</a>
-    </div>
+    </form>
   </section>
 
-</main>
+</div>
 
-<footer>© <span id="year"></span> Eslam Realty</footer>
+<footer>© eslam reality 2025 — جميع الحقوق محفوظة</footer>
 
 <script>
-/* year */
-document.getElementById('year').textContent=new Date().getFullYear();
+/* helpers */
+const $ = (id)=>document.getElementById(id);
 
-/* dropdowns */
-function toggleDrop(id){
-  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-  document.getElementById(id).classList.toggle('open');
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-});
-document.getElementById('langToggle').addEventListener('click',()=>{
-  const isAR=document.documentElement.lang==='ar';
-  document.documentElement.lang=isAR?'en':'ar';
-  document.documentElement.dir=isAR?'ltr':'rtl';
-});
-
-/* mini galleries + swipe */
-function setupGallery(root){
-  const box=document.querySelector(`[data-gal="${root}"]`); if(!box) return;
-  const imgs=[...box.querySelectorAll('img')]; let i=0,sx=0;
-  const show=k=>{i=(k+imgs.length)%imgs.length; imgs.forEach((im,idx)=>im.classList.toggle('show',idx===i));};
-  const next=()=>show(i+1), prev=()=>show(i-1); show(0);
-  box.querySelector('.miniNext')?.addEventListener('click',(ev)=>{ev.preventDefault();next();});
-  box.querySelector('.miniPrev')?.addEventListener('click',(ev)=>{ev.preventDefault();prev();});
-  box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  box.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
-}
-['murano-mini','lugano-mini','ein-mini','loly-mini','dolphin-mini'].forEach(setupGallery);
-
-/* Search suggestions */
-const PROJECTS=[
-  {name:'مورانو', url:'murano.html'},
-  {name:'لوجانو', url:'lugano.html'},
-  {name:'العين هيلز', url:'einhills.html'},
-  {name:'لولي بيتش', url:'lolybeach.html'},
-  {name:'دولفين بيتش', url:'https://islamesmail-jpg.github.io/dolphin.html'},
-  // English
-  {name:'Murano', url:'murano-en.html'},
-  {name:'Lugano', url:'lugano-en.html'},
-  {name:'Ein Hills', url:'einhills-en.html'},
-  {name:'Loly Beach', url:'lolybeach-en.html'},
-  {name:'Dolphin Beach', url:'https://islamesmail-jpg.github.io/dolphin-en.html'}
-];
+/* projects dropdown (مثل الصورة بالضبط) */
 (function(){
-  const input=document.getElementById('psearch');
-  const box=document.getElementById('psuggest');
-  function render(list){
-    box.innerHTML=''; if(!list.length){box.style.display='none'; return;}
-    list.forEach(it=>{const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; a.target=it.url.startsWith('http')?'_blank':'_self'; a.rel='noopener'; box.appendChild(a);});
-    box.style.display='block';
-  }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    const out=PROJECTS.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
-    render(out);
-  });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none';});
+  const wrap=$('projectsWrap'), btn=$('btnProjects'), menu=$('projectsMenu');
+  if(!wrap||!btn||!menu) return;
+  const toggle=(open)=>{ wrap.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false'); };
+  btn.addEventListener('click',e=>{ e.stopPropagation(); toggle(!wrap.classList.contains('open')); });
+  document.addEventListener('click',()=>toggle(false));
 })();
+
+/* ارسال البيانات */
+function data(){
+  return {
+    name: $('name')?.value?.trim() || '',
+    project: $('project')?.value?.trim() || '',
+    unit: $('unit')?.value || '',
+    rooms: $('rooms')?.value || '',
+    note: $('note')?.value?.trim() || ''
+  };
+}
+$('btnWA')?.addEventListener('click', ()=>{
+  const d=data();
+  const msg = `eslam reality
+الاسم: ${d.name}
+المشروع: ${d.project}
+نوع الوحدة: ${d.unit}
+عدد الغرف: ${d.rooms}
+ملحوظة: ${d.note}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+});
+$('btnMail')?.addEventListener('click', ()=>{
+  const d=data();
+  const subject = 'eslam reality — نموذج تواصل';
+  const body = `eslam reality
+الاسم: ${d.name}
+المشروع: ${d.project}
+نوع الوحدة: ${d.unit}
+عدد الغرف: ${d.rooms}
+ملحوظة: ${d.note}`;
+  window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* زر اللغة */
+$('btnLang')?.addEventListener('click', ()=>{ window.location.href='landing-en.html'; });
 </script>
 </body>
 </html>
