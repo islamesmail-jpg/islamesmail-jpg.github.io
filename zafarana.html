@@ -31,10 +31,17 @@ a{text-decoration:none;color:inherit}
 .projects-wrap.open .menu{display:block}
 
 /* breadcrumbs */
-.breadcrumb{background:#0f1627;border-bottom:1px solid #1a2438}
-.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;color:#e7eefb;font-weight:800}
+.breadcrumb{background:#0f1627cc;border-bottom:1px solid #1a2438}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;color:#e7eefb;font-weight:800;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .breadcrumb a{color:#e7eefb}
-.sep{opacity:.5;margin:0 6px}
+.sep{opacity:.5}
+.searchwrap{width:100%;display:flex;justify-content:center}
+.searchbar{position:relative;max-width:560px;flex:1}
+#siteSearch{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
+.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
+.suggestions a:last-child{border-bottom:0}
+.suggestions a:hover{background:#16233b}
 
 /* GRID */
 h1{margin:20px 0;font-size:22px;color:#f0c30f;text-align:center}
@@ -95,9 +102,15 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   </div>
 </nav>
 
-<!-- breadcrumbs -->
+<!-- breadcrumbs + search -->
 <div class="breadcrumb"><div class="inner">
   <a href="index.html">الرئيسية</a><span class="sep">»</span><a href="sokhna.html">العين السخنة</a>
+  <div class="searchwrap" style="margin-inline-start:auto">
+    <div class="searchbar">
+      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
+      <div class="suggestions" id="suggestBox"></div>
+    </div>
+  </div>
 </div></div>
 
 <main class="container">
@@ -248,7 +261,7 @@ const wrap=document.getElementById('projectsWrap');
 document.getElementById('btnProjects').onclick=(e)=>{e.stopPropagation();wrap.classList.toggle('open');};
 document.addEventListener('click',()=>wrap.classList.remove('open'));
 
-/* top contact -> focus note (آخر خانة) */
+/* top contact -> focus note */
 document.getElementById('navContact').addEventListener('click',function(){
   document.getElementById('note')?.focus();
 });
@@ -294,6 +307,43 @@ document.getElementById('btnSend').addEventListener('click',()=>{
 
 /* language */
 document.getElementById('btnLang').onclick=()=>{window.location.href='zafarana-en.html';};
+
+/* Search suggestions */
+const PAGES = [
+  {name:'الرئيسية', url:'index.html'},
+  {name:'العين السخنة', url:'sokhna.html'},
+  {name:'طريق الزعفرانة', url:'zafarana.html'},
+  {name:'طريق السويس', url:'suez.html'},
+  {name:'الساحل الشمالي', url:'north.html'},
+  {name:'القاهرة الجديدة', url:'Cairo.html'},
+  {name:'Murano', url:'murano.html'},
+  {name:'Lugano', url:'lugano.html'},
+  {name:'Ein Hills', url:'einhills.html'},
+  {name:'Loly Beach', url:'lolybeach.html'},
+  {name:'Dolphin Beach', url:'dolphin.html'},
+  {name:'Murano (EN)', url:'murano-en.html'},
+  {name:'Lugano (EN)', url:'lugano-en.html'},
+  {name:'Ein Hills (EN)', url:'einhills-en.html'},
+  {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
+  {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
+];
+(function(){
+  const input=document.getElementById('siteSearch');
+  const box=document.getElementById('suggestBox');
+  function render(list){
+    box.innerHTML='';
+    if(!list.length){ box.style.display='none'; return; }
+    list.forEach(it=>{ const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a); });
+    box.style.display='block';
+  }
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    if(!q){ box.style.display='none'; return; }
+    const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
+    render(out);
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
+})();
 </script>
 </body>
 </html>
