@@ -17,7 +17,7 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helve
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Topbar */
+/* Topbar (unchanged) */
 .topbar{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
 .navbar{height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
 .brandbox{justify-self:start;width:160px;height:56px;display:inline-flex;align-items:center;justify-content:flex-start}
@@ -50,12 +50,21 @@ a{color:inherit;text-decoration:none}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#16233b}
 
-/* Hero */
+/* Hero (new layout) */
 .hero{position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
-.hero .overlay{position:relative;z-index:2;display:grid;place-items:center;height:100%;
-  background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55))}
-.hero h1{margin:0;font-weight:800;font-size:clamp(22px,5vw,42px);text-shadow:0 6px 16px rgba(0,0,0,.5)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .overlay{
+  position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;
+  padding:0 16px 24px;
+}
+.hero h1{
+  margin:0;
+  font-weight:800;
+  font-size:clamp(22px,5vw,40px);
+  line-height:1.25;
+  letter-spacing:.3px; /* تحسين بسيط للإنجليزي */
+  /* no text-shadow */
+}
 
 /* Routes tiles */
 .routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
