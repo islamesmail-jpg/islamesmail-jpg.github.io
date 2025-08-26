@@ -6,13 +6,14 @@
 <title>Dolphin Beach | منتجع دولفين بيتش العين السخنة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-/* نفس تنسيق الصفحات السابقة */
 :root{--bg:#0b0d1a;--card:#111326;--text:#fff;--muted:#c9c9c9;--accent:#f0c30f;--field:#181b31;--radius:16px;--wrap:1120px;--shadow:0 6px 16px rgba(0,0,0,.25)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,sans-serif;line-height:1.85}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,sans-serif;line-height:1.85}
 .navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
 .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
 .logo-img{height:36px;border-radius:8px}
-.spacer{flex:1}.nav-links{display:flex;gap:10px;align-items:center}
+.spacer{flex:1}
+.nav-links{display:flex;gap:10px;align-items:center}
 .nav-btn,.nav-link{color:var(--text);background:transparent;border-radius:10px;padding:8px 10px;font-size:14px;text-decoration:none;cursor:pointer}
 .nav-btn:hover,.nav-link:hover{background:#111326}
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
@@ -27,7 +28,7 @@
 .slide img{width:100%;height:100%;object-fit:cover}
 @media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:none;border-radius:50%;background:rgba(15,17,34,.7);color:#fff;cursor:pointer;z-index:5}
-.arrow.left{inset-inline-start:8px}.arrow.right{inset-inline-end:8px}
+.arrow.left{right:8px}.arrow.right{left:8px}
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
 .price-card{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;font-weight:700}
 .master-wrap{text-align:center;margin:12px 0}
@@ -38,7 +39,6 @@ footer{text-align:center;margin:20px 0;color:#999}
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
   <div class="nav-inner">
     <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="logo">
@@ -49,20 +49,18 @@ footer{text-align:center;margin:20px 0;color:#999}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <video src="https://e.top4top.io/m_3525s8v770.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top">منتجع دولفين بيتش</span><br>
       <span class="line-sub">Dolphin Beach Ain Sokhna</span><br>
-      <span class="dev">المطور: شركة الحجاز للتنمية السياحية</span>
+      <span class="dev">المطور: شركة الحجاز للتنمية السياحية والعقارية</span>
     </h1>
   </div>
 </section>
 
 <div class="wrapper">
-  <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn">‹</button>
     <button class="arrow right" id="nextBtn">›</button>
@@ -78,48 +76,31 @@ footer{text-align:center;margin:20px 0;color:#999}
     </div>
   </div>
 
-  <!-- PRICES + MAP -->
   <div class="prices">
-    <div class="price-card">سعر المطوّر<br><a href="#contact">استفسر الآن</a></div>
+    <div class="price-card">سعر المطور<br><a href="#contact">استفسر الآن</a></div>
     <div class="price-card">سعر إعادة البيع<br><a href="#contact">تواصل معنا</a></div>
   </div>
   <div class="master-wrap">
     <a href="https://maps.app.goo.gl/WPsFq1JwnKvYr7bg7" target="_blank" class="master-pill">📍 موقع القرية على الخريطة</a>
   </div>
 
-  <!-- INFO -->
   <section>
     <h2>معلومات عن قرية دولفين بيتش</h2>
-    <p>قرية سياحية متكاملة الخدمات من تنفيذ شركة الحجاز للتنمية منذ 1988. تضم فندق و450 وحدة (شاليهات + فيلات). تبعد عن القاهرة 90 دقيقة وتقع بالكيلو 66 طريق الزعفرانة.</p>
-
+    <p>قرية دولفين بيتش مميزة في العين السخنة تضم فندقًا ووحدات (شاليهات + فيلات)، مع شاطئ خاص وخدمات أساسية وترفيهية متكاملة. تقع بالكيلو 66 طريق الزعفرانة وتبعد ساعة ونصف من القاهرة.</p>
     <h2>المطور العقاري</h2>
-    <p>شركة الحجاز للتنمية السياحية والعقارية، بخبرة منذ 1988. نفذت مشروعات مثل واحة الحجاز – السخنة هيلز – دولفين بيتش.</p>
-
-    <h2>الموقع</h2>
-    <p>على طريق الزعفرانة بالكيلو 66 – 90 دقيقة من القاهرة – 4 دقائق من فندق موفنبيك – قريب من السخنة هيلز وواحة مينا.</p>
-
-    <h2>الوحدات</h2>
+    <p>شركة الحجاز للتنمية السياحية والعقارية تأسست عام 1988، وقدمت مشروعات مميزة مثل واحة الحجاز، السخنة هيلز، ودولفين بيتش.</p>
+    <h2>الوحدات والمساحات</h2>
+    <ul><li>شاليهات: 60–120 م²</li><li>فيلات: حتى 650 م²</li></ul>
+    <h2>الخدمات والمميزات</h2>
     <ul>
-      <li>شاليهات: 60 – 120 م²</li>
-      <li>فيلات مستقلة: حتى 650 م²</li>
-    </ul>
-
-    <h2>المميزات</h2>
-    <ul>
-      <li>شاطئ خاص</li><li>12 حمام سباحة</li><li>لاندسكيب ومساحات خضراء</li><li>عروض الدلافين</li><li>يسمح بالحيوانات الأليفة</li>
-    </ul>
-
-    <h2>الخدمات</h2>
-    <ul>
-      <li>فندق 4 نجوم</li><li>صيدلية + سوبر ماركت</li><li>أمن وحراسة 24/7</li><li>مطاعم متنوعة</li><li>كافيهات</li><li>ATM</li><li>موقف سيارات</li><li>منطقة أطفال</li>
+      <li>شاطئ خاص</li><li>12 حمام سباحة</li><li>عروض الدلافين</li><li>يسمح بالحيوانات الأليفة</li>
+      <li>أمن وحراسة 24 ساعة</li><li>صيدلية وسوبرماركت</li><li>فندق 4 نجوم</li><li>مطاعم وكافيهات</li>
     </ul>
   </section>
 
-  <!-- CONTACT -->
   <section class="card" id="contact">
     <h3>📞 تواصل معنا</h3>
-    <p>للاستفسار عن وحدات دولفين بيتش</p>
-    <p>📱 01050072527 | ✉️ islammesmail@gmail.com</p>
+    <p>01050072527 | islammesmail@gmail.com</p>
   </section>
 </div>
 
