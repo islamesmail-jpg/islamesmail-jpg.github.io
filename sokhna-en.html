@@ -9,7 +9,7 @@
 <style>
 :root{--ink:#0b0d1a;--surface:#111326;--line:#1a2438;--gold:#e4c24a;--muted:#cbd5e1;--wrap:1120px;}
 *{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.8}
+body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 a{text-decoration:none;color:inherit}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
@@ -31,4 +31,226 @@ a{text-decoration:none;color:inherit}
 
 /* Breadcrumbs */
 .breadcrumb{background:rgba(15,22,39,.6);border-bottom:1px solid var(--line)}
-.breadcrumb .inner{display
+.breadcrumb .inner{display:flex;align-items:center;gap:8px;padding:6px 0;color:#e7eefb;font-weight:600;font-size:14px}
+.sep{opacity:.5}
+
+/* Search */
+.searchwrap{padding:12px 0}
+.searchbar{position:relative}
+#siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
+.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
+.suggestions a:last-child{border-bottom:0}
+.suggestions a:hover{background:#16233b}
+
+/* Hero */
+.hero{position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 22px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(20px,5vw,36px);line-height:1.25;letter-spacing:.3px}
+
+/* Routes */
+.routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+@media(max-width:640px){.routes{grid-template-columns:1fr}}
+.route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.route img{width:100%;height:200px;object-fit:cover}
+.route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.55);text-align:center;font-weight:800;border-radius:12px;padding:8px}
+
+/* Card */
+.cardx{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.cardx h2{margin:0 0 10px}
+.cardx ul{margin:8px 0 14px;padding-inline-start:18px;color:#e9eef8}
+.cardx li{margin:4px 0}
+
+/* Footer */
+footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:16px;margin-top:24px;font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container navbar">
+    <a class="brandbox" href="index.html" aria-label="Home">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
+    </a>
+    <div></div>
+    <div class="actions">
+      <button class="btnx" id="langToggle">AR</button>
+      <div class="contact" id="m-contact">
+        <button class="btnx" onclick="toggleDrop('m-contact')">Contact ▾</button>
+        <div class="panel">
+          <a href="tel:+201050072527">📞 Direct Call</a>
+          <a href="https://wa.me/201050072527" target="_blank">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="menu" id="m-proj">
+        <button class="btnx" onclick="toggleDrop('m-proj')">Projects ▾</button>
+        <div class="panel">
+          <a href="north.html">North Coast</a>
+          <a href="Cairo.html">New Cairo</a>
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container inner">
+    <a href="index.html">Home</a><span class="sep">»</span>
+  </div>
+</div>
+
+<main class="container">
+  <!-- Search -->
+  <div class="searchwrap">
+    <div class="searchbar">
+      <input id="siteSearch" type="search" placeholder="Search a page or project…">
+      <div class="suggestions" id="suggestBox"></div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <video autoplay loop muted playsinline preload="auto">
+      <source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"><h1>Ain Sokhna Projects Guide</h1></div>
+  </div>
+
+  <!-- ROUTES -->
+  <div class="routes">
+    <a class="route" href="zafarana-en.html">
+      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="Zafarana Road">
+      <div class="cap">Zafarana Road</div>
+    </a>
+    <a class="route" href="suez-en.html">
+      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="Suez Road">
+      <div class="cap">Suez Road</div>
+    </a>
+  </div>
+
+  <!-- FULL SPECS -->
+  <div class="cardx">
+    <h2>Ain Sokhna — Full Facts & Specs</h2>
+
+    <h3>(1) Location & Distances</h3>
+    <ul>
+      <li>On the Gulf of Suez (Red Sea), south of Suez City.</li>
+      <li>~130–140 km from Cairo (about 75–90 minutes depending on route).</li>
+      <li>~60 minutes from the New Administrative Capital.</li>
+      <li>~50–60 km from Suez.</li>
+    </ul>
+
+    <h3>(2) Administration</h3>
+    <p>Ain Sokhna falls under <strong>Suez Governorate</strong> with easy access to its public services.</p>
+
+    <h3>(3) Main Access Roads</h3>
+    <ul>
+      <li>Cairo – Ain Sokhna Highway (direct).</li>
+      <li>Zafarana Road (links Galala resorts and the southern shoreline).</li>
+      <li>Galala Plateau Road (tops the mountain linking to beach resorts).</li>
+      <li>Suez – Ain Sokhna Road.</li>
+      <li>Hurghada/Ismailia corridor toward other Red Sea cities.</li>
+    </ul>
+
+    <h3>(4) Weather & Seasons</h3>
+    <ul>
+      <li>Mild most of the year; winters are gentle and summers less humid than the Mediterranean.</li>
+      <li>Peak demand: weekends and holidays (close to Cairo).</li>
+    </ul>
+
+    <h3>(5) Activities & Leisure</h3>
+    <ul>
+      <li>Swimming, snorkeling, fishing, boat trips.</li>
+      <li>Mountain views and drives on the Galala Plateau.</li>
+      <li>Some resorts feature cable car access, aqua parks, and family attractions.</li>
+      <li>Gyms, spas, jogging/bike paths in many compounds.</li>
+    </ul>
+
+    <h3>(6) Essentials & Healthcare</h3>
+    <ul>
+      <li>Pharmacies and clinic services within most compounds/hotels.</li>
+      <li>Proximity to Suez hospitals and on-road emergency services.</li>
+    </ul>
+
+    <h3>(7) Key Zones</h3>
+    <ul>
+      <li>Galala area (upper & lower): hotels, resorts, attractions.</li>
+      <li>Early Zafarana stretch: terraced compounds with wide sea views.</li>
+      <li>From Sokhna Gates to Porto and along the Gulf.</li>
+    </ul>
+
+    <h3>(8) Residential & Hospitality Types</h3>
+    <ul>
+      <li>Chalets/apartments with sea/lagoon/green views.</li>
+      <li>Standalone villas, twin/town houses in selected projects.</li>
+      <li>4–5★ hotels and serviced residences inside many compounds.</li>
+    </ul>
+
+    <h3>(9) Investment Highlights</h3>
+    <ul>
+      <li>Closest Red Sea destination to Cairo → high year-round occupancy.</li>
+      <li>Flexible payment plans and comprehensive facility management.</li>
+      <li>Solid rental potential on weekends and holiday seasons.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>© <span id="year"></span> Eslam Realty</footer>
+
+<script>
+/* Year */
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* Dropdowns */
+function toggleDrop(id){
+  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+});
+
+/* Language button */
+document.getElementById('langToggle').addEventListener('click',()=>{ window.location.href='sokhna.html'; });
+
+/* Search suggestions */
+const PAGES = [
+  {name:'Home', url:'index.html'},
+  {name:'Ain Sokhna (this page)', url:'sokhna-en.html'},
+  {name:'Zafarana Road', url:'zafarana-en.html'},
+  {name:'Suez Road', url:'suez-en.html'},
+  {name:'North Coast', url:'north.html'},
+  {name:'New Cairo', url:'Cairo.html'},
+  {name:'Murano (AR)', url:'murano.html'},
+  {name:'Lugano (AR)', url:'lugano.html'},
+  {name:'Ein Hills (AR)', url:'einhills.html'},
+  {name:'Loly Beach (AR)', url:'lolybeach.html'},
+  {name:'Dolphin Beach (AR)', url:'dolphin.html'},
+  {name:'Murano (EN)', url:'murano-en.html'},
+  {name:'Lugano (EN)', url:'lugano-en.html'},
+  {name:'Ein Hills (EN)', url:'einhills-en.html'},
+  {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
+  {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
+];
+(function(){
+  const input=document.getElementById('siteSearch');
+  const box=document.getElementById('suggestBox');
+  function render(list){
+    box.innerHTML='';
+    if(!list.length){ box.style.display='none'; return; }
+    list.forEach(it=>{ const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a); });
+    box.style.display='block';
+  }
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    if(!q){ box.style.display='none'; return; }
+    const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
+    render(out);
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
+})();
+</script>
+</body>
+</html>
