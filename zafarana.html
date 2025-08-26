@@ -42,25 +42,26 @@ h1{margin:20px 0;font-size:22px;color:#f0c30f;text-align:center}
 .proj-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.25)}
 .proj-title{padding:10px 12px;font-weight:800;font-size:15px}
 .prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 14px}
-.price-box{background:#fff;color:#111;text-align:center;padding:8px 10px;border-radius:10px;font-weight:800;font-size:13px}
+.price-box{background:#fff;color:#111;text-align:center;padding:8px 10px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;border:1px solid #e5e7eb}
+.price-box:hover{filter:brightness(.97)}
 
 /* mini gallery */
-.miniGal{position:relative;height:200px;background:#0e1425;cursor:pointer;overflow:hidden}
+.miniGal{position:relative;height:200px;background:#0e1425;cursor:pointer;overflow:hidden;border-bottom:1px solid var(--line)}
 .miniGal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
 .miniGal img.show{display:block}
 .miniBtn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:1px solid #fff;border-radius:999px;width:34px;height:34px;display:grid;place-items:center;color:#fff;font-weight:800}
 .miniPrev{right:auto;left:8px}.miniNext{left:auto;right:8px}
 
 /* CONTACT */
-.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.25);margin:28px 0}
-.icon{font-size:40px;line-height:1}
+.contact-card{background:var(--surface);border:1px solid #1a2438;border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(0,0,0,.25);margin:28px 0;text-align:center}
+.icon{font-size:40px;line-height:1;margin-bottom:6px}
 .h3{margin:8px 0 6px;font-size:20px;font-weight:800}
 .sub{margin:0 0 16px;color:#9fb0c8}
-.form-row{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.form-row{display:flex;flex-direction:column;gap:8px;margin:10px 0;text-align:start}
 label{font-size:14px;color:#d7d7d7;font-weight:800}
 input,select,textarea{width:100%;background:#0b1323;color:#fff;border:1px solid #1a2438;border-radius:12px;padding:12px 14px;font-size:14px}
 textarea{min-height:110px;resize:vertical}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;justify-content:center}
 .btn{border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
 .btn-primary{background:#f0c30f;color:#111}
 .btn-outline{background:transparent;color:#f0c30f;border:2px solid #f0c30f}
@@ -82,13 +83,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
         <button class="nav-btn" id="btnProjects">المشاريع ▾</button>
         <div class="menu" id="projectsMenu">
           <a href="sokhna.html">العين السخنة</a>
-          <a href="zafarana.html">طريق الزعفرانة</a>
-          <a href="suez.html">طريق السويس</a>
           <a href="north.html">الساحل الشمالي</a>
           <a href="Cairo.html">القاهرة الجديدة</a>
-          <a href="Resale.html">ريسيل</a>
-          <a href="https://islamesmail-jpg.github.io/dolphin.html">دولفين بيتش</a>
-          <a href="https://islamesmail-jpg.github.io/dolphin-en.html" target="_blank">Dolphin Beach (EN)</a>
         </div>
       </div>
     </div>
@@ -101,7 +97,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 
 <!-- breadcrumbs -->
 <div class="breadcrumb"><div class="inner">
-  <a href="sokhna.html">العين السخنة</a><span class="sep">»</span><a href="index.html">الرئيسية</a>
+  <a href="index.html">الرئيسية</a><span class="sep">»</span><a href="sokhna.html">العين السخنة</a>
 </div></div>
 
 <main class="container">
@@ -123,8 +119,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </a>
       <div class="proj-title">Murano Wadi Degla | مورانو وادي دجلة</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>اسأل عن السعر</small></div>
       </div>
     </article>
 
@@ -141,8 +137,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </a>
       <div class="proj-title">Lugano Al Galala | لوجانو الجلالة</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>اسأل عن السعر</small></div>
       </div>
     </article>
 
@@ -159,8 +155,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </a>
       <div class="proj-title">Ein Hills | العين هيلز</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>اسأل عن السعر</small></div>
       </div>
     </article>
 
@@ -177,8 +173,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </a>
       <div class="proj-title">Loly Beach | لولي بيتش</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>اسأل عن السعر</small></div>
       </div>
     </article>
 
@@ -196,8 +192,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </a>
       <div class="proj-title">Dolphin Beach | دولفين بيتش</div>
       <div class="prices">
-        <div class="price-box">سعر المطوّر: —</div>
-        <div class="price-box">إعادة البيع: يبدأ من 2,250,000</div>
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>اسأل عن السعر</small></div>
       </div>
     </article>
 
@@ -206,7 +202,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   <!-- CONTACT -->
   <section class="contact-card" id="contact">
     <div class="icon">📨</div>
-    <div class="h3">للاستفسار عن مشروع معين</div>
+    <div class="h3">للاستفسار عن المشاريع</div>
     <p class="sub">املأ البيانات وسيتم التواصل معك في أقرب وقت.</p>
 
     <div class="form-row">
@@ -254,8 +250,12 @@ document.addEventListener('click',()=>wrap.classList.remove('open'));
 
 /* top contact -> focus note (آخر خانة) */
 document.getElementById('navContact').addEventListener('click',function(){
-  const note=document.getElementById('note');
-  setTimeout(()=>{ note?.focus(); }, 50);
+  document.getElementById('note')?.focus();
+});
+
+/* price boxes scroll to contact */
+document.querySelectorAll('.price-scroll').forEach(el=>{
+  el.addEventListener('click',()=>{ document.getElementById('note')?.focus(); document.getElementById('note')?.scrollIntoView({behavior:'smooth'}); });
 });
 
 /* mini galleries with arrows + swipe */
