@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lugano Al Galala | AOG Developments</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{display:flex;align-items:center;text-decoration:none}
+.logo-img{height:36px;width:auto;border-radius:8px}
+.spacer{flex:1}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer;text-decoration:none}
+.nav-btn:hover,.nav-link:hover{background:#111326}
+.projects-wrap{position:relative}
+.projects-wrap:focus-within .menu{display:block}
+.menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
+.menu a:hover{background:#121638}
+
+/* LAYOUT */
+.wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
+
+/* HERO */
+.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
+.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+.hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero .line-top{display:block;font-weight:800;font-size:44px}
+.hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
+.hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
+@media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* SLIDER */
+.slider-wrap{position:relative;margin:18px auto 10px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.14)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow:hover{background:rgba(15,17,34,.9)}
+.arrow.left{inset-inline-start:8px}
+.arrow.right{inset-inline-end:8px}
+
+/* PRICES + MASTERPLAN */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+.price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+.price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+.price-link:hover{filter:brightness(.97)}
+.master-wrap{text-align:center;margin:6px 0 18px}
+.master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
+
+/* TEXT */
+section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+section p,section li{color:var(--muted)}
+ul{margin:8px 0 12px}
+
+/* CARD / FORM */
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
+.card .icon{font-size:28px;text-align:center;margin:0 0 6px}
+.card h3{margin:6px 0;text-align:center;font-size:18px}
+.card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:13px;color:#d7d7d7}
+input,select,textarea{width:100%;background:var(--field);color:#fff;border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:100px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html"  id="m_sokhna">Ain Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north.html"   id="m_north">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html"   id="m_cairo">New Cairo</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#contact" id="navContact">Contact</a>
+      <!-- Language button: go back to Arabic page -->
+      <button class="nav-btn" id="btnLang" aria-label="Toggle language">AR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
+  <div class="overlay">
+    <h1>
+      <span class="line-top" id="hTop">Lugano Al Galala</span>
+      <span class="line-sub" id="hSub">Ain Sokhna</span>
+      <span class="dev" id="hDev">Developer: AOG Developments</span>
+    </h1>
+  </div>
+</section>
+
+<div class="wrapper">
+  <!-- SLIDER -->
+  <div class="slider-wrap">
+    <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
+    <button class="arrow right" id="nextBtn" aria-label="Next">›</button>
+    <div class="slider" id="slider">
+      <figure class="slide"><img loading="lazy" src="https://j.top4top.io/p_3524tp87p1.jpg" alt="Lugano 1"></figure>
+      <figure class="slide"><img loading="lazy" src="https://k.top4top.io/p_3524sitnk2.jpg" alt="Lugano 2"></figure>
+      <figure class="slide"><img loading="lazy" src="https://l.top4top.io/p_3524aroza3.jpg" alt="Lugano 3"></figure>
+      <figure class="slide"><img loading="lazy" src="https://a.top4top.io/p_3524ak1ie4.jpg" alt="Lugano 4"></figure>
+      <figure class="slide"><img loading="lazy" src="https://b.top4top.io/p_3524m4xl55.jpg" alt="Lugano 5"></figure>
+      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_3524173zh6.jpg" alt="Lugano 6"></figure>
+      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_3524hqsj87.jpg" alt="Lugano 7"></figure>
+      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3524j0tlb8.jpg" alt="Lugano 8"></figure>
+      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_352421fg69.jpg" alt="Lugano 9"></figure>
+      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3524hr2rn0.jpg" alt="Lugano 10"></figure>
+      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_35241ix5u1.jpg" alt="Lugano 11"></figure>
+      <figure class="slide"><img loading="lazy" src="https://g.top4top.io/p_3524wjkfp2.jpg" alt="Lugano 12"></figure>
+    </div>
+  </div>
+
+  <!-- PRICES + MASTERPLAN -->
+  <div class="prices">
+    <div class="price-card">
+      <div class="price-title" id="tDevPrice">Developer Price</div>
+      <a class="price-link" href="#contact" id="lDevOffer">Ask about offers</a>
+    </div>
+    <div class="price-card">
+      <div class="price-title" id="tResalePrice">Resale Price</div>
+      <a class="price-link" href="#contact" id="lResaleAsk">Contact for price</a>
+    </div>
+  </div>
+  <div class="master-wrap">
+    <a href="#" class="master-pill" id="btnMaster">Project Masterplan</a>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <section>
+    <h2 id="aTitle">About Lugano Al Galala</h2>
+    <p id="aP1"><strong>AOG Developments</strong><br>
+      Led by Mr. Mahmoud Omar, partner in a group of coastal developers with most projects delivered.
+      This year, the company launches a land bank across multiple destinations:</p>
+    <ul id="aList">
+      <li>Ain Sokhna</li><li>Ras Sudr</li><li>New Zayed</li><li>North Coast</li>
+    </ul>
+
+    <h2 id="oTitle">AOG Developments Background</h2>
+    <p id="o1">1) 18 years of achievements by the first generation — Ahmed Omar (Lasirena Group).</p>
+    <p id="o2">2) In 2020, the second generation led by Mahmoud Omar founded Manara Developments, leader of Galala development.</p>
+    <p id="o3">3) Early 2025, the second generation founded AOG Developments, redefining the “real-estate equation” to reflect true property value and restore investment returns.</p>
+    <p id="o4">The new equation: choose property by its true value.<br>A property by AOG Developments.</p>
+
+    <h2 id="lTitle">Location</h2>
+    <p id="lText">Zaafarana Road, first point on Galala Mountain — 10 min after gates — 20 km before Porto — 15 min to Galala Resort — 60 min from New Cairo.</p>
+
+    <h2 id="areaTitle">Project Area</h2>
+    <p id="areaText">40 feddans — 3 terraces:<br>• 1st +7 m above sea level<br>• 2nd +20 m (90% of the project)<br>• 3rd +35 m</p>
+
+    <h2 id="sTitle">Amenities</h2>
+    <ul id="sList">
+      <li>Five-star hotel (Alma)</li>
+      <li>Top operator (IHG)</li>
+      <li>Triple Play (landline + Internet + IPTV)</li>
+      <li>Club House</li>
+      <li>Restaurants & Cafés</li>
+      <li>Padel court</li>
+      <li>Bike path</li>
+      <li>Kids area</li>
+      <li>Gym</li>
+      <li>Mosque</li>
+      <li>Bridge</li>
+      <li>Golf carts</li>
+      <li>Facility Management (FM & IHG)</li>
+      <li>Private beach — 400 m width</li>
+      <li>Fully finished</li>
+      <li>Engineering consultant: MK</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="card" id="contact">
+    <div class="icon">📨</div>
+    <h3 id="fTitle">Need Real Estate Help?</h3>
+    <p class="sub" id="fSub">Fill in your details and we’ll contact you shortly.</p>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name" id="lblName">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="project" id="lblProj">Preferred project</label>
+          <input id="project" type="text" value="Lugano Al Galala" required>
+        </div>
+        <div>
+          <label for="unit" id="lblUnit">Unit type</label>
+          <select id="unit" required>
+            <option value="" disabled selected id="optUnitPH">Choose unit type</option>
+            <option id="optU1">Studio</option>
+            <option id="optU2">Chalet</option>
+            <option id="optU3">Apartment</option>
+            <option id="optU4">Townhouse</option>
+            <option id="optU5">Twin House</option>
+            <option id="optU6">Standalone Villa</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms" id="lblRooms">Bedrooms</label>
+          <select id="rooms" required>
+            <option value="" disabled selected id="optRoomPH">Choose bedrooms</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="note" id="lblNote">Note</label>
+        <textarea id="note" placeholder="Any extra details…"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btnWA">Send via WhatsApp</button>
+        <button type="button" id="btnMail">Send via Email</button>
+      </div>
+    </form>
+  </section>
+
+  <footer id="ft">© eslam reality 2025 — All rights reserved</footer>
+</div>
+
+<script>
+/* ===== Short helpers ===== */
+const $ = id => document.getElementById(id);
+
+/* ===== Projects dropdown ===== */
+(function(){
+  const wrap = $('projectsWrap'), btn = $('btnProjects'), menu = $('projectsMenu');
+  if(!wrap||!btn||!menu) return;
+  const toggle = (open)=>{ wrap.classList[open?'add':'remove']('open'); btn.setAttribute('aria-expanded', open?'true':'false'); menu.style.display=open?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); toggle(menu.style.display!=='block'); btn.focus(); });
+  menu.addEventListener('click', e=> e.stopPropagation());
+  document.addEventListener('click', ()=> toggle(false));
+  btn.addEventListener('keydown', e=>{ if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(true); menu.querySelector('a')?.focus(); }});
+})();
+
+/* ===== Slider arrows ===== */
+(function(){
+  const scroller = $('slider'); if(!scroller) return;
+  const next = $('nextBtn'), prev = $('prevBtn');
+  const step = () => Math.min(scroller.clientWidth*0.9, 700);
+  // LTR
+  next?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+})();
+
+/* ===== Masterplan open (direct) ===== */
+$('btnMaster')?.addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.open("https://f.top4top.io/p_3524k51250.jpg","_blank","noopener");
+});
+
+/* ===== Form actions (WhatsApp / Email) ===== */
+function collectData(){
+  const d = {
+    name: $('name')?.value?.trim() || '',
+    project: $('project')?.value?.trim() || 'Lugano Al Galala',
+    unit: $('unit')?.value || '',
+    rooms: $('rooms')?.value || '',
+    note: $('note')?.value?.trim() || ''
+  };
+  return d;
+}
+$('btnWA')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const msg = `Hello, I'd like to ask about ${d.project}.
+Name: ${d.name}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+  const phone = "01050072527";
+  const url = `https://wa.me/2${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+});
+$('btnMail')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const subject = "Inquiry about Lugano Al Galala";
+  const body = `Name: ${d.name}
+Project: ${d.project}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+  const mail = "islammesmail@gmail.com";
+  window.location.href = `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ===== Language button: go to Arabic page ===== */
+$('btnLang')?.addEventListener('click', ()=> {
+  window.location.href = "lugano.html";
+});
+</script>
+</body>
+  </html>
