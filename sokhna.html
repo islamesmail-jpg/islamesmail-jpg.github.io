@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>دليل مشاريع العين السخنة</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
 <style>
 :root{
@@ -17,208 +17,111 @@ body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helve
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Topbar (ثابت كما هو) */
-.topbar{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
-.navbar{height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
-.brandbox{justify-self:start;width:160px;height:56px;display:inline-flex;align-items:center;justify-content:flex-start}
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
+.navbar{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.brandbox{justify-self:start;width:150px;height:54px;display:inline-flex;align-items:center}
 .brandbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
-.actions{justify-self:end;display:flex;gap:12px;align-items:center}
-.btnx{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
-.btnx:hover{background:#fff2c2;color:#111}
+.actions{justify-self:end;display:flex;gap:18px;align-items:center}
+.btnx{border:none;background:transparent;color:#fff;font-weight:600;font-size:15px;cursor:pointer;padding:6px 4px}
+.btnx:hover{color:var(--gold)}
 
 /* dropdowns */
 .menu,.contact{position:relative}
 .panel{
-  position:absolute;top:calc(100% + 8px);right:0;background:#0f1224;color:#fff;border:1px solid #1d2143;border-radius:14px;
-  min-width:240px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;z-index:30
+  position:absolute;top:calc(100% + 8px);right:0;background:#0f1224;color:#fff;border:1px solid #1d2143;border-radius:12px;
+  min-width:220px;padding:6px;box-shadow:0 8px 20px rgba(0,0,0,.25);display:none;z-index:30
 }
 .menu.open .panel,.contact.open .panel{display:block}
-.panel a{display:block;padding:10px;border-radius:10px;font-weight:800}
+.panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
 .panel a:hover{background:#121638}
 
 /* Breadcrumbs */
-.breadcrumb{background:#0f1627;border-bottom:1px solid var(--line)}
-.breadcrumb .inner{display:flex;align-items:center;gap:8px;padding:8px 0;color:#e7eefb;font-weight:800}
+.breadcrumb{background:rgba(15,22,39,.6);border-bottom:1px solid var(--line)}
+.breadcrumb .inner{display:flex;align-items:center;gap:8px;padding:6px 0;color:#e7eefb;font-weight:600;font-size:14px}
 .sep{opacity:.5}
 
 /* Search */
 .searchwrap{padding:12px 0}
 .searchbar{position:relative}
-#siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:800}
-.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:300px;overflow:auto;z-index:40}
+#siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
 .suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#16233b}
 
-/* Hero (تعديل الاستايل حسب المطلوب) */
+/* Hero */
 .hero{position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* بدون خلفية متدرجة وبدون ظل */
 .hero .overlay{
-  position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;
-  padding:0 16px 24px; /* نزّل العنوان تحت شوية */
+  position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 22px;
 }
-.hero h1{
-  margin:0;
-  font-weight:800;
-  font-size:clamp(22px,5vw,40px);
-  line-height:1.25;
-  letter-spacing:.2px;
-  /* بدون text-shadow */
-}
+.hero h1{margin:0;font-weight:800;font-size:clamp(20px,5vw,36px);line-height:1.25;letter-spacing:.2px}
 
-/* Routes tiles (ثابت) */
+/* Routes tiles */
 .routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
 @media(max-width:640px){.routes{grid-template-columns:1fr}}
 .route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.route img{width:100%;height:220px;object-fit:cover;display:block}
-.route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--gold);
-  background:rgba(0,0,0,.55);text-align:center;font-weight:900;border-radius:12px;padding:10px}
+.route img{width:100%;height:200px;object-fit:cover}
+.route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.55);text-align:center;font-weight:800;border-radius:12px;padding:8px}
 
-/* Card (ثابت) */
+/* Card */
 .cardx{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
 .cardx h2{margin:0 0 10px}
 
 /* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:18px;margin-top:26px;font-size:14px}
+footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:16px;margin-top:24px;font-size:14px}
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="container navbar">
-    <a class="brandbox" href="index.html" aria-label="الصفحة الرئيسية">
-      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
-    </a>
-
+    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
     <div></div>
-
     <div class="actions">
       <button class="btnx" id="langToggle">EN</button>
-
       <div class="contact" id="m-contact">
         <button class="btnx" onclick="toggleDrop('m-contact')">اتصل بنا ▾</button>
         <div class="panel">
           <a href="tel:+201050072527">📞 تواصل مباشر</a>
-          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
+          <a href="https://wa.me/201050072527">💬 واتساب</a>
         </div>
       </div>
-
       <div class="menu" id="m-proj">
         <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
         <div class="panel">
           <a href="north.html">الساحل الشمالي</a>
           <a href="Cairo.html">القاهرة الجديدة</a>
-          <a href="index.html">الصفحة الرئيسية</a>
+          <a href="index.html">الرئيسية</a>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<div class="breadcrumb">
-  <div class="container inner">
-    <a href="index.html">الرئيسية</a><span class="sep">»</span>
-  </div>
-</div>
+<div class="breadcrumb"><div class="container inner"><a href="index.html">الرئيسية</a><span class="sep">»</span></div></div>
 
 <main class="container">
-  <!-- Search -->
-  <div class="searchwrap">
-    <div class="searchbar">
-      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
-      <div class="suggestions" id="suggestBox"></div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <video autoplay loop muted playsinline preload="auto">
-      <source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4">
-    </video>
-    <div class="overlay"><h1>دليل مشاريع العين السخنة</h1></div>
-  </div>
-
-  <!-- ROUTES -->
+  <div class="searchwrap"><div class="searchbar"><input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …"><div class="suggestions" id="suggestBox"></div></div></div>
+  <div class="hero"><video autoplay loop muted playsinline><source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4"></video><div class="overlay"><h1>دليل مشاريع العين السخنة</h1></div></div>
   <div class="routes">
-    <a class="route" href="zafarana.html">
-      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة">
-      <div class="cap">طريق الزعفرانة</div>
-    </a>
-    <a class="route" href="suez.html">
-      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
-      <div class="cap">طريق السويس</div>
-    </a>
+    <a class="route" href="zafarana.html"><img src="https://d.top4top.io/p_3522y933c1.jpeg"><div class="cap">طريق الزعفرانة</div></a>
+    <a class="route" href="suez.html"><img src="https://c.top4top.io/p_3522kobih0.jpeg"><div class="cap">طريق السويس</div></a>
   </div>
-
-  <!-- CONTENT -->
   <div class="cardx">
     <h2>عن العين السخنة</h2>
     <p>العين السخنة واحدة من أجمل المدن الساحلية على خليج السويس، وأقرب منتجع بحري للقاهرة. تتميز بطقس معتدل أغلب العام ومنشآت سياحية وخدمية متكاملة.</p>
-    <h3>(1) الموقع</h3>
-    <p>تبعد ~55 كم جنوب السويس و~133 كم عن القاهرة (~ساعة ونصف)، وقريبة من العاصمة الإدارية (~ساعة).</p>
-    <h3>(2) طرق الوصول</h3>
-    <p>طريق القاهرة–السخنة • طريق الزعفرانة • طريق هضبة الجلالة • طريق السويس • طريق الغردقة/الإسماعيلية.</p>
   </div>
 </main>
 
 <footer>© <span id="year"></span> Eslam Realty</footer>
 
 <script>
-/* Year */
 document.getElementById('year').textContent=new Date().getFullYear();
-
-/* Dropdowns */
-function toggleDrop(id){
-  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-  document.getElementById(id).classList.toggle('open');
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-});
-
-/* Language button: go to EN version */
-document.getElementById('langToggle').addEventListener('click',()=>{ window.location.href='sokhna-en.html'; });
-
-/* Search suggestions */
-const PAGES = [
-  {name:'الرئيسية', url:'index.html'},
-  {name:'العين السخنة', url:'sokhna.html'},
-  {name:'طريق الزعفرانة', url:'zafarana.html'},
-  {name:'طريق السويس', url:'suez.html'},
-  {name:'الساحل الشمالي', url:'north.html'},
-  {name:'القاهرة الجديدة', url:'Cairo.html'},
-  {name:'Murano', url:'murano.html'},
-  {name:'Lugano', url:'lugano.html'},
-  {name:'Ein Hills', url:'einhills.html'},
-  {name:'Loly Beach', url:'lolybeach.html'},
-  {name:'Dolphin Beach', url:'dolphin.html'},
-  {name:'Murano (EN)', url:'murano-en.html'},
-  {name:'Lugano (EN)', url:'lugano-en.html'},
-  {name:'Ein Hills (EN)', url:'einhills-en.html'},
-  {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
-  {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
-];
-(function(){
-  const input=document.getElementById('siteSearch');
-  const box=document.getElementById('suggestBox');
-  function render(list){
-    box.innerHTML='';
-    if(!list.length){ box.style.display='none'; return; }
-    list.forEach(it=>{
-      const a=document.createElement('a');
-      a.href=it.url; a.textContent=it.name; box.appendChild(a);
-    });
-    box.style.display='block';
-  }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
-    render(out);
-  });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
-})();
+function toggleDrop(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'))});
+document.getElementById('langToggle').addEventListener('click',()=>{window.location.href='sokhna-en.html'});
 </script>
 </body>
 </html>
