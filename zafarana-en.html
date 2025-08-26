@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>eslam reality | Contact</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
+<style>
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25); --line:#1a2038;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{justify-self:start;display:flex;align-items:center;text-decoration:none;gap:10px}
+.logo-img{height:44px;width:auto;border-radius:10px}
+.brand{font-weight:800;opacity:.95}
+.center{justify-self:center}
+.right{justify-self:end;display:flex;align-items:center;gap:18px}
+.nav-link,.nav-btn{color:var(--text);background:transparent;border:0;font-size:16px;font-weight:800;cursor:pointer;text-decoration:none}
+.nav-link:hover,.nav-btn:hover{opacity:.9}
+
+/* Projects dropdown */
+.projects-wrap{position:relative}
+.menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:8px;min-width:240px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:10px 12px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700}
+.menu a:hover{background:#121638}
+.projects-wrap.open .menu{display:block}
+
+/* CONTENT WRAPPER */
+.wrapper{max-width:var(--wrap);margin:auto;padding:24px 16px 40px}
+
+/* CONTACT */
+.contact-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin:28px 0}
+.icon{font-size:40px;line-height:1}
+.h3{margin:8px 0 6px;font-size:20px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--muted)}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:14px;color:#d7d7d7;font-weight:700}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:110px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:800;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <!-- Left: logo -->
+    <a class="logo-link" href="index.html" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+      <span class="brand">Islam Esmail • ARSAM</span>
+    </a>
+
+    <!-- Center: Projects -->
+    <div class="center">
+      <div class="projects-wrap" id="projectsWrap">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false">Projects ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/dolphin-en.html">Dolphin Beach (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/dolphin.html" target="_blank">دولفين بيتش</a>
+          <a href="https://islamesmail-jpg.github.io/lugano-en.html">Lugano (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/lugano.html" target="_blank">لوجانو الجلالة</a>
+          <a href="https://islamesmail-jpg.github.io/murano-en.html">Murano (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/murano.html" target="_blank">مورانو</a>
+          <a href="https://islamesmail-jpg.github.io/einhills-en.html">Ein Hills (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/einhills.html" target="_blank">العين هيلز</a>
+          <a href="https://islamesmail-jpg.github.io/lolybeach-en.html">Loly Beach (EN)</a>
+          <a href="https://islamesmail-jpg.github.io/lolybeach.html" target="_blank">لولي بيتش</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: AR + Contact -->
+    <div class="right">
+      <button class="nav-btn" id="btnLang" aria-label="Arabic">AR</button>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- CONTACT FORM -->
+  <section class="contact-card" id="contact">
+    <div class="icon">📨</div>
+    <div class="h3">Need Real Estate Help?</div>
+    <p class="sub">Fill your details and we’ll contact you shortly.</p>
+
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="project">Preferred project</label>
+          <input id="project" type="text" placeholder="Project name">
+        </div>
+        <div>
+          <label for="unit">Unit type</label>
+          <select id="unit" required>
+            <option value="" disabled selected>Choose a unit</option>
+            <option>Studio</option>
+            <option>Chalet</option>
+            <option>Apartment</option>
+            <option>Townhouse</option>
+            <option>Twin House</option>
+            <option>Villa</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms">Bedrooms</label>
+          <select id="rooms" required>
+            <option value="" disabled selected>Select bedrooms</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label for="note">Note</label>
+        <textarea id="note" placeholder="Any extra details…"></textarea>
+      </div>
+
+      <div class="btns">
+        <button type="button" id="btnWA">Send via WhatsApp</button>
+        <button type="button" id="btnMail">Send via Email</button>
+      </div>
+    </form>
+  </section>
+
+</div>
+
+<footer>© eslam reality 2025 — All rights reserved</footer>
+
+<script>
+const $ = (id)=>document.getElementById(id);
+
+/* Dropdown toggle */
+(function(){
+  const wrap=$('projectsWrap'), btn=$('btnProjects'), menu=$('projectsMenu');
+  if(!wrap||!btn||!menu) return;
+  const toggle=(open)=>{ wrap.classList.toggle('open',open); btn.setAttribute('aria-expanded',open?'true':'false'); };
+  btn.addEventListener('click',e=>{ e.stopPropagation(); toggle(!wrap.classList.contains('open')); });
+  document.addEventListener('click',()=>toggle(false));
+})();
+
+/* Form send */
+function data(){
+  return {
+    name: $('name')?.value?.trim() || '',
+    project: $('project')?.value?.trim() || '',
+    unit: $('unit')?.value || '',
+    rooms: $('rooms')?.value || '',
+    note: $('note')?.value?.trim() || ''
+  };
+}
+$('btnWA')?.addEventListener('click', ()=>{
+  const d=data();
+  const msg = `eslam reality
+Name: ${d.name}
+Project: ${d.project}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Note: ${d.note}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+});
+$('btnMail')?.addEventListener('click', ()=>{
+  const d=data();
+  const subject = 'eslam reality — Lead form';
+  const body = `eslam reality
+Name: ${d.name}
+Project: ${d.project}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Note: ${d.note}`;
+  window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* Language switch */
+$('btnLang')?.addEventListener('click', ()=>{ window.location.href='landing-ar.html'; });
+</script>
+</body>
+  </html>
