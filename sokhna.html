@@ -8,12 +8,11 @@
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
 <style>
 :root{
-  --ink:#0b0d1a; --surface:#111326; --line:#1a2438; --gold:#e4c24a; --muted:#cbd5e1;
-  --wrap:1120px;
+  --ink:#0b0d1a; --surface:#111326; --line:#1a2438; --gold:#e4c24a; --muted:#cbd5e1; --wrap:1120px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.8}
+body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
@@ -53,9 +52,7 @@ a{color:inherit;text-decoration:none}
 /* Hero */
 .hero{position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero .overlay{
-  position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 22px;
-}
+.hero .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 22px}
 .hero h1{margin:0;font-weight:800;font-size:clamp(20px,5vw,36px);line-height:1.25;letter-spacing:.2px}
 
 /* Routes tiles */
@@ -69,6 +66,10 @@ a{color:inherit;text-decoration:none}
 .cardx{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
 .cardx h2{margin:0 0 10px}
 
+/* List style */
+.cardx ul{margin:8px 0 14px;padding-inline-start:18px;color:#e9eef8}
+.cardx li{margin:4px 0}
+
 /* Footer */
 footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:16px;margin-top:24px;font-size:14px}
 </style>
@@ -77,7 +78,9 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
 
 <header class="topbar">
   <div class="container navbar">
-    <a class="brandbox" href="index.html"><img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty"></a>
+    <a class="brandbox" href="index.html" aria-label="الصفحة الرئيسية">
+      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="Eslam Realty">
+    </a>
     <div></div>
     <div class="actions">
       <button class="btnx" id="langToggle">EN</button>
@@ -85,7 +88,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
         <button class="btnx" onclick="toggleDrop('m-contact')">اتصل بنا ▾</button>
         <div class="panel">
           <a href="tel:+201050072527">📞 تواصل مباشر</a>
-          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
         </div>
       </div>
       <div class="menu" id="m-proj">
@@ -100,28 +103,161 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
   </div>
 </header>
 
-<div class="breadcrumb"><div class="container inner"><a href="index.html">الرئيسية</a><span class="sep">»</span></div></div>
+<div class="breadcrumb">
+  <div class="container inner">
+    <a href="index.html">الرئيسية</a><span class="sep">»</span>
+  </div>
+</div>
 
 <main class="container">
-  <div class="searchwrap"><div class="searchbar"><input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …"><div class="suggestions" id="suggestBox"></div></div></div>
-  <div class="hero"><video autoplay loop muted playsinline><source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4"></video><div class="overlay"><h1>دليل مشاريع العين السخنة</h1></div></div>
-  <div class="routes">
-    <a class="route" href="zafarana.html"><img src="https://d.top4top.io/p_3522y933c1.jpeg"><div class="cap">طريق الزعفرانة</div></a>
-    <a class="route" href="suez.html"><img src="https://c.top4top.io/p_3522kobih0.jpeg"><div class="cap">طريق السويس</div></a>
+  <!-- Search -->
+  <div class="searchwrap">
+    <div class="searchbar">
+      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
+      <div class="suggestions" id="suggestBox"></div>
+    </div>
   </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <video autoplay loop muted playsinline preload="auto">
+      <source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"><h1>دليل مشاريع العين السخنة</h1></div>
+  </div>
+
+  <!-- ROUTES -->
+  <div class="routes">
+    <a class="route" href="zafarana.html">
+      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة">
+      <div class="cap">طريق الزعفرانة</div>
+    </a>
+    <a class="route" href="suez.html">
+      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
+      <div class="cap">طريق السويس</div>
+    </a>
+  </div>
+
+  <!-- FULL SPECS -->
   <div class="cardx">
-    <h2>عن العين السخنة</h2>
-    <p>العين السخنة واحدة من أجمل المدن الساحلية على خليج السويس، وأقرب منتجع بحري للقاهرة. تتميز بطقس معتدل أغلب العام ومنشآت سياحية وخدمية متكاملة.</p>
+    <h2>مواصفات العين السخنة (دليل كامل)</h2>
+    <h3>(1) الموقع والمسافات</h3>
+    <ul>
+      <li>تقع على ساحل خليج السويس (البحر الأحمر)، جنوب مدينة السويس.</li>
+      <li>المسافة من القاهرة ~ 130–140 كم (حوالي 75–90 دقيقة حسب الطريق).</li>
+      <li>المسافة من العاصمة الإدارية ~ 60 دقيقة تقريبًا.</li>
+      <li>المسافة من السويس ~ 50–60 كم.</li>
+    </ul>
+
+    <h3>(2) الانتماء الإداري</h3>
+    <p>العين السخنة تتبع <strong>محافظة السويس</strong> إداريًا، مع سهولة الوصول إلى خدمات المحافظة.</p>
+
+    <h3>(3) طرق الوصول والمحاور</h3>
+    <ul>
+      <li>طريق القاهرة – العين السخنة المباشر.</li>
+      <li>طريق الزعفرانة (يربط منتجعات الجلالة والساحل الجنوبي).</li>
+      <li>طريق هضبة الجلالة (يربط أعلى الجبل بالمنتجعات الساحلية).</li>
+      <li>طريق السويس – العين السخنة.</li>
+      <li>طريق الغردقة/الإسماعيلية (للربط بمدن البحر الأحمر).</li>
+    </ul>
+
+    <h3>(4) الطقس وأفضل أوقات الزيارة</h3>
+    <ul>
+      <li>طقس معتدل أغلب شهور السنة، شتاء لطيف وصيف أقل رطوبة من ساحل المتوسط.</li>
+      <li>موسم الذروة: عطلات نهاية الأسبوع وعلى مدار العام (لقربها من القاهرة).</li>
+    </ul>
+
+    <h3>(5) أنشطة وترفيه</h3>
+    <ul>
+      <li>رياضات مائية: سباحة، سنوركلينج، صيد، رحلات بحرية.</li>
+      <li>تجارب جبلية: صعود هضبة الجلالة، إطلالات بانورامية.</li>
+      <li>تليفريك الجلالة (بحسب تشغيله)، زلاجات، أكوا بارك في بعض القرى.</li>
+      <li>نوادٍ صحية وسبا، ممشى ودراجات في منتجعات كثيرة.</li>
+    </ul>
+
+    <h3>(6) خدمات أساسية وطبية</h3>
+    <ul>
+      <li>صيدليات وخدمات طبية داخل معظم القرى والفنادق.</li>
+      <li>القرب من مستشفيات السويس، مع خدمات طوارئ على الطرق.</li>
+    </ul>
+
+    <h3>(7) مناطق وتجمعات رئيسية</h3>
+    <ul>
+      <li>منطقة الجلالة (فوق وتحت الجبل) — منتجعات وفنادق ومناطق ترفيه.</li>
+      <li>منطقة بداية الزعفرانة — قرى شاطئية متدرجة المصاطب بإطلالات واسعة.</li>
+      <li>منطقة ما بعد بوابات السخنة حتى بورتو وخليج السويس.</li>
+    </ul>
+
+    <h3>(8) أنواع المشروعات السكنية والسياحية</h3>
+    <ul>
+      <li>شاليهات وشقق بمساحات متنوعة وإطلالات بحر/حدائق/لاجونز.</li>
+      <li>فلل مستقلة وتوين/تاون هاوس في بعض المشروعات.</li>
+      <li>فنادق ومنتجعات 4–5 نجوم وخدمات فندقية داخل القرى.</li>
+    </ul>
+
+    <h3>(9) مزايا الاستثمار والملكية</h3>
+    <ul>
+      <li>أقرب وجهة بحر أحمر للقاهرة → معدل إشغال مرتفع على مدار العام.</li>
+      <li>تنوع واسع في طرق السداد وأنظمة الصيانة والخدمات.</li>
+      <li>قيمة إيجارية جيدة في المواسم والأعياد ونهاية الأسبوع.</li>
+    </ul>
   </div>
 </main>
 
 <footer>© <span id="year"></span> Eslam Realty</footer>
 
 <script>
+/* Year */
 document.getElementById('year').textContent=new Date().getFullYear();
-function toggleDrop(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open')}
-document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'))});
-document.getElementById('langToggle').addEventListener('click',()=>{window.location.href='sokhna-en.html'});
+
+/* Dropdowns */
+function toggleDrop(id){
+  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+});
+
+/* Language button */
+document.getElementById('langToggle').addEventListener('click',()=>{ window.location.href='sokhna-en.html'; });
+
+/* Search suggestions */
+const PAGES = [
+  {name:'الرئيسية', url:'index.html'},
+  {name:'العين السخنة', url:'sokhna.html'},
+  {name:'طريق الزعفرانة', url:'zafarana.html'},
+  {name:'طريق السويس', url:'suez.html'},
+  {name:'الساحل الشمالي', url:'north.html'},
+  {name:'القاهرة الجديدة', url:'Cairo.html'},
+  {name:'Murano', url:'murano.html'},
+  {name:'Lugano', url:'lugano.html'},
+  {name:'Ein Hills', url:'einhills.html'},
+  {name:'Loly Beach', url:'lolybeach.html'},
+  {name:'Dolphin Beach', url:'dolphin.html'},
+  {name:'Murano (EN)', url:'murano-en.html'},
+  {name:'Lugano (EN)', url:'lugano-en.html'},
+  {name:'Ein Hills (EN)', url:'einhills-en.html'},
+  {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
+  {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
+];
+(function(){
+  const input=document.getElementById('siteSearch');
+  const box=document.getElementById('suggestBox');
+  function render(list){
+    box.innerHTML='';
+    if(!list.length){ box.style.display='none'; return; }
+    list.forEach(it=>{ const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a); });
+    box.style.display='block';
+  }
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    if(!q){ box.style.display='none'; return; }
+    const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
+    render(out);
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
+})();
 </script>
 </body>
 </html>
