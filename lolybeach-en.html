@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loly Beach | Ain El Sokhna</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{display:flex;align-items:center;text-decoration:none}
+.logo-img{height:36px;width:auto;border-radius:8px}
+.spacer{flex:1}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer;text-decoration:none}
+.nav-btn:hover,.nav-link:hover{background:#111326}
+.projects-wrap{position:relative}
+.projects-wrap:focus-within .menu{display:block}
+.menu{position:absolute;top:calc(100% + 6px);left:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
+.menu a:hover{background:#121638}
+
+/* LAYOUT */
+.wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
+
+/* HERO */
+.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
+.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+.hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero .line-top{display:block;font-weight:800;font-size:44px}
+.hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
+.hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
+@media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* SLIDER */
+.slider-wrap{position:relative;margin:18px auto 10px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.14)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow:hover{background:rgba(15,17,34,.9)}
+.arrow.left{left:8px}
+.arrow.right{right:8px}
+
+/* PRICES + MAP */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+.price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+.price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+.price-link:hover{filter:brightness(.97)}
+.master-wrap{text-align:center;margin:6px 0 18px}
+.master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
+
+/* TEXT */
+section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+section p,section li{color:var(--muted)}
+ul{margin:8px 0 12px}
+
+/* CARD / FORM */
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
+.card .icon{font-size:28px;text-align:center;margin:0 0 6px}
+.card h3{margin:6px 0;text-align:center;font-size:18px}
+.card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:13px;color:#d7d7d7}
+input,select,textarea{width:100%;background:var(--field);color:#fff;border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:100px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html">Ain Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north.html">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html">New Cairo</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-btn" href="lolybeach.html" aria-label="التبديل إلى العربية">AR</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO (IMAGE) -->
+<section class="hero">
+  <img src="https://j.top4top.io/p_352552pj00.jpg" alt="Loly Beach Hero">
+  <div class="overlay">
+    <h1>
+      <span class="line-top">Loly Beach – Ain El Sokhna</span>
+      <span class="line-sub">Resort Living on the Red Sea</span>
+      <span class="dev">Developer: DNA Engineering & Real Estate Development</span>
+    </h1>
+  </div>
+</section>
+
+<div class="wrapper">
+  <!-- SLIDER -->
+  <div class="slider-wrap">
+    <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
+    <button class="arrow right" id="nextBtn" aria-label="Next">›</button>
+    <div class="slider" id="slider">
+      <figure class="slide"><img loading="lazy" src="https://j.top4top.io/p_35249oiip0.jpeg" alt="Loly Beach 1"></figure>
+      <figure class="slide"><img loading="lazy" src="https://k.top4top.io/p_3524gw1zg1.jpg" alt="Loly Beach 2"></figure>
+      <figure class="slide"><img loading="lazy" src="https://b.top4top.io/p_3525lah043.jpeg" alt="Loly Beach 3"></figure>
+      <figure class="slide"><img loading="lazy" src="https://k.top4top.io/p_3525r608s1.jpg" alt="Loly Beach 4"></figure>
+      <figure class="slide"><img loading="lazy" src="https://l.top4top.io/p_3525igrvh2.jpg" alt="Loly Beach 5"></figure>
+      <figure class="slide"><img loading="lazy" src="https://l.top4top.io/p_3524sibka2.jpg" alt="Loly Beach 6"></figure>
+      <figure class="slide"><img loading="lazy" src="https://a.top4top.io/p_3524tgjfp3.jpg" alt="Loly Beach 7"></figure>
+      <figure class="slide"><img loading="lazy" src="https://b.top4top.io/p_35243qiu34.jpg" alt="Loly Beach 8"></figure>
+      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_35249fzcv5.jpg" alt="Loly Beach 9"></figure>
+      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_3524o0bc16.jpg" alt="Loly Beach 10"></figure>
+    </div>
+  </div>
+
+  <!-- PRICES + MAP BUTTON -->
+  <div class="prices">
+    <div class="price-card">
+      <div class="price-title">Developer Price</div>
+      <a class="price-link" href="#contact">Ask about offers</a>
+    </div>
+    <div class="price-card">
+      <div class="price-title">Resale Price</div>
+      <a class="price-link" href="#contact">Contact for price</a>
+    </div>
+  </div>
+  <div class="master-wrap">
+    <a href="https://maps.app.goo.gl/Rvb5agNdKS4b93hH8" target="_blank" rel="noopener" class="master-pill">📍 See location on map</a>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <section>
+    <h2>About Loly Beach</h2>
+    <p>Developed by <strong>DNA Engineering & Real Estate Development</strong>, Loly Beach is a refined resort in Ain El Sokhna with year-round mild weather and a pristine beachfront. It offers modern, high-quality homes with premium finishes, abundant leisure, and competitive prices with flexible payment plans.</p>
+
+    <h2>Location</h2>
+    <p>In the heart of Ain El Sokhna, near services and main highways — at the starting point of Zaafarana Road, ~3 km from the checkpoint, ~8 km to Ain Sokhna gate; close to Mövenpick Hotel and Ein village, with direct panoramic Red Sea views.</p>
+
+    <h2>Key Merits</h2>
+    <ul>
+      <li>Prime location near major roads and service hubs.</li>
+      <li>Robust infrastructure and integrated services.</li>
+      <li>Luxurious units with serene landscape views.</li>
+      <li>Extensive greenery, cooling microclimate and tranquil ambience.</li>
+      <li>Crystal lagoons and dancing fountains.</li>
+      <li>Advanced security, 24/7 guarding and e-gates.</li>
+      <li>Multiple pools for all ages, high privacy.</li>
+      <li>High-performance central Wi-Fi to all units.</li>
+      <li>Covered, secure parking beneath buildings.</li>
+    </ul>
+
+    <h2>Amenities</h2>
+    <ul>
+      <li>Water park and family activities</li>
+      <li>Luxury hotel</li>
+      <li>Golf course with carts</li>
+      <li>Equipped gym & spa (sauna/massage)</li>
+      <li>Hospitals & 24/7 pharmacies</li>
+      <li>Signature entertainment island</li>
+      <li>Diving & fishing centers, yacht marina</li>
+      <li>Jogging paths, yoga lawns</li>
+      <li>Meeting rooms & event halls</li>
+      <li>Sports club & courts</li>
+      <li>Prayer facilities</li>
+      <li>Mall with global brands</li>
+      <li>Restaurants, cafés & hypermarket</li>
+      <li>Cinema halls</li>
+      <li>On-site maintenance</li>
+    </ul>
+
+    <h2>Developer</h2>
+    <p><strong>DMA</strong> is a leading engineering & real-estate firm with a strong record of integrated communities across Egypt, including the New Capital, Ain Sokhna, El Shorouk and Sheikh Zayed — known for quality and on-time delivery.</p>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="card" id="contact">
+    <div class="icon">📨</div>
+    <h3>Need Real Estate Help?</h3>
+    <p class="sub">Fill in your details and we’ll contact you shortly.</p>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="project">Preferred project</label>
+          <input id="project" type="text" value="Loly Beach Ain El Sokhna" required>
+        </div>
+        <div>
+          <label for="unit">Unit type</label>
+          <select id="unit" required>
+            <option value="" disabled selected>Choose unit type</option>
+            <option>Apartment</option>
+            <option>Villa</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms">Bedrooms</label>
+          <select id="rooms" required>
+            <option value="" disabled selected>Select bedrooms</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="note">Note</label>
+        <textarea id="note" placeholder="Any extra details…"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btnWA">Send via WhatsApp</button>
+        <button type="button" id="btnMail">Send via Email</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>© eslam reality 2025 — All rights reserved</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+
+/* Dropdown */
+(function(){
+  const btn = $('#btnProjects'), menu = $('#projectsMenu');
+  if(!btn||!menu) return;
+  const open = v => { btn.setAttribute('aria-expanded', v?'true':'false'); menu.style.display = v?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); open(menu.style.display!=='block'); });
+  document.addEventListener('click', ()=> open(false));
+})();
+
+/* Slider arrows (LTR) */
+(function(){
+  const scroller = $('#slider'); if(!scroller) return;
+  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+  next?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+})();
+
+/* Contact actions */
+(function(){
+  const val = id => document.getElementById(id).value.trim();
+  $('#btnWA')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const txt = `Hello, I'd like to inquire about ${d.project}.
+Name: ${d.name}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+  });
+  $('#btnMail')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const subject = `Inquiry about Loly Beach Ain El Sokhna`;
+    const body = `Name: ${d.name}
+Project: ${d.project}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+    window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
+</body>
+</html>
