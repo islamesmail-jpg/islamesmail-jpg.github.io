@@ -6,108 +6,325 @@
 <title>Dolphin Beach | Ain Sokhna Resort</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0d1a;--card:#111326;--text:#fff;--muted:#c9c9c9;--accent:#f0c30f;--field:#181b31;--radius:16px;--wrap:1120px;--shadow:0 6px 16px rgba(0,0,0,.25)}
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,sans-serif;line-height:1.85}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+
+/* NAVBAR */
 .navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
 .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
-.logo-img{height:36px;border-radius:8px}
+.logo-link{display:flex;align-items:center;text-decoration:none}
+.logo-img{height:36px;width:auto;border-radius:8px}
 .spacer{flex:1}
-.nav-links{display:flex;gap:10px;align-items:center}
-.nav-btn,.nav-link{color:var(--text);background:transparent;border-radius:10px;padding:8px 10px;font-size:14px;text-decoration:none;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer;text-decoration:none}
 .nav-btn:hover,.nav-link:hover{background:#111326}
+.projects-wrap{position:relative}
+.projects-wrap:focus-within .menu{display:block}
+.menu{position:absolute;top:calc(100% + 6px);left:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
+.menu a:hover{background:#121638}
+
+/* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;overflow:hidden;border-bottom:1px solid #12142a}
+
+/* HERO */
+.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
 .hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
-.hero h1{margin:0;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-.hero .line-top{font-size:40px;font-weight:800}.hero .line-sub{font-size:24px}
-.slider-wrap{position:relative;margin:20px auto}
-.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px;scroll-behavior:smooth}
-.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow)}
-.slide img{width:100%;height:100%;object-fit:cover}
+.hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero .line-top{display:block;font-weight:800;font-size:44px}
+.hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
+.hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
+@media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* SLIDER */
+.slider-wrap{position:relative;margin:18px auto 10px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.14)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:none;border-radius:50%;background:rgba(15,17,34,.7);color:#fff;cursor:pointer;z-index:5}
-.arrow.left{left:8px}.arrow.right{right:8px}
-.prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
-.price-card{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;font-weight:700}
-.master-wrap{text-align:center;margin:12px 0}
-.master-pill{background:#fff;color:#000;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
-section h2{color:var(--accent);margin:16px 0 8px}.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:24px 0}
-footer{text-align:center;margin:20px 0;color:#999}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow:hover{background:rgba(15,17,34,.9)}
+.arrow.left{left:8px}
+.arrow.right{right:8px}
+
+/* PRICES + MAP */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+.price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+.price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+.price-link:hover{filter:brightness(.97)}
+.master-wrap{text-align:center;margin:6px 0 18px}
+.master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px}
+
+/* TEXT */
+section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+section p,section li{color:var(--muted)}
+ul{margin:8px 0 12px}
+
+/* CARD / FORM */
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
+.card .icon{font-size:28px;text-align:center;margin:0 0 6px}
+.card h3{margin:6px 0;text-align:center;font-size:18px}
+.card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:13px;color:#d7d7d7}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:100px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner">
-    <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="logo">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
     <div class="spacer"></div>
     <div class="nav-links">
-      <a href="dolphin.html" class="nav-btn">AR</a>
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html"  id="m_sokhna">Ain Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north.html"   id="m_north">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html"   id="m_cairo">New Cairo</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#contact" id="navContact">Contact</a>
+      <button class="nav-btn" id="btnLang" aria-label="Switch to Arabic">AR</button>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<!-- HERO -->
+<section class="hero" id="hero">
   <video src="https://e.top4top.io/m_3525s8v770.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
-      <span class="line-top">Dolphin Beach – Ain Sokhna</span><br>
-      <span class="line-sub">Resort with Hotel & Villas</span><br>
-      <span class="dev">Developer: El Hegaz for Tourism Development</span>
+      <span class="line-top" id="hTop">Dolphin Beach – Ain Sokhna</span>
+      <span class="line-sub" id="hSub">Hotel • Private Beach • Coastal Homes</span>
+      <span class="dev" id="hDev">Developer: El Hegaz for Tourism & Real Estate Development</span>
     </h1>
   </div>
 </section>
 
 <div class="wrapper">
+  <!-- SLIDER -->
   <div class="slider-wrap">
-    <button class="arrow left" id="prevBtn">‹</button>
-    <button class="arrow right" id="nextBtn">›</button>
+    <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
+    <button class="arrow right" id="nextBtn" aria-label="Next">›</button>
     <div class="slider" id="slider">
-      <figure class="slide"><img src="https://c.top4top.io/p_3525x6wg20.jpg"></figure>
-      <figure class="slide"><img src="https://j.top4top.io/p_352529zmf7.jpeg"></figure>
-      <figure class="slide"><img src="https://d.top4top.io/p_3525ilftx1.jpg"></figure>
-      <figure class="slide"><img src="https://e.top4top.io/p_3525jmi6s2.jpg"></figure>
-      <figure class="slide"><img src="https://f.top4top.io/p_352590oox3.jpg"></figure>
-      <figure class="slide"><img src="https://g.top4top.io/p_3525tkccn4.jpg"></figure>
-      <figure class="slide"><img src="https://h.top4top.io/p_3525gvdgi5.jpg"></figure>
-      <figure class="slide"><img src="https://i.top4top.io/p_35257tstr6.jpg"></figure>
+      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_3525x6wg20.jpg" alt="Dolphin 1"></figure>
+      <figure class="slide"><img loading="lazy" src="https://j.top4top.io/p_352529zmf7.jpeg" alt="Dolphin 2"></figure>
+      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_3525ilftx1.jpg" alt="Dolphin 3"></figure>
+      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3525jmi6s2.jpg" alt="Dolphin 4"></figure>
+      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_352590oox3.jpg" alt="Dolphin 5"></figure>
+      <figure class="slide"><img loading="lazy" src="https://g.top4top.io/p_3525tkccn4.jpg" alt="Dolphin 6"></figure>
+      <figure class="slide"><img loading="lazy" src="https://h.top4top.io/p_3525gvdgi5.jpg" alt="Dolphin 7"></figure>
+      <figure class="slide"><img loading="lazy" src="https://i.top4top.io/p_35257tstr6.jpg" alt="Dolphin 8"></figure>
     </div>
   </div>
 
+  <!-- PRICES + MAP -->
   <div class="prices">
-    <div class="price-card">Developer Price<br><a href="#contact">Ask now</a></div>
-    <div class="price-card">Resale Price<br><a href="#contact">Contact us</a></div>
+    <div class="price-card">
+      <div class="price-title" id="tDevPrice">Developer Price</div>
+      <a class="price-link" href="#contact" id="lDevOffer">Ask about offers</a>
+    </div>
+    <div class="price-card">
+      <div class="price-title" id="tResalePrice">Resale Price</div>
+      <a class="price-link" href="#contact" id="lResaleAsk">Contact for price</a>
+    </div>
   </div>
   <div class="master-wrap">
-    <a href="https://maps.app.goo.gl/WPsFq1JwnKvYr7bg7" target="_blank" class="master-pill">📍 View location on map</a>
+    <a href="https://maps.app.goo.gl/WPsFq1JwnKvYr7bg7" target="_blank" class="master-pill" id="btnMaster">📍 See location on Google Maps</a>
   </div>
 
+  <!-- DESCRIPTION -->
   <section>
-    <h2>About Dolphin Beach</h2>
-    <p>Dolphin Beach Resort is one of the earliest resorts in Ain Sokhna. It features a private beach, hotel, and 450 coastal units (chalets and villas). Located at km 66 Zaafarana Road, just 90 minutes from Cairo.</p>
-    <h2>Developer</h2>
-    <p>El Hegaz for Tourism & Real Estate Development, established in 1988, known for delivering projects like Al Hegaz Oasis, Sokhna Hills, and Dolphin Beach.</p>
-    <h2>Units & Areas</h2>
-    <ul><li>Chalets: 60–120 m²</li><li>Villas: up to 650 m²</li></ul>
-    <h2>Services & Features</h2>
+    <h2 id="aTitle">About Dolphin Beach</h2>
+    <p>Dolphin Beach is a distinctive resort in Ain Sokhna featuring a hotel and coastal homes including villas. It enjoys a private sandy beach and a comprehensive mix of essential and leisure services by El Hegaz Development. Ain Sokhna itself lies on the Red Sea, close to Cairo, and hosts a variety of upscale resorts and hotels.</p>
+    <p>As one of the earliest destinations in the area, Dolphin Beach Resort is a fully serviced village by El Hegaz for Tourism Development. It comprises a hotel and <strong>450</strong> homes split into chalets and standalone villas. The resort is around 1.5 hours from Cairo on the Zaafarana Road and includes multiple swimming pools, a private beach and diverse entertainment.</p>
+
+    <h2 id="oTitle">Developer</h2>
+    <p>El Hegaz for Tourism & Real Estate Development is the developer of Dolphin Beach. Founded in <strong>1988</strong>, the Egyptian company delivers modern concepts and high-quality hospitality services, adheres to on-time handovers, invests in team development and continues to grow with a diverse portfolio across the Egyptian real-estate market.</p>
+
+    <h2>Previous Projects</h2>
+    <p>El Hegaz has developed coastal projects along a 3-km strip on the Gulf of Suez, distributed across Ain Sokhna resorts, including:</p>
     <ul>
-      <li>Private sandy beach</li><li>12 swimming pools</li><li>Dolphin shows by the shore</li><li>Pet friendly</li>
-      <li>24/7 security</li><li>Pharmacy & supermarket</li><li>4-star hotel</li><li>Restaurants & cafés</li>
+      <li>Al Hegaz Oasis</li>
+      <li>Dolphin Beach Resort</li>
+      <li>Sokhna Hills</li>
+    </ul>
+    <p>You can search within eslam reality for more details on these resorts.</p>
+
+    <h2 id="lTitle">Location</h2>
+    <p>The resort sits on Zaafarana Road at <strong>km 66</strong>, about 1.5 hours from Cairo and roughly 1 hour from the New Administrative Capital. It is close to Sokhna Hills and Wahat Mina, and only 4 minutes from Mövenpick El Sokhna.</p>
+
+    <h2>Nearby Cities & Roads</h2>
+    <ul>
+      <li>Ain Sokhna – Zaafarana Road connects the resort to Cairo and new cities.</li>
+      <li>From the New Administrative Capital via the Hurghada – Ismailia Road.</li>
+      <li>From Suez: approx. 1h20 via the Suez – Ain Sokhna Road.</li>
+      <li>Connected to Galala Plateau via the Zaafarana – Hurghada Road (~25 min).</li>
+      <li>Ain Sokhna is the closest Red Sea destination to Cairo and falls under Suez Governorate, ensuring proximity to key services.</li>
+      <li>Hurghada is ~3 hours away; Marsa Alam, El Quseir and Ras Gharib are also reachable along the Red Sea corridor.</li>
+    </ul>
+
+    <h2>Unit Types</h2>
+    <ul>
+      <li>Chalets</li>
+      <li>Standalone villas</li>
+    </ul>
+
+    <h2>Unit Areas</h2>
+    <ul>
+      <li><strong>Chalets:</strong> ~60–120 m² (starting from at least 1 bedroom + reception + bathroom + American kitchen + 2 balconies; larger layouts include 2–3 bedrooms, reception, bathroom, American kitchen and a balcony).</li>
+      <li><strong>Standalone villas:</strong> up to ~650 m² with 6 bedrooms, 5 bathrooms and a private garden.</li>
+    </ul>
+
+    <h2>Highlights</h2>
+    <ul>
+      <li>Pristine private sandy beach (Red Sea)</li>
+      <li><strong>12</strong> swimming pools including a kids’ pool and a covered ladies’ pool</li>
+      <li>Landscaped greenery and relaxing natural scenery</li>
+      <li>Seasonal dolphins reaching the shore and interacting with visitors</li>
+      <li>Warm, service-oriented staff</li>
+      <li>Pet-friendly resort</li>
+    </ul>
+
+    <h2>Services & Facilities</h2>
+    <ul>
+      <li>24/7 security and guarding</li>
+      <li>Covered parking</li>
+      <li>On-site pharmacy</li>
+      <li>Appliance maintenance & installation center</li>
+      <li>4-star hotel with full hospitality services and daily housekeeping</li>
+      <li>On-site ATM</li>
+      <li>Supermarket for daily needs</li>
+      <li>Restaurants (grills/seafood/Italian), beachfront cafés & bakery</li>
+      <li>Kids’ play area</li>
+      <li>Souvenir shop</li>
     </ul>
   </section>
 
+  <!-- CONTACT FORM -->
   <section class="card" id="contact">
-    <h3>📞 Contact us</h3>
-    <p>01050072527 | islammesmail@gmail.com</p>
+    <div class="icon">📨</div>
+    <h3 id="fTitle">Need Real Estate Help?</h3>
+    <p class="sub" id="fSub">Fill your details and we’ll contact you shortly.</p>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name" id="lblName">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="project" id="lblProj">Preferred project</label>
+          <input id="project" type="text" value="Dolphin Beach Ain Sokhna" required>
+        </div>
+        <div>
+          <label for="unit" id="lblUnit">Unit type</label>
+          <select id="unit" required>
+            <option value="" disabled selected id="optUnitPH">Choose unit type</option>
+            <option>Chalet</option>
+            <option>Villa</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms" id="lblRooms">Bedrooms</label>
+          <select id="rooms" required>
+            <option value="" disabled selected id="optRoomPH">Select bedrooms</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="note" id="lblNote">Note</label>
+        <textarea id="note" placeholder="Any extra details…"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btnWA">Send via WhatsApp</button>
+        <button type="button" id="btnMail">Send via Email</button>
+      </div>
+    </form>
   </section>
+
+  <footer id="ft">© eslam reality 2025 — All rights reserved</footer>
 </div>
 
-<footer>© eslam reality 2025</footer>
-
 <script>
-const scroller=document.getElementById('slider');
-document.getElementById('nextBtn').onclick=()=>scroller.scrollBy({left:300,behavior:'smooth'});
-document.getElementById('prevBtn').onclick=()=>scroller.scrollBy({left:-300,behavior:'smooth'});
-  </script>
+/* ===== Short helpers ===== */
+const $ = id => document.getElementById(id);
+
+/* ===== Projects dropdown ===== */
+(function(){
+  const wrap = $('projectsWrap'), btn = $('btnProjects'), menu = $('projectsMenu');
+  if(!wrap||!btn||!menu) return;
+  const toggle = (open)=>{ wrap.classList[open?'add':'remove']('open'); btn.setAttribute('aria-expanded', open?'true':'false'); menu.style.display=open?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); toggle(menu.style.display!=='block'); btn.focus(); });
+  menu.addEventListener('click', e=> e.stopPropagation());
+  document.addEventListener('click', ()=> toggle(false));
+  btn.addEventListener('keydown', e=>{ if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(true); menu.querySelector('a')?.focus(); }});
+})();
+
+/* ===== Slider arrows (LTR) ===== */
+(function(){
+  const scroller = $('slider'); if(!scroller) return;
+  const next = $('nextBtn'), prev = $('prevBtn');
+  const step = () => Math.min(scroller.clientWidth*0.9, 700);
+  next?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+})();
+
+/* ===== Form actions ===== */
+function collectData(){
+  const d = {
+    name: $('name')?.value?.trim() || '',
+    project: $('project')?.value?.trim() || 'Dolphin Beach Ain Sokhna',
+    unit: $('unit')?.value || '',
+    rooms: $('rooms')?.value || '',
+    note: $('note')?.value?.trim() || ''
+  };
+  return d;
+}
+$('btnWA')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const txt = `Hello, I'd like to inquire about ${d.project}.
+Name: ${d.name}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+});
+$('btnMail')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const subject = `Inquiry about Dolphin Beach Ain Sokhna`;
+  const body = `Name: ${d.name}
+Project: ${d.project}
+Unit: ${d.unit}
+Bedrooms: ${d.rooms}
+Notes: ${d.note}`;
+  window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ===== Language button: go to Arabic page ===== */
+$('btnLang')?.addEventListener('click', ()=> {
+  window.location.href = "dolphin.html";
+});
+</script>
+</body>
+  </html>
