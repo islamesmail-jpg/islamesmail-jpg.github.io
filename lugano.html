@@ -104,6 +104,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
         </div>
       </div>
       <a class="nav-link" href="#contact" id="navContact">اتصل بنا</a>
+      <!-- زر اللغة: ينقلك لنسخة الإنجليزي -->
       <button class="nav-btn" id="btnLang" aria-label="Toggle language">EN</button>
     </div>
   </div>
@@ -275,62 +276,50 @@ const setList = (id, items)=>{ const el=$(id); if(!el) return; el.innerHTML = it
   prev?.addEventListener('click', ()=> scroller.scrollBy({left: (document.dir==='rtl'?1:-1)*step(), behavior:'smooth'}));
 })();
 
-/* ===== i18n (full page switch) ===== */
-const dict = {
-  ar:{dir:"rtl",lang:"ar",
-    btnProjects:"المشاريع ▾", navContact:"اتصل بنا", btnLang:"EN",
-    hTop:"مشروع لوجانو الجلالة", hSub:"Lugano Al Galala", hDev:"المطوّر: AOG Developments",
-    tDevPrice:"سعر المطوّر", lDevOffer:"استفسر عن العروض",
-    tResalePrice:"سعر إعادة البيع", lResaleAsk:"تواصل لمعرفة السعر",
-    btnMaster:"ماستر بلان المشروع",
-    aTitle:"عن لوجانو الجلالة العين السخنه",
-    aP1:`<strong>AOG Developments</strong><br>لصاحبها رجل الاعمال مستر محمود عمر وهو شريك في مجموعة شركات مطورة ساحلية واغلب المشاريع متسلمة،
-    والشركة نازلة السنة دي بمحفظة اراضي في اكتر من مشروع في اكتر من منطقة:`,
-    aList:["العين السخنة","راس سدر","زايد الجديدة","الساحل الشمالي"],
-    oTitle:"نشاة AOG Developments",
-    o1:"1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group ).",
-    o2:"2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.",
-    o3:'3- في بداية 2025،  قام الجيل الثانى باستخدام الخبرات والملاءة المالية الضخمة بوضع معادلة جديدة من خلال إنشاء AOG developments لتغير  "المعادلة العقارية" وتقديم العقار باختلاف تصنيفاته ليكون عقارا معبرًا عن القيمة الفعلية للعقار مما يعيد الجدوى الاستثمارية للعقار وقيمته .',
-    o4:"المعادلة الجديدة ستكون عند اختيار عقار بقيمته الحقيقية.<br>عقار من AOG Developments",
-    lTitle:"اللوكيشن",
-    lText:"في العين السخنة طريق الزعفرانة اول نقطة في جبل الجلالة — بعد بوابات السخنة ب ١٠ دقايق — قبل بورتو ب ٢٠ كيلو — و١٥ دقيقة من منتجع الجلالة — ٦٠ دقيقة من التجمع.",
-    areaTitle:"مساحة المشروع",
-    areaText:"٤٠ فدان — مكون من ٣ مصاطب:<br>• اول مصطبة ٧ متر اعلى من مستوى سطح البحر<br>• تاني مصطبة ٢٠ متر (90% من المشروع )<br>• ٣ مصطبة ٣٥ متر",
-    sTitle:"خدمات المشروع",
-    sList:["Hotel five star (Alma hotel)","Major hotel management companies ( IHG)","Triple play ( landline +internet +iptv)","Club house","Restaurant and cafe","Padel court","Bike path","Kids area","Gym","Mosque","Bridge","Golf car","Facility management ( FM ) &( IHG)","Private beach — Beach width 400m","Fully finished","استشاري هندسي شركة MK"],
-    fTitle:"تحتاج إلى مساعدة عقارية؟", fSub:"املأ بياناتك و سوف يقوم بالاتصال بك فى اقرب وقت",
-    lblName:"الاسم", lblProj:"الموقع المفضل (اسم المشروع)",
-    lblUnit:"نوع الوحده", optUnitPH:"اختر نوع الوحدة",
-    unit:["استوديو","شاليه","شقة","تاون هاوس","توين هاوس","فيلا مستقلة"],
-    lblRooms:"عدد الغرف", optRoomPH:"اختر عدد الغرف",
-    lblNote:"ملحوظه", btnWA:"إرسال عبر واتساب", btnMail:"إرسال عبر الإيميل",
-    ft:"© eslam reality 2025 — جميع الحقوق محفوظة",
-    m_sokhna:"العين السخنة", m_north:"الساحل الشمالي", m_cairo:"القاهرة الجديدة",
-    btnMasterOpen:()=> window.open("https://f.top4top.io/p_3524k51250.jpg","_blank","noopener"),
-    placeholders:{ name:"اكتب اسمك", project:"", note:"أي تفاصيل إضافية…" },
-    mail:{ subject:"استفسار عن مشروع لوجانو الجلالة", body:(d)=>`الاسم: ${d.name}\nالمشروع: ${d.project}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}` },
-    wa:(d)=>`مرحبا، أريد الاستفسار عن ${d.project}.\nالاسم: ${d.name}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`
-  },
-  en:{dir:"ltr",lang:"en",
-    btnProjects:"Projects ▾", navContact:"Contact", btnLang:"AR",
-    hTop:"Lugano Al Galala", hSub:"Ain Sokhna", hDev:"Developer: AOG Developments",
-    tDevPrice:"Developer Price", lDevOffer:"Ask about offers",
-    tResalePrice:"Resale Price", lResaleAsk:"Contact for price",
-    btnMaster:"Project Masterplan",
-    aTitle:"About Lugano Al Galala",
-    aP1:`<strong>AOG Developments</strong><br>Led by Mr. Mahmoud Omar, partner in a group of coastal developers with most projects delivered. This year the company launches a land bank across multiple destinations:`,
-    aList:["Ain Sokhna","Ras Sudr","New Zayed","North Coast"],
-    oTitle:"AOG Developments Background",
-    o1:"1) 18 years of achievements by the first generation — Ahmed Omar (Lasirena Group).",
-    o2:"2) In 2020, the second generation led by Mahmoud Omar founded Manara Developments, leader of Galala development.",
-    o3:"3) Early 2025, the second generation founded AOG Developments, redefining the “real-estate equation” to reflect true property value and restore investment returns.",
-    o4:"The new equation: choose property by its true value.<br>A property by AOG Developments.",
-    lTitle:"Location",
-    lText:"Zaafarana Road, first point on Galala Mountain — 10 min after gates, 20 km before Porto, 15 min from Galala Resort, 60 min from New Cairo.",
-    areaTitle:"Project Area",
-    areaText:"40 feddans on 3 terraces:<br>• 1st +7 m above sea level<br>• 2nd +20 m (90% of the project)<br>• 3rd +35 m",
-    sTitle:"Amenities",
-    sList:["Five-star hotel (Alma)","Top operator (IHG)","Triple Play (landline + Internet + IPTV)","Club House","Restaurants & Cafés","Padel courts","Bike path","Kids area","Gym","Mosque","Bridge","Golf carts","Facility Management (FM & IHG)","Private beach — 400 m width","Fully finished","Engineering consultant MK"],
-    fTitle:"Need Real Estate Help?", fSub:"Fill your info and we will contact you shortly.",
-    lblName:"Name", lblProj:"Preferred project",
-    lblUnit:"Unit type", optUni
+/* ===== Masterplan open (direct) ===== */
+$('btnMaster')?.addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.open("https://f.top4top.io/p_3524k51250.jpg","_blank","noopener");
+});
+
+/* ===== Form actions (WhatsApp / Email) ===== */
+function collectData(){
+  const d = {
+    name: $('name')?.value?.trim() || '',
+    project: $('project')?.value?.trim() || 'Lugano Al Galala',
+    unit: $('unit')?.value || '',
+    rooms: $('rooms')?.value || '',
+    note: $('note')?.value?.trim() || ''
+  };
+  return d;
+}
+$('btnWA')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const msg = `مرحبا، أريد الاستفسار عن ${d.project}.
+الاسم: ${d.name}
+النوع: ${d.unit}
+الغرف: ${d.rooms}
+ملاحظات: ${d.note}`;
+  const phone = "01050072527"; // ضع رقم الواتساب هنا بدون +2 لو عايز تغيّره
+  const url = `https://wa.me/2${phone}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+});
+$('btnMail')?.addEventListener('click', ()=>{
+  const d = collectData();
+  const subject = "استفسار عن مشروع لوجانو الجلالة";
+  const body = `الاسم: ${d.name}
+المشروع: ${d.project}
+النوع: ${d.unit}
+الغرف: ${d.rooms}
+ملاحظات: ${d.note}`;
+  const mail = "islammesmail@gmail.com";
+  window.location.href = `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ===== Language button: go to English page ===== */
+$('btnLang')?.addEventListener('click', ()=> {
+  window.location.href = "lugano-en.html";
+});
+</script>
+</body>
+</html>
