@@ -30,18 +30,30 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
 .menu a:hover{background:#121638}
 
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (عنوان فقط) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
 .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -109,9 +121,17 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">الرئيسية</a><span class="sep">»</span>
+    <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <span aria-current="page">عين هيلز</span>
+  </div>
+</div>
+
+<!-- HERO (عنوان فقط) -->
 <section class="hero">
-  <video src="https://a.top4top.io/m_3524jybki5.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top">مشروع العين هيلز العين السخنة</span>
@@ -122,6 +142,21 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 </section>
 
 <div class="wrapper">
+
+  <!-- VIDEO -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">فيديو المشروع</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://h.top4top.io/p_352441ln20.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://e.top4top.io/m_35276y0qm0.mp4" type="video/mp4"/>
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
@@ -153,7 +188,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <!-- DESCRIPTION -->
   <section>
     <h2>معلومات عن عين هيلز العين السخنة</h2>
-    <p>عين هيلز السخنة هي أول انطلاقة للشهاوي جروب بالعين السخنة، على قمة جبلية بإطلالة بانورامية مباشرة على البحر الأحمر، مع شلالات ومساحات خضراء واسعة، وتصميمات أوروبية حديثة وتقنيات تكنولوجية متطورة، وخدمات متكاملة لضمان أسلوب حياة جديد ومتكامل وتسهيلات سداد مميزة.</p>
+    <p>عين هيلز السخنة هي أول انطلاقة للشهاوي جروب بالعين السخنة، على قمة جبلية بإطلالة بانورامية مباشرة على البحر الأحمر، مع شلالات ومساحات خضراء واسعة، وتصميمات أوروبية حديثة وتقنيات تكنولوجية متطورة، وخدمات متكاملة لضمان أسلوب حياة جديد وتسهيلات سداد مميزة.</p>
 
     <h2>المطور العقاري: الشهاوي جروب</h2>
     <p>تأسست عام 1976 بخبرة تتجاوز 30 عامًا، وقدّمت مشروعات سكنية وتجارية ناجحة. تمتلك شركات رائدة مثل شركة الأسمنت العربية وشركة الصخور الجاهزة للرخام.</p>
@@ -178,24 +213,23 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
     <p>إجمالي المساحة ~50 فدان، واجهة شاطئية ~800 م وعمق ~250 م، نحو 500 وحدة بإطلالات مميزة، مع مساحات خضراء ومسطحات مائية ومولات ومطاعم وكافيهات (~100 م²) وكريستال لاجونز وشلالات (~4200 م²).</p>
 
     <h2>التصميم</h2>
-    <p>تصميم عالمي بنظام المصاطب المدرجة لضمان رؤية البحر لكل الوحدات، واجهات حديثة وخامات عالية مقاومة للعوامل الجوية، مع مساحات خضراء وبحيرات صناعية متعددة.</p>
+    <p>تصميم عالمي بالمصاطب المدرجة لضمان رؤية البحر لكل الوحدات، واجهات حديثة وخامات عالية مقاومة للعوامل الجوية، مع مساحات خضراء وبحيرات صناعية متعددة.</p>
 
     <h2>الخدمات والمميزات</h2>
     <ul>
       <li>لاندسكيب واسع وبحيرات صناعية</li>
       <li>منطقة ترفيهية متكاملة للسيدات</li>
       <li>مطاعم وكافيهات ومنطقة تجارية</li>
-      <li>نادي صحي (ساونا/جاكوزي) وجيم ومدربين</li>
-      <li>حمامات سباحة متنوعة + بول سكاي إنفينيتي 1500 م²</li>
+      <li>نادي صحي (ساونا/جاكوزي) وجيم</li>
+      <li>حمامات سباحة متنوعة + Sky Infinity Pool 1500 م²</li>
       <li>أكوا بارك ومدينة ملاهي</li>
-      <li>وحدة طبية شاملة وصيدلية 24 ساعة</li>
-      <li>هايبر ماركت وتوصيل للمنازل وماكينات ATM</li>
-      <li>مناطق يوغا وممرات مشي</li>
-      <li>فريق إنقاذ على الشاطئ</li>
-      <li>ملاعب رياضية مجهزة</li>
-      <li>فندق 5 نجوم – تليفريك وقطار كهربائي</li>
+      <li>وحدة طبية وصيدلية 24 ساعة</li>
+      <li>هايبر ماركت وATM وخدمة توصيل</li>
+      <li>يوغا وممرات مشي</li>
+      <li>إنقاذ على الشاطئ وملاعب رياضية</li>
+      <li>فندق 5 نجوم — تليفريك وقطار كهربائي</li>
       <li>مول تجاري ومولدات كهرباء</li>
-      <li>جراجات آمنة وأمن وحراسة 24/7 وبوابات إلكترونية وكاميرات</li>
+      <li>جراجات آمنة وأمن وحراسة 24/7</li>
     </ul>
   </section>
 
@@ -218,8 +252,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
           <label for="unit">نوع الوحدة</label>
           <select id="unit" required>
             <option value="" disabled selected>اختر نوع الوحدة</option>
-            <option>شقة</option>
-            <option>فيلا</option>
+            <option>شقة</option><option>فيلا</option>
           </select>
         </div>
         <div>
@@ -258,17 +291,27 @@ const $ = s => document.querySelector(s);
 
 /* Slider arrows (RTL aware) */
 (function(){
-  const scroller = $('#slider'); if(!scroller) return;
-  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const scroller = document.getElementById('slider'); if(!scroller) return;
+  const next = document.getElementById('nextBtn'), prev = document.getElementById('prevBtn');
   const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
   next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
   prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
 })();
 
+/* Best-effort download prevention */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  document.addEventListener('contextmenu', e=>{ if(e.target===v) e.preventDefault(); });
+  document.addEventListener('keydown', e=>{
+    const k = e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey) && (k==='s'||k==='p')) e.preventDefault();
+  });
+})();
+
 /* Contact actions */
 (function(){
   const val = id => document.getElementById(id).value.trim();
-  $('#btnWA')?.addEventListener('click', ()=>{
+  document.getElementById('btnWA')?.addEventListener('click', ()=>{
     const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
     const txt = `مرحبا، أود الاستفسار عن ${d.project}.
 الاسم: ${d.name}
@@ -277,7 +320,7 @@ const $ = s => document.querySelector(s);
 ملاحظات: ${d.note}`;
     window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
   });
-  $('#btnMail')?.addEventListener('click', ()=>{
+  document.getElementById('btnMail')?.addEventListener('click', ()=>{
     const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
     const subject = `استفسار عن Ein Hills El Sokhna`;
     const body = `الاسم: ${d.name}
