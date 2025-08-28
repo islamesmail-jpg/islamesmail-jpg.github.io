@@ -30,18 +30,30 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
 .menu a:hover{background:#121638}
 
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (عنوان فقط بدون فيديو) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
 .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -109,9 +121,17 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">الرئيسية</a><span class="sep">»</span>
+    <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <span aria-current="page">مورانو</span>
+  </div>
+</div>
+
+<!-- HERO (عنوان فقط) -->
 <section class="hero" id="hero">
-  <video src="https://i.top4top.io/m_3524euftk0.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top">مشروع مورانو وادي دجلة</span>
@@ -122,6 +142,21 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 </section>
 
 <div class="wrapper">
+
+  <!-- VIDEO -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">فيديو المشروع</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://c.top4top.io/p_35249hfap2.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4"/>
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
@@ -279,6 +314,14 @@ const $ = s => document.querySelector(s);
   prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
 })();
 
+/* Prevent common download shortcuts on video (best-effort) */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  document.addEventListener('keydown', (e)=>{
+    if((e.ctrlKey||e.metaKey) && (e.key.toLowerCase()==='s' || e.key.toLowerCase()==='p')) e.preventDefault();
+  });
+})();
+
 /* Contact actions */
 (function(){
   const val = id => document.getElementById(id).value.trim();
@@ -304,4 +347,4 @@ const $ = s => document.querySelector(s);
 })();
 </script>
 </body>
-  </html>
+</html>
