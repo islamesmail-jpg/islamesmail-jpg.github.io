@@ -26,7 +26,7 @@ a{text-decoration:none;color:inherit}
 .nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
 .nav-btn:hover,.nav-link:hover{background:#111326}
 .projects-wrap{position:relative}
-.menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu{position:absolute;top:calc(100% + 6px);left:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff}
 .menu a:hover{background:#121638}
 .projects-wrap.open .menu{display:block}
@@ -34,22 +34,27 @@ a{text-decoration:none;color:inherit}
 /* BREADCRUMB */
 .breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
 .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a{color:#e5e7eb}
 .breadcrumb a:hover{color:#fff;text-decoration:underline}
 .breadcrumb .sep{opacity:.6;margin:0 .35rem}
 
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:320px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (title only) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98;margin-top:4px}
 .hero .dev{display:block;margin-top:8px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -59,8 +64,8 @@ a{text-decoration:none;color:inherit}
 @media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
 .arrow:hover{background:rgba(15,17,34,.9)}
-.arrow.left{inset-inline-start:8px}
-.arrow.right{inset-inline-end:8px}
+.arrow.left{left:8px}
+.arrow.right{right:8px}
 
 /* PRICES + MAP */
 .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
@@ -127,15 +132,12 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <video autoplay muted loop playsinline poster="https://e.top4top.io/p_3527qsbnu0.jpeg">
-    <source src="https://e.top4top.io/m_3527zdc1u0.mp4" type="video/mp4">
-  </video>
+<!-- HERO (title only) -->
+<section class="hero" aria-label="Hijaz Oasis hero">
   <div class="overlay">
     <h1>
       <span class="line-top">Hijaz Oasis Resort — Ain Sokhna</span>
-      <span class="line-sub">Luxury Coastal Living</span>
+      <span class="line-sub">A Coastal Escape on Zafarana Road</span>
       <span class="dev">Developer: Hijaz Tourism & Real Estate Development</span>
     </h1>
   </div>
@@ -143,9 +145,23 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 
 <div class="wrapper">
 
+  <!-- VIDEO (inside a card) -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">Project Video</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://e.top4top.io/p_3527qsbnu0.jpeg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://e.top4top.io/m_3527zdc1u0.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
-    <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
+    <button class="arrow left" id="prevBtn" aria-label="Previous">‹</button>
     <button class="arrow right" id="nextBtn" aria-label="Next">›</button>
     <div class="slider" id="slider">
       <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3527qsbnu0.jpeg" alt="Hijaz Oasis 1"></figure>
@@ -164,11 +180,11 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <div class="prices">
     <div class="price-card">
       <div class="price-title">Developer Price</div>
-      <a class="price-link" href="#contact">Ask for offers</a>
+      <a class="price-link" href="#contact">Ask for available offers</a>
     </div>
     <div class="price-card">
       <div class="price-title">Resale Price</div>
-      <a class="price-link" href="#contact">Ask for resale</a>
+      <a class="price-link" href="#contact">Ask for price</a>
     </div>
   </div>
   <div class="master-wrap">
@@ -177,48 +193,49 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 
   <!-- DESCRIPTION -->
   <section>
-    <h2>About Hijaz Oasis Resort</h2>
-    <p>Hijaz Oasis Resort in Ain Sokhna is a tourist village that includes chalets and coastal units located directly on the Gulf of Suez with a private beach, multiple swimming pools, and various entertainment services. It was developed by Hijaz Tourism & Real Estate Development Company, one of the pioneers in the field.</p>
+    <h2>About Hijaz Oasis</h2>
+    <p>Hijaz Oasis Resort in Ain Sokhna is a coastal destination on the Gulf of Suez featuring a private beach, multiple swimming pools, and family-friendly amenities. Developed by Hijaz Tourism & Real Estate Development, the resort offers modern chalets and villas in a well-serviced environment just 90 minutes from Cairo.</p>
 
-    <h2>Details</h2>
-    <p>The resort is located at Km 66 on the Ain Sokhna–Suez road, just 90 minutes away from Cairo. It consists of 4 phases with around 1200 coastal units, including chalets, duplex chalets, and standalone villas. The project features pools, gardens, and full amenities for families.</p>
+    <h2>Project Details</h2>
+    <p>Located at Km 66 on the Ain Sokhna–Suez Road, the project comprises four phases with around <strong>1,200</strong> coastal units of various layouts (chalets, duplex chalets, and standalone villas). The masterplan ensures privacy, greenery, and easy access to the beach and pools.</p>
 
     <h2>Developer</h2>
-    <p>Hijaz Tourism & Real Estate Development was established in 1988. It specializes in tourism resorts and mixed-use communities, known for delivering projects on time with high-quality construction and integrated services.</p>
+    <p><strong>Hijaz Tourism & Real Estate Development</strong> (est. 1988) is known for integrated coastal resorts, on-time delivery, and high-quality construction across Ain Sokhna.</p>
 
     <h2>Previous Projects</h2>
     <ul>
       <li>Dolphin Beach Resort</li>
       <li>Sokhna Hills Village</li>
-      <li>Hijaz Oasis (earlier phases)</li>
+      <li>Hijaz Oasis — earlier phases</li>
     </ul>
 
-    <h2>Location</h2>
-    <p>Hijaz Oasis Resort is located close to Dolphin Beach, Sokhna Hills, and major landmarks such as Movenpick Resort. It is also 10 minutes from Galala City and about 60 minutes from the New Administrative Capital.</p>
-
-    <h2>Unit Types</h2>
+    <h2>Location & Connectivity</h2>
     <ul>
-      <li>Chalets</li>
-      <li>Duplex Chalets (Ground + Roof)</li>
-      <li>Standalone Villas with private gardens</li>
+      <li>Prime position on Zafarana Road — approx. 90 minutes from Cairo.</li>
+      <li>~60 minutes from the New Administrative Capital.</li>
+      <li>~10 minutes to Galala Plateau & Galala Resort.</li>
+      <li>Road access towards Hurghada via Hurghada–Ismailia Highway (~3 hours).</li>
     </ul>
 
-    <h2>Areas</h2>
-    <p>Chalets range from 70 m² to 200 m². Villas reach up to 200 m² with multiple bedrooms and private gardens. All units enjoy sea or pool views with modern layouts.</p>
-
-    <h2>Design</h2>
-    <p>The architecture is inspired by Mediterranean white facades and pyramid-shaped buildings to maximize sea views. Most buildings are low-rise (3 floors) ensuring panoramic Red Sea views for residents.</p>
-
-    <h2>Services</h2>
+    <h2>Unit Types & Areas</h2>
     <ul>
-      <li>Private sandy beach</li>
-      <li>Heated pools + women-only covered pool</li>
-      <li>Children’s playground & kids pool</li>
-      <li>Sports courts and fitness club</li>
-      <li>Restaurants, cafés & supermarkets</li>
-      <li>24/7 security and beach lifeguards</li>
-      <li>ATM, pharmacy, and daily maintenance</li>
-      <li>Pet-friendly community</li>
+      <li>Chalets: ~70 m² to ~200 m² (2+ bedrooms, 2 bathrooms, reception, American kitchen).</li>
+      <li>Duplex Chalets (Ground + Roof).</li>
+      <li>Standalone Villas up to ~200 m², up to 5 bedrooms, some with private gardens and direct sea views.</li>
+    </ul>
+
+    <h2>Design Concept</h2>
+    <p>Low-rise buildings (3 floors) with white facades and stepped (pyramid-like) massing to maximize sea views. Many units overlook pools and landscaped areas for a calm, resort feel.</p>
+
+    <h2>Amenities & Services</h2>
+    <ul>
+      <li>Private sandy beach with lifeguards & security.</li>
+      <li>Multiple pools (some heated in winter), kids’ pool, and women-only covered pool.</li>
+      <li>Health club & gym, kids’ play areas.</li>
+      <li>On-demand housekeeping and regular maintenance.</li>
+      <li>Free residents’ parking inside the resort.</li>
+      <li>Nearby restaurants (seafood & grills), supermarkets, and pharmacies.</li>
+      <li>Close to Dolphin Beach shows and attractions.</li>
     </ul>
   </section>
 
@@ -226,7 +243,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <section class="card" id="contact">
     <div class="icon">📨</div>
     <h3>Need Real Estate Help?</h3>
-    <p class="sub">Fill your details and we will get back to you</p>
+    <p class="sub">Fill in your details and we’ll contact you shortly</p>
     <form id="leadForm" novalidate>
       <div class="grid">
         <div>
@@ -271,12 +288,54 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 <script>
 const $ = s=>document.querySelector(s);
 
-/* dropdown */
+/* dropdown open/close */
 (function(){
-  const wrap=$('#projectsWrap'),btn=$('#btnProjects'),menu=$('#projectsMenu');
-  if(!wrap||!btn||!menu)return;
-  btn.addEventListener('click',e=>{e.stopPropagation();wrap.classList.toggle('open');});
-  document.addEventListener('click',()=>wrap.classList.remove('open'));
+  const wrap = $('#projectsWrap'), btn = $('#btnProjects'), menu = $('#projectsMenu');
+  if(!wrap||!btn||!menu) return;
+  btn.addEventListener('click', e=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
+  document.addEventListener('click', ()=> wrap.classList.remove('open'));
 })();
 
-/* slider
+/* slider arrows */
+(function(){
+  const scroller = $('#slider'); if(!scroller) return;
+  const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+  $('#nextBtn')?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
+  $('#prevBtn')?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+})();
+
+/* best-effort download prevention for video */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  v.addEventListener('contextmenu', e=> e.preventDefault());
+  document.addEventListener('keydown', e=>{
+    const k = e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey) && (k==='s'||k==='p')) e.preventDefault();
+  });
+})();
+
+/* contact actions */
+(function(){
+  const val=id=>document.getElementById(id).value.trim();
+  $('#btnWA')?.addEventListener('click',()=>{
+    const msg=`eslam reality
+Name: ${val('name')}
+Project: ${val('project')}
+Unit: ${val('unit')}
+Rooms: ${val('rooms')}
+Note: ${val('note')}`;
+    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+  });
+  $('#btnMail')?.addEventListener('click',()=>{
+    const subject="Inquiry about Hijaz Oasis Resort";
+    const body=`Name: ${val('name')}
+Project: ${val('project')}
+Unit: ${val('unit')}
+Rooms: ${val('rooms')}
+Note: ${val('note')}`;
+    window.location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
+</body>
+</html>
