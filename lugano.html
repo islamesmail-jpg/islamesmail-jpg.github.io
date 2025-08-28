@@ -6,13 +6,8 @@
 <title>Lugano Al Galala | مشروع لوجانو الجلالة العين السخنة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
-  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
-  --shadow:0 6px 16px rgba(0,0,0,.25);
-}
-*{box-sizing:border-box}
-html,body{height:100%}
+:root{--bg:#0b0d1a;--card:#111326;--text:#fff;--muted:#c9c9c9;--accent:#f0c30f;--field:#181b31;--radius:16px;--wrap:1120px;--shadow:0 6px 16px rgba(0,0,0,.25)}
+*{box-sizing:border-box}html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
 /* NAVBAR */
@@ -30,18 +25,30 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
 .menu a:hover{background:#121638}
 
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (عنوان فقط) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
 .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -104,15 +111,22 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
         </div>
       </div>
       <a class="nav-link" href="#contact" id="navContact">اتصل بنا</a>
-      <!-- زر اللغة: ينقلك لنسخة الإنجليزي -->
-      <button class="nav-btn" id="btnLang" aria-label="Toggle language">EN</button>
+      <a class="nav-btn" href="lugano-en.html" aria-label="Switch to English">EN</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">الرئيسية</a><span class="sep">»</span>
+    <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <span aria-current="page">لوجانو</span>
+  </div>
+</div>
+
+<!-- HERO (عنوان فقط) -->
 <section class="hero" id="hero">
-  <video src="https://i.top4top.io/m_3524hxvwj0.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top" id="hTop">مشروع لوجانو الجلالة</span>
@@ -123,6 +137,21 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 </section>
 
 <div class="wrapper">
+
+  <!-- VIDEO -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">فيديو المشروع</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://j.top4top.io/p_3524tp87p1.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://i.top4top.io/m_3524hxvwj0.mp4" type="video/mp4"/>
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
@@ -146,16 +175,16 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <!-- PRICES + MASTERPLAN -->
   <div class="prices">
     <div class="price-card">
-      <div class="price-title" id="tDevPrice">سعر المطوّر</div>
-      <a class="price-link" href="#contact" id="lDevOffer">استفسر عن العروض</a>
+      <div class="price-title">سعر المطوّر</div>
+      <a class="price-link" href="#contact">استفسر عن العروض</a>
     </div>
     <div class="price-card">
-      <div class="price-title" id="tResalePrice">سعر إعادة البيع</div>
-      <a class="price-link" href="#contact" id="lResaleAsk">تواصل لمعرفة السعر</a>
+      <div class="price-title">سعر إعادة البيع</div>
+      <a class="price-link" href="#contact">تواصل لمعرفة السعر</a>
     </div>
   </div>
   <div class="master-wrap">
-    <a href="#" class="master-pill" id="btnMaster">ماستر بلان المشروع</a>
+    <a href="https://f.top4top.io/p_3524k51250.jpg" target="_blank" rel="noopener" class="master-pill">ماستر بلان المشروع</a>
   </div>
 
   <!-- DESCRIPTION -->
@@ -164,27 +193,25 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
     <p id="aP1"><strong>AOG Developments</strong><br>
       لصاحبها رجل الاعمال مستر محمود عمر وهو شريك في مجموعة شركات مطورة ساحلية واغلب المشاريع متسلمة،
       والشركة نازلة السنة دي بمحفظة اراضي في اكتر من مشروع في اكتر من منطقة:</p>
-    <ul id="aList">
-      <li>العين السخنة</li><li>راس سدر</li><li>زايد الجديدة</li><li>الساحل الشمالي</li>
-    </ul>
+    <ul id="aList"><li>العين السخنة</li><li>راس سدر</li><li>زايد الجديدة</li><li>الساحل الشمالي</li></ul>
 
-    <h2 id="oTitle">نشاة AOG Developments</h2>
+    <h2 id="oTitle">نشأة AOG Developments</h2>
     <p id="o1">1- 18 عامًا من الإنجاز على يد الجيل الأول، الأب المؤسس أحمد عمر مؤسس المجموعة الاقتصادية (Lasirena Group ).</p>
     <p id="o2">2- في عام 2020، دخول الجيل الثاني بقيادة أ/ محمود عمر للمجموعة بأفكار تنويرية، بقرار إنشاء Manara Developments والتي أصبحت رائدة تطوير الجلالة.</p>
-    <p id="o3">3- في بداية 2025،  قام الجيل الثانى باستخدام الخبرات والملاءة المالية الضخمة بوضع معادلة جديدة من خلال إنشاء AOG developments لتغير  "المعادلة العقارية" وتقديم العقار باختلاف تصنيفاته ليكون عقارا معبرًا عن القيمة الفعلية للعقار مما يعيد الجدوى الاستثمارية للعقار وقيمته .</p>
-    <p id="o4">المعادلة الجديدة ستكون عند اختيار عقار بقيمته الحقيقية.<br>عقار من AOG Developments</p>
+    <p id="o3">3- في بداية 2025، قام الجيل الثانى باستخدام الخبرات والملاءة المالية الضخمة بوضع معادلة جديدة من خلال إنشاء AOG developments لتغير "المعادلة العقارية".</p>
+    <p id="o4">المعادلة الجديدة ستكون عند اختيار عقار بقيمته الحقيقية — عقار من AOG Developments.</p>
 
     <h2 id="lTitle">اللوكيشن</h2>
-    <p id="lText">في العين السخنة طريق الزعفرانة اول نقطة في جبل الجلالة — بعد بوابات السخنة ب ١٠ دقايق — قبل بورتو ب ٢٠ كيلو — و١٥ دقيقة من منتجع الجلالة — ٦٠ دقيقة من التجمع.</p>
+    <p id="lText">في العين السخنة طريق الزعفرانة أول نقطة في جبل الجلالة — بعد بوابات السخنة بـ 10 دقايق — قبل بورتو بـ 20 كم — و15 دقيقة من منتجع الجلالة — 60 دقيقة من التجمع.</p>
 
     <h2 id="areaTitle">مساحة المشروع</h2>
-    <p id="areaText">٤٠ فدان — مكون من ٣ مصاطب:<br>• اول مصطبة ٧ متر اعلى من مستوى سطح البحر<br>• تاني مصطبة ٢٠ متر (90% من المشروع )<br>• ٣ مصطبة ٣٥ متر</p>
+    <p id="areaText">40 فدان — مكوّن من 3 مصاطب:<br>• أول مصطبة 7م فوق سطح البحر<br>• ثاني مصطبة 20م (90% من المشروع)<br>• ثالث مصطبة 35م</p>
 
     <h2 id="sTitle">خدمات المشروع</h2>
     <ul id="sList">
       <li>Hotel five star (Alma hotel)</li>
-      <li>Major hotel management companies ( IHG)</li>
-      <li>Triple play ( landline +internet +iptv)</li>
+      <li>Major hotel management companies (IHG)</li>
+      <li>Triple play (landline + internet + IPTV)</li>
       <li>Club house</li>
       <li>Restaurant and cafe</li>
       <li>Padel court</li>
@@ -194,7 +221,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       <li>Mosque</li>
       <li>Bridge</li>
       <li>Golf car</li>
-      <li>Facility management ( FM ) &( IHG)</li>
+      <li>Facility management (FM) & (IHG)</li>
       <li>Private beach — Beach width 400m</li>
       <li>Fully finished</li>
       <li>استشاري هندسي شركة MK</li>
@@ -204,40 +231,30 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <!-- CONTACT FORM -->
   <section class="card" id="contact">
     <div class="icon">📨</div>
-    <h3 id="fTitle">تحتاج إلى مساعدة عقارية؟</h3>
-    <p class="sub" id="fSub">املأ بياناتك و سوف يقوم بالاتصال بك فى اقرب وقت</p>
+    <h3>تحتاج إلى مساعدة عقارية؟</h3>
+    <p class="sub">املأ بياناتك و سوف يقوم بالاتصال بك فى أقرب وقت</p>
     <form id="leadForm" novalidate>
       <div class="grid">
+        <div><label for="name">الاسم</label><input id="name" type="text" placeholder="اكتب اسمك" required></div>
+        <div><label for="project">الموقع المفضل (اسم المشروع)</label><input id="project" type="text" value="Lugano Al Galala" required></div>
         <div>
-          <label for="name" id="lblName">الاسم</label>
-          <input id="name" type="text" placeholder="اكتب اسمك" required>
-        </div>
-        <div>
-          <label for="project" id="lblProj">الموقع المفضل (اسم المشروع)</label>
-          <input id="project" type="text" value="Lugano Al Galala" required>
-        </div>
-        <div>
-          <label for="unit" id="lblUnit">نوع الوحده</label>
+          <label for="unit">نوع الوحدة</label>
           <select id="unit" required>
-            <option value="" disabled selected id="optUnitPH">اختر نوع الوحدة</option>
-            <option id="optU1">استوديو</option>
-            <option id="optU2">شاليه</option>
-            <option id="optU3">شقة</option>
-            <option id="optU4">تاون هاوس</option>
-            <option id="optU5">توين هاوس</option>
-            <option id="optU6">فيلا مستقلة</option>
+            <option value="" disabled selected>اختر نوع الوحدة</option>
+            <option>استوديو</option><option>شاليه</option><option>شقة</option>
+            <option>تاون هاوس</option><option>توين هاوس</option><option>فيلا مستقلة</option>
           </select>
         </div>
         <div>
-          <label for="rooms" id="lblRooms">عدد الغرف</label>
+          <label for="rooms">عدد الغرف</label>
           <select id="rooms" required>
-            <option value="" disabled selected id="optRoomPH">اختر عدد الغرف</option>
+            <option value="" disabled selected>اختر عدد الغرف</option>
             <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
           </select>
         </div>
       </div>
       <div style="margin-top:12px">
-        <label for="note" id="lblNote">ملحوظه</label>
+        <label for="note">ملحوظة</label>
         <textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea>
       </div>
       <div class="btns">
@@ -247,79 +264,66 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
     </form>
   </section>
 
-  <footer id="ft">© eslam reality 2025 — جميع الحقوق محفوظة</footer>
+  <footer>© eslam reality 2025 — جميع الحقوق محفوظة</footer>
 </div>
 
 <script>
-/* ===== Short helpers ===== */
-const $ = id => document.getElementById(id);
-const set = (id, v, isHTML=false)=>{ const el=$(id); if(!el) return; isHTML ? (el.innerHTML=v) : (el.textContent=v); };
-const setList = (id, items)=>{ const el=$(id); if(!el) return; el.innerHTML = items.map(li=>`<li>${li}</li>`).join(""); };
+const $ = s => document.querySelector(s);
 
-/* ===== Projects dropdown (robust) ===== */
+/* Dropdown */
 (function(){
-  const wrap = $('projectsWrap'), btn = $('btnProjects'), menu = $('projectsMenu');
-  if(!wrap||!btn||!menu) return;
-  const toggle = (open)=>{ wrap.classList[open?'add':'remove']('open'); btn.setAttribute('aria-expanded', open?'true':'false'); menu.style.display=open?'block':'none'; };
-  btn.addEventListener('click', e=>{ e.stopPropagation(); toggle(menu.style.display!=='block'); btn.focus(); });
-  menu.addEventListener('click', e=> e.stopPropagation());
-  document.addEventListener('click', ()=> toggle(false));
-  btn.addEventListener('keydown', e=>{ if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(true); menu.querySelector('a')?.focus(); }});
+  const btn = $('#btnProjects'), menu = $('#projectsMenu');
+  if(!btn||!menu) return;
+  const open = v => { btn.setAttribute('aria-expanded', v?'true':'false'); menu.style.display = v?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); open(menu.style.display!=='block'); });
+  document.addEventListener('click', ()=> open(false));
 })();
 
-/* ===== Slider arrows ===== */
+/* Slider arrows (RTL aware) */
 (function(){
-  const scroller = $('slider'); if(!scroller) return;
-  const next = $('nextBtn'), prev = $('prevBtn');
-  const step = () => Math.min(scroller.clientWidth*0.9, 700);
-  next?.addEventListener('click', ()=> scroller.scrollBy({left: (document.dir==='rtl'?-1:1)*step(), behavior:'smooth'}));
-  prev?.addEventListener('click', ()=> scroller.scrollBy({left: (document.dir==='rtl'?1:-1)*step(), behavior:'smooth'}));
+  const scroller = $('#slider'); if(!scroller) return;
+  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+  next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
 })();
 
-/* ===== Masterplan open (direct) ===== */
-$('btnMaster')?.addEventListener('click', (e)=>{
-  e.preventDefault();
-  window.open("https://f.top4top.io/p_3524k51250.jpg","_blank","noopener");
-});
+/* Masterplan direct open */
+document.querySelector('.master-pill')?.addEventListener('click', (e)=>{ if(e.target.closest('a')) return; });
 
-/* ===== Form actions (WhatsApp / Email) ===== */
-function collectData(){
-  const d = {
-    name: $('name')?.value?.trim() || '',
-    project: $('project')?.value?.trim() || 'Lugano Al Galala',
-    unit: $('unit')?.value || '',
-    rooms: $('rooms')?.value || '',
-    note: $('note')?.value?.trim() || ''
-  };
-  return d;
-}
-$('btnWA')?.addEventListener('click', ()=>{
-  const d = collectData();
-  const msg = `مرحبا، أريد الاستفسار عن ${d.project}.
+/* Best-effort video download prevention */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  document.addEventListener('contextmenu', e=> e.target===v && e.preventDefault());
+  document.addEventListener('keydown', (e)=>{
+    const k = e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey) && (k==='s'||k==='p')) e.preventDefault();
+  });
+})();
+
+/* Contact actions */
+(function(){
+  const val = id => document.getElementById(id).value.trim();
+  $('#btnWA')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const txt = `مرحبا، أريد الاستفسار عن ${d.project}.
 الاسم: ${d.name}
 النوع: ${d.unit}
 الغرف: ${d.rooms}
 ملاحظات: ${d.note}`;
-  const phone = "01050072527"; // ضع رقم الواتساب هنا بدون +2 لو عايز تغيّره
-  const url = `https://wa.me/2${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank");
-});
-$('btnMail')?.addEventListener('click', ()=>{
-  const d = collectData();
-  const subject = "استفسار عن مشروع لوجانو الجلالة";
-  const body = `الاسم: ${d.name}
+    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+  });
+  $('#btnMail')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const subject = `استفسار عن مشروع لوجانو الجلالة`;
+    const body = `الاسم: ${d.name}
 المشروع: ${d.project}
 النوع: ${d.unit}
 الغرف: ${d.rooms}
 ملاحظات: ${d.note}`;
-  const mail = "islammesmail@gmail.com";
-  window.location.href = `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
-
-/* ===== Language button: go to English page ===== */
-$('btnLang')?.addEventListener('click', ()=> {
-  window.location.href = "lugano-en.html";
-});
+    window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
 </script>
 </body>
 </html>
