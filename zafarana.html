@@ -231,6 +231,30 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </div>
     </article>
 
+    <!-- Hijaz Oasis Resort -->
+    <article class="proj-card">
+      <a href="hijaz.html" title="Hijaz Oasis Resort">
+        <div class="miniGal" data-gal="hijaz">
+          <img class="show" src="https://e.top4top.io/p_3527qsbnu0.jpeg" alt="">
+          <img src="https://f.top4top.io/p_3527h4o211.jpg" alt="">
+          <img src="https://g.top4top.io/p_35277sire2.jpg" alt="">
+          <img src="https://h.top4top.io/p_3527wvi2l3.jpg" alt="">
+          <img src="https://i.top4top.io/p_3527ktkm44.jpeg" alt="">
+          <img src="https://j.top4top.io/p_35272a0zn5.jpeg" alt="">
+          <img src="https://k.top4top.io/p_3527ucsuk6.jpg" alt="">
+          <img src="https://l.top4top.io/p_352708nt27.jpeg" alt="">
+          <img src="https://a.top4top.io/p_3527b5xgk8.jpeg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Hijaz Oasis Resort | واحة الحجاز</div>
+      <div class="prices">
+        <div class="price-box price-scroll">سعر المطوّر<br><small>اسأل عن العروض المتاحة</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>استعلم عن السعر</small></div>
+      </div>
+    </article>
+
   </div>
 
   <!-- CONTACT -->
@@ -245,7 +269,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </div>
     <div class="form-row">
       <label for="project">اسم المشروع</label>
-      <input id="project" type="text" placeholder="مثال: Dolphin Beach">
+      <input id="project" type="text" placeholder="مثال: Hijaz Oasis Resort">
     </div>
     <div class="form-row">
       <label for="rooms">عدد الغرف</label>
@@ -303,7 +327,7 @@ function setupGallery(root){
   box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   box.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
 }
-['murano','lugano','ein','loly','dolphin'].forEach(setupGallery);
+['murano','lugano','ein','loly','dolphin','hijaz'].forEach(setupGallery);
 
 /* WhatsApp send */
 function gather(){
@@ -329,36 +353,28 @@ document.getElementById('btnSend').addEventListener('click',()=>{
 /* language */
 document.getElementById('btnLang').onclick=()=>{window.location.href='zafarana-en.html';};
 
-/* GLOBAL SEARCH across whole site (AR) */
+/* GLOBAL SEARCH (AR + EN names) */
 const PROJECTS = [
-  // صفحات رئيسية
   {name:'الرئيسية', url:'index.html'},
   {name:'العين السخنة', url:'sokhna.html'},
   {name:'طريق الزعفرانة', url:'zafarana.html'},
   {name:'طريق السويس', url:'suez.html'},
   {name:'الساحل الشمالي', url:'north.html'},
   {name:'القاهرة الجديدة', url:'Cairo.html'},
-  // Ain Sokhna projects
   {name:'Murano | مورانو', url:'murano.html'},
   {name:'Lugano | لوجانو', url:'lugano.html'},
   {name:'Ein Hills | العين هيلز', url:'einhills.html'},
   {name:'Loly Beach | لولي بيتش', url:'lolybeach.html'},
-  {name:'Dolphin Beach | دولفين بيتش', url:'dolphin.html'},
-  // North Coast (أمثلة – عدّل الروابط لو عندك صفحات)
-  {name:'North Coast Project 1', url:'north.html#p1'},
-  {name:'North Coast Project 2', url:'north.html#p2'},
-  // New Cairo (أمثلة)
-  {name:'New Cairo Project 1', url:'Cairo.html#p1'},
-  {name:'New Cairo Project 2', url:'Cairo.html#p2'},
-  // English pages (للبحث المختلط)
+  {name:'Dolphin Beach | دولفين', url:'dolphin.html'},
+  {name:'Hijaz Oasis | واحة الحجاز', url:'hijaz.html'},
+  /* EN pages */
+  {name:'Zafarana (EN)', url:'zafarana-en.html'},
   {name:'Murano (EN)', url:'murano-en.html'},
   {name:'Lugano (EN)', url:'lugano-en.html'},
   {name:'Ein Hills (EN)', url:'einhills-en.html'},
   {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
   {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
-  {name:'Zafarana (EN)', url:'zafarana-en.html'},
-  {name:'Sokhna (EN)', url:'sokhna-en.html'},
-  {name:'Suez (EN)', url:'suez-en.html'}
+  {name:'Hijaz Oasis (EN)', url:'hijaz-en.html'}
 ];
 
 (function(){
@@ -380,4 +396,4 @@ const PROJECTS = [
 })();
 </script>
 </body>
-            </html>
+</html>
