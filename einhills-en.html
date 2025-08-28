@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ein Hills El Sokhna | Wadi El Galala</title>
+<title>Ein Hills El Sokhna | Ain Sokhna</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -30,18 +30,30 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
 .menu a:hover{background:#121638}
 
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:#cfd1d4}
+.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (title only) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
 .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -76,7 +88,7 @@ ul{margin:8px 0 12px}
 .grid{display:grid;gap:12px}
 @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
 label{font-size:13px;color:#d7d7d7}
-input,select,textarea{width:100%;background:var(--field);color:#fff;border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
 textarea{min-height:100px;resize:vertical}
 .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
@@ -98,30 +110,53 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       <div class="projects-wrap" id="projectsWrap" tabindex="0">
         <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
         <div class="menu" id="projectsMenu" role="menu">
-          <a href="https://islamesmail-jpg.github.io/sokhna.html">Ain Sokhna</a>
-          <a href="https://islamesmail-jpg.github.io/north.html">North Coast</a>
-          <a href="https://islamesmail-jpg.github.io/Cairo.html">New Cairo</a>
+          <a href="https://islamesmail-jpg.github.io/sokhna-en.html">Ain Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north-en.html">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/cairo-en.html">New Cairo</a>
         </div>
       </div>
       <a class="nav-link" href="#contact">Contact</a>
-      <a class="nav-btn" href="einhills.html" aria-label="التبديل إلى العربية">AR</a>
+      <a class="nav-btn" href="einhills-ar.html" aria-label="التبديل للعربية">AR</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">Home</a><span class="sep">»</span>
+    <a href="/sokhna-en.html">Ain Sokhna</a><span class="sep">»</span>
+    <span aria-current="page">Ein Hills</span>
+  </div>
+</div>
+
+<!-- HERO (title only) -->
 <section class="hero">
-  <video src="https://a.top4top.io/m_3524jybki5.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top">Ein Hills El Sokhna</span>
-      <span class="line-sub">Panoramic Red Sea Living</span>
-      <span class="dev">Developer: El Shahawi Group</span>
+      <span class="line-sub">Ain Sokhna — Galala Plateau</span>
+      <span class="dev">Developer: El Shahawei Group</span>
     </h1>
   </div>
 </section>
 
 <div class="wrapper">
+
+  <!-- VIDEO -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">Project Video</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://h.top4top.io/p_352441ln20.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://e.top4top.io/m_35276y0qm0.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
@@ -139,71 +174,70 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <div class="prices">
     <div class="price-card">
       <div class="price-title">Developer Price</div>
-      <a class="price-link" href="#contact">Ask about offers</a>
+      <a class="price-link" href="#contact">Ask for Offers</a>
     </div>
     <div class="price-card">
       <div class="price-title">Resale Price</div>
-      <a class="price-link" href="#contact">Contact for price</a>
+      <a class="price-link" href="#contact">Contact for Details</a>
     </div>
   </div>
   <div class="master-wrap">
-    <a href="https://d.top4top.io/p_3525j8a7z0.jpeg" target="_blank" rel="noopener" class="master-pill">Project Masterplan</a>
+    <a href="https://d.top4top.io/p_3525j8a7z0.jpeg" target="_blank" rel="noopener" class="master-pill">Master Plan</a>
   </div>
 
   <!-- DESCRIPTION -->
   <section>
     <h2>About Ein Hills</h2>
-    <p>Ein Hills is El Shahawi Group’s first launch in Ain Sokhna, set on an elevated hillside with sweeping Red Sea views. The resort blends vast greenery, water features and European-inspired contemporary design, delivering a fully serviced lifestyle with modern tech and abundant leisure — plus flexible payment plans.</p>
+    <p>Ein Hills is El Shahawei Group’s debut in Ain Sokhna — set on the Galala plateau with panoramic Red Sea views, European-inspired architecture, wide landscapes and water features, and a fully serviced lifestyle with flexible payment plans.</p>
 
-    <h2>Developer – El Shahawi Group</h2>
-    <p>One of Egypt’s leading developers since 1976 with 30+ years of experience, delivering successful residential and commercial projects. The group also owns leading companies such as Arab Cement and Ready Rocks for marble.</p>
+    <h2>Developer</h2>
+    <p>El Shahawei Group (est. 1976) delivers residential & commercial projects and owns leading companies including Arab Cement and Al Sukhkhour for marble.</p>
 
     <h2>Signature Projects</h2>
     <ul>
-      <li>Bali – North Coast</li>
-      <li>Mövenpick El Sokhna Hotel</li>
+      <li>Bali — North Coast</li>
+      <li>Movenpick El Sokhna Hotel</li>
     </ul>
 
     <h2>Location</h2>
-    <p>On Galala Plateau in the heart of Ain Sokhna — 127 km from Cairo, 8 km from Galala City; around 60 minutes from Cairo.</p>
+    <p>On Galala plateau in the heart of Ain Sokhna — ~127 km from Cairo, 8 km to Galala City, around 60 minutes from New Cairo.</p>
     <ul>
-      <li>New Administrative Capital: 47 km (~45 min)</li>
-      <li>Ain Sokhna Gates: ~15 km</li>
+      <li>New Capital: ~47 km (~45 min)</li>
+      <li>Sokhna Gates: ~15 km</li>
       <li>Galala City: 8 km</li>
       <li>Porto Sokhna: ~15 min</li>
       <li>New Cairo: ~100 km</li>
     </ul>
 
-    <h2>Site Area</h2>
-    <p>Approx. 50 feddans with ~800 m beachfront and ~250 m depth, ~500 sea-view units. Extensive greenery, water features, retail & dining (~100 m²), crystal lagoons & waterfalls (~4,200 m²).</p>
+    <h2>Land Area</h2>
+    <p>~50 feddans, ~800 m beachfront width and ~250 m depth, ~500 units with premium sea views; extensive green areas, water features, F&B, ~100 m² retail, crystal lagoons and ~4,200 m² waterfalls.</p>
 
     <h2>Design</h2>
-    <p>World-class terraced masterplan ensuring sea views for most homes, modern façades and durable materials, with generous landscaping and multiple artificial lakes.</p>
+    <p>Tiered terraces to secure sea views for all units; contemporary facades and weather-resistant materials; lush landscapes and multiple artificial lakes.</p>
 
-    <h2>Amenities & Features</h2>
+    <h2>Amenities</h2>
     <ul>
-      <li>Landscaped parks & lakes</li>
-      <li>Ladies’ leisure complex</li>
+      <li>Expansive landscape & lagoons</li>
+      <li>Ladies’ recreational zone</li>
       <li>Restaurants, cafés & retail</li>
-      <li>Spa (sauna & jacuzzi) and equipped gym</li>
+      <li>Spa (sauna/jacuzzi) & gym</li>
       <li>Multiple pools + 1,500 m² sky infinity pool</li>
-      <li>Aqua park & amusement zone</li>
-      <li>Medical center & 24/7 pharmacy</li>
-      <li>Hypermarket, home delivery & ATMs</li>
-      <li>Yoga lawns & walking trails</li>
-      <li>Lifeguards along the beach</li>
-      <li>Full sports courts</li>
-      <li>5-star hotel – cable car & electric pulley train</li>
-      <li>Mall & backup generators</li>
-      <li>Secured parking, 24/7 security, e-gates & CCTV</li>
+      <li>Aqua park & amusement area</li>
+      <li>Medical unit & 24/7 pharmacy</li>
+      <li>Hypermarket, ATMs & delivery</li>
+      <li>Yoga decks & jogging paths</li>
+      <li>Beach lifeguards & sports courts</li>
+      <li>5-star hotel — cable car & e-train</li>
+      <li>Mall & power generators</li>
+      <li>Secure parking & 24/7 security</li>
     </ul>
   </section>
 
   <!-- CONTACT FORM -->
   <section class="card" id="contact">
     <div class="icon">📨</div>
-    <h3>Need Real Estate Help?</h3>
-    <p class="sub">Fill in your details and we’ll contact you shortly.</p>
+    <h3>Need Property Assistance?</h3>
+    <p class="sub">Fill your details and we’ll contact you shortly.</p>
     <form id="leadForm" novalidate>
       <div class="grid">
         <div>
@@ -211,15 +245,14 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
           <input id="name" type="text" placeholder="Your name" required>
         </div>
         <div>
-          <label for="project">Preferred project</label>
+          <label for="project">Preferred Project</label>
           <input id="project" type="text" value="Ein Hills El Sokhna" required>
         </div>
         <div>
-          <label for="unit">Unit type</label>
+          <label for="unit">Unit Type</label>
           <select id="unit" required>
-            <option value="" disabled selected>Choose unit type</option>
-            <option>Apartment</option>
-            <option>Villa</option>
+            <option value="" disabled selected>Select unit type</option>
+            <option>Apartment</option><option>Villa</option>
           </select>
         </div>
         <div>
@@ -232,7 +265,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       </div>
       <div style="margin-top:12px">
         <label for="note">Note</label>
-        <textarea id="note" placeholder="Any extra details…"></textarea>
+        <textarea id="note" placeholder="Any details…"></textarea>
       </div>
       <div class="btns">
         <button type="button" id="btnWA">Send via WhatsApp</button>
@@ -258,26 +291,36 @@ const $ = s => document.querySelector(s);
 
 /* Slider arrows (LTR) */
 (function(){
-  const scroller = $('#slider'); if(!scroller) return;
-  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const scroller = document.getElementById('slider'); if(!scroller) return;
+  const next = document.getElementById('nextBtn'), prev = document.getElementById('prevBtn');
   const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
-  next?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
-  prev?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+  next?.addEventListener('click', ()=> scroller.scrollBy({left: step(),behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left:-step(),behavior:'smooth'}));
+})();
+
+/* Best-effort download prevention */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  document.addEventListener('contextmenu', e=>{ if(e.target===v) e.preventDefault(); });
+  document.addEventListener('keydown', e=>{
+    const k = e.key.toLowerCase();
+    if((e.ctrlKey||e.metaKey) && (k==='s'||k==='p')) e.preventDefault();
+  });
 })();
 
 /* Contact actions */
 (function(){
   const val = id => document.getElementById(id).value.trim();
-  $('#btnWA')?.addEventListener('click', ()=>{
+  document.getElementById('btnWA')?.addEventListener('click', ()=>{
     const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
-    const txt = `Hello, I'd like to inquire about ${d.project}.
+    const txt = `Hello, I’d like to inquire about ${d.project}.
 Name: ${d.name}
 Unit: ${d.unit}
 Bedrooms: ${d.rooms}
 Notes: ${d.note}`;
     window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
   });
-  $('#btnMail')?.addEventListener('click', ()=>{
+  document.getElementById('btnMail')?.addEventListener('click', ()=>{
     const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
     const subject = `Inquiry about Ein Hills El Sokhna`;
     const body = `Name: ${d.name}
@@ -290,4 +333,4 @@ Notes: ${d.note}`;
 })();
 </script>
 </body>
-        </html>
+</html>
