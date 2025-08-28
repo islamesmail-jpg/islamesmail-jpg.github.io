@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hijaz Oasis Resort | Ain El Sokhna</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+a{text-decoration:none;color:inherit}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{display:flex;align-items:center}
+.logo-img{height:36px;width:auto;border-radius:8px}
+.spacer{flex:1}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
+.nav-btn:hover,.nav-link:hover{background:#111326}
+.projects-wrap{position:relative}
+.menu{position:absolute;top:calc(100% + 6px);left:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff}
+.menu a:hover{background:#121638}
+
+/* LAYOUT */
+.wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
+
+/* HERO (video) */
+.hero{position:relative;height:56vw;max-height:520px;min-height:320px;border-bottom:1px solid #12142a;overflow:hidden}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
+.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:0 16px 26px}
+.hero h1{margin:0;line-height:1.2}
+.hero .line-top{display:block;font-weight:800;font-size:44px}
+.hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98;margin-top:4px}
+.hero .dev{display:block;margin-top:8px;font-size:18px;opacity:.95}
+@media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* SLIDER */
+.slider-wrap{position:relative;margin:18px auto 10px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.14)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow:hover{background:rgba(15,17,34,.9)}
+.arrow.left{left:8px}
+.arrow.right{right:8px}
+
+/* PRICES + MAP */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+.price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+.price-link{display:block;text-align:center;font-weight:700;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+.price-link:hover{filter:brightness(.97)}
+.master-wrap{text-align:center;margin:6px 0 18px}
+.master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);font-size:14px}
+
+/* TEXT */
+section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+section p,section li{color:var(--muted)}
+ul{margin:8px 0 12px}
+
+/* CARD / FORM */
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
+.card .icon{font-size:28px;text-align:center;margin:0 0 6px}
+.card h3{margin:6px 0;text-align:center;font-size:18px}
+.card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:13px;color:#d7d7d7}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:100px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
+button:hover{filter:brightness(.95)}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html">Ain El Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north.html">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html">New Cairo</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#contact">Contact</a>
+      <!-- language switch to Arabic page -->
+      <a class="nav-btn" href="hijaz.html" aria-label="Switch to Arabic">AR</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline poster="https://e.top4top.io/p_3527qsbnu0.jpeg">
+    <source src="https://e.top4top.io/m_3527zdc1u0.mp4" type="video/mp4">
+  </video>
+  <div class="overlay">
+    <h1>
+      <span class="line-top">Hijaz Oasis Resort — Ain El Sokhna</span>
+      <span class="line-sub">Beachfront chalets & villas on the Red Sea</span>
+      <span class="dev">By Al Hijaz for Tourism & Real Estate Development</span>
+    </h1>
+  </div>
+</section>
+
+<div class="wrapper">
+  <!-- SLIDER -->
+  <div class="slider-wrap">
+    <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
+    <button class="arrow right" id="nextBtn" aria-label="Next">›</button>
+    <div class="slider" id="slider">
+      <figure class="slide"><img src="https://e.top4top.io/p_3527qsbnu0.jpeg" alt="Hijaz Oasis 1"></figure>
+      <figure class="slide"><img src="https://f.top4top.io/p_3527h4o211.jpg" alt="Hijaz Oasis 2"></figure>
+      <figure class="slide"><img src="https://g.top4top.io/p_35277sire2.jpg" alt="Hijaz Oasis 3"></figure>
+      <figure class="slide"><img src="https://h.top4top.io/p_3527wvi2l3.jpg" alt="Hijaz Oasis 4"></figure>
+      <figure class="slide"><img src="https://i.top4top.io/p_3527ktkm44.jpeg" alt="Hijaz Oasis 5"></figure>
+      <figure class="slide"><img src="https://j.top4top.io/p_35272a0zn5.jpeg" alt="Hijaz Oasis 6"></figure>
+      <figure class="slide"><img src="https://k.top4top.io/p_3527ucsuk6.jpg" alt="Hijaz Oasis 7"></figure>
+      <figure class="slide"><img src="https://l.top4top.io/p_352708nt27.jpeg" alt="Hijaz Oasis 8"></figure>
+      <figure class="slide"><img src="https://a.top4top.io/p_3527b5xgk8.jpeg" alt="Hijaz Oasis 9"></figure>
+    </div>
+  </div>
+
+  <!-- PRICES + MAP BUTTON -->
+  <div class="prices">
+    <div class="price-card">
+      <div class="price-title">Developer Price</div>
+      <a class="price-link" href="#contact">Ask about current offers</a>
+    </div>
+    <div class="price-card">
+      <div class="price-title">Resale Price</div>
+      <a class="price-link" href="#contact">Ask for the price</a>
+    </div>
+  </div>
+  <div class="master-wrap">
+    <a href="https://maps.app.goo.gl/x9vXSB9PfnbRkA7A9" target="_blank" rel="noopener" class="master-pill">📍 View resort location on map</a>
+  </div>
+
+  <!-- DESCRIPTION (FULL CONTENT) -->
+  <section>
+    <h2>About Hijaz Oasis Resort</h2>
+    <p>Hijaz Oasis Resort in Ain El Sokhna is a coastal tourist destination comprising chalets and seaside units on the Gulf of Suez. It offers a private beach, swimming pools, and a variety of leisure services. The project is developed by <strong>Al Hijaz for Tourism & Real Estate Development</strong>. Ain El Sokhna is one of Egypt’s most distinctive seaside cities with upscale villages, hotels, and resorts, and it lies around one hour from Cairo—making it ideal for quick, enjoyable getaways.</p>
+
+    <h2>Resort Details</h2>
+    <p>Hijaz Oasis is a Red Sea beachfront resort located at kilometer 66 on the Ain El Sokhna–Suez Road, reachable from Cairo in about one and a half hours by car. The resort is built over four phases featuring a wide variety of units—primarily chalets—with different sizes to suit all clients, totaling around <strong>1,200 coastal units</strong>. The resort provides multiple pools, a private beach, and diverse recreational services offered by Al Hijaz for Tourism & Real Estate Development.</p>
+
+    <h2>Developer</h2>
+    <p>The developer of Hijaz Oasis is <strong>Al Hijaz for Tourism & Real Estate Development</strong>, an Egyptian company established in 1988 specializing in resort development. The company focuses on delivering high-quality services and integrated tourism & leisure amenities in one place, honoring delivery timelines agreed upon with clients, and carefully selecting prime locations for its projects.</p>
+
+    <h2>Previous Projects</h2>
+    <p>Al Hijaz owns a 3-kilometer land strip in Ain El Sokhna that includes several coastal resorts:</p>
+    <ul>
+      <li>Hijaz Oasis Resort.</li>
+      <li>Dolphin Beach Resort.</li>
+      <li>El Sokhna Hills Village.</li>
+    </ul>
+    <p>You can explore specs via an “eslam reality” search.</p>
+
+    <h2>Location</h2>
+    <p>The resort sits at kilometer 66 on the Hurghada–Ismailia (Suez–Ain El Sokhna) Road. It’s about <strong>90 minutes from Cairo</strong> and roughly <strong>60 minutes from the New Administrative Capital</strong>. The resort is close to Galala Plateau and Galala Resort (about 10 minutes). Ain El Sokhna is also near Suez and Ismailia and connects to Hurghada in about 3 hours via the Hurghada–Ismailia Road, as well as other Red Sea cities such as Marsa Alam.</p>
+    <p>You can reach the resort from Cairo and the new cities via the Sokhna–Suez Road and from Galala via the Sokhna–Zafarana Road.</p>
+
+    <h2>Nearby Landmarks</h2>
+    <ul>
+      <li>Dolphin Beach Resort, El Sokhna Hills Village (also by Al Hijaz).</li>
+      <li>Ramada El Sokhna Resort, Movenpick El Sokhna Hotel.</li>
+      <li>Al Ain El Sokhna Mosque, supermarkets, pharmacies, restaurants & cafés.</li>
+    </ul>
+
+    <h2>Unit Types</h2>
+    <p>The project consists of four stages—<em>Hijaz 1, Hijaz 2, Hijaz 3, and the most renowned, Hijaz 4</em>—with a combined total of about 1,200 coastal units:</p>
+    <ul>
+      <li>Chalets.</li>
+      <li>Duplex chalets (ground + roof).</li>
+      <li>Standalone villas with private gardens and direct sea views.</li>
+    </ul>
+
+    <h2>Unit Areas</h2>
+    <ul>
+      <li><strong>Chalets:</strong> from around <strong>70 m²</strong>, typically starting from 2 bedrooms, 2 bathrooms, reception & living area, and an American kitchen.</li>
+      <li><strong>Villas:</strong> up to around <strong>200 m²</strong>, with layouts reaching 5 bedrooms, living & reception rooms, 2 bathrooms, American kitchen, configured as ground floor + roof.</li>
+    </ul>
+
+    <h2>Architecture & Design</h2>
+    <p>The village comprises four groups of chalet blocks, each phase offering multiple designs and sizes. <strong>Hijaz 4</strong> is the most popular and the newest phase, featuring upgraded amenities and services. Buildings are limited to three floors with white façades and a terraced, pyramid-like massing to maximize sea views for a larger number of units. All units overlook pools and landscaped areas, while several villas enjoy private gardens and direct sea frontage.</p>
+
+    <h2>Facilities & Services</h2>
+    <ul>
+      <li>24/7 village security in addition to beach security.</li>
+      <li>On-demand housekeeping for rooms & chalets.</li>
+      <li>Free private parking for residents.</li>
+      <li>Heated swimming pools in winter.</li>
+      <li>Dedicated children’s pool + covered ladies’ pool.</li>
+      <li>Kids’ entertainment & play area.</li>
+      <li>Shared health club and gym.</li>
+      <li>Easy access to <strong>Dolphin Beach Resort</strong> to enjoy the dolphin shows.</li>
+      <li>Proximity to top seafood & grill restaurants, El Ezaby Pharmacy, and a large supermarket.</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="card" id="contact">
+    <div class="icon">📨</div>
+    <h3>Need real estate help?</h3>
+    <p class="sub">Fill your details and we’ll get back to you shortly.</p>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="project">Preferred project</label>
+          <input id="project" type="text" value="Hijaz Oasis Resort" required>
+        </div>
+        <div>
+          <label for="unit">Unit type</label>
+          <select id="unit" required>
+            <option value="" disabled selected>Select a unit type</option>
+            <option>Chalet</option>
+            <option>Duplex Chalet</option>
+            <option>Standalone Villa</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms">Bedrooms</label>
+          <select id="rooms" required>
+            <option value="" disabled selected>Select bedrooms</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="note">Notes</label>
+        <textarea id="note" placeholder="Any extra details…"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btnWA">Send via WhatsApp</button>
+        <button type="button" id="btnMail">Send via Email</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>© eslam reality 2025 — All rights reserved</footer>
+</div>
+
+<script>
+const $ = s=>document.querySelector(s);
+
+/* dropdown */
+(function(){
+  const btn=$('#btnProjects'),menu=$('#projectsMenu');
+  if(!btn||!menu)return;
+  const toggle=v=>{btn.setAttribute('aria-expanded',v?'true':'false');menu.style.display=v?'block':'none';};
+  btn.addEventListener('click',e=>{e.stopPropagation();toggle(menu.style.display!=='block')});
+  document.addEventListener('click',()=>toggle(false));
+})();
+
+/* slider */
+(function(){
+  const scroller=$('#slider');if(!scroller)return;
+  const step=()=>Math.min(scroller.clientWidth*0.9,700);
+  $('#nextBtn')?.addEventListener('click',()=>scroller.scrollBy({left:step(),behavior:'smooth'}));
+  $('#prevBtn')?.addEventListener('click',()=>scroller.scrollBy({left:-step(),behavior:'smooth'}));
+})();
+
+/* contact */
+(function(){
+  const val=id=>document.getElementById(id).value.trim();
+  $('#btnWA')?.addEventListener('click',()=>{
+    const msg=`Inquiry about ${val('project')}
+Name: ${val('name')}
+Unit: ${val('unit')}
+Bedrooms: ${val('rooms')}
+Notes: ${val('note')}`;
+    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+  });
+  $('#btnMail')?.addEventListener('click',()=>{
+    const subject=`Inquiry about ${val('project')||'Hijaz Oasis Resort'}`;
+    const body=`Name: ${val('name')}
+Project: ${val('project')}
+Unit: ${val('unit')}
+Bedrooms: ${val('rooms')}
+Notes: ${val('note')}`;
+    window.location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
+</body>
+</html>
