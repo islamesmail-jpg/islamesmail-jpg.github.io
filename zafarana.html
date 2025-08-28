@@ -104,7 +104,9 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 
 <!-- breadcrumbs + search -->
 <div class="breadcrumb"><div class="inner">
-  <a href="index.html">الرئيسية</a><span class="sep">»</span><a href="sokhna.html">العين السخنة</a><span class="sep">»</span><span>طريق الزعفرانة</span>
+  <a href="index.html">الرئيسية</a><span class="sep">»</span>
+  <a href="sokhna.html">العين السخنة</a><span class="sep">»</span>
+  <span>طريق الزعفرانة</span>
   <div class="searchwrap">
     <div class="searchbar">
       <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
@@ -117,6 +119,29 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   <h1>مشاريع طريق الزعفرانة</h1>
 
   <div class="proj-grid">
+
+    <!-- Sokhna Hills (NEW) -->
+    <article class="proj-card">
+      <a href="sokhnahills.html" title="Sokhna Hills">
+        <div class="miniGal" data-gal="sokhna">
+          <img class="show" src="https://b.top4top.io/p_3527enpwx0.jpg" alt="">
+          <img src="https://d.top4top.io/p_3527mscij2.jpg" alt="">
+          <img src="https://c.top4top.io/p_3527fxab11.jpg" alt="">
+          <img src="https://e.top4top.io/p_3527uxqde3.jpg" alt="">
+          <img src="https://f.top4top.io/p_35273s3s14.jpg" alt="">
+          <img src="https://g.top4top.io/p_35276s1d65.jpg" alt="">
+          <img src="https://h.top4top.io/p_35279wopx6.jpg" alt="">
+          <img src="https://i.top4top.io/p_3527018wz7.jpg" alt="">
+          <button class="miniBtn miniPrev" type="button">‹</button>
+          <button class="miniBtn miniNext" type="button">›</button>
+        </div>
+      </a>
+      <div class="proj-title">Sokhna Hills | السخنة هيلز</div>
+      <div class="prices">
+        <div class="price-box price-scroll">سعر المطوّر<br><small>استعلم عن العرض المتاح</small></div>
+        <div class="price-box price-scroll">سعر إعادة البيع<br><small>استعلم عن السعر</small></div>
+      </div>
+    </article>
 
     <!-- Murano -->
     <article class="proj-card">
@@ -269,7 +294,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </div>
     <div class="form-row">
       <label for="project">اسم المشروع</label>
-      <input id="project" type="text" placeholder="مثال: Hijaz Oasis Resort">
+      <input id="project" type="text" placeholder="مثال: Sokhna Hills">
     </div>
     <div class="form-row">
       <label for="rooms">عدد الغرف</label>
@@ -292,7 +317,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </div>
 
     <div class="actions">
-      <button class="btn btn-primary" id="btnSend">إرسال</button>
+      <button class="btn btn-primary" id="btnSend">إرسال عبر واتساب</button>
       <a class="btn btn-outline" href="tel:+201050072527">اتصال مباشر</a>
     </div>
   </section>
@@ -327,7 +352,7 @@ function setupGallery(root){
   box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   box.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){dx<0?next():prev();}},{passive:true});
 }
-['murano','lugano','ein','loly','dolphin','hijaz'].forEach(setupGallery);
+['sokhna','murano','lugano','ein','loly','dolphin','hijaz'].forEach(setupGallery);
 
 /* WhatsApp send */
 function gather(){
@@ -358,15 +383,13 @@ const PROJECTS = [
   {name:'الرئيسية', url:'index.html'},
   {name:'العين السخنة', url:'sokhna.html'},
   {name:'طريق الزعفرانة', url:'zafarana.html'},
-  {name:'طريق السويس', url:'suez.html'},
-  {name:'الساحل الشمالي', url:'north.html'},
-  {name:'القاهرة الجديدة', url:'Cairo.html'},
   {name:'Murano | مورانو', url:'murano.html'},
   {name:'Lugano | لوجانو', url:'lugano.html'},
   {name:'Ein Hills | العين هيلز', url:'einhills.html'},
   {name:'Loly Beach | لولي بيتش', url:'lolybeach.html'},
   {name:'Dolphin Beach | دولفين', url:'dolphin.html'},
   {name:'Hijaz Oasis | واحة الحجاز', url:'hijaz.html'},
+  {name:'Sokhna Hills | السخنة هيلز', url:'sokhnahills.html'},
   /* EN pages */
   {name:'Zafarana (EN)', url:'zafarana-en.html'},
   {name:'Murano (EN)', url:'murano-en.html'},
@@ -374,7 +397,8 @@ const PROJECTS = [
   {name:'Ein Hills (EN)', url:'einhills-en.html'},
   {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
   {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
-  {name:'Hijaz Oasis (EN)', url:'hijaz-en.html'}
+  {name:'Hijaz Oasis (EN)', url:'hijaz-en.html'},
+  {name:'Sokhna Hills (EN)', url:'sokhnahills-en.html'}
 ];
 
 (function(){
@@ -389,11 +413,4 @@ const PROJECTS = [
   input.addEventListener('input',()=>{
     const q=input.value.trim().toLowerCase();
     if(!q){ box.style.display='none'; return; }
-    const out=PROJECTS.filter(p=>p.name.toLowerCase().includes(q)).slice(0,12);
-    render(out);
-  });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
-})();
-</script>
-</body>
-</html>
+    const out=
