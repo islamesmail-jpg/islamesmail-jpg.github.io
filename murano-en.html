@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Murano Wadi Degla | Ain Sokhna</title>
+<title>Murano Wadi Degla | Project Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -30,18 +30,30 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff;text-decoration:none}
 .menu a:hover{background:#121638}
 
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:#e5e7eb;text-decoration:none}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
 /* LAYOUT */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* HERO */
-.hero{position:relative;height:56vw;max-height:520px;min-height:300px;border-bottom:1px solid #12142a;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
-.hero .overlay{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px}
+/* HERO (Title only) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero .line-top{display:block;font-weight:800;font-size:44px}
 .hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98}
 .hero .dev{display:block;margin-top:6px;font-size:18px;opacity:.95}
 @media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
+
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 10px}
@@ -76,7 +88,7 @@ ul{margin:8px 0 12px}
 .grid{display:grid;gap:12px}
 @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
 label{font-size:13px;color:#d7d7d7}
-input,select,textarea{width:100%;background:var(--field);color:#fff;border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
 textarea{min-height:100px;resize:vertical}
 .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
@@ -98,30 +110,53 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       <div class="projects-wrap" id="projectsWrap" tabindex="0">
         <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">Projects ▾</button>
         <div class="menu" id="projectsMenu" role="menu">
-          <a href="https://islamesmail-jpg.github.io/sokhna.html"  id="m_sokhna">Ain Sokhna</a>
-          <a href="https://islamesmail-jpg.github.io/north.html"   id="m_north">North Coast</a>
-          <a href="https://islamesmail-jpg.github.io/Cairo.html"   id="m_cairo">New Cairo</a>
+          <a href="https://islamesmail-jpg.github.io/sokhna-en.html"  id="m_sokhna">Ain Sokhna</a>
+          <a href="https://islamesmail-jpg.github.io/north-en.html"   id="m_north">North Coast</a>
+          <a href="https://islamesmail-jpg.github.io/cairo-en.html"   id="m_cairo">New Cairo</a>
         </div>
       </div>
       <a class="nav-link" href="#contact" id="navContact">Contact</a>
-      <a class="nav-btn" href="murano.html" aria-label="التبديل إلى العربية">AR</a>
+      <a class="nav-btn" href="murano-ar.html" aria-label="التبديل للعربية">AR</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">Home</a><span class="sep">»</span>
+    <a href="/sokhna-en.html">Ain Sokhna</a><span class="sep">»</span>
+    <span aria-current="page">Murano</span>
+  </div>
+</div>
+
+<!-- HERO (title only) -->
 <section class="hero" id="hero">
-  <video src="https://i.top4top.io/m_3524euftk0.mp4" autoplay muted loop playsinline></video>
   <div class="overlay">
     <h1>
       <span class="line-top">Murano Wadi Degla</span>
-      <span class="line-sub">Ain Sokhna</span>
+      <span class="line-sub">Resort in Ain Sokhna</span>
       <span class="dev">Developer: Wadi Degla Developments</span>
     </h1>
   </div>
 </section>
 
 <div class="wrapper">
+
+  <!-- VIDEO -->
+  <section class="video-card" aria-labelledby="videoTitle">
+    <h2 id="videoTitle">Project Video</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://c.top4top.io/p_35249hfap2.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
   <!-- SLIDER -->
   <div class="slider-wrap">
     <button class="arrow left" id="prevBtn" aria-label="Prev">‹</button>
@@ -140,43 +175,43 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
   <div class="prices">
     <div class="price-card">
       <div class="price-title">Developer Price</div>
-      <a class="price-link" href="#contact">Ask about offers</a>
+      <a class="price-link" href="#contact">Ask for Offers</a>
     </div>
     <div class="price-card">
       <div class="price-title">Resale Price</div>
-      <a class="price-link" href="#contact">Contact for price</a>
+      <a class="price-link" href="#contact">Contact for Details</a>
     </div>
   </div>
   <div class="master-wrap">
-    <a href="https://g.top4top.io/p_3525qqtvx0.jpg" target="_blank" rel="noopener" class="master-pill">Project Masterplan</a>
+    <a href="https://g.top4top.io/p_3525qqtvx0.jpg" target="_blank" rel="noopener" class="master-pill">Master Plan</a>
   </div>
 
   <!-- DESCRIPTION -->
   <section>
     <h2>About Murano Wadi Degla</h2>
-    <p>Murano Ain Sokhna is a tranquil retreat away from the city bustle, yet close enough for quick trips. On the Red Sea shores, it blends nature’s charm with modern comfort, designed to provide serenity with all amenities and entertainment — plus unique natural hot springs.</p>
+    <p>Murano in Ain Sokhna offers a peaceful escape on the Red Sea, combining natural beauty with modern comfort. Carefully planned to provide a relaxing environment with full amenities, and uniquely close to Cairo thanks to its strategic location at the end of Sokhna Road and start of Zafarana Road.</p>
 
-    <h2>Location</h2>
-    <p>At the end of Ain Sokhna Road and start of Zaafarana Road — the closest Red Sea destination to Cairo, with excellent access to major highways.</p>
+    <h2>Prime Location</h2>
+    <p>The project enjoys direct access to major roads and key destinations, ensuring easy commute from different parts of Egypt.</p>
 
-    <h2>Key Distances</h2>
+    <h2>Nearby Roads & Landmarks</h2>
     <ul>
       <li>Galala Road: 18 km</li>
       <li>Ain Sokhna Train Station: 14 km</li>
       <li>Cairo: 136 km</li>
-      <li>Katameya Road: 112 km</li>
+      <li>Kattameya Road: 112 km</li>
     </ul>
 
-    <h2>Project Area</h2>
-    <p>Generous land use optimized for privacy, comfort, green spaces and water features — delivering a distinctive living experience.</p>
+    <h2>Land Area & Planning</h2>
+    <p>Murano spans a generous area with smart zoning between homes, greenery and lagoons, creating privacy and comfort with vibrant recreational facilities.</p>
 
-    <h2>Masterplan Highlights</h2>
+    <h2>Concept & Amenities</h2>
     <ul>
-      <li>Multiple swimming pools</li>
-      <li>Kids’ play areas (high safety)</li>
-      <li>Premium restaurants & cafés</li>
-      <li>Retail shops for daily needs</li>
-      <li>Walking & cycling paths among greenery</li>
+      <li>Diverse swimming pools</li>
+      <li>Kids’ play areas</li>
+      <li>Restaurants & cafés</li>
+      <li>Daily services retail</li>
+      <li>Walking & cycling paths</li>
     </ul>
 
     <h2>Unit Types</h2>
@@ -185,37 +220,27 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       <li>Villas</li>
     </ul>
 
-    <h2>Amenities</h2>
+    <h2>Facilities</h2>
     <ul>
       <li>750 m sandy beach</li>
       <li>100 m marina</li>
-      <li>4-star resort</li>
-      <li>Fine dining & cafés</li>
-      <li>Commercial zone</li>
+      <li>4-star hotel</li>
+      <li>Restaurants & cafés</li>
+      <li>Retail area</li>
       <li>Spa</li>
       <li>Sports courts</li>
       <li>Natural hot springs</li>
     </ul>
 
-    <h2>About Wadi Degla Developments</h2>
-    <p>Founded in 2005 with a portfolio of 16 projects (12 delivered) and 10,000+ units across Cairo, Giza, North Coast and Ain Sokhna.</p>
-
-    <h2>Notable Projects</h2>
-    <ul>
-      <li>Blumar Dome – Sokhna</li>
-      <li>Marina Wadi Degla – Sokhna</li>
-      <li>Blumar – North Coast</li>
-      <li>Neopolis – Mostakbal City</li>
-      <li>Pyramids Walk – 6th of October</li>
-      <li>Promenade – 6th of October & New Cairo</li>
-    </ul>
+    <h2>About the Developer</h2>
+    <p>Wadi Degla Developments, founded in 2005, has delivered multiple projects across Cairo, Giza, North Coast and Ain Sokhna with a portfolio exceeding 10,000 units.</p>
   </section>
 
   <!-- CONTACT FORM -->
   <section class="card" id="contact">
     <div class="icon">📨</div>
-    <h3>Need Real Estate Help?</h3>
-    <p class="sub">Fill in your details and we’ll contact you shortly.</p>
+    <h3>Need Property Assistance?</h3>
+    <p class="sub">Fill your details and we’ll contact you shortly.</p>
     <form id="leadForm" novalidate>
       <div class="grid">
         <div>
@@ -223,13 +248,13 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
           <input id="name" type="text" placeholder="Your name" required>
         </div>
         <div>
-          <label for="project">Preferred project</label>
+          <label for="project">Preferred Project</label>
           <input id="project" type="text" value="Murano Wadi Degla" required>
         </div>
         <div>
-          <label for="unit">Unit type</label>
+          <label for="unit">Unit Type</label>
           <select id="unit" required>
-            <option value="" disabled selected>Choose unit type</option>
+            <option value="" disabled selected>Select unit type</option>
             <option>Apartment</option>
             <option>Villa</option>
           </select>
@@ -244,7 +269,7 @@ footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
       </div>
       <div style="margin-top:12px">
         <label for="note">Note</label>
-        <textarea id="note" placeholder="Any extra details…"></textarea>
+        <textarea id="note" placeholder="Any details…"></textarea>
       </div>
       <div class="btns">
         <button type="button" id="btnWA">Send via WhatsApp</button>
@@ -274,7 +299,15 @@ const $ = s => document.querySelector(s);
   const next = $('#nextBtn'), prev = $('#prevBtn');
   const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
   next?.addEventListener('click', ()=> scroller.scrollBy({left: step(), behavior:'smooth'}));
-  prev?.addEventListener('click', ()=> scroller.scrollBy({left: -step(), behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left:-step(), behavior:'smooth'}));
+})();
+
+/* Best-effort download prevention */
+(function(){
+  const v = document.getElementById('promo'); if(!v) return;
+  document.addEventListener('keydown', (e)=>{
+    if((e.ctrlKey||e.metaKey) && (e.key.toLowerCase()==='s' || e.key.toLowerCase()==='p')) e.preventDefault();
+  });
 })();
 
 /* Contact actions */
@@ -282,7 +315,7 @@ const $ = s => document.querySelector(s);
   const val = id => document.getElementById(id).value.trim();
   $('#btnWA')?.addEventListener('click', ()=>{
     const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
-    const txt = `Hello, I'd like to inquire about ${d.project}.
+    const txt = `Hello, I’d like to inquire about ${d.project}.
 Name: ${d.name}
 Unit: ${d.unit}
 Bedrooms: ${d.rooms}
