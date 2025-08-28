@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>مشروعات طريق الزعفرانة | Ain Sokhna Zafarana</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+a{text-decoration:none;color:inherit}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+.nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
+.logo-link{display:flex;align-items:center}
+.logo-img{height:36px;width:auto;border-radius:8px}
+.spacer{flex:1}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
+.nav-btn:hover,.nav-link:hover{background:#111326}
+.projects-wrap{position:relative}
+.menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
+.menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff}
+.menu a:hover{background:#121638}
+.projects-wrap.open .menu{display:block}
+
+/* BREADCRUMB */
+.breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
+.breadcrumb a{color:#e5e7eb}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
+/* HERO */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent)}
+.hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
+.hero h1{margin:0;line-height:1.2}
+.hero .line-top{display:block;font-weight:800;font-size:40px}
+.hero .line-sub{display:block;font-weight:700;font-size:22px;opacity:.95;margin-top:6px}
+
+/* WRAPPER */
+.wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
+
+/* CARDS GRID */
+.grid{display:grid;gap:14px;margin:18px 0}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column}
+.card figure{position:relative;aspect-ratio:16/9;overflow:hidden}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .body{padding:14px}
+.card h3{margin:0 0 6px;font-size:18px}
+.meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+.card p{color:var(--muted);margin:0 0 12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:#000;font-weight:800;border-radius:12px;padding:10px 12px;font-size:14px}
+.btn.secondary{background:#fff}
+.badge{display:inline-block;background:#0f1224;border:1px solid #1d2143;color:#e5e7eb;border-radius:10px;padding:4px 8px;font-size:12px;margin-bottom:8px}
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">المشاريع ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html">العين السخنة</a>
+          <a href="https://islamesmail-jpg.github.io/north.html">الساحل الشمالي</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html">القاهرة الجديدة</a>
+        </div>
+      </div>
+      <a class="nav-link" href="#list">المشاريع</a>
+      <a class="nav-btn" href="zafarana-en.html" aria-label="Switch to English">EN</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">الرئيسية</a><span class="sep">»</span>
+    <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <span aria-current="page">الزعفرانة</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay">
+    <h1>
+      <span class="line-top">مشروعات طريق الزعفرانة — العين السخنة</span>
+      <span class="line-sub">أفضل المنتجعات بإطلالات بحرية وخدمات متكاملة</span>
+    </h1>
+  </div>
+</section>
+
+<div class="wrapper" id="list">
+  <!-- TIPS / TAG -->
+  <div class="badge">مُحدّث — تمت إضافة مشروع السخنة هيلز ✅</div>
+
+  <!-- GRID OF PROJECT CARDS -->
+  <div class="grid">
+
+    <!-- Sokhna Hills -->
+    <article class="card">
+      <figure>
+        <img loading="lazy" src="https://b.top4top.io/p_3527enpwx0.jpg" alt="Sokhna Hills cover">
+      </figure>
+      <div class="body">
+        <h3>السخنة هيلز | Sokhna Hills</h3>
+        <div class="meta">المطوّر: شركة الحجاز للتطوير العقاري</div>
+        <p>منتجع على هضبة الجلالة بمسطح ~100 فدان وشاطئ خاص وتخطيط مصاطب يضمن رؤية البحر لكل الوحدات، مع أكوا بارك وفندق 4 نجوم وخدمات متكاملة.</p>
+        <div class="actions">
+          <a class="btn" href="sokhnahills.html">التفاصيل (AR)</a>
+          <a class="btn secondary" href="sokhnahills-en.html">Details (EN)</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Hijaz Oasis -->
+    <article class="card">
+      <figure>
+        <img loading="lazy" src="https://e.top4top.io/p_3527qsbnu0.jpeg" alt="Hijaz Oasis cover">
+      </figure>
+      <div class="body">
+        <h3>واحة الحجاز | Hijaz Oasis</h3>
+        <div class="meta">المطوّر: الحجاز للتنمية السياحية والعقارية</div>
+        <p>قرية ساحلية بخدمات فندقية وشاطئ خاص ومسطحات خضراء، تبعد نحو 90 دقيقة عن القاهرة مع وحدات متنوعة تناسب العائلات.</p>
+        <div class="actions">
+          <a class="btn" href="hijaz.html">التفاصيل (AR)</a>
+          <a class="btn secondary" href="hijaz-en.html">Details (EN)</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Dolphin Beach -->
+    <article class="card">
+      <figure>
+        <img loading="lazy" src="https://c.top4top.io/p_3525x6wg20.jpg" alt="Dolphin Beach cover">
+      </figure>
+      <div class="body">
+        <h3>دولفين بيتش | Dolphin Beach</h3>
+        <div class="meta">المطوّر: شركة الحجاز للتنمية</div>
+        <p>منتجع متكامل بخدمات ترفيهية وشاطئ خاص ومسابح متعددة، قريب من محور الزعفرانة ومع عروض عائلية مميزة.</p>
+        <div class="actions">
+          <a class="btn" href="dolphin.html">التفاصيل (AR)</a>
+          <a class="btn secondary" href="dolphin-en.html">Details (EN)</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Loly Beach (optional on Zafarana if relevant) -->
+    <article class="card">
+      <figure>
+        <img loading="lazy" src="https://j.top4top.io/p_35249oiip0.jpeg" alt="Loly Beach cover">
+      </figure>
+      <div class="body">
+        <h3>لولي بيتش | Loly Beach</h3>
+        <div class="meta">المطوّر: DMA للتطوير العقاري</div>
+        <p>قرية عصرية بإطلالات بحرية وخدمات متكاملة وبنية تحتية قوية، وموقع قرب المحاور الرئيسية في السخنة.</p>
+        <div class="actions">
+          <a class="btn" href="lolybeach.html">التفاصيل (AR)</a>
+          <a class="btn secondary" href="lolybeach-en.html">Details (EN)</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <footer>© eslam reality 2025 — جميع الحقوق محفوظة</footer>
+</div>
+
+<script>
+const $ = s=>document.querySelector(s);
+/* dropdown open/close */
+(function(){
+  const wrap = $('#projectsWrap'), btn = $('#btnProjects');
+  if(!wrap||!btn) return;
+  btn.addEventListener('click', e=>{ e.stopPropagation(); wrap.classList.toggle('open'); });
+  document.addEventListener('click', ()=> wrap.classList.remove('open'));
+})();
+</script>
+</body>
+</html>
