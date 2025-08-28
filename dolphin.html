@@ -1,153 +1,340 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dolphin Beach | منتجع دولفين بيتش العين السخنة</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0d1a;--card:#111326;--text:#fff;--muted:#c9c9c9;--accent:#f0c30f;--field:#181b31;--radius:16px;--wrap:1120px;--shadow:0 6px 16px rgba(0,0,0,.25)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",sans-serif;line-height:1.85}
+:root{
+  --bg:#0b0d1a; --card:#111326; --text:#fff; --muted:#c9c9c9;
+  --accent:#f0c30f; --field:#181b31; --radius:16px; --wrap:1120px;
+  --shadow:0 6px 16px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 a{text-decoration:none;color:inherit}
 
-/* NAV */
-.navbar{position:sticky;top:0;z-index:1000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:2000;background:rgba(9,11,22,.78);backdrop-filter:blur(8px);border-bottom:1px solid #13152a}
 .nav-inner{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
-.logo-img{height:36px}
+.logo-link{display:flex;align-items:center}
+.logo-img{height:36px;width:auto;border-radius:8px}
 .spacer{flex:1}
-.nav-links{display:flex;gap:10px}
-.nav-btn,.nav-link{color:#fff;background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-btn,.nav-link{color:var(--text);background:transparent;border:1px solid transparent;border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
 .nav-btn:hover,.nav-link:hover{background:#111326}
-.menu{position:absolute;display:none;top:100%;background:#0f1224;padding:6px;border-radius:12px;box-shadow:var(--shadow)}
+.projects-wrap{position:relative}
+.menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:6px;min-width:220px;box-shadow:var(--shadow);display:none;z-index:2100}
 .menu a{display:block;padding:8px 10px;border-radius:8px;color:#fff}
 .menu a:hover{background:#121638}
-.projects-wrap{position:relative}
 .projects-wrap:focus-within .menu{display:block}
 
-/* breadcrumb */
+/* BREADCRUMB */
 .breadcrumb{background:#0f1224;border-bottom:1px solid #13152a}
-.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted)}
-.breadcrumb a{color:#eee}
-.breadcrumb a:hover{text-decoration:underline}
-.breadcrumb .sep{margin:0 .35rem;opacity:.6}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:#cfd1d4}
+.breadcrumb a{color:#e5e7eb}
+.breadcrumb a:hover{color:#fff;text-decoration:underline}
+.breadcrumb .sep{opacity:.6;margin:0 .35rem}
 
-/* hero */
-.hero{padding:40px 16px;text-align:center;background:linear-gradient(180deg,#0d1022,transparent)}
-.hero h1{margin:0}
-.hero .line-top{font-size:40px;font-weight:800}
-.hero .line-sub{font-size:24px;font-weight:700;opacity:.9}
-.hero .dev{margin-top:6px;font-size:16px;opacity:.85}
+/* LAYOUT */
+.wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* video card */
-.video-card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:16px;margin:20px 0}
-.video-card h2{margin:0 0 10px;color:var(--accent);font-size:18px}
-.video-wrap video{width:100%;border-radius:12px}
+/* HERO (title only) */
+.hero{position:relative;padding:36px 16px;border-bottom:1px solid #12142a;background:linear-gradient(180deg,#0d1022,transparent);text-align:center}
+.hero h1{margin:0;line-height:1.2}
+.hero .line-top{display:block;font-weight:800;font-size:44px}
+.hero .line-sub{display:block;font-weight:700;font-size:26px;opacity:.98;margin-top:4px}
+.hero .dev{display:block;margin-top:8px;font-size:18px;opacity:.95}
+@media(max-width:720px){.hero .line-top{font-size:34px}.hero .line-sub{font-size:22px}}
 
-/* slider */
-.slider-wrap{position:relative;margin:18px 0}
-.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory}
-.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow)}
-.slide img{width:100%;height:100%;object-fit:cover}
+/* VIDEO CARD */
+.video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0}
+.video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+.video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.video-wrap video{width:100%;height:auto;display:block;background:#000}
 
-/* prices */
-.prices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}
-.price-card{background:#fff;color:#000;border-radius:12px;padding:12px;text-align:center;box-shadow:var(--shadow)}
-.master-pill{background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
+/* SLIDER */
+.slider-wrap{position:relative;margin:18px auto 10px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#0f1224;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.14)}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(15,17,34,.75);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow:hover{background:rgba(15,17,34,.9)}
+.arrow.left{inset-inline-start:8px}
+.arrow.right{inset-inline-end:8px}
 
-/* form */
-.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:20px 0}
-label{font-size:13px}
-input,select,textarea{width:100%;background:var(--field);border:none;border-radius:12px;padding:12px;color:#fff;margin-top:6px}
-button{width:100%;border:none;border-radius:12px;padding:12px;background:var(--accent);margin-top:8px;font-weight:700;cursor:pointer}
+/* PRICES + MAP */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
+.price-card{background:#fff;color:#000;border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
+.price-link{display:block;text-align:center;font-weight:700;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
+.price-link:hover{filter:brightness(.97)}
+.master-wrap{text-align:center;margin:6px 0 18px}
+.master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);font-size:14px}
+
+/* TEXT */
+section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
+section p,section li{color:var(--muted)}
+ul{margin:8px 0 12px}
+
+/* CARD / FORM */
+.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0}
+.card .icon{font-size:28px;text-align:center;margin:0 0 6px}
+.card h3{margin:6px 0;text-align:center;font-size:18px}
+.card .sub{margin:0 0 16px;text-align:center;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:12px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+label{font-size:13px;color:#d7d7d7}
+input,select,textarea{width:100%;background:var(--field);color:var(--text);border:none;border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
+textarea{min-height:100px;resize:vertical}
+.btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#000;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
 button:hover{filter:brightness(.95)}
-footer{text-align:center;margin:20px 0;color:#999}
+
+footer{margin:26px 0 8px;text-align:center;color:#9e9e9e;font-size:14px}
 </style>
 </head>
 <body>
 
-<!-- nav -->
-<nav class="navbar"><div class="nav-inner">
-  <a href="/" class="logo-link"><img src="https://l.top4top.io/p_3524wn8np0.png" class="logo-img"></a>
-  <div class="spacer"></div>
-  <div class="nav-links">
-    <div class="projects-wrap" id="projectsWrap">
-      <button class="nav-btn" id="btnProjects">المشاريع ▾</button>
-      <div class="menu" id="projectsMenu">
-        <a href="sokhna.html">العين السخنة</a>
-        <a href="north.html">الساحل الشمالي</a>
-        <a href="cairo.html">القاهرة الجديدة</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo-link" href="/" title="Home">
+      <img class="logo-img" src="https://l.top4top.io/p_3524wn8np0.png" alt="eslam reality logo">
+    </a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <div class="projects-wrap" id="projectsWrap" tabindex="0">
+        <button class="nav-btn" id="btnProjects" aria-expanded="false" aria-haspopup="true">المشاريع ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
+          <a href="https://islamesmail-jpg.github.io/sokhna.html">العين السخنة</a>
+          <a href="https://islamesmail-jpg.github.io/north.html">الساحل الشمالي</a>
+          <a href="https://islamesmail-jpg.github.io/Cairo.html">القاهرة الجديدة</a>
+        </div>
       </div>
+      <a class="nav-link" href="#contact">اتصل بنا</a>
+      <a class="nav-btn" href="dolphin-en.html" aria-label="Switch to English">EN</a>
     </div>
-    <a href="#contact" class="nav-link">اتصل بنا</a>
-    <a href="dolphin-en.html" class="nav-btn">EN</a>
   </div>
-</div></nav>
+</nav>
 
-<!-- breadcrumb -->
-<div class="breadcrumb"><div class="inner">
-<a href="/">الرئيسية</a><span class="sep">»</span>
-<a href="sokhna.html">العين السخنة</a><span class="sep">»</span>
-<span>دولفين بيتش</span>
-</div></div>
+<!-- BREADCRUMB -->
+<div class="breadcrumb" aria-label="breadcrumbs">
+  <div class="inner">
+    <a href="/">الرئيسية</a><span class="sep">»</span>
+    <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <span aria-current="page">دولفين بيتش</span>
+  </div>
+</div>
 
-<!-- hero -->
-<section class="hero">
-  <h1>
-    <span class="line-top">دولفين بيتش العين السخنة</span>
-    <span class="line-sub">Dolphin Beach Ein Sokhna</span>
-    <span class="dev">المطور: شركة الحجاز للتنمية السياحية والعقارية</span>
-  </h1>
+<!-- HERO (title only) -->
+<section class="hero" aria-label="Dolphin Beach hero">
+  <div class="overlay">
+    <h1>
+      <span class="line-top" id="hTop">دولفين بيتش العين السخنة</span>
+      <span class="line-sub" id="hSub">Dolphin Beach Ein Sokhna</span>
+      <span class="dev" id="hDev">المطوّر: شركة الحجاز للتنمية السياحية والعقارية</span>
+    </h1>
+  </div>
 </section>
 
 <div class="wrapper">
 
-<!-- video -->
-<section class="video-card">
-  <h2>فيديو المشروع</h2>
-  <div class="video-wrap">
-    <video id="promo" controls playsinline preload="metadata" controlsList="nodownload noplaybackrate" disablePictureInPicture poster="https://c.top4top.io/p_3525x6wg20.jpg">
-      <source src="https://e.top4top.io/m_3525s8v770.mp4" type="video/mp4">
-    </video>
+  <!-- VIDEO (below title, no download) -->
+  <section class="video-card">
+    <h2>فيديو المشروع</h2>
+    <div class="video-wrap">
+      <video id="promo" controls playsinline preload="metadata"
+             poster="https://c.top4top.io/p_3525x6wg20.jpg"
+             controlsList="nodownload noplaybackrate"
+             oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://e.top4top.io/m_3525s8v770.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
+    </div>
+  </section>
+
+  <!-- SLIDER -->
+  <div class="slider-wrap">
+    <button class="arrow left" id="prevBtn" aria-label="السابق">‹</button>
+    <button class="arrow right" id="nextBtn" aria-label="التالي">›</button>
+    <div class="slider" id="slider">
+      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_3525x6wg20.jpg" alt="Dolphin Beach 1"></figure>
+      <figure class="slide"><img loading="lazy" src="https://j.top4top.io/p_352529zmf7.jpeg" alt="Dolphin Beach 2"></figure>
+      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_3525ilftx1.jpg" alt="Dolphin Beach 3"></figure>
+      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3525jmi6s2.jpg" alt="Dolphin Beach 4"></figure>
+      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_352590oox3.jpg" alt="Dolphin Beach 5"></figure>
+      <figure class="slide"><img loading="lazy" src="https://g.top4top.io/p_3525tkccn4.jpg" alt="Dolphin Beach 6"></figure>
+      <figure class="slide"><img loading="lazy" src="https://h.top4top.io/p_3525gvdgi5.jpg" alt="Dolphin Beach 7"></figure>
+      <figure class="slide"><img loading="lazy" src="https://i.top4top.io/p_35257tstr6.jpg" alt="Dolphin Beach 8"></figure>
+    </div>
   </div>
-</section>
 
-<!-- slider -->
-<div class="slider-wrap">
-  <div class="slider" id="slider">
-    <figure class="slide"><img src="https://c.top4top.io/p_3525x6wg20.jpg"></figure>
-    <figure class="slide"><img src="https://j.top4top.io/p_352529zmf7.jpeg"></figure>
-    <figure class="slide"><img src="https://d.top4top.io/p_3525ilftx1.jpg"></figure>
+  <!-- PRICES + MAP -->
+  <div class="prices">
+    <div class="price-card">
+      <div class="price-title" id="tDevPrice">سعر المطوّر</div>
+      <a class="price-link" href="#contact" id="lDevOffer">استفسر عن العروض</a>
+    </div>
+    <div class="price-card">
+      <div class="price-title" id="tResalePrice">سعر إعادة البيع</div>
+      <a class="price-link" href="#contact" id="lResaleAsk">تواصل لمعرفة السعر</a>
+    </div>
   </div>
+  <div class="master-wrap">
+    <a href="https://maps.app.goo.gl/WPsFq1JwnKvYr7bg7" target="_blank" rel="noopener" class="master-pill">📍 موقع القرية على الخريطة</a>
+  </div>
+
+  <!-- DESCRIPTION (complete) -->
+  <section>
+    <h2>معلومات عن قرية دولفين بيتش</h2>
+    <p>دولفين بيتش العين السخنة منتجع سياحي متكامل الخدمات يضم فندقاً ووحدات ساحلية متنوعة بين الشاليهات والفيلات المستقلة، مع شاطئ خاص ومجموعة كبيرة من المرافق الترفيهية والخدمية. تتميّز القرية بموقعها على طريق الزعفرانة وبقربها من القاهرة، ما يجعلها وجهة مثالية لقضاء الإجازات على البحر الأحمر.</p>
+    <p>تُعد دولفين بيتش من أوائل القرى في السخنة، من تطوير <strong>شركة الحجاز للتنمية السياحية والعقارية</strong>، وتضم نحو <strong>450</strong> وحدة بإطلالات مميزة، إضافةً إلى حمامات سباحة متعددة، ومناطق ترفيه، وشاطئ رملي خاص.</p>
+
+    <h2>المطور العقاري</h2>
+    <p>تأسست شركة الحجاز للتنمية السياحية والعقارية عام <strong>1988</strong>، وتعمل في التطوير السياحي والعقاري مع التركيز على جودة التشطيبات والالتزام بالمواعيد وتقديم تجربة ضيافة متكاملة داخل المنتجعات التي تنفذها.</p>
+
+    <h2>أعمال سابقة مختارة</h2>
+    <ul>
+      <li>واحة الحجاز.</li>
+      <li>دولفين بيتش ريزورت.</li>
+      <li>قرية السخنة هيلز.</li>
+    </ul>
+
+    <h2>موقع القرية</h2>
+    <p>تقع القرية على طريق العين السخنة – الزعفرانة عند <strong>الكيلو 66</strong>، على بُعد حوالي ساعة ونصف بالسيارة من القاهرة، وقريبة من منتجع وفندق موفنبيك السخنة (~4 دقائق)، وكذلك من عدد من القرى السياحية الشهيرة.</p>
+
+    <h2>الطرق والمدن القريبة</h2>
+    <ul>
+      <li>القاهرة عبر طريق السخنة – القطامية (~1.5 ساعة)</li>
+      <li>العاصمة الإدارية (~60 دقيقة)</li>
+      <li>منتجع هضبة الجلالة (~25 دقيقة)</li>
+      <li>السويس (~1 ساعة و20 دقيقة)</li>
+      <li>الغردقة (~3 ساعات)</li>
+    </ul>
+
+    <h2>أنواع ومساحات الوحدات</h2>
+    <ul>
+      <li><strong>شاليهات</strong>: من حوالي <strong>60</strong> م² إلى <strong>120</strong> م²؛ تبدأ من غرفة واحدة + ريسبشن + حمام + مطبخ أمريكي + شرفات، والوحدات الأكبر تضم غرفتين أو 3.</li>
+      <li><strong>فيلات مستقلة</strong>: مساحات حتى نحو <strong>650</strong> م²، تشمل 6 غرف نوم و5 حمامات وحديقة خاصة.</li>
+    </ul>
+
+    <h2>مميزات دولفين بيتش</h2>
+    <ul>
+      <li>شاطئ رملي خاص على البحر الأحمر.</li>
+      <li><strong>12</strong> حمام سباحة متنوع (منها مسبح أطفال ومسبح مغطى للسيدات).</li>
+      <li>لاندسكيب واسع ومساحات خضراء وممرات للمشي.</li>
+      <li>عروض ودّية للدلافين على الشاطئ تضفي طابعاً ترفيهياً فريداً.</li>
+      <li>فريق ضيافة محترف وخدمات استقبال.</li>
+      <li>السماح باصطحاب الحيوانات الأليفة.</li>
+    </ul>
+
+    <h2>الخدمات والمرافق</h2>
+    <ul>
+      <li>أمن وحراسة 24/7 وبوابات إلكترونية.</li>
+      <li>مواقف سيارات مغطاة.</li>
+      <li>صيدلية داخل المنتجع ووحدة إسعافات أولية.</li>
+      <li>خدمة صيانة وتركيب الأجهزة الكهربائية.</li>
+      <li>فندق 4 نجوم وخدمات فندقية وتنظيف يومي.</li>
+      <li>ماكينات ATM وسوبر ماركت وخدمات توصيل.</li>
+      <li>مطاعم (مشويات/أسماك/إيطالي) وكافيهات ومخبز.</li>
+      <li>منطقة ألعاب أطفال ومركز ترفيهي ومتجر هدايا.</li>
+      <li>ملاعب وأنشطة شاطئية ومناطق يوغا وجري.</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="card" id="contact">
+    <div class="icon">📨</div>
+    <h3 id="fTitle">تحتاج إلى مساعدة عقارية؟</h3>
+    <p class="sub" id="fSub">املأ بياناتك و سوف نقوم بالاتصال بك فى أقرب وقت</p>
+    <form id="leadForm" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name" id="lblName">الاسم</label>
+          <input id="name" type="text" placeholder="اكتب اسمك" required>
+        </div>
+        <div>
+          <label for="project" id="lblProj">الموقع المفضل (اسم المشروع)</label>
+          <input id="project" type="text" value="Dolphin Beach Ain Sokhna" required>
+        </div>
+        <div>
+          <label for="unit" id="lblUnit">نوع الوحده</label>
+          <select id="unit" required>
+            <option value="" disabled selected id="optUnitPH">اختر نوع الوحدة</option>
+            <option id="optU2">شاليه</option>
+            <option id="optU6">فيلا مستقلة</option>
+          </select>
+        </div>
+        <div>
+          <label for="rooms" id="lblRooms">عدد الغرف</label>
+          <select id="rooms" required>
+            <option value="" disabled selected id="optRoomPH">اختر عدد الغرف</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <label for="note" id="lblNote">ملحوظه</label>
+        <textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea>
+      </div>
+      <div class="btns">
+        <button type="button" id="btnWA">إرسال عبر واتساب</button>
+        <button type="button" id="btnMail">إرسال عبر الإيميل</button>
+      </div>
+    </form>
+  </section>
+
+  <footer id="ft">© eslam reality 2025 — جميع الحقوق محفوظة</footer>
 </div>
 
-<!-- prices -->
-<div class="prices">
-  <div class="price-card"><div>سعر المطور</div><a href="#contact">استفسر الآن</a></div>
-  <div class="price-card"><div>سعر إعادة البيع</div><a href="#contact">تواصل لمعرفة السعر</a></div>
-</div>
-<div class="master-wrap"><a href="https://maps.app.goo.gl/WPsFq1JwnKvYr7bg7" target="_blank" class="master-pill">📍 موقع القرية</a></div>
+<script>
+const $ = s => document.querySelector(s);
 
-<!-- desc -->
-<section>
-  <h2>عن قرية دولفين بيتش</h2>
-  <p>قرية متكاملة الخدمات...</p>
-</section>
+/* Dropdown */
+(function(){
+  const btn = $('#btnProjects'), menu = $('#projectsMenu');
+  if(!btn||!menu) return;
+  const show = v => { btn.setAttribute('aria-expanded', v?'true':'false'); menu.style.display = v?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); show(menu.style.display!=='block'); });
+  document.addEventListener('click', ()=> show(false));
+})();
 
-<!-- form -->
-<section class="card" id="contact">
-  <h3>تحتاج إلى مساعدة عقارية؟</h3>
-  <form>
-    <label>الاسم<input type="text"></label>
-    <label>المشروع<input type="text" value="Dolphin Beach Ain Sokhna"></label>
-    <label>الوحدة<select><option>شاليه</option><option>فيلا</option></select></label>
-    <label>الغرف<select><option>1</option><option>2</option></select></label>
-    <textarea placeholder="ملاحظات"></textarea>
-    <button>إرسال عبر واتساب</button>
-    <button>إرسال عبر الإيميل</button>
-  </form>
-</section>
+/* Slider arrows (RTL aware) */
+(function(){
+  const scroller = $('#slider'); if(!scroller) return;
+  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+  next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
+})();
 
-<footer>© eslam reality 2025</footer>
-</div>
+/* Contact actions */
+(function(){
+  const val = id => document.getElementById(id)?.value?.trim() || '';
+  $('#btnWA')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const txt = `مرحبا، أود الاستفسار عن ${d.project}.
+الاسم: ${d.name}
+النوع: ${d.unit}
+الغرف: ${d.rooms}
+ملاحظات: ${d.note}`;
+    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+  });
+  $('#btnMail')?.addEventListener('click', ()=>{
+    const d = {name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')};
+    const subject = `استفسار عن Dolphin Beach Ain Sokhna`;
+    const body = `الاسم: ${d.name}
+المشروع: ${d.project}
+النوع: ${d.unit}
+الغرف: ${d.rooms}
+ملاحظات: ${d.note}`;
+    window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
 </body>
 </html>
