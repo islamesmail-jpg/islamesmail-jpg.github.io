@@ -19,7 +19,7 @@ const $$ = s => document.querySelectorAll(s);
 
 /* i18n */
 const T={
-  ar:{brand:"إسلام",home:"الرئيسية",projects:"المشاريع",contact:"التواصل",lang:"AR / EN",
+  ar:{brand:"اسلام للتسويق العقاري",home:"الرئيسية",projects:"المشاريع",contact:"التواصل",lang:"AR / EN",
       hero_h1:"حوِّل استثمارك العقاري إلى تجربة من الفخامة والرقّي",
       hero_sub:"خدمة خاصة للبيع والشراء والاستثمار في المواقع الراقية",
       hero_areas:"العين السخنة • الساحل الشمالي • القاهرة الجديدة",
@@ -32,7 +32,7 @@ const T={
       send_wa:"إرسال إلى واتساب",back:"رجوع",
       p_north:"مشاريع الساحل الشمالي",p_sokhna:"مشاريع العين السخنة",p_cairo:"مشاريع القاهرة الجديدة",
       ask:"اسأل", cant_find:"مش لاقي مشروعك؟ ابعتلنا:"},
-  en:{brand:"Eslam",home:"Home",projects:"Projects",contact:"Contact",lang:"AR / EN",
+  en:{brand:"Islam Sales Real Estate",home:"Home",projects:"Projects",contact:"Contact",lang:"AR / EN",
       hero_h1:"Turn your property investment into a luxury experience",
       hero_sub:"Private service for buying, selling & investing in prime locations",
       hero_areas:"Ain Sokhna • North Coast • New Cairo",
