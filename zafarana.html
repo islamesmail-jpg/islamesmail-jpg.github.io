@@ -19,7 +19,7 @@ a{text-decoration:none;color:inherit}
 .logo-link{justify-self:start;display:flex;align-items:center}
 .logo-img{height:44px;width:auto;border-radius:10px}
 .center{justify-self:center}
-.right{justify-self:end;display:flex;gap:16px;align-items:center}
+.right,.left{justify-self:end;display:flex;gap:16px;align-items:center}
 .nav-btn,.nav-link{background:transparent;border:0;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
 .nav-btn:hover,.nav-link:hover{opacity:.85}
 
@@ -87,8 +87,8 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </a>
     <div class="center">
       <div class="projects-wrap" id="projectsWrap">
-        <button class="nav-btn" id="btnProjects">المشاريع ▾</button>
-        <div class="menu" id="projectsMenu">
+        <button class="nav-btn" id="btnProjects" aria-haspopup="true" aria-expanded="false">المشاريع ▾</button>
+        <div class="menu" id="projectsMenu" role="menu">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
           <a href="Cairo.html">القاهرة الجديدة</a>
@@ -96,7 +96,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </div>
     </div>
     <div class="left">
-      <button class="nav-btn" id="btnLang">EN</button>
+      <button class="nav-btn" id="btnLang" aria-label="Switch to English">EN</button>
       <a class="nav-link" id="navContact" href="#contact">اتصل بنا</a>
     </div>
   </div>
@@ -109,7 +109,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
   <span>طريق الزعفرانة</span>
   <div class="searchwrap">
     <div class="searchbar">
-      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
+      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …" aria-label="بحث">
       <div class="suggestions" id="suggestBox"></div>
     </div>
   </div>
@@ -328,8 +328,10 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 <script>
 /* dropdown */
 const wrap=document.getElementById('projectsWrap');
-document.getElementById('btnProjects').onclick=(e)=>{e.stopPropagation();wrap.classList.toggle('open');};
-document.addEventListener('click',()=>wrap.classList.remove('open'));
+const btnProjects=document.getElementById('btnProjects');
+btnProjects.onclick=(e)=>{e.stopPropagation();wrap.classList.toggle('open');btnProjects.setAttribute('aria-expanded', wrap.classList.contains('open'));};
+document.addEventListener('click',()=>{wrap.classList.remove('open');btnProjects.setAttribute('aria-expanded','false');});
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){wrap.classList.remove('open');btnProjects.setAttribute('aria-expanded','false');}});
 
 /* top contact -> focus note */
 document.getElementById('navContact').addEventListener('click',function(){
@@ -338,7 +340,10 @@ document.getElementById('navContact').addEventListener('click',function(){
 
 /* price boxes scroll to contact */
 document.querySelectorAll('.price-scroll').forEach(el=>{
-  el.addEventListener('click',()=>{ document.getElementById('note')?.focus(); document.getElementById('note')?.scrollIntoView({behavior:'smooth'}); });
+  el.addEventListener('click',()=>{ 
+    document.getElementById('note')?.focus(); 
+    document.getElementById('note')?.scrollIntoView({behavior:'smooth'}); 
+  });
 });
 
 /* mini galleries + swipe */
@@ -359,8 +364,8 @@ function gather(){
   return {
     name:document.getElementById('name').value.trim(),
     project:document.getElementById('project').value.trim(),
-    rooms:document.getElementById('rooms').value,
-    unit:document.getElementById('unit').value,
+    rooms:document.getElementById('rooms').value || '',
+    unit:document.getElementById('unit').value || '',
     note:document.getElementById('note').value.trim()
   };
 }
@@ -376,7 +381,7 @@ document.getElementById('btnSend').addEventListener('click',()=>{
 });
 
 /* language */
-document.getElementById('btnLang').onclick=()=>{window.location.href='zafarana-en.html';};
+document.getElementById('btnLang').onclick=()=>{ window.location.href='zafarana-en.html'; };
 
 /* GLOBAL SEARCH (AR + EN names) */
 const PROJECTS = [
@@ -403,14 +408,4 @@ const PROJECTS = [
 
 (function(){
   const input=document.getElementById('siteSearch');
-  const box=document.getElementById('suggestBox');
-  function render(list){
-    box.innerHTML='';
-    if(!list.length){ box.style.display='none'; return; }
-    list.forEach(it=>{ const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a); });
-    box.style.display='block';
-  }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    const out=
+  const box=document.g
