@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/index.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/sokhna.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/zafarana.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/suez.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/north.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/Cairo.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/Resale.html</loc></url>
-  <url><loc>https://islamesmail-jpg.github.io/islamesmail.io/404.html</loc></url>
+
+  <url>
+    <loc>https://islamesmail-jpg.github.io/</loc>
+    <lastmod>2025-08-29</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/sokhna.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/sokhna-en.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/zafarana-en.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/zafarana.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/cairo.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+    
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/Resale.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+  <url>
+  <loc>https://islamesmail-jpg.github.io/north.html</loc>
+  <lastmod>2025-08-29</lastmod>
+  <priority>0.8</priority>
+</url>
+
 </urlset>
