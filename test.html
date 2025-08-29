@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Islam Sales Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
+  <style>
+    :root {
+      --bg: #ffffff;   /* خلفية بيضاء */
+      --text: #111111; /* لون نص أسود غامق */
+      --gold: #e4c24a;
+      --muted: #666666;
+      --line: #e0e0e0;
+      --wrap: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Tajawal", Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--wrap);
+      margin: auto;
+      padding: 0 16px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fafafa;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      margin: 0 12px;
+      font-weight: 600;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f9f9f9;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 0;
+    }
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .project:hover { transform: translateY(-5px); }
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project h3 {
+      margin: 16px;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+    .project p {
+      margin: 0 16px 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo"><a href="#">🏠 Islam Real Estate</a></div>
+    <div class="links">
+      <a href="#">الرئيسية</a>
+      <a href="#">المشاريع</a>
+      <a href="#">اتصل بنا</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>مرحبا بك في موقعنا</h1>
+    <p>أفضل عروض العقارات في العين السخنة، الزعفرانة، والساحل الشمالي</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <div class="container">
+    <div class="projects">
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project">
+        <h3>مشروع العين السخنة</h3>
+        <p>تفاصيل عن المشروع الأول، الموقع، الأسعار، وطريقة الدفع.</p>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project">
+        <h3>مشروع الزعفرانة</h3>
+        <p>تفاصيل عن المشروع الثاني مع عروض مميزة.</p>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x200" alt="Project">
+        <h3>مشروع الساحل الشمالي</h3>
+        <p>أفضل العروض والفرص الاستثمارية على البحر مباشرة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 Islam Real Estate | جميع الحقوق محفوظة
+  </footer>
+
+</body>
+  </html>
