@@ -19,13 +19,18 @@ a{text-decoration:none;color:inherit}
 .logo-link{justify-self:start;display:flex;align-items:center}
 .logo-img{height:44px;width:auto;border-radius:10px}
 .center{justify-self:center}
-.right,.left{justify-self:end;display:flex;gap:16px;align-items:center}
+.left{justify-self:end;display:flex;gap:16px;align-items:center}
 .nav-btn,.nav-link{background:transparent;border:0;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
 .nav-btn:hover,.nav-link:hover{opacity:.85}
 
 /* dropdown */
 .projects-wrap{position:relative}
-.menu{position:absolute;top:calc(100% + 8px);right:50%;transform:translateX(50%);background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:8px;min-width:260px;display:none;z-index:2200;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.menu{
+  position:absolute;top:calc(100% + 8px);
+  left:50%;transform:translateX(-50%); /* ثابتة في RTL/LTR */
+  background:#0f1224;border:1px solid #1d2143;border-radius:12px;padding:8px;
+  min-width:260px;display:none;z-index:2200;box-shadow:0 6px 18px rgba(0,0,0,.25)
+}
 .menu a{display:block;padding:10px;border-radius:10px;color:#fff;font-weight:700}
 .menu a:hover{background:#121638}
 .projects-wrap.open .menu{display:block}
@@ -87,7 +92,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </a>
     <div class="center">
       <div class="projects-wrap" id="projectsWrap">
-        <button class="nav-btn" id="btnProjects" aria-haspopup="true" aria-expanded="false">المشاريع ▾</button>
+        <button class="nav-btn" id="btnProjects" type="button" aria-haspopup="true" aria-expanded="false">المشاريع ▾</button>
         <div class="menu" id="projectsMenu" role="menu">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
@@ -96,7 +101,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
       </div>
     </div>
     <div class="left">
-      <button class="nav-btn" id="btnLang" aria-label="Switch to English">EN</button>
+      <button class="nav-btn" id="btnLang" type="button" aria-label="Switch to English">EN</button>
       <a class="nav-link" id="navContact" href="#contact">اتصل بنا</a>
     </div>
   </div>
@@ -317,7 +322,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
     </div>
 
     <div class="actions">
-      <button class="btn btn-primary" id="btnSend">إرسال عبر واتساب</button>
+      <button class="btn btn-primary" id="btnSend" type="button">إرسال عبر واتساب</button>
       <a class="btn btn-outline" href="tel:+201050072527">اتصال مباشر</a>
     </div>
   </section>
@@ -329,7 +334,7 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px
 /* dropdown */
 const wrap=document.getElementById('projectsWrap');
 const btnProjects=document.getElementById('btnProjects');
-btnProjects.onclick=(e)=>{e.stopPropagation();wrap.classList.toggle('open');btnProjects.setAttribute('aria-expanded', wrap.classList.contains('open'));};
+btnProjects.addEventListener('click',(e)=>{e.stopPropagation();wrap.classList.toggle('open');btnProjects.setAttribute('aria-expanded', wrap.classList.contains('open'));});
 document.addEventListener('click',()=>{wrap.classList.remove('open');btnProjects.setAttribute('aria-expanded','false');});
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){wrap.classList.remove('open');btnProjects.setAttribute('aria-expanded','false');}});
 
@@ -339,11 +344,12 @@ document.getElementById('navContact').addEventListener('click',function(){
 });
 
 /* price boxes scroll to contact */
+function goContact(){
+  const el=document.getElementById('contact');
+  if(el){ el.scrollIntoView({behavior:'smooth'}); location.hash='#contact'; }
+}
 document.querySelectorAll('.price-scroll').forEach(el=>{
-  el.addEventListener('click',()=>{ 
-    document.getElementById('note')?.focus(); 
-    document.getElementById('note')?.scrollIntoView({behavior:'smooth'}); 
-  });
+  el.addEventListener('click',goContact);
 });
 
 /* mini galleries + swipe */
@@ -381,7 +387,7 @@ document.getElementById('btnSend').addEventListener('click',()=>{
 });
 
 /* language */
-document.getElementById('btnLang').onclick=()=>{ window.location.href='zafarana-en.html'; };
+document.getElementById('btnLang').addEventListener('click',()=>{ window.location.assign('zafarana-en.html'); });
 
 /* GLOBAL SEARCH (AR + EN names) */
 const PROJECTS = [
@@ -403,9 +409,4 @@ const PROJECTS = [
   {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
   {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
   {name:'Hijaz Oasis (EN)', url:'hijaz-en.html'},
-  {name:'Sokhna Hills (EN)', url:'sokhnahills-en.html'}
-];
-
-(function(){
-  const input=document.getElementById('siteSearch');
-  const box=document.g
+  {name:'Sok
