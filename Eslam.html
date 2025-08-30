@@ -12,7 +12,7 @@
   --bg:#ffffff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --brand:#e4c24a; --accent:#1d4ed8;
   --wrap:1180px;
   /* حجم اللوجو (يمكن تغييره من لوحة الإعدادات) */
-  --logo-h:62px;
+  --logo-h:162px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -305,20 +305,6 @@ footer{margin-top:20px;border-top:1px solid var(--line);background:#fff}
   <div class="copy">© <span id="year"></span> Islam Esmail Real Estate</div>
 </footer>
 
-<!-- ====== SETTINGS: تحكم في حجم اللوجو ====== -->
-<div class="settings" id="settings">
-  <button class="toggle" id="settingsBtn">⚙︎</button>
-  <div class="panel">
-    <div class="row">
-      <label for="logoRange">حجم اللوجو</label>
-      <input id="logoRange" class="range" type="range" min="44" max="110" step="1">
-      <span id="logoPx" style="font-weight:800;min-width:46px;text-align:center"></span>
-    </div>
-    <div class="row">
-      <button class="btn" id="resetLogo">إعادة الافتراضي</button>
-    </div>
-  </div>
-</div>
 
 <script>
 /* السنة */
