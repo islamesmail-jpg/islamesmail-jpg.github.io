@@ -45,9 +45,8 @@
   --primary:#0b3a5e; --soft:#f7fafc; --wrap:1200px; --nav-h:64px;
   --logo-h:162px; --logo-img-h:148px;
   --radius:18px; --shadow:0 10px 22px rgba(0,0,0,.06);
-
-  /* ✅https://a.top4top.io/p_3529a9wb71.jpg */
-  --hero-img:url('');
+  /* ✅ صورة الهيدر اللي طلبتها */
+  --hero-img:url('https://a.top4top.io/p_3529a9wb71.jpg');
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:"Tajawal",Arial,sans-serif;background:#fff;color:var(--text);line-height:1.8}
@@ -74,20 +73,57 @@ img{max-width:100%;display:block}
 }
 
 /* HERO */
-.hero{padding:28px 0 0}
-.hero .intro{text-align:center;padding:0 0 14px}
-.hero h1{margin:0 0 8px;font-size:clamp(1.6rem,2.6vw,2rem)}
-.hero p{margin:0;color:var(--muted)}
-.search-wrap{max-width:780px;margin:14px auto 0;position:relative}
-.search{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px}
+.hero{padding:0}
+.hero-visual{
+  position:relative;
+  min-height:clamp(280px,42vw,520px);
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.15)),
+    var(--hero-img);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed; /* Parallax على الديسكتوب */
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+}
+.hero-visual .inner{
+  width:100%;
+}
+.hero-visual .hero-content{
+  max-width:var(--wrap);
+  margin:auto;
+  padding:18px 16px 24px;
+  text-align:center;
+  color:#fff;
+}
+.hero-visual h1{
+  margin:0 0 8px;
+  font-size:clamp(1.8rem,3.6vw,2.4rem);
+  line-height:1.3;
+}
+.hero-visual .sub{
+  color:#e2e8f0;
+  margin:0 auto 14px;
+  font-size:clamp(0.95rem,1.2vw,1.05rem);
+}
+.search-wrap{max-width:780px;margin:0 auto;position:relative}
+.search{
+  display:flex;gap:10px;background:rgba(255,255,255,.96);
+  border:1px solid var(--line);border-radius:999px;padding:10px;
+  box-shadow:var(--shadow)
+}
 .search input{flex:1;border:0;outline:0;font-size:1rem;background:transparent;padding:10px 12px}
-.search button{border:0;background:var(--primary);color:#fff;font-weight:800;border-radius:40px;padding:12px 22px;cursor:pointer}
-.sugg{position:absolute;top:100%;right:0;left:0;background:#fff;border:1px solid var(--line);border-radius:16px;margin-top:8px;display:none;max-height:320px;overflow:auto;box-shadow:var(--shadow)}
+.search button{border:0;background:#0b3a5e;color:#fff;font-weight:800;border-radius:40px;padding:12px 22px;cursor:pointer}
+.sugg{position:absolute;top:calc(100% + 8px);right:0;left:0;background:#fff;border:1px solid var(--line);border-radius:16px;display:none;max-height:320px;overflow:auto;box-shadow:var(--shadow);text-align:right}
 .sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
 .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
+@media (max-width:900px){
+  .hero-visual{background-attachment:scroll}
+}
 
-/* WHY داخل الهيدر */
-.why{max-width:900px;margin:18px auto 0}
+/* WHY (تحت الهيدر مباشرة) */
+.why{max-width:900px;margin:18px auto 22px}
 .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .why-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:center}
 .why-card b{display:block;margin-bottom:6px}
@@ -95,40 +131,9 @@ img{max-width:100%;display:block}
 @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.why-grid{grid-template-columns:1fr}}
 
-/* ✅ صورة الهيدر فل وِدث + Parallax بخلفية ممتدة */
-.hero-visual{
-  position:relative;
-  min-height:clamp(220px,34vw,460px);
-  margin-top:14px;
-  background-image:
-    linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.15)),
-    var(--hero-img);
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed; /* Parallax على الديسكتوب */
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.hero-visual .overlay-content{
-  position:absolute;inset:0;
-  display:flex;align-items:flex-end;justify-content:center;
-  padding:16px;
-}
-.hero-visual .credit{
-  color:#fff;font-weight:700;background:rgba(0,0,0,.35);
-  padding:6px 10px;border-radius:10px;backdrop-filter:blur(2px);
-  font-size:.95rem
-}
-/* iOS/موبايل: إلغاء fixed لتحسين السلاسة */
-@media (max-width:900px){
-  .hero-visual{background-attachment:scroll}
-}
-
 /* SECTION */
 .section{padding:28px 0}
 .section h2{font-size:1.25rem;margin:0 0 12px}
-.sub{color:var(--muted);margin:-6px 0 14px}
 
 /* QUICK TILES */
 .quick-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
@@ -163,7 +168,7 @@ img{max-width:100%;display:block}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:720px){.row{grid-template-columns:1fr}}
 .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.submit{background:var(--primary);color:#fff;border:0;border-radius:14px;padding:12px 20px;font-weight:800;cursor:pointer}
+.submit{background:#0b3a5e;color:#fff;border:0;border-radius:14px;padding:12px 20px;font-weight:800;cursor:pointer}
 .call{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 20px;font-weight:800}
 
 /* FOOTER */
@@ -171,7 +176,6 @@ img{max-width:100%;display:block}
 .footer .wrap{display:flex;gap:16px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
 .footer .logo-img{height:var(--logo-img-h);width:auto}
 .social{display:flex;gap:8px}
-.social a{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center}
 .copy{color:var(--muted);text-align:center;margin-top:10px}
 </style>
 </head>
@@ -205,37 +209,33 @@ img{max-width:100%;display:block}
   </nav>
 </header>
 
+<!-- هيدر بصورة وخلفها النص والبحث -->
 <section class="hero">
-  <div class="container">
-    <!-- المقدمة والبحث و"تختارنا ليه؟" فوق -->
-    <div class="intro">
-      <h1>ابحث عن منزلك</h1>
-      <p>قارن بين أهم المشاريع وأهم المطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
+  <div class="hero-visual" role="img" aria-label="صورة بانورامية لمنازل ومشاريع ساحلية">
+    <div class="inner">
+      <div class="hero-content">
+        <h1>ابحث عن منزلك</h1>
+        <p class="sub">ابحث وقارن بين أكثر من 15000+ عقار من بين 800+ كمبوند أو اعرض عقارك للبيع</p>
 
-      <div class="search-wrap" role="search">
-        <form class="search" onsubmit="return doSearch()" aria-label="بحث داخلي">
-          <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off" aria-label="حقل البحث">
-          <button type="submit" aria-label="تنفيذ البحث">بحث</button>
-        </form>
-        <div class="sugg" id="sugg" role="listbox" aria-label="اقتراحات البحث"></div>
-      </div>
-
-      <div class="why" aria-label="لماذا نختارنا">
-        <h2 style="margin:16px 0 12px;font-size:1.15rem;">تختارنا ليه؟</h2>
-        <div class="why-grid">
-          <div class="why-card"><b>اختيار دقيق</b><small>فلترة سريعة حسب المنطقة والمطور ونوع الوحدة.</small></div>
-          <div class="why-card"><b>تفاوض في السعر</b><small>عروض حقيقية وتفاوض على أفضل الشروط.</small></div>
-          <div class="why-card"><b>تسليم وثقة</b><small>شركاء موثوقون ومتابعة حتى الاستلام.</small></div>
+        <div class="search-wrap" role="search">
+          <form class="search" onsubmit="return doSearch()" aria-label="بحث داخلي">
+            <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off" aria-label="حقل البحث">
+            <button type="submit" aria-label="تنفيذ البحث">بحث</button>
+          </form>
+          <div class="sugg" id="sugg" role="listbox" aria-label="اقتراحات البحث"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ✅ خلفية الهيدر الممتدة (فل وِدث + Parallax) -->
-  <div class="hero-visual" role="img" aria-label="صورة بانورامية للهيدر">
-    <div class="overlay-content">
-      <!-- نص اختياري فوق الصورة (مثلاً كريدت أو سطر تشويقي) -->
-      <div class="credit">اكتشف أفضل مشاريع السخنة والساحل والقاهرة</div>
+  <!-- لماذا تختارنا (تحت الهيدر مباشرة) -->
+  <div class="container">
+    <div class="why" aria-label="لماذا نختارنا">
+      <div class="why-grid">
+        <div class="why-card"><b>اختيار دقيق</b><small>فلترة سريعة حسب المنطقة والمطور ونوع الوحدة.</small></div>
+        <div class="why-card"><b>تفاوض في السعر</b><small>عروض حقيقية وتفاوض على أفضل الشروط.</small></div>
+        <div class="why-card"><b>تسليم وثقة</b><small>شركاء موثوقون ومتابعة حتى الاستلام.</small></div>
+      </div>
     </div>
   </div>
 </section>
@@ -367,4 +367,18 @@ function liveSuggest(v){
   const hits=searchIndex(v);
   if(!hits.length){sugg.style.display="none";sugg.innerHTML="";return;}
   sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");
-  su
+  sugg.style.display="block";
+}
+function doSearch(){
+  const q=document.getElementById('q').value;
+  const hits=searchIndex(q);
+  if(hits.length){location.href=hits[0].url}else{alert("لا توجد نتيجة مطابقة داخل الموقع.")}
+  return false;
+}
+
+/* WhatsApp lead */
+function sendLead(){
+  const name=document.getElementById('name').value.trim();
+  const loc=document.getElementById('loc').value;
+  const proj=document.getElementById('projName').value.trim();
+  const phone=document.getElementBy
