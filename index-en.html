@@ -418,11 +418,12 @@ function liveSuggest(v){
   sugg.style.display="block";
     }
 function doSearch(){
-  const q=document.getElementById('q').value;
-  const hits=searchIndex(q);
-  if(hits.length){location.href=hits[0].url}else{alert("No matching result on the site. Try a compound, area or developer name.")}
+  const q = document.getElementById('q').value;
+  const hits = searchIndex(q);
+  if (hits.length) { location.href = hits[0].url; }
+  else { alert("No matching result on the site. Try a compound, area or developer name."); }
   return false;
-
+} // ← دي كانت ناقصة
 /* -------- WhatsApp lead -------- */
 function sendLead(){
   const name=(document.getElementById('name').value||"").trim();
