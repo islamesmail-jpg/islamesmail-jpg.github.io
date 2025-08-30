@@ -80,6 +80,17 @@ img{max-width:100%;display:block}
 .sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
 .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 
+/* ✅ صندوق صورة الهيدر (إضافة فقط) */
+.hero-photo{margin:10px auto 14px;max-width:var(--wrap)}
+.hero-photo img{
+  width:100%;
+  height:clamp(220px, 34vw, 420px);
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+
 /* WHY */
 .section{padding:28px 0}
 .section h2{font-size:1.25rem;margin:0 0 12px}
@@ -169,6 +180,13 @@ img{max-width:100%;display:block}
 
 <section class="hero">
   <div class="container">
+
+    <!-- ✅ مكان صورة الهيدر: ضع رابط صورتك في src -->
+    <div class="hero-photo" aria-label="صورة الهيدر">
+      <img id="heroImg" src="" alt="صورة الهيدر (أضف الرابط لاحقًا)">
+    </div>
+    <!-- نهاية إضافة الهيدر بالصورة -->
+
     <h1>ابحث عن منزلك</h1>
     <p>قارن بين أهم المشاريع وأهم المطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
 
