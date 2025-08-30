@@ -413,23 +413,15 @@ function searchIndex(q){
 const sugg=document.getElementById('sugg');
 function liveSuggest(v){
   const hits=searchIndex(v);
-  function liveSuggest(v){
-  const hits=searchIndex(v);
-  if(!hits.length){
-    sugg.style.display="none";
-    sugg.innerHTML="";
-    return;
-  }
-  sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");
+  if(!hits.length){sugg.style.display="none";sugg.innerHTML="  ";return;}
+  sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("   ");
   sugg.style.display="block";
 }
-  
 function doSearch(){
   const q=document.getElementById('q').value;
   const hits=searchIndex(q);
   if(hits.length){location.href=hits[0].url}else{alert("No matching result on the site. Try a compound, area or developer name.")}
   return false;
-}
 
 /* -------- WhatsApp lead -------- */
 function sendLead(){
