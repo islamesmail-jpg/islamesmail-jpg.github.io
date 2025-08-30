@@ -362,7 +362,8 @@ img{max-width:100%;display:block}
     <div class="copy">© 2025 Islam Esmail — All Rights Reserved</div>
   </div>
 </footer>
-script>
+<!-- JS (put this right before </body>) -->
+<script>
 /* -------- Mobile menu (fixed) -------- */
 const pagesBtn = document.getElementById('pagesBtn');
 const mMenu = document.getElementById('mMenu');
@@ -374,15 +375,13 @@ pagesBtn?.addEventListener('click', (e)=>{
 });
 
 document.addEventListener('click',(e)=>{
-  // close if click outside button or menu
   if (!e.target.closest('#mMenu') && !e.target.closest('#pagesBtn')) {
     mMenu.classList.remove('open');
     pagesBtn?.setAttribute('aria-expanded','false');
   }
 });
 
-/* -------- Internal Search (fixed) -------- */
-/* Expanded keywords: projects, areas, developers & unit types (with Arabic variants too) */
+/* -------- Internal Search -------- */
 const SITE_INDEX=[
   {title:"Ain Sokhna",keywords:"sokhna الزعفرانة zafarana suez السويس galala الجلالة chalet apartment villa ready resale installments",url:"sokhna.html"},
   {title:"North Coast",keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن chalet villas beach installments",url:"north.html"},
@@ -391,7 +390,7 @@ const SITE_INDEX=[
   {title:"Suez Corridor",keywords:"suez طريق السويس galala mountain resorts villages",url:"suez.html"},
   {title:"Porto Sokhna",keywords:"porto sokhna amer group ready to move resale red sea",url:"porto-sokhna.html"},
   {title:"Sokhna Hills",keywords:"sokhna hills zafarana prime location flexible plans",url:"sokhna-hills.html"},
-  {title:"Lugano Al Galala",keywords:"lugano galala aog developments terraces sea view",url:"lugano.html"},
+  {title:"Lugano Al Galala",keywords:"lugano galala terraces sea view",url:"lugano.html"},
   {title:"Loly Beach",keywords:"loly beach sea chalets",url:"lolybeach.html"},
   {title:"Resale",keywords:"resale ready to move immediate handover اعادة بيع",url:"resale.html"},
   {title:"Special Offers",keywords:"offers discounts deals flexible pricing عروض خصومات",url:"offers.html"},
@@ -399,34 +398,18 @@ const SITE_INDEX=[
 ];
 
 function normalize(t){
-  return t.toLowerCase()
-    .replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"")
-    .replace(/\s+/g," ")
-    .trim();
+  return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").replace(/\s+/g," ").trim();
 }
-
 function score(hay,q){
-  let s=0;
-  if(hay.startsWith(q)) s+=5;
-  if(hay.includes(q)) s+=2;
-  const parts=q.split(" ");
-  parts.forEach(w=>{
-    if(!w) return;
-    if(hay.startsWith(w)) s+=2;
-    if(hay.includes(w)) s+=1;
-  });
+  let s=0; if(hay.startsWith(q)) s+=5; if(hay.includes(q)) s+=2;
+  for(const w of q.split(" ")){ if(!w) continue; if(hay.startsWith(w)) s+=2; if(hay.includes(w)) s+=1; }
   return s;
 }
-
 function searchIndex(q){
-  q=normalize(q);
-  if(!q) return [];
-  return SITE_INDEX.map(it=>{
-    const hay=normalize(it.title+" "+it.keywords);
-    return {it,s:score(hay,q)};
-  }).filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,8).map(r=>r.it);
+  q=normalize(q); if(!q) return [];
+  return SITE_INDEX.map(it=>{ const hay=normalize(it.title+" "+it.keywords); return {it,s:score(hay,q)}; })
+    .filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,8).map(r=>r.it);
 }
-
 const sugg=document.getElementById('sugg');
 function liveSuggest(v){
   const hits=searchIndex(v);
@@ -441,19 +424,15 @@ function doSearch(){
   return false;
 }
 
-/* -------- WhatsApp lead (works) -------- */
+/* -------- WhatsApp lead -------- */
 function sendLead(){
   const name=(document.getElementById('name').value||"").trim();
   const loc=(document.getElementById('loc').value||"").trim();
   const proj=(document.getElementById('projName').value||"").trim();
   const phone=(document.getElementById('cphone').value||"").trim();
   const extra=(document.getElementById('msg').value||"").trim();
-
   const text = `👤 Name: ${name}%0A📍 Location: ${loc}%0A🏘️ Project: ${proj}%0A📞 Phone: ${phone}%0A✍️ Notes: ${extra}`;
-  const wa = `https://wa.me/201050072527?text=${text}`;
-  window.open(wa,"_blank");
+  window.open(`https://wa.me/201050072527?text=${text}`,"_blank");
   return false;
 }
 </script>
-</body>
-</html>
