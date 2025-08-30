@@ -3,14 +3,80 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Islam Real Estate | ابحث عن منزلك</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
+<title>Islam Real Estate | ابحث عن منزل في العين السخنة والقاهرة الجديدة والساحل</title>
+
+<!-- Canonical & Robots -->
+<link rel="canonical" href="https://islamesmail-jpg.github.io/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+<!-- Favicon -->
 <link rel="icon" href="https://l.top4top.io/p_3529ppog90.png">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
+<!-- Primary SEO -->
+<meta name="description" content="Islam Real Estate — ابحث وقارن بين أفضل مشاريع العين السخنة والساحل الشمالي والقاهرة الجديدة. شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس، وإعادة بيع جاهزة للاستلام. تواصل مباشرة مع إسلام إسماعيل (Islam Sales Real Estate)." />
+<meta name="keywords" content="مشاريع جديدة العين السخنة, شراء شاليه العين السخنة, شراء شقة التجمع الخامس, إسلام سيلز عقارات, اسلام اسماعيل, عقارات السخنة, عقارات القاهرة الجديدة, Real Estate Egypt, Sokhna, New Cairo" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="Islam Real Estate | ابحث عن منزلك">
+<meta property="og:description" content="ابحث عن مشاريع جديدة في العين السخنة، شراء شاليه في السخنة، شراء شقة في التجمع الخامس، وإعادة بيع جاهزة للاستلام.">
+<meta property="og:url" content="https://islamesmail-jpg.github.io/">
+<meta property="og:image" content="https://j.top4top.io/p_3529mqde90.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Islam Real Estate | ابحث عن منزلك">
+<meta name="twitter:description" content="شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس، ومشاريع جديدة بالعاصمة والساحل.">
+<meta name="twitter:image" content="https://j.top4top.io/p_3529mqde90.png">
+
+<!-- JSON-LD: WebSite + SearchAction + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Islam Real Estate",
+      "url": "https://islamesmail-jpg.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://islamesmail-jpg.github.io/index.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": "ar"
+    },
+    {
+      "@type": "Organization",
+      "name": "Islam Real Estate",
+      "alternateName": ["Islam Sales Real Estate","إسلام إسماعيل"],
+      "url": "https://islamesmail-jpg.github.io/",
+      "logo": "https://j.top4top.io/p_3529mqde90.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+20-105-000-2527",
+        "contactType": "sales",
+        "areaServed": "EG",
+        "availableLanguage": ["ar","en"]
+      }]
+    }
+  ]
+}
+</script>
+
 <style>
   :root{
     --bg:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
     --primary:#0b3a5e; --accent:#e4c24a; --soft:#f8fafc; --card:#fff;
     --wrap:1200px; --radius:14px;
+
+    /* تحكم سريع في أحجام الشريط واللوجو */
+    --nav-h: 160px;        /* ارتفاع الشريط */
+    --logo-h: 140px;       /* ← حاليًا أكبر من الضعف. غيّرها لو حابب */
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -27,11 +93,11 @@
     display:grid;
     grid-template-columns:48px 1fr 1fr; /* زر / لوجو / قائمة */
     align-items:center;
-    height:80px; /* ارتفاع مناسب للّوجو الكبير */
+    height:var(--nav-h);
   }
   .brand{grid-column:2;justify-self:center;line-height:0}
   .brand img{
-    height:70px;   /* ← حجم اللوجو الكبير (عدّل الرقم لو حابب 60–80px) */
+    height:var(--logo-h);   /* ← عدّل هنا لو عايز حجم مختلف */
     width:auto;display:block
   }
 
@@ -39,7 +105,7 @@
   .burger{
     grid-column:1;justify-self:start;
     display:inline-flex;align-items:center;justify-content:center;
-    width:40px;height:40px;border:1px solid var(--line);
+    width:44px;height:44px;border:1px solid var(--line);
     border-radius:12px;background:#fff;cursor:pointer
   }
 
@@ -52,7 +118,7 @@
 
   /* القائمة المنسدلة للموبايل (تحت الشريط) */
   .menu-mobile{
-    display:none;position:absolute;right:16px;left:16px;top:calc(80px + 8px);
+    display:none;position:absolute;right:16px;left:16px;top:calc(var(--nav-h) + 8px);
     background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;
     box-shadow:0 12px 24px rgba(0,0,0,.08)
   }
@@ -60,17 +126,15 @@
   .menu-mobile a:hover{background:var(--soft)}
   .menu-mobile.open{display:block}
 
-  /* إخفاء قائمة الديسكتوب على الشاشات الصغيرة */
   @media(max-width:860px){ .menu-desktop{display:none} }
 
-  /* ===== HERO ===== */
+  /* ===== عناصر الصفحة ===== */
   .hero{position:relative;display:grid;place-items:center;padding:56px 0;border-bottom:1px solid var(--line);
         background: radial-gradient(90% 70% at 50% 0%, #eef3f9 0%, #ffffff 60%);}
   .hero-inner{position:relative;text-align:center;padding:0 16px}
   .hero h1{font-size:2.2rem;margin:.2rem 0 10px}
   .hero p{color:var(--muted);margin:0 0 18px}
 
-  /* Search */
   .search-wrap{max-width:860px;margin:10px auto 0;position:relative}
   .search{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:50px;padding:10px}
   .search input{flex:1;border:0;outline:0;font-size:1rem;background:transparent;padding:10px 12px}
@@ -81,26 +145,22 @@
   .sugg a:last-child{border-bottom:0}
   .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 
-  /* Quick tiles */
   .quick-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px auto 0;max-width:860px}
   .tile{display:flex;align-items:center;gap:10px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
   .tile i{width:28px;height:28px;border-radius:9px;background:var(--soft);display:grid;place-items:center;font-weight:800;color:var(--primary)}
   .tile:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.06);transition:.2s}
   @media(max-width:640px){.quick-tiles{grid-template-columns:1fr}}
 
-  /* Sections */
   .section{padding:36px 0}
   .section h2{font-size:1.6rem;margin:0 0 14px}
   .sub{color:var(--muted);margin-top:-4px;margin-bottom:18px}
 
-  /* Areas */
   .areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   .area{border:1px solid var(--line);border-radius:18px;padding:14px;background:var(--card);display:flex;align-items:center;gap:12px}
   .area img{width:56px;height:56px;border-radius:50%;object-fit:cover}
   .area:hover{box-shadow:0 4px 12px rgba(0,0,0,.07);transform:translateY(-2px);transition:.2s}
   @media(max-width:760px){.areas{grid-template-columns:1fr}}
 
-  /* Cards grid */
   .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
   @media(max-width:1024px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:560px){.grid{grid-template-columns:1fr}}
@@ -113,7 +173,6 @@
   .card h3{margin:0 0 6px;font-size:1.05rem}
   .card p{margin:0;color:var(--muted);font-size:.95rem}
 
-  /* Contact form */
   .contact{background:linear-gradient(180deg,#f4f7fb,#ffffff)}
   .form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
   .field{display:flex;flex-direction:column;margin-bottom:12px}
@@ -122,14 +181,17 @@
   .submit{background:var(--primary);color:#fff;border:0;border-radius:14px;padding:12px 20px;font-weight:800;cursor:pointer}
   .hint{color:var(--muted);font-size:.95rem}
 
-  /* Footer */
   .footer{border-top:1px solid var(--line);padding:28px 0;background:linear-gradient(180deg,#fff,#f8fafc)}
   .social{display:flex;gap:10px}
   .social a{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center}
 
-  /* Floating CTA */
   .cta{position:fixed;left:16px;bottom:16px;z-index:40}
   .cta a{display:flex;gap:10px;align-items:center;background:var(--primary);color:#fff;padding:12px 16px;border-radius:40px;font-weight:800;box-shadow:0 10px 16px rgba(11,58,94,.25)}
+
+  /* نص مخفي لمحركات البحث وقارئات الشاشة فقط */
+  .sr-only{
+    position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
 </style>
 </head>
 <body>
@@ -140,7 +202,7 @@
     <button class="burger" id="burger" aria-label="قائمة">&#9776;</button>
 
     <a class="brand" href="index.html" aria-label="الرئيسية">
-      <img src="https://j.top4top.io/p_3529mqde90.png" alt="Logo">
+      <img src="https://j.top4top.io/p_3529mqde90.png" alt="Islam Real Estate Logo">
     </a>
 
     <!-- قائمة ديسكتوب يمين -->
@@ -191,6 +253,13 @@
     </div>
   </div>
 </section>
+
+<!-- ===== SEO TEXT (Hidden) ===== -->
+<div class="sr-only" aria-hidden="true">
+  الصفحة الرئيسية لموقع إسلام للعقارات — مشاريع جديدة العين السخنة،
+  شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس،
+  إسلام سيلز عقارات، إسلام إسماعيل.
+</div>
 
 <!-- ===== AREAS ===== -->
 <section class="section">
@@ -377,6 +446,7 @@ const SITE_INDEX = [
   {title:"لولي بيتش", keywords:"loulou loly beach راس الحكمة الساحل", url:"lolybeach.html"},
   {title:"جيريان — الشيخ زايد", keywords:"gerian jeryan zayed زايد", url:"#contact"}
 ];
+
 function normalize(t){return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").trim()}
 function searchIndex(q){
   q = normalize(q); if(!q) return [];
@@ -395,39 +465,4 @@ function searchIndex(q){
 }
 const sugg = document.getElementById('sugg');
 function liveSuggest(val){
-  const hits = searchIndex(val);
-  if(hits.length===0){ sugg.style.display="none"; sugg.innerHTML=""; return; }
-  sugg.innerHTML = hits.map(h=>`
-    <a href="${h.url}" onclick="goto('${h.url}');return false;">
-      <div><b>${h.title}</b><div><small>${h.url}</small></div></div>
-      <span class="kbd">↵</span>
-    </a>`).join("");
-  sugg.style.display="block";
-}
-function doSearch(){
-  const q = document.getElementById('q').value;
-  const hits = searchIndex(q);
-  if(hits.length){ goto(hits[0].url); }
-  else { alert("لم يتم العثور على نتيجة مطابقة داخل الموقع."); }
-  return false;
-}
-function goto(url){ sugg.style.display="none"; window.location.href = url; }
-document.addEventListener('click',(e)=>{
-  if(!document.querySelector('.search-wrap').contains(e.target)){ sugg.style.display="none"; }
-});
-
-/* ===== CONTACT LEAD ===== */
-function sendLead(){
-  const name=document.getElementById('name').value.trim();
-  const loc=document.getElementById('loc').value;
-  const phone=document.getElementById('phone').value.trim();
-  const msg=document.getElementById('msg').value.trim();
-  const text=`اسم: ${name}%0Aموقع: ${loc}%0Aتلفون: ${phone}%0Aرسالة: ${msg}`;
-  window.open(`https://wa.me/201050072527?text=${text}`,'_blank');
-  window.open(`mailto:islammesmail@gmail.com?subject=Lead%20from%20Website&body=${text}`,'_blank');
-  alert('تم إرسال طلبك، وسنتواصل معك قريبًا 👌');
-  return false;
-}
-</script>
-</body>
-  </html>
+  const hits = search
