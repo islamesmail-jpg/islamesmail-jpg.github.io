@@ -11,6 +11,7 @@
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 <meta name="description" content="قارن بين أهم المشاريع والمطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة. ابحث حسب الكمبوند أو المنطقة أو المطور. تواصل مباشرة عبر واتساب." />
 <meta name="keywords" content="عقارات مصر, العين السخنة, الساحل الشمالي, القاهرة الجديدة, شقق, شاليهات, كمبوند, اعادة بيع, تقسيط" />
+<meta name="theme-color" content="#0b3a5e" />
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_AR">
@@ -18,6 +19,7 @@
 <meta property="og:description" content="مشاريع موثوقة في السخنة والساحل والقاهرة الجديدة.">
 <meta property="og:url" content="https://islamesmail-jpg.github.io/">
 <meta property="og:image" content="https://j.top4top.io/p_3529mqde90.png">
+<meta property="og:image:alt" content="شعار Islam Real Estate">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Islam Real Estate | ابحث عن منزلك">
@@ -25,6 +27,8 @@
 <meta name="twitter:image" content="https://j.top4top.io/p_3529mqde90.png">
 
 <link rel="icon" href="https://l.top4top.io/p_3529ppog90.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <!-- Schema -->
@@ -41,6 +45,9 @@
   --primary:#0b3a5e; --soft:#f7fafc; --wrap:1200px; --nav-h:64px;
   --logo-h:162px; --logo-img-h:148px;
   --radius:18px; --shadow:0 10px 22px rgba(0,0,0,.06);
+
+  /* ✅ غيّر رابط الصورة هنا */
+  --hero-img:url('');
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:"Tajawal",Arial,sans-serif;background:#fff;color:var(--text);line-height:1.8}
@@ -79,7 +86,7 @@ img{max-width:100%;display:block}
 .sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
 .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 
-/* WHY (داخل الهيدر) */
+/* WHY داخل الهيدر */
 .why{max-width:900px;margin:18px auto 0}
 .why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .why-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:center}
@@ -88,15 +95,34 @@ img{max-width:100%;display:block}
 @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.why-grid{grid-template-columns:1fr}}
 
-/* صورة الهيدر أسفل العناصر */
-.hero-photo{margin:14px auto 0;max-width:var(--wrap)}
-.hero-photo img{
-  width:100%;
-  height:clamp(220px, 34vw, 420px);
-  object-fit:cover;
-  border-radius:16px;
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
+/* ✅ صورة الهيدر فل وِدث + Parallax بخلفية ممتدة */
+.hero-visual{
+  position:relative;
+  min-height:clamp(220px,34vw,460px);
+  margin-top:14px;
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.15)),
+    var(--hero-img);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed; /* Parallax على الديسكتوب */
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.hero-visual .overlay-content{
+  position:absolute;inset:0;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:16px;
+}
+.hero-visual .credit{
+  color:#fff;font-weight:700;background:rgba(0,0,0,.35);
+  padding:6px 10px;border-radius:10px;backdrop-filter:blur(2px);
+  font-size:.95rem
+}
+/* iOS/موبايل: إلغاء fixed لتحسين السلاسة */
+@media (max-width:900px){
+  .hero-visual{background-attachment:scroll}
 }
 
 /* SECTION */
@@ -181,20 +207,20 @@ img{max-width:100%;display:block}
 
 <section class="hero">
   <div class="container">
-    <!-- المقدمة أعلى الصورة -->
+    <!-- المقدمة والبحث و"تختارنا ليه؟" فوق -->
     <div class="intro">
       <h1>ابحث عن منزلك</h1>
       <p>قارن بين أهم المشاريع وأهم المطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
 
       <div class="search-wrap" role="search">
         <form class="search" onsubmit="return doSearch()" aria-label="بحث داخلي">
-          <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off">
-          <button type="submit">بحث</button>
+          <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off" aria-label="حقل البحث">
+          <button type="submit" aria-label="تنفيذ البحث">بحث</button>
         </form>
-        <div class="sugg" id="sugg"></div>
+        <div class="sugg" id="sugg" role="listbox" aria-label="اقتراحات البحث"></div>
       </div>
 
-      <div class="why">
+      <div class="why" aria-label="لماذا نختارنا">
         <h2 style="margin:16px 0 12px;font-size:1.15rem;">تختارنا ليه؟</h2>
         <div class="why-grid">
           <div class="why-card"><b>اختيار دقيق</b><small>فلترة سريعة حسب المنطقة والمطور ونوع الوحدة.</small></div>
@@ -203,11 +229,13 @@ img{max-width:100%;display:block}
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- صورة الهيدر أسفل العناصر -->
-    <div class="hero-photo" aria-label="صورة الهيدر">
-      <!-- ضع رابط صورتك هنا -->
-      <img id="heroImg" src="" alt="صورة الهيدر (أضف الرابط لاحقًا)">
+  <!-- ✅ خلفية الهيدر الممتدة (فل وِدث + Parallax) -->
+  <div class="hero-visual" role="img" aria-label="صورة بانورامية للهيدر">
+    <div class="overlay-content">
+      <!-- نص اختياري فوق الصورة (مثلاً كريدت أو سطر تشويقي) -->
+      <div class="credit">اكتشف أفضل مشاريع السخنة والساحل والقاهرة</div>
     </div>
   </div>
 </section>
@@ -239,7 +267,7 @@ img{max-width:100%;display:block}
     <h2>المشاريع الجديدة</h2>
     <div class="hbar">
       <a class="card" href="lugano.html"><div class="thumb"><img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="لوجانو الجلالة" loading="lazy"><span class="badge">مرحلة جديدة</span></div><div class="body"><h3>لوجانو الجلالة</h3><p>تفاصيل ومواعيد التسليم</p></div></a>
-      <a class="card" href="sokhnahills.html"><div class="thumb"><img src="https://d.top4top.io/p_3529o4l6o1.jpeg" alt="سخنة هيلز" loading="lazy"><span class="badge">مخطط جديد</span></div><div class="body"><h3>سخنة هيلز</h3><p>موقع مميز وخطط مرنة</p></div></a>
+      <a class="card" href="sokhna-hills.html"><div class="thumb"><img src="https://d.top4top.io/p_3529o4l6o1.jpeg" alt="سخنة هيلز" loading="lazy"><span class="badge">مخطط جديد</span></div><div class="body"><h3>سخنة هيلز</h3><p>موقع مميز وخطط مرنة</p></div></a>
       <a class="card" href="porto-sokhna.html"><div class="thumb"><img src="https://c.top4top.io/p_3529xatvs0.jpeg" alt="بورتو السخنة" loading="lazy"><span class="badge">جاهز</span></div><div class="body"><h3>بورتو السخنة</h3><p>استلام فوري</p></div></a>
     </div>
   </div>
@@ -321,32 +349,22 @@ const SITE_INDEX=[
   {title:"طريق السويس",keywords:"suez",url:"suez.html"},
   {title:"بورتو السخنة",keywords:"porto",url:"porto-sokhna.html"},
   {title:"سخنة هيلز",keywords:"sokhna hills",url:"sokhna-hills.html"},
-  {title:"لوجانو الجلالة",keywords:"lugano الجلالة",url:"Lugano.html"},
+  {title:"لوجانو الجلالة",keywords:"lugano الجلالة",url:"lugano.html"},
   {title:"لولي بيتش",keywords:"loly beach",url:"lolybeach.html"}
 ];
 function normalize(t){return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").trim()}
-function searchIndex(q){q=normalize(q);if(!q)return[];return SITE_INDEX.map(it=>{const hay=normalize(it.title+" "+it.keywords);let s=0;if(hay.startsWith(q))s+=3;if(hay.includes(q))s+=1;q.split(/\s+/).forEach(w=>{if(hay.includes(w))s+=1});return{it,s}}).filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,8).map(r=>r.it);}
-const sugg=document.getElementById('sugg');
-function liveSuggest(v){const hits=searchIndex(v);if(!hits.length){sugg.style.display="none";sugg.innerHTML="";return;}sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");sugg.style.display="block";}
-function doSearch(){const q=document.getElementById('q').value;const hits=searchIndex(q);if(hits.length){location.href=hits[0].url}else{alert("لا توجد نتيجة مطابقة داخل الموقع.")}return false;}
-
-/* WhatsApp lead */
-function sendLead(){
-  const name=document.getElementById('name').value.trim();
-  const loc=document.getElementById('loc').value;
-  const proj=document.getElementById('projName').value.trim();
-  const phone=document.getElementById('cphone').value.trim();
-  const msg=document.getElementById('msg').value.trim();
-  if(!name||!loc||!phone){alert("أكمل الاسم/الموقع/الهاتف.");return false;}
-  const text=`طلب مساعدة عقارية:
-الاسم: ${name}
-الموقع المفضل: ${loc}
-اسم المشروع: ${proj||'-'}
-الهاتف: ${phone}
-رسالة: ${msg||'-'}`;
-  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(text)}`,'_blank');
-  return false;
+function searchIndex(q){
+  q=normalize(q); if(!q)return[];
+  return SITE_INDEX.map(it=>{
+    const hay=normalize(it.title+" "+it.keywords);
+    let s=0; if(hay.startsWith(q))s+=3; if(hay.includes(q))s+=1;
+    q.split(/\s+/).forEach(w=>{if(hay.includes(w))s+=1});
+    return{it,s}
+  }).filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,8).map(r=>r.it);
 }
-</script>
-</body>
-</html>
+const sugg=document.getElementById('sugg');
+function liveSuggest(v){
+  const hits=searchIndex(v);
+  if(!hits.length){sugg.style.display="none";sugg.innerHTML="";return;}
+  sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");
+  su
