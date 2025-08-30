@@ -6,21 +6,15 @@
 
 <title>Islam Real Estate | ابحث عن منزل في العين السخنة والقاهرة الجديدة والساحل</title>
 
-<!-- Canonical & Robots -->
 <link rel="canonical" href="https://islamesmail-jpg.github.io/">
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-<!-- Favicon -->
 <link rel="icon" href="https://l.top4top.io/p_3529ppog90.png">
-
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
-<!-- Primary SEO -->
 <meta name="description" content="Islam Real Estate — ابحث وقارن بين أفضل مشاريع العين السخنة والساحل الشمالي والقاهرة الجديدة. شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس، وإعادة بيع جاهزة للاستلام. تواصل مباشرة مع إسلام إسماعيل (Islam Sales Real Estate)." />
 <meta name="keywords" content="مشاريع جديدة العين السخنة, شراء شاليه العين السخنة, شراء شقة التجمع الخامس, إسلام سيلز عقارات, اسلام اسماعيل, عقارات السخنة, عقارات القاهرة الجديدة, Real Estate Egypt, Sokhna, New Cairo" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:title" content="Islam Real Estate | ابحث عن منزلك">
@@ -28,45 +22,10 @@
 <meta property="og:url" content="https://islamesmail-jpg.github.io/">
 <meta property="og:image" content="https://j.top4top.io/p_3529mqde90.png">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Islam Real Estate | ابحث عن منزلك">
 <meta name="twitter:description" content="شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس، ومشاريع جديدة بالعاصمة والساحل.">
 <meta name="twitter:image" content="https://j.top4top.io/p_3529mqde90.png">
-
-<!-- JSON-LD: WebSite + SearchAction + Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Islam Real Estate",
-      "url": "https://islamesmail-jpg.github.io/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://islamesmail-jpg.github.io/index.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "inLanguage": "ar"
-    },
-    {
-      "@type": "Organization",
-      "name": "Islam Real Estate",
-      "alternateName": ["Islam Sales Real Estate","إسلام إسماعيل"],
-      "url": "https://islamesmail-jpg.github.io/",
-      "logo": "https://j.top4top.io/p_3529mqde90.png",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+20-105-000-2527",
-        "contactType": "sales",
-        "areaServed": "EG",
-        "availableLanguage": ["ar","en"]
-      }]
-    }
-  ]
-}
-</script>
 
 <style>
   :root{
@@ -74,9 +33,10 @@
     --primary:#0b3a5e; --accent:#e4c24a; --soft:#f8fafc; --card:#fff;
     --wrap:1200px; --radius:14px;
 
-    /* تحكم سريع في أحجام الشريط واللوجو */
-    --nav-h: 70px;        /* ارتفاع الشريط */
-    --logo-h: 140px;       /* ← حاليًا أكبر من الضعف. غيّرها لو حابب */
+    /* حافظنا على ارتفاع الشريط كما هو */
+    --nav-h: 70px;      /* نفس الارتفاع القديم */
+    --logo-h: 140px;    /* حجم اللوجو الحالي */
+    --logo-shift: -42%; /* مقدار رفع اللوجو للأعلى (٪ من ارتفاعه) عدّلها لو عايز */
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -84,34 +44,46 @@
   a{color:inherit;text-decoration:none}
   .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-  /* ===== NAV (لوجو كبير في المنتصف) ===== */
+  /* ===== NAV ===== */
   .topbar{
     position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
     box-shadow:0 2px 10px rgba(0,0,0,.03);
+    overflow:visible; /* نسمح للّوجو يطلع فوق الشريط بدون تكبيره */
   }
   .nav{
+    position:relative;
     display:grid;
-    grid-template-columns:28px 1fr 1fr; /* زر / لوجو / قائمة */
+    grid-template-columns:1fr; /* هنتموضع العناصر يدويًا */
     align-items:center;
     height:var(--nav-h);
   }
-  .brand{grid-column:2;justify-self:center;line-height:0}
+
+  /* اللوجو في نص الشريط ومرفوع لفوق بدون تغيير ارتفاع الشريط */
+  .brand{
+    position:absolute; left:50%; top:0;
+    transform:translate(-50%, var(--logo-shift));
+    line-height:0;
+  }
   .brand img{
-    height:var(--logo-h);   /* ← عدّل هنا لو عايز حجم مختلف */
-    width:auto;display:block
+    height:var(--logo-h);
+    width:auto; display:block;
   }
 
-  /* زر الهامبرجر */
+  /* زر الهامبرجر ثابت نفس الحجم لكن طالع فوق بجانب اللوجو */
   .burger{
-    grid-column:1;justify-self:start;
+    position:absolute;
+    top:8px;           /* رفع بسيط لفوق */
+    inset-inline-end:16px; /* يمين في RTL */
     display:inline-flex;align-items:center;justify-content:center;
     width:44px;height:44px;border:1px solid var(--line);
     border-radius:12px;background:#fff;cursor:pointer
   }
 
-  /* قائمة الديسكتوب (يمين) */
+  /* قائمة الديسكتوب تظهر يمين الحافة السفلى للشريط كالمعتاد */
   .menu-desktop{
-    grid-column:3;justify-self:end;display:flex;gap:14px;align-items:center
+    display:flex;gap:14px;align-items:center;
+    margin-inline-start:auto;
+    visibility:visible;
   }
   .menu-desktop a{padding:8px 10px;border-radius:10px;font-weight:700}
   .menu-desktop a:hover{background:var(--soft)}
@@ -126,9 +98,10 @@
   .menu-mobile a:hover{background:var(--soft)}
   .menu-mobile.open{display:block}
 
+  /* نخفي قائمة الديسكتوب تحت 860px */
   @media(max-width:860px){ .menu-desktop{display:none} }
 
-  /* ===== عناصر الصفحة ===== */
+  /* ===== باقي الصفحة كما هي ===== */
   .hero{position:relative;display:grid;place-items:center;padding:56px 0;border-bottom:1px solid var(--line);
         background: radial-gradient(90% 70% at 50% 0%, #eef3f9 0%, #ffffff 60%);}
   .hero-inner{position:relative;text-align:center;padding:0 16px}
@@ -187,11 +160,6 @@
 
   .cta{position:fixed;left:16px;bottom:16px;z-index:40}
   .cta a{display:flex;gap:10px;align-items:center;background:var(--primary);color:#fff;padding:12px 16px;border-radius:40px;font-weight:800;box-shadow:0 10px 16px rgba(11,58,94,.25)}
-
-  /* نص مخفي لمحركات البحث وقارئات الشاشة فقط */
-  .sr-only{
-    position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-  }
 </style>
 </head>
 <body>
@@ -205,7 +173,7 @@
       <img src="https://j.top4top.io/p_3529mqde90.png" alt="Islam Real Estate Logo">
     </a>
 
-    <!-- قائمة ديسكتوب يمين -->
+    <!-- قائمة ديسكتوب (تظهر على الشاشات الكبيرة) -->
     <nav class="menu-desktop" aria-label="روابط الموقع">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
@@ -214,7 +182,7 @@
       <a href="#contact">اتصل بنا</a>
     </nav>
 
-    <!-- قائمة موبايل تحت الشريط -->
+    <!-- قائمة موبايل -->
     <div class="menu-mobile" id="menu">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
@@ -231,7 +199,6 @@
     <h1>ابحث عن منزلك</h1>
     <p>قارن بين الوحدات من أهم المطورين في (السخنة – الساحل – القاهرة الجديدة) او ضيف وحدتك للبيع</p>
 
-    <!-- بحث داخلي لحظي -->
     <div class="search-wrap">
       <form class="search" onsubmit="return doSearch()">
         <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off">
@@ -253,13 +220,6 @@
     </div>
   </div>
 </section>
-
-<!-- ===== SEO TEXT (Hidden) ===== -->
-<div class="sr-only" aria-hidden="true">
-  الصفحة الرئيسية لموقع إسلام للعقارات — مشاريع جديدة العين السخنة،
-  شراء شاليه في العين السخنة، شراء شقة في التجمع الخامس،
-  إسلام سيلز عقارات، إسلام إسماعيل.
-</div>
 
 <!-- ===== AREAS ===== -->
 <section class="section">
@@ -465,4 +425,35 @@ function searchIndex(q){
 }
 const sugg = document.getElementById('sugg');
 function liveSuggest(val){
-  const hits = search
+  const hits = searchIndex(val);
+  if(hits.length===0){ sugg.style.display="none"; sugg.innerHTML=""; return; }
+  sugg.innerHTML = hits.map(h=>`
+    <a href="${h.url}" onclick="goto('${h.url}');return false;">
+      <div><b>${h.title}</b><div><small>${h.url}</small></div></div>
+      <span class="kbd">↵</span>
+    </a>`).join("");
+  sugg.style.display="block";
+}
+function doSearch(){
+  const q = document.getElementById('q').value;
+  const hits = searchIndex(q);
+  if(hits.length){ goto(hits[0].url); }
+  else { alert("لم يتم العثور على نتيجة مطابقة داخل الموقع."); }
+  return false;
+}
+function goto(url){ sugg.style.display="none"; window.location.href = url; }
+
+/* إغلاق اقتراحات البحث عند النقر خارجها */
+document.addEventListener('click',(e)=>{
+  const wrap=document.querySelector('.search-wrap');
+  if(wrap && !wrap.contains(e.target)){
+    const s=document.getElementById('sugg'); if(s) s.style.display="none";
+  }
+});
+
+/* ===== CONTACT LEAD ===== */
+function sendLead(){
+  const name=document.getElementById('name').value.trim();
+  const loc=document.getElementById('loc').value;
+  const phone=document.getElementById('phone').value.trim();
+  const msg=
