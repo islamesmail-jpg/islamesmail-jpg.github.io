@@ -8,22 +8,22 @@
 <style>
 :root{
   --bg:#ffffff; --ink:#111827; --surface:#ffffff; --line:#e5e7eb; --gold:#e4c24a; --muted:#6b7280; --wrap:1120px;
-  --logo-size:180px; /* ← تحكم فى حجم اللوجو */
+  --logo-size:180px;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}/* Topbar */ .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)} .navbar{height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px} .brandbox{justify-self:start;width:var(--logo-size);height:auto;display:inline-flex;align-items:center} .brandbox img{max-width:100%;height:auto;object-fit:contain} .actions{justify-self:end;display:flex;gap:12px;align-items:center} .btnx{border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-size:15px;cursor:pointer;padding:8px 12px;border-radius:10px} .btnx:hover{background:#f9fafb}
 
-/* Routes tiles */ .routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)} @media(max-width:640px){.routes{grid-template-columns:1fr}} .route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff} .route img{width:100%;height:200px;object-fit:cover} .route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--ink);background:rgba(255,255,255,.9);text-align:center;font-weight:800;border-radius:12px;padding:8px}
+/* Routes tiles */ .routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))} .route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:.3s} .route:hover{transform:translateY(-4px);box-shadow:0 4px 12px rgba(0,0,0,.08)} .route img{width:100%;height:200px;object-fit:cover} .route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--ink);background:rgba(255,255,255,.95);text-align:center;font-weight:800;border-radius:12px;padding:8px}
 
-/* Projects */ .projects{margin-top:24px;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))} .project{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05);display:flex;flex-direction:column} .project img{width:100%;height:180px;object-fit:cover} .project .info{padding:12px} .project h3{margin:0;font-size:18px;font-weight:800;color:var(--ink)} .project p{margin:6px 0 0;color:var(--muted);font-size:14px}
+/* Projects (carousel style grid) */ .projects{margin:32px 0;display:flex;overflow-x:auto;gap:16px;scroll-snap-type:x mandatory;padding-bottom:8px} .projects::-webkit-scrollbar{height:8px} .projects::-webkit-scrollbar-thumb{background:#ccc;border-radius:4px} .project{flex:0 0 300px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);scroll-snap-align:start;transition:.3s} .project:hover{transform:translateY(-4px)} .project img{width:100%;height:180px;object-fit:cover} .project .info{padding:14px} .project h3{margin:0;font-size:18px;font-weight:800;color:var(--ink)} .project p{margin:6px 0 0;color:var(--muted);font-size:14px}
 
-/* Card */ .cardx{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 1px 2px rgba(0,0,0,.04)} .cardx h2{margin:0 0 10px}
+/* Card */ .cardx{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 1px 2px rgba(0,0,0,.04)} .cardx h2{margin:0 0 10px}
 
-/* Help Box */ .helpbox{margin-top:24px;background:#f9fafb;border:2px dashed var(--gold);border-radius:16px;padding:20px;text-align:center} .helpbox h3{margin:0 0 8px;font-weight:800;color:var(--ink)} .helpbox p{margin:0 0 12px;color:var(--muted)} .helpbox a{display:inline-block;margin:6px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700;color:var(--ink)} .helpbox a:hover{background:#f3f4f6}
+/* Help Box */ .helpbox{margin-top:32px;background:#f9fafb;border:2px dashed var(--gold);border-radius:16px;padding:20px;text-align:center} .helpbox h3{margin:0 0 8px;font-weight:800;color:var(--ink)} .helpbox p{margin:0 0 12px;color:var(--muted)} .helpbox a{display:inline-block;margin:6px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:700;color:var(--ink)} .helpbox a:hover{background:#f3f4f6}
 
-/* Footer */ footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:16px;margin-top:24px;font-size:14px} </style>
+/* Footer / footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:16px;margin-top:32px;font-size:14px} / === Featured (Horizontal Carousel) === / .featured{margin-top:24px;position:relative} .featured h2{margin:0 0 10px;font-size:22px} .scroller{overflow:hidden} .track{display:flex;gap:12px;will-change:transform} .cardh{flex:0 0 88%;max-width:88%;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)} .cardh .thumb{height:180px;background:#f3f4f6} .cardh .thumb img{width:100%;height:100%;object-fit:cover} .cardh .body{padding:12px 14px} .cardh .title{margin:0;font-weight:800} .cardh .meta{margin:6px 0 0;color:var(--muted);font-size:14px} / snap & hide scrollbar / .scroller{scroll-snap-type:x mandatory} .cardh{scroll-snap-align:center} .scroller::-webkit-scrollbar{display:none} / nav buttons */ .nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;font-weight:800;cursor:pointer} .nav-btn:hover{background:#f9fafb} .nav-prev{inset-inline-start:-6px} .nav-next{inset-inline-end:-6px} @media(min-width:700px){.cardh{flex-basis:48%;max-width:48%}} @media(min-width:1100px){.cardh{flex-basis:32%;max-width:32%}} </style>
 
 </head>
 <body><header class="topbar">
@@ -67,22 +67,46 @@ a{color:inherit;text-decoration:none}
       <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
       <div class="cap">طريق السويس</div>
     </a>
-  </div>  <!-- اهم المشاريع -->  <section class="projects">
-    <div class="project">
-      <img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="لوجانو">
-      <div class="info"><h3>لوجانو الجلالة</h3><p>إطلالة مميزة وخطط سداد مرنة</p></div>
-    </div>
-    <div class="project">
-      <img src="https://f.top4top.io/p_3522l3j7c0.png" alt="مورانو">
-      <div class="info"><h3>مورانو</h3><p>موقع استراتيجي على البحر</p></div>
-    </div>
-    <div class="project">
-      <img src="https://b.top4top.io/p_3527enpwx0.jpg" alt="السخنة هيلز">
-      <div class="info"><h3>السخنة هيلز</h3><p>أنظمة سداد متنوعة</p></div>
-    </div>
-    <div class="project">
-      <img src="https://i.top4top.io/p_3527018wz7.jpg" alt="عين هيلز">
-      <div class="info"><h3>عين هيلز</h3><p>مراحل متعددة وخدمات فندقية</p></div>
+  </div>  <!-- اهم المشاريع -->  <h2 style="margin-top:28px;font-size:22px;font-weight:800">أهم المشاريع</h2>
+  <section class="featured" aria-label="أهم المشاريع">
+    <h2>أهم المشاريع</h2>
+    <button class="nav-btn nav-prev" id="featPrev" aria-label="السابق">‹</button>
+    <button class="nav-btn nav-next" id="featNext" aria-label="التالي">›</button>
+    <div class="scroller">
+      <div class="track" id="featTrack">
+        <!-- Lugano -->
+        <article class="cardh">
+          <div class="thumb"><img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="لوجانو الجلالة" loading="lazy"></div>
+          <div class="body">
+            <h3 class="title">لوجانو الجلالة — Lugano</h3>
+            <p class="meta">AOG Developments | تقسيط حتى 6 سنوات</p>
+          </div>
+        </article>
+        <!-- Murano -->
+        <article class="cardh">
+          <div class="thumb"><img src="https://picsum.photos/seed/murano/640/400" alt="مورانو" loading="lazy"></div>
+          <div class="body">
+            <h3 class="title">مورانو — Murano</h3>
+            <p class="meta">موقع مميز | واجهات بحرية</p>
+          </div>
+        </article>
+        <!-- Sokhna Hills -->
+        <article class="cardh">
+          <div class="thumb"><img src="https://b.top4top.io/p_3527enpwx0.jpg" alt="السخنة هيلز" loading="lazy"></div>
+          <div class="body">
+            <h3 class="title">السخنة هيلز — Sokhna Hills</h3>
+            <p class="meta">أنظمة سداد مرنة | خدمات متكاملة</p>
+          </div>
+        </article>
+        <!-- Ein Hills -->
+        <article class="cardh">
+          <div class="thumb"><img src="https://i.top4top.io/p_3527018wz7.jpg" alt="عين هيلز" loading="lazy"></div>
+          <div class="body">
+            <h3 class="title">عين هيلز — Ein Hills</h3>
+            <p class="meta">مصاطب وإطلالات | قرب الخدمات</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>  <!-- FULL SPECS -->  <div class="cardx">
     <h2>مواصفات العين السخنة (دليل كامل)</h2>
@@ -123,5 +147,29 @@ document.addEventListener('click',e=>{
   if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
 });
 document.getElementById('langToggle').addEventListener('click',()=>{ window.location.href='sokhna-en.html'; });
+/* === Featured carousel logic (loop) === */
+(function(){
+  const track = document.getElementById('featTrack');
+  const prev = document.getElementById('featPrev');
+  const next = document.getElementById('featNext');
+  let busy=false;
+  function cardWidth(){return track.firstElementChild.getBoundingClientRect().width + 12} // +gap
+  function slide(dir){
+    if(busy) return; busy=true;
+    const w = cardWidth();
+    track.style.transition='transform .35s ease';
+    track.style.transform = `translateX(${dir>0?-w:w}px)`;
+    track.addEventListener('transitionend',function h(){
+      track.style.transition='none';
+      track.style.transform='translateX(0)';
+      if(dir>0){ track.appendChild(track.firstElementChild); }
+      else { track.insertBefore(track.lastElementChild, track.firstElementChild); }
+      busy=false;
+      track.removeEventListener('transitionend',h);
+    });
+  }
+  next?.addEventListener('click',()=>slide(1));
+  prev?.addEventListener('click',()=>slide(-1));
+})();
 </script></body>
 </html>
