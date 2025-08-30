@@ -152,7 +152,6 @@ img{max-width:100%;display:block}
 
 /* CONTACT */
 .contact-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;position:relative}
-.contact-box .msg-ico{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:14px;width:48px;height:48px;display:grid;place-items:center;font-size:20px;box-shadow:var(--shadow)}
 .contact-box h2{text-align:center;margin-top:8px}
 .lead-top-img{display:block;margin:0 auto 8px;height:56px;width:auto}
 
@@ -172,6 +171,18 @@ img{max-width:100%;display:block}
 .footer .logo-img{height:var(--logo-img-h);width:auto}
 .social{display:flex;gap:8px}
 .copy{color:var(--muted);text-align:center;margin-top:10px}
+
+/* Floating WhatsApp Button */
+.fab-whatsapp{
+  position:fixed; right:14px; bottom:14px; z-index:120;
+  width:56px; height:56px; border-radius:50%;
+  display:grid; place-items:center;
+  background:#25D366; color:#fff; font-size:28px;
+  box-shadow:0 10px 22px rgba(0,0,0,.18);
+  text-decoration:none;
+}
+.fab-whatsapp:hover{transform:translateY(-2px)}
+.fab-whatsapp .sr{position:absolute;left:-9999px}
 </style>
 </head>
 <body>
@@ -325,6 +336,11 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- Floating WhatsApp Button -->
+<a class="fab-whatsapp" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="sr">WhatsApp</span>💬
+</a>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
@@ -347,16 +363,25 @@ img{max-width:100%;display:block}
 </footer>
 
 <script>
-/* Mobile menu */
-const pagesBtn=document.getElementById('pagesBtn');
-const mMenu=document.getElementById('mMenu');
-pagesBtn?.addEventListener('click',()=>{const open=mMenu.classList.toggle('open');pagesBtn.setAttribute('aria-expanded',open?'true':'false');});
-document.addEventListener('click',(e)=>{const topbar=document.querySelector('.topbar');if(!topbar.contains(e.target))mMenu.classList.remove('open');});
+/* -------- Mobile menu (fixed) -------- */
+const pagesBtn = document.getElementById('pagesBtn');
+const mMenu = document.getElementById('mMenu');
 
-/* --- Internal Search (boosted, EN) --- */
-/* Expanded keywords: projects, areas, developers & unit types (plus Arabic variants for robustness) */
+pagesBtn?.addEventListener('click', (e)=>{
+  e.stopPropagation();
+  const open = mMenu.classList.toggle('open');
+  pagesBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+document.addEventListener('click',(e)=>{
+  // close if click outside button or menu
+  if (!e.target.closest('#mMenu') && !e.target.closest('#pagesBtn')) {
+    mMenu.classList.remove('open');
+    pagesBtn?.setAttribute('aria-expanded','false');
+  }
+});
+
+/* -------- Internal Search (fixed) -------- */
+/* Expanded keywords: projects, areas, developers & unit types (with Arabic variants too) */
 const SITE_INDEX=[
-  {title:"Ain Sokhna",keywords:"sokhna الزعفرانة zafarana suez السويس galala الجلالة chalet apartment villa ready resale installments",url:"sokhna.html"},
-  {title:"North Coast",keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن chalet villas beach installments",url:"north.html"},
-  {title:"New Cairo",keywords:"new cairo fifth settlement 5th التجمع nac العاصمة الادارية mostakbal المستقبل apartments villas",url:"cairo.html"},
-  {title:"Zafarana Corridor",keywords:"zafarana طريق الزعفرانة off plan under construction masterplan",url:"zafara
+  {title:"Ain Sokhna",keywords:"sokhna الزعفرانة zafarana suez السويس galala الجلالة chalet apartment villa re
