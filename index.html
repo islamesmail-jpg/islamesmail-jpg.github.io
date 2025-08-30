@@ -36,7 +36,7 @@
     /* حافظنا على ارتفاع الشريط كما هو */
     --nav-h: 70px;      /* نفس الارتفاع القديم */
     --logo-h: 140px;    /* حجم اللوجو الحالي */
-    --logo-shift: -42%; /* مقدار رفع اللوجو للأعلى (٪ من ارتفاعه) عدّلها لو عايز */
+    --logo-shift: -32%; /* مقدار رفع اللوجو للأعلى (٪ من ارتفاعه) عدّلها لو عايز */
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -62,7 +62,7 @@
   .brand{
     position:absolute; left:50%; top:0;
     transform:translate(-50%, var(--logo-shift));
-    line-height -5;
+    line-height 0;
   }
   .brand img{
     height:var(--logo-h);
