@@ -41,20 +41,50 @@ img{max-width:100%;display:block}
 .drawer a{padding:12px;border-radius:10px;font-weight:800}
 .drawer a:hover{background:#f3f4f6}
 
-/* ====== HERO TITLE + SEARCH ====== */
-.hero{padding:18px 0 10px;border-bottom:1px solid var(--line);background:#fff}
-.hero h1{margin:8px 0 6px;font-size:clamp(20px,4.4vw,30px)}
-.hero p{margin:0;color:var(--muted)}
+/* ====== HERO (صورة الهيدر) ====== */
+.hero{
+  position:relative;
+  border-bottom:1px solid var(--line);
+  background:url("https://h.top4top.io/p_3529cf3lv0.jpg") center/cover no-repeat;
+  min-height:360px;
+  display:flex;align-items:end;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  /* تظليل تدريجي لقراءة أفضل */
+  background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.15) 40%, rgba(0,0,0,.05) 70%, rgba(0,0,0,0));
+}
+.hero .inner{
+  position:relative; /* فوق التظليل */
+  padding:22px 0 20px;
+  color:#fff;
+}
+.hero h1{margin:8px 0 6px;font-size:clamp(22px,4.4vw,34px);line-height:1.25}
+.hero p{margin:0;color:#e5e7eb}
+
+/* بحث فوق الصورة بتصميم زجاجي */
 .searchwrap{padding:14px 0}
 .searchbar{position:relative;display:flex;gap:8px}
-#q{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:12px}
-#clear{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:800;cursor:pointer}
-.suggestions{position:absolute;inset-inline:0;top:105%;background:#fff;border:1px solid var(--line);border-radius:12px;display:none;max-height:300px;overflow:auto}
+#q{
+  flex:1;padding:12px 14px;border:1px solid rgba(255,255,255,.35);border-radius:12px;
+  background:rgba(255,255,255,.15);color:#fff;backdrop-filter:blur(6px);
+}
+#q::placeholder{color:#f3f4f6}
+#clear{
+  padding:12px 14px;border:1px solid rgba(255,255,255,.35);border-radius:12px;background:rgba(255,255,255,.15);
+  font-weight:800;cursor:pointer;color:#fff;backdrop-filter:blur(6px);
+}
+#clear:hover{background:rgba(255,255,255,.25)}
+.suggestions{
+  position:absolute;inset-inline:0;top:105%;background:#fff;border:1px solid var(--line);border-radius:12px;display:none;max-height:300px;overflow:auto
+}
 .suggestions a{display:block;padding:10px 12px;border-bottom:1px solid var(--line)}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#f3f4f6}
 
 /* ====== ROUTE TILES ====== */
+main{background:#fff}
 .routes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:14px 0}
 @media(max-width:640px){.routes{grid-template-columns:1fr}}
 .route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
@@ -133,9 +163,9 @@ footer{margin-top:20px;border-top:1px solid var(--line);background:#fff}
   </nav>
 </div>
 
-<!-- ====== HERO TITLE + SEARCH ====== -->
-<section class="hero">
-  <div class="container">
+<!-- ====== HERO (صورة الهيدر) ====== -->
+<section class="hero" aria-label="عنوان وصورة">
+  <div class="container inner">
     <h1>مشاريع العين السخنة وأفضل العروض والأسعار</h1>
     <p>استكشف أحدث المشاريع وخطط السداد والمساحات المتاحة بخطوات بسيطة.</p>
 
@@ -371,7 +401,7 @@ document.getElementById('sendLead').addEventListener('click',()=>{
     budget:document.getElementById('budget').value.trim()
   };
   if(!data.name || !data.phone){ alert('من فضلك أدخل الاسم والرقم.'); return; }
-  alert('تم استلام طلبك، هنكلمك في أقرب وقت.\\n\\n' + JSON.stringify(data, null, 2));
+  alert('تم استلام طلبك، هنكلمك في أقرب وقت.\n\n' + JSON.stringify(data, null, 2));
 });
 
 /* تحكم حجم اللوجو + حفظ محلي */
