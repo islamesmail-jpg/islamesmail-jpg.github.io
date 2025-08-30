@@ -18,32 +18,49 @@
   a{color:inherit;text-decoration:none}
   .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-  /* ===== NAV (قصير + لوجو في النص) ===== */
+  /* ===== NAV (قصير + لوجو صغير في المنتصف) ===== */
   .topbar{
     position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
-    box-shadow:0 20px 15px rgba(0,0,0,.03);
+    box-shadow:0 2px 10px rgba(0,0,0,.03);
   }
   .nav{
-    display:grid;grid-template-columns:48px 1fr 48px;align-items:center;
-    height:64px; /* شريط قصير وثابت */
-    padding:0;
+    display:grid;
+    grid-template-columns:48px 1fr 1fr; /* زر / لوجو / قائمة */
+    align-items:center;
+    height:64px; /* شريط قصير عادي */
   }
-  .brand{justify-self:center;line-height:0}
-  .brand img{height:clamp(34px,6vw,56px);width:auto;display:block} /* لوجو واضح بدون تكبير الشريط */
+  .brand{grid-column:2;justify-self:center;line-height:0}
+  .brand img{
+    height:clamp(26px,4.8vw,40px); /* نفس الحجم الصغير الظاهر في الصورة */
+    width:auto;display:block
+  }
+
+  /* زر الهامبرجر */
   .burger{
     grid-column:1;justify-self:start;
     display:inline-flex;align-items:center;justify-content:center;
     width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer
   }
-  /* القائمة المنسدلة تحت الشريط للحفاظ على الطول */
-  .menu{
-    display:none;position:absolute;right:16px;left:16px;top:72px; /* أسفل الشريط مباشرة */
+
+  /* قائمة الديسكتوب (يمين) */
+  .menu-desktop{
+    grid-column:3;justify-self:end;display:flex;gap:14px;align-items:center
+  }
+  .menu-desktop a{padding:8px 10px;border-radius:10px;font-weight:700}
+  .menu-desktop a:hover{background:var(--soft)}
+
+  /* القائمة المنسدلة للموبايل (تحت الشريط) */
+  .menu-mobile{
+    display:none;position:absolute;right:16px;left:16px;top:72px;
     background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;
     box-shadow:0 12px 24px rgba(0,0,0,.08)
   }
-  .menu a{display:block;padding:10px 12px;border-radius:10px;font-weight:700}
-  .menu a:hover{background:var(--soft)}
-  .menu.open{display:block}
+  .menu-mobile a{display:block;padding:10px 12px;border-radius:10px;font-weight:700}
+  .menu-mobile a:hover{background:var(--soft)}
+  .menu-mobile.open{display:block}
+
+  /* إخفاء قائمة الديسكتوب على الشاشات الصغيرة */
+  @media(max-width:860px){ .menu-desktop{display:none} }
 
   /* ===== HERO ===== */
   .hero{position:relative;display:grid;place-items:center;padding:56px 0;border-bottom:1px solid var(--line);
@@ -125,11 +142,17 @@
       <img src="https://j.top4top.io/p_3529mqde90.png" alt="Logo">
     </a>
 
-    <!-- عمود ثالث فاضي لتوازن الشبكة -->
-    <span></span>
+    <!-- قائمة ديسكتوب يمين -->
+    <nav class="menu-desktop" aria-label="روابط الموقع">
+      <a href="index.html">الرئيسية</a>
+      <a href="sokhna.html">العين السخنة</a>
+      <a href="north-coast.html">الساحل الشمالي</a>
+      <a href="new-cairo.html">القاهرة الجديدة</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
 
-    <!-- قائمة منسدلة تبقى الشريط قصير -->
-    <div class="menu" id="menu">
+    <!-- قائمة موبايل تحت الشريط -->
+    <div class="menu-mobile" id="menu">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
       <a href="north-coast.html">الساحل الشمالي</a>
@@ -332,7 +355,7 @@
 <div class="cta"><a href="https://wa.me/201050072527" target="_blank">💬 تواصل WhatsApp</a></div>
 
 <script>
-/* ===== MENU (dropdown) ===== */
+/* ===== MENU (موبايل) ===== */
 const burger=document.getElementById('burger'), menu=document.getElementById('menu');
 burger?.addEventListener('click',()=>menu.classList.toggle('open'));
 document.addEventListener('click',(e)=>{
@@ -346,7 +369,6 @@ const SITE_INDEX = [
   {title:"الساحل الشمالي", keywords:"north coast رأس الحكمة سيدي عبد الرحمن", url:"north-coast.html"},
   {title:"القاهرة الجديدة", keywords:"new cairo التجمع العاصمة مدينة المستقبل", url:"new-cairo.html"},
   {title:"طريق الزعفرانة - المشاريع الجديدة على المخطط", keywords:"zafarana مشاريع جديدة مخطط", url:"zafarana.html"},
-
   {title:"بورتو السخنة", keywords:"porto sokhna شاليه فندق اهرامات", url:"porto-sokhna.html"},
   {title:"سخنة هيلز", keywords:"sokhna hills الزعفرانة", url:"sokhna-hills.html"},
   {title:"سخنة هيلز (صفحة أخرى)", keywords:"sokhna hills", url:"sokhnahills.html"},
@@ -354,13 +376,10 @@ const SITE_INDEX = [
   {title:"لولي بيتش", keywords:"loulou loly beach راس الحكمة الساحل", url:"lolybeach.html"},
   {title:"جيريان — الشيخ زايد", keywords:"gerian jeryan zayed زايد", url:"#contact"}
 ];
-
 function normalize(t){return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").trim()}
 function searchIndex(q){
-  q = normalize(q);
-  if(!q) return [];
-  return SITE_INDEX
-    .map(item=>{
+  q = normalize(q); if(!q) return [];
+  return SITE_INDEX.map(item=>{
       const hay = normalize(item.title+" "+item.keywords);
       let score = 0;
       if(hay.startsWith(q)) score += 3;
@@ -373,7 +392,6 @@ function searchIndex(q){
     .slice(0,8)
     .map(r=>r.item);
 }
-
 const sugg = document.getElementById('sugg');
 function liveSuggest(val){
   const hits = searchIndex(val);
@@ -411,4 +429,4 @@ function sendLead(){
 }
 </script>
 </body>
-</html>
+  </html>
