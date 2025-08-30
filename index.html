@@ -39,9 +39,7 @@
 :root{
   --bg:#fff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
   --primary:#0b3a5e; --soft:#f7fafc; --wrap:1200px; --nav-h:64px;
-  /* تحكم حجم اللوجو */
-  --logo-h:162px;        /* لوجو الهيدر */
-  --logo-img-h:148px;    /* لوجو الفوتر */
+  --logo-h:162px; --logo-img-h:148px;
   --radius:18px; --shadow:0 10px 22px rgba(0,0,0,.06);
 }
 *{box-sizing:border-box}
@@ -69,7 +67,8 @@ img{max-width:100%;display:block}
 }
 
 /* HERO */
-.hero{text-align:center;padding:28px 0 12px}
+.hero{padding:28px 0 0}
+.hero .intro{text-align:center;padding:0 0 14px}
 .hero h1{margin:0 0 8px;font-size:clamp(1.6rem,2.6vw,2rem)}
 .hero p{margin:0;color:var(--muted)}
 .search-wrap{max-width:780px;margin:14px auto 0;position:relative}
@@ -80,8 +79,17 @@ img{max-width:100%;display:block}
 .sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
 .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 
-/* ✅ صندوق صورة الهيدر (إضافة فقط) */
-.hero-photo{margin:10px auto 14px;max-width:var(--wrap)}
+/* WHY (داخل الهيدر) */
+.why{max-width:900px;margin:18px auto 0}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.why-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:center}
+.why-card b{display:block;margin-bottom:6px}
+.why-card small{color:var(--muted)}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.why-grid{grid-template-columns:1fr}}
+
+/* صورة الهيدر أسفل العناصر */
+.hero-photo{margin:14px auto 0;max-width:var(--wrap)}
 .hero-photo img{
   width:100%;
   height:clamp(220px, 34vw, 420px);
@@ -91,22 +99,15 @@ img{max-width:100%;display:block}
   box-shadow:var(--shadow);
 }
 
-/* WHY */
+/* SECTION */
 .section{padding:28px 0}
 .section h2{font-size:1.25rem;margin:0 0 12px}
 .sub{color:var(--muted);margin:-6px 0 14px}
-.why{max-width:900px;margin:18px auto 0}
-.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.why-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:center}
-.why-card b{display:block;margin-bottom:6px}
-.why-card small{color:var(--muted)}
-@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.why-grid{grid-template-columns:1fr}}
 
 /* QUICK TILES */
 .quick-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.tile{padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}
-.tile:hover{box-shadow:var(--shadow);transform:translateY(-2px);transition:.2s}
+.tile{padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff;transition:.2s}
+.tile:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
 .tile b{display:block}
 .tile .sub{margin:6px 0 0}
 @media(max-width:992px){.quick-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -180,31 +181,33 @@ img{max-width:100%;display:block}
 
 <section class="hero">
   <div class="container">
+    <!-- المقدمة أعلى الصورة -->
+    <div class="intro">
+      <h1>ابحث عن منزلك</h1>
+      <p>قارن بين أهم المشاريع وأهم المطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
 
-    <!-- ✅ مكان صورة الهيدر: ضع رابط صورتك في src -->
-    <div class="hero-photo" aria-label="صورة الهيدر">
-      <img id="heroImg" src="" alt="صورة الهيدر (أضف الرابط لاحقًا)">
-    </div>
-    <!-- نهاية إضافة الهيدر بالصورة -->
-
-    <h1>ابحث عن منزلك</h1>
-    <p>قارن بين أهم المشاريع وأهم المطورين في العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
-
-    <div class="search-wrap" role="search">
-      <form class="search" onsubmit="return doSearch()" aria-label="بحث داخلي">
-        <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off">
-        <button type="submit">بحث</button>
-      </form>
-      <div class="sugg" id="sugg"></div>
-    </div>
-
-    <div class="why">
-      <h2>تختارنا ليه؟</h2>
-      <div class="why-grid">
-        <div class="why-card"><b>اختيار دقيق</b><small>فلترة سريعة حسب المنطقة والمطور ونوع الوحدة.</small></div>
-        <div class="why-card"><b>تفاوض في السعر</b><small>عروض حقيقية وتفاوض على أفضل الشروط.</small></div>
-        <div class="why-card"><b>تسليم وثقة</b><small>شركاء موثوقون ومتابعة حتى الاستلام.</small></div>
+      <div class="search-wrap" role="search">
+        <form class="search" onsubmit="return doSearch()" aria-label="بحث داخلي">
+          <input id="q" type="text" placeholder="ابحث بالكمبوند، المنطقة، المطور، نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off">
+          <button type="submit">بحث</button>
+        </form>
+        <div class="sugg" id="sugg"></div>
       </div>
+
+      <div class="why">
+        <h2 style="margin:16px 0 12px;font-size:1.15rem;">تختارنا ليه؟</h2>
+        <div class="why-grid">
+          <div class="why-card"><b>اختيار دقيق</b><small>فلترة سريعة حسب المنطقة والمطور ونوع الوحدة.</small></div>
+          <div class="why-card"><b>تفاوض في السعر</b><small>عروض حقيقية وتفاوض على أفضل الشروط.</small></div>
+          <div class="why-card"><b>تسليم وثقة</b><small>شركاء موثوقون ومتابعة حتى الاستلام.</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- صورة الهيدر أسفل العناصر -->
+    <div class="hero-photo" aria-label="صورة الهيدر">
+      <!-- ضع رابط صورتك هنا -->
+      <img id="heroImg" src="" alt="صورة الهيدر (أضف الرابط لاحقًا)">
     </div>
   </div>
 </section>
