@@ -18,21 +18,34 @@
   a{color:inherit;text-decoration:none}
   .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-  /* NAV */
-  .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-  .nav{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px 0;position:relative}
-  .brand img{height:90px;width:auto;display:block}  /* اللوجو ×2 */
-  .menu{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
-  .menu a{padding:8px 10px;border-radius:10px;font-weight:700}
-  .menu a:hover{background:var(--soft)}
-  .burger{display:none;padding:8px;border:1px solid var(--line);border-radius:12px;background:#fff;position:absolute;left:16px;top:50%;transform:translateY(-50%)} /* زر القائمة يسار */
-  @media(max-width:860px){
-    .menu{display:none}
-    .menu.open{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;position:absolute;right:16px;left:16px;top:calc(100% + 8px)}
-    .burger{display:inline-flex}
+  /* ===== NAV (قصير + لوجو في النص) ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(0,0,0,.03);
   }
+  .nav{
+    display:grid;grid-template-columns:48px 1fr 48px;align-items:center;
+    height:64px; /* شريط قصير وثابت */
+    padding:0;
+  }
+  .brand{justify-self:center;line-height:0}
+  .brand img{height:clamp(34px,6vw,56px);width:auto;display:block} /* لوجو واضح بدون تكبير الشريط */
+  .burger{
+    grid-column:1;justify-self:start;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer
+  }
+  /* القائمة المنسدلة تحت الشريط للحفاظ على الطول */
+  .menu{
+    display:none;position:absolute;right:16px;left:16px;top:72px; /* أسفل الشريط مباشرة */
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;
+    box-shadow:0 12px 24px rgba(0,0,0,.08)
+  }
+  .menu a{display:block;padding:10px 12px;border-radius:10px;font-weight:700}
+  .menu a:hover{background:var(--soft)}
+  .menu.open{display:block}
 
-  /* HERO (بدون فيديو) */
+  /* ===== HERO ===== */
   .hero{position:relative;display:grid;place-items:center;padding:56px 0;border-bottom:1px solid var(--line);
         background: radial-gradient(90% 70% at 50% 0%, #eef3f9 0%, #ffffff 60%);}
   .hero-inner{position:relative;text-align:center;padding:0 16px}
@@ -48,7 +61,6 @@
         box-shadow:0 8px 24px rgba(0,0,0,.08)}
   .sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
   .sugg a:last-child{border-bottom:0}
-  .sugg small{color:var(--muted)}
   .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 
   /* Quick tiles */
@@ -108,9 +120,15 @@
 <div class="topbar">
   <div class="container nav">
     <button class="burger" id="burger" aria-label="قائمة">&#9776;</button>
+
     <a class="brand" href="index.html" aria-label="الرئيسية">
       <img src="https://j.top4top.io/p_3529mqde90.png" alt="Logo">
     </a>
+
+    <!-- عمود ثالث فاضي لتوازن الشبكة -->
+    <span></span>
+
+    <!-- قائمة منسدلة تبقى الشريط قصير -->
     <div class="menu" id="menu">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
@@ -125,7 +143,7 @@
 <section class="hero" aria-label="ابحث عن منزلك">
   <div class="hero-inner container">
     <h1>ابحث عن منزلك</h1>
-    <p>  قارن بين الوحدات من أهم المطورين في (السخنة – الساحل – القاهرة الجديدة) او ضيف وحدتك للبيع</p>
+    <p>قارن بين الوحدات من أهم المطورين في (السخنة – الساحل – القاهرة الجديدة) او ضيف وحدتك للبيع</p>
 
     <!-- بحث داخلي لحظي -->
     <div class="search-wrap">
@@ -162,7 +180,7 @@
       </a>
       <a class="area" href="north-coast.html">
         <img src="https://a.top4top.io/p_35291f2zr1.jpeg" alt="الساحل الشمالي">
-        <div><b>s</b><div class="hint">من رأس الحكمة إلى سيدي عبد الرحمن</div></div>
+        <div><b>الساحل الشمالي</b><div class="hint">من رأس الحكمة إلى سيدي عبد الرحمن</div></div>
       </a>
       <a class="area" href="new-cairo.html">
         <img src="https://b.top4top.io/p_352921mkm2.jpeg" alt="القاهرة الجديدة">
@@ -177,7 +195,6 @@
   <div class="container">
     <h2>المشاريع الجديدة</h2>
     <div class="grid">
-      <!-- Lugano -->
       <a class="card" href="Lugano.html">
         <div class="thumb">
           <img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="لوجانو الجلالة">
@@ -189,7 +206,6 @@
         </div>
       </a>
 
-      <!-- Sokhna Hills -->
       <a class="card" href="sokhnahills.html">
         <div class="thumb">
           <img src="https://d.top4top.io/p_3529o4l6o1.jpeg" alt="سخنة هيلز">
@@ -201,7 +217,6 @@
         </div>
       </a>
 
-      <!-- Porto Sokhna -> contact -->
       <a class="card" href="#contact">
         <div class="thumb">
           <img src="https://c.top4top.io/p_3529xatvs0.jpeg" alt="بورتو السخنة">
@@ -213,7 +228,6 @@
         </div>
       </a>
 
-      <!-- Loly Beach -->
       <a class="card" href="lolybeach.html">
         <div class="thumb">
           <img src="https://f.top4top.io/p_35299rtov3.jpeg" alt="لولي بيتش">
@@ -318,9 +332,13 @@
 <div class="cta"><a href="https://wa.me/201050072527" target="_blank">💬 تواصل WhatsApp</a></div>
 
 <script>
-/* ===== MENU ===== */
+/* ===== MENU (dropdown) ===== */
 const burger=document.getElementById('burger'), menu=document.getElementById('menu');
 burger?.addEventListener('click',()=>menu.classList.toggle('open'));
+document.addEventListener('click',(e)=>{
+  const topbar=document.querySelector('.topbar');
+  if(!topbar.contains(e.target)) menu.classList.remove('open');
+});
 
 /* ===== INTERNAL SEARCH INDEX ===== */
 const SITE_INDEX = [
@@ -367,7 +385,6 @@ function liveSuggest(val){
     </a>`).join("");
   sugg.style.display="block";
 }
-
 function doSearch(){
   const q = document.getElementById('q').value;
   const hits = searchIndex(q);
@@ -375,9 +392,7 @@ function doSearch(){
   else { alert("لم يتم العثور على نتيجة مطابقة داخل الموقع."); }
   return false;
 }
-
 function goto(url){ sugg.style.display="none"; window.location.href = url; }
-
 document.addEventListener('click',(e)=>{
   if(!document.querySelector('.search-wrap').contains(e.target)){ sugg.style.display="none"; }
 });
