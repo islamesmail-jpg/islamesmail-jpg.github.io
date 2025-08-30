@@ -33,10 +33,12 @@
     --primary:#0b3a5e; --accent:#e4c24a; --soft:#f8fafc; --card:#fff;
     --wrap:1200px; --radius:14px;
 
-    /* حافظنا على ارتفاع الشريط كما هو */
-    --nav-h: 60px;      /* نفس الارتفاع القديم */
-    --logo-h: 170px;    /* حجم اللوجو الحالي */
-    --logo-shift: -32%; /* مقدار رفع اللوجو للأعلى (٪ من ارتفاعه) عدّلها لو عايز */
+    /* نفس ارتفاع الشريط القديم */
+    --nav-h: 60px;
+    /* اللوجو في النص بحجمه الحالي */
+    --logo-h: 170px;
+    /* رفع اللوجو للأعلى بدون تكبير الشريط */
+    --logo-shift: -32%;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -48,38 +50,57 @@
   .topbar{
     position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
     box-shadow:0 2px 10px rgba(0,0,0,.03);
-    overflow:visible; /* نسمح للّوجو يطلع فوق الشريط بدون تكبيره */
+    overflow:visible; /* يسمح للّوجو والزر يطلعوا فوق الشريط */
   }
   .nav{
     position:relative;
     display:grid;
-    grid-template-columns:1fr; /* هنتموضع العناصر يدويًا */
+    grid-template-columns:1fr; /* نتموضع يدويًا */
     align-items:center;
     height:var(--nav-h);
   }
 
-  /* اللوجو في نص الشريط ومرفوع لفوق بدون تغيير ارتفاع الشريط */
-  .brand{
+  /* حزمة اللوجو + زر القائمة جنب بعض في النص */
+  .brand-pack{
     position:absolute; left:50%; top:0;
     transform:translate(-50%, var(--logo-shift));
-    line-height 0;
+    display:inline-flex; align-items:center; gap:12px;
+    pointer-events:auto;
   }
-  .brand img{
-    height:var(--logo-h);
-    width:auto; display:block;
-  }
+  .brand{ line-height:0; display:block; }
+  .brand img{ height:var(--logo-h); width:auto; display:block }
 
-  /* زر الهامبرجر ثابت نفس الحجم لكن طالع فوق بجانب اللوجو */
+  /* زر القائمة (جنب اللوجو) */
+  .catalog{
+    height:44px; padding:0 12px; border:1px solid var(--line); border-radius:12px;
+    background:#fff; cursor:pointer; font-weight:800; display:inline-flex; align-items:center; gap:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,.04);
+  }
+  .catalog i{font-style:normal}
+
+  /* القائمة المنسدلة للأقسام */
+  .catalog-menu{
+    position:absolute; top:calc(100% + 8px); inset-inline-start:0;
+    background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px;
+    box-shadow:0 12px 24px rgba(0,0,0,.08);
+    min-width:220px; display:none;
+  }
+  .catalog-menu.open{ display:block }
+  .catalog-menu a{
+    display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; font-weight:700;
+  }
+  .catalog-menu a:hover{ background:var(--soft) }
+  .catalog-menu small{ color:var(--muted); font-weight:600 }
+
+  /* زر الهامبرجر (لـ قائمة الموبايل العامة) */
   .burger{
-    position:absolute;
-    top:8px;           /* رفع بسيط لفوق */
-    inset-inline-end:16px; /* يمين في RTL */
+    position:absolute; top:8px; inset-inline-end:16px;
     display:inline-flex;align-items:center;justify-content:center;
     width:44px;height:44px;border:1px solid var(--line);
-    border-radius:12px;background:#fff;cursor:pointer
+    border-radius:12px;background:#fff;cursor:pointer;font-size:20px;font-weight:800;
   }
 
-  /* قائمة الديسكتوب تظهر يمين الحافة السفلى للشريط كالمعتاد */
+  /* قائمة ديسكتوب العامة (يمين الشريط) */
   .menu-desktop{
     display:flex;gap:14px;align-items:center;
     margin-inline-start:auto;
@@ -88,7 +109,7 @@
   .menu-desktop a{padding:8px 10px;border-radius:10px;font-weight:700}
   .menu-desktop a:hover{background:var(--soft)}
 
-  /* القائمة المنسدلة للموبايل (تحت الشريط) */
+  /* قائمة الموبايل العامة (تحت الشريط) */
   .menu-mobile{
     display:none;position:absolute;right:16px;left:16px;top:calc(var(--nav-h) + 8px);
     background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;
@@ -98,8 +119,16 @@
   .menu-mobile a:hover{background:var(--soft)}
   .menu-mobile.open{display:block}
 
-  /* نخفي قائمة الديسكتوب تحت 860px */
-  @media(max-width:860px){ .menu-desktop{display:none} }
+  /* ريسبونسيف */
+  @media(max-width:860px){
+    .menu-desktop{display:none}
+    .catalog{height:40px}
+    .catalog-menu{min-width:200px}
+  }
+  @media(max-width:560px){
+    /* مصغّر: نخلي القائمة المنسدلة تاخد العرض */
+    .catalog-menu{ left:auto; right:50%; transform:translateX(50%); min-width:min(92vw,360px) }
+  }
 
   /* ===== باقي الصفحة كما هي ===== */
   .hero{position:relative;display:grid;place-items:center;padding:56px 0;border-bottom:1px solid var(--line);
@@ -169,25 +198,42 @@
   <div class="container nav">
     <button class="burger" id="burger" aria-label="قائمة">&#9776;</button>
 
-    <a class="brand" href="index.html" aria-label="الرئيسية">
-      <img src="https://j.top4top.io/p_3529mqde90.png" alt="Islam Real Estate Logo">
-    </a>
+    <!-- اللوجو + زر القائمة جنب بعض -->
+    <div class="brand-pack">
+      <a class="brand" href="index.html" aria-label="الرئيسية">
+        <img src="https://j.top4top.io/p_3529mqde90.png" alt="Islam Real Estate Logo">
+      </a>
+
+      <!-- زر القائمة جنب اللوجو -->
+      <button class="catalog" id="catalogBtn" aria-haspopup="true" aria-expanded="false" aria-controls="catalogMenu">
+        <i>☰</i> <span>القائمة</span>
+      </button>
+
+      <!-- القائمة المنسدلة للأقسام المطلوبة -->
+      <nav class="catalog-menu" id="catalogMenu" aria-label="أقسام الموقع">
+        <a href="sokhna.html">العين السخنة <small>— sokhna.html</small></a>
+        <a href="north.html">الساحل الشمالي <small>— north.html</small></a>
+        <a href="cairo.html">القاهرة الجديدة <small>— cairo.html</small></a>
+        <a href="zafarana.html">طريق الزعفرانة <small>— zafarana.html</small></a>
+        <a href="suez.html">طريق السويس <small>— suez.html</small></a>
+      </nav>
+    </div>
 
     <!-- قائمة ديسكتوب (تظهر على الشاشات الكبيرة) -->
     <nav class="menu-desktop" aria-label="روابط الموقع">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
-      <a href="north-coast.html">الساحل الشمالي</a>
-      <a href="new-cairo.html">القاهرة الجديدة</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="cairo.html">القاهرة الجديدة</a>
       <a href="#contact">اتصل بنا</a>
     </nav>
 
-    <!-- قائمة موبايل -->
+    <!-- قائمة موبايل العامة -->
     <div class="menu-mobile" id="menu">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
-      <a href="north-coast.html">الساحل الشمالي</a>
-      <a href="new-cairo.html">القاهرة الجديدة</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="cairo.html">القاهرة الجديدة</a>
       <a href="#contact">اتصل بنا</a>
     </div>
   </div>
@@ -231,11 +277,11 @@
         <img src="https://l.top4top.io/p_3529ruzpm0.jpeg" alt="العين السخنة">
         <div><b>العين السخنة</b><div class="hint">مشاريع الزعفرانة / طريق السويس</div></div>
       </a>
-      <a class="area" href="north-coast.html">
+      <a class="area" href="north.html">
         <img src="https://a.top4top.io/p_35291f2zr1.jpeg" alt="الساحل الشمالي">
         <div><b>الساحل الشمالي</b><div class="hint">من رأس الحكمة إلى سيدي عبد الرحمن</div></div>
       </a>
-      <a class="area" href="new-cairo.html">
+      <a class="area" href="cairo.html">
         <img src="https://b.top4top.io/p_352921mkm2.jpeg" alt="القاهرة الجديدة">
         <div><b>القاهرة الجديدة</b><div class="hint">التجمع – العاصمة – مدينة المستقبل</div></div>
       </a>
@@ -365,7 +411,7 @@
     </div>
     <div>
       <b>روابط</b>
-      <div class="hint"><a href="sokhna.html">العين السخنة</a> • <a href="north-coast.html">الساحل الشمالي</a> • <a href="new-cairo.html">القاهرة الجديدة</a></div>
+      <div class="hint"><a href="sokhna.html">العين السخنة</a> • <a href="north.html">الساحل الشمالي</a> • <a href="cairo.html">القاهرة الجديدة</a></div>
     </div>
     <div>
       <b>تابعنا</b>
@@ -393,67 +439,26 @@ document.addEventListener('click',(e)=>{
   if(!topbar.contains(e.target)) menu.classList.remove('open');
 });
 
+/* ===== زر القائمة جنب اللوجو ===== */
+const catalogBtn = document.getElementById('catalogBtn');
+const catalogMenu = document.getElementById('catalogMenu');
+
+function toggleCatalog(open){
+  const willOpen = (open!==undefined)? open : !catalogMenu.classList.contains('open');
+  catalogMenu.classList.toggle('open', willOpen);
+  catalogBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+}
+
+catalogBtn?.addEventListener('click', (e)=>{ e.stopPropagation(); toggleCatalog(); });
+document.addEventListener('click',(e)=>{
+  const pack=document.querySelector('.brand-pack');
+  if(pack && !pack.contains(e.target)) toggleCatalog(false);
+});
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape') toggleCatalog(false);
+});
+
 /* ===== INTERNAL SEARCH INDEX ===== */
 const SITE_INDEX = [
   {title:"العين السخنة",  keywords:"sokhna الزعفرانة السويس بحر مصاطب", url:"sokhna.html"},
-  {title:"الساحل الشمالي", keywords:"north coast رأس الحكمة سيدي عبد الرحمن", url:"north-coast.html"},
-  {title:"القاهرة الجديدة", keywords:"new cairo التجمع العاصمة مدينة المستقبل", url:"new-cairo.html"},
-  {title:"طريق الزعفرانة - المشاريع الجديدة على المخطط", keywords:"zafarana مشاريع جديدة مخطط", url:"zafarana.html"},
-  {title:"بورتو السخنة", keywords:"porto sokhna شاليه فندق اهرامات", url:"porto-sokhna.html"},
-  {title:"سخنة هيلز", keywords:"sokhna hills الزعفرانة", url:"sokhna-hills.html"},
-  {title:"سخنة هيلز (صفحة أخرى)", keywords:"sokhna hills", url:"sokhnahills.html"},
-  {title:"لوجانو الجلالة", keywords:"lugano الجلالة لوجانو", url:"Lugano.html"},
-  {title:"لولي بيتش", keywords:"loulou loly beach راس الحكمة الساحل", url:"lolybeach.html"},
-  {title:"جيريان — الشيخ زايد", keywords:"gerian jeryan zayed زايد", url:"#contact"}
-];
-
-function normalize(t){return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").trim()}
-function searchIndex(q){
-  q = normalize(q); if(!q) return [];
-  return SITE_INDEX.map(item=>{
-      const hay = normalize(item.title+" "+item.keywords);
-      let score = 0;
-      if(hay.startsWith(q)) score += 3;
-      if(hay.includes(q)) score += 1;
-      q.split(/\s+/).forEach(w=>{ if(hay.includes(w)) score += 1; });
-      return {item,score};
-    })
-    .filter(r=>r.score>0)
-    .sort((a,b)=>b.score-a.score)
-    .slice(0,8)
-    .map(r=>r.item);
-}
-const sugg = document.getElementById('sugg');
-function liveSuggest(val){
-  const hits = searchIndex(val);
-  if(hits.length===0){ sugg.style.display="none"; sugg.innerHTML=""; return; }
-  sugg.innerHTML = hits.map(h=>`
-    <a href="${h.url}" onclick="goto('${h.url}');return false;">
-      <div><b>${h.title}</b><div><small>${h.url}</small></div></div>
-      <span class="kbd">↵</span>
-    </a>`).join("");
-  sugg.style.display="block";
-}
-function doSearch(){
-  const q = document.getElementById('q').value;
-  const hits = searchIndex(q);
-  if(hits.length){ goto(hits[0].url); }
-  else { alert("لم يتم العثور على نتيجة مطابقة داخل الموقع."); }
-  return false;
-}
-function goto(url){ sugg.style.display="none"; window.location.href = url; }
-
-/* إغلاق اقتراحات البحث عند النقر خارجها */
-document.addEventListener('click',(e)=>{
-  const wrap=document.querySelector('.search-wrap');
-  if(wrap && !wrap.contains(e.target)){
-    const s=document.getElementById('sugg'); if(s) s.style.display="none";
-  }
-});
-
-/* ===== CONTACT LEAD ===== */
-function sendLead(){
-  const name=document.getElementById('name').value.trim();
-  const loc=document.getElementById('loc').value;
-  const phone=document.getElementById('phone').value.trim();
-  const msg=
+  {title:"الساحل الشمالي", keywords:"north coast رأس 
