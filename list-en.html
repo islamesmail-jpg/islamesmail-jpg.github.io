@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>List Your Unit | Islam Real Estate</title>
+<link rel="icon" href="https://l.top4top.io/p_3529ppog90.png">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--text:#0f172a;--muted:#64748b;--line:#e5e7eb;--primary:#0b3a5e;--wrap:900px;--nav-h:60px}
+*{box-sizing:border-box}body{margin:0;font-family:"Tajawal",Arial,sans-serif;background:#fff;color:var(--text);line-height:1.8}
+a{text-decoration:none;color:inherit}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);height:var(--nav-h)}
+.container{max-width:var(--wrap);margin:auto;padding:0 16px}
+.nav{position:relative;height:var(--nav-h)}
+.brand{position:absolute;right:12px;top:10px}
+.brand img{height:40px}
+.back{position:absolute;left:12px;top:14px;border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-weight:800;background:#fff}
+.main{padding:24px 0}
+h1{margin:0 0 4px;font-size:1.6rem}
+.lead{color:var(--muted);margin:0 0 16px}
+.form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+.field{display:flex;flex-direction:column;margin-bottom:12px}
+.field label{font-weight:700;margin-bottom:6px}
+.field input,.field textarea{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.row{grid-template-columns:1fr}}
+.help{color:var(--muted);font-size:.9rem}
+.submit{background:var(--primary);color:#fff;border:0;border-radius:14px;padding:12px 20px;font-weight:800;cursor:pointer}
+.preview img{max-width:130px;margin:6px;border-radius:8px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container nav">
+    <a class="brand" href="en.html"><img src="https://j.top4top.io/p_3529mqde90.png" alt="Logo"></a>
+    <a class="back" href="en.html">← Home</a>
+  </div>
+</div>
+
+<div class="container main">
+  <h1>List Your Unit</h1>
+  <p class="lead">Fill the form and we’ll send it to WhatsApp. If supported, photos will be shared directly.</p>
+
+  <div class="form">
+    <form id="listForm">
+      <div class="row">
+        <div class="field"><label for="proj">Project Name</label><input id="proj" required placeholder="e.g., Lugano El-Galala"></div>
+        <div class="field"><label for="owner">Owner Name</label><input id="owner" required placeholder="Your full name"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="unit">Unit Number</label><input id="unit" placeholder="If available"></div>
+        <div class="field"><label for="phone">Contact Number</label><input id="phone" required inputmode="tel" placeholder="+20xxxxxxxxxx"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="price">Asking Price</label><input id="price" placeholder="3,500,000"></div>
+        <div class="field"><label for="floor">Floor</label><input id="floor" placeholder="Ground / Typical / Upper"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="beds">Bedrooms</label><input id="beds" type="number" min="0" placeholder="2"></div>
+        <div class="field"><label for="note">Notes</label><input id="note" placeholder="Area, finish, view..."></div>
+      </div>
+      <div class="field">
+        <label for="photos">Unit Photos (multiple)</label>
+        <input id="photos" type="file" accept="image/*" multiple>
+        <div class="help">Some devices require attaching the photos manually after WhatsApp opens.</div>
+      </div>
+      <button class="submit" type="submit">Send on WhatsApp</button>
+      <div class="preview" id="preview"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+const form=document.getElementById('listForm');
+form.addEventListener('submit',async (e)=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const d={proj:v('proj'),owner:v('owner'),unit:v('unit'),phone:v('phone'),price:v('price'),floor:v('floor'),beds:v('beds'),note:v('note')};
+  if(!d.proj||!d.owner||!d.phone){alert('Please fill Project, Owner, and Contact Number.');return;}
+  const msg=`List your unit:
+Project: ${d.proj}
+Owner: ${d.owner}
+Unit: ${d.unit||'-'}
+Phone: ${d.phone}
+Asking price: ${d.price||'-'}
+Floor: ${d.floor||'-'}
+Bedrooms: ${d.beds||'-'}
+Notes: ${d.note||'-'}`;
+
+  const files=[...document.getElementById('photos').files];
+  try{
+    if(files.length && navigator.canShare && navigator.canShare({files})){
+      await navigator.share({text:msg, files}); return;
+    }
+  }catch(e){}
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
+
+  const preview=document.getElementById('preview'); preview.innerHTML='';
+  files.forEach(f=>{const url=URL.createObjectURL(f); const img=new Image(); img.src=url; img.onload=()=>URL.revokeObjectURL(url); img.style.maxWidth='130px'; img.style.border='1px solid #e5e7eb'; img.style.borderRadius='8px'; img.style.margin='6px'; preview.appendChild(img);});
+});
+</script>
+</body>
+</html>
