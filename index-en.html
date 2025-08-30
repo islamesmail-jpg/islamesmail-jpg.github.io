@@ -413,10 +413,16 @@ function searchIndex(q){
 const sugg=document.getElementById('sugg');
 function liveSuggest(v){
   const hits=searchIndex(v);
-  if(!hits.length){sugg.style.display="none";sugg.innerHTML="";return;}
-  sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");
-  sugg.style.display="block";
-}
+  sugg.innerHTML = hits.map(h => `
+  <a href="${h.url}" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:#0f172a">
+    <div>
+      <b>${h.title || "نتيجة"}</b>
+      <div><small style="color:#64748b">${h.url}</small></div>
+    </div>
+    <span class="kbd">↵</span>
+  </a>
+`).join("");
+  
 function doSearch(){
   const q=document.getElementById('q').value;
   const hits=searchIndex(q);
