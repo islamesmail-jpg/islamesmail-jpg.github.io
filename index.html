@@ -20,15 +20,15 @@
 
   /* NAV */
   .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-  .brand img{height:45px;width:auto;display:block}  /* حجم اللوجو زي Nawy تقريبًا */
-  .menu{display:flex;gap:14px;align-items:center}
+  .nav{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px 0;position:relative}
+  .brand img{height:90px;width:auto;display:block}  /* اللوجو ×2 */
+  .menu{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
   .menu a{padding:8px 10px;border-radius:10px;font-weight:700}
   .menu a:hover{background:var(--soft)}
-  .burger{display:none;padding:8px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .burger{display:none;padding:8px;border:1px solid var(--line);border-radius:12px;background:#fff;position:absolute;left:16px;top:50%;transform:translateY(-50%)} /* زر القائمة يسار */
   @media(max-width:860px){
     .menu{display:none}
-    .menu.open{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;position:absolute;right:16px;left:16px;top:64px}
+    .menu.open{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;position:absolute;right:16px;left:16px;top:calc(100% + 8px)}
     .burger{display:inline-flex}
   }
 
@@ -107,10 +107,10 @@
 <!-- ===== NAV ===== -->
 <div class="topbar">
   <div class="container nav">
+    <button class="burger" id="burger" aria-label="قائمة">&#9776;</button>
     <a class="brand" href="index.html" aria-label="الرئيسية">
       <img src="https://j.top4top.io/p_3529mqde90.png" alt="Logo">
     </a>
-    <button class="burger" id="burger" aria-label="قائمة">&#9776;</button>
     <div class="menu" id="menu">
       <a href="index.html">الرئيسية</a>
       <a href="sokhna.html">العين السخنة</a>
@@ -162,7 +162,7 @@
       </a>
       <a class="area" href="north-coast.html">
         <img src="https://a.top4top.io/p_35291f2zr1.jpeg" alt="الساحل الشمالي">
-        <div><b>الساحل الشمالي</b><div class="hint">من رأس الحكمة إلى سيدي عبد الرحمن</div></div>
+        <div><b>s</b><div class="hint">من رأس الحكمة إلى سيدي عبد الرحمن</div></div>
       </a>
       <a class="area" href="new-cairo.html">
         <img src="https://b.top4top.io/p_352921mkm2.jpeg" alt="القاهرة الجديدة">
@@ -396,4 +396,4 @@ function sendLead(){
 }
 </script>
 </body>
-  </html>
+</html>
