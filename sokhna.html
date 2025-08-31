@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>دليل مشاريع العين السخنة</title>
+<title>مشاريع العين السخنة | دليل شامل</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
+
 <style>
 :root{
   --ink:#0b0d1a; --surface:#111326; --line:#1a2438; --gold:#e4c24a; --muted:#cbd5e1; --wrap:1120px;
@@ -14,6 +16,7 @@
 html,body{height:100%}
 body{margin:0;background:var(--ink);color:#fff;font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
 /* Topbar */
@@ -35,7 +38,7 @@ a{color:inherit;text-decoration:none}
 .panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
 .panel a:hover{background:#121638}
 
-/* Breadcrumbs */
+/* Breadcrumb */
 .breadcrumb{background:rgba(15,22,39,.6);border-bottom:1px solid var(--line)}
 .breadcrumb .inner{display:flex;align-items:center;gap:8px;padding:6px 0;color:#e7eefb;font-weight:600;font-size:14px}
 .sep{opacity:.5}
@@ -43,39 +46,81 @@ a{color:inherit;text-decoration:none}
 /* Search */
 .searchwrap{padding:12px 0}
 .searchbar{position:relative}
-#siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0b1323;color:#fff;font-weight:700}
-.suggestions{position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40}
+#siteSearch{
+  width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
+  background:#0b1323;color:#fff;font-weight:700
+}
+.suggestions{
+  position:absolute;inset-inline:0;top:105%;background:#0f1627;border:1px solid var(--line);
+  border-radius:12px;display:none;max-height:280px;overflow:auto;z-index:40
+}
 .suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #1a2438;color:#e7eefb}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#16233b}
 
-/* Hero */
-.hero{position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* Hero (gradient – no image/video) */
+.hero{
+  position:relative;min-height:48vh;overflow:hidden;border-radius:18px;border:1px solid var(--line);margin-top:12px;
+  background:
+    radial-gradient(120% 160% at 80% 10%, #7dd3fc 0%, #38bdf8 30%, #0ea5e9 55%, #0b1323 90%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.15) 40%, rgba(0,0,0,0));
+}
 .hero .overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:0 16px 22px}
 .hero h1{margin:0;font-weight:800;font-size:clamp(20px,5vw,36px);line-height:1.25;letter-spacing:.2px}
 
-/* Routes tiles */
+/* Quick features (GIF tiles) */
+.features{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.features{grid-template-columns:1fr}}
+.feature{
+  position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0f1627;
+  min-height:160px;display:block
+}
+.feature img{width:100%;height:180px;object-fit:cover;filter:saturate(1.05)}
+.feature .cap{
+  position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--gold);
+  background:rgba(0,0,0,.55);text-align:center;font-weight:800;border-radius:12px;padding:8px
+}
+
+/* Routes tiles (Zafarana / Suez) */
 .routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
 @media(max-width:640px){.routes{grid-template-columns:1fr}}
 .route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .route img{width:100%;height:200px;object-fit:cover}
 .route .cap{position:absolute;left:14px;right:14px;bottom:14px;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.55);text-align:center;font-weight:800;border-radius:12px;padding:8px}
 
-/* Card */
+/* Card (content) */
 .cardx{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
 .cardx h2{margin:0 0 10px}
-
-/* List style */
 .cardx ul{margin:8px 0 14px;padding-inline-start:18px;color:#e9eef8}
 .cardx li{margin:4px 0}
 
-/* Footer */
-footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:16px;margin-top:24px;font-size:14px}
+/* Footer (expanded) */
+footer{border-top:1px solid var(--line);margin-top:24px}
+.footer-wrap{display:grid;gap:20px;grid-template-columns:2fr 1fr 1fr 1.3fr;padding:22px 0}
+@media(max-width:900px){.footer-wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.footer-wrap{grid-template-columns:1fr}}
+.fbox h4{margin:0 0 10px;font-size:16px;font-weight:800;color:#e7eef8}
+.fbox p,.fbox a{color:#9fb0c8;font-size:14px}
+.fbox a{display:block;padding:4px 0}
+.fbox a:hover{color:#fff}
+.foot-bottom{border-top:1px solid var(--line);padding:12px 0;color:#9fb0c8;font-size:14px;text-align:center}
+
+/* WhatsApp floating button */
+.whatsapp-fab{
+  position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.25)
+}
+.whatsapp-fab img{width:28px;height:28px}
+.whatsapp-fab:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
 
+<!-- Topbar -->
 <header class="topbar">
   <div class="container navbar">
     <a class="brandbox" href="index.html" aria-label="الصفحة الرئيسية">
@@ -84,13 +129,16 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
     <div></div>
     <div class="actions">
       <button class="btnx" id="langToggle">EN</button>
+
       <div class="contact" id="m-contact">
         <button class="btnx" onclick="toggleDrop('m-contact')">اتصل بنا ▾</button>
         <div class="panel">
           <a href="tel:+201050072527">📞 تواصل مباشر</a>
-          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ البريد الإلكتروني</a>
         </div>
       </div>
+
       <div class="menu" id="m-proj">
         <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
         <div class="panel">
@@ -103,9 +151,10 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
   </div>
 </header>
 
+<!-- Breadcrumb -->
 <div class="breadcrumb">
   <div class="container inner">
-    <a href="index.html">الرئيسية</a><span class="sep">»</span>
+    <a href="index.html">الرئيسية</a><span class="sep">»</span><span>العين السخنة</span>
   </div>
 </div>
 
@@ -113,34 +162,56 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
   <!-- Search -->
   <div class="searchwrap">
     <div class="searchbar">
-      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …">
-      <div class="suggestions" id="suggestBox"></div>
+      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …" aria-label="بحث بالموقع">
+      <div class="suggestions" id="suggestBox" role="listbox" aria-label="اقتراحات البحث"></div>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <video autoplay loop muted playsinline preload="auto">
-      <source src="https://l.top4top.io/m_3525tknpt0.mp4" type="video/mp4">
-    </video>
+  <!-- HERO (gradient only) -->
+  <section class="hero" aria-label="دليل مشاريع العين السخنة">
     <div class="overlay"><h1>دليل مشاريع العين السخنة</h1></div>
-  </div>
+  </section>
 
-  <!-- ROUTES -->
-  <div class="routes">
+  <!-- QUICK FEATURES (GIF tiles) -->
+  <section class="features" aria-label="روابط سريعة">
+    <a class="feature" href="offers.html" aria-label="عروض مميزة">
+      <!--https://l.top4top.io/p_3530x05wq2.gif -->
+      <img loading="lazy" src="YOUR_GIF_URL_DEALS" alt="عروض مميزة">
+      <div class="cap">عروض مميزة</div>
+    </a>
+    <a class="feature" href="list.html" aria-label="اعرض وحدتك">
+      <!--https://a.top4top.io/p_3530h2i5u3.gif -->
+      <img loading="lazy" src="YOUR_GIF_URL_LIST" alt="اعرض وحدتك">
+      <div class="cap">اعرض وحدتك</div>
+    </a>
+    <a class="feature" href="resale.html" aria-label="إعادة البيع">
+      <!--https://k.top4top.io/p_353056uve1.gif -->
+      <img loading="lazy" src="YOUR_GIF_URL_RESALE" alt="إعادة البيع">
+      <div class="cap">إعادة البيع</div>
+    </a>
+    <a class="feature" href="offplan.html" aria-label="مشاريع جديدة على المخطط">
+      <!--https://j.top4top.io/p_35303sd560.gif -->
+      <img loading="lazy" src="YOUR_GIF_URL_OFFPLAN" alt="مشاريع جديدة على المخطط">
+      <div class="cap">مشاريع جديدة على المخطط</div>
+    </a>
+  </section>
+
+  <!-- ROUTES (keep above details) -->
+  <section class="routes" aria-label="طرق العين السخنة">
     <a class="route" href="zafarana.html">
-      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة">
+      <img loading="lazy" src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة">
       <div class="cap">طريق الزعفرانة</div>
     </a>
     <a class="route" href="suez.html">
-      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
+      <img loading="lazy" src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
       <div class="cap">طريق السويس</div>
     </a>
-  </div>
+  </section>
 
   <!-- FULL SPECS -->
-  <div class="cardx">
+  <section class="cardx" aria-label="مواصفات العين السخنة">
     <h2>مواصفات العين السخنة (دليل كامل)</h2>
+
     <h3>(1) الموقع والمسافات</h3>
     <ul>
       <li>تقع على ساحل خليج السويس (البحر الأحمر)، جنوب مدينة السويس.</li>
@@ -201,10 +272,55 @@ footer{text-align:center;color:#9fb0c8;border-top:1px solid var(--line);padding:
       <li>تنوع واسع في طرق السداد وأنظمة الصيانة والخدمات.</li>
       <li>قيمة إيجارية جيدة في المواسم والأعياد ونهاية الأسبوع.</li>
     </ul>
-  </div>
+  </section>
 </main>
 
-<footer>© <span id="year"></span> Islam Real Estate</footer>
+<!-- Footer (expanded) -->
+<footer>
+  <div class="container footer-wrap">
+    <div class="fbox">
+      <h4>Islam Real Estate</h4>
+      <p>دليل ومبيعات مشاريع العين السخنة والساحل والقاهرة الجديدة.</p>
+      <p>نساعدك تختار الأفضل بين المطور والسوق الثانوي.</p>
+    </div>
+
+    <div class="fbox">
+      <h4>روابط سريعة</h4>
+      <a href="index.html">الرئيسية</a>
+      <a href="sokhna.html">العين السخنة</a>
+      <a href="zafarana.html">طريق الزعفرانة</a>
+      <a href="suez.html">طريق السويس</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="Cairo.html">القاهرة الجديدة</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
+    </div>
+
+    <div class="fbox">
+      <h4>مشاريع مميزة</h4>
+      <a href="lugano.html">Lugano الجلالة</a>
+      <a href="einhills.html">Ein Hills</a>
+      <a href="murano.html">Murano</a>
+      <a href="lolybeach.html">Loly Beach</a>
+      <a href="dolphin.html">Dolphin Beach</a>
+    </div>
+
+    <div class="fbox">
+      <h4>تواصل</h4>
+      <a href="tel:+201050072527">📞 01050072527</a>
+      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب مباشر</a>
+      <a href="mailto:islammesmail@gmail.com">✉️ islammesmail@gmail.com</a>
+      <p>العمل يوميًا — استشارات مجانية.</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    © <span id="year"></span> Islam Real Estate — جميع الحقوق محفوظة
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="whatsapp-fab" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" />
+</a>
 
 <script>
 /* Year */
@@ -247,7 +363,11 @@ const PAGES = [
   function render(list){
     box.innerHTML='';
     if(!list.length){ box.style.display='none'; return; }
-    list.forEach(it=>{ const a=document.createElement('a'); a.href=it.url; a.textContent=it.name; box.appendChild(a); });
+    list.forEach(it=>{
+      const a=document.createElement('a');
+      a.href=it.url; a.textContent=it.name; a.setAttribute('role','option');
+      box.appendChild(a);
+    });
     box.style.display='block';
   }
   input.addEventListener('input',()=>{
@@ -256,8 +376,10 @@ const PAGES = [
     const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
     render(out);
   });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.searchbar')) box.style.display='none';
+  });
 })();
 </script>
 </body>
-</html>
+  </html>
