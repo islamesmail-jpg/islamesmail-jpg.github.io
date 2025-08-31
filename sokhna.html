@@ -1,137 +1,116 @@
-<!-- sokhna.html (AR) -->
+<!-- sokhna.html (AR) — تصميم نظيف ومتناغم -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مشاريع العين السخنة | دليل شامل</title>
-
+<title>العين السخنة | دليل المشاريع والعروض</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://c.top4top.io/p_3523kk98b0.png">
-
 <style>
 :root{
-  --bg:#ffffff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --gold:#e4c24a; --wrap:1120px; --accent:#1d4ed8;
+  --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px; --brand:#0ea5e9;
+  --radius:14px; --pad:14px;
+  /* تحكم سريع */
+  --gif-h:120px;    /* ديسكتوب */
+  --gif-h-m:86px;   /* موبايل */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.75}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Topbar (light) */
-.topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.navbar{height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
-.brandbox{justify-self:start;width:160px;height:58px;display:inline-flex;align-items:center}
-.brandbox img{max-width:100%;max-height:100%;object-fit:contain}
-.actions{justify-self:end;display:flex;gap:18px;align-items:center}
-.btnx{border:none;background:transparent;color:var(--ink);font-weight:700;font-size:15px;cursor:pointer;padding:6px 4px}
-.btnx:hover{color:var(--accent)}
-
-/* dropdowns (light) */
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
+.navbar{height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.brandbox{justify-self:start;display:flex;align-items:center}
+.brandbox img{height:42px;width:auto}
+.actions{justify-self:end;display:flex;gap:14px;align-items:center}
+.btnx{border:none;background:transparent;color:var(--ink);font-weight:700;font-size:14px;cursor:pointer;padding:6px 8px;border-radius:10px}
+.btnx:hover{background:#f1f5f9}
 .menu,.contact{position:relative}
-.panel{
-  position:absolute;top:calc(100% + 8px);right:0;background:#fff;color:var(--ink);
-  border:1px solid var(--line);border-radius:12px;min-width:220px;padding:6px;
-  box-shadow:0 10px 28px rgba(0,0,0,.10);display:none;z-index:30
-}
+.panel{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:220px;padding:6px;box-shadow:0 10px 24px rgba(15,23,42,.06);display:none}
 .menu.open .panel,.contact.open .panel{display:block}
 .panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
-.panel a:hover{background:#f3f4f6}
+.panel a:hover{background:#f8fafc}
 
 /* Breadcrumb */
-.breadcrumb{background:#f9fafb;border-bottom:1px solid var(--line)}
-.breadcrumb .inner{display:flex;align-items:center;gap:8px;padding:6px 0;color:#374151;font-weight:700;font-size:14px}
-.sep{opacity:.6}
+.breadcrumb{background:#fafafa;border-bottom:1px solid var(--line)}
+.breadcrumb .inner{display:flex;gap:8px;align-items:center;padding:8px 0;font-size:13px;color:#334155;font-weight:700}
+
+/* Title */
+.page-title{margin:16px 0 6px;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:#0b1323}
+.page-title b{color:#0f766e}
 
 /* Search */
-.searchwrap{padding:14px 0}
+.searchwrap{padding:8px 0 12px}
 .searchbar{position:relative}
-#siteSearch{
-  width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
-  background:#fff;color:var(--ink);font-weight:700
-}
-.suggestions{
-  position:absolute;inset-inline:0;top:105%;background:#fff;border:1px solid var(--line);
-  border-radius:12px;display:none;max-height:300px;overflow:auto;z-index:40
-}
-.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #f1f5f9;color:#111827}
+#siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:#0b1323;font-weight:700}
+.suggestions{position:absolute;inset-inline:0;top:105%;background:#fff;border:1px solid var(--line);border-radius:12px;display:none;max-height:300px;overflow:auto;z-index:50}
+.suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #eef2f7}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#f8fafc}
 
-/* Quick features (GIF tiles – like homepage) */
-.features{margin-top:8px;display:grid;gap:8px;grid-template-columns:repeat(4,1fr)}
+/* Feature cards (GIF top, title under) */
+.features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.features{grid-template-columns:1fr}}
-.feature{
-  position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;
-  display:block;transition:transform .15s ease, box-shadow .15s ease
-}
-.feature:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
-.feature img{width:100%;height:120px;object-fit:cover}
-.feature .cap{
-  position:absolute;left:12px;right:12px;bottom:12px;border:1px solid var(--gold);color:#7a5b12;
-  background:rgba(255,255,255,.9);text-align:center;font-weight:800;border-radius:12px;padding:8px
-}
+.cardfeat{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.03);transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column}
+.cardfeat:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}
+.cardfeat .media{padding:var(--pad);padding-bottom:10px}
+.cardfeat img{width:100%;height:var(--gif-h);object-fit:cover;border-radius:10px}
+@media(max-width:520px){.cardfeat img{height:var(--gif-h-m)}}
+.cardfeat .capwrap{padding:0 var(--pad) var(--pad)}
+.cardfeat .cap{display:block;text-align:center;border:1px solid var(--gold);color:#7a5b12;font-weight:800;border-radius:10px;padding:10px}
 
-/* Routes tiles */
-.routes{margin-top:18px;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+/* Routes */
+.routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
 @media(max-width:640px){.routes{grid-template-columns:1fr}}
-.route{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
-.route img{width:100%;height:200px;object-fit:cover}
-.route .cap{
-  position:absolute;left:12px;right:12px;bottom:12px;border:1px solid var(--gold);color:#7a5b12;
-  background:rgba(255,255,255,.9);text-align:center;font-weight:800;border-radius:12px;padding:8px
-}
+.route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative}
+.route img{width:100%;height:180px;object-fit:cover}
+.route .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--gold);border-radius:10px;text-align:center;font-weight:800;color:#7a5b12;padding:8px}
 
-/* Card (content) */
-.cardx{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+/* Content card */
+.cardx{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
 .cardx h2{margin:0 0 10px}
-.cardx ul{margin:8px 0 14px;padding-inline-start:18px;color:#111827}
-.cardx li{margin:4px 0}
+.cardx ul{margin:8px 0 14px;padding-inline-start:18px}
 
-/* Footer (expanded light) */
-footer{border-top:1px solid var(--line);margin-top:24px;background:#fff}
-.footer-wrap{display:grid;gap:20px;grid-template-columns:2fr 1fr 1fr 1.3fr;padding:22px 0}
-@media(max-width:900px){.footer-wrap{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.footer-wrap{grid-template-columns:1fr}}
-.fbox h4{margin:0 0 10px;font-size:16px;font-weight:800;color:#111827}
-.fbox p,.fbox a{color:#374151;font-size:14px}
+/* Footer (logo + desc + links + projects + contact) */
+footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
+.footer-wrap{display:grid;gap:18px;grid-template-columns:1.2fr 2fr 1.2fr 1.2fr 1.4fr;padding:20px 0}
+@media(max-width:960px){.footer-wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.footer-wrap{grid-template-columns:1fr}}
+.fbrand img{height:48px;width:auto}
+.fbox h4{margin:0 0 10px;font-size:15px;font-weight:800;color:#0b1323}
+.fbox p,.fbox a{color:#334155;font-size:14px}
 .fbox a{display:block;padding:4px 0}
 .fbox a:hover{color:#000}
-.foot-bottom{border-top:1px solid var(--line);padding:12px 0;color:#6b7280;font-size:14px;text-align:center;background:#fafafa}
+.foot-bottom{border-top:1px solid var(--line);padding:12px 0;color:#64748b;font-size:13px;text-align:center}
 
-/* WhatsApp floating button */
-.whatsapp-fab{
-  position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;
-  width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.15)
-}
+/* WhatsApp FAB */
+.whatsapp-fab{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.12)}
 .whatsapp-fab img{width:28px;height:28px}
-.whatsapp-fab:hover{transform:translateY(-2px)}
 </style>
 </head>
 <body>
 
-<!-- Topbar -->
 <header class="topbar">
   <div class="container navbar">
     <a class="brandbox" href="index.html" aria-label="الصفحة الرئيسية">
-      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate">
+      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail">
     </a>
     <div></div>
     <div class="actions">
       <button class="btnx" id="langToggle">EN</button>
-
       <div class="contact" id="m-contact">
         <button class="btnx" onclick="toggleDrop('m-contact')">اتصل بنا ▾</button>
         <div class="panel">
-          <a href="tel:+201050072527">📞 تواصل مباشر</a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+          <a href="tel:+201050072527">📞 اتصال مباشر</a>
+          <a href="https://wa.me/201050072527" target="_blank">💬 واتساب</a>
           <a href="mailto:islammesmail@gmail.com">✉️ البريد الإلكتروني</a>
         </div>
       </div>
-
       <div class="menu" id="m-proj">
         <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
         <div class="panel">
@@ -144,127 +123,104 @@ footer{border-top:1px solid var(--line);margin-top:24px;background:#fff}
   </div>
 </header>
 
-<!-- Breadcrumb -->
 <div class="breadcrumb">
-  <div class="container inner">
-    <a href="index.html">الرئيسية</a><span class="sep">»</span><span>العين السخنة</span>
-  </div>
+  <div class="container inner"><a href="index.html">الرئيسية</a> <span>›</span> <span>العين السخنة</span></div>
 </div>
 
 <main class="container">
+  <h1 class="page-title">دليل مشاريع العين السخنة و<b>أفضل العروض</b> وأهم المطورين — ويوجد وحدات إعادة بيع جاهزة للاستلام بأسعار تنافسية</h1>
+
   <!-- Search -->
   <div class="searchwrap">
     <div class="searchbar">
       <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع …" aria-label="بحث بالموقع">
-      <div class="suggestions" id="suggestBox" role="listbox" aria-label="اقتراحات البحث"></div>
+      <div class="suggestions" id="suggestBox"></div>
     </div>
   </div>
 
-  <!-- QUICK FEATURES (GIF tiles like homepage) -->
+  <!-- Feature cards -->
   <section class="features" aria-label="روابط سريعة">
-    <a class="feature" href="offers.html" aria-label="عروض مميزة">
-      <img loading="lazy" src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة">
-      <div class="cap">عروض مميزة</div>
+    <a class="cardfeat" href="offers.html">
+      <div class="media"><img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة" loading="lazy" width="800" height="450"></div>
+      <div class="capwrap"><span class="cap">عروض مميزة</span></div>
     </a>
-    <a class="feature" href="list.html" aria-label="اعرض وحدتك">
-      <img loading="lazy" src="https://a.top4top.io/p_3530h2i5u3.gif" alt="اعرض وحدتك">
-      <div class="cap">اعرض وحدتك</div>
+    <a class="cardfeat" href="list.html">
+      <div class="media"><img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="اعرض وحدتك" loading="lazy" width="800" height="450"></div>
+      <div class="capwrap"><span class="cap">اعرض وحدتك</span></div>
     </a>
-    <a class="feature" href="resale.html" aria-label="إعادة البيع">
-      <img loading="lazy" src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة البيع">
-      <div class="cap">إعادة البيع</div>
+    <a class="cardfeat" href="resale.html">
+      <div class="media"><img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة البيع" loading="lazy" width="800" height="450"></div>
+      <div class="capwrap"><span class="cap">إعادة البيع</span></div>
     </a>
-    <a class="feature" href="offplan.html" aria-label="مشاريع جديدة على المخطط">
-      <img loading="lazy" src="https://j.top4top.io/p_35303sd560.gif" alt="مشاريع جديدة على المخطط">
-      <div class="cap">مشاريع جديدة على المخطط</div>
+    <a class="cardfeat" href="offplan.html">
+      <div class="media"><img src="https://j.top4top.io/p_35303sd560.gif" alt="مشاريع جديدة على المخطط" loading="lazy" width="800" height="450"></div>
+      <div class="capwrap"><span class="cap">مشاريع جديدة على المخطط</span></div>
     </a>
   </section>
 
-  <!-- ROUTES -->
+  <!-- Routes -->
   <section class="routes" aria-label="طرق العين السخنة">
     <a class="route" href="zafarana.html">
-      <img loading="lazy" src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة">
+      <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة" loading="lazy">
       <div class="cap">طريق الزعفرانة</div>
     </a>
     <a class="route" href="suez.html">
-      <img loading="lazy" src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس">
+      <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس" loading="lazy">
       <div class="cap">طريق السويس</div>
     </a>
   </section>
 
-  <!-- FULL SPECS -->
+  <!-- Specs -->
   <section class="cardx" aria-label="مواصفات العين السخنة">
     <h2>مواصفات العين السخنة (دليل كامل)</h2>
-
     <h3>(1) الموقع والمسافات</h3>
     <ul>
       <li>تقع على ساحل خليج السويس (البحر الأحمر)، جنوب مدينة السويس.</li>
-      <li>المسافة من القاهرة ~ 130–140 كم (حوالي 75–90 دقيقة حسب الطريق).</li>
-      <li>المسافة من العاصمة الإدارية ~ 60 دقيقة تقريبًا.</li>
-      <li>المسافة من السويس ~ 50–60 كم.</li>
+      <li>من القاهرة ~ 130–140 كم (حوالي 75–90 دقيقة).</li>
+      <li>من العاصمة الإدارية ~ 60 دقيقة تقريبًا.</li>
+      <li>من السويس ~ 50–60 كم.</li>
     </ul>
-
     <h3>(2) الانتماء الإداري</h3>
-    <p>العين السخنة تتبع <strong>محافظة السويس</strong> إداريًا، مع سهولة الوصول إلى خدمات المحافظة.</p>
-
-    <h3>(3) طرق الوصول والمحاور</h3>
+    <p>العين السخنة تتبع <strong>محافظة السويس</strong> إداريًا.</p>
+    <h3>(3) طرق الوصول</h3>
     <ul>
-      <li>طريق القاهرة – العين السخنة المباشر.</li>
-      <li>طريق الزعفرانة (يربط منتجعات الجلالة والساحل الجنوبي).</li>
-      <li>طريق هضبة الجلالة (يربط أعلى الجبل بالمنتجعات الساحلية).</li>
-      <li>طريق السويس – العين السخنة.</li>
-      <li>محاور الغردقة/الإسماعيلية (للربط بمدن البحر الأحمر).</li>
+      <li>القاهرة – السخنة المباشر، طريق الزعفرانة، طريق هضبة الجلالة، طريق السويس.</li>
+      <li>محاور الغردقة/الإسماعيلية للربط بمدن البحر الأحمر.</li>
     </ul>
-
     <h3>(4) الطقس وأفضل أوقات الزيارة</h3>
     <ul>
-      <li>طقس معتدل أغلب شهور السنة، شتاء لطيف وصيف أقل رطوبة من ساحل المتوسط.</li>
-      <li>موسم الذروة: عطلات نهاية الأسبوع وعلى مدار العام (لقربها من القاهرة).</li>
+      <li>طقس معتدل أغلب العام؛ الذروة عطلات نهاية الأسبوع وعلى مدار السنة.</li>
     </ul>
-
-    <h3>(5) أنشطة وترفيه</h3>
+    <h3>(5) أنشطة</h3>
     <ul>
-      <li>رياضات مائية: سباحة، سنوركلينج، صيد، رحلات بحرية.</li>
-      <li>تجارب جبلية: صعود هضبة الجلالة، إطلالات بانورامية.</li>
-      <li>تليفريك الجلالة (بحسب التشغيل)، زلاجات، أكوا بارك في بعض القرى.</li>
-      <li>نوادٍ صحية وسبا، ممشى ودراجات في منتجعات كثيرة.</li>
+      <li>رياضات مائية، صعود الجلالة، تليفريك (حسب التشغيل)، سبا وممشى ودراجات.</li>
     </ul>
-
-    <h3>(6) خدمات أساسية وطبية</h3>
+    <h3>(6) خدمات أساسية</h3>
     <ul>
-      <li>صيدليات وخدمات طبية داخل معظم القرى والفنادق.</li>
-      <li>القرب من مستشفيات السويس، مع خدمات طوارئ على الطرق.</li>
+      <li>صيدليات وخدمات طبية داخل القرى والفنادق، وقرب مستشفيات السويس.</li>
     </ul>
-
-    <h3>(7) مناطق وتجمعات رئيسية</h3>
+    <h3>(7) مناطق رئيسية</h3>
     <ul>
-      <li>منطقة الجلالة (فوق وتحت الجبل) — منتجعات وفنادق ومناطق ترفيه.</li>
-      <li>منطقة بداية الزعفرانة — قرى شاطئية متدرجة المصاطب بإطلالات واسعة.</li>
-      <li>منطقة ما بعد بوابات السخنة حتى بورتو وخليج السويس.</li>
+      <li>الجلالة (فوق/تحت)، بداية الزعفرانة، ما بعد بوابات السخنة حتى بورتو.</li>
     </ul>
-
-    <h3>(8) أنواع المشروعات السكنية والسياحية</h3>
+    <h3>(8) المشروعات</h3>
     <ul>
-      <li>شاليهات وشقق بإطلالات بحر/حدائق/لاجونز.</li>
-      <li>فلل مستقلة وتوين/تاون هاوس في بعض المشروعات.</li>
-      <li>فنادق ومنتجعات 4–5 نجوم وخدمات فندقية داخل القرى.</li>
+      <li>شاليهات/شقق، فلل، وخدمات فندقية 4–5 نجوم.</li>
     </ul>
-
-    <h3>(9) مزايا الاستثمار والملكية</h3>
+    <h3>(9) مزايا الاستثمار</h3>
     <ul>
-      <li>أقرب وجهة بحر أحمر للقاهرة → معدل إشغال مرتفع على مدار العام.</li>
-      <li>تنوع واسع في خطط السداد وأنظمة الصيانة والخدمات.</li>
-      <li>قيمة إيجارية جيدة في المواسم والأعياد ونهاية الأسبوع.</li>
+      <li>أقرب وجهة بحر أحمر للقاهرة → إشغال مرتفع، خطط سداد متنوعة، عائد إيجاري جيد.</li>
     </ul>
   </section>
 </main>
 
-<!-- Footer -->
 <footer>
   <div class="container footer-wrap">
+    <div class="fbrand"><img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Logo"></div>
+
     <div class="fbox">
       <h4>Islam Real Estate</h4>
-      <p>دليل ومبيعات مشاريع العين السخنة والساحل والقاهرة الجديدة.</p>
+      <p>دليل ومبيعات مشاريع العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
       <p>نساعدك تختار الأفضل بين المطور والسوق الثانوي.</p>
     </div>
 
@@ -291,79 +247,29 @@ footer{border-top:1px solid var(--line);margin-top:24px;background:#fff}
     <div class="fbox">
       <h4>تواصل</h4>
       <a href="tel:+201050072527">📞 01050072527</a>
-      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب مباشر</a>
+      <a href="https://wa.me/201050072527" target="_blank">💬 واتساب مباشر</a>
       <a href="mailto:islammesmail@gmail.com">✉️ islammesmail@gmail.com</a>
-      <p>العمل يوميًا — استشارات مجانية.</p>
     </div>
   </div>
-  <div class="foot-bottom">
-    © <span id="year"></span> Islam Real Estate — جميع الحقوق محفوظة
-  </div>
+  <div class="foot-bottom">© <span id="year"></span> Islam Real Estate — جميع الحقوق محفوظة</div>
 </footer>
 
-<!-- WhatsApp FAB -->
-<a class="whatsapp-fab" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" />
+<a class="whatsapp-fab" href="https://wa.me/201050072527" target="_blank" aria-label="واتساب">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
 </a>
 
 <script>
-/* Year */
 document.getElementById('year').textContent=new Date().getFullYear();
-
-/* Dropdowns */
-function toggleDrop(id){
-  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-  document.getElementById(id).classList.toggle('open');
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-});
-
-/* Language button */
-document.getElementById('langToggle').addEventListener('click',()=>{ window.location.href='sokhna-en.html'; });
-
-/* Search suggestions */
-const PAGES = [
-  {name:'الرئيسية', url:'index.html'},
-  {name:'العين السخنة', url:'sokhna.html'},
-  {name:'طريق الزعفرانة', url:'zafarana.html'},
-  {name:'طريق السويس', url:'suez.html'},
-  {name:'الساحل الشمالي', url:'north.html'},
-  {name:'القاهرة الجديدة', url:'Cairo.html'},
-  {name:'Murano', url:'murano.html'},
-  {name:'Lugano', url:'lugano.html'},
-  {name:'Ein Hills', url:'einhills.html'},
-  {name:'Loly Beach', url:'lolybeach.html'},
-  {name:'Dolphin Beach', url:'dolphin.html'},
-  {name:'Murano (EN)', url:'murano-en.html'},
-  {name:'Lugano (EN)', url:'lugano-en.html'},
-  {name:'Ein Hills (EN)', url:'einhills-en.html'},
-  {name:'Loly Beach (EN)', url:'lolybeach-en.html'},
-  {name:'Dolphin Beach (EN)', url:'dolphin-en.html'},
-];
-(function(){
-  const input=document.getElementById('siteSearch');
-  const box=document.getElementById('suggestBox');
-  function render(list){
-    box.innerHTML='';
-    if(!list.length){ box.style.display='none'; return; }
-    list.forEach(it=>{
-      const a=document.createElement('a');
-      a.href=it.url; a.textContent=it.name; a.setAttribute('role','option');
-      box.appendChild(a);
-    });
-    box.style.display='block';
-  }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    const out=PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,10);
-    render(out);
-  });
-  document.addEventListener('click',e=>{
-    if(!e.target.closest('.searchbar')) box.style.display='none';
-  });
-})();
+/* dropdowns */
+function toggleDrop(id){document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));document.getElementById(id).classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu,.contact,.btnx')) document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));});
+/* lang */
+document.getElementById('langToggle').addEventListener('click',()=>{location.href='sokhna-en.html';});
+/* search suggestions */
+const PAGES=[{name:'الرئيسية',url:'index.html'},{name:'العين السخنة',url:'sokhna.html'},{name:'طريق الزعفرانة',url:'zafarana.html'},{name:'طريق السويس',url:'suez.html'},{name:'الساحل الشمالي',url:'north.html'},{name:'القاهرة الجديدة',url:'Cairo.html'}];
+(function(){const input=document.getElementById('siteSearch'),box=document.getElementById('suggestBox');function render(list){box.innerHTML='';if(!list.length){box.style.display='none';return;}list.forEach(it=>{const a=document.createElement('a');a.href=it.url;a.textContent=it.name;box.appendChild(a);});box.style.display='block';}
+input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();if(!q){box.style.display='none';return;}render(PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,8));});
+document.addEventListener('click',e=>{if(!e.target.closest('.searchbar')) box.style.display='none';});})();
 </script>
 </body>
 </html>
