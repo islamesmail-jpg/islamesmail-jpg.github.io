@@ -20,13 +20,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{--ink:#000;--muted:#666;--shadow:rgba(0,0,0,.2);--line:#ddd;--bg:#fff;--wrap:1120px}
+:root{
+  --ink:#000; --muted:#666; --shadow:rgba(0,0,0,.2);
+  --line:#ddd; --bg:#fff; --wrap:1120px;
+}
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:#fff;color:#000;font-family:"Tajawal",system-ui,Arial;line-height:1.8}
 a{text-decoration:none;color:inherit}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Buttons: black/white only */
+/* Buttons */
 .btn,.btnx{padding:10px 16px;border-radius:999px;font-weight:800;cursor:pointer}
 .btn{background:#000;color:#fff;border:1px solid #000}
 .btn:hover{opacity:.9}
@@ -35,17 +38,22 @@ a{text-decoration:none;color:inherit}
 
 /* Topbar */
 .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
-.topbar__in{max-width:calc(var(--wrap) + 32px);margin:auto;padding:10px 16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
-.topbar__left,.topbar__right{display:flex;gap:10px}
-.brandlogo img{width:80px;height:80px;object-fit:contain}
-@media(max-width:991px){.topbar__in{grid-template-columns:auto 1fr auto}}
+.topbar__in{
+  max-width:calc(var(--wrap) + 32px);margin:auto;padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.brandlogo img{width:84px;height:84px;object-fit:contain}
+.topbar__controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
 /* Dropdown */
 .dropdown{position:relative}
-.dropdown__menu{display:none;position:absolute;top:110%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px;min-width:200px}
+.dropdown__menu{
+  display:none;position:absolute;top:110%;min-width:220px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px
+}
 .dropdown__menu a{display:block;padding:8px 10px;border-radius:8px}
 .dropdown__menu a:hover{background:#f6f6f6}
-#contactMenu{right:0;left:auto}
+.dropdown.open .dropdown__menu{display:block}
 
 /* Search */
 .searchwrap{border-bottom:1px solid var(--line);background:#fff}
@@ -53,9 +61,9 @@ a{text-decoration:none;color:inherit}
 .searchrow{display:grid;grid-template-columns:1fr auto;gap:10px}
 .searchinput{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px}
 
-/* Hero */
-.hero{padding:40px 16px;text-align:center}
-.h1{font-size:clamp(22px,6vw,42px);font-weight:800;text-shadow:0 3px 10px var(--shadow)}
+/* Hero (Title centered) */
+.hero{padding:42px 16px;text-align:center}
+.h1{font-size:clamp(22px,6vw,44px);font-weight:800;text-shadow:0 3px 10px var(--shadow)}
 .sub{color:var(--muted);font-weight:600}
 
 /* Form */
@@ -64,23 +72,54 @@ a{text-decoration:none;color:inherit}
 .row{display:grid;gap:12px}.col-2{grid-template-columns:1fr}
 @media(min-width:768px){.col-2{grid-template-columns:repeat(2,1fr)}}
 
-/* Footer: white */
-footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30px}
-.foot__in{max-width:var(--wrap);margin:auto;padding:20px}
-.footgrid{display:grid;gap:20px}
-.footcol h4{margin:0 0 10px}
-.footlink{display:block;color:#333;margin:6px 0}
-.footbar{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;color:#555}
+/* Footer: one full-width bar */
+.footer{
+  background:#fff;border-top:1px solid var(--line);color:#000
+}
+.footerbar{
+  max-width:calc(var(--wrap) + 32px);margin:auto;padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
+}
+.footer-left{display:flex;align-items:center;gap:10px}
+.footer-logo img{width:64px;height:64px;object-fit:contain}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px}
+.footer-links a{color:#333}
+.footer-actions{display:flex;flex-wrap:wrap;gap:8px}
+.copy{font-size:.9rem;color:#555}
+@media(max-width:640px){
+  .footerbar{gap:10px}
+  .footer-links{width:100%;justify-content:center}
+  .footer-actions{width:100%;justify-content:center}
+  .copy{width:100%;text-align:center;margin-top:6px}
+}
 </style>
 </head>
 <body>
 
-<header class="topbar">
+<!-- Topbar -->
+<header class="topbar" role="banner">
   <div class="topbar__in">
-    <div class="topbar__left">
-      <div class="dropdown">
-        <button class="btnx" id="projectsBtn">Projects ▾</button>
-        <div class="dropdown__menu" id="projectsMenu">
+    <!-- Logo on the LEFT (LTR) -->
+    <a href="index-en.html" class="brandlogo" aria-label="Home">
+      <img src="https://k.top4top.io/p_3532o23f40.png" alt="Islam Sales Real Estate">
+    </a>
+
+    <!-- Right controls: Language + Contact + Projects -->
+    <div class="topbar__controls">
+      <a class="btnx" href="resale.html" aria-label="Arabic">AR</a>
+
+      <div class="dropdown" id="contactDrop">
+        <button class="btnx">Contact ▾</button>
+        <div class="dropdown__menu">
+          <a href="tel:+201050072527">📞 Call</a>
+          <a href="https://wa.me/201050072527">💬 WhatsApp</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
+        </div>
+      </div>
+
+      <div class="dropdown" id="projectsDrop">
+        <button class="btnx">Projects ▾</button>
+        <div class="dropdown__menu">
           <a href="sokhna-en.html">Ain Sokhna</a>
           <a href="north-en.html">North Coast</a>
           <a href="cairo-en.html">New Cairo</a>
@@ -88,40 +127,27 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
         </div>
       </div>
     </div>
-
-    <a href="index-en.html" class="brandlogo" aria-label="Home">
-      <img src="https://k.top4top.io/p_3532o23f40.png" alt="Islam Sales Real Estate">
-    </a>
-
-    <div class="topbar__right">
-      <a class="btnx" href="resale.html" aria-label="Arabic">AR</a>
-      <div class="dropdown">
-        <button class="btnx" id="contactBtn">Contact ▾</button>
-        <div class="dropdown__menu" id="contactMenu">
-          <a href="tel:+201050072527">📞 Call</a>
-          <a href="https://wa.me/201050072527">💬 WhatsApp</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
-        </div>
-      </div>
-    </div>
   </div>
 </header>
 
-<section class="searchwrap">
+<!-- Search -->
+<section class="searchwrap" role="search">
   <div class="container searchbar">
-    <div>Search the site</div>
+    <div style="font-weight:800">Search the site</div>
     <div class="searchrow">
-      <input id="q" class="searchinput" placeholder="Type project or area...">
+      <input id="q" class="searchinput" placeholder="Type project or area..." aria-label="Search">
       <button id="searchBtn" class="btn">Search</button>
     </div>
   </div>
 </section>
 
+<!-- Hero (Title centered) -->
 <section class="hero">
   <h1 class="h1">Search Resale Properties in Ain Sokhna, New Cairo & North Coast</h1>
   <div class="sub">Enter your preferences and WhatsApp will open with a ready message.</div>
 </section>
 
+<!-- Form -->
 <section class="container">
   <div class="box" aria-labelledby="formTitle">
     <h3 id="formTitle">Request Details</h3>
@@ -155,29 +181,28 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
   </div>
 </section>
 
-<footer role="contentinfo">
-  <div class="foot__in">
-    <div class="footgrid">
-      <div class="footcol">
-        <h4>Islam Sales Real Estate</h4>
-        <div>Projects guide, offers & resale.</div>
-      </div>
-      <div class="footcol">
-        <h4>Quick Links</h4>
-        <a class="footlink" href="index-en.html">Home</a>
-        <a class="footlink" href="sokhna-en.html">Ain Sokhna</a>
-        <a class="footlink" href="north-en.html">North Coast</a>
-        <a class="footlink" href="cairo-en.html">New Cairo</a>
-        <a class="footlink" href="resale-en.html">Resale</a>
-      </div>
-      <div class="footcol">
-        <h4>Contact</h4>
-        <a class="footlink" href="tel:+201050072527">📞 +20 105 007 2527</a>
-        <a class="footlink" href="https://wa.me/201050072527">💬 WhatsApp</a>
-        <a class="footlink" href="mailto:islammesmail@gmail.com">✉️ islammesmail@gmail.com</a>
-      </div>
+<!-- Footer: one full-width bar with logo -->
+<footer class="footer" role="contentinfo">
+  <div class="footerbar">
+    <div class="footer-left footer-logo">
+      <a href="index-en.html" aria-label="Home"><img src="https://k.top4top.io/p_3532o23f40.png" alt="Logo"></a>
     </div>
-    <div class="footbar">© <span id="year"></span> Islam Sales Real Estate</div>
+
+    <nav class="footer-links" aria-label="Quick links">
+      <a href="index-en.html">Home</a>
+      <a href="sokhna-en.html">Ain Sokhna</a>
+      <a href="north-en.html">North Coast</a>
+      <a href="cairo-en.html">New Cairo</a>
+      <a href="resale-en.html" aria-current="page">Resale</a>
+    </nav>
+
+    <div class="footer-actions">
+      <a class="btnx" href="tel:+201050072527">📞 Call</a>
+      <a class="btnx" href="https://wa.me/201050072527">💬 WhatsApp</a>
+      <a class="btnx" href="mailto:islammesmail@gmail.com">✉️ Email</a>
+    </div>
+
+    <div class="copy">© <span id="year"></span> Islam Sales Real Estate</div>
   </div>
 </footer>
 
@@ -186,21 +211,24 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
 document.getElementById('year').textContent=new Date().getFullYear();
 
 /* Dropdowns */
-const toggle=(btn,menu)=>document.getElementById(btn).addEventListener('click',e=>{
-  e.stopPropagation(); const d=document.getElementById(menu);
-  const shown=d.style.display==='block';
-  document.querySelectorAll('.dropdown__menu').forEach(m=>m.style.display='none');
-  d.style.display=shown?'none':'block';
-});
-toggle('projectsBtn','projectsMenu'); toggle('contactBtn','contactMenu');
-document.addEventListener('click',()=>document.querySelectorAll('.dropdown__menu').forEach(m=>m.style.display='none'));
+function bindDrop(id){
+  const d=document.getElementById(id);
+  const btn=d.querySelector('button');
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    document.querySelectorAll('.dropdown').forEach(x=>x!==d && x.classList.remove('open'));
+    d.classList.toggle('open');
+  });
+}
+bindDrop('contactDrop'); bindDrop('projectsDrop');
+document.addEventListener('click',()=>document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open')));
 
-/* Internal search (simple) */
+/* Search (simple) */
 const INDEX=[{t:"Ain Sokhna",u:"sokhna-en.html"},{t:"North Coast",u:"north-en.html"},{t:"New Cairo",u:"cairo-en.html"},{t:"Resale",u:"resale-en.html"}];
 function goSearch(q){q=q.trim().toLowerCase(); if(!q) return; const hit=INDEX.find(it=>it.t.toLowerCase().includes(q)); if(hit) location.href=hit.u; else alert("No results found");}
 document.getElementById('searchBtn').onclick=()=>goSearch(document.getElementById('q').value);
 
-/* WhatsApp message */
+/* WhatsApp */
 document.getElementById('send').onclick=()=>{
   const msg=`[RESALE]\nArea: ${area.value}\nPlace: ${place.value}\nUnit: ${unit.value}\nBedrooms: ${rooms.value}\nFloor: ${floor.value}\nBudget: ${budget.value}\nNotes: ${note.value}`;
   window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
