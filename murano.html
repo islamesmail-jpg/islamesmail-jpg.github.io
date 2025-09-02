@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>مشروع مورانو وادي دجلة بالعين السخنة | فيديو وصور وأسعار | Murano Wadi Degla</title>
-<meta name="description" content="تعرف على مشروع مورانو وادي دجلة بالعين السخنة: فيديو المشروع، سلايدر صور عالية الجودة، المواصفات والخدمات، المخطط العام، وأسعار المطوّر وإعادة البيع. تواصل معنا بسهولة عبر الهاتف أو واتساب." />
+<meta name="description" content="تعرف على مشروع مورانو وادي دجلة بالعين السخنة: فيديو المشروع، سلايدر صور عالية الجودة مع تكبير وتقليب، المواصفات والخدمات، المخطط العام، وأسعار المطوّر وإعادة البيع. تواصل معنا عبر الهاتف أو واتساب." />
 <link rel="canonical" href="https://islamesmail-jpg.github.io/murano.html"/>
 
 <!-- OG / Twitter -->
 <meta property="og:title" content="مشروع مورانو وادي دجلة بالعين السخنة | Murano Wadi Degla" />
-<meta property="og:description" content="فيديو وصور ومواصفات وخدمات مورانو وادي دجلة؛ اتصل بنا الآن لمعرفة الأسعار والعروض." />
+<meta property="og:description" content="فيديو وصور ومواصفات وخدمات مورانو وادي دجلة؛ سلايدر مع تكبير وتقليب؛ اتصل بنا الآن لمعرفة الأسعار والعروض." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://islamesmail-jpg.github.io/murano.html" />
 <meta property="og:image" content="https://c.top4top.io/p_35249hfap2.jpg" />
@@ -78,24 +78,26 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
-.slider-wrap{position:relative;margin:18px auto 10px}
-.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.slider-wrap{position:relative;margin:18px auto 20px}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;cursor:grab}
+.slider:active{cursor:grabbing}
 .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid var(--line)}
 .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media(min-width:820px){.slide{flex-basis:48%;max-width:48%}}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#111;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;color:#111;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:8}
 .arrow:hover{filter:brightness(.97)}
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
 /* DEV + SHARE (inside slider bottom-right) */
-.slider-cta{position:absolute;inset-inline-end:16px;bottom:16px;display:flex;align-items:center;gap:8px;z-index:6}
-.slider-cta .fab{width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);cursor:pointer}
-.slider-cta .fab img{width:44px;height:44px;border-radius:50%;object-fit:cover}
-.slider-cta .fab.share img{width:28px;height:28px;border-radius:0}
+.slider-cta{position:absolute;inset-inline-end:16px;bottom:16px;display:flex;align-items:center;gap:10px;z-index:9}
+.fab{width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);cursor:pointer;overflow:hidden}
+.fab .inner{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;overflow:hidden}
+.fab .inner img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.fab.share .inner img{border-radius:0;object-fit:contain}
 
 /* Mini card under slider CTAs */
-.wd-mini{position:absolute;inset-inline-end:16px;bottom:76px;min-width:280px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none;z-index:7}
+.wd-mini{position:absolute;inset-inline-end:16px;bottom:86px;min-width:280px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none;z-index:9}
 .wd-mini.open{display:block}
 .wd-mini .title{font-weight:800;margin-bottom:6px}
 .wd-mini a{display:inline-block;margin-top:6px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:#111;background:#f9fafb}
@@ -112,11 +114,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .master-pill:hover{filter:brightness(.98)}
 
 /* MASTERPLAN MODAL (Lightbox) */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:3000}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:20px;z-index:3000}
 .modal.open{display:flex}
-.modal .box{position:relative;background:#000;border-radius:12px;max-width:95vw;max-height:90vh;overflow:auto}
-.modal img{display:block;max-width:95vw;max-height:90vh;width:auto;height:auto}
-.modal .close{position:absolute;top:8px;inset-inline-start:8px;background:rgba(255,255,255,.9);border:none;border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer}
+.modal .box{position:relative;background:#000;border-radius:12px;max-width:95vw;max-height:92vh;display:flex;align-items:center;justify-content:center}
+.modal img{display:block;max-width:95vw;max-height:92vh;width:auto;height:auto}
+.modal .close{position:absolute;top:8px;inset-inline-start:8px;background:rgba(255,255,255,.95);border:none;border-radius:10px;padding:6px 10px;font-weight:700;cursor:pointer;z-index:1}
+.modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;cursor:pointer}
+.modal .nav.left{inset-inline-start:8px}
+.modal .nav.right{inset-inline-end:8px}
 
 /* TEXT */
 section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
@@ -143,18 +148,18 @@ button:hover{filter:brightness(.95)}
 .fab-wa img{width:28px;height:28px}
 .fab-wa a:hover{filter:brightness(.95)}
 
-/* FOOTER (full width) */
+/* FOOTER */
 .site-footer{background:#fff;border-top:1px solid var(--line);margin-top:26px;width:100%}
-.site-footer .inner{max-width:var(--wrap);margin:auto;padding:16px;display:grid;gap:14px;grid-template-columns:1fr}
-@media(min-width:980px){.site-footer .inner{grid-template-columns:1.3fr 1fr 260px}}
-.footer-links h4{margin:0 0 8px 0;font-size:16px}
-.footer-links a{display:block;margin:6px 0;color:#111;text-decoration:none}
-.footer-links a:hover{text-decoration:underline}
-.footer-contact{display:flex;flex-direction:column;gap:8px}
+.site-footer .inner{max-width:var(--wrap);margin:auto;padding:20px 16px 12px;display:flex;flex-direction:column;gap:16px}
+.footer-brand{display:flex;justify-content:center}
+.footer-brand img{height:48px;width:auto}
+.footer-row{display:flex;flex-direction:column;gap:10px}
+.footer-row h4{margin:0;font-size:16px;text-align:end}
+.footer-links,.footer-contact{display:flex;flex-wrap:wrap;gap:10px}
+.footer-links a{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:#111;background:#f9fafb}
+.footer-links a:hover{background:#f3f4f6}
 .footer-contact a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:#111;background:#f9fafb}
 .footer-contact a:hover{background:#f3f4f6}
-.footer-brand{display:flex;align-items:center;justify-content:flex-start}
-.footer-brand img{height:42px;width:auto}
 .icon-s{width:18px;height:18px;display:inline-block}
 .copyright{text-align:center;color:#6b7280;font-size:14px;padding:8px 16px}
 
@@ -245,13 +250,13 @@ button:hover{filter:brightness(.95)}
       <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6"></figure>
     </div>
 
-    <!-- DEV + SHARE inside slider bottom-right -->
+    <!-- DEV + SHARE inside slider bottom-right (perfect circular) -->
     <div class="slider-cta" id="sliderCta">
       <button class="fab dev" id="wdBtn" aria-label="عرض شركة وادي دجلة">
-        <img src="https://k.top4top.io/p_35329hhyk0.png" alt="Wadi Degla Developments">
+        <span class="inner"><img src="https://k.top4top.io/p_35329hhyk0.png" alt="Wadi Degla Developments"></span>
       </button>
       <button class="fab share" id="wdShare" title="مشاركة الصفحة الحالية" aria-label="مشاركة">
-        <img src="https://k.top4top.io/p_3532g32zw0.png" alt="Share">
+        <span class="inner"><img src="https://k.top4top.io/p_3532g32zw0.png" alt="Share"></span>
       </button>
     </div>
     <div class="wd-mini" id="wdMini" role="dialog" aria-modal="false" aria-label="شركة وادي دجلة للتطوير العقاري">
@@ -379,41 +384,47 @@ button:hover{filter:brightness(.95)}
 
 </div>
 
-<!-- FOOTER (full width) -->
+<!-- FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="inner">
-    <!-- روابط سريعة -->
-    <div class="footer-links">
-      <h4>روابط سريعة</h4>
-      <a href="/sokhna.html">العين السخنة</a>
-      <a href="/north.html">الساحل الشمالي</a>
-      <a href="/Cairo.html">القاهرة الجديدة</a>
-      <a href="/resale.html">إعادة البيع</a>
-      <a href="/list.html">اعرض وحدتك</a>
-    </div>
-
-    <!-- تواصل -->
-    <div class="footer-contact" aria-label="التواصل">
-      <a href="tel:+201050072527" aria-label="اتصال هاتفي">
-        <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.79 19.79 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.29 1L8.91 10.91a16 16 0 0 0 6.18 6.18l2.16-1.91a1 1 0 0 1 1-.29l3 1a1 1 0 0 1 .75 1z" stroke-width="2"/></svg>
-        01050072527
-      </a>
-      <a href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
-        <svg class="icon-s" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.32c-.28-.14-1.62-.8-1.87-.89s-.43-.14-.61.14-.7.89-.86 1.08-.32.21-.6.07a8.47 8.47 0 0 1-2.49-1.54 9 9 0 0 1-1.66-2.06c-.17-.29 0-.45.13-.59s.28-.32.42-.49a1.94 1.94 0 0 0 .28-.47.52.52 0 0 0 0-.49c0-.14-.61-1.47-.84-2s-.45-.47-.61-.47h-.52a1 1 0 0 0-.73.35 3.07 3.07 0 0 0-.95 2.27 5.36 5.36 0 0 0 1.12 2.86 12.23 12.23 0 0 0 4.73 4.31 16.29 16.29 0 0 0 1.6.74 3.86 3.86 0 0 0 1.76.11 2.89 2.89 0 0 0 1.88-1.33 2.37 2.37 0 0 0 .17-1.33c-.06-.09-.25-.14-.53-.28z"/></svg>
-        واتساب
-      </a>
-      <a href="mailto:islammesmail@gmail.com" aria-label="بريد إلكتروني">
-        <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke-width="2"/></svg>
-        الإيميل
-      </a>
-    </div>
-
-    <!-- اللوجو -->
+    <!-- Logo top center -->
     <div class="footer-brand">
       <img src="https://l.top4top.io/p_3532e7wgg0.png" alt="Islam Sales Real Estate">
     </div>
+
+    <!-- Links row -->
+    <div class="footer-row">
+      <h4>روابط سريعة</h4>
+      <nav class="footer-links" aria-label="روابط سريعة">
+        <a href="/sokhna.html">العين السخنة</a>
+        <a href="/north.html">الساحل الشمالي</a>
+        <a href="/Cairo.html">القاهرة الجديدة</a>
+        <a href="/resale.html">إعادة البيع</a>
+        <a href="/list.html">اعرض وحدتك</a>
+      </nav>
+    </div>
+
+    <!-- Contact row -->
+    <div class="footer-row" aria-label="التواصل">
+      <h4>التواصل</h4>
+      <div class="footer-contact">
+        <a href="tel:+201050072527" aria-label="اتصال هاتفي">
+          <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.79 19.79 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.29 1L8.91 10.91a16 16 0 0 0 6.18 6.18l2.16-1.91a1 1 0 0 1 1-.29l3 1a1 1 0 0 1 .75 1z" stroke-width="2"/></svg>
+          01050072527
+        </a>
+        <a href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
+          <svg class="icon-s" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.32c-.28-.14-1.62-.8-1.87-.89s-.43-.14-.61.14-.7.89-.86 1.08-.32.21-.6.07a8.47 8.47 0 0 1-2.49-1.54 9 9 0 0 1-1.66-2.06c-.17-.29 0-.45.13-.59s.28-.32.42-.49a1.94 1.94 0 0 0 .28-.47.52.52 0 0 0 0-.49c0-.14-.61-1.47-.84-2s-.45-.47-.61-.47h-.52a1 1 0 0 0-.73.35 3.07 3.07 0 0 0-.95 2.27 5.36 5.36 0 0 0 1.12 2.86 12.23 12.23 0 0 0 4.73 4.31 16.29 16.29 0 0 0 1.6.74 3.86 3.86 0 0 0 1.76.11 2.89 2.89 0 0 0 1.88-1.33 2.37 2.37 0 0 0 .17-1.33c-.06-.09-.25-.14-.53-.28z"/></svg>
+          واتساب
+        </a>
+        <a href="mailto:islammesmail@gmail.com" aria-label="بريد إلكتروني">
+          <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke-width="2"/></svg>
+          الإيميل
+        </a>
+      </div>
+    </div>
+
+    <div class="copyright">© Islam Sales Real Estate 2025 — جميع الحقوق محفوظة</div>
   </div>
-  <div class="copyright">© Islam Sales Real Estate 2025 — جميع الحقوق محفوظة</div>
 </footer>
 
 <!-- Floating WhatsApp -->
@@ -428,7 +439,9 @@ button:hover{filter:brightness(.95)}
 <div class="modal" id="masterModal" aria-hidden="true" role="dialog" aria-label="صورة ماستر بلان">
   <div class="box">
     <button class="close" id="masterClose" aria-label="إغلاق">✕</button>
-    <img src="https://g.top4top.io/p_3525qqtvx0.jpg" alt="Master Plan - Murano Wadi Degla">
+    <button class="nav left" id="lbPrev" aria-label="السابق">‹</button>
+    <img id="masterImg" src="https://g.top4top.io/p_3525qqtvx0.jpg" alt="Master Plan - Murano Wadi Degla">
+    <button class="nav right" id="lbNext" aria-label="التالي">›</button>
   </div>
 </div>
 
@@ -486,13 +499,87 @@ const $ = s => document.querySelector(s);
   document.addEventListener('click', (e)=>{ if(!box.contains(e.target) && e.target!==input){ box.style.display='none'; } });
 })();
 
-/* Slider arrows (RTL aware) */
+/* ===== Slider: arrows + drag-to-scroll + open lightbox on click ===== */
 (function(){
   const scroller = $('#slider'); if(!scroller) return;
   const next = $('#nextBtn'), prev = $('#prevBtn');
   const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+
   next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
   prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
+
+  // drag / swipe to scroll
+  let isDown=false, startX=0, scrollLeft=0;
+  const start = e => { isDown=true; scroller.classList.add('drag'); startX=(e.pageX||e.touches?.[0].pageX); scrollLeft=scroller.scrollLeft; }
+  const move  = e => {
+    if(!isDown) return;
+    const x=(e.pageX||e.touches?.[0].pageX);
+    const walk = (x - startX);
+    scroller.scrollLeft = scrollLeft - walk * (document.dir==='rtl'?-1:1);
+  }
+  const end   = ()=> { isDown=false; scroller.classList.remove('drag'); }
+  scroller.addEventListener('mousedown', start);
+  scroller.addEventListener('mousemove', move);
+  scroller.addEventListener('mouseleave', end);
+  scroller.addEventListener('mouseup', end);
+  scroller.addEventListener('touchstart', start, {passive:true});
+  scroller.addEventListener('touchmove', move, {passive:true});
+  scroller.addEventListener('touchend', end);
+
+  // open lightbox on image click
+  const slides = Array.from(scroller.querySelectorAll('.slide img'));
+  const modal = document.getElementById('masterModal');
+  const imgEl = document.getElementById('masterImg');
+  const closeBtn = document.getElementById('masterClose');
+  const navL = document.getElementById('lbPrev');
+  const navR = document.getElementById('lbNext');
+
+  const gallerySrcs = slides.map(s=>s.src);
+  let idx = 0;
+
+  function openLB(i){
+    idx = i;
+    imgEl.src = gallerySrcs[idx];
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+  }
+  function closeLB(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  }
+  function nextLB(){ idx = (idx+1) % gallerySrcs.length; imgEl.src = gallerySrcs[idx]; }
+  function prevLB(){ idx = (idx-1+gallerySrcs.length) % gallerySrcs.length; imgEl.src = gallerySrcs[idx]; }
+
+  slides.forEach((img,i)=>{
+    img.style.cursor='zoom-in';
+    img.addEventListener('click', ()=> openLB(i));
+  });
+
+  navR.addEventListener('click', nextLB);
+  navL.addEventListener('click', prevLB);
+  closeBtn.addEventListener('click', closeLB);
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeLB(); });
+  document.addEventListener('keydown', (e)=>{
+    if(!modal.classList.contains('open')) return;
+    if(e.key==='Escape') closeLB();
+    if(e.key==='ArrowLeft') (document.dir==='rtl'? nextLB(): prevLB());
+    if(e.key==='ArrowRight') (document.dir==='rtl'? prevLB(): nextLB());
+  });
+
+  // swipe inside lightbox
+  let sx=0, sy=0;
+  imgEl.addEventListener('touchstart', e=>{ sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+  imgEl.addEventListener('touchend', e=>{
+    const dx=(e.changedTouches[0].clientX - sx), dy=(e.changedTouches[0].clientY - sy);
+    if(Math.abs(dx) > 40 && Math.abs(dy)<60){
+      if((dx>0 && document.dir==='rtl') || (dx<0 && document.dir!=='rtl')) nextLB(); else prevLB();
+    }
+  }, {passive:true});
+
+  // Masterplan button opens masterplan (separate image) in same lightbox
+  const masterBtn = document.getElementById('openMaster');
+  masterBtn.addEventListener('click', (e)=>{ e.preventDefault(); imgEl.src='https://g.top4top.io/p_3525qqtvx0.jpg'; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); });
+
 })();
 
 /* Developer mini card + Share current page */
@@ -512,22 +599,6 @@ const $ = s => document.querySelector(s);
       else{ await navigator.clipboard.writeText(url); shareBtn.title='تم نسخ رابط الصفحة'; setTimeout(()=>shareBtn.title='مشاركة الصفحة الحالية',1500); }
     }catch(e){ console.warn(e); }
   });
-})();
-
-/* Masterplan Lightbox */
-(function(){
-  const openBtn = document.getElementById('openMaster');
-  const modal = document.getElementById('masterModal');
-  const closeBtn = document.getElementById('masterClose');
-  if(!openBtn||!modal||!closeBtn) return;
-
-  const open = (e)=>{ e?.preventDefault(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
-  const close = ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
-
-  openBtn.addEventListener('click', open);
-  closeBtn.addEventListener('click', close);
-  modal.addEventListener('click', (e)=>{ if(e.target===modal) close(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
 })();
 
 /* Prevent common download shortcuts on video (best-effort) */
