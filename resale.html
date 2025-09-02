@@ -8,40 +8,25 @@
 <meta name="description" content="ابحث عن وحدات ريسيل في العين السخنة والقاهرة الجديدة والساحل الشمالي. أدخل تفضيلاتك وسيتم فتح واتساب برسالة جاهزة لمساعدتك فورًا.">
 <meta name="robots" content="index,follow" />
 
-<!-- Canonical & hreflang (عدّل الروابط حسب مساراتك) -->
 <link rel="canonical" href="https://islamesmail-jpg.github.io/resale.html">
 <link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/resale.html">
 <link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/resale-en.html">
 
-<!-- Icons -->
 <link rel="icon" href="https://k.top4top.io/p_3532o23f40.png">
 <link rel="apple-touch-icon" href="https://k.top4top.io/p_3532o23f40.png">
 
-<!-- Open Graph / Twitter -->
-<meta property="og:title" content="ابحث عن عقارات ريسيل في العين السخنة والقاهرة الجديدة والساحل الشمالي">
-<meta property="og:description" content="أدخل تفضيلاتك وسيتم فتح واتساب برسالة جاهزة.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://islamesmail-jpg.github.io/resale.html">
-<meta property="og:image" content="https://k.top4top.io/p_3532o23f40.png">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --ink:#000; --muted:#666; --shadow:rgba(0,0,0,.2);
-  --line:#ddd; --bg:#fff; --wrap:1120px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
+:root{--ink:#000;--muted:#666;--shadow:rgba(0,0,0,.2);--line:#ddd;--bg:#fff;--wrap:1120px}
+*{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,Arial;line-height:1.8}
 a{text-decoration:none;color:inherit}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Buttons (أبيض/أسود فقط) */
+/* Buttons: أسود/أبيض فقط */
 .btn,.btnx{padding:10px 16px;border-radius:999px;font-weight:800;cursor:pointer}
 .btn{background:#000;color:#fff;border:1px solid #000}
 .btn:hover{opacity:.9}
@@ -59,7 +44,7 @@ a{text-decoration:none;color:inherit}
 .dropdown{position:relative}
 .dropdown__menu{display:none;position:absolute;top:110%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px;min-width:200px}
 .dropdown__menu a{display:block;padding:8px 10px;border-radius:8px}
-.dropdown__menu a:hover{background:#f6f6f6}
+.dropdown__menu a:hover{background:#f6f6ف6}
 #contactMenu{left:auto;right:0}
 
 /* Search */
@@ -79,7 +64,7 @@ a{text-decoration:none;color:inherit}
 .row{display:grid;gap:12px}.col-2{grid-template-columns:1fr}
 @media(min-width:768px){.col-2{grid-template-columns:repeat(2,1fr)}}
 
-/* Footer (أبيض بالكامل) */
+/* Footer: أبيض بالكامل */
 footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30px}
 .foot__in{max-width:var(--wrap);margin:auto;padding:20px}
 .footgrid{display:grid;gap:20px}
@@ -211,18 +196,8 @@ toggle('projectsBtn','projectsMenu'); toggle('contactBtn','contactMenu');
 document.addEventListener('click',()=>document.querySelectorAll('.dropdown__menu').forEach(m=>m.style.display='none'));
 
 /* Internal search (بسيط) */
-const INDEX=[
-  {t:"Ain Sokhna",u:"sokhna.html"},
-  {t:"North Coast",u:"north.html"},
-  {t:"New Cairo",u:"cairo.html"},
-  {t:"Resale",u:"resale.html"}
-];
-function goSearch(q){
-  q=q.trim().toLowerCase();
-  if(!q) return;
-  const hit=INDEX.find(it=>it.t.toLowerCase().includes(q));
-  if(hit) location.href=hit.u; else alert("لم يتم العثور على نتائج");
-}
+const INDEX=[{t:"Ain Sokhna",u:"sokhna.html"},{t:"North Coast",u:"north.html"},{t:"New Cairo",u:"cairo.html"},{t:"Resale",u:"resale.html"}];
+function goSearch(q){q=q.trim().toLowerCase(); if(!q) return; const hit=INDEX.find(it=>it.t.toLowerCase().includes(q)); if(hit) location.href=hit.u; else alert("لم يتم العثور على نتائج");}
 document.getElementById('searchBtn').onclick=()=>goSearch(document.getElementById('q').value);
 
 /* WhatsApp message */
