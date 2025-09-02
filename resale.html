@@ -20,7 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{--ink:#000;--muted:#666;--shadow:rgba(0,0,0,.2);--line:#ddd;--bg:#fff;--wrap:1120px}
+:root{
+  --ink:#000; --muted:#666; --shadow:rgba(0,0,0,.2);
+  --line:#ddd; --bg:#fff; --wrap:1120px;
+}
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Tajawal",system-ui,Arial;line-height:1.8}
 a{text-decoration:none;color:inherit}
@@ -35,17 +38,24 @@ a{text-decoration:none;color:inherit}
 
 /* Topbar */
 .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
-.topbar__in{max-width:calc(var(--wrap) + 32px);margin:auto;padding:10px 16px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
-.topbar__left,.topbar__right{display:flex;gap:10px}
-.brandlogo img{width:80px;height:80px;object-fit:contain}
-@media(max-width:991px){.topbar__in{grid-template-columns:auto 1fr auto}}
+.topbar__in{
+  max-width:calc(var(--wrap) + 32px);margin:auto;padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.brandlogo img{width:84px;height:84px;object-fit:contain}
+
+/* Right side (logo) + Left controls (lang + contact + projects) */
+.topbar__controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 
 /* Dropdown */
 .dropdown{position:relative}
-.dropdown__menu{display:none;position:absolute;top:110%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px;min-width:200px}
+.dropdown__menu{
+  display:none;position:absolute;top:110%;min-width:220px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px
+}
 .dropdown__menu a{display:block;padding:8px 10px;border-radius:8px}
-.dropdown__menu a:hover{background:#f6f6ف6}
-#contactMenu{left:auto;right:0}
+.dropdown__menu a:hover{background:#f6f6f6}
+.dropdown.open .dropdown__menu{display:block}
 
 /* Search */
 .searchwrap{border-bottom:1px solid var(--line);background:#fff}
@@ -54,8 +64,8 @@ a{text-decoration:none;color:inherit}
 .searchinput{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px}
 
 /* Hero */
-.hero{padding:40px 16px;text-align:center}
-.h1{font-size:clamp(22px,6vw,42px);font-weight:800;text-shadow:0 3px 10px var(--shadow)}
+.hero{padding:42px 16px;text-align:center}
+.h1{font-size:clamp(22px,6vw,44px);font-weight:800;text-shadow:0 3px 10px var(--shadow)}
 .sub{color:var(--muted);font-weight:600}
 
 /* Form */
@@ -64,23 +74,54 @@ a{text-decoration:none;color:inherit}
 .row{display:grid;gap:12px}.col-2{grid-template-columns:1fr}
 @media(min-width:768px){.col-2{grid-template-columns:repeat(2,1fr)}}
 
-/* Footer: أبيض بالكامل */
-footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30px}
-.foot__in{max-width:var(--wrap);margin:auto;padding:20px}
-.footgrid{display:grid;gap:20px}
-.footcol h4{margin:0 0 10px}
-.footlink{display:block;color:#333;margin:6px 0}
-.footbar{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;color:#555}
+/* Footer: شريط واحد كامل بعرض الصفحة */
+.footer{
+  background:#fff;border-top:1px solid var(--line);color:#000
+}
+.footerbar{
+  max-width:calc(var(--wrap) + 32px);margin:auto;padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap
+}
+.footer-left{display:flex;align-items:center;gap:10px}
+.footer-logo img{width:64px;height:64px;object-fit:contain}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px}
+.footer-links a{color:#333}
+.footer-actions{display:flex;flex-wrap:wrap;gap:8px}
+.copy{font-size:.9rem;color:#555}
+@media(max-width:640px){
+  .footerbar{gap:10px}
+  .footer-links{width:100%;justify-content:center}
+  .footer-actions{width:100%;justify-content:center}
+  .copy{width:100%;text-align:center;margin-top:6px}
+}
 </style>
 </head>
 <body>
 
-<header class="topbar">
+<!-- Topbar -->
+<header class="topbar" role="banner">
   <div class="topbar__in">
-    <div class="topbar__left">
-      <div class="dropdown">
-        <button class="btnx" id="projectsBtn">المشاريع ▾</button>
-        <div class="dropdown__menu" id="projectsMenu">
+    <!-- Logo on the RIGHT (RTL) -->
+    <a href="index.html" class="brandlogo" aria-label="الرئيسية">
+      <img src="https://k.top4top.io/p_3532o23f40.png" alt="Islam Sales Real Estate">
+    </a>
+
+    <!-- Left Controls: لغة + تواصل + مشاريع -->
+    <div class="topbar__controls">
+      <a class="btnx" href="resale-en.html" aria-label="English">EN</a>
+
+      <div class="dropdown" id="contactDrop">
+        <button class="btnx">التواصل ▾</button>
+        <div class="dropdown__menu">
+          <a href="tel:+201050072527">📞 اتصال</a>
+          <a href="https://wa.me/201050072527">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
+        </div>
+      </div>
+
+      <div class="dropdown" id="projectsDrop">
+        <button class="btnx">المشاريع ▾</button>
+        <div class="dropdown__menu">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
           <a href="cairo.html">القاهرة الجديدة</a>
@@ -88,40 +129,27 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
         </div>
       </div>
     </div>
-
-    <a href="index.html" class="brandlogo" aria-label="الرئيسية">
-      <img src="https://k.top4top.io/p_3532o23f40.png" alt="Islam Sales Real Estate">
-    </a>
-
-    <div class="topbar__right">
-      <a class="btnx" href="resale-en.html" aria-label="English">EN</a>
-      <div class="dropdown">
-        <button class="btnx" id="contactBtn">التواصل ▾</button>
-        <div class="dropdown__menu" id="contactMenu">
-          <a href="tel:+201050072527">📞 اتصال</a>
-          <a href="https://wa.me/201050072527">💬 واتساب</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ بريد إلكتروني</a>
-        </div>
-      </div>
-    </div>
   </div>
 </header>
 
-<section class="searchwrap">
+<!-- Search -->
+<section class="searchwrap" role="search">
   <div class="container searchbar">
-    <div>ابحث داخل الموقع</div>
+    <div style="font-weight:800">ابحث داخل الموقع</div>
     <div class="searchrow">
-      <input id="q" class="searchinput" placeholder="اكتب اسم المشروع أو المنطقة...">
+      <input id="q" class="searchinput" placeholder="اكتب اسم المشروع أو المنطقة..." aria-label="بحث">
       <button id="searchBtn" class="btn">بحث</button>
     </div>
   </div>
 </section>
 
+<!-- Hero (Title centered) -->
 <section class="hero">
   <h1 class="h1">ابحث عن عقارات ريسيل في العين السخنة والقاهرة الجديدة والساحل الشمالي</h1>
   <div class="sub">أدخل تفضيلاتك وسيتم فتح واتساب برسالة جاهزة.</div>
 </section>
 
+<!-- Form -->
 <section class="container">
   <div class="box" aria-labelledby="formTitle">
     <h3 id="formTitle">بيانات الطلب</h3>
@@ -155,29 +183,28 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
   </div>
 </section>
 
-<footer role="contentinfo">
-  <div class="foot__in">
-    <div class="footgrid">
-      <div class="footcol">
-        <h4>Islam Sales Real Estate</h4>
-        <div>دليل المشاريع والعروض وإعادة البيع.</div>
-      </div>
-      <div class="footcol">
-        <h4>روابط</h4>
-        <a class="footlink" href="index.html">الرئيسية</a>
-        <a class="footlink" href="sokhna.html">العين السخنة</a>
-        <a class="footlink" href="north.html">الساحل الشمالي</a>
-        <a class="footlink" href="cairo.html">القاهرة الجديدة</a>
-        <a class="footlink" href="resale.html">ريسيل</a>
-      </div>
-      <div class="footcol">
-        <h4>تواصل</h4>
-        <a class="footlink" href="tel:+201050072527">📞 01050072527</a>
-        <a class="footlink" href="https://wa.me/201050072527">💬 واتساب</a>
-        <a class="footlink" href="mailto:islammesmail@gmail.com">✉️ islammesmail@gmail.com</a>
-      </div>
+<!-- Footer: شريط واحد -->
+<footer class="footer" role="contentinfo">
+  <div class="footerbar">
+    <div class="footer-left footer-logo">
+      <a href="index.html" aria-label="الرئيسية"><img src="https://k.top4top.io/p_3532o23f40.png" alt="Logo"></a>
     </div>
-    <div class="footbar">© <span id="year"></span> Islam Sales Real Estate</div>
+
+    <nav class="footer-links" aria-label="روابط سريعة">
+      <a href="index.html">الرئيسية</a>
+      <a href="sokhna.html">العين السخنة</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="cairo.html">القاهرة الجديدة</a>
+      <a href="resale.html" aria-current="page">ريسيل</a>
+    </nav>
+
+    <div class="footer-actions">
+      <a class="btnx" href="tel:+201050072527">📞 اتصال</a>
+      <a class="btnx" href="https://wa.me/201050072527">💬 واتساب</a>
+      <a class="btnx" href="mailto:islammesmail@gmail.com">✉️ بريد</a>
+    </div>
+
+    <div class="copy">© <span id="year"></span> Islam Sales Real Estate</div>
   </div>
 </footer>
 
@@ -185,22 +212,25 @@ footer{background:#fff;color:#000;border-top:1px solid var(--line);margin-top:30
 /* Year */
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* Dropdowns */
-const toggle=(btn,menu)=>document.getElementById(btn).addEventListener('click',e=>{
-  e.stopPropagation(); const d=document.getElementById(menu);
-  const shown=d.style.display==='block';
-  document.querySelectorAll('.dropdown__menu').forEach(m=>m.style.display='none');
-  d.style.display=shown?'none':'block';
-});
-toggle('projectsBtn','projectsMenu'); toggle('contactBtn','contactMenu');
-document.addEventListener('click',()=>document.querySelectorAll('.dropdown__menu').forEach(m=>m.style.display='none'));
+/* Dropdowns (toggle) */
+function bindDrop(id){
+  const d=document.getElementById(id);
+  const btn=d.querySelector('button');
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    document.querySelectorAll('.dropdown').forEach(x=>x!==d && x.classList.remove('open'));
+    d.classList.toggle('open');
+  });
+}
+bindDrop('contactDrop'); bindDrop('projectsDrop');
+document.addEventListener('click',()=>document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open')));
 
-/* Internal search (بسيط) */
+/* Search (بسيط) */
 const INDEX=[{t:"Ain Sokhna",u:"sokhna.html"},{t:"North Coast",u:"north.html"},{t:"New Cairo",u:"cairo.html"},{t:"Resale",u:"resale.html"}];
 function goSearch(q){q=q.trim().toLowerCase(); if(!q) return; const hit=INDEX.find(it=>it.t.toLowerCase().includes(q)); if(hit) location.href=hit.u; else alert("لم يتم العثور على نتائج");}
 document.getElementById('searchBtn').onclick=()=>goSearch(document.getElementById('q').value);
 
-/* WhatsApp message */
+/* WhatsApp */
 document.getElementById('send').onclick=()=>{
   const msg=`[طلب ريسيل]\nمنطقة: ${area.value}\nمكان: ${place.value}\nنوع: ${unit.value}\nغرف: ${rooms.value}\nدور: ${floor.value}\nميزانية: ${budget.value}\nملاحظات: ${note.value}`;
   window.open(`https://wa.me/201050072527?text=${encodeURIComponent(msg)}`,'_blank');
