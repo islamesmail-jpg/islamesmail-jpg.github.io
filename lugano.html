@@ -106,19 +106,11 @@ body{
 .arrow.right{inset-inline-end:8px}
 
 /* ICONS INLINE ABOVE PRICES */
-.icons-row-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));
-  gap:12px;max-width:var(--wrap);margin:0 auto 6px;padding:0 16px;
-}
-.between-cta{
-  display:flex;align-items:center;justify-content:flex-start;gap:0;position:relative;
-}
+.icons-row-grid{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;max-width:var(--wrap);margin:0 auto 6px;padding:0 16px}
+.between-cta{display:flex;align-items:center;justify-content:flex-start;gap:0;position:relative}
 .between-cta .icon-btn{background:transparent;border:0;padding:0;line-height:0;cursor:pointer}
 .between-cta .icon-btn img{width:var(--icon);height:var(--icon);display:block;object-fit:contain}
-.between-cta .pop{
-  position:absolute;top:calc(100% + 8px);inset-inline-start:0;background:#fff;border:1px solid var(--line);
-  border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:50;min-width:240px
-}
+.between-cta .pop{position:absolute;top:calc(100% + 8px);inset-inline-start:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:50;min-width:240px}
 .between-cta .pop.open{display:block}
 .pop .pop-title{font-weight:800;margin:0 0 6px}
 .pop a{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#111}
@@ -130,7 +122,6 @@ body{
 .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
 .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
 .price-link:hover{filter:brightness(.97)}
-
 .master-wrap{text-align:center;margin:6px 0 18px}
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
 .master-pill:hover{filter:brightness(.98)}
@@ -608,51 +599,60 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Internal Search (suggestions: pages + projects) */
+/* === Internal Search (central index + fallback) === */
 (function(){
   const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
+  const BOX   = document.getElementById('suggest');
   if(!INPUT||!BOX) return;
 
-  const SITE_INDEX=[
-    // Pages / Areas
+  // 1) Fallback سريع لو ملف الفهرس مش متاح
+  const FALLBACK = [
+    {title:"Lugano Al Galala | لوجانو الجلالة",keywords:"lugano aog manara mk ihg الجلالة",url:"/lugano.html"},
     {title:"العين السخنة",keywords:"sokhna السخنة zafarana suez السويس الجلالة murano lugano",url:"/sokhna.html"},
     {title:"الساحل الشمالي",keywords:"north coast رأس الحكمة sidi abdelrahman سيدي عبد الرحمن",url:"/north.html"},
     {title:"القاهرة الجديدة",keywords:"new cairo التجمع nac العاصمة الادارية",url:"/Cairo.html"},
-    {title:"طريق الزعفرانة",keywords:"zafarana طريق الزعفرانة",url:"/zafarana.html"},
-    {title:"طريق السويس",keywords:"suez طريق السويس",url:"/suez.html"},
-
-    // Projects
-    {title:"Lugano Al Galala | لوجانو الجلالة",keywords:"lugano aog manara mk ihg الجلالة",url:"/lugano.html"},
-    {title:"Murano Wadi Degla | مورانو وادي دجلة",keywords:"murano wadi degla وادي دجلة مارينا",url:"/murano.html"},
-    {title:"Sokhna Hills | السخنة هيلز",keywords:"sokhna hills هيلز الزعفرانة",url:"/sokhnahills.html"},
-    {title:"Porto Sokhna | بورتو السخنة",keywords:"porto amer group ready resale",url:"/porto-sokhna.html"},
-    {title:"Loly Beach | لولي بيتش",keywords:"loly beach لولي بيتش",url:"/lolybeach.html"},
-
-    // Utility
     {title:"إعادة البيع",keywords:"resale ready جاهز استلام فورى",url:"/resale.html"},
     {title:"اعرض وحدتك",keywords:"list unit sell بيع عرض",url:"/list.html"}
   ];
 
+  let SITE_INDEX = FALLBACK.slice();
+
+  // 2) جرّب تحميل الفهرس المركزي إن وُجد
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(json => { if(Array.isArray(json)&&json.length){ SITE_INDEX = json; }})
+    .catch(()=>{}); // سيب fallback شغال
+
+  const makeItem = it => { const a=document.createElement('a'); a.href=it.url; a.textContent=it.title; return a; };
+
   function search(q){
-    q=q.trim().toLowerCase();
-    if(!q) return [];
+    q=(q||'').trim().toLowerCase(); if(!q) return [];
     return SITE_INDEX
-      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
-      .filter(x=>x.score>0).map(x=>x.it).slice(0,8);
+      .map(it=>{
+        const hay=(it.title+' '+(it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q)?2:0;
+        const inKeys  = hay.includes(q)?1:0;
+        return {...it, score: inTitle+inKeys};
+      })
+      .filter(x=>x.score>0)
+      .sort((a,b)=>b.score-a.score)
+      .slice(0,8);
   }
 
-  const render = (res)=>{
+  function render(list){
     BOX.innerHTML='';
-    if(res.length===0){ BOX.style.display='none'; return; }
-    res.forEach(r=>{
-      const a=document.createElement('a'); a.href=r.url; a.textContent=r.title; BOX.appendChild(a);
-    });
+    if(!list.length){ BOX.style.display='none'; return; }
+    list.forEach(r=> BOX.appendChild(makeItem(r)));
     BOX.style.display='block';
-  };
+  }
 
-  INPUT.addEventListener('input', ()=>{ render(search(INPUT.value)); });
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
   document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter'){
+      const first=BOX.querySelector('a'); if(first){ location.href=first.href; }
+    }
+  });
 })();
 
 /* منع الحفظ/الطباعة + كليك يمين + سحب الصور */
