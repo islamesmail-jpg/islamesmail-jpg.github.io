@@ -604,44 +604,59 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Internal Search (suggestions) */
+/* ====== Internal Search (fetch /search-index.json) ====== */
 (function(){
   const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-  const SITE_INDEX=[
-    {title:"العين السخنة",keywords:"sokhna الزعفرانة zafarana suez السويس الجلالة murano مارينا وادي دجلة",url:"/sokhna.html"},
-    {title:"الساحل الشمالي",keywords:"north coast رأس الحكمة sidi abdelrahman سيدي عبد الرحمن",url:"/north.html"},
-    {title:"القاهرة الجديدة",keywords:"new cairo التجمع nac العاصمة الادارية",url:"/Cairo.html"},
-    {title:"Murano Wadi Degla",keywords:"murano wadi degla وادي دجلة مارينا شاطئ ينابيع",url:"/murano.html"},
-    {title:"إعادة البيع",keywords:"resale ready جاهز استلام فورى",url:"/resale.html"},
-    {title:"اعرض وحدتك",keywords:"list unit sell بيع عرض",url:"/list.html"}
-  ];
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-  const makeItem = (it)=> {
-    const a=document.createElement('a'); a.href=it.url; a.textContent=it.title; return a;
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
   };
 
   function search(q){
-    q=q.trim().toLowerCase();
+    q = (q || '').trim().toLowerCase();
     if(!q) return [];
     return SITE_INDEX
-      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
-      .filter(x=>x.score>0).map(x=>x.it).slice(0,8);
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
   }
 
-  INPUT.addEventListener('input', ()=>{
-    const q=INPUT.value;
-    const res=search(q);
-    BOX.innerHTML='';
-    if(res.length===0){ BOX.style.display='none'; return; }
-    res.forEach(r=> BOX.appendChild(makeItem(r)));
-    BOX.style.display='block';
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
   });
-  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
 })();
-  
+
 /* منع الحفظ/الطباعة + كليك يمين */
 document.addEventListener('keydown', (e)=>{
   const k = e.key.toLowerCase();
