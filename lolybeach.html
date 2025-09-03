@@ -203,6 +203,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
   <div class="inner">
     <a href="/">الرئيسية</a><span class="sep">»</span>
     <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <a href="/zafarana.html">طريق الزعفرانة</a><span class="sep">»</span>
     <span aria-current="page">لولي بيتش</span>
   </div>
 </div>
@@ -225,7 +226,6 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
       <span class="line-sub">Loly Beach El Sokhna</span>
       <span class="dev">
         المطوّر: DMA للتطوير العقاري
-        <!-- يمكنك إضافة لوجو المطور هنا إن توفر -->
         <span class="dev-pop" id="heroDevPop">
           شركة DMA للتطوير العقاري
           <a href="dma.html">افتح صفحة المطوّر</a>
@@ -440,7 +440,8 @@ const $ = s => document.querySelector(s);
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"الرئيسية","item":location.origin+"/"},
       {"@type":"ListItem","position":2,"name":"العين السخنة","item":location.origin+"/sokhna.html"},
-      {"@type":"ListItem","position":3,"name":"لولي بيتش","item":location.href}
+      {"@type":"ListItem","position":3,"name":"طريق الزعفرانة","item":location.origin+"/zafarana.html"},
+      {"@type":"ListItem","position":4,"name":"لولي بيتش","item":location.href}
     ]
   }];
   const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(data); document.head.appendChild(s);
@@ -556,47 +557,57 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Internal Search (projects + areas + developers) */
+/* ====== Internal Search via /search-index.json (بدون تغيير أي استايل) ====== */
 (function(){
   const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-  const SITE_INDEX=[
-    /* مناطق */
-    {title:"العين السخنة",keywords:"sokhna الزعفرانة zafarana suez السويس الجلالة murano لولي بيتش dma وادي دجلة",url:"/sokhna.html"},
-    {title:"الساحل الشمالي",keywords:"north coast رأس الحكمة ras el hekma sidi abdelrahman سيدي عبد الرحمن",url:"/north.html"},
-    {title:"القاهرة الجديدة",keywords:"new cairo التجمع nac العاصمة الادارية",url:"/Cairo.html"},
-    /* مشاريع */
-    {title:"Loly Beach Ain El Sokhna",keywords:"loly beach لولي بيتش dma dna عين السخنة",url:"/lolybeach.html"},
-    {title:"Murano Wadi Degla",keywords:"murano وادي دجلة wadi degla مارينا شاطئ ينابيع",url:"/murano.html"},
-    /* مطورين */
-    {title:"DMA Developments",keywords:"dma dna developer المطور لولي بيتش",url:"/dma.html"},
-    {title:"Wadi Degla Developments",keywords:"wadi degla developer murano وادي دجلة",url:"/wadidegla.html"},
-    /* أخرى */
-    {title:"إعادة البيع",keywords:"resale ready جاهز استلام فورى",url:"/resale.html"},
-    {title:"اعرض وحدتك",keywords:"list unit sell بيع عرض",url:"/list.html"}
-  ];
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-  const makeItem = (it)=> { const a=document.createElement('a'); a.href=it.url; a.textContent=it.title; return a; };
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
 
   function search(q){
-    q=q.trim().toLowerCase();
+    q = (q || '').trim().toLowerCase();
     if(!q) return [];
     return SITE_INDEX
-      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
-      .filter(x=>x.score>0).map(x=>x.it).slice(0,10);
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
   }
 
-  INPUT.addEventListener('input', ()=>{
-    const q=INPUT.value;
-    const res=search(q);
-    BOX.innerHTML='';
-    if(res.length===0){ BOX.style.display='none'; return; }
-    res.forEach(r=> BOX.appendChild(makeItem(r)));
-    BOX.style.display='block';
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
   });
-  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
 })();
 
 /* منع الحفظ/الطباعة + كليك يمين */
