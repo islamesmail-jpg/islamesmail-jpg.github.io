@@ -87,7 +87,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .video-wrap video{width:100%;height:auto;display:block;background:#000}
 
 /* SLIDER */
-.slider-wrap{position:relative;margin:18px auto 20px}
+.slider-wrap{position:relative;margin:18px auto 8px}
 .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;cursor:grab}
 .slider:active{cursor:grabbing}
 .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -98,13 +98,13 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .arrow.left{left:8px}
 .arrow.right{right:8px}
 
-/* DEV + SHARE + COPY in slider (small neat) */
-.slider-cta{position:absolute;right:16px;bottom:14px;display:flex;align-items:center;gap:8px;z-index:9}
+/* DEV + SHARE + COPY BELOW the slider (centered) */
+.slider-cta{display:flex;justify-content:center;align-items:center;gap:12px;margin:10px 0 4px}
 .slider-cta .plain{background:transparent;border:0;padding:0;cursor:pointer}
-.slider-cta .plain img{width:34px;height:34px;object-fit:contain;display:block}
+.slider-cta .plain img{width:32px;height:32px;object-fit:contain;display:block}
 
-/* Mini card under slider CTAs */
-.wd-mini{position:absolute;right:16px;bottom:60px;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none;z-index:9}
+/* Mini card pops above the CTA, centered */
+.wd-mini{position:relative;max-width:360px;margin:8px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none}
 .wd-mini.open{display:block}
 .wd-mini .title{font-weight:800;margin-bottom:6px}
 .wd-mini a{display:inline-block;margin-top:6px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:#111;background:#f9fafb}
@@ -120,7 +120,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
 .master-pill:hover{filter:brightness(.98)}
 
-/* LIGHTBOX MODAL (counter + no top bar) */
+/* LIGHTBOX MODAL */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:0;z-index:3000}
 .modal.open{display:flex}
 .modal img{max-width:96vw;max-height:94vh;display:block}
@@ -264,10 +264,9 @@ button:hover{filter:brightness(.95)}
       <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6"></figure>
     </div>
 
-    <!-- DEV + SHARE + COPY (small) -->
+    <!-- DEV + SHARE + COPY (centered below the slider) -->
     <div class="slider-cta" id="sliderCta">
       <button class="plain" id="wdBtn" aria-label="Show developer">
-        <!-- you can swap back to: https://k.top4top.io/p_35329hhyk0.png if preferred -->
         <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla">
       </button>
       <button class="plain" id="wdShare" title="Share current page" aria-label="Share">
@@ -426,7 +425,7 @@ button:hover{filter:brightness(.95)}
           Direct Contact
         </a>
         <a href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg class="icon-s" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.32c-.28-.14-1.62-.8-1.87-.89s-.43-.14-.61.14-.7.89-.86 1.08-.32.21-.6.07a8.47 8.47 0 0 1-2.49-1.54 9 9 0 0 1-1.66-2.06c-.17-.29 0-.45.13-.59s.28-.32.42-.49a1.94 1.94 0 0 0 .28-.47.52.52 0 0 0 0-.49c0-.14-.61-1.47-.84-2s-.45-.47-.61-.47h-.52a1 1 0 0 0-.73.35 3.07 3.07 0 0 0-.95 2.27 5.36 5.36 0  0 0 1.12 2.86 12.23 12.23 0 0 0 4.73 4.31 16.29 16.29 0 0 0 1.6.74 3.86 3.86 0  0 0 1.76.11 2.89 2.89 0 0 0 1.88-1.33 2.37 2.37 0 0 0 .17-1.33c-.06-.09-.25-.14-.53-.28z"/></svg>
+          <svg class="icon-s" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.32c-.28-.14-1.62-.8-1.87-.89s-.43-.14-.61.14-.7.89-.86 1.08-.32.21-.6.07a8.47 8.47 0 0 1-2.49-1.54 9 9 0 0 1-1.66-2.06c-.17-.29 0-.45.13-.59s.28-.32.42-.49a1.94 1.94 0 0 0 .28-.47.52.52 0  0 0 0-.49c0-.14-.61-1.47-.84-2s-.45-.47-.61-.47h-.52a1 1 0 0 0-.73.35 3.07 3.07 0 0 0-.95 2.27 5.36 5.36 0 0 0 1.12 2.86 12.23 12.23 0 0 0 4.73 4.31 16.29 16.29 0 0 0 1.6.74 3.86 3.86 0 0 0 1.76.11 2.89 2.89 0 0 0 1.88-1.33 2.37 2.37 0  0 0 .17-1.33c-.06-.09-.25-.14-.53-.28z"/></svg>
           WhatsApp
         </a>
         <a href="mailto:islammesmail@gmail.com" aria-label="Email">
