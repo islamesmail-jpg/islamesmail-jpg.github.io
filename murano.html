@@ -27,7 +27,7 @@
   --bg:#ffffff; --card:#f8fafc; --text:#111827; --muted:#4b5563;
   --accent:#111827; --field:#f3f4f6; --radius:16px; --wrap:1120px;
   --shadow:0 6px 16px rgba(0,0,0,.06); --line:#e5e7eb;
-  --icon:32px; /* حجم الأيقونات */
+  --icon:32px; /* حجم أيقونات المطوّر/شير/نسخ */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -64,7 +64,7 @@ body{
 .search-box{display:flex;gap:10px}
 .search-box input{flex:1;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
 .suggest{position:absolute;top:100%;inset-inline-start:16px;right:16px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:6px;display:none;max-height:280px;overflow:auto;z-index:1200}
-.suggest a{display:block;padding:10px 12px;color:var(--text);text-decoration:none;border-bottom:1px solid #f3f4f6}
+.suggest a{display:block;padding:10px 12px;color:#111;text-decoration:none;border-bottom:1px solid #f3f4f6}
 .suggest a:last-child{border-bottom:0}
 .suggest a:hover{background:#f9fafb}
 
@@ -103,29 +103,32 @@ body{
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* ====== PRICES + ICONS ABOVE DEVELOPER PRICE ====== */
-.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:14px 0}
-.price-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--shadow);border:1px solid var(--line);position:relative}
+/* ====== صف الأيقونات "بين" الجاليري وكروت الأسعار ====== */
+.between-cta{
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  margin:6px 0 10px; position:relative;
+}
+.between-cta .icon-btn{background:transparent;border:0;padding:0;line-height:0;cursor:pointer}
+.between-cta .icon-btn img{width:var(--icon);height:var(--icon);display:block;object-fit:contain}
+
+/* Popups الخاصة بالمطور/المشاركة – تظهر تحت الصف */
+.between-cta .pop{
+  position:absolute;top:calc(100% + 8px);inset-inline-end:50%;
+  transform:translateX(50%); /* وسط الصف */
+  background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
+  padding:10px;display:none;z-index:50;min-width:240px
+}
+.between-cta .pop.open{display:block}
+.pop .pop-title{font-weight:800;margin:0 0 6px}
+.pop a{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#111}
+.pop a:hover{background:#f9fafb}
+
+/* PRICES */
+.prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:10px 0}
+.price-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
 .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
 .price-link:hover{filter:brightness(.97)}
-
-/* شريط الأيقونات فوق كارت "سعر المطوّر" */
-.price-cta{
-  position:absolute;
-  top:-18px;              /* فوق الكارت مباشرة */
-  inset-inline-end:8px;   /* ناحية الحافة */
-  display:flex;align-items:center;gap:4px;
-}
-.price-cta .icon-btn{
-  background:var(--bg);   /* نفس لون الخلفية (غير ظاهر) */
-  border-radius:50%;
-  padding:2px;            /* لمسة حماية للأيقونة */
-  border:0;line-height:0;cursor:pointer;
-}
-.price-cta img{width:var(--icon);height:var(--icon);display:block;object-fit:contain}
-
-/* MASTERPLAN */
 .master-wrap{text-align:center;margin:6px 0 18px}
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
 .master-pill:hover{filter:brightness(.98)}
@@ -137,18 +140,6 @@ body{
 .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9)}
 .modal.hide-arrows .nav{opacity:0}
 .counter{position:absolute;top:16px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:13px}
-
-/* POPUPS (المطور / المشاركة) */
-.pop{
-  position:absolute; top:calc(-100% - 10px); /* أعلى الأزرار */
-  inset-inline-end:0;
-  background:#fff;border:1px solid var(--line);border-radius:12px;
-  box-shadow:var(--shadow);padding:10px;display:none;z-index:40;min-width:220px
-}
-.pop.open{display:block}
-.pop a{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#111}
-.pop a:hover{background:#f9fafb}
-.pop .pop-title{font-weight:800;margin:0 0 6px}
 
 /* TEXT */
 section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
@@ -167,7 +158,7 @@ label{font-size:13px;color:#374151}
 input,select,textarea{width:100%;background:var(--field);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
 textarea{min-height:100px;resize:vertical}
 .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:var(--accent);color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
+button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
 button:hover{filter:brightness(.95)}
 
 /* FLOATING WHATSAPP */
@@ -192,7 +183,7 @@ button:hover{filter:brightness(.95)}
 .icon-s{width:18px;height:18px}
 .copyright{text-align:center;color:#6b7280;font-size:14px;padding:8px 16px}
 
-/* منع تحميل الصور/الفيديو (ردع عملي) */
+/* منع تنزيل الصور/الفيديو (ردع عملي) */
 img, video{ -webkit-user-drag:none; user-drag:none }
 img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 </style>
@@ -288,43 +279,40 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
     </div>
   </div>
 
+  <!-- ===== صف الأيقونات بين الجاليري والأسعار ===== -->
+  <div class="between-cta" id="betweenCta" aria-label="المطور، مشاركة، نسخ">
+    <button class="icon-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
+      <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla" width="32" height="32">
+    </button>
+    <button class="icon-btn" id="wdShare" title="مشاركة صفحة مورانو" aria-label="مشاركة">
+      <img src="https://b.top4top.io/p_3532s12ml1.png" alt="Share" width="32" height="32">
+    </button>
+    <button class="icon-btn" id="wdCopy" title="نسخ رابط مورانو" aria-label="نسخ الرابط">
+      <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link" width="32" height="32">
+    </button>
+
+    <!-- Popups -->
+    <div class="pop" id="devPop">
+      <div class="pop-title">شركة وادي دجلة للتطوير العقاري</div>
+      <a href="wadidegla.html">افتح صفحة المطوّر</a>
+    </div>
+
+    <div class="pop" id="sharePop" aria-label="خيارات المشاركة">
+      <div class="pop-title">مشاركة مورانو</div>
+      <a id="shareWapp" target="_blank" rel="noopener">واتساب</a>
+      <a id="shareTg"   target="_blank" rel="noopener">تليجرام</a>
+      <a id="shareFb"   target="_blank" rel="noopener">فيسبوك</a>
+      <a id="shareTw"   target="_blank" rel="noopener">تويتر (X)</a>
+      <a id="shareMail" href="#">الإيميل</a>
+    </div>
+  </div>
+
   <!-- PRICES -->
   <div class="prices">
-    <!-- كارت سعر المطوّر ومعاه الأيقونات فوقه -->
-    <div class="price-card" id="devPriceCard">
-      <!-- شريط الأيقونات فوق الكارت -->
-      <div class="price-cta" id="priceCta">
-        <button class="icon-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
-          <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla" width="32" height="32">
-        </button>
-        <button class="icon-btn" id="wdShare" title="مشاركة صفحة مورانو" aria-label="مشاركة">
-          <img src="https://b.top4top.io/p_3532s12ml1.png" alt="Share" width="32" height="32">
-        </button>
-        <button class="icon-btn" id="wdCopy" title="نسخ رابط مورانو" aria-label="نسخ الرابط">
-          <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link" width="32" height="32">
-        </button>
-
-        <!-- Popups -->
-        <div class="pop" id="devPop">
-          <div class="pop-title">شركة وادي دجلة للتطوير العقاري</div>
-          <a href="wadidegla.html">افتح صفحة المطوّر</a>
-        </div>
-
-        <div class="pop" id="sharePop" aria-label="خيارات المشاركة">
-          <div class="pop-title">مشاركة مورانو</div>
-          <a id="shareWapp" target="_blank" rel="noopener">واتساب</a>
-          <a id="shareTg"   target="_blank" rel="noopener">تليجرام</a>
-          <a id="shareFb"   target="_blank" rel="noopener">فيسبوك</a>
-          <a id="shareTw"   target="_blank" rel="noopener">تويتر (X)</a>
-          <a id="shareMail" href="#">الإيميل</a>
-        </div>
-      </div>
-
+    <div class="price-card">
       <div class="price-title">سعر المطوّر</div>
       <a class="price-link" href="#contact">استفسر عن العروض</a>
     </div>
-
-    <!-- كارت إعادة البيع كما هو -->
     <div class="price-card">
       <div class="price-title">سعر إعادة البيع</div>
       <a class="price-link" href="#contact">تواصل لمعرفة السعر</a>
@@ -335,7 +323,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
     <a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">ماستر بلان المشروع</a>
   </div>
 
-  <!-- DESCRIPTION (مختصر للحجم) -->
+  <!-- DESCRIPTION (مختصر) -->
   <section>
     <h2>عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة واحدة من أجمل المنتجعات على ساحل البحر الأحمر، بموقع استراتيجي قرب طريق الجلالة ومحطة قطار السخنة، وخدمات متكاملة تناسب العائلة المصرية.</p>
@@ -369,9 +357,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
 <!-- FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="inner">
-    <div class="footer-brand">
-      <img src="https://l.top4top.io/p_3532e7wgg0.png" alt="Islam Sales Real Estate">
-    </div>
+    <div class="footer-brand"><img src="https://l.top4top.io/p_3532e7wgg0.png" alt="Islam Sales Real Estate"></div>
     <div class="footer-links-row">
       <h4>روابط سريعة</h4>
       <nav class="footer-links" aria-label="روابط سريعة">
@@ -413,7 +399,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
 <script>
 const $ = s => document.querySelector(s);
 
-/* JSON-LD (Website + Breadcrumb) */
+/* JSON-LD */
 (function(){
   const data = [{
     "@context":"https://schema.org","@type":"WebSite",
@@ -439,13 +425,12 @@ const $ = s => document.querySelector(s);
   document.addEventListener('click', ()=> open(false));
 })();
 
-/* Dev logo in HERO */
+/* HERO developer pop */
 (function(){
-  const logo = document.getElementById('heroDevLogo');
-  const pop = document.getElementById('heroDevPop');
+  const logo = $('#heroDevLogo'), pop = $('#heroDevPop');
   if(!logo||!pop) return;
-  logo.addEventListener('click', (e)=>{ e.stopPropagation(); pop.classList.toggle('open'); });
-  document.addEventListener('click', (e)=>{ if(!pop.contains(e.target) && e.target!==logo) pop.classList.remove('open'); });
+  logo.addEventListener('click', e=>{ e.stopPropagation(); pop.classList.toggle('open'); });
+  document.addEventListener('click', e=>{ if(!pop.contains(e.target) && e.target!==logo) pop.classList.remove('open'); });
 })();
 
 /* Slider + Lightbox */
@@ -466,84 +451,73 @@ const $ = s => document.querySelector(s);
 
   // lightbox
   const slides = Array.from(scroller.querySelectorAll('.slide img'));
-  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
-  const lbPrev = document.getElementById('lbPrev'), lbNext = document.getElementById('lbNext'), lbCount = document.getElementById('lbCount');
+  const lb = $('#lightbox'), lbImg = $('#lbImg'), lbPrev=$('#lbPrev'), lbNext=$('#lbNext'), lbCount=$('#lbCount');
   const gallerySrcs = slides.map(s=>s.src);
   let idx = 0, hideTimer=null;
   function setCount(){ lbCount.textContent = (idx+1) + ' / ' + gallerySrcs.length; }
-  function showArrowsTemporarily(){ lb.classList.remove('hide-arrows'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>lb.classList.add('hide-arrows'),2000); }
-  function openLB(i){ idx=i; lbImg.src=gallerySrcs[idx]; setCount(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrowsTemporarily(); }
-  function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); clearTimeout(hideTimer); }
-  function nextLB(){ idx=(idx+1)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrowsTemporarily(); }
-  function prevLB(){ idx=(idx-1+gallerySrcs.length)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrowsTemporarily(); }
+  function showArrows(){ lb.classList.remove('hide-arrows'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>lb.classList.add('hide-arrows'),2000); }
+  function openLB(i){ idx=i; lbImg.src=gallerySrcs[idx]; setCount(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrows(); }
   slides.forEach((img,i)=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=> openLB(i)); });
-  lbNext.addEventListener('click', nextLB); lbPrev.addEventListener('click', prevLB);
-  lb.addEventListener('mousemove', showArrowsTemporarily, {passive:true}); lb.addEventListener('touchstart', showArrowsTemporarily, {passive:true});
-  lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
-  document.addEventListener('keydown', (e)=>{ if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') (document.dir==='rtl'? nextLB(): prevLB()); if(e.key==='ArrowRight') (document.dir==='rtl'? prevLB(): nextLB()); });
+  lbNext.addEventListener('click', ()=>{ idx=(idx+1)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrows(); });
+  lbPrev.addEventListener('click', ()=>{ idx=(idx-1+gallerySrcs.length)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrows(); });
+  lb.addEventListener('click', e=>{ if(e.target===lb) { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); clearTimeout(hideTimer); }});
+  document.addEventListener('keydown', e=>{ if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
+    if(e.key==='ArrowLeft') (document.dir==='rtl'? ()=>{idx=(idx+1)%gallerySrcs.length}: ()=>{idx=(idx-1+gallerySrcs.length)%gallerySrcs.length})();
+    if(e.key==='ArrowRight') (document.dir==='rtl'? ()=>{idx=(idx-1+gallerySrcs.length)%gallerySrcs.length}: ()=>{idx=(idx+1)%gallerySrcs.length})();
+  });
 
   // Masterplan
-  document.getElementById('openMaster').addEventListener('click', (e)=>{ 
-    e.preventDefault(); 
-    lbImg.src='https://g.top4top.io/p_3525qqtvx0.jpg'; 
-    lbCount.textContent = 'الماستر بلان';
-    lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrowsTemporarily();
+  $('#openMaster').addEventListener('click', (e)=>{ 
+    e.preventDefault(); lbImg.src='https://g.top4top.io/p_3525qqtvx0.jpg'; 
+    lbCount.textContent = 'الماستر بلان'; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrows();
   });
 })();
 
-/* === الأزرار فوق كارت سعر المطوّر === */
+/* Between-CTA logic */
 (function(){
-  const cta = document.getElementById('priceCta');
-  const devBtn = document.getElementById('wdBtn');
-  const shareBtn = document.getElementById('wdShare');
-  const copyBtn = document.getElementById('wdCopy');
-  const devPop = document.getElementById('devPop');
-  const sharePop = document.getElementById('sharePop');
+  const row = $('#betweenCta');
+  const devBtn = $('#wdBtn'), shareBtn = $('#wdShare'), copyBtn = $('#wdCopy');
+  const devPop = $('#devPop'), sharePop = $('#sharePop');
 
   const MURANO_URL = 'https://islamesmail-jpg.github.io/murano.html';
   const SHARE_TEXT = `أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة.
 وصف كامل + الموقع + الخدمات + معلومات المطوّر.
 للمزيد: ${MURANO_URL}`;
 
-  function closeAllPop(){ devPop.classList.remove('open'); sharePop.classList.remove('open'); }
-  document.addEventListener('click', (e)=>{ if(!cta.contains(e.target)) closeAllPop(); });
+  function closeAll(){ devPop.classList.remove('open'); sharePop.classList.remove('open'); }
+  document.addEventListener('click', e=>{ if(!row.contains(e.target)) closeAll(); });
 
-  // Developer pop
-  devBtn.addEventListener('click', (e)=>{ e.stopPropagation(); sharePop.classList.remove('open'); devPop.classList.toggle('open'); });
+  devBtn.addEventListener('click', e=>{ e.stopPropagation(); sharePop.classList.remove('open'); devPop.classList.toggle('open'); });
 
-  // Share pop + copy + native share
-  const $id = id => document.getElementById(id);
-  (function initShareLinks(){
-    $id('shareWapp').href = `https://wa.me/?text=${encodeURIComponent(SHARE_TEXT)}`;
-    $id('shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
-    $id('shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
-    $id('shareTw').href   = `https://twitter.com/intent/tweet?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
-    $id('shareMail').href = `mailto:?subject=${encodeURIComponent('Murano Wadi Degla')}&body=${encodeURIComponent(SHARE_TEXT)}`;
+  // إعداد روابط المشاركة (ديسكتوب)
+  (function(){
+    $('#shareWapp').href = `https://wa.me/?text=${encodeURIComponent(SHARE_TEXT)}`;
+    $('#shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+    $('#shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
+    $('#shareTw').href   = `https://twitter.com/intent/tweet?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+    $('#shareMail').href = `mailto:?subject=${encodeURIComponent('Murano Wadi Degla')}&body=${encodeURIComponent(SHARE_TEXT)}`;
   })();
 
   async function copyToClipboard(text){ try{ await navigator.clipboard.writeText(text); return true; }catch{ return false; } }
 
-  shareBtn.addEventListener('click', async (e)=>{
+  shareBtn.addEventListener('click', async e=>{
     e.stopPropagation();
-    // انسخ النص أولاً
-    await copyToClipboard(SHARE_TEXT);
-    // جرّب Native Share
+    await copyToClipboard(SHARE_TEXT); // ينسخ النص أولاً
     try{
       if(navigator.share){
         await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:MURANO_URL});
         return;
       }
     }catch(_){}
-    // وإلا افتح Pop البديل
     devPop.classList.remove('open');
-    sharePop.classList.toggle('open');
+    sharePop.classList.toggle('open'); // فتح بديل المشاركة
   });
 
-  copyBtn.addEventListener('click', async (e)=>{
+  copyBtn.addEventListener('click', async e=>{
     e.stopPropagation();
     const ok = await copyToClipboard(MURANO_URL);
-    // مفيش Toast هنا علشان البساطة، ممكن نضيفه لو حابب
-    if(!ok){ alert('لم يتم النسخ'); }
+    if(!ok) alert('لم يتم النسخ');
   });
 })();
 
@@ -572,7 +546,7 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* منع حفظ/طباعة + كليك يمين على الصور */
+/* منع الحفظ/الطباعة وكليك يمين على الصور */
 document.addEventListener('keydown', (e)=>{
   const k = e.key.toLowerCase();
   if((e.ctrlKey||e.metaKey) && (k==='s' || k==='p')) e.preventDefault();
