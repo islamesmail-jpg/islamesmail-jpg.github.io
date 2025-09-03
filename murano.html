@@ -98,10 +98,18 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* DEV + SHARE + COPY BELOW the slider (centered & side-by-side) */
-.slider-cta{display:flex;justify-content:center;align-items:center;gap:4px;margin:8px 0 2px}
-.slider-cta .plain{background:transparent;border:0;padding:0;cursor:pointer}
-.slider-cta .plain img{width:28px;height:28px;object-fit:contain;display:block}
+/* === DEV + SHARE + COPY (inline, no boxes) === */
+.slider-cta{
+  display:flex;justify-content:center;align-items:center;
+  gap:6px;margin:6px 0 0;background:transparent;border:0;padding:0;
+}
+.slider-cta .plain{
+  background:transparent;border:0;padding:0;margin:0;cursor:pointer;line-height:0;
+}
+.slider-cta .plain img{
+  width:28px;height:28px;object-fit:contain;display:block;
+  filter:none; /* بدون مؤثرات */
+}
 
 /* Mini card (developer) centered under CTA */
 .wd-mini{position:relative;max-width:360px;margin:8px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none}
@@ -265,8 +273,8 @@ button:hover{filter:brightness(.95)}
     </div>
   </div>
 
-  <!-- DEV + SHARE + COPY (centered under slider) -->
-  <div class="slider-cta" id="sliderCta">
+  <!-- DEV + SHARE + COPY (inline, no boxes) -->
+  <div class="slider-cta" id="sliderCta" aria-label="روابط المطوّر والمشاركة والنسخ">
     <button class="plain" id="wdBtn" aria-label="عرض شركة وادي دجلة">
       <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla">
     </button>
@@ -277,6 +285,8 @@ button:hover{filter:brightness(.95)}
       <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link">
     </button>
   </div>
+
+  <!-- Mini card (only on click) -->
   <div class="wd-mini" id="wdMini" role="dialog" aria-modal="false" aria-label="شركة وادي دجلة للتطوير العقاري">
     <div class="title">شركة وادي دجلة للتطوير العقاري</div>
     <a href="wadidegla.html" id="openDev">افتح الصفحة</a>
@@ -561,7 +571,7 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Dev mini + Share + Copy (SEO text) */
+/* Dev mini + Share + Copy (text only; icons inline) */
 (function(){
   const devBtn = document.getElementById('wdBtn');
   const shareBtn = document.getElementById('wdShare');
