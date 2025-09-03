@@ -584,68 +584,94 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Internal Search (projects + developers + areas) */
+<script>
+/* ===== Central Internal Search using /search-index.json (with fallback) ===== */
 (function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
-
-  const SITE_INDEX=[
-    <script>
-(function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX   = document.getElementById('suggest');
+  const INPUT  = document.getElementById('siteSearch');
+  const BOX    = document.getElementById('suggest');
   if(!INPUT || !BOX) return;
 
-  let SITE_INDEX =<script>
-(function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX   = document.getElementById('suggest');
-  if(!INPUT || !BOX) return;
+  // --- Fallback محلي يتفعّل لو search-index.json غير متاح ---
+  const FALLBACK = [
+    {title:"Lugano Al Galala | لوجانو الجلالة", keywords:"lugano الجلالة aog manara mk ihg ras sudr zafarana sokhna السخنة", url:"/lugano.html"},
+    {title:"Ain Sokhna | العين السخنة", keywords:"sokhna السخنة zafarana suez السويس galala الجلالة murano porto", url:"/sokhna.html"},
+    {title:"North Coast | الساحل الشمالي", keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن", url:"/north.html"},
+    {title:"New Cairo | القاهرة الجديدة", keywords:"new cairo 5th التجمع nac العاصمة الادارية مستقبل سيتي", url:"/Cairo.html"},
+    {title:"Resale | إعادة البيع", keywords:"resale ready جاهز استلام فورى offers deals", url:"/resale.html"},
+    {title:"List Your Unit | اعرض وحدتك", keywords:"list unit sell بيع عرض your unit", url:"/list.html"}
+  ];
 
-  let SITE_INDEX = [];
+  // هنحمّل المؤشر المركزي … لو اشتغل هنستبدله، لو فشل يفضل الـ fallback
+  let SITE_INDEX = FALLBACK.slice();
+
+  // ملاحظة: استخدام المسار الجذري يشتغل ممتاز على GitHub Pages
   fetch('/search-index.json', {cache:'no-store'})
-    .then(r => r.json())
-    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-    .catch(() => SITE_INDEX = []);
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(json => {
+      if (Array.isArray(json) && json.length) SITE_INDEX = json;
+    })
+    .catch(()=>{ /* يظلّ fallback */ });
 
-  const makeItem = it => {
+  // -- مساعدات --
+  const mkItem = (it) => {
     const a = document.createElement('a');
     a.href = it.url;
     a.textContent = it.title;
     return a;
   };
 
+  // Tokenize بسيط + أوزان (عنوان=2، كلمات مفتاحية=1) + Boost لمطابقة البداية
+  function scoreItem(it, qTokens){
+    const title = (it.title||'').toLowerCase();
+    const keys  = (it.keywords||'').toLowerCase();
+    let score = 0;
+    for (const t of qTokens){
+      const inTitle = title.includes(t);
+      const inKeys  = keys.includes(t);
+      if (inTitle) score += 2;
+      if (inKeys)  score += 1;
+
+      // Boost بسيط لمطابقة بادئة الكلمة
+      if (title.startsWith(t) || keys.startsWith(t)) score += 1;
+    }
+    return score;
+  }
+
   function search(q){
-    q = (q || '').trim().toLowerCase();
-    if(!q) return [];
+    q = (q||'').trim().toLowerCase();
+    if (!q) return [];
+    const qTokens = q.split(/\s+/).filter(Boolean);
     return SITE_INDEX
-      .map(it=>{
-        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
-        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
-        const inKeys  = hay.includes(q) ? 1 : 0;
-        return {...it, score: inTitle + inKeys};
-      })
-      .filter(x => x.score > 0)
-      .sort((a,b) => b.score - a.score)
-      .slice(0,8);
+      .map(it => ({...it, _score: scoreItem(it, qTokens)}))
+      .filter(it => it._score > 0)
+      .sort((a,b) => b._score - a._score)
+      .slice(0, 10);
   }
 
   function render(list){
     BOX.innerHTML = '';
-    if(list.length === 0){ BOX.style.display='none'; return; }
-    list.forEach(r => BOX.appendChild(makeItem(r)));
+    if (!list.length){ BOX.style.display='none'; return; }
+    list.forEach(item => BOX.appendChild(mkItem(item)));
     BOX.style.display = 'block';
   }
 
-  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-  document.addEventListener('click', (e)=>{
-    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  // Debounce بسيط لراحة الكتابة
+  let t = null;
+  INPUT.addEventListener('input', ()=>{
+    clearTimeout(t);
+    t = setTimeout(()=> render(search(INPUT.value)), 120);
   });
+
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener('click', (e)=>{
+    if (!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+
+  // Enter يفتح أول نتيجة
   INPUT.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter'){
+    if (e.key === 'Enter'){
       const first = BOX.querySelector('a');
-      if(first){ window.location.href = first.href; }
+      if (first) location.href = first.href;
     }
   });
 })();
