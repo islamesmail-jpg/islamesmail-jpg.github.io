@@ -25,7 +25,7 @@
   --bg:#ffffff; --card:#f8fafc; --text:#111827; --muted:#4b5563;
   --accent:#111827; --field:#f3f4f6; --radius:16px; --wrap:1120px;
   --shadow:0 6px 16px rgba(0,0,0,.06); --line:#e5e7eb;
-  --icon:32px; /* حجم الأيقونات المطلوبة */
+  --icon:32px; /* حجم الأيقونات */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -101,11 +101,9 @@ body{
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* === DEV + SHARE + COPY (بدون دوائر) === */
+/* === DEV + SHARE + COPY (بدون أي خلفية) === */
 .slider-cta{display:flex;justify-content:center;align-items:center;gap:8px;margin:8px 0 0}
-.icon-btn{
-  background:transparent;border:0;padding:0;cursor:pointer;line-height:0;
-}
+.icon-btn{background:transparent;border:0;padding:0;cursor:pointer;line-height:0}
 .icon-btn img{width:var(--icon);height:var(--icon);object-fit:contain;display:block}
 
 /* DEV mini card */
@@ -171,15 +169,13 @@ button:hover{filter:brightness(.95)}
 .footer-links a:hover{text-decoration:underline}
 .footer-contact{display:flex;flex-wrap:wrap;gap:10px}
 .footer-contact a{display:inline-flex;align-items:center;gap:8px;color:#111;text-decoration:none}
-.footer-contact a:hover{text-decoration:underline}
+.footer-contact a:hover{border-bottom:1px solid #ddd}
 .icon-s{width:18px;height:18px}
 .copyright{text-align:center;color:#6b7280;font-size:14px;padding:8px 16px}
 
-/* UTIL + منع التحميل على الصور */
+/* منع التحميل على الصور/الفيديو */
 img, video{ -webkit-user-drag:none; user-drag:none }
-img, .modal img{
-  -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
-}
+img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 </style>
 </head>
 <body>
@@ -273,7 +269,7 @@ img, .modal img{
     </div>
   </div>
 
-  <!-- DEV + SHARE + COPY (بدون دوائر) -->
+  <!-- DEV + SHARE + COPY (بدون خلفية) -->
   <div class="slider-cta" id="sliderCta" aria-label="وادي دجلة، مشاركة، نسخ">
     <button class="icon-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
       <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla" width="32" height="32">
@@ -299,18 +295,18 @@ img, .modal img{
   </div>
   <div class="master-wrap"><a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">ماستر بلان المشروع</a></div>
 
-  <!-- DESCRIPTION (نفس محتواك) -->
+  <!-- DESCRIPTION (مختصر) -->
   <section>
     <h2>عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة واحدة من أجمل المنتجعات على ساحل البحر الأحمر...</p>
     <h2>موقع قرية مورانو العين السخنة</h2>
-    <p>يقع Murano Wadi Degla في منطقة مميّزة...</p>
+    <p>يقع Murano Wadi Degla في موقع متميّز قريب من طريق الجلالة ومحطة قطار السخنة...</p>
     <h2>أهم الطرق والمحاور القريبة</h2>
     <ul><li>طريق الجلالة: 18 كم</li><li>محطة قطار العين السخنة: 14 كم</li><li>القاهرة: 136 كم</li><li>طريق القطامية: 112 كم</li></ul>
-    <h2>مساحة مورانو وادي دجلة</h2><p>صُمّم المشروع على مساحة واسعة...</p>
-    <h2>ماستر بلان القرية</h2><ul><li>حمامات سباحة متنوعة</li><li>مناطق ألعاب للأطفال</li><li>مطاعم ومقاهي</li><li>محلات تجارية</li><li>ممشى ودراجات</li></ul>
+    <h2>الماستر بلان والخدمات</h2>
+    <ul><li>حمامات سباحة</li><li>منطقة ألعاب أطفال</li><li>مطاعم ومقاهي</li><li>تجاري</li><li>ممرات مشي ودراجات</li></ul>
     <h2>أنواع الوحدات</h2><ul><li>شقق</li><li>فلل</li></ul>
-    <h2>مرافق وخدمات مورانو</h2><ul><li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4 نجوم</li><li>مطاعم وتجاري</li><li>سبا وملاعب</li><li>ينابيع مياه ساخنة</li></ul>
+    <h2>مرافق أخرى</h2><ul><li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4 نجوم</li><li>ينابيع مياه ساخنة</li></ul>
   </section>
 
   <!-- CONTACT -->
@@ -374,7 +370,13 @@ img, .modal img{
 </div>
 
 <!-- Share fallback + toast -->
-<div class="share-sheet" id="shareSheet" style="display:none"><div class="share-row"><a id="shareWapp" target="_blank" rel="noopener">واتساب ويب</a><a id="shareTg" target="_blank" rel="noopener">تليجرام</a><a id="shareFb" target="_blank" rel="noopener">فيسبوك</a></div></div>
+<div class="share-sheet" id="shareSheet" style="display:none">
+  <div class="share-row">
+    <a id="shareWapp" target="_blank" rel="noopener">واتساب ويب</a>
+    <a id="shareTg" target="_blank" rel="noopener">تليجرام</a>
+    <a id="shareFb" target="_blank" rel="noopener">فيسبوك</a>
+  </div>
+</div>
 <div class="toast" id="toast">تم النسخ ✅</div>
 
 <script>
