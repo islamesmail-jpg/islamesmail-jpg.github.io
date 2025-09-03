@@ -206,6 +206,7 @@ img, video{ -webkit-user-drag:none; user-drag:none }
   <div class="inner">
     <a href="/">الرئيسية</a><span class="sep">»</span>
     <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
+    <a href="/zafarana.html">طريق الزعفرانة</a><span class="sep">»</span>
     <span aria-current="page">دولفين بيتش</span>
   </div>
 </div>
@@ -451,7 +452,7 @@ img, video{ -webkit-user-drag:none; user-drag:none }
 <script>
 const $ = s => document.querySelector(s);
 
-/* JSON-LD */
+/* JSON-LD (يتضمن الزعفرانة في المسار) */
 (function(){
   const data = [{
     "@context":"https://schema.org","@type":"WebSite",
@@ -462,7 +463,8 @@ const $ = s => document.querySelector(s);
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"الرئيسية","item":location.origin+"/"},
       {"@type":"ListItem","position":2,"name":"العين السخنة","item":location.origin+"/sokhna.html"},
-      {"@type":"ListItem","position":3,"name":"دولفين بيتش","item":location.href}
+      {"@type":"ListItem","position":3,"name":"طريق الزعفرانة","item":location.origin+"/zafarana.html"},
+      {"@type":"ListItem","position":4,"name":"دولفين بيتش","item":location.href}
     ]
   }];
   const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(data); document.head.appendChild(s);
@@ -583,95 +585,58 @@ const $ = s => document.querySelector(s);
     window.location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
+</script>
 
+<!-- ===== كود البحث الجديد باستخدام /search-index.json (بدون تغيير الاستايل) ===== -->
 <script>
-/* ===== Central Internal Search using /search-index.json (with fallback) ===== */
 (function(){
-  const INPUT  = document.getElementById('siteSearch');
-  const BOX    = document.getElementById('suggest');
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
   if(!INPUT || !BOX) return;
 
-  // --- Fallback محلي يتفعّل لو search-index.json غير متاح ---
-  const FALLBACK = [
-    {title:"Lugano Al Galala | لوجانو الجلالة", keywords:"lugano الجلالة aog manara mk ihg ras sudr zafarana sokhna السخنة", url:"/lugano.html"},
-    {title:"Ain Sokhna | العين السخنة", keywords:"sokhna السخنة zafarana suez السويس galala الجلالة murano porto", url:"/sokhna.html"},
-    {title:"North Coast | الساحل الشمالي", keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن", url:"/north.html"},
-    {title:"New Cairo | القاهرة الجديدة", keywords:"new cairo 5th التجمع nac العاصمة الادارية مستقبل سيتي", url:"/Cairo.html"},
-    {title:"Resale | إعادة البيع", keywords:"resale ready جاهز استلام فورى offers deals", url:"/resale.html"},
-    {title:"List Your Unit | اعرض وحدتك", keywords:"list unit sell بيع عرض your unit", url:"/list.html"}
-  ];
-
-  // هنحمّل المؤشر المركزي … لو اشتغل هنستبدله، لو فشل يفضل الـ fallback
-  let SITE_INDEX = FALLBACK.slice();
-
-  // ملاحظة: استخدام المسار الجذري يشتغل ممتاز على GitHub Pages
+  let SITE_INDEX = [];
   fetch('/search-index.json', {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(json => {
-      if (Array.isArray(json) && json.length) SITE_INDEX = json;
-    })
-    .catch(()=>{ /* يظلّ fallback */ });
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-  // -- مساعدات --
-  const mkItem = (it) => {
+  const makeItem = it => {
     const a = document.createElement('a');
     a.href = it.url;
     a.textContent = it.title;
     return a;
   };
 
-  // Tokenize بسيط + أوزان (عنوان=2، كلمات مفتاحية=1) + Boost لمطابقة البداية
-  function scoreItem(it, qTokens){
-    const title = (it.title||'').toLowerCase();
-    const keys  = (it.keywords||'').toLowerCase();
-    let score = 0;
-    for (const t of qTokens){
-      const inTitle = title.includes(t);
-      const inKeys  = keys.includes(t);
-      if (inTitle) score += 2;
-      if (inKeys)  score += 1;
-
-      // Boost بسيط لمطابقة بادئة الكلمة
-      if (title.startsWith(t) || keys.startsWith(t)) score += 1;
-    }
-    return score;
-  }
-
   function search(q){
-    q = (q||'').trim().toLowerCase();
-    if (!q) return [];
-    const qTokens = q.split(/\s+/).filter(Boolean);
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
     return SITE_INDEX
-      .map(it => ({...it, _score: scoreItem(it, qTokens)}))
-      .filter(it => it._score > 0)
-      .sort((a,b) => b._score - a._score)
-      .slice(0, 10);
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = (it.title||'').toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
   }
 
   function render(list){
     BOX.innerHTML = '';
-    if (!list.length){ BOX.style.display='none'; return; }
-    list.forEach(item => BOX.appendChild(mkItem(item)));
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
     BOX.style.display = 'block';
   }
 
-  // Debounce بسيط لراحة الكتابة
-  let t = null;
-  INPUT.addEventListener('input', ()=>{
-    clearTimeout(t);
-    t = setTimeout(()=> render(search(INPUT.value)), 120);
-  });
-
-  // إغلاق القائمة عند الضغط خارجها
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
   document.addEventListener('click', (e)=>{
-    if (!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
   });
-
-  // Enter يفتح أول نتيجة
   INPUT.addEventListener('keydown', (e)=>{
-    if (e.key === 'Enter'){
+    if(e.key === 'Enter'){
       const first = BOX.querySelector('a');
-      if (first) location.href = first.href;
+      if(first){ window.location.href = first.href; }
     }
   });
 })();
