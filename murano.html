@@ -98,20 +98,23 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* === DEV + SHARE + COPY (inline, no boxes) === */
+/* === DEV + SHARE + COPY (tight circles like the screenshot) === */
 .slider-cta{
   display:flex;justify-content:center;align-items:center;
-  gap:6px;margin:6px 0 0;background:transparent;border:0;padding:0;
+  gap:4px;margin:8px 0 0;background:transparent;border:0;padding:0;
 }
-.slider-cta .plain{
-  background:transparent;border:0;padding:0;margin:0;cursor:pointer;line-height:0;
+.fab-btn{
+  display:inline-grid;place-items:center;
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(0,0,0,.56); /* دائرة شبه الصورة */
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+  cursor:pointer;line-height:0;transition:transform .12s ease;
 }
-.slider-cta .plain img{
-  width:28px;height:28px;object-fit:contain;display:block;
-  filter:none; /* بدون مؤثرات */
-}
+.fab-btn:hover{transform:translateY(-1px)}
+.fab-btn img{width:22px;height:22px;object-fit:contain;display:block;filter:none}
 
-/* Mini card (developer) centered under CTA */
+/* DEV mini card */
 .wd-mini{position:relative;max-width:360px;margin:8px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none}
 .wd-mini.open{display:block}
 .wd-mini .title{font-weight:800;margin-bottom:6px}
@@ -128,7 +131,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
 .master-pill:hover{filter:brightness(.98)}
 
-/* LIGHTBOX MODAL (no top bar + counter) */
+/* LIGHTBOX MODAL */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:0;z-index:3000}
 .modal.open{display:flex}
 .modal img{max-width:96vw;max-height:94vh;display:block}
@@ -180,6 +183,22 @@ button:hover{filter:brightness(.95)}
 
 /* UTIL */
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Share sheet (fallback) */
+.share-sheet{
+  position:fixed;inset-inline:0;bottom:14px;margin:auto;max-width:520px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+  padding:10px;display:none;z-index:3200
+}
+.share-sheet.open{display:block}
+.share-row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
+.share-row a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:#111;background:#f9fafb}
+.share-row a:hover{background:#f3f4f6}
+.toast{
+  position:fixed;bottom:18px;inset-inline-start:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.85);color:#fff;padding:8px 12px;border-radius:10px;font-size:13px;display:none;z-index:3300
+}
+.toast.show{display:block}
 </style>
 </head>
 <body>
@@ -273,20 +292,20 @@ button:hover{filter:brightness(.95)}
     </div>
   </div>
 
-  <!-- DEV + SHARE + COPY (inline, no boxes) -->
-  <div class="slider-cta" id="sliderCta" aria-label="روابط المطوّر والمشاركة والنسخ">
-    <button class="plain" id="wdBtn" aria-label="عرض شركة وادي دجلة">
+  <!-- DEV + SHARE + COPY (tight circular buttons) -->
+  <div class="slider-cta" id="sliderCta" aria-label="وادي دجلة، مشاركة، نسخ">
+    <button class="fab-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
       <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla">
     </button>
-    <button class="plain" id="wdShare" title="مشاركة الصفحة الحالية" aria-label="مشاركة">
+    <button class="fab-btn" id="wdShare" title="مشاركة صفحة مورانو" aria-label="مشاركة">
       <img src="https://b.top4top.io/p_3532s12ml1.png" alt="Share">
     </button>
-    <button class="plain" id="wdCopy" title="نسخ الرابط" aria-label="نسخ الرابط">
+    <button class="fab-btn" id="wdCopy" title="نسخ رابط مورانو" aria-label="نسخ الرابط">
       <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link">
     </button>
   </div>
 
-  <!-- Mini card (only on click) -->
+  <!-- Mini card -->
   <div class="wd-mini" id="wdMini" role="dialog" aria-modal="false" aria-label="شركة وادي دجلة للتطوير العقاري">
     <div class="title">شركة وادي دجلة للتطوير العقاري</div>
     <a href="wadidegla.html" id="openDev">افتح الصفحة</a>
@@ -431,7 +450,7 @@ button:hover{filter:brightness(.95)}
       <h4>التواصل</h4>
       <div class="footer-contact">
         <a href="tel:+201050072527" aria-label="اتصال هاتفي">
-          <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.79 19.79 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.29 1L8.91 10.91a16 16 0 0 0 6.18 6.18l2.16-1.91a1 1 0 0 1 1-.29l3 1a1 1 0 0 1 .75 1z" stroke-width="2"/></svg>
+          <svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.79 19.79 0  0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.29 1L8.91 10.91a16 16 0 0 0 6.18 6.18l2.16-1.91a1 1 0 0 1 1-.29l3 1a1 1 0 0 1 .75 1z" stroke-width="2"/></svg>
           التواصل مباشر
         </a>
         <a href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
@@ -465,10 +484,20 @@ button:hover{filter:brightness(.95)}
   <button class="nav right" id="lbNext" aria-label="التالي">›</button>
 </div>
 
+<!-- Fallback share sheet + toast -->
+<div class="share-sheet" id="shareSheet" aria-live="polite">
+  <div class="share-row">
+    <a id="shareWapp" target="_blank" rel="noopener">واتساب ويب</a>
+    <a id="shareTg" target="_blank" rel="noopener">تليجرام</a>
+    <a id="shareFb" target="_blank" rel="noopener">فيسبوك</a>
+  </div>
+</div>
+<div class="toast" id="toast">تم النسخ ✅</div>
+
 <script>
 const $ = s => document.querySelector(s);
 
-/* JSON-LD: WebSite + Breadcrumb */
+/* JSON-LD */
 (function(){
   const data = [{
     "@context":"https://schema.org",
@@ -562,7 +591,7 @@ const $ = s => document.querySelector(s);
   lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
   document.addEventListener('keydown', (e)=>{ if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') (document.dir==='rtl'? nextLB(): prevLB()); if(e.key==='ArrowRight') (document.dir==='rtl'? prevLB(): nextLB()); });
 
-  // Masterplan in same lightbox
+  // Masterplan
   document.getElementById('openMaster').addEventListener('click', (e)=>{ 
     e.preventDefault(); 
     lbImg.src='https://g.top4top.io/p_3525qqtvx0.jpg'; 
@@ -571,31 +600,61 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Dev mini + Share + Copy (text only; icons inline) */
+/* Dev mini + Share + Copy (copy + native share + fallback sheet) */
 (function(){
   const devBtn = document.getElementById('wdBtn');
   const shareBtn = document.getElementById('wdShare');
   const copyBtn = document.getElementById('wdCopy');
   const mini = document.getElementById('wdMini');
+  const sheet = document.getElementById('shareSheet');
+  const toast = document.getElementById('toast');
+
+  const MURANO_URL = 'https://islamesmail-jpg.github.io/murano.html';
+  const SHARE_TEXT = `أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة.
+وصف كامل + الموقع + الخدمات + معلومات المطوّر.
+للمزيد: ${MURANO_URL}`;
+
+  function showToast(msg='تم النسخ ✅'){ toast.textContent=msg; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1500); }
+  async function copyToClipboard(text){ try{ await navigator.clipboard.writeText(text); return true; }catch(e){ console.warn(e); return false; } }
+
   if(devBtn&&mini){
     devBtn.addEventListener('click', (e)=>{ e.stopPropagation(); mini.classList.toggle('open'); });
     document.addEventListener('click', (e)=>{ if(!mini.contains(e.target) && e.target!==devBtn) mini.classList.remove('open'); });
   }
-  const shareText = `أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة وأسعار إعادة بيع مميزة.
-وصف كامل للمشروع + موقع القرية + أهم الطرق القريبة + خدمات القرية + معلومات عن المطوّر.
-للمزيد: `;
-  async function copyToClipboard(text){ try{ await navigator.clipboard.writeText(text); return true; }catch(e){ console.warn(e); return false; } }
+
+  // روابط لوحة المشاركة
+  (function(){
+    const w = encodeURIComponent(SHARE_TEXT);
+    $('#shareWapp').href = `https://wa.me/?text=${w}`;
+    $('#shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+    $('#shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
+  })();
+
   if(shareBtn){
     shareBtn.addEventListener('click', async ()=>{
-      const url = location.href;
+      // 1) نسخ أولاً
+      const ok = await copyToClipboard(SHARE_TEXT);
+      if(ok) showToast();
+
+      // 2) محاولة الـ Native Share
       try{
-        if(navigator.share){ await navigator.share({title:document.title, text:shareText, url}); }
-        else{ const ok = await copyToClipboard(shareText + url); shareBtn.title = ok?'تم نسخ الوصف + الرابط':'لم يتم النسخ'; setTimeout(()=>shareBtn.title='مشاركة الصفحة الحالية',1500); }
+        if(navigator.share){
+          await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:MURANO_URL});
+          return;
+        }
       }catch(e){ console.warn(e); }
+
+      // 3) fallback sheet
+      sheet.classList.add('open');
+      setTimeout(()=> sheet.classList.remove('open'), 6000);
     });
   }
+
   if(copyBtn){
-    copyBtn.addEventListener('click', async ()=>{ const ok = await copyToClipboard(location.href); copyBtn.title = ok?'تم نسخ الرابط':'لم يتم النسخ'; setTimeout(()=>copyBtn.title='نسخ الرابط',1500); });
+    copyBtn.addEventListener('click', async ()=>{
+      const ok = await copyToClipboard(MURANO_URL);
+      showToast(ok ? 'تم نسخ رابط مورانو' : 'لم يتم النسخ');
+    });
   }
 })();
 
