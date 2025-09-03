@@ -605,64 +605,98 @@ Notes: ${d.note}`;
     location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
-
-/* Internal Search (suggestions) */
+  
+<script>
+/* ===== Central Internal Search using /search-index.json (with fallback) ===== */
 (function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
+  const INPUT  = document.getElementById('siteSearch');
+  const BOX    = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-  const SITE_INDEX=[
-    // Pages / Areas
-    {title:"Ain Sokhna",keywords:"sokhna zafarana suez galala murano lugano",url:"/sokhna.html"},
-    {title:"North Coast",keywords:"north coast ras el hekma sidi abdelrahman",url:"/north.html"},
-    {title:"New Cairo",keywords:"new cairo tagamoa nac capital",url:"/Cairo.html"},
-    {title:"Zafarana Road",keywords:"zafarana road",url:"/zafarana.html"},
-    {title:"Suez Road",keywords:"suez road",url:"/suez.html"},
-
-    // Projects
-    {title:"Lugano Al Galala",keywords:"lugano aog manara mk ihg galala",url:"/lugano-en.html"},
-    {title:"Murano Wadi Degla",keywords:"murano wadi degla marina hot springs",url:"/murano.html"},
-    {title:"Sokhna Hills",keywords:"sokhna hills zafarana",url:"/sokhnahills.html"},
-    {title:"Porto Sokhna",keywords:"porto amer group ready resale",url:"/porto-sokhna.html"},
-    {title:"Loly Beach",keywords:"loly beach",url:"/lolybeach.html"},
-
-    // Utility
-    {title:"Resale",keywords:"resale ready key handover",url:"/resale.html"},
-    {title:"List your unit",keywords:"Sell your unit ",url:"/list.html"}
+  // --- Fallback محلي يتفعّل لو search-index.json غير متاح ---
+  const FALLBACK = [
+    {title:"Lugano Al Galala | لوجانو الجلالة", keywords:"lugano الجلالة aog manara mk ihg ras sudr zafarana sokhna السخنة", url:"/lugano.html"},
+    {title:"Ain Sokhna | العين السخنة", keywords:"sokhna السخنة zafarana suez السويس galala الجلالة murano porto", url:"/sokhna.html"},
+    {title:"North Coast | الساحل الشمالي", keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن", url:"/north.html"},
+    {title:"New Cairo | القاهرة الجديدة", keywords:"new cairo 5th التجمع nac العاصمة الادارية مستقبل سيتي", url:"/Cairo.html"},
+    {title:"Resale | إعادة البيع", keywords:"resale ready جاهز استلام فورى offers deals", url:"/resale.html"},
+    {title:"List Your Unit | اعرض وحدتك", keywords:"list unit sell بيع عرض your unit", url:"/list.html"}
   ];
 
-  function search(q){
-    q=q.trim().toLowerCase();
-    if(!q) return [];
-    return SITE_INDEX
-      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
-      .filter(x=>x.score>0).map(x=>x.it).slice(0,8);
-  }
+  // هنحمّل المؤشر المركزي … لو اشتغل هنستبدله، لو فشل يفضل الـ fallback
+  let SITE_INDEX = FALLBACK.slice();
 
-  const render = (res)=>{
-    BOX.innerHTML='';
-    if(res.length===0){ BOX.style.display='none'; return; }
-    res.forEach(r=>{
-      const a=document.createElement('a'); a.href=r.url; a.textContent=r.title; BOX.appendChild(a);
-    });
-    BOX.style.display='block';
+  // ملاحظة: استخدام المسار الجذري يشتغل ممتاز على GitHub Pages
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(json => {
+      if (Array.isArray(json) && json.length) SITE_INDEX = json;
+    })
+    .catch(()=>{ /* يظلّ fallback */ });
+
+  // -- مساعدات --
+  const mkItem = (it) => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
   };
 
-  INPUT.addEventListener('input', ()=>{ render(search(INPUT.value)); });
-  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
-})();
+  // Tokenize بسيط + أوزان (عنوان=2، كلمات مفتاحية=1) + Boost لمطابقة البداية
+  function scoreItem(it, qTokens){
+    const title = (it.title||'').toLowerCase();
+    const keys  = (it.keywords||'').toLowerCase();
+    let score = 0;
+    for (const t of qTokens){
+      const inTitle = title.includes(t);
+      const inKeys  = keys.includes(t);
+      if (inTitle) score += 2;
+      if (inKeys)  score += 1;
 
-/* Block save/print + right click + drag */
-document.addEventListener('keydown', (e)=>{
-  const k = e.key.toLowerCase();
-  if((e.ctrlKey||e.metaKey) && (k==='s' || k==='p')) e.preventDefault();
-});
-document.addEventListener('contextmenu', e=> e.preventDefault());
-document.querySelectorAll('img').forEach(img=>{
-  img.setAttribute('draggable','false');
-  img.addEventListener('dragstart', e=>e.preventDefault());
-});
+      // Boost بسيط لمطابقة بادئة الكلمة
+      if (title.startsWith(t) || keys.startsWith(t)) score += 1;
+    }
+    return score;
+  }
+
+  function search(q){
+    q = (q||'').trim().toLowerCase();
+    if (!q) return [];
+    const qTokens = q.split(/\s+/).filter(Boolean);
+    return SITE_INDEX
+      .map(it => ({...it, _score: scoreItem(it, qTokens)}))
+      .filter(it => it._score > 0)
+      .sort((a,b) => b._score - a._score)
+      .slice(0, 10);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if (!list.length){ BOX.style.display='none'; return; }
+    list.forEach(item => BOX.appendChild(mkItem(item)));
+    BOX.style.display = 'block';
+  }
+
+  // Debounce بسيط لراحة الكتابة
+  let t = null;
+  INPUT.addEventListener('input', ()=>{
+    clearTimeout(t);
+    t = setTimeout(()=> render(search(INPUT.value)), 120);
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener('click', (e)=>{
+    if (!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+
+  // Enter يفتح أول نتيجة
+  INPUT.addEventListener('keydown', (e)=>{
+    if (e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if (first) location.href = first.href;
+    }
+  });
+})();
 </script>
 </body>
 </html>
