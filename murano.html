@@ -8,6 +8,9 @@
 <meta name="description" content="كل تفاصيل مشروع مورانو وادي دجلة بالعين السخنة: أسعار المطوّر وأفضل عروض إعادة البيع، فيديو وصور بجودة عالية مع تكبير وتقليب، ماستر بلان واضح، الموقع والخدمات وأنواع الوحدات. تواصل مباشر عبر الهاتف أو واتساب." />
 <link rel="canonical" href="https://islamesmail-jpg.github.io/murano.html"/>
 
+<link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/murano-en.html">
+<link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/murano.html">
+
 <!-- Icons -->
 <link rel="icon" type="image/png" href="https://l.top4top.io/p_3532e7wgg0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://l.top4top.io/p_3532e7wgg0.png">
@@ -27,7 +30,7 @@
   --bg:#ffffff; --card:#f8fafc; --text:#111827; --muted:#4b5563;
   --accent:#111827; --field:#f3f4f6; --radius:16px; --wrap:1120px;
   --shadow:0 6px 16px rgba(0,0,0,.06); --line:#e5e7eb;
-  --icon:32px; /* حجم الأيقونات */
+  --icon:32px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -102,28 +105,19 @@ body{
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* ===== أيقونات بين الجاليري وكروت الأسعار (مُحاذاة فوق عمود "سعر المطوّر") ===== */
+/* ICONS INLINE ABOVE PRICES */
 .icons-row-grid{
   display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));
   gap:12px;max-width:var(--wrap);margin:0 auto 6px;padding:0 16px;
 }
 .between-cta{
-  display:flex;align-items:center;justify-content:flex-start; /* فوق العمود الأول (يمين في RTL) */
-  gap:0; /* ملزوقين */
-  position:relative;
+  display:flex;align-items:center;justify-content:flex-start;gap:0;position:relative;
 }
-.between-cta .icon-btn{
-  background:transparent; border:0; padding:0; line-height:0; cursor:pointer;
-  /* لتفعيل دائرة شفافة حول الأيقونات: */
-  /* background:rgba(255,255,255,0); border-radius:50%; padding:2px; */
-}
+.between-cta .icon-btn{background:transparent;border:0;padding:0;line-height:0;cursor:pointer}
 .between-cta .icon-btn img{width:var(--icon);height:var(--icon);display:block;object-fit:contain}
-
-/* Popups */
 .between-cta .pop{
-  position:absolute;top:calc(100% + 8px);inset-inline-start:0;
-  background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);
-  padding:10px;display:none;z-index:50;min-width:240px
+  position:absolute;top:calc(100% + 8px);inset-inline-start:0;background:#fff;border:1px solid var(--line);
+  border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:50;min-width:240px
 }
 .between-cta .pop.open{display:block}
 .pop .pop-title{font-weight:800;margin:0 0 6px}
@@ -284,7 +278,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
     </div>
   </div>
 
-  <!-- ===== صف الأيقونات فوق عمود سعر المطوّر (ملزوقين) ===== -->
+  <!-- ICONS INLINE -->
   <div class="icons-row-grid">
     <div class="between-cta" id="betweenCta" aria-label="المطور، مشاركة، نسخ">
       <button class="icon-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
@@ -312,7 +306,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
         <a id="shareMail" href="#">الإيميل</a>
       </div>
     </div>
-    <div></div><!-- العمود الثاني فاضي عشان المحاذاة -->
+    <div></div>
   </div>
 
   <!-- PRICES -->
@@ -331,16 +325,74 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
     <a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">ماستر بلان المشروع</a>
   </div>
 
-  <!-- DESCRIPTION -->
+  <!-- DESCRIPTION (FULL) -->
   <section>
-    <h2>عن مشروع مورانو وادي دجلة</h2>
-    <p>تُعد قرية مورانو العين السخنة واحدة من أجمل المنتجعات على ساحل البحر الأحمر، بموقع استراتيجي قرب طريق الجلالة ومحطة قطار السخنة، وخدمات متكاملة تناسب العائلة المصرية.</p>
-    <h2>أهم الطرق والمحاور القريبة</h2>
-    <ul><li>طريق الجلالة: 18 كم</li><li>محطة قطار العين السخنة: 14 كم</li><li>القاهرة: 136 كم</li><li>طريق القطامية: 112 كم</li></ul>
-    <h2>الماستر بلان والخدمات</h2>
-    <ul><li>حمامات سباحة متنوعة</li><li>منطقة ألعاب أطفال</li><li>مطاعم ومقاهي وتجاري</li><li>ممشى ودراجات</li></ul>
-    <h2>أنواع الوحدات</h2><ul><li>شقق</li><li>فلل</li></ul>
-    <h2>مزايا إضافية</h2><ul><li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4 نجوم</li><li>ينابيع مياه ساخنة</li></ul>
+    <h2>1- عن مشروع مورانو وادي دجلة</h2>
+    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
+
+    <h2>2- موقع قرية مورانو العين السخنة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+
+    <h2>3- أهم الطرق والمحاور بالقرب من مورانو</h2>
+    <ul>
+      <li>طريق الجلالة: 18 كم فقط من قرية مورانو السخنة.</li>
+      <li>محطة قطار العين السخنة: 14 كم.</li>
+      <li>القاهرة: 136 كم.</li>
+      <li>طريق القطامية: 112 كم.</li>
+    </ul>
+
+    <h2>4- مساحة مورانو وادي دجلة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها. أدى اتساع مساحة murano sokhna وتقسيمتها المميزة إلى الجمع بين الخصوصية والراحة داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
+
+    <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
+    <p>يعتمد تصميم قرية مورانو على مفهوم مبتكر يجمع بين الرفاهية والطبيعة، حيث تم تصميم المخطط العام للقرية بطريقة تضمن توفير تجربة متميزة لسكانها، فكل زاوية تُضفي جوّاً فريدًا، وتشمل مرافق murano sokhna:</p>
+    <ul>
+      <li><strong>حمامات السباحة:</strong> متنوعة بمختلف الأحجام والمساحات لتلبي جميع الاحتياجات، للكبار والأطفال.</li>
+      <li><strong>مناطق ترفيهية للأطفال:</strong> بأعلى معايير السلامة.</li>
+      <li><strong>مطاعم ومقاهي:</strong> راقية ومتنوعة.</li>
+      <li><strong>محلات تجارية:</strong> لشراء الاحتياجات دون مغادرة القرية.</li>
+      <li><strong>ممرات للمشي وركوب الدراجات:</strong> وسط المساحات الخضراء في أجواء نقية.</li>
+    </ul>
+
+    <h2>6- عن مورانو وادي دجلة (ملخص)</h2>
+    <p>تجمع مورانو بين سحر الطبيعة ورفاهية الحياة العصرية، مع ينابيع مياه ساخنة طبيعية تضيف طابعًا مميزًا للقرية.</p>
+
+    <h2>7- موقع مورانو مرة أخرى (مختصر)</h2>
+    <p>تقع في نهاية طريق العين السخنة وبداية طريق الزعفرانة، بالقرب من المحاور الرئيسية بما يسهل الوصول من مختلف المناطق.</p>
+
+    <h2>8- أنواع الوحدات في Murano Wadi Degla</h2>
+    <p>تتنوع الوحدات لتناسب الاحتياجات المختلفة مع إطلالات مميزة وجودة تنفيذ عالية:</p>
+    <ul>
+      <li>شقق.</li>
+      <li>فلل.</li>
+    </ul>
+    <p>وتتوفر مساحات متعددة تناسب الأذواق والميزانيات، مع تصميمات عملية تمنحك الراحة والخصوصية.</p>
+
+    <h2>9- مرافق وخدمات قرية مورانو السخنة</h2>
+    <ul>
+      <li>شاطئ رملي بطول ~750 م.</li>
+      <li>مارينا بطول ~100 م.</li>
+      <li>منتجع فندقي 4 نجوم.</li>
+      <li>مطاعم ومقاهي راقية.</li>
+      <li>منطقة تجارية متكاملة.</li>
+      <li>سبا فاخر (ساونا ومساج).</li>
+      <li>ملاعب شاطئية (كرة قدم/طائرة).</li>
+      <li>ينابيع مياه ساخنة طبيعية.</li>
+    </ul>
+
+    <h2>10- عن وادي دجلة للتطوير العقاري</h2>
+    <p>تأسست شركة وادي دجلة للتطوير العقاري عام 2005، وتضم محفظتها 16 مشروعًا (12 منها مكتمل) بإجمالي ~5.5 مليون م² وأكثر من 10,000 وحدة في القاهرة والجيزة والساحل الشمالي والعين السخنة، مع تركيز على معايير الفخامة والبنية التحتية والخدمات المجتمعية والمساحات الخضراء.</p>
+
+    <h2>11- أهم مشروعات وادي دجلة</h2>
+    <ul>
+      <li>بلومار دوم — العين السخنة</li>
+      <li>مارينا وادي دجلة — العين السخنة</li>
+      <li>بلومار — الساحل الشمالي</li>
+      <li>نيوبوليس — مدينة المستقبل</li>
+      <li>بيراميدز ووك — 6 أكتوبر</li>
+      <li>بروميناد — 6 أكتوبر</li>
+      <li>بروميناد — القاهرة الجديدة</li>
+    </ul>
   </section>
 
   <!-- CONTACT -->
@@ -352,11 +404,24 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
       <div class="grid">
         <div><label for="name">الاسم</label><input id="name" type="text" placeholder="اكتب اسمك" required></div>
         <div><label for="project">الموقع المفضل (اسم المشروع)</label><input id="project" type="text" value="Murano Wadi Degla" required></div>
-        <div><label for="unit">نوع الوحدة</label><select id="unit" required><option value="" disabled selected>اختر نوع الوحدة</option><option>شقة</option><option>فيلا</option></select></div>
-        <div><label for="rooms">عدد الغرف</label><select id="rooms" required><option value="" disabled selected>اختر عدد الغرف</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+        <div><label for="unit">نوع الوحدة</label>
+          <select id="unit" required>
+            <option value="" disabled selected>اختر نوع الوحدة</option>
+            <option>شقة</option><option>فيلا</option>
+          </select>
+        </div>
+        <div><label for="rooms">عدد الغرف</label>
+          <select id="rooms" required>
+            <option value="" disabled selected>اختر عدد الغرف</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
       </div>
       <div style="margin-top:12px"><label for="note">ملحوظة</label><textarea id="note" placeholder="أي تفاصيل إضافية…"></textarea></div>
-      <div class="btns"><button type="button" id="btnWA">إرسال عبر واتساب</button><button type="button" id="btnMail">إرسال عبر الإيميل</button></div>
+      <div class="btns">
+        <button type="button" id="btnWA">إرسال عبر واتساب</button>
+        <button type="button" id="btnMail">إرسال عبر الإيميل</button>
+      </div>
     </form>
   </section>
 
@@ -467,7 +532,7 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* صف الأيقونات (Developer / Share / Copy) */
+/* Icons row (Developer / Share / Copy) */
 (function(){
   const row = document.getElementById('betweenCta');
   const devBtn = document.getElementById('wdBtn');
@@ -476,21 +541,20 @@ const $ = s => document.querySelector(s);
   const devPop = document.getElementById('devPop');
   const sharePop = document.getElementById('sharePop');
 
-  const MURANO_URL = 'https://islamesmail-jpg.github.io/murano.html';
+  const PAGE_URL = 'https://islamesmail-jpg.github.io/murano.html';
   const SHARE_TEXT = `أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة.
 وصف كامل + الموقع + الخدمات + معلومات المطوّر.
-للمزيد: ${MURANO_URL}`;
+للمزيد: ${PAGE_URL}`;
 
   function closeAll(){ devPop.classList.remove('open'); sharePop.classList.remove('open'); }
   document.addEventListener('click', e=>{ if(!row.contains(e.target)) closeAll(); });
 
   devBtn.addEventListener('click', e=>{ e.stopPropagation(); sharePop.classList.remove('open'); devPop.classList.toggle('open'); });
 
-  // روابط المشاركة البديلة
   document.getElementById('shareWapp').href = `https://wa.me/?text=${encodeURIComponent(SHARE_TEXT)}`;
-  document.getElementById('shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
-  document.getElementById('shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
-  document.getElementById('shareTw').href   = `https://twitter.com/intent/tweet?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+  document.getElementById('shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(PAGE_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+  document.getElementById('shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PAGE_URL)}`;
+  document.getElementById('shareTw').href   = `https://twitter.com/intent/tweet?url=${encodeURIComponent(PAGE_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
   document.getElementById('shareMail').href = `mailto:?subject=${encodeURIComponent('Murano Wadi Degla')}&body=${encodeURIComponent(SHARE_TEXT)}`;
 
   async function copyToClipboard(text){ try{ await navigator.clipboard.writeText(text); return true; }catch{ return false; } }
@@ -500,7 +564,7 @@ const $ = s => document.querySelector(s);
     await copyToClipboard(SHARE_TEXT);
     try{
       if(navigator.share){
-        await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:MURANO_URL});
+        await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:PAGE_URL});
         return;
       }
     }catch(_){}
@@ -510,12 +574,12 @@ const $ = s => document.querySelector(s);
 
   copyBtn.addEventListener('click', async e=>{
     e.stopPropagation();
-    const ok = await copyToClipboard(MURANO_URL);
+    const ok = await copyToClipboard(PAGE_URL);
     if(!ok) alert('لم يتم النسخ');
   });
 })();
 
-/* Contact actions */
+/* CONTACT actions */
 (function(){
   const val = id => document.getElementById(id).value.trim();
   const build = ()=> ({name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')});
@@ -540,6 +604,44 @@ const $ = s => document.querySelector(s);
   });
 })();
 
+/* Internal Search (suggestions) */
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX = document.getElementById('suggest');
+  if(!INPUT||!BOX) return;
+
+  const SITE_INDEX=[
+    {title:"العين السخنة",keywords:"sokhna الزعفرانة zafarana suez السويس الجلالة murano مارينا وادي دجلة",url:"/sokhna.html"},
+    {title:"الساحل الشمالي",keywords:"north coast رأس الحكمة sidi abdelrahman سيدي عبد الرحمن",url:"/north.html"},
+    {title:"القاهرة الجديدة",keywords:"new cairo التجمع nac العاصمة الادارية",url:"/Cairo.html"},
+    {title:"Murano Wadi Degla",keywords:"murano wadi degla وادي دجلة مارينا شاطئ ينابيع",url:"/murano.html"},
+    {title:"إعادة البيع",keywords:"resale ready جاهز استلام فورى",url:"/resale.html"},
+    {title:"اعرض وحدتك",keywords:"list unit sell بيع عرض",url:"/list.html"}
+  ];
+
+  const makeItem = (it)=> {
+    const a=document.createElement('a'); a.href=it.url; a.textContent=it.title; return a;
+  };
+
+  function search(q){
+    q=q.trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
+      .filter(x=>x.score>0).map(x=>x.it).slice(0,8);
+  }
+
+  INPUT.addEventListener('input', ()=>{
+    const q=INPUT.value;
+    const res=search(q);
+    BOX.innerHTML='';
+    if(res.length===0){ BOX.style.display='none'; return; }
+    res.forEach(r=> BOX.appendChild(makeItem(r)));
+    BOX.style.display='block';
+  });
+  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
+})();
+  
 /* منع الحفظ/الطباعة + كليك يمين */
 document.addEventListener('keydown', (e)=>{
   const k = e.key.toLowerCase();
