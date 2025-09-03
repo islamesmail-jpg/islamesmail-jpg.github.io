@@ -25,10 +25,15 @@
   --bg:#ffffff; --card:#f8fafc; --text:#111827; --muted:#4b5563;
   --accent:#111827; --field:#f3f4f6; --radius:16px; --wrap:1120px;
   --shadow:0 6px 16px rgba(0,0,0,.06); --line:#e5e7eb;
+  --icon:32px; /* حجم الأيقونات المطلوبة */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85;
+  -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
+}
 
 /* NAVBAR */
 .navbar{position:sticky;top:0;z-index:2000;background:#fff;border-bottom:1px solid var(--line);width:100%}
@@ -86,7 +91,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 
 /* SLIDER */
 .slider-wrap{position:relative;margin:18px auto 8px}
-.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;cursor:grab}
+.slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;scroll-behavior:smooth;cursor:grab}
 .slider:active{cursor:grabbing}
 .slide{flex:0 0 86%;max-width:86%;scroll-snap-align:center;border-radius:20px;overflow:hidden;background:#fff;position:relative;aspect-ratio:16/9;box-shadow:var(--shadow);border:1px solid var(--line)}
 .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -96,21 +101,12 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* === DEV + SHARE + COPY (white circular buttons) === */
-.slider-cta{
-  display:flex;justify-content:center;align-items:center;
-  gap:4px;margin:8px 0 0;background:transparent;border:0;padding:0;
+/* === DEV + SHARE + COPY (بدون دوائر) === */
+.slider-cta{display:flex;justify-content:center;align-items:center;gap:8px;margin:8px 0 0}
+.icon-btn{
+  background:transparent;border:0;padding:0;cursor:pointer;line-height:0;
 }
-.fab-btn{
-  display:inline-grid;place-items:center;
-  width:42px;height:42px;border-radius:50%;
-  background:#fff;                 /* ← أبيض بدل الرمادي */
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 4px 14px rgba(0,0,0,.18);
-  cursor:pointer;line-height:0;transition:transform .12s ease;
-}
-.fab-btn:hover{transform:translateY(-1px)}
-.fab-btn img{width:22px;height:22px;object-fit:contain;display:block}
+.icon-btn img{width:var(--icon);height:var(--icon);object-fit:contain;display:block}
 
 /* DEV mini card */
 .wd-mini{position:relative;max-width:360px;margin:8px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px;display:none}
@@ -133,7 +129,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:0;z-index:3000}
 .modal.open{display:flex}
 .modal img{max-width:96vw;max-height:94vh;display:block}
-.modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;cursor:pointer;opacity:1;transition:opacity .25s}
+.modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9)}
 .modal.hide-arrows .nav{opacity:0}
 .counter{position:absolute;top:16px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:13px}
 
@@ -179,17 +175,11 @@ button:hover{filter:brightness(.95)}
 .icon-s{width:18px;height:18px}
 .copyright{text-align:center;color:#6b7280;font-size:14px;padding:8px 16px}
 
-/* UTIL */
-.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-/* Share sheet (fallback) */
-.share-sheet{position:fixed;inset-inline:0;bottom:14px;margin:auto;max-width:520px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px;display:none;z-index:3200}
-.share-sheet.open{display:block}
-.share-row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
-.share-row a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:#111;background:#f9fafb}
-.share-row a:hover{background:#f3f4f6}
-.toast{position:fixed;bottom:18px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.85);color:#fff;padding:8px 12px;border-radius:10px;font-size:13px;display:none;z-index:3300}
-.toast.show{display:block}
+/* UTIL + منع التحميل على الصور */
+img, video{ -webkit-user-drag:none; user-drag:none }
+img, .modal img{
+  -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
+}
 </style>
 </head>
 <body>
@@ -274,25 +264,25 @@ button:hover{filter:brightness(.95)}
     <button class="arrow left" id="prevBtn" aria-label="السابق">‹</button>
     <button class="arrow right" id="nextBtn" aria-label="التالي">›</button>
     <div class="slider" id="slider">
-      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1"></figure>
-      <figure class="slide"><img loading="lazy" src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2"></figure>
-      <figure class="slide"><img loading="lazy" src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3"></figure>
-      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4"></figure>
-      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5"></figure>
-      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5"></figure>
+      <figure class="slide"><img class="nodownload" loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6"></figure>
     </div>
   </div>
 
-  <!-- DEV + SHARE + COPY -->
+  <!-- DEV + SHARE + COPY (بدون دوائر) -->
   <div class="slider-cta" id="sliderCta" aria-label="وادي دجلة، مشاركة، نسخ">
-    <button class="fab-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
-      <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla">
+    <button class="icon-btn" id="wdBtn" aria-label="عرض شركة وادي دجلة">
+      <img src="https://g.top4top.io/p_35322uwmc0.jpg" alt="Wadi Degla" width="32" height="32">
     </button>
-    <button class="fab-btn" id="wdShare" title="مشاركة صفحة مورانو" aria-label="مشاركة">
-      <img src="https://b.top4top.io/p_3532s12ml1.png" alt="Share">
+    <button class="icon-btn" id="wdShare" title="مشاركة صفحة مورانو" aria-label="مشاركة">
+      <img src="https://b.top4top.io/p_3532s12ml1.png" alt="Share" width="32" height="32">
     </button>
-    <button class="fab-btn" id="wdCopy" title="نسخ رابط مورانو" aria-label="نسخ الرابط">
-      <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link">
+    <button class="icon-btn" id="wdCopy" title="نسخ رابط مورانو" aria-label="نسخ الرابط">
+      <img src="https://c.top4top.io/p_3532lo79i2.png" alt="Copy Link" width="32" height="32">
     </button>
   </div>
 
@@ -309,23 +299,21 @@ button:hover{filter:brightness(.95)}
   </div>
   <div class="master-wrap"><a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">ماستر بلان المشروع</a></div>
 
-  <!-- DESCRIPTION (مختصر كما هو في نسختك) -->
+  <!-- DESCRIPTION (نفس محتواك) -->
   <section>
     <h2>عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة واحدة من أجمل المنتجعات على ساحل البحر الأحمر...</p>
     <h2>موقع قرية مورانو العين السخنة</h2>
-    <p>يقع Murano Wadi Degla في منطقة مميّزة على البحر الأحمر...</p>
+    <p>يقع Murano Wadi Degla في منطقة مميّزة...</p>
     <h2>أهم الطرق والمحاور القريبة</h2>
     <ul><li>طريق الجلالة: 18 كم</li><li>محطة قطار العين السخنة: 14 كم</li><li>القاهرة: 136 كم</li><li>طريق القطامية: 112 كم</li></ul>
     <h2>مساحة مورانو وادي دجلة</h2><p>صُمّم المشروع على مساحة واسعة...</p>
-    <h2>ماستر بلان القرية</h2><ul><li>حمامات سباحة متنوعة</li><li>مناطق ألعاب للأطفال...</li><li>مطاعم ومقاهي راقية</li><li>محلات تجارية...</li><li>ممرات للمشي وركوب الدراجات</li></ul>
+    <h2>ماستر بلان القرية</h2><ul><li>حمامات سباحة متنوعة</li><li>مناطق ألعاب للأطفال</li><li>مطاعم ومقاهي</li><li>محلات تجارية</li><li>ممشى ودراجات</li></ul>
     <h2>أنواع الوحدات</h2><ul><li>شقق</li><li>فلل</li></ul>
     <h2>مرافق وخدمات مورانو</h2><ul><li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4 نجوم</li><li>مطاعم وتجاري</li><li>سبا وملاعب</li><li>ينابيع مياه ساخنة</li></ul>
-    <h2>عن وادي دجلة للتطوير</h2><p>تأسست الشركة عام 2005...</p>
-    <h2>أهم المشروعات</h2><ul><li>بلومار دوم</li><li>مارينا وادي دجلة</li><li>بلومار</li><li>نيوبوليس</li><li>بيراميدز ووك</li><li>بروميناد</li></ul>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- CONTACT -->
   <section class="card" id="contact">
     <div class="icon"><img src="https://f.top4top.io/p_3532gnktj0.png" alt="رسالة"></div>
     <h3>تحتاج إلى مساعدة عقارية؟</h3>
@@ -360,9 +348,9 @@ button:hover{filter:brightness(.95)}
     <div class="footer-contact-row" aria-label="التواصل">
       <h4>التواصل</h4>
       <div class="footer-contact">
-        <a href="tel:+201050072527"><svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.79 19.79 0 0 1 3 5.09 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75l1 3a1 1 0 0 1-.29 1L8.91 10.91a16 16 0 0 0 6.18 6.18l2.16-1.91a1 1 0 0 1 1-.29l3 1a1 1 0 0 1 .75 1z" stroke-width="2"/></svg> التواصل مباشر</a>
-        <a href="https://wa.me/201050072527" target="_blank" rel="noopener"><svg class="icon-s" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.32c-.28-.14-1.62-.8-1.87-.89s-.43-.14-.61.14-.7.89-.86 1.08-.32.21-.6.07a8.47 8.47 0 0 1-2.49-1.54 9 9 0 0 1-1.66-2.06c-.17-.29 0-.45.13-.59s.28-.32.42-.49a1.94 1.94 0 0 0 .28-.47.52.52 0 0 0 0-.49c0-.14-.61-1.47-.84-2s-.45-.47-.61-.47h-.52a1 1 0 0 0-.73.35 3.07 3.07 0 0 0-.95 2.27 5.36 5.36 0 0 0 1.12 2.86 12.23 12.23 0 0 0 4.73 4.31 16.29 16.29 0 0 0 1.6.74 3.86 3.86 0 0 0 1.76.11 2.89 2.89 0 0 0 1.88-1.33 2.37 2.37 0  0 0 .17-1.33c-.06-.09-.25-.14-.53-.28z"/></svg> واتساب</a>
-        <a href="mailto:islammesmail@gmail.com"><svg class="icon-s" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke-width="2"/></svg> الإيميل</a>
+        <a href="tel:+201050072527">التواصل مباشر</a>
+        <a href="https://wa.me/201050072527" target="_blank" rel="noopener">واتساب</a>
+        <a href="mailto:islammesmail@gmail.com">الإيميل</a>
       </div>
     </div>
     <div class="copyright">© Islam Sales Real Estate 2025 — جميع الحقوق محفوظة</div>
@@ -370,10 +358,15 @@ button:hover{filter:brightness(.95)}
 </footer>
 
 <!-- Floating WhatsApp -->
-<div class="fab-wa"><a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="تواصل واتساب"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"><span class="visually-hidden">واتساب</span></a></div>
+<div class="fab-wa" aria-hidden="false">
+  <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="تواصل واتساب">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <span class="visually-hidden">واتساب</span>
+  </a>
+</div>
 
 <!-- LIGHTBOX -->
-<div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور">
+<div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور" oncontextmenu="return false">
   <div id="lbCount" class="counter" aria-live="polite"></div>
   <button class="nav left" id="lbPrev" aria-label="السابق">‹</button>
   <img id="lbImg" src="" alt="">
@@ -381,19 +374,109 @@ button:hover{filter:brightness(.95)}
 </div>
 
 <!-- Share fallback + toast -->
-<div class="share-sheet" id="shareSheet"><div class="share-row"><a id="shareWapp" target="_blank" rel="noopener">واتساب ويب</a><a id="shareTg" target="_blank" rel="noopener">تليجرام</a><a id="shareFb" target="_blank" rel="noopener">فيسبوك</a></div></div>
+<div class="share-sheet" id="shareSheet" style="display:none"><div class="share-row"><a id="shareWapp" target="_blank" rel="noopener">واتساب ويب</a><a id="shareTg" target="_blank" rel="noopener">تليجرام</a><a id="shareFb" target="_blank" rel="noopener">فيسبوك</a></div></div>
 <div class="toast" id="toast">تم النسخ ✅</div>
 
 <script>
 const $ = s => document.querySelector(s);
 
-/* JSON-LD omitted for brevity in JS */
+/* JSON-LD */
+(function(){
+  const data = [{
+    "@context":"https://schema.org","@type":"WebSite",
+    "name":"Islam Sales Real Estate","url":location.origin + "/",
+    "potentialAction":{"@type":"SearchAction","target": location.origin + "/search?q={query}","query-input":"required name=query"}
+  },{
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"الرئيسية","item":location.origin+"/"},
+      {"@type":"ListItem","position":2,"name":"العين السخنة","item":location.origin+"/sokhna.html"},
+      {"@type":"ListItem","position":3,"name":"مورانو","item":location.href}
+    ]
+  }];
+  const s=document.createElement('script'); s.type='application/ld+json'; s.textContent=JSON.stringify(data); document.head.appendChild(s);
+})();
 
-/* Search sugg, dropdown, hero pop — نفس السابق (اختصاراً في الرد) */
+/* Dropdown */
+(function(){
+  const btn = $('#btnProjects'), menu = $('#projectsMenu');
+  if(!btn||!menu) return;
+  const open = v => { btn.setAttribute('aria-expanded', v?'true':'false'); menu.style.display = v?'block':'none'; };
+  btn.addEventListener('click', e=>{ e.stopPropagation(); open(menu.style.display!=='block'); });
+  document.addEventListener('click', ()=> open(false));
+})();
 
-/* Masterplan + lightbox + slider — نفس السابق */
+/* Search suggestions */
+(function(){
+  const input = $('#siteSearch'); const box = $('#suggest');
+  if(!input||!box) return;
+  const INDEX = [
+    {t:'العين السخنة', u:'/sokhna.html'},
+    {t:'الساحل الشمالي', u:'/north.html'},
+    {t:'القاهرة الجديدة', u:'/Cairo.html'},
+    {t:'Murano Wadi Degla', u:'/murano.html'},
+    {t:'مطوّر وادي دجلة', u:'/wadidegla.html'},
+    {t:'إعادة البيع', u:'/resale.html'},
+    {t:'اعرض وحدتك', u:'/list.html'}
+  ];
+  function render(items){ box.innerHTML = items.map(i=>`<a href="${i.u}">${i.t}</a>`).join(''); box.style.display = items.length? 'block':'none'; }
+  input.addEventListener('input', ()=>{ const q = input.value.trim().toLowerCase(); if(!q){ box.style.display='none'; return; } render(INDEX.filter(i=>i.t.toLowerCase().includes(q)).slice(0,8)); });
+  document.addEventListener('click', (e)=>{ if(!box.contains(e.target) && e.target!==input){ box.style.display='none'; } });
+})();
 
-/* Share & Copy logic */
+/* Dev logo in HERO */
+(function(){
+  const logo = document.getElementById('heroDevLogo');
+  const pop = document.getElementById('heroDevPop');
+  if(!logo||!pop) return;
+  logo.addEventListener('click', (e)=>{ e.stopPropagation(); pop.classList.toggle('open'); });
+  document.addEventListener('click', (e)=>{ if(!pop.contains(e.target) && e.target!==logo) pop.classList.remove('open'); });
+})();
+
+/* Slider + Lightbox */
+(function(){
+  const scroller = $('#slider'); if(!scroller) return;
+  const next = $('#nextBtn'), prev = $('#prevBtn');
+  const step = ()=> Math.min(scroller.clientWidth*0.9, 700);
+  next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
+  prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?1:-1)*step(),behavior:'smooth'}));
+
+  // drag to scroll
+  let isDown=false, startX=0, scrollLeft=0;
+  const start = e => { isDown=true; startX=(e.pageX||e.touches?.[0].pageX); scrollLeft=scroller.scrollLeft; }
+  const move  = e => { if(!isDown) return; const x=(e.pageX||e.touches?.[0].pageX); const walk=(x-startX); scroller.scrollLeft = scrollLeft - walk * (document.dir==='rtl'?-1:1); }
+  const end   = ()=> { isDown=false; }
+  scroller.addEventListener('mousedown', start); scroller.addEventListener('mousemove', move); scroller.addEventListener('mouseleave', end); scroller.addEventListener('mouseup', end);
+  scroller.addEventListener('touchstart', start, {passive:true}); scroller.addEventListener('touchmove', move, {passive:true}); scroller.addEventListener('touchend', end);
+
+  // lightbox
+  const slides = Array.from(scroller.querySelectorAll('.slide img'));
+  const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+  const lbPrev = document.getElementById('lbPrev'), lbNext = document.getElementById('lbNext'), lbCount = document.getElementById('lbCount');
+  const gallerySrcs = slides.map(s=>s.src);
+  let idx = 0, hideTimer=null;
+  function setCount(){ lbCount.textContent = (idx+1) + ' / ' + gallerySrcs.length; }
+  function showArrowsTemporarily(){ lb.classList.remove('hide-arrows'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>lb.classList.add('hide-arrows'),2000); }
+  function openLB(i){ idx=i; lbImg.src=gallerySrcs[idx]; setCount(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrowsTemporarily(); }
+  function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); clearTimeout(hideTimer); }
+  function nextLB(){ idx=(idx+1)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrowsTemporarily(); }
+  function prevLB(){ idx=(idx-1+gallerySrcs.length)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); showArrowsTemporarily(); }
+  slides.forEach((img,i)=>{ img.style.cursor='zoom-in'; img.addEventListener('click', ()=> openLB(i)); });
+  lbNext.addEventListener('click', nextLB); lbPrev.addEventListener('click', prevLB);
+  lb.addEventListener('mousemove', showArrowsTemporarily, {passive:true}); lb.addEventListener('touchstart', showArrowsTemporarily, {passive:true});
+  lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
+  document.addEventListener('keydown', (e)=>{ if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') (document.dir==='rtl'? nextLB(): prevLB()); if(e.key==='ArrowRight') (document.dir==='rtl'? prevLB(): nextLB()); });
+
+  // Masterplan
+  document.getElementById('openMaster').addEventListener('click', (e)=>{ 
+    e.preventDefault(); 
+    lbImg.src='https://g.top4top.io/p_3525qqtvx0.jpg'; 
+    lbCount.textContent = 'الماستر بلان';
+    lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); showArrowsTemporarily();
+  });
+})();
+
+/* Dev mini + Share + Copy */
 (function(){
   const devBtn = document.getElementById('wdBtn');
   const shareBtn = document.getElementById('wdShare');
@@ -417,9 +500,9 @@ const $ = s => document.querySelector(s);
 
   (function(){
     const w = encodeURIComponent(SHARE_TEXT);
-    document.getElementById('shareWapp').href = `https://wa.me/?text=${w}`;
-    document.getElementById('shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
-    document.getElementById('shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
+    $('#shareWapp').href = `https://wa.me/?text=${w}`;
+    $('#shareTg').href   = `https://t.me/share/url?url=${encodeURIComponent(MURANO_URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
+    $('#shareFb').href   = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(MURANO_URL)}`;
   })();
 
   shareBtn.addEventListener('click', async ()=>{
@@ -430,7 +513,8 @@ const $ = s => document.querySelector(s);
         return;
       }
     }catch(e){ console.warn(e); }
-    sheet.classList.add('open'); setTimeout(()=> sheet.classList.remove('open'), 6000);
+    sheet.style.display='block';
+    setTimeout(()=> sheet.style.display='none', 6000);
   });
 
   copyBtn.addEventListener('click', async ()=>{
@@ -438,6 +522,19 @@ const $ = s => document.querySelector(s);
     showToast(ok ? 'تم نسخ رابط مورانو' : 'لم يتم النسخ');
   });
 })();
+
+/* منع حفظ/طباعة ببعض الاختصارات الشائعة */
+document.addEventListener('keydown', (e)=>{
+  const k = e.key.toLowerCase();
+  if((e.ctrlKey||e.metaKey) && (k==='s' || k==='p')) e.preventDefault();
+});
+
+/* منع كليك يمين + سحب على كل الصور */
+document.addEventListener('contextmenu', e=> e.preventDefault());
+document.querySelectorAll('img').forEach(img=>{
+  img.setAttribute('draggable','false');
+  img.addEventListener('dragstart', e=>e.preventDefault());
+});
 </script>
 </body>
 </html>
