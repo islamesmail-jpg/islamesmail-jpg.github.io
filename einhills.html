@@ -57,7 +57,7 @@ body{
 
 /* BREADCRUMB */
 .breadcrumb{background:#fff;border-bottom:1px solid var(--line);width:100%}
-.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:#4b5563;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .breadcrumb a{color:#1f2937;text-decoration:none}
 .breadcrumb a:hover{text-decoration:underline}
 .breadcrumb .sep{opacity:.6;margin:0 .35rem}
@@ -107,19 +107,11 @@ body{
 .arrow.right{inset-inline-end:8px}
 
 /* ICONS INLINE ABOVE PRICES */
-.icons-row-grid{
-  display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));
-  gap:12px;max-width:var(--wrap);margin:0 auto 6px;padding:0 16px;
-}
-.between-cta{
-  display:flex;align-items:center;justify-content:flex-start;gap:0;position:relative;
-}
+.icons-row-grid{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;max-width:var(--wrap);margin:0 auto 6px;padding:0 16px}
+.between-cta{display:flex;align-items:center;justify-content:flex-start;gap:0;position:relative}
 .between-cta .icon-btn{background:transparent;border:0;padding:0;line-height:0;cursor:pointer}
 .between-cta .icon-btn img{width:var(--icon);height:var(--icon);display:block;object-fit:contain}
-.between-cta .pop{
-  position:absolute;top:calc(100% + 8px);inset-inline-start:0;background:#fff;border:1px solid var(--line);
-  border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:50;min-width:240px
-}
+.between-cta .pop{position:absolute;top:calc(100% + 8px);inset-inline-start:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none;z-index:50;min-width:240px}
 .between-cta .pop.open{display:block}
 .pop .pop-title{font-weight:800;margin:0 0 6px}
 .pop a{display:flex;align-items:center;gap:8px;padding:8px;border-radius:8px;text-decoration:none;color:#111}
@@ -145,7 +137,7 @@ body{
 
 /* TEXT */
 section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
-section p,section li{color:var(--muted)}
+section p,section li{color:#4b5563}
 ul{margin:8px 0 12px}
 
 /* CONTACT CARD */
@@ -576,43 +568,57 @@ const $ = s => document.querySelector(s);
   });
 })();
 
-/* Internal Search (suggestions) */
+/* === Internal Search (fetch /search-index.json) === */
 (function(){
   const INPUT = document.getElementById('siteSearch');
-  const BOX = document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-  const SITE_INDEX=[
-    {title:"العين السخنة",keywords:"sokhna الزعفرانة zafarana suez السويس الجلالة morano murano ein hills",url:"/sokhna.html"},
-    {title:"الساحل الشمالي",keywords:"north coast رأس الحكمة sidi abdelrahman سيدي عبد الرحمن",url:"/north.html"},
-    {title:"القاهرة الجديدة",keywords:"new cairo التجمع nac العاصمة الادارية",url:"/Cairo.html"},
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-    {title:"Ein Hills | عين هيلز",keywords:"ein hills shahawi الجلالة العين السخنة",url:"/einhills.html"},
-    {title:"Murano Wadi Degla | مورانو",keywords:"murano wadi degla وادي دجلة مارينا شاطئ",url:"/murano.html"},
-
-    {title:"إعادة البيع",keywords:"resale ready جاهز استلام فورى",url:"/resale.html"},
-    {title:"اعرض وحدتك",keywords:"list unit sell بيع عرض",url:"/list.html"}
-  ];
-
-  function search(q){
-    q=q.trim().toLowerCase();
-    if(!q) return [];
-    return SITE_INDEX
-      .map(it=>({it,score:(it.title+' '+it.keywords).toLowerCase().includes(q)?1:0}))
-      .filter(x=>x.score>0).map(x=>x.it).slice(0,8);
-  }
-
-  const render = (res)=>{
-    BOX.innerHTML='';
-    if(res.length===0){ BOX.style.display='none'; return; }
-    res.forEach(r=>{
-      const a=document.createElement('a'); a.href=r.url; a.textContent=r.title; BOX.appendChild(a);
-    });
-    BOX.style.display='block';
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
   };
 
-  INPUT.addEventListener('input', ()=>{ render(search(INPUT.value)); });
-  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target!==INPUT) BOX.style.display='none'; });
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
 })();
 
 /* منع الحفظ/الطباعة + كليك يمين + سحب الصور */
