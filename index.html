@@ -28,7 +28,10 @@
 <meta name="twitter:description" content="قارن بين المشاريع والمطورين واختر وحدتك المثالية.">
 <meta name="twitter:image" content="https://j.top4top.io/p_3531rrodg0.png">
 
-<link rel="icon" href="https://l.top4top.io/p_3529ppog90.png">
+<!-- Favicon (تم التبديل) -->
+<link rel="icon" type="image/png" href="https://i.top4top.io/p_3536599nr0.png" sizes="32x32">
+<link rel="apple-touch-icon" href="https://i.top4top.io/p_3536599nr0.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
@@ -45,7 +48,7 @@
 :root{
   --bg:#fff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
   --primary:#0b3a5e; --soft:#f7fafc; --wrap:1200px; --nav-h:64px;
-  --logo-h:45px; --logo-img-h:45px;  /* ← الحجم 160 للهيدر والفوتر */
+  --logo-h:45px; --logo-img-h:45px;
   --radius:18px; --shadow:0 10px 22px rgba(0,0,0,.06);
   --hero-img:url('https://a.top4top.io/p_3529a9wb71.jpg');
 }
@@ -134,7 +137,11 @@ img{max-width:100%;display:block}
 .tile:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
 .tile b{display:block}
 .tile .sub{margin:6px 0 0;color:var(--muted);font-size:.95rem}
-.tile .ico{width:34px;height:34px;flex:0 0 34px;border-radius:8px;object-fit:cover}
+/* جعل الأيقونة دائرة مع الحفاظ على المقاس الحالي */
+.tile .ico{
+  width:34px;height:34px;flex:0 0 34px;border-radius:50%;
+  object-fit:cover;overflow:hidden;border:1px solid var(--line);background:#fff;
+}
 @media(max-width:992px){.quick-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* HBAR cards */
@@ -226,11 +233,12 @@ img{max-width:100%;display:block}
         <p class="sub">ابحث وقارن بين أفضل المشاريع والكمباوندات في العين السخنة والساحل الشمالي والقاهرة الجديدة — شراء، استثمار، أو إضافة وحدتك بثقة.</p>
 
         <div class="search-wrap" role="search">
-          <form class="search" onsubmit="return doSearch()" aria-label="بحث داخل الموقع">
-            <input id="q" type="text" placeholder="ابحث باسم المشروع أو المنطقة أو المطوّر أو نوع الوحدة" oninput="liveSuggest(this.value)" autocomplete="off" aria-label="حقل البحث">
-            <button type="submit" aria-label="تنفيذ البحث">بحث</button>
+          <!-- تم تهيئة الحقول IDs لتوافق سكريبت البحث الجديد -->
+          <form class="search" aria-label="بحث داخل الموقع">
+            <input id="siteSearch" type="text" placeholder="ابحث باسم المشروع أو المنطقة أو المطوّر أو نوع الوحدة" autocomplete="off" aria-label="حقل البحث">
+            <button id="searchBtn" type="button" aria-label="تنفيذ البحث">بحث</button>
           </form>
-          <div class="sugg" id="sugg" role="listbox" aria-label="اقتراحات البحث"></div>
+          <div class="sugg" id="suggest" role="listbox" aria-label="اقتراحات البحث"></div>
         </div>
       </div>
     </div>
@@ -252,21 +260,28 @@ img{max-width:100%;display:block}
 <section class="section">
   <div class="container">
     <div class="quick-tiles">
+      <!-- 1) تحت الإنشاء / مشاريع جديدة -->
       <a class="tile" href="zafarana.html">
         <img class="ico" src="https://c.top4top.io/p_3529com4g0.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy">
-        <div><b>تحت الإنشاء</b><div class="sub">محور الزعفرانة / السويس</div></div>
+        <div><b>تحت الإنشاء</b><div class="sub">مشاريع جديدة</div></div>
       </a>
+
+      <!-- 2) أعرض وحدتك / بيع وحدتك بسرعة -->
+      <a class="tile" href="list.html">
+        <img class="ico" src="https://g.top4top.io/p_3529q7vag0.gif" alt="أعرض وحدتك" loading="lazy">
+        <div><b>أعرض وحدتك</b><div class="sub">بيع وحدتك بسرعة</div></div>
+      </a>
+
+      <!-- 3) إعادة البيع / جاهزة للاستلام -->
       <a class="tile" href="resale.html">
-        <img class="ico" src="https://f.top4top.io/p_3529n8g7t3.gif" alt="إعادة بيع" loading="lazy">
-        <div><b>إعادة بيع</b><div class="sub">جاهزة أو قريبة الاستلام</div></div>
+        <img class="ico" src="https://f.top4top.io/p_3529n8g7t3.gif" alt="إعادة البيع" loading="lazy">
+        <div><b>إعادة البيع</b><div class="sub">جاهزة للاستلام</div></div>
       </a>
+
+      <!-- 4) عروض مميزة / خصومات وتقسيط -->
       <a class="tile" href="offers.html">
         <img class="ico" src="https://e.top4top.io/p_3529qupm22.gif" alt="عروض مميزة" loading="lazy">
-        <div><b>عروض مميزة</b><div class="sub">خطط وأسعار مرنة</div></div>
-      </a>
-      <a class="tile" href="list.html">
-        <img class="ico" src="https://g.top4top.io/p_3529q7vag0.gif" alt="أضف وحدتك" loading="lazy">
-        <div><b>أضف وحدتك</b><div class="sub">أرسل تفاصيل وحدتك</div></div>
+        <div><b>عروض مميزة</b><div class="sub">خصومات وتقسيط</div></div>
       </a>
     </div>
   </div>
@@ -382,53 +397,73 @@ document.addEventListener('click',(e)=>{
     pagesBtn?.setAttribute('aria-expanded','false');
   }
 });
+</script>
 
-/* -------- فهرس الموقع للبحث -------- */
-const SITE_INDEX=[
-  {title:"العين السخنة",keywords:"sokhna الزعفرانة zafarana السويس suez الجلالة galala شاليه شقة فيلا جاهز اعادة بيع تقسيط",url:"sokhna.html"},
-  {title:"الساحل الشمالي",keywords:"north coast ras el hekma رأس الحكمة sidi abdelrahman سيدي عبد الرحمن chalets villas beach installments",url:"north.html"},
-  {title:"القاهرة الجديدة",keywords:"new cairo fifth settlement 5th التجمع nac العاصمة الادارية mostakbal المستقبل apartments villas",url:"Cairo.html"},
-  {title:"محور الزعفرانة",keywords:"zafarana طريق الزعفرانة under construction off plan masterplan",url:"zafarana.html"},
-  {title:"محور السويس",keywords:"suez طريق السويس الجلالة mountain منتجعات قرى",url:"suez.html"},
-  {title:"بورتو السخنة",keywords:"porto sokhna amer group ready resale red sea",url:"porto-sokhna.html"},
-  {title:"السخنة هيلز",keywords:"sokhna hills zafarana prime location flexible plans",url:"sokhna-hills.html"},
-  {title:"لوجانو الجلالة",keywords:"lugano galala terraces sea view",url:"lugano.html"},
-  {title:"لولي بيتش",keywords:"loly beach sea chalets",url:"lolybeach.html"},
-  {title:"إعادة بيع",keywords:"resale ready to move اعادة بيع",url:"resale.html"},
-  {title:"عروض مميزة",keywords:"offers discounts deals flexible pricing عروض خصومات",url:"offers.html"},
-  {title:"أضف وحدتك",keywords:"sell listing post اعلان بيع whatsapp واتساب",url:"list.html"}
-];
+<!-- ===== استبدال كود البحث بالنسخة المطلوبة ===== -->
+<script>
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-function normalize(t){
-  return t.toLowerCase().replace(/[^\u0621-\u064Aa-z0-9\s\-]+/g,"").replace(/\s+/g," ").trim();
-}
-function score(hay,q){
-  let s=0; if(hay.startsWith(q)) s+=5; if(hay.includes(q)) s+=2;
-  for(const w of q.split(" ")){ if(!w) continue; if(hay.startsWith(w)) s+=2; if(hay.includes(w)) s+=1; }
-  return s;
-}
-function searchIndex(q){
-  q=normalize(q); if(!q) return [];
-  return SITE_INDEX.map(it=>{ const hay=normalize(it.title+" "+it.keywords); return {it,s:score(hay,q)}; })
-    .filter(r=>r.s>0).sort((a,b)=>b.s-a.s).slice(0,8).map(r=>r.it);
-}
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-const sugg=document.getElementById('sugg');
-function liveSuggest(v){
-  const hits=searchIndex(v);
-  if(!hits.length){sugg.style.display="none";sugg.innerHTML="";return;}
-  sugg.innerHTML=hits.map(h=>`<a href="${h.url}"><div><b>${h.title}</b><div><small>${h.url}</small></div></div><span class="kbd">↵</span></a>`).join("");
-  sugg.style.display="block";
-}
-function doSearch(){
-  const q = document.getElementById('q').value;
-  const hits = searchIndex(q);
-  if (hits.length) { location.href = hits[0].url; }
-  else { alert("لا توجد نتيجة مطابقة على الموقع. جرّب اسم مشروع أو منطقة أو مطوّر."); }
-  return false;
-}
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
 
-/* -------- إرسال الواتساب -------- */
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+</script>
+
+<!-- دعم زر "بحث" بدون تغيير السكريبت الأساسي -->
+<script>
+document.getElementById('searchBtn')?.addEventListener('click', ()=>{
+  const first = document.querySelector('#suggest a');
+  if(first){ window.location.href = first.href; }
+});
+</script>
+
+<!-- إرسال الواتساب -->
+<script>
 function sendLead(){
   const name=(document.getElementById('name').value||"").trim();
   const loc=(document.getElementById('loc').value||"").trim();
