@@ -1,41 +1,92 @@
-<footer>
-  <div class="container footer-wrap">
-    <div class="fbrand">
-      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="شعار إسلام إسماعيل">
-    </div>
-    <div class="fbox desc">
-      <h4>Islam Real Estate</h4>
-      <p>دليل ومبيعات العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
-      <p>اختر بثقة بين البيع من المطور وإعادة البيع.</p>
-    </div>
-    <div class="fbox links">
-      <h4>روابط سريعة</h4>
-      <a href="index.html">الرئيسية</a>
-      <a href="sokhna.html">العين السخنة</a>
-      <a href="zafarana.html">طريق الزعفرانة</a>
-      <a href="suez.html">طريق السويس</a>
-      <a href="north.html">الساحل الشمالي</a>
-      <a href="Cairo.html">القاهرة الجديدة</a>
-      <a href="privacy.html">سياسة الخصوصية</a>
-    </div>
-    <div class="fbox projects">
-      <h4>مشاريع مميزة</h4>
-      <a href="lugano.html">لوجانو الجلالة</a>
-      <a href="einhills.html">عين هيلز</a>
-      <a href="murano.html">مورانو</a>
-      <a href="lolybeach.html">لولي بيتش</a>
-      <a href="dolphin.html">دولفين بيتش</a>
-    </div>
-    <div class="fbox contact">
-      <h4>تواصل</h4>
-      <a href="tel:+201050072527">📞 الهاتف</a>
-      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
-      <a href="mailto:islammesmail@gmail.com">✉️ ايميل</a>
-    </div>
-  </div>
-  <div class="foot-bottom">© <span id="year"></span> Islam Real Estate — جميع الحقوق محفوظة</div>
-</footer>
+<footer class="site-footer" dir="rtl" aria-label="تذييل الموقع">
+  <style>
+    .site-footer{border-top:1px solid #e5e7eb;background:#fff;color:#000;font-family:"Tajawal",Arial,Helvetica,sans-serif}
+    .site-footer a{color:#000;text-decoration:none}
+    .site-footer a:hover{text-decoration:underline}
+    .site-footer .container{max-width:1120px;margin:auto;padding:24px 16px}
 
-<script>
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+    /* الصف الرئيسي */
+    .sf-main{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:nowrap}
+
+    /* اللوجو + الوصف (يسار) */
+    .sf-brand{flex:1;min-width:220px;text-align:right}
+    .sf-logo img{height:60px;width:auto;margin-bottom:8px}
+    .sf-desc{font-weight:700;line-height:1.7;font-size:15px;max-width:320px}
+
+    /* الأعمدة */
+    .sf-cols{flex:2;display:flex;justify-content:flex-start;gap:40px}
+    .sf-col{flex:1;min-width:160px;text-align:right}
+    .sf-col h4{margin:0 0 10px;font-size:16px;font-weight:800}
+    .sf-links a{display:block;padding:4px 0;font-weight:600;font-size:14px}
+    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:5px 0;font-weight:600;font-size:14px}
+    .sf-contacts img{width:20px;height:20px;object-fit:contain}
+
+    /* أسفل الفوتر */
+    .sf-bottom{border-top:1px solid #e5e7eb;margin-top:18px;padding-top:10px;font-size:13px;color:#111;text-align:center}
+  </style>
+
+  <div class="container">
+    <div class="sf-main">
+      <!-- يسار: اللوجو + الوصف -->
+      <div class="sf-brand">
+        <div class="sf-logo">
+          <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="شعار Islam Real Estate">
+        </div>
+        <div class="sf-desc">
+          عروض مميّزة وحصرية على مشاريع <b>العين السخنة</b> و<b>الساحل الشمالي</b> و<b>القاهرة الجديدة</b><br>
+          مع خدمات <b>إعادة البيع</b> و<b>أعرض وحدتك</b> بسهولة.
+        </div>
+      </div>
+
+      <!-- يمين: الأعمدة -->
+      <div class="sf-cols">
+        <!-- روابط سريعة -->
+        <div class="sf-col">
+          <h4>روابط سريعة</h4>
+          <nav class="sf-links">
+            <a href="sokhna.html">العين السخنة</a>
+            <a href="Cairo.html">القاهرة الجديدة</a>
+            <a href="north.html">الساحل الشمالي</a>
+            <a href="resale.html">إعادة البيع</a>
+            <a href="list.html">أعرض وحدتك</a>
+            <a href="offers.html">عروض مميزة</a>
+            <a href="privacy.html">سياسة الخصوصية</a>
+          </nav>
+        </div>
+
+        <!-- مشاريع مميزة -->
+        <div class="sf-col">
+          <h4>مشاريع مميزة</h4>
+          <nav class="sf-links">
+            <a href="lugano.html">لوجانو</a>
+            <a href="murano.html">مورانو</a>
+            <a href="einhills.html">العين هيلز</a>
+            <a href="sokhnahills.html">السخنة هيلز</a>
+          </nav>
+        </div>
+
+        <!-- التواصل -->
+        <div class="sf-col">
+          <h4>التواصل</h4>
+          <div class="sf-contacts">
+            <a href="tel:+201050072527">
+              <img src="https://c.top4top.io/p_3536r902r0.png" alt="اتصال مباشر"> الاتصال مباشر
+            </a>
+            <a href="https://wa.me/201050072527" target="_blank" rel="noopener">
+              <img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب
+            </a>
+            <a href="mailto:islammesmail@gmail.com">
+              <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="البريد الإلكتروني"> الايميل
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf-bottom">© <span id="sf-year-ar"></span> Islam Real Estate — جميع الحقوق محفوظة</div>
+  </div>
+
+  <script>
+    (function(){var y=document.getElementById('sf-year-ar'); if(y) y.textContent=new Date().getFullYear();})();
+  </script>
+</footer>
