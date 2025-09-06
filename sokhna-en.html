@@ -21,9 +21,10 @@
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
   --radius:14px; --pad:14px;
   /* Quick sizes */
-  --dot:74px;      /* circle size desktop */
-  --dot-m:60px;    /* circle size mobile */
-  --route-ratio:16/9;
+  --dot:74px;           /* circle size desktop */
+  --dot-m:60px;         /* circle size mobile */
+  --route-ratio:16/9;   /* desktop ratio */
+  --route-ratio-m:5/4;  /* smaller height on mobile */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -84,12 +85,34 @@ img{max-width:100%;display:block}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Routes — always two columns (mobile & desktop) */
-.routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-.route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative}
+/* Routes — always two columns + mobile tweaks for smaller cards */
+.routes{
+  margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))
+}
+.route{
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+@media(hover:hover){
+  .route:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}
+}
 .media-cover{width:100%;aspect-ratio:var(--route-ratio);background:#f8fafc}
-.media-cover img{width:100%;height:100%;object-fit:cover}
-.route .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--gold);border-radius:10px;text-align:center;font-weight:800;color:#7a5b12;padding:8px}
+.media-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
+.route .cap{
+  position:absolute;left:10px;right:10px;bottom:10px;
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--gold);
+  border-radius:10px;
+  text-align:center;font-weight:800;color:#7a5b12;
+  padding:8px;font-size:14px;line-height:1.2;
+}
+/* Mobile size reduction */
+@media(max-width:640px){
+  .routes{gap:8px}
+  .route{border-radius:10px}
+  .media-cover{aspect-ratio:var(--route-ratio-m)}
+  .route .cap{left:6px;right:6px;bottom:6px;padding:6px;font-size:12px;border-radius:8px}
+}
 
 /* Content */
 .cardx{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
@@ -169,7 +192,7 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
       </div>
       <div class="menu" id="m-proj">
         <button class="btnx" onclick="toggleDrop('m-proj')">Projects ▾</button>
-        <div class="panel" role="menu" aria-label="Project Areas">
+        <div class="panel" role="menu" aria-label="Project areas">
           <a href="zafarana.html">Zafarana Road</a>
           <a href="suez.html">Suez Road</a>
           <a href="index-en.html">Home</a>
@@ -195,61 +218,61 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
     </div>
   </div>
 
-  <!-- Quick links — GIF circle + title/sub beside (in your requested order) -->
+  <!-- Quick links — GIF circle + title/sub beside -->
   <section class="features" aria-label="Quick links">
-    <!-- Off-plan_1 -->
     <a class="cardfeat" href="offplan.html">
       <div class="dot">
-        <img src="https://j.top4top.io/p_35303sd560.gif" alt="Off-plan projects" loading="lazy">
+        <img src="https://j.top4top.io/p_35303sd560.gif" alt="Off-plan projects" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="meta">
-        <div class="title">Off-plan Projects_1</div>
+        <div class="title">Off-plan</div>
         <div class="sub">New projects</div>
       </div>
     </a>
 
-    <!-- List Your Unit_2 -->
     <a class="cardfeat" href="list.html">
       <div class="dot">
-        <img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="List your unit" loading="lazy">
+        <img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="List your unit" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="meta">
-        <div class="title">List Your Unit_2</div>
+        <div class="title">List Your Unit</div>
         <div class="sub">Sell your unit fast</div>
       </div>
     </a>
 
-    <!-- Resale_3 -->
     <a class="cardfeat" href="resale.html">
       <div class="dot">
-        <img src="https://k.top4top.io/p_353056uve1.gif" alt="Resale" loading="lazy">
+        <img src="https://k.top4top.io/p_353056uve1.gif" alt="Resale" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="meta">
-        <div class="title">Resale_3</div>
+        <div class="title">Resale</div>
         <div class="sub">Ready to move</div>
       </div>
     </a>
 
-    <!-- Hot Offers_4 -->
     <a class="cardfeat" href="offers.html">
       <div class="dot">
-        <img src="https://l.top4top.io/p_3530x05wq2.gif" alt="Hot offers" loading="lazy">
+        <img src="https://l.top4top.io/p_3530x05wq2.gif" alt="Hot offers" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <div class="meta">
-        <div class="title">Hot Offers_4</div>
+        <div class="title">Hot Offers</div>
         <div class="sub">Discounts & Installments</div>
       </div>
     </a>
   </section>
 
-  <!-- Routes (always two columns) -->
+  <!-- Routes (always two columns + mobile-optimized size) -->
   <section class="routes" aria-label="Ain Sokhna routes">
     <a class="route" href="zafarana.html">
-      <div class="media-cover"><img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="Zafarana Road" loading="lazy"></div>
+      <div class="media-cover">
+        <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="Zafarana Road" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
       <div class="cap">Zafarana Road</div>
     </a>
     <a class="route" href="suez.html">
-      <div class="media-cover"><img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="Suez Road" loading="lazy"></div>
+      <div class="media-cover">
+        <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="Suez Road" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
       <div class="cap">Suez Road</div>
     </a>
   </section>
