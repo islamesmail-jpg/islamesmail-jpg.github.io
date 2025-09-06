@@ -8,14 +8,15 @@
       border-top:1px solid var(--line);
       font-family:"Tajawal", Arial, Helvetica, sans-serif
     }
-    .site-footer a{color:var(--ink);text-decoration:none}
-    .site-footer a:hover{text-decoration:underline}
+    .site-footer a{color:var(--ink);text-decoration:none;transition:color .25s ease}
+    .site-footer a:hover{color:#0b3a5e;text-decoration:underline}
 
-    .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px}
+    .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px;animation:fadeIn .8s ease}
 
     /* اللوجو + الوصف */
     .sf-head{text-align:right;margin-bottom:28px}
-    .sf-logo img{height:60px;width:auto;display:block;margin-bottom:10px}
+    .sf-logo img{height:60px;width:auto;display:block;margin-bottom:10px;transition:transform .3s ease}
+    .sf-logo img:hover{transform:scale(1.05)}
     .sf-desc{font-weight:600;line-height:1.8;font-size:16px;max-width:520px}
 
     /* الأعمدة */
@@ -25,10 +26,13 @@
       gap:40px;
       align-items:start;
     }
+    .sf-col{transition:transform .3s ease}
+    .sf-col:hover{transform:translateY(-4px)}
     .sf-col h4{margin:0 0 10px;font-weight:900;font-size:18px}
     .sf-links a{display:block;padding:3px 0;font-weight:500;font-size:15px;line-height:1.6}
     .sf-contacts a{display:flex;align-items:center;gap:8px;padding:4px 0;font-weight:500;font-size:15px;line-height:1.6}
-    .sf-contacts img{width:20px;height:20px;object-fit:contain}
+    .sf-contacts img{width:20px;height:20px;object-fit:contain;transition:transform .3s ease}
+    .sf-contacts a:hover img{transform:scale(1.15)}
 
     /* خط النهاية */
     .sf-bottom{border-top:1px solid var(--line);margin-top:18px;padding:12px 0;font-size:13px;text-align:center;color:#111}
@@ -46,6 +50,11 @@
       .sf-col h4{font-size:16px}
       .sf-links a,.sf-contacts a{font-size:14px}
     }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(10px)}
+      to {opacity:1; transform:translateY(0)}
+    }
   </style>
 
   <div class="sf-wrap">
@@ -62,10 +71,9 @@
 
     <!-- الأعمدة -->
     <div class="sf-cols">
-      <!-- روابط سريعة -->
       <div class="sf-col">
         <h4>روابط سريعة</h4>
-        <nav class="sf-links" aria-label="روابط سريعة">
+        <nav class="sf-links">
           <a href="sokhna.html">العين السخنة</a>
           <a href="newcairo.html">القاهرة الجديدة</a>
           <a href="north.html">الساحل الشمالي</a>
@@ -75,31 +83,21 @@
           <a href="privacy.html">سياسة الخصوصية</a>
         </nav>
       </div>
-
-      <!-- مشاريع مميزة -->
       <div class="sf-col">
         <h4>مشاريع مميزة</h4>
-        <nav class="sf-links" aria-label="مشاريع مميزة">
+        <nav class="sf-links">
           <a href="lugano.html">لوجانو</a>
           <a href="murano.html">مورانو</a>
           <a href="einhills.html">عين هيلز</a>
           <a href="sokhnahills.html">السخنة هيلز</a>
         </nav>
       </div>
-
-      <!-- التواصل -->
       <div class="sf-col">
         <h4>التواصل</h4>
-        <div class="sf-contacts" aria-label="التواصل">
-          <a href="tel:+201050072527" title="الاتصال مباشر">
-            <img src="https://c.top4top.io/p_3536r902r0.png" alt="هاتف"> الاتصال مباشر
-          </a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="واتساب">
-            <img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب
-          </a>
-          <a href="mailto:islammesmail@gmail.com" title="ايميل">
-            <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="ايميل"> الايميل
-          </a>
+        <div class="sf-contacts">
+          <a href="tel:+201050072527"><img src="https://c.top4top.io/p_3536r902r0.png" alt="هاتف"> الاتصال مباشر</a>
+          <a href="https://wa.me/201050072527" target="_blank"><img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب</a>
+          <a href="mailto:islammesmail@gmail.com"><img src="https://h.top4top.io/p_3536cmi2c2.png" alt="إيميل"> الايميل</a>
         </div>
       </div>
     </div>
