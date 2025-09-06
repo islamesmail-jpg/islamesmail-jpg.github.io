@@ -1,0 +1,207 @@
+<header class="site-header" dir="ltr" aria-label="Site Header">
+  <style>
+    .site-header{
+      --wrap: 1200px;
+      --ink:#0f172a;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      position:sticky; top:0; z-index:1000;
+      background:rgba(255,255,255,.86);         /* translucent bar */
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      font-family:"Poppins", Arial, sans-serif;
+    }
+    .sh-wrap{
+      max-width:var(--wrap); margin:auto;
+      display:flex; align-items:center; gap:16px;
+      padding:10px 16px;
+    }
+
+    /* Logo (left in EN) */
+    .brand{display:inline-flex; align-items:center; line-height:0}
+    .brand img{height:46px; width:auto; display:block}
+
+    .spacer{flex:1} /* clean gap between logo and controls */
+
+    /* Pills (language / contact / areas) */
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; background:#fff; color:var(--ink);
+      border:1px solid var(--line); border-radius:12px;
+      font-weight:800; font-size:14px; cursor:pointer; user-select:none;
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+      text-decoration:none;
+    }
+    .pill:hover{background:var(--soft)}
+    .pill:active{transform:translateY(1px)}
+    .pill:focus-visible{outline:2px solid #cbd5e1; outline-offset:2px}
+    .ico{font-size:16px; line-height:1}
+
+    /* Dropdowns */
+    .dropdown{position:relative}
+    .menu{
+      position:absolute; left:0; top:calc(100% + 8px);
+      min-width:240px; padding:6px;
+      background:#fff; border:1px solid var(--line); border-radius:12px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      display:none; z-index:1001;
+    }
+    .dropdown.open .menu{display:block}
+    .menu a{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px; border-radius:10px;
+      font-weight:700; color:var(--ink); text-decoration:none;
+    }
+    .menu a:hover{background:#f1f5f9}
+    .menu .item-icon{width:18px; height:18px; object-fit:contain}
+    .menu .sub{font-size:12px; color:#64748b; margin-left:auto}
+
+    /* PC nav links */
+    .nav-links{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+    .nav-links a{
+      display:inline-flex; align-items:center;
+      padding:8px 10px; border-radius:10px; font-weight:800; font-size:14px;
+      color:var(--ink); text-decoration:none;
+    }
+    .nav-links a:hover{background:#f1f5f9}
+
+    /* Groups */
+    .actions-pc{display:flex; align-items:center; gap:10px}
+    .actions-mobile{display:none; align-items:center; gap:8px}
+
+    /* Mobile behavior */
+    @media (max-width: 900px){
+      .actions-pc{display:none}
+      .nav-links{display:none}
+      .actions-mobile{display:flex}
+      .brand img{height:42px}
+      .pill{padding:8px 10px; font-size:13px; border-radius:10px}
+      .menu{min-width:210px}
+    }
+  </style>
+
+  <div class="sh-wrap">
+    <!-- Logo (left) -->
+    <a class="brand" href="index-en.html" aria-label="Go to Home">
+      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
+    </a>
+
+    <div class="spacer" aria-hidden="true"></div>
+
+    <!-- ===== Mobile: 3 pills (Language / Contact / Areas) ===== -->
+    <div class="actions-mobile" aria-label="Mobile quick actions">
+      <!-- Language (to AR) -->
+      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">
+        <span class="ico">🌐</span><span>AR</span>
+      </a>
+
+      <!-- Contact -->
+      <div class="dropdown" id="m-contact">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-contact">
+          <span class="ico">☎️</span><span>Contact</span>
+        </button>
+        <nav id="menu-m-contact" class="menu" role="menu" aria-label="Contact options">
+          <a href="tel:+201050072527" role="menuitem">
+            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
+            Call <span class="sub">+20 105 007 2527</span>
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
+            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
+            WhatsApp
+          </a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">
+            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
+            Email
+          </a>
+        </nav>
+      </div>
+
+      <!-- Areas -->
+      <div class="dropdown" id="m-areas">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-areas">
+          <span class="ico">📍</span><span>Areas</span>
+        </button>
+        <nav id="menu-m-areas" class="menu" role="menu" aria-label="Areas">
+          <a href="sokhna-en.html" role="menuitem">Ain Sokhna</a>
+          <a href="north-en.html" role="menuitem">North Coast</a>
+          <a href="newcairo-en.html" role="menuitem">New Cairo</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ===== PC: Language + Contact (pills) + main links ===== -->
+    <div class="actions-pc" aria-label="Desktop quick actions">
+      <!-- Language -->
+      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">
+        <span class="ico">🌐</span><span>AR</span>
+      </a>
+
+      <!-- Contact -->
+      <div class="dropdown" id="pc-contact">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-pc-contact">
+          <span class="ico">☎️</span><span>Contact</span>
+        </button>
+        <nav id="menu-pc-contact" class="menu" role="menu" aria-label="Contact options">
+          <a href="tel:+201050072527" role="menuitem">
+            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
+            Call <span class="sub">+20 105 007 2527</span>
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
+            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
+            WhatsApp
+          </a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">
+            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
+            Email
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="sokhna-en.html">Ain Sokhna</a>
+      <a href="north-en.html">North Coast</a>
+      <a href="newcairo-en.html">New Cairo</a>
+      <a href="resale-en.html">Resale</a>
+      <a href="listyourunit-en.html">List Your Unit</a>
+    </nav>
+  </div>
+
+  <script>
+    (function(){
+      function toggle(id){
+        document.querySelectorAll('.dropdown').forEach(d=>{
+          if(d.id!==id) d.classList.remove('open');
+          const b=d.querySelector('button');
+          if(b) b.setAttribute('aria-expanded', d.classList.contains('open') ? 'true' : 'false');
+        });
+        const el=document.getElementById(id);
+        const open=el.classList.toggle('open');
+        const btn=el.querySelector('button');
+        if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      // Mobile
+      document.querySelector('#m-contact > button')?.addEventListener('click',()=>toggle('m-contact'));
+      document.querySelector('#m-areas > button')?.addEventListener('click',()=>toggle('m-areas'));
+      // PC
+      document.querySelector('#pc-contact > button')?.addEventListener('click',()=>toggle('pc-contact'));
+
+      // Close on outside click
+      document.addEventListener('click',(e)=>{
+        if(!e.target.closest('.dropdown')){
+          document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+          document.querySelectorAll('.dropdown > button').forEach(b=>b.setAttribute('aria-expanded','false'));
+        }
+      });
+      // Close on ESC
+      document.addEventListener('keydown',(e)=>{
+        if(e.key==='Escape'){
+          document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+          document.querySelectorAll('.dropdown > button').forEach(b=>b.setAttribute('aria-expanded','false'));
+        }
+      });
+    })();
+  </script>
+</header>
