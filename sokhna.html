@@ -25,11 +25,8 @@
 :root{
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
   --radius:14px; --pad:14px;
-  /* أحجام */
-  --dot:74px;     /* دائرة ديسكتوب */
-  --dot-m:60px;   /* دائرة موبايل */
-  --dot-s:52px;   /* دائرة موبايل صغير */
-  --route-ratio:16/9; /* نسبة الطرق */
+  --dot:74px; --dot-m:60px; --dot-s:52px;
+  --route-ratio:16/9;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -38,27 +35,59 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* الهيدر */
+/* ======= Header / Topbar ======= */
 .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
-.navbar{height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.navbar{
+  height:66px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  /* نجعل الاتجاه معكوس دائمًا: اللوجو يمين وروابط على الشمال */
+  flex-direction:row-reverse;
+}
 .brandbox img{height:44px;width:auto}
-.actions{justify-self:start;display:flex;gap:14px;align-items:center}
-.btnx{border:none;background:transparent;color:var(--ink);font-weight:700;font-size:14px;cursor:pointer;padding:6px 8px;border-radius:10px}
-.btnx:hover{background:#f1f5f9}
-.menu,.contact{position:relative}
-.panel{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:220px;padding:6px;box-shadow:0 10px 24px rgba(15,23,42,.06);display:none}
-.menu.open .panel,.contact.open .panel{display:block}
+
+/* خط التنقل لسطح المكتب */
+.navline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.linkx, .btnx, .chip{
+  border:none;background:transparent;color:var(--ink);
+  font-weight:800;font-size:14px;cursor:pointer;padding:8px 10px;border-radius:10px;
+}
+.linkx:hover, .btnx:hover, .chip:hover{background:#f1f5f9}
+.linkx{display:inline-flex;align-items:center}
+
+/* قوائم منسدلة */
+.dropdown{position:relative}
+.panel{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:#fff;border:1px solid var(--line);border-radius:12px;min-width:240px;padding:6px;
+  box-shadow:0 10px 24px rgba(15,23,42,.06);display:none
+}
+.dropdown.open>.panel{display:block}
 .panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
 .panel a:hover{background:#f8fafc}
 
-/* مسار الصفحات */
+/* عناصر موبايل: كبسولات داخل إطار واحد */
+.mobile-controls{display:none}
+.group{
+  display:flex;align-items:center;gap:6px;
+  padding:6px;border:1px solid var(--line);border-radius:999px;background:#fff;
+  box-shadow:0 4px 14px rgba(15,23,42,.06)
+}
+.group .chip{padding:8px 10px;border-radius:999px}
+
+/* تفعيل عناصر الموبايل وإخفاء خط التنقل */
+@media(max-width:768px){
+  .navline{display:none}
+  .mobile-controls{display:block}
+}
+
+/* ======= Breadcrumb ======= */
 .breadcrumb{background:#fafafa;border-bottom:1px solid var(--line)}
 .breadcrumb .inner{display:flex;gap:8px;align-items:center;padding:8px 0;font-size:13px;color:#334155;font-weight:700}
 
-/* العنوان */
+/* ======= Title ======= */
 .page-title{margin:16px 0 8px;font-size:clamp(18px,2.4vw,24px);font-weight:800;text-align:center}
 
-/* البحث */
+/* ======= Search ======= */
 .searchwrap{padding:8px 0 12px}
 .searchbar{position:relative;max-width:820px;margin:0 auto}
 #siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);font-weight:700}
@@ -67,7 +96,7 @@ img{max-width:100%;display:block}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover,.suggestions a[aria-selected="true"]{background:#f8fafc}
 
-/* روابط سريعة — دائرة + عنوان/وصف */
+/* ======= Quick links (circle GIF + text) ======= */
 .features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
 .cardfeat{
@@ -87,7 +116,6 @@ img{max-width:100%;display:block}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* تصغير للموبايل */
 @media(max-width:640px){
   .features{gap:8px}
   .cardfeat{padding:10px;gap:10px}
@@ -102,7 +130,7 @@ img{max-width:100%;display:block}
   .meta .sub{font-size:11.5px}
 }
 
-/* الطرق — ديسكتوب عمودين / موبايل عمود واحد */
+/* ======= Routes ======= */
 .routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:640px){.routes{grid-template-columns:1fr}}
 .route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative;transition:transform .15s ease, box-shadow .15s ease}
@@ -111,12 +139,12 @@ img{max-width:100%;display:block}
 .media-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
 .route .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--gold);border-radius:10px;text-align:center;font-weight:800;color:#7a5b12;padding:8px;font-size:14px;line-height:1.2}
 
-/* المحتوى */
+/* ======= Content ======= */
 .cardx{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
 .cardx h2{margin:0 0 10px}
 .cardx ul{margin:8px 0 14px;padding-inline-start:18px}
 
-/* الفوتر */
+/* ======= Footer ======= */
 footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 .footer-wrap{display:grid;gap:18px;grid-template-columns:1.2fr 2fr 1.2fr 1.2fr 1.4fr;padding:20px 0}
 .fbrand img{height:48px;width:auto}
@@ -142,7 +170,7 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 }
 .foot-bottom{border-top:1px solid var(--line);padding:12px 0;color:#64748b;font-size:13px;text-align:center}
 
-/* زر واتساب */
+/* WhatsApp FAB */
 .whatsapp-fab{position:fixed;left:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.12)}
 .whatsapp-fab img{width:28px;height:28px}
 </style>
@@ -162,26 +190,54 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 
 <header class="topbar">
   <div class="container navbar">
+    <!-- الشعار يمين دائمًا (row-reverse) -->
     <a class="brandbox" href="index.html" aria-label="الرئيسية">
       <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
     </a>
-    <div></div>
-    <div class="actions">
+
+    <!-- خط تنقل سطح المكتب (يسار) -->
+    <nav class="navline" aria-label="روابط رئيسية">
       <button class="btnx" id="langToggle" aria-label="English">EN</button>
-      <div class="contact" id="m-contact">
-        <button class="btnx" onclick="toggleDrop('m-contact')">تواصل ▾</button>
+
+      <div class="dropdown" id="nav-contact">
+        <button class="btnx" onclick="togglePanel('nav-contact')">اتصل بنا ▾</button>
         <div class="panel" role="menu" aria-label="روابط التواصل">
           <a href="tel:+201050072527">📞 اتصال الآن</a>
           <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
           <a href="mailto:islammesmail@gmail.com">✉️ البريد الإلكتروني</a>
         </div>
       </div>
-      <div class="menu" id="m-proj">
-        <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
-        <div class="panel" role="menu" aria-label="أقسام المشاريع">
-          <a href="zafarana.html">طريق الزعفرانة</a>
-          <a href="suez.html">طريق السويس</a>
-          <a href="index.html">الرئيسية</a>
+
+      <a class="linkx" href="sokhna.html">العين السخنة</a>
+      <a class="linkx" href="north.html">الساحل الشمالي</a>
+      <a class="linkx" href="Cairo.html">القاهرة الجديدة</a>
+      <a class="linkx" href="resale.html">إعادة البيع</a>
+      <a class="linkx" href="list.html">أعرض وحدتك</a>
+    </nav>
+
+    <!-- عناصر الموبايل: يسار في كبسولة واحدة -->
+    <div class="mobile-controls" aria-label="أدوات سريعة">
+      <div class="group">
+        <button class="chip" id="m-lang" aria-label="English">EN</button>
+
+        <div class="dropdown" id="m-contact">
+          <button class="chip" onclick="togglePanel('m-contact')">اتصل بنا ▾</button>
+          <div class="panel" role="menu" aria-label="روابط التواصل">
+            <a href="tel:+201050072527">📞 اتصال الآن</a>
+            <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+            <a href="mailto:islammesmail@gmail.com">✉️ البريد الإلكتروني</a>
+          </div>
+        </div>
+
+        <div class="dropdown" id="m-proj">
+          <button class="chip" onclick="togglePanel('m-proj')">المشاريع ▾</button>
+          <div class="panel" role="menu" aria-label="أقسام المشاريع">
+            <a href="sokhna.html">العين السخنة</a>
+            <a href="north.html">الساحل الشمالي</a>
+            <a href="Cairo.html">القاهرة الجديدة</a>
+            <a href="resale.html">إعادة البيع</a>
+            <a href="list.html">أعرض وحدتك</a>
+          </div>
         </div>
       </div>
     </div>
@@ -238,7 +294,6 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
   <!-- التفاصيل -->
   <section class="cardx" aria-label="تفاصيل العين السخنة">
     <h2>العين السخنة — دليل كامل</h2>
-
     <h3>(1) الموقع والمسافات</h3>
     <ul>
       <li>تقع على ساحل خليج السويس (البحر الأحمر) جنوب مدينة السويس.</li>
@@ -246,10 +301,8 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
       <li>من العاصمة الإدارية ~ حوالي 60 دقيقة.</li>
       <li>من مدينة السويس ~ 50–60 كم.</li>
     </ul>
-
     <h3>(2) الانتماء الإداري</h3>
     <p>العين السخنة تتبع <strong>محافظة السويس</strong> مع سهولة الوصول لخدمات المحافظة.</p>
-
     <h3>(3) طرق الوصول والمحاور</h3>
     <ul>
       <li>طريق القاهرة – العين السخنة المباشر.</li>
@@ -258,13 +311,11 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
       <li>طريق السويس – العين السخنة.</li>
       <li>محاور الغردقة/الإسماعيلية (للربط بمدن البحر الأحمر).</li>
     </ul>
-
     <h3>(4) الطقس وأفضل أوقات الزيارة</h3>
     <ul>
       <li>معتدل أغلب السنة: شتاء لطيف وصيف برطوبة أقل من الساحل الشمالي.</li>
       <li>أوقات الذروة: عطلة نهاية الأسبوع وعلى مدار العام لقربها من القاهرة.</li>
     </ul>
-
     <h3>(5) الأنشطة والترفيه</h3>
     <ul>
       <li>رياضات مائية: سباحة، سنوركلينج، صيد، ورحلات بحرية.</li>
@@ -272,32 +323,28 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
       <li>تلفريك الجلالة (حسب التشغيل)، زلاجات، وأكوا بارك في بعض المنتجعات.</li>
       <li>سبا ونوادي صحية وممشى ومسارات دراجات في كثير من الكمباوندات.</li>
     </ul>
-
     <h3>(6) الخدمات الأساسية والطبية</h3>
     <ul>
       <li>صيدليات وخدمات طبية داخل أغلب المنتجعات والفنادق.</li>
       <li>قريبة من مستشفيات السويس، مع خدمات طوارئ على الطرق.</li>
     </ul>
-
     <h3>(7) المناطق والمحاور الرئيسية</h3>
     <ul>
       <li>منطقة الجلالة (العليا/السفلى) — منتجعات وفنادق ومواقع ترفيهية.</li>
       <li>بدايات شريط الزعفرانة — كمباوندات متدرجة بواجهات بحرية وإطلالات واسعة.</li>
       <li>المنطقة بعد بوابات العين السخنة باتجاه بورتو وخليج السويس.</li>
     </ul>
-
-    <h3>(8) أنواع المشروعات السكنية والفندقية</h3>
+    <h3>(8) أنواع المشروعات</h3>
     <ul>
       <li>شاليهات وشقق بإطلالات بحر/حدائق/لاجون.</li>
       <li>فيلات مستقلة وتوين/تاون في مشروعات محددة.</li>
       <li>فنادق 4–5 نجوم وإقامة فندقية خدمية داخل الكمباوندات.</li>
     </ul>
-
-    <h3>(9) مزايا الاستثمار والامتلاك</h3>
+    <h3>(9) مزايا الاستثمار</h3>
     <ul>
       <li>أقرب وجهة للبحر الأحمر إلى القاهرة → إشغال مرتفع طوال العام.</li>
-      <li>تنوع كبير في أنظمة السداد والصيانة والخدمات.</li>
-      <li>قيمة إيجارية قوية في المواسم والإجازات وعطلات نهاية الأسبوع.</li>
+      <li>تنوع أنظمة السداد والصيانة والخدمات.</li>
+      <li>قيمة إيجارية قوية في المواسم والعطلات.</li>
     </ul>
   </section>
 </main>
@@ -346,18 +393,19 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 /* السنة الحالية */
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* القوائم المنسدلة */
-function toggleDrop(id){
-  document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
-  document.getElementById(id).classList.toggle('open');
+/* فتح/غلق القوائم المنسدلة */
+function togglePanel(id){
+  document.querySelectorAll('.dropdown').forEach(x=>{ if(x.id!==id) x.classList.remove('open'); });
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
 }
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.menu,.contact,.btnx'))
-    document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
+  if(!e.target.closest('.dropdown,.chip,.btnx')) document.querySelectorAll('.dropdown').forEach(x=>x.classList.remove('open'));
 });
 
 /* اللغة */
-document.getElementById('langToggle').addEventListener('click',()=>{location.href='sokhna-en.html';});
+document.getElementById('langToggle')?.addEventListener('click',()=>{location.href='sokhna-en.html';});
+document.getElementById('m-lang')?.addEventListener('click',()=>{location.href='sokhna-en.html';});
 
 /* البحث (search-index.json) */
 (function(){
@@ -407,11 +455,7 @@ document.getElementById('langToggle').addEventListener('click',()=>{location.hre
   }
 
   INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-
-  document.addEventListener('click', (e)=>{
-    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
-  });
-
+  document.addEventListener('click', (e)=>{ if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none'; });
   INPUT.addEventListener('keydown', (e)=>{
     const options = Array.from(BOX.querySelectorAll('a'));
     const currentIndex = options.findIndex(o=>o.getAttribute('aria-selected')==='true');
@@ -428,8 +472,8 @@ document.getElementById('langToggle').addEventListener('click',()=>{location.hre
       prev.setAttribute('aria-selected','true'); prev.focus();
     }
     if(e.key === 'Enter'){
-      const firstSelected = BOX.querySelector('a[aria-selected="true"]') || BOX.querySelector('a');
-      if(firstSelected){ window.location.href = firstSelected.href; }
+      const first = BOX.querySelector('a[aria-selected="true"]') || BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
     }
     if(e.key === 'Escape'){ BOX.style.display='none'; }
   });
