@@ -1,22 +1,21 @@
 <!-- ====== HEADER (AR) — Islam Real Estate ====== -->
 <style>
-  /* scoped AR header styles */
   :root {
-    --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569; --ire-soft:#f8fafc;
-    --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
-    --ire-logo-h:70px; /* ← ارتفاع اللوجو */
+    --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569;
+    --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
+    --ire-logo-h:63px; /* حجم اللوجو */
   }
-  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ire-line)}
-  .ire-nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--ire-line)}
+  .ire-nav{max-width:1200px;margin:auto;padding:6px 16px;display:flex;align-items:center;gap:12px} /* أرفع */
   .ire-brand{line-height:0;display:flex;align-items:center}
   .ire-brand img{height:var(--ire-logo-h);width:auto}
   .ire-spacer{flex:1}
   /* desktop right side */
   .ire-right{display:flex;align-items:center;gap:10px}
-  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
   .ire-chip:hover{background:var(--ire-soft)}
   .ire-links{display:flex;align-items:center;gap:12px;margin-inline-start:8px}
-  .ire-links a{font-weight:800;padding:8px 10px;border-radius:10px}
+  .ire-links a{font-weight:800;padding:7px 10px;border-radius:10px}
   .ire-links a:hover{background:var(--ire-soft)}
   /* dropdown (desktop) */
   .ire-dd{position:relative}
@@ -27,7 +26,7 @@
   /* mobile controls */
   .ire-monly{display:none}
   .ire-mbar{display:flex;gap:8px;margin-inline-start:auto}
-  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800}
+  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800}
   /* inline slide panels on mobile */
   .ire-slide{display:none;border-top:1px solid var(--ire-line);border-bottom:1px solid var(--ire-line);background:#fff}
   .ire-slide .ire-inner{max-width:1200px;margin:auto;padding:10px 16px}
@@ -40,7 +39,6 @@
     .ire-chip.ire-lang{display:none}
     .ire-monly{display:flex}
   }
-  /* small helper */
   .ire-sr{position:absolute;left:-9999px}
 </style>
 
@@ -131,8 +129,10 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
     const panel = document.querySelector(sel);
     if(!panel) return;
     const open = getComputedStyle(panel).display!=='none';
+    // close others
     document.querySelectorAll('.ire-slide').forEach(p=>p.style.display='none');
     panel.style.display = open ? 'none' : 'block';
+    // scroll into view if opened
     if(!open){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
@@ -140,7 +140,7 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 /* Language switch: AR → EN (same page) */
 (function(){
   function toEN(file){
-    if(/-en\.html$/i.test(file)) return file;               // already -en
+    if(/-en\.html$/i.test(file)) return file;               // already -EN
     if(/\.html$/i.test(file)) return file.replace(/\.html$/i,'-en.html');
     return (file||'index') + '-en.html';
   }
