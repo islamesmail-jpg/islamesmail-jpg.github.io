@@ -1,0 +1,209 @@
+<header class="site-header" dir="rtl" aria-label="رأس الموقع">
+  <style>
+    .site-header{
+      --wrap: 1200px;
+      --ink:#0f172a;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      --brand:#0b3a5e;
+      position:sticky; top:0; z-index:1000;
+      background:rgba(255,255,255,.86);             /* شفاف */
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      font-family:"Tajawal", Arial, sans-serif;
+    }
+    .sh-wrap{
+      max-width:var(--wrap); margin:auto;
+      display:flex; align-items:center; gap:16px;
+      padding:10px 16px;
+    }
+
+    /* اللوجو */
+    .brand{display:inline-flex; align-items:center; line-height:0}
+    .brand img{height:46px; width:auto; display:block}
+
+    /* الحاوية اليمنى/اليسرى */
+    .spacer{flex:1} /* يخلق فراغ أنيق بين اللوجو والمربعات/الروابط */
+
+    /* مستطيلات أنيقة */
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; background:#fff; color:var(--ink);
+      border:1px solid var(--line); border-radius:12px;
+      font-weight:800; font-size:14px; cursor:pointer; user-select:none;
+      transition:transform .15s ease, background .2s ease, border-color .2s ease;
+      text-decoration:none;
+    }
+    .pill:hover{background:var(--soft)}
+    .pill:active{transform:translateY(1px)}
+    .pill:focus-visible{outline:2px solid #cbd5e1; outline-offset:2px}
+    .ico{font-size:16px; line-height:1}
+
+    /* منبثقات */
+    .dropdown{position:relative}
+    .menu{
+      position:absolute; inset-inline-start:0; top:calc(100% + 8px);
+      min-width:240px; padding:6px;
+      background:#fff; border:1px solid var(--line); border-radius:12px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      display:none; z-index:1001;
+    }
+    .dropdown.open .menu{display:block}
+    .menu a{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px; border-radius:10px;
+      font-weight:700; color:var(--ink); text-decoration:none;
+    }
+    .menu a:hover{background:#f1f5f9}
+    .menu .item-icon{width:18px; height:18px; object-fit:contain}
+    .menu .sub{font-size:12px; color:#64748b; margin-inline-start:auto}
+
+    /* شريط الروابط (PC) */
+    .nav-links{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+    .nav-links a{
+      display:inline-flex; align-items:center;
+      padding:8px 10px; border-radius:10px; font-weight:800; font-size:14px;
+      color:var(--ink); text-decoration:none;
+    }
+    .nav-links a:hover{background:#f1f5f9}
+
+    /* مجموعة الأزرار يمين الروابط */
+    .actions-pc{display:flex; align-items:center; gap:10px}
+
+    /* موبايل: نظهر 3 مستطيلات (لغة/تواصل/مناطق) ونخفي الروابط النصية */
+    .actions-mobile{display:none; align-items:center; gap:8px}
+    @media (max-width: 900px){
+      .actions-pc{display:none}
+      .nav-links{display:none}
+      .actions-mobile{display:flex}
+      .brand img{height:42px}
+      .pill{padding:8px 10px; font-size:13px; border-radius:10px}
+      .menu{min-width:210px}
+    }
+  </style>
+
+  <div class="sh-wrap">
+    <!-- اللوجو (يمين) -->
+    <a class="brand" href="index.html" aria-label="الانتقال إلى الصفحة الرئيسية">
+      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="إسلام إسماعيل للتسويق العقاري">
+    </a>
+
+    <div class="spacer" aria-hidden="true"></div>
+
+    <!-- ===== موبايل: 3 مستطيلات (لغة + تواصل + مناطق) ===== -->
+    <div class="actions-mobile" aria-label="أدوات سريعة للموبايل">
+      <!-- اللغة -->
+      <a class="pill" href="index-en.html" hreflang="en" aria-label="English">
+        <span class="ico">🌐</span><span>EN</span>
+      </a>
+
+      <!-- التواصل -->
+      <div class="dropdown" id="m-contact">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-contact">
+          <span class="ico">☎️</span><span>التواصل</span>
+        </button>
+        <nav id="menu-m-contact" class="menu" role="menu" aria-label="روابط التواصل">
+          <a href="tel:+201050072527" role="menuitem">
+            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
+            اتصال هاتفي <span class="sub">01050072527+</span>
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
+            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
+            إرسال واتساب
+          </a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">
+            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
+            البريد الإلكتروني
+          </a>
+        </nav>
+      </div>
+
+      <!-- المناطق -->
+      <div class="dropdown" id="m-areas">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-areas">
+          <span class="ico">📍</span><span>المناطق</span>
+        </button>
+        <nav id="menu-m-areas" class="menu" role="menu" aria-label="روابط المناطق">
+          <a href="sokhna.html" role="menuitem">العين السخنة</a>
+          <a href="north.html" role="menuitem">الساحل الشمالي</a>
+          <a href="newcairo.html" role="menuitem">القاهرة الجديدة</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ===== PC: اللغة + التواصل (مستطيلات) + الروابط النصية ===== -->
+    <div class="actions-pc" aria-label="أدوات سريعة لسطح المكتب">
+      <a class="pill" href="index-en.html" hreflang="en" aria-label="English">
+        <span class="ico">🌐</span><span>EN</span>
+      </a>
+
+      <div class="dropdown" id="pc-contact">
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-pc-contact">
+          <span class="ico">☎️</span><span>التواصل</span>
+        </button>
+        <nav id="menu-pc-contact" class="menu" role="menu" aria-label="روابط التواصل">
+          <a href="tel:+201050072527" role="menuitem">
+            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
+            اتصال هاتفي <span class="sub">01050072527+</span>
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
+            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
+            إرسال واتساب
+          </a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">
+            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
+            البريد الإلكتروني
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <nav class="nav-links" aria-label="روابط أساسية">
+      <a href="sokhna.html">العين السخنة</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="newcairo.html">القاهرة الجديدة</a>
+      <a href="resale.html">إعادة البيع</a>
+      <a href="listyourunit.html">بيع وحدتك</a>
+    </nav>
+  </div>
+
+  <script>
+    // منطق فتح/غلق المنبثقات + إتاحة الوصول
+    (function(){
+      function toggle(id){
+        document.querySelectorAll('.dropdown').forEach(d=>{
+          if(d.id!==id) d.classList.remove('open');
+          const b=d.querySelector('button');
+          if(b) b.setAttribute('aria-expanded', d.classList.contains('open') ? 'true' : 'false');
+        });
+        const el=document.getElementById(id);
+        const open=el.classList.toggle('open');
+        const btn=el.querySelector('button');
+        if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      // موبايل
+      document.querySelector('#m-contact > button')?.addEventListener('click',()=>toggle('m-contact'));
+      document.querySelector('#m-areas > button')?.addEventListener('click',()=>toggle('m-areas'));
+      // PC
+      document.querySelector('#pc-contact > button')?.addEventListener('click',()=>toggle('pc-contact'));
+
+      // إغلاق عند الضغط خارج
+      document.addEventListener('click',(e)=>{
+        if(!e.target.closest('.dropdown')){
+          document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+          document.querySelectorAll('.dropdown > button').forEach(b=>b.setAttribute('aria-expanded','false'));
+        }
+      });
+      // إغلاق بـ Esc
+      document.addEventListener('keydown',(e)=>{
+        if(e.key==='Escape'){
+          document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+          document.querySelectorAll('.dropdown > button').forEach(b=>b.setAttribute('aria-expanded','false'));
+        }
+      });
+    })();
+  </script>
+</header>
