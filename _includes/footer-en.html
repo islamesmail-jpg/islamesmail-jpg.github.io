@@ -11,61 +11,44 @@
     .site-footer a{color:var(--ink);text-decoration:none;transition:color .25s ease}
     .site-footer a:hover{color:#0b3a5e;text-decoration:underline}
 
-    .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px;animation:fadeIn .8s ease}
+    .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px}
 
     /* Logo + description */
-    .sf-head{text-align:left;margin-bottom:28px}
-    .sf-logo img{height:60px;width:auto;display:block;margin-bottom:10px;transition:transform .3s ease}
-    .sf-logo img:hover{transform:scale(1.05)}
-    .sf-desc{font-weight:600;line-height:1.8;font-size:16px;max-width:520px}
+    .sf-head{text-align:left;margin-bottom:20px}
+    .sf-logo img{height:50px;width:auto;display:block;margin-bottom:8px}
+    .sf-desc{font-weight:600;line-height:1.7;font-size:15px}
 
     /* Columns */
     .sf-cols{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:40px;
-      align-items:start;
+      grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+      gap:20px;
+      text-align:left;
     }
-    .sf-col{transition:transform .3s ease}
-    .sf-col:hover{transform:translateY(-4px)}
-    .sf-col h4{margin:0 0 10px;font-weight:900;font-size:18px}
-    .sf-links a{display:block;padding:3px 0;font-weight:500;font-size:15px;line-height:1.6}
-    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:4px 0;font-weight:500;font-size:15px;line-height:1.6}
-    .sf-contacts img{width:20px;height:20px;object-fit:contain;transition:transform .3s ease}
-    .sf-contacts a:hover img{transform:scale(1.15)}
+    .sf-col h4{margin:0 0 8px;font-weight:900;font-size:15px}
+    .sf-links a,.sf-contacts a{
+      display:block;
+      padding:2px 0;
+      font-weight:500;
+      font-size:14px;
+      line-height:1.5;
+    }
+    .sf-contacts a{display:flex;align-items:center;gap:6px}
+    .sf-contacts img{width:18px;height:18px;object-fit:contain}
 
     /* Bottom line */
-    .sf-bottom{border-top:1px solid var(--line);margin-top:18px;padding:12px 0;font-size:13px;text-align:center;color:#111}
-
-    /* Mobile */
-    @media (max-width: 768px){
-      .sf-head{text-align:center;margin-bottom:20px}
-      .sf-logo img{margin:0 auto 8px;height:46px}
-      .sf-desc{margin:0 auto;font-size:14px;line-height:1.7;text-align:center}
-      .sf-cols{
-        grid-template-columns:1fr;
-        gap:20px;
-        text-align:center;
-      }
-      .sf-col h4{font-size:16px}
-      .sf-links a,.sf-contacts a{font-size:14px}
-    }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(10px)}
-      to {opacity:1; transform:translateY(0)}
-    }
+    .sf-bottom{border-top:1px solid var(--line);margin-top:14px;padding:10px 0;font-size:12px;text-align:center;color:#111}
   </style>
 
   <div class="sf-wrap">
     <!-- Logo + description -->
     <div class="sf-head">
       <div class="sf-logo">
-        <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate Logo">
+        <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
       </div>
       <div class="sf-desc">
-        Exclusive offers on <b>Ain Sokhna</b>, <b>North Coast</b>, and <b>New Cairo</b> projects,<br>
-        with <b>Resale</b> services and easy <b>List Your Unit</b>.
+        Exclusive offers on projects in <b>Ain Sokhna</b>, <b>North Coast</b> and <b>New Cairo</b>,<br>
+        with <b>Resale services</b> and <b>List your unit easily</b>.
       </div>
     </div>
 
@@ -79,7 +62,7 @@
           <a href="north-en.html">North Coast</a>
           <a href="resale-en.html">Resale</a>
           <a href="listyourunit-en.html">List Your Unit</a>
-          <a href="offers-en.html">Special Offers</a>
+          <a href="offers-en.html">Exclusive Offers</a>
           <a href="privacy-en.html">Privacy Policy</a>
         </nav>
       </div>
@@ -95,14 +78,14 @@
       <div class="sf-col">
         <h4>Contact</h4>
         <div class="sf-contacts">
-          <a href="tel:+201050072527"><img src="https://c.top4top.io/p_3536r902r0.png" alt="Phone"> Direct Call</a>
+          <a href="tel:+201050072527"><img src="https://c.top4top.io/p_3536r902r0.png" alt="Phone"> Call Directly</a>
           <a href="https://wa.me/201050072527" target="_blank"><img src="https://g.top4top.io/p_3536rc1d61.png" alt="WhatsApp"> WhatsApp</a>
           <a href="mailto:islammesmail@gmail.com"><img src="https://h.top4top.io/p_3536cmi2c2.png" alt="Email"> Email</a>
         </div>
       </div>
     </div>
 
-    <div class="sf-bottom">© <span id="sf-year-en"></span> Islam Real Estate — All Rights Reserved</div>
+    <div class="sf-bottom">© <span id="sf-year-en"></span> Islam Real Estate — All rights reserved</div>
   </div>
 
   <script>
