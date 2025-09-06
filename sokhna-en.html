@@ -21,10 +21,10 @@
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
   --radius:14px; --pad:14px;
   /* Quick sizes */
-  --dot:74px;           /* circle size desktop */
-  --dot-m:60px;         /* circle size mobile */
-  --route-ratio:16/9;   /* desktop ratio */
-  --route-ratio-m:5/4;  /* smaller height on mobile */
+  --dot:74px;           /* circle desktop */
+  --dot-m:60px;         /* circle mobile */
+  --dot-s:52px;         /* circle small mobile */
+  --route-ratio:16/9;   /* routes ratio */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -78,19 +78,37 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;
 }
 .dot img{width:100%;height:100%;object-fit:contain}
-@media(max-width:520px){
-  .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
-}
 .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Routes — always two columns + mobile tweaks for smaller cards */
+/* Mobile tweaks for the 4 cards (smaller + tighter) */
+@media(max-width:640px){
+  .features{gap:8px}
+  .cardfeat{padding:10px;gap:10px}
+  .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
+  .meta .title{font-size:14px}
+  .meta .sub{font-size:12px}
+}
+@media(max-width:400px){
+  .cardfeat{padding:8px;gap:8px}
+  .dot{width:var(--dot-s);height:var(--dot-s);flex-basis:var(--dot-s)}
+  .meta .title{font-size:13px}
+  .meta .sub{font-size:11.5px}
+}
+
+/* Routes — desktop: 2 columns, mobile: stacked */
 .routes{
-  margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))
+  margin-top:16px;
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+}
+@media(max-width:640px){
+  .routes{grid-template-columns:1fr}
 }
 .route{
-  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;position:relative;
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative;
   transition:transform .15s ease, box-shadow .15s ease;
 }
 @media(hover:hover){
@@ -99,19 +117,12 @@ img{max-width:100%;display:block}
 .media-cover{width:100%;aspect-ratio:var(--route-ratio);background:#f8fafc}
 .media-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
 .route .cap{
-  position:absolute;left:10px;right:10px;bottom:10px;
-  background:rgba(255,255,255,.94);
+  position:absolute;left:12px;right:12px;bottom:12px;
+  background:rgba(255,255,255,.96);
   border:1px solid var(--gold);
   border-radius:10px;
   text-align:center;font-weight:800;color:#7a5b12;
   padding:8px;font-size:14px;line-height:1.2;
-}
-/* Mobile size reduction */
-@media(max-width:640px){
-  .routes{gap:8px}
-  .route{border-radius:10px}
-  .media-cover{aspect-ratio:var(--route-ratio-m)}
-  .route .cap{left:6px;right:6px;bottom:6px;padding:6px;font-size:12px;border-radius:8px}
 }
 
 /* Content */
@@ -127,7 +138,7 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 .fbox p,.fbox a{color:#334155;font-size:14px}
 .fbox a{display:block;padding:4px 0}
 .fbox a:hover{color:#000}
-/* Mobile footer layout */
+/* Mobile footer */
 @media(max-width:600px){
   .footer-wrap{
     grid-template-columns:repeat(3,1fr);
@@ -261,7 +272,7 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
     </a>
   </section>
 
-  <!-- Routes (always two columns + mobile-optimized size) -->
+  <!-- Routes (desktop: 2 columns, mobile: stacked) -->
   <section class="routes" aria-label="Ain Sokhna routes">
     <a class="route" href="zafarana.html">
       <div class="media-cover">
