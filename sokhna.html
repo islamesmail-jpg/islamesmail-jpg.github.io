@@ -84,7 +84,7 @@ img{max-width:100%;display:block}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#f8fafc}
 
-/* Quick links */
+/* Quick links (أربع مربعات) */
 .features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
 .cardfeat{border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;align-items:center;gap:12px;padding:12px}
@@ -94,6 +94,22 @@ img{max-width:100%;display:block}
 .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ⬇⬇ تصغير الكروت على الموبايل فقط */
+@media (max-width: 520px){
+  .features{gap:10px}
+  .cardfeat{padding:9px 10px;gap:10px}
+  .dot{width:56px;height:56px;flex-basis:56px}
+  .meta .title{font-size:13px}
+  .meta .sub{font-size:11.5px}
+}
+@media (max-width: 360px){
+  .features{gap:8px}
+  .cardfeat{padding:8px;gap:8px}
+  .dot{width:48px;height:48px;flex-basis:48px}
+  .meta .title{font-size:12.5px}
+  .meta .sub{font-size:11px}
+}
 
 /* Routes */
 .routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -132,7 +148,7 @@ footer{margin-top:24px}
     </div>
   </div>
 
-  <!-- روابط سريعة -->
+  <!-- روابط سريعة (أربع مربعات) -->
   <section class="features" aria-label="روابط سريعة">
     <a class="cardfeat" href="offplan.html">
       <div class="dot"><img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy"></div>
@@ -198,7 +214,7 @@ footer{margin-top:24px}
     </ul>
     <h3>(6) الخدمات الأساسية والطبية</h3>
     <ul>
-      <li>صيدليات وخدمات طبية داخل أغلب المنتجعات والفنادق.</li>
+      <li>صيدليات وخدمات طبية داخل أغلب المنتججات والفنادق.</li>
       <li>قريبة من مستشفيات السويس، مع خدمات طوارئ على الطرق.</li>
     </ul>
     <h3>(7) المناطق والمحاور الرئيسية</h3>
