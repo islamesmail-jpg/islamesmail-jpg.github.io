@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ain Sokhna | Project Guide, Hot Offers & Resale</title>
-<meta name="description" content="A complete guide to Ain Sokhna projects: developer hot offers, ready-to-move resale units, access routes, activities, and project types." />
-<link rel="canonical" href="https://example.com/sokhna-en.html" />
-<link rel="alternate" href="https://example.com/sokhna.html" hreflang="ar" />
+<title>العين السخنة | دليل المشاريع وأقوى العروض وإعادة البيع</title>
+<meta name="description" content="دليل مشاريع العين السخنة: أقوى عروض المطورين ووحدات إعادة البيع الجاهزة للاستلام. طرق الوصول، الأنشطة، وأنواع المشروعات." />
+<link rel="canonical" href="https://example.com/sokhna.html" />
 <link rel="alternate" href="https://example.com/sokhna-en.html" hreflang="en" />
+<link rel="alternate" href="https://example.com/sokhna.html" hreflang="ar" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://i.top4top.io/p_3536599nr0.png">
+<link rel="shortcut icon" href="https://i.top4top.io/p_3536599nr0.png">
+<link rel="apple-touch-icon" href="https://i.top4top.io/p_3536599nr0.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="https://j.top4top.io/p_3531rrodg0.png">
-<meta property="og:title" content="Ain Sokhna | Projects & Offers" />
-<meta property="og:description" content="Best developer offers and ready-to-move resale units in Ain Sokhna." />
+<meta property="og:title" content="العين السخنة | المشاريع والعروض" />
+<meta property="og:description" content="أقوى العروض ووحدات إعادة البيع الجاهزة في العين السخنة." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com/sokhna-en.html" />
+<meta property="og:url" content="https://example.com/sokhna.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 <style>
 :root{
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
   --radius:14px; --pad:14px;
-  /* Quick sizes */
-  --dot:74px;           /* circle size desktop */
-  --dot-m:60px;         /* circle size mobile */
-  --dot-s:52px;         /* circle size small mobile */
-  --route-ratio:16/9;   /* original ratio */
+  /* أحجام */
+  --dot:74px;     /* دائرة ديسكتوب */
+  --dot-m:60px;   /* دائرة موبايل */
+  --dot-s:52px;   /* دائرة موبايل صغير */
+  --route-ratio:16/9; /* نسبة الطرق */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -33,7 +38,7 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-/* Header */
+/* الهيدر */
 .topbar{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line)}
 .navbar{height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
 .brandbox img{height:44px;width:auto}
@@ -46,14 +51,14 @@ img{max-width:100%;display:block}
 .panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
 .panel a:hover{background:#f8fafc}
 
-/* Breadcrumb */
+/* مسار الصفحات */
 .breadcrumb{background:#fafafa;border-bottom:1px solid var(--line)}
 .breadcrumb .inner{display:flex;gap:8px;align-items:center;padding:8px 0;font-size:13px;color:#334155;font-weight:700}
 
-/* Title */
+/* العنوان */
 .page-title{margin:16px 0 8px;font-size:clamp(18px,2.4vw,24px);font-weight:800;text-align:center}
 
-/* Search */
+/* البحث */
 .searchwrap{padding:8px 0 12px}
 .searchbar{position:relative;max-width:820px;margin:0 auto}
 #siteSearch{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);font-weight:700}
@@ -62,7 +67,7 @@ img{max-width:100%;display:block}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover,.suggestions a[aria-selected="true"]{background:#f8fafc}
 
-/* Quick links — GIF circle + text beside (title + subtitle) */
+/* روابط سريعة — دائرة + عنوان/وصف */
 .features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
 .cardfeat{
@@ -82,7 +87,7 @@ img{max-width:100%;display:block}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Mobile tweaks for the 4 cards (smaller + tighter layout) */
+/* تصغير للموبايل */
 @media(max-width:640px){
   .features{gap:8px}
   .cardfeat{padding:10px;gap:10px}
@@ -97,40 +102,21 @@ img{max-width:100%;display:block}
   .meta .sub{font-size:11.5px}
 }
 
-/* Routes — desktop: 2 columns, mobile: stacked (original sizing) */
-.routes{
-  margin-top:16px;
-  display:grid;
-  gap:12px;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-}
-@media(max-width:640px){
-  .routes{grid-template-columns:1fr}
-}
-.route{
-  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative;
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-@media(hover:hover){
-  .route:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}
-}
+/* الطرق — ديسكتوب عمودين / موبايل عمود واحد */
+.routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:640px){.routes{grid-template-columns:1fr}}
+.route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative;transition:transform .15s ease, box-shadow .15s ease}
+@media(hover:hover){.route:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}}
 .media-cover{width:100%;aspect-ratio:var(--route-ratio);background:#f8fafc}
 .media-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
-.route .cap{
-  position:absolute;left:12px;right:12px;bottom:12px;
-  background:rgba(255,255,255,.96);
-  border:1px solid var(--gold);
-  border-radius:10px;
-  text-align:center;font-weight:800;color:#7a5b12;
-  padding:8px;font-size:14px;line-height:1.2;
-}
+.route .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--gold);border-radius:10px;text-align:center;font-weight:800;color:#7a5b12;padding:8px;font-size:14px;line-height:1.2}
 
-/* Content */
+/* المحتوى */
 .cardx{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
 .cardx h2{margin:0 0 10px}
 .cardx ul{margin:8px 0 14px;padding-inline-start:18px}
 
-/* Footer */
+/* الفوتر */
 footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 .footer-wrap{display:grid;gap:18px;grid-template-columns:1.2fr 2fr 1.2fr 1.2fr 1.4fr;padding:20px 0}
 .fbrand img{height:48px;width:auto}
@@ -138,7 +124,6 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 .fbox p,.fbox a{color:#334155;font-size:14px}
 .fbox a{display:block;padding:4px 0}
 .fbox a:hover{color:#000}
-/* Mobile footer layout */
 @media(max-width:600px){
   .footer-wrap{
     grid-template-columns:repeat(3,1fr);
@@ -157,7 +142,7 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 }
 .foot-bottom{border-top:1px solid var(--line);padding:12px 0;color:#64748b;font-size:13px;text-align:center}
 
-/* WhatsApp FAB */
+/* زر واتساب */
 .whatsapp-fab{position:fixed;left:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.12)}
 .whatsapp-fab img{width:28px;height:28px}
 </style>
@@ -165,241 +150,203 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 <!-- BreadcrumbList -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-{"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/index-en.html"},
-{"@type":"ListItem","position":2,"name":"Ain Sokhna","item":"https://example.com/sokhna-en.html"}]}
+{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://example.com/index.html"},
+{"@type":"ListItem","position":2,"name":"العين السخنة","item":"https://example.com/sokhna.html"}]}
 </script>
 <!-- WebSite + SearchAction -->
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebSite",
-  "name":"Islam Real Estate",
-  "url":"https://example.com/",
-  "potentialAction":{
-    "@type":"SearchAction",
-    "target":"https://example.com/search.html?q={query}",
-    "query-input":"required name=query"
-  }
-}
+{"@context":"https://schema.org","@type":"WebSite","name":"Islam Real Estate","url":"https://example.com/","potentialAction":{"@type":"SearchAction","target":"https://example.com/search.html?q={query}","query-input":"required name=query"}}
 </script>
 </head>
 <body>
 
 <header class="topbar">
   <div class="container navbar">
-    <a class="brandbox" href="index-en.html" aria-label="Home">
+    <a class="brandbox" href="index.html" aria-label="الرئيسية">
       <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
     </a>
     <div></div>
     <div class="actions">
-      <button class="btnx" id="langToggle" aria-label="العربية">AR</button>
+      <button class="btnx" id="langToggle" aria-label="English">EN</button>
       <div class="contact" id="m-contact">
-        <button class="btnx" onclick="toggleDrop('m-contact')">Contact ▾</button>
-        <div class="panel" role="menu" aria-label="Contact links">
-          <a href="tel:+201050072527">📞 Call Now</a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
+        <button class="btnx" onclick="toggleDrop('m-contact')">تواصل ▾</button>
+        <div class="panel" role="menu" aria-label="روابط التواصل">
+          <a href="tel:+201050072527">📞 اتصال الآن</a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ البريد الإلكتروني</a>
         </div>
       </div>
       <div class="menu" id="m-proj">
-        <button class="btnx" onclick="toggleDrop('m-proj')">Projects ▾</button>
-        <div class="panel" role="menu" aria-label="Project areas">
-          <a href="zafarana.html">Zafarana Road</a>
-          <a href="suez.html">Suez Road</a>
-          <a href="index-en.html">Home</a>
+        <button class="btnx" onclick="toggleDrop('m-proj')">المشاريع ▾</button>
+        <div class="panel" role="menu" aria-label="أقسام المشاريع">
+          <a href="zafarana.html">طريق الزعفرانة</a>
+          <a href="suez.html">طريق السويس</a>
+          <a href="index.html">الرئيسية</a>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Breadcrumb -->
-<nav class="breadcrumb" aria-label="Breadcrumb">
-  <div class="container inner"><a href="index-en.html">Home</a> <span>»</span> <span>Ain Sokhna</span></div>
+<nav class="breadcrumb" aria-label="مسار الصفحات">
+  <div class="container inner"><a href="index.html">الرئيسية</a> <span>»</span> <span>العين السخنة</span></div>
 </nav>
 
 <main class="container">
-  <h1 class="page-title">Ain Sokhna Project Guide — Hot Developer Offers & Ready-to-Move Resale</h1>
+  <h1 class="page-title">دليل مشاريع العين السخنة — أقوى العروض من المطورين ووحدات إعادة البيع الجاهزة للاستلام</h1>
 
-  <!-- Search -->
+  <!-- البحث -->
   <div class="searchwrap">
     <div class="searchbar" role="search">
-      <input id="siteSearch" type="search" placeholder="Search a page or project…" aria-label="Site search" autocomplete="off">
-      <div class="suggestions" id="suggest" role="listbox" aria-label="Search suggestions"></div>
+      <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع…" aria-label="بحث الموقع" autocomplete="off">
+      <div class="suggestions" id="suggest" role="listbox" aria-label="اقتراحات البحث"></div>
     </div>
   </div>
 
-  <!-- Quick links — GIF circle + title/sub beside -->
-  <section class="features" aria-label="Quick links">
+  <!-- روابط سريعة -->
+  <section class="features" aria-label="روابط سريعة">
     <a class="cardfeat" href="offplan.html">
-      <div class="dot">
-        <img src="https://j.top4top.io/p_35303sd560.gif" alt="Off-plan projects" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="meta">
-        <div class="title">Off-plan</div>
-        <div class="sub">New projects</div>
-      </div>
+      <div class="dot"><img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy"></div>
+      <div class="meta"><div class="title">تحت الإنشاء</div><div class="sub">مشاريع جديدة</div></div>
     </a>
-
     <a class="cardfeat" href="list.html">
-      <div class="dot">
-        <img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="List your unit" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="meta">
-        <div class="title">List Your Unit</div>
-        <div class="sub">Sell your unit fast</div>
-      </div>
+      <div class="dot"><img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="أعرض وحدتك للبيع" loading="lazy"></div>
+      <div class="meta"><div class="title">أعرض وحدتك</div><div class="sub">بيع وحدتك بسرعة</div></div>
     </a>
-
     <a class="cardfeat" href="resale.html">
-      <div class="dot">
-        <img src="https://k.top4top.io/p_353056uve1.gif" alt="Resale" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="meta">
-        <div class="title">Resale</div>
-        <div class="sub">Ready to move</div>
-      </div>
+      <div class="dot"><img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة بيع" loading="lazy"></div>
+      <div class="meta"><div class="title">إعادة البيع</div><div class="sub">جاهزة للاستلام</div></div>
     </a>
-
     <a class="cardfeat" href="offers.html">
-      <div class="dot">
-        <img src="https://l.top4top.io/p_3530x05wq2.gif" alt="Hot offers" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="meta">
-        <div class="title">Hot Offers</div>
-        <div class="sub">Discounts & Installments</div>
-      </div>
+      <div class="dot"><img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة" loading="lazy"></div>
+      <div class="meta"><div class="title">عروض مميزة</div><div class="sub">خصومات وتقسيط</div></div>
     </a>
   </section>
 
-  <!-- Routes (desktop: 2 columns, mobile: stacked) -->
-  <section class="routes" aria-label="Ain Sokhna routes">
+  <!-- الطرق -->
+  <section class="routes" aria-label="طرق العين السخنة">
     <a class="route" href="zafarana.html">
-      <div class="media-cover">
-        <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="Zafarana Road" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="cap">Zafarana Road</div>
+      <div class="media-cover"><img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة" loading="lazy"></div>
+      <div class="cap">طريق الزعفرانة</div>
     </a>
     <a class="route" href="suez.html">
-      <div class="media-cover">
-        <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="Suez Road" loading="lazy" decoding="async" fetchpriority="low">
-      </div>
-      <div class="cap">Suez Road</div>
+      <div class="media-cover"><img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس" loading="lazy"></div>
+      <div class="cap">طريق السويس</div>
     </a>
   </section>
 
-  <!-- Details -->
-  <section class="cardx" aria-label="About Ain Sokhna">
-    <h2>Ain Sokhna — Full Guide</h2>
+  <!-- التفاصيل -->
+  <section class="cardx" aria-label="تفاصيل العين السخنة">
+    <h2>العين السخنة — دليل كامل</h2>
 
-    <h3>(1) Location & Distances</h3>
+    <h3>(1) الموقع والمسافات</h3>
     <ul>
-      <li>On the Gulf of Suez (Red Sea), south of Suez City.</li>
-      <li>Cairo ~ 130–140 km (about 75–90 minutes depending on route).</li>
-      <li>New Administrative Capital ~ about 60 minutes.</li>
-      <li>Suez City ~ 50–60 km.</li>
+      <li>تقع على ساحل خليج السويس (البحر الأحمر) جنوب مدينة السويس.</li>
+      <li>من القاهرة ~ 130–140 كم (حوالي 75–90 دقيقة حسب الطريق).</li>
+      <li>من العاصمة الإدارية ~ حوالي 60 دقيقة.</li>
+      <li>من مدينة السويس ~ 50–60 كم.</li>
     </ul>
 
-    <h3>(2) Governorate</h3>
-    <p>Ain Sokhna belongs to <strong>Suez Governorate</strong> with easy access to its services.</p>
+    <h3>(2) الانتماء الإداري</h3>
+    <p>العين السخنة تتبع <strong>محافظة السويس</strong> مع سهولة الوصول لخدمات المحافظة.</p>
 
-    <h3>(3) Main Access Roads</h3>
+    <h3>(3) طرق الوصول والمحاور</h3>
     <ul>
-      <li>Cairo – Ain Sokhna direct road.</li>
-      <li>Zafarana Road (links Galala resorts and the southern strip).</li>
-      <li>Galala Plateau Road (connects the highlands to coastal resorts).</li>
-      <li>Suez – Ain Sokhna Road.</li>
-      <li>Hurghada/Ismailia axes (to other Red Sea cities).</li>
+      <li>طريق القاهرة – العين السخنة المباشر.</li>
+      <li>طريق الزعفرانة (يربط منتجعات الجلالة والقطاع الجنوبي).</li>
+      <li>طريق هضبة الجلالة (يربط أعلى الجبل بالمنتجعات الساحلية).</li>
+      <li>طريق السويس – العين السخنة.</li>
+      <li>محاور الغردقة/الإسماعيلية (للربط بمدن البحر الأحمر).</li>
     </ul>
 
-    <h3>(4) Weather & Best Times</h3>
+    <h3>(4) الطقس وأفضل أوقات الزيارة</h3>
     <ul>
-      <li>Mild most of the year: pleasant winter and lower humidity than North Coast in summer.</li>
-      <li>Peak times: weekends and year-round due to proximity to Cairo.</li>
+      <li>معتدل أغلب السنة: شتاء لطيف وصيف برطوبة أقل من الساحل الشمالي.</li>
+      <li>أوقات الذروة: عطلة نهاية الأسبوع وعلى مدار العام لقربها من القاهرة.</li>
     </ul>
 
-    <h3>(5) Activities</h3>
+    <h3>(5) الأنشطة والترفيه</h3>
     <ul>
-      <li>Water sports: swimming, snorkeling, fishing, boat trips.</li>
-      <li>Mountain experiences: Galala ascent and scenic viewpoints.</li>
-      <li>Galala cable car (subject to operation), slides, aqua parks in some resorts.</li>
-      <li>Spas, wellness, promenades, and cycling lanes in many compounds.</li>
+      <li>رياضات مائية: سباحة، سنوركلينج، صيد، ورحلات بحرية.</li>
+      <li>تجارب الجبل: صعود الجلالة ونقاط إطلالة بانورامية.</li>
+      <li>تلفريك الجلالة (حسب التشغيل)، زلاجات، وأكوا بارك في بعض المنتجعات.</li>
+      <li>سبا ونوادي صحية وممشى ومسارات دراجات في كثير من الكمباوندات.</li>
     </ul>
 
-    <h3>(6) Essentials & Medical</h3>
+    <h3>(6) الخدمات الأساسية والطبية</h3>
     <ul>
-      <li>Pharmacies and medical services inside most resorts/hotels.</li>
-      <li>Close to Suez hospitals, with road emergency services.</li>
+      <li>صيدليات وخدمات طبية داخل أغلب المنتجعات والفنادق.</li>
+      <li>قريبة من مستشفيات السويس، مع خدمات طوارئ على الطرق.</li>
     </ul>
 
-    <h3>(7) Key Areas</h3>
+    <h3>(7) المناطق والمحاور الرئيسية</h3>
     <ul>
-      <li>Galala (upper/lower) — resorts, hotels, attractions.</li>
-      <li>Early Zafarana strip — tiered compounds with wide sea frontages.</li>
-      <li>Area after Ain Sokhna gates towards Porto & Gulf of Suez.</li>
+      <li>منطقة الجلالة (العليا/السفلى) — منتجعات وفنادق ومواقع ترفيهية.</li>
+      <li>بدايات شريط الزعفرانة — كمباوندات متدرجة بواجهات بحرية وإطلالات واسعة.</li>
+      <li>المنطقة بعد بوابات العين السخنة باتجاه بورتو وخليج السويس.</li>
     </ul>
 
-    <h3>(8) Project Types</h3>
+    <h3>(8) أنواع المشروعات السكنية والفندقية</h3>
     <ul>
-      <li>Chalets & apartments with sea/garden/lagoon views.</li>
-      <li>Standalone villas & twin/townhouses in selected projects.</li>
-      <li>4–5 star hotels & serviced accommodation within compounds.</li>
+      <li>شاليهات وشقق بإطلالات بحر/حدائق/لاجون.</li>
+      <li>فيلات مستقلة وتوين/تاون في مشروعات محددة.</li>
+      <li>فنادق 4–5 نجوم وإقامة فندقية خدمية داخل الكمباوندات.</li>
     </ul>
 
-    <h3>(9) Why Buy/Invest</h3>
+    <h3>(9) مزايا الاستثمار والامتلاك</h3>
     <ul>
-      <li>Closest Red Sea getaway to Cairo → high occupancy year-round.</li>
-      <li>Diverse payment/maintenance/service schemes.</li>
-      <li>Strong rental value in seasons, holidays, and weekends.</li>
+      <li>أقرب وجهة للبحر الأحمر إلى القاهرة → إشغال مرتفع طوال العام.</li>
+      <li>تنوع كبير في أنظمة السداد والصيانة والخدمات.</li>
+      <li>قيمة إيجارية قوية في المواسم والإجازات وعطلات نهاية الأسبوع.</li>
     </ul>
   </section>
 </main>
 
 <footer>
   <div class="container footer-wrap">
-    <div class="fbrand"><img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail logo"></div>
+    <div class="fbrand"><img src="https://f.top4top.io/p_3530kc1gs0.png" alt="شعار إسلام إسماعيل"></div>
     <div class="fbox desc">
       <h4>Islam Real Estate</h4>
-      <p>Sales & guide for Ain Sokhna, North Coast, and New Cairo.</p>
-      <p>Choose confidently between developer sales and resale.</p>
+      <p>دليل ومبيعات العين السخنة والساحل الشمالي والقاهرة الجديدة.</p>
+      <p>اختر بثقة بين البيع من المطور وإعادة البيع.</p>
     </div>
     <div class="fbox links">
-      <h4>Quick Links</h4>
-      <a href="index-en.html">Home</a>
-      <a href="sokhna-en.html">Ain Sokhna</a>
-      <a href="zafarana.html">Zafarana Road</a>
-      <a href="suez.html">Suez Road</a>
-      <a href="north-en.html">North Coast</a>
-      <a href="Cairo-en.html">New Cairo</a>
-      <a href="privacy.html">Privacy</a>
+      <h4>روابط سريعة</h4>
+      <a href="index.html">الرئيسية</a>
+      <a href="sokhna.html">العين السخنة</a>
+      <a href="zafarana.html">طريق الزعفرانة</a>
+      <a href="suez.html">طريق السويس</a>
+      <a href="north.html">الساحل الشمالي</a>
+      <a href="Cairo.html">القاهرة الجديدة</a>
+      <a href="privacy.html">سياسة الخصوصية</a>
     </div>
     <div class="fbox projects">
-      <h4>Featured Projects</h4>
-      <a href="lugano-en.html">Lugano Al Galala</a>
-      <a href="einhills-en.html">Ein Hills</a>
-      <a href="murano-en.html">Murano</a>
-      <a href="lolybeach-en.html">Loly Beach</a>
-      <a href="dolphin-en.html">Dolphin Beach</a>
+      <h4>مشاريع مميزة</h4>
+      <a href="lugano.html">لوجانو الجلالة</a>
+      <a href="einhills.html">عين هيلز</a>
+      <a href="murano.html">مورانو</a>
+      <a href="lolybeach.html">لولي بيتش</a>
+      <a href="dolphin.html">دولفين بيتش</a>
     </div>
     <div class="fbox contact">
-      <h4>Contact</h4>
-      <a href="tel:+201050072527">📞 Phone</a>
-      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
-      <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
+      <h4>تواصل</h4>
+      <a href="tel:+201050072527">📞 الهاتف</a>
+      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+      <a href="mailto:islammesmail@gmail.com">✉️ ايميل</a>
     </div>
   </div>
-  <div class="foot-bottom">© <span id="year"></span> Islam Real Estate — All rights reserved</div>
+  <div class="foot-bottom">© <span id="year"></span> Islam Real Estate — جميع الحقوق محفوظة</div>
 </footer>
 
-<a class="whatsapp-fab" href="https://wa.me/201050072527" target="_blank" aria-label="WhatsApp">
+<a class="whatsapp-fab" href="https://wa.me/201050072527" target="_blank" aria-label="واتساب">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
 </a>
 
 <script>
-/* Year */
+/* السنة الحالية */
 document.getElementById('year').textContent=new Date().getFullYear();
 
-/* Dropdowns */
+/* القوائم المنسدلة */
 function toggleDrop(id){
   document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
   document.getElementById(id).classList.toggle('open');
@@ -409,12 +356,10 @@ document.addEventListener('click',e=>{
     document.querySelectorAll('.menu,.contact').forEach(e=>e.classList.remove('open'));
 });
 
-/* Language toggle */
-document.getElementById('langToggle').addEventListener('click',()=>{location.href='sokhna.html';});
+/* اللغة */
+document.getElementById('langToggle').addEventListener('click',()=>{location.href='sokhna-en.html';});
 
-/* =========================
-   Search (search-index.json)
-   ========================= */
+/* البحث (search-index.json) */
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
