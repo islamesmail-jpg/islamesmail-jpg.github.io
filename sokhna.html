@@ -23,6 +23,7 @@
   /* Quick sizes */
   --dot:74px;           /* circle size desktop */
   --dot-m:60px;         /* circle size mobile */
+  --dot-s:52px;         /* circle size small mobile */
   --route-ratio:16/9;   /* original ratio */
 }
 *{box-sizing:border-box}
@@ -77,22 +78,34 @@ img{max-width:100%;display:block}
   display:flex;align-items:center;justify-content:center;
 }
 .dot img{width:100%;height:100%;object-fit:contain}
-@media(max-width:520px){
-  .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
-}
 .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* Routes — like original: 2 columns on desktop, 1 column on mobile */
+/* Mobile tweaks for the 4 cards (smaller + tighter layout) */
+@media(max-width:640px){
+  .features{gap:8px}
+  .cardfeat{padding:10px;gap:10px}
+  .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
+  .meta .title{font-size:14px}
+  .meta .sub{font-size:12px}
+}
+@media(max-width:400px){
+  .cardfeat{padding:8px;gap:8px}
+  .dot{width:var(--dot-s);height:var(--dot-s);flex-basis:var(--dot-s)}
+  .meta .title{font-size:13px}
+  .meta .sub{font-size:11.5px}
+}
+
+/* Routes — desktop: 2 columns, mobile: stacked (original sizing) */
 .routes{
   margin-top:16px;
   display:grid;
   gap:12px;
-  grid-template-columns:repeat(2, minmax(0,1fr));  /* desktop/tablet: side-by-side */
+  grid-template-columns:repeat(2, minmax(0,1fr));
 }
 @media(max-width:640px){
-  .routes{grid-template-columns:1fr} /* mobile: stacked */
+  .routes{grid-template-columns:1fr}
 }
 .route{
   border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative;
