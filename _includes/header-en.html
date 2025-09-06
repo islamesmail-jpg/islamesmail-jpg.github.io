@@ -1,66 +1,138 @@
-<header class="topbar">
-  <div class="container nav">
-    <!-- Logo -->
-    <a class="brand" href="index-en.html" aria-label="Home">
+<!-- ====== HEADER (EN) — Islam Real Estate ====== -->
+<style>
+  /* scoped EN header styles (same look) */
+  :root { --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569; --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06); }
+  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ire-line)}
+  .ire-nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+  .ire-brand{line-height:0;display:flex;align-items:center}
+  .ire-brand img{height:44px;width:auto}
+  .ire-spacer{flex:1}
+  .ire-right{display:flex;align-items:center;gap:10px}
+  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .ire-chip:hover{background:var(--ire-soft)}
+  .ire-links{display:flex;align-items:center;gap:12px;margin-inline-start:8px}
+  .ire-links a{font-weight:800;padding:8px 10px;border-radius:10px}
+  .ire-links a:hover{background:var(--ire-soft)}
+  .ire-dd{position:relative}
+  .ire-panel{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:240px;background:#fff;border:1px solid var(--ire-line);border-radius:12px;box-shadow:var(--ire-shadow);padding:6px;display:none}
+  .ire-dd.open>.ire-panel{display:block}
+  .ire-panel a{display:block;padding:10px;border-radius:10px;font-weight:700;color:var(--ire-ink)}
+  .ire-panel a:hover{background:var(--ire-soft)}
+  .ire-monly{display:none}
+  .ire-mbar{display:flex;gap:8px;margin-inline-start:auto}
+  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800}
+  .ire-slide{display:none;border-top:1px solid var(--ire-line);border-bottom:1px solid var(--ire-line);background:#fff}
+  .ire-slide .ire-inner{max-width:1200px;margin:auto;padding:10px 16px}
+  .ire-list a{display:block;padding:10px;border-radius:10px;font-weight:700}
+  .ire-list a:hover{background:var(--ire-soft)}
+  @media (max-width: 920px){
+    .ire-links{display:none}
+    .ire-dd{display:none}
+    .ire-chip.ire-lang{display:none}
+    .ire-monly{display:flex}
+  }
+</style>
+
+<header class="ire-topbar" dir="ltr">
+  <div class="ire-nav">
+    <a class="ire-brand" href="index-en.html" aria-label="Home">
       <img src="https://g.top4top.io/p_3536gqqv70.png" alt="Islam Real Estate">
     </a>
 
-    <!-- Desktop links -->
-    <nav class="menu-center" aria-label="Main navigation">
-      <a href="sokhna-en.html">Ain Sokhna</a>
-      <a href="north-en.html">North Coast</a>
-      <a href="Cairo-en.html">New Cairo</a>
-      <a href="resale-en.html">Resale</a>
-      <a href="list-en.html">List your unit</a>
-    </nav>
+    <div class="ire-spacer"></div>
 
-    <!-- Language + mobile menu -->
-    <div class="controls">
-      <button class="lang" type="button" data-lang="ar" aria-label="Arabic">AR</button>
-      <button id="pagesBtn" class="pages-btn" aria-expanded="false" aria-controls="mMenu">Menu</button>
+    <div class="ire-right" aria-label="Top navigation">
+      <div class="ire-dd" id="ire-dd-contact-en">
+        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">Contact ▾</button>
+        <div class="ire-panel" role="menu" aria-label="Contact options">
+          <a href="tel:+201050072527">📞 Call</a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
+        </div>
+      </div>
+
+      <button class="ire-chip ire-lang" type="button" data-ire-lang="ar" aria-label="Arabic">AR</button>
+
+      <nav class="ire-links" aria-label="Area links">
+        <a href="sokhna-en.html">Ain Sokhna</a>
+        <a href="north-en.html">North Coast</a>
+        <a href="Cairo-en.html">New Cairo</a>
+        <a href="resale-en.html">Resale</a>
+        <a href="list-en.html">List your unit</a>
+      </nav>
+    </div>
+
+    <div class="ire-monly">
+      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-proj-en">Projects</button>
+      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-contact-en">Contact</button>
+      <button class="ire-mchip" type="button" data-ire-lang="ar" aria-label="Arabic">AR</button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
-  <nav id="mMenu" class="menu-mobile" aria-label="Mobile menu">
-    <a href="sokhna-en.html">Ain Sokhna</a>
-    <a href="north-en.html">North Coast</a>
-    <a href="Cairo-en.html">New Cairo</a>
-    <a href="resale-en.html">Resale</a>
-    <a href="list-en.html">List your unit</a>
-  </nav>
+  <div id="ire-slide-proj-en" class="ire-slide">
+    <div class="ire-inner">
+      <nav class="ire-list" aria-label="Projects">
+        <a href="sokhna-en.html">Ain Sokhna</a>
+        <a href="north-en.html">North Coast</a>
+        <a href="Cairo-en.html">New Cairo</a>
+        <a href="resale-en.html">Resale</a>
+        <a href="list-en.html">List your unit</a>
+      </nav>
+    </div>
+  </div>
+  <div id="ire-slide-contact-en" class="ire-slide">
+    <div class="ire-inner">
+      <div class="ire-list" aria-label="Contact">
+        <a href="tel:+201050072527">📞 Call</a>
+        <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
-/* Toggle mobile menu */
-const pagesBtn = document.getElementById('pagesBtn');
-const mMenu = document.getElementById('mMenu');
-pagesBtn?.addEventListener('click',(e)=>{
-  e.stopPropagation();
-  const open=mMenu.classList.toggle('open');
-  pagesBtn.setAttribute('aria-expanded',open?'true':'false');
-});
-document.addEventListener('click',(e)=>{
-  if(!e.target.closest('#mMenu') && !e.target.closest('#pagesBtn')){
-    mMenu.classList.remove('open');
-    pagesBtn?.setAttribute('aria-expanded','false');
-  }
-});
-
-/* Language switch: English → Arabic */
-(function () {
-  function targetAR(file){
-    if(/-en\.html$/i.test(file)) return file.replace(/-en\.html$/i,".html");
-    return file;
-  }
-  function goAR(){
-    var file=(location.pathname.split("/").pop()||"index-en.html");
-    var dest=targetAR(file);
-    var prefix=location.pathname.replace(/[^\/]+$/,"");
-    location.href=prefix+dest;
-  }
-  document.querySelectorAll('[data-lang="ar"]').forEach(btn=>{
-    btn.addEventListener('click',goAR);
+/* Desktop dropdown (Contact) */
+(function(){
+  const dd = document.getElementById('ire-dd-contact-en');
+  if(!dd) return;
+  const btn = dd.querySelector('button');
+  btn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const open = dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open?'true':'false');
+  });
+  document.addEventListener('click', (e)=>{
+    if(!dd.contains(e.target)) { dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
   });
 })();
+
+/* Mobile inline panels toggle */
+document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const sel = b.getAttribute('data-ire-toggle');
+    const panel = document.querySelector(sel);
+    if(!panel) return;
+    const open = getComputedStyle(panel).display!=='none';
+    document.querySelectorAll('.ire-slide').forEach(p=>p.style.display='none');
+    panel.style.display = open ? 'none' : 'block';
+    if(!open){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+/* Language switch: EN → AR (same page) */
+(function(){
+  function toAR(file){
+    if(/-en\.html$/i.test(file)) return file.replace(/-en\.html$/i,'.html');
+    return file || 'index.html';
+  }
+  function switchAR(){
+    var file = (location.pathname.split('/').pop() || 'index-en.html');
+    var dest = toAR(file);
+    var prefix = location.pathname.replace(/[^\/]+$/, '');
+    location.href = prefix + dest;
+  }
+  document.querySelectorAll('[data-ire-lang="ar"]').forEach(el=> el.addEventListener('click', switchAR));
+})();
 </script>
+<!-- ====== /HEADER (EN) ====== -->
