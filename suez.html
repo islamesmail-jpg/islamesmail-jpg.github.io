@@ -4,16 +4,16 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>مشاريع العين السخنه طريق السويس</title>
-<meta name="description" content="مشاريع العين السخنة على طريق السويس: أسعار المطور وإعادة البيع، أحدث العروض، وروابط سريعة للبحث والتواصل." />
+<meta name="description" content="مشاريع العين السخنة على طريق السويس: أسعار المطوّر وإعادة البيع، أحدث العروض، وروابط سريعة للبحث والتواصل." />
 <link rel="canonical" href="https://example.com/suez.html" />
 <link rel="alternate" href="https://example.com/suez-en.html" hreflang="en" />
 <link rel="alternate" href="https://example.com/suez.html" hreflang="ar" />
-<!-- Favicon -->
+<!-- Website Icon -->
 <link rel="icon" type="image/png" href="https://i.top4top.io/p_3536599nr0.png">
 <link rel="apple-touch-icon" href="https://i.top4top.io/p_3536599nr0.png">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <meta property="og:title" content="مشاريع العين السخنه طريق السويس" />
-<meta property="og:description" content="أسعار المطور وإعادة البيع بمشاريع طريق السويس في العين السخنة مع أحدث العروض." />
+<meta property="og:description" content="أسعار المطوّر وإعادة البيع بمشاريع طريق السويس في العين السخنة مع أحدث العروض." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/suez.html" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -321,55 +321,59 @@ document.addEventListener('click',e=>{
 /* اللغة */
 document.getElementById('langToggle')?.addEventListener('click',()=>{location.href='suez-en.html';});
 document.getElementById('m-lang')?.addEventListener('click',()=>{location.href='suez-en.html';});
+</script>
 
-/* البحث (search-index.json) */
+<!-- كود البحث (كما أرسلت) -->
+<script>
 (function(){
-  const INPUT=document.getElementById('siteSearch');
-  const BOX=document.getElementById('suggest');
-  if(!INPUT||!BOX) return;
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-  let SITE_INDEX=[];
-  fetch('/search-index.json',{cache:'no-store'})
-    .then(r=>r.json()).then(json=>SITE_INDEX=Array.isArray(json)?json:[])
-    .catch(()=>SITE_INDEX=[]);
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-  const makeItem=it=>{
-    const a=document.createElement('a');
-    a.href=it.url; a.textContent=it.title; a.setAttribute('role','option'); a.setAttribute('tabindex','-1');
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
     return a;
   };
 
   function search(q){
-    q=(q||'').trim().toLowerCase();
+    q = (q || '').trim().toLowerCase();
     if(!q) return [];
     return SITE_INDEX
       .map(it=>{
-        const hay=(it.title+' '+(it.keywords||'')).toLowerCase();
-        const inTitle=it.title.toLowerCase().includes(q)?2:0;
-        const inKeys=hay.includes(q)?1:0;
-        return {...it,score:inTitle+inKeys};
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
       })
-      .filter(x=>x.score>0)
-      .sort((a,b)=>b.score-a.score)
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
       .slice(0,8);
   }
 
   function render(list){
-    BOX.innerHTML='';
-    if(list.length===0){BOX.style.display='none';return;}
-    list.forEach((r,i)=>{const a=makeItem(r); if(i===0)a.setAttribute('aria-selected','true'); BOX.appendChild(a);});
-    BOX.style.display='block';
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
   }
 
-  INPUT.addEventListener('input',()=>render(search(INPUT.value)));
-  document.addEventListener('click',e=>{if(!BOX.contains(e.target)&&e.target!==INPUT) BOX.style.display='none';});
-  INPUT.addEventListener('keydown',e=>{
-    const options=Array.from(BOX.querySelectorAll('a'));
-    const idx=options.findIndex(o=>o.getAttribute('aria-selected')==='true');
-    if(e.key==='ArrowDown'&&options.length){e.preventDefault();const next=options[(idx+1)%options.length];options.forEach(o=>o.removeAttribute('aria-selected'));next.setAttribute('aria-selected','true');next.focus();}
-    if(e.key==='ArrowUp'&&options.length){e.preventDefault();const prev=options[(idx-1+options.length)%options.length];options.forEach(o=>o.removeAttribute('aria-selected'));prev.setAttribute('aria-selected','true');prev.focus();}
-    if(e.key==='Enter'){const first=BOX.querySelector('a[aria-selected="true"]')||BOX.querySelector('a'); if(first){window.location.href=first.href;}}
-    if(e.key==='Escape'){BOX.style.display='none';}
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
   });
 })();
 </script>
