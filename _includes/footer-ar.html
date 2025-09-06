@@ -1,16 +1,9 @@
 <footer class="site-footer" dir="rtl" aria-label="تذييل الموقع">
   <style>
-    /* ====== Variables ====== */
     .site-footer{
       --wrap: 1120px;
-      --gap-x: 28px;            /* مسافة بين الأعمدة */
-      --gap-y: 12px;
-      --title: clamp(14px, 1.25vw, 16px);
-      --text:  clamp(13px, 1.05vw, 14.5px);
-      --fine:  clamp(12px, 0.95vw, 13px);
-      --logo:  clamp(40px, 5.2vw, 62px);
-      --line:  #e5e7eb;
-      --ink:   #000;
+      --line:#e5e7eb;
+      --ink:#000;
       background:#fff;color:var(--ink);
       border-top:1px solid var(--line);
       font-family:"Tajawal", Arial, Helvetica, sans-serif
@@ -18,113 +11,95 @@
     .site-footer a{color:var(--ink);text-decoration:none}
     .site-footer a:hover{text-decoration:underline}
 
-    .sf-wrap{max-width:var(--wrap);margin:auto;padding:18px 14px 10px}
+    .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px}
 
-    /* ====== صف المحتوى الرئيسي ====== */
-    .sf-main{
-      display:grid;
-      grid-template-columns: 1.6fr 2.4fr;  /* (يسار) لوجو+وصف — (يمين) الأعمدة */
-      align-items:start;
-      gap: var(--gap-x);
-    }
+    /* اللوجو + الوصف */
+    .sf-head{text-align:right;margin-bottom:28px}
+    .sf-logo img{height:60px;width:auto;display:block;margin-bottom:10px}
+    .sf-desc{font-weight:600;line-height:1.8;font-size:16px;max-width:520px}
 
-    /* —— اللوجو + الوصف —— */
-    .sf-brand{min-width:230px;text-align:right}
-    .sf-logo img{height:var(--logo);width:auto;display:block;margin-inline-start:auto;margin-bottom:8px}
-    .sf-desc{font-weight:700;line-height:1.8;font-size:var(--text);max-width:360px}
-
-    /* —— الأعمدة الثلاثة —— */
+    /* الأعمدة */
     .sf-cols{
       display:grid;
-      grid-template-columns: repeat(3, minmax(140px, 1fr));
-      gap: var(--gap-x);
+      grid-template-columns: repeat(3, 1fr);
+      gap:40px;
       align-items:start;
     }
-    .sf-col h4{margin:0 0 8px;font-weight:900;font-size:var(--title)}
-    .sf-links a{display:block;padding:4px 0;font-weight:700;font-size:var(--text)}
-    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:6px 0;font-weight:700;font-size:var(--text)}
-    .sf-contacts img{width:18px;height:18px;object-fit:contain}
+    .sf-col h4{margin:0 0 10px;font-weight:900;font-size:18px}
+    .sf-links a{display:block;padding:3px 0;font-weight:500;font-size:15px;line-height:1.6}
+    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:4px 0;font-weight:500;font-size:15px;line-height:1.6}
+    .sf-contacts img{width:20px;height:20px;object-fit:contain}
 
-    /* ====== السطر السفلي ====== */
-    .sf-bottom{border-top:1px solid var(--line);margin-top:12px;padding:10px 0;font-size:var(--fine);text-align:center;color:#111}
+    /* خط النهاية */
+    .sf-bottom{border-top:1px solid var(--line);margin-top:18px;padding:12px 0;font-size:13px;text-align:center;color:#111}
 
-    /* ====== ضبط خاص للموبايل مع الحفاظ على نفس الترتيب (كلّه جنب بعض) ====== */
-    @media (max-width: 680px){
-      .site-footer{--gap-x:16px}
-      .sf-main{
-        /* نحافظ على عمودين: (اللوجو+الوصف) + (الأعمدة الثلاثة كسطر واحد) */
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .sf-brand{order:2;text-align:center}
-      .sf-logo img{margin:0 auto 6px}
-      .sf-desc{margin:0 auto;max-width:520px}
+    /* موبايل */
+    @media (max-width: 768px){
+      .sf-head{text-align:center;margin-bottom:20px}
+      .sf-logo img{margin:0 auto 8px;height:46px}
+      .sf-desc{margin:0 auto;font-size:14px;line-height:1.7;text-align:center}
       .sf-cols{
-        order:1;
-        grid-template-columns: repeat(3, 1fr); /* الثلاثة أعمدة جنب بعض على الموبايل */
-        gap: 14px;
-        justify-items:center;
+        grid-template-columns:1fr;
+        gap:20px;
         text-align:center;
       }
-      .sf-col{min-width:0}
-      .sf-links a,.sf-contacts a{padding:3px 0}
+      .sf-col h4{font-size:16px}
+      .sf-links a,.sf-contacts a{font-size:14px}
     }
   </style>
 
   <div class="sf-wrap">
-    <div class="sf-main">
-      <!-- الأعمدة (يمين) -->
-      <div class="sf-cols">
-        <!-- روابط سريعة -->
-        <div class="sf-col">
-          <h4>روابط سريعة</h4>
-          <nav class="sf-links" aria-label="روابط سريعة">
-            <a href="sokhna.html">العين السخنة</a>
-            <a href="Cairo.html">القاهرة الجديدة</a>
-            <a href="north.html">الساحل الشمالي</a>
-            <a href="resale.html">إعادة البيع</a>
-            <a href="list.html">أعرض وحدتك</a>
-            <a href="offers.html">عروض مميزة</a>
-            <a href="privacy.html">سياسة الخصوصية</a>
-          </nav>
-        </div>
+    <!-- اللوجو + الوصف -->
+    <div class="sf-head">
+      <div class="sf-logo">
+        <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="إسلام إسماعيل للتسويق العقاري">
+      </div>
+      <div class="sf-desc">
+        عروض مميزة وحصرية على مشاريع <b>العين السخنة</b> و<b>الساحل الشمالي</b> و<b>القاهرة الجديدة</b><br>
+        مع خدمات <b>إعادة البيع</b> و<b>أعرض وحدتك بسهولة</b>.
+      </div>
+    </div>
 
-        <!-- مشاريع مميزة -->
-        <div class="sf-col">
-          <h4>مشاريع مميزة</h4>
-          <nav class="sf-links" aria-label="مشاريع مميزة">
-            <a href="lugano.html">لوجانو</a>
-            <a href="murano.html">مورانو</a>
-            <a href="einhills.html">العين هيلز</a>
-            <a href="sokhnahills.html">السخنة هيلز</a>
-          </nav>
-        </div>
-
-        <!-- التواصل -->
-        <div class="sf-col">
-          <h4>التواصل</h4>
-          <div class="sf-contacts" aria-label="التواصل">
-            <a href="tel:+201050072527" title="الاتصال مباشر">
-              <img src="https://c.top4top.io/p_3536r902r0.png" alt="اتصال"> الاتصال مباشر
-            </a>
-            <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="الواتساب">
-              <img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب
-            </a>
-            <a href="mailto:islammesmail@gmail.com" title="الإيميل">
-              <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="إيميل"> الإيميل
-            </a>
-          </div>
-        </div>
+    <!-- الأعمدة -->
+    <div class="sf-cols">
+      <!-- روابط سريعة -->
+      <div class="sf-col">
+        <h4>روابط سريعة</h4>
+        <nav class="sf-links" aria-label="روابط سريعة">
+          <a href="sokhna.html">العين السخنة</a>
+          <a href="newcairo.html">القاهرة الجديدة</a>
+          <a href="north.html">الساحل الشمالي</a>
+          <a href="resale.html">إعادة البيع</a>
+          <a href="listyourunit.html">أعرض وحدتك</a>
+          <a href="offers.html">عروض مميزة</a>
+          <a href="privacy.html">سياسة الخصوصية</a>
+        </nav>
       </div>
 
-      <!-- اللوجو + الوصف (يسار) -->
-      <div class="sf-brand">
-        <div class="sf-logo">
-          <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate">
-        </div>
-        <div class="sf-desc">
-          عروض مميزة وحصرية على مشاريع <b>العين السخنة</b> و<b>الساحل الشمالي</b> و<b>القاهرة الجديدة</b><br>
-          مع خدمات <b>إعادة البيع</b> و<b>أعرض وحدتك</b> بسهولة.
+      <!-- مشاريع مميزة -->
+      <div class="sf-col">
+        <h4>مشاريع مميزة</h4>
+        <nav class="sf-links" aria-label="مشاريع مميزة">
+          <a href="lugano.html">لوجانو</a>
+          <a href="murano.html">مورانو</a>
+          <a href="einhills.html">عين هيلز</a>
+          <a href="sokhnahills.html">السخنة هيلز</a>
+        </nav>
+      </div>
+
+      <!-- التواصل -->
+      <div class="sf-col">
+        <h4>التواصل</h4>
+        <div class="sf-contacts" aria-label="التواصل">
+          <a href="tel:+201050072527" title="الاتصال مباشر">
+            <img src="https://c.top4top.io/p_3536r902r0.png" alt="هاتف"> الاتصال مباشر
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="واتساب">
+            <img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب
+          </a>
+          <a href="mailto:islammesmail@gmail.com" title="ايميل">
+            <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="ايميل"> الايميل
+          </a>
         </div>
       </div>
     </div>
