@@ -1,86 +1,66 @@
 <header class="topbar">
-  <div class="container navbar">
-    <a class="brandbox" href="index-en.html" aria-label="Home">
-      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate" style="height:44px;width:auto">
+  <div class="container nav">
+    <!-- Logo -->
+    <a class="brand" href="index-en.html" aria-label="Home">
+      <img src="https://g.top4top.io/p_3536gqqv70.png" alt="Islam Real Estate">
     </a>
 
-    <nav class="navline" aria-label="Main links">
-      <button class="boxbtn" id="langToggle" type="button" aria-label="Arabic">AR</button>
-
-      <div class="dropdown" id="nav-contact-en">
-        <button class="boxbtn" aria-haspopup="true" aria-expanded="false" onclick="togglePanel && togglePanel('nav-contact-en')">Contact ▾</button>
-        <div class="panel" role="menu" aria-label="Contact links">
-          <a href="tel:+201050072527">📞 Call</a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
-        </div>
-      </div>
-
-      <a class="linkx" href="sokhna-en.html">Ain Sokhna</a>
-      <a class="linkx" href="north-en.html">North Coast</a>
-      <a class="linkx" href="Cairo-en.html">New Cairo</a>
-      <a class="linkx" href="resale-en.html">Resale</a>
-      <a class="linkx" href="list-en.html">List your unit</a>
+    <!-- Desktop links -->
+    <nav class="menu-center" aria-label="Main navigation">
+      <a href="sokhna-en.html">Ain Sokhna</a>
+      <a href="north-en.html">North Coast</a>
+      <a href="Cairo-en.html">New Cairo</a>
+      <a href="resale-en.html">Resale</a>
+      <a href="list-en.html">List your unit</a>
     </nav>
 
-    <div class="mobile-controls" aria-label="Quick actions">
-      <div class="mbar">
-        <button class="boxbtn" id="m-lang" type="button" aria-label="Arabic">AR</button>
-
-        <div class="dropdown" id="m-contact-en">
-          <button class="boxbtn" aria-haspopup="true" aria-expanded="false" onclick="togglePanel && togglePanel('m-contact-en')">Contact ▾</button>
-          <div class="panel" role="menu" aria-label="Contact links">
-            <a href="tel:+201050072527">📞 Call</a>
-            <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
-            <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
-          </div>
-        </div>
-
-        <div class="dropdown" id="m-proj-en">
-          <button class="boxbtn" aria-haspopup="true" aria-expanded="false" onclick="togglePanel && togglePanel('m-proj-en')">Areas ▾</button>
-          <div class="panel" role="menu" aria-label="Areas">
-            <a href="sokhna-en.html">Ain Sokhna</a>
-            <a href="north-en.html">North Coast</a>
-            <a href="Cairo-en.html">New Cairo</a>
-            <a href="resale-en.html">Resale</a>
-            <a href="list-en.html">List your unit</a>
-          </div>
-        </div>
-      </div>
+    <!-- Language + mobile menu -->
+    <div class="controls">
+      <button class="lang" type="button" data-lang="ar" aria-label="Arabic">AR</button>
+      <button id="pagesBtn" class="pages-btn" aria-expanded="false" aria-controls="mMenu">Menu</button>
     </div>
   </div>
+
+  <!-- Mobile menu -->
+  <nav id="mMenu" class="menu-mobile" aria-label="Mobile menu">
+    <a href="sokhna-en.html">Ain Sokhna</a>
+    <a href="north-en.html">North Coast</a>
+    <a href="Cairo-en.html">New Cairo</a>
+    <a href="resale-en.html">Resale</a>
+    <a href="list-en.html">List your unit</a>
+  </nav>
 </header>
 
 <script>
-/* === مُبدّل اللغة الذكي (EN -> AR) ===
-   القاعدة: page-en.html --> page.html
-            index-en.html --> index.html
-   لو عندك صفحات استثناء، ضيفها في LANG_EXCEPTIONS_EN_AR.
-*/
-(function(){
-  const LANG_EXCEPTIONS_EN_AR = {
-    // "custom-english-en.html": "some-arabic.html",
-  };
-
-  function toArabic(enFile){
-    if (LANG_EXCEPTIONS_EN_AR[enFile]) return LANG_EXCEPTIONS_EN_AR[enFile];
-    const m = enFile.match(/^(.*?)-en\.html$/i);
-    if(!m) return "index.html";
-    return m[1] + ".html";
+/* Toggle mobile menu */
+const pagesBtn = document.getElementById('pagesBtn');
+const mMenu = document.getElementById('mMenu');
+pagesBtn?.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  const open=mMenu.classList.toggle('open');
+  pagesBtn.setAttribute('aria-expanded',open?'true':'false');
+});
+document.addEventListener('click',(e)=>{
+  if(!e.target.closest('#mMenu') && !e.target.closest('#pagesBtn')){
+    mMenu.classList.remove('open');
+    pagesBtn?.setAttribute('aria-expanded','false');
   }
+});
 
-  function buildTargetUrlAR(){
-    const path = location.pathname.split("/").pop() || "index-en.html";
-    return toArabic(path);
+/* Language switch: English → Arabic */
+(function () {
+  function targetAR(file){
+    if(/-en\.html$/i.test(file)) return file.replace(/-en\.html$/i,".html");
+    return file;
   }
-
-  function goAr(){
-    const dest = buildTargetUrlAR();
-    const prefix = location.pathname.replace(/[^\/]+$/, "");
-    location.href = prefix + dest;
+  function goAR(){
+    var file=(location.pathname.split("/").pop()||"index-en.html");
+    var dest=targetAR(file);
+    var prefix=location.pathname.replace(/[^\/]+$/,"");
+    location.href=prefix+dest;
   }
-
-  document.getElementById("langToggle")?.addEventListener("click", goAr);
-  document.getElementById("m-lang")?.addEventListener("click", goAr);
+  document.querySelectorAll('[data-lang="ar"]').forEach(btn=>{
+    btn.addEventListener('click',goAR);
+  });
 })();
 </script>
