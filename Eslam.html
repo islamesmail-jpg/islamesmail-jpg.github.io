@@ -1,5 +1,8 @@
 ---
+title: العين السخنة | دليل المشاريع وأقوى العروض وإعادة البيع
+description: دليل مشاريع العين السخنة: أقوى عروض المطورين ووحدات إعادة البيع الجاهزة للاستلام. طرق الوصول، الأنشطة، وأنواع المشروعات.
 ---
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -19,6 +22,7 @@
 <meta property="og:url" content="https://example.com/sokhna.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
 <style>
 :root{
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
@@ -38,7 +42,7 @@ img{max-width:100%;display:block}
 .navbar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-direction:row-reverse}
 .brandbox img{height:44px;width:auto}
 
-/* Desktop nav (left): لغة + اتصل بنا كمربعات خفيفة + باقي الروابط نصية */
+/* Desktop nav */
 .navline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .boxbtn{
   display:inline-flex;align-items:center;gap:8px;
@@ -47,7 +51,6 @@ img{max-width:100%;display:block}
 }
 .boxbtn:hover{background:#f8fafc}
 .boxbtn:focus-visible{outline:2px solid #cbd5e1;outline-offset:2px}
-
 .linkx{
   display:inline-flex;align-items:center;
   font-weight:800;font-size:14px;padding:8px 10px;border-radius:10px;background:transparent;border:none;cursor:pointer;color:var(--ink);
@@ -57,15 +60,15 @@ img{max-width:100%;display:block}
 /* Dropdown */
 .dropdown{position:relative;display:inline-block}
 .panel{
-  position:absolute;top:calc(100% + 8px);left:0;
-  background:#fff;border:1px solid var(--line);border-radius:10px;min-width:240px;padding:6px;
-  box-shadow:0 10px 24px rgba(15,23,42,.06);display:none;z-index:1001
+  position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line);
+  border-radius:10px;min-width:240px;padding:6px;box-shadow:0 10px 24px rgba(15,23,42,.06);
+  display:none;z-index:1001
 }
 .dropdown.open>.panel{display:block}
 .panel a{display:block;padding:10px;border-radius:8px;font-weight:700}
 .panel a:hover{background:#f8fafc}
 
-/* Mobile: ثلاثة مربعات منفصلة (اللغة / اتصل بنا / المشاريع) */
+/* Mobile controls */
 .mobile-controls{display:none}
 .mbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 @media(max-width:768px){
@@ -140,7 +143,7 @@ img{max-width:100%;display:block}
       <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
     </a>
 
-    <!-- سطح المكتب: لغة + اتصل بنا (مربعات خفيفة) + باقي الروابط -->
+    <!-- سطح المكتب: لغة + اتصل بنا + روابط -->
     <nav class="navline" aria-label="روابط رئيسية">
       <button class="boxbtn" id="langToggle" aria-label="English">EN</button>
 
@@ -160,7 +163,7 @@ img{max-width:100%;display:block}
       <a class="linkx" href="list.html">أعرض وحدتك</a>
     </nav>
 
-    <!-- الموبايل: ثلاثة مربعات منفصلة -->
+    <!-- الموبايل -->
     <div class="mobile-controls" aria-label="أدوات سريعة">
       <div class="mbar">
         <button class="boxbtn" id="m-lang" aria-label="English">EN</button>
@@ -303,11 +306,8 @@ img{max-width:100%;display:block}
 </a>
 
 <script>
-/* السنة الحالية (لو عنصر #year موجود) */
-(function(){
-  var y=document.getElementById('year');
-  if(y){ y.textContent=new Date().getFullYear(); }
-})();
+/* السنة الحالية (لو عنصر #year موجود داخل الفوتر) */
+(function(){var y=document.getElementById('year');if(y){y.textContent=new Date().getFullYear();}})();
 
 /* Dropdowns */
 function togglePanel(id){
