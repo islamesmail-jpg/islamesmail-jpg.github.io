@@ -1,11 +1,14 @@
 <!-- ====== HEADER (EN) — Islam Real Estate ====== -->
 <style>
-  /* scoped EN header styles (same look) */
-  :root { --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569; --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06); }
+  :root {
+    --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569;
+    --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
+    --ire-logo-h:70px;
+  }
   .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ire-line)}
   .ire-nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
   .ire-brand{line-height:0;display:flex;align-items:center}
-  .ire-brand img{height:65px;width:auto}
+  .ire-brand img{height:var(--ire-logo-h);width:auto}
   .ire-spacer{flex:1}
   .ire-right{display:flex;align-items:center;gap:10px}
   .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
@@ -31,28 +34,34 @@
     .ire-chip.ire-lang{display:none}
     .ire-monly{display:flex}
   }
+  .ire-sr{position:absolute;left:-9999px}
 </style>
 
 <header class="ire-topbar" dir="ltr">
   <div class="ire-nav">
+    <!-- Logo -->
     <a class="ire-brand" href="index-en.html" aria-label="Home">
-      <img src="https://g.top4top.io/p_3536gqqv70.png" alt="Islam Real Estate">
+      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="Islam Real Estate">
     </a>
 
     <div class="ire-spacer"></div>
 
-    <div class="ire-right" aria-label="Top navigation">
+    <!-- Desktop -->
+    <div class="ire-right" aria-label="Main links">
+      <!-- Contact -->
       <div class="ire-dd" id="ire-dd-contact-en">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">Contact ▾</button>
-        <div class="ire-panel" role="menu" aria-label="Contact options">
+        <div class="ire-panel" role="menu" aria-label="Contact links">
           <a href="tel:+201050072527">📞 Call</a>
           <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
           <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
         </div>
       </div>
 
+      <!-- Language (switch same page AR) -->
       <button class="ire-chip ire-lang" type="button" data-ire-lang="ar" aria-label="Arabic">AR</button>
 
+      <!-- Area links -->
       <nav class="ire-links" aria-label="Area links">
         <a href="sokhna-en.html">Ain Sokhna</a>
         <a href="north-en.html">North Coast</a>
@@ -62,13 +71,15 @@
       </nav>
     </div>
 
+    <!-- Mobile controls -->
     <div class="ire-monly">
-      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-proj-en">Projects</button>
+      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-proj-en">Areas</button>
       <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-contact-en">Contact</button>
       <button class="ire-mchip" type="button" data-ire-lang="ar" aria-label="Arabic">AR</button>
     </div>
   </div>
 
+  <!-- Mobile inline panels -->
   <div id="ire-slide-proj-en" class="ire-slide">
     <div class="ire-inner">
       <nav class="ire-list" aria-label="Projects">
@@ -92,7 +103,7 @@
 </header>
 
 <script>
-/* Desktop dropdown (Contact) */
+/* Contact dropdown (desktop) */
 (function(){
   const dd = document.getElementById('ire-dd-contact-en');
   if(!dd) return;
@@ -107,7 +118,7 @@
   });
 })();
 
-/* Mobile inline panels toggle */
+/* Mobile slide panels */
 document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   b.addEventListener('click', ()=>{
     const sel = b.getAttribute('data-ire-toggle');
@@ -124,7 +135,7 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 (function(){
   function toAR(file){
     if(/-en\.html$/i.test(file)) return file.replace(/-en\.html$/i,'.html');
-    return file || 'index.html';
+    return (file||'index') + '.html';
   }
   function switchAR(){
     var file = (location.pathname.split('/').pop() || 'index-en.html');
