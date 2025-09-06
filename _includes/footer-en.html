@@ -1,41 +1,92 @@
-<footer>
-  <div class="container footer-wrap">
-    <div class="fbrand">
-      <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Logo">
-    </div>
-    <div class="fbox desc">
-      <h4>Islam Real Estate</h4>
-      <p>Your trusted guide and sales for Ain Sokhna, North Coast, and New Cairo.</p>
-      <p>Choose confidently between developer sales and resale opportunities.</p>
-    </div>
-    <div class="fbox links">
-      <h4>Quick Links</h4>
-      <a href="index-en.html">Home</a>
-      <a href="sokhna-en.html">Ain Sokhna</a>
-      <a href="zafarana-en.html">Zafarana Road</a>
-      <a href="suez-en.html">Suez Road</a>
-      <a href="north-en.html">North Coast</a>
-      <a href="Cairo.html">New Cairo</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
-    <div class="fbox projects">
-      <h4>Featured Projects</h4>
-      <a href="lugano-en.html">Lugano Galala</a>
-      <a href="einhills-en.html">Ein Hills</a>
-      <a href="murano-en.html">Murano</a>
-      <a href="lolybeach-en.html">Loly Beach</a>
-      <a href="dolphin-en.html">Dolphin Beach</a>
-    </div>
-    <div class="fbox contact">
-      <h4>Contact</h4>
-      <a href="tel:+201050072527">📞 Phone</a>
-      <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 WhatsApp</a>
-      <a href="mailto:islammesmail@gmail.com">✉️ Email</a>
-    </div>
-  </div>
-  <div class="foot-bottom">© <span id="year"></span> Islam Real Estate — All rights reserved</div>
-</footer>
+<footer class="site-footer" dir="ltr" aria-label="Site Footer">
+  <style>
+    .site-footer{border-top:1px solid #e5e7eb;background:#fff;color:#000;font-family:"Poppins",Arial,Helvetica,sans-serif}
+    .site-footer a{color:#000;text-decoration:none}
+    .site-footer a:hover{text-decoration:underline}
+    .site-footer .container{max-width:1120px;margin:auto;padding:24px 16px}
 
-<script>
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+    /* main row */
+    .sf-main{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:nowrap}
+
+    /* logo + description (left in English) */
+    .sf-brand{flex:1;min-width:220px;text-align:left}
+    .sf-logo img{height:60px;width:auto;margin-bottom:8px}
+    .sf-desc{font-weight:600;line-height:1.7;font-size:15px;max-width:320px}
+
+    /* columns */
+    .sf-cols{flex:2;display:flex;justify-content:flex-start;gap:40px}
+    .sf-col{flex:1;min-width:160px;text-align:left}
+    .sf-col h4{margin:0 0 10px;font-size:16px;font-weight:800}
+    .sf-links a{display:block;padding:4px 0;font-weight:600;font-size:14px}
+    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:5px 0;font-weight:600;font-size:14px}
+    .sf-contacts img{width:20px;height:20px;object-fit:contain}
+
+    /* bottom */
+    .sf-bottom{border-top:1px solid #e5e7eb;margin-top:18px;padding-top:10px;font-size:13px;color:#111;text-align:center}
+  </style>
+
+  <div class="container">
+    <div class="sf-main">
+      <!-- Left: logo + description -->
+      <div class="sf-brand">
+        <div class="sf-logo">
+          <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate Logo">
+        </div>
+        <div class="sf-desc">
+          Exclusive offers and deals on projects in <b>Ain Sokhna</b>, <b>North Coast</b>, and <b>New Cairo</b><br>
+          Plus services for <b>Resale</b> and <b>List Your Unit</b> with ease.
+        </div>
+      </div>
+
+      <!-- Right: columns -->
+      <div class="sf-cols">
+        <!-- Quick Links -->
+        <div class="sf-col">
+          <h4>Quick Links</h4>
+          <nav class="sf-links">
+            <a href="sokhna-en.html">Ain Sokhna</a>
+            <a href="Cairo-en.html">New Cairo</a>
+            <a href="north-en.html">North Coast</a>
+            <a href="resale-en.html">Resale</a>
+            <a href="list-en.html">List Your Unit</a>
+            <a href="offers-en.html">Exclusive Offers</a>
+            <a href="privacy-en.html">Privacy Policy</a>
+          </nav>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="sf-col">
+          <h4>Featured Projects</h4>
+          <nav class="sf-links">
+            <a href="lugano-en.html">Lugano</a>
+            <a href="murano-en.html">Murano</a>
+            <a href="einhills-en.html">Ein Hills</a>
+            <a href="sokhnahills-en.html">Sokhna Hills</a>
+          </nav>
+        </div>
+
+        <!-- Contact -->
+        <div class="sf-col">
+          <h4>Contact</h4>
+          <div class="sf-contacts">
+            <a href="tel:+201050072527">
+              <img src="https://c.top4top.io/p_3536r902r0.png" alt="Call"> Call Now
+            </a>
+            <a href="https://wa.me/201050072527" target="_blank" rel="noopener">
+              <img src="https://g.top4top.io/p_3536rc1d61.png" alt="WhatsApp"> WhatsApp
+            </a>
+            <a href="mailto:islammesmail@gmail.com">
+              <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="Email"> Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf-bottom">© <span id="sf-year-en"></span> Islam Real Estate — All Rights Reserved</div>
+  </div>
+
+  <script>
+    (function(){var y=document.getElementById('sf-year-en'); if(y) y.textContent=new Date().getFullYear();})();
+  </script>
+</footer>
