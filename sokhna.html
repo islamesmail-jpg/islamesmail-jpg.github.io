@@ -7,6 +7,7 @@
 <meta name="description" content="دليل مشاريع العين السخنة: أقوى عروض المطورين ووحدات إعادة البيع الجاهزة للاستلام. طرق الوصول، الأنشطة، وأنواع المشروعات." />
 <link rel="canonical" href="https://example.com/sokhna.html" />
 <link rel="alternate" href="https://example.com/sokhna-en.html" hreflang="en" />
+<link rel="alternate" href="https://example.com/sokhna.html" hreflang="ar" />
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="https://j.top4top.io/p_3531rrodg0.png">
 <meta property="og:title" content="العين السخنة | المشاريع والعروض" />
@@ -14,13 +15,14 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://example.com/sokhna.html" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 <style>
 :root{
   --bg:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --gold:#e4c24a; --wrap:1120px;
   --radius:14px; --pad:14px;
-  /* تحكم سريع بالأحجام */
-  --gif-h:120px;     /* GIF دسكتوب */
-  --gif-h-m:90px;    /* GIF موبايل */
+  /* أحجام سريعة */
+  --dot:74px;      /* قطر الدائرة دِسكتوب */
+  --dot-m:60px;    /* قطر الدائرة موبايل */
   --route-ratio:16/9;/* نسبة صورة الطرق */
 }
 *{box-sizing:border-box}
@@ -57,22 +59,39 @@ img{max-width:100%;display:block}
 .suggestions{position:absolute;left:0;right:0;top:105%;background:#fff;border:1px solid var(--line);border-radius:12px;display:none;max-height:300px;overflow:auto;z-index:50}
 .suggestions a{display:block;padding:10px 12px;border-bottom:1px solid #eef2f7}
 .suggestions a:last-child{border-bottom:0}
-.suggestions a:hover{background:#f8fafc}
+.suggestions a:hover,.suggestions a[aria-selected="true"]{background:#f8fafc}
 
-/* بطاقات GIF */
+/* روابط سريعة — GIF دائرة + نص جنبها (عنوان + وصف) */
 .features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
-.cardfeat{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.03);transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column}
+.cardfeat{
+  border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+  box-shadow:0 2px 8px rgba(15,23,42,.03);
+  transition:transform .15s ease, box-shadow .15s ease;
+  display:flex;align-items:center;gap:12px;padding:12px;
+}
 .cardfeat:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}
-.cardfeat .media{padding:var(--pad);padding-bottom:10px;background:#fff}
-.cardfeat img{width:100%;height:var(--gif-h);object-fit:contain;border-radius:10px}
-@media(max-width:520px){.cardfeat img{height:var(--gif-h-m)}}
-.cardfeat .capwrap{padding:0 var(--pad) var(--pad)}
-.cardfeat .cap{display:block;text-align:center;border:1px solid var(--gold);color:#7a5b12;font-weight:800;border-radius:10px;padding:10px}
+.dot{
+  flex:0 0 var(--dot);width:var(--dot);height:var(--dot);
+  border-radius:50%;overflow:hidden;border:1px solid var(--line);background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.dot img{width:100%;height:100%;object-fit:contain}
+@media(max-width:520px){
+  .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
+}
+.meta{
+  flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;
+}
+.meta .title{
+  font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.meta .sub{
+  font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
 
-/* الطرق (الصور تملأ المساحة) */
+/* الطرق — دائمًا عمودين (موبايل وPC) */
 .routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-@media(max-width:640px){.routes{grid-template-columns:1fr}}
 .route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative}
 .media-cover{width:100%;aspect-ratio:var(--route-ratio);background:#f8fafc}
 .media-cover img{width:100%;height:100%;object-fit:cover}
@@ -114,10 +133,26 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
 .whatsapp-fab{position:fixed;left:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25D366;border:2px solid #128C7E;box-shadow:0 10px 24px rgba(0,0,0,.12)}
 .whatsapp-fab img{width:28px;height:28px}
 </style>
+
+<!-- BreadcrumbList -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
 {"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://example.com/index.html"},
 {"@type":"ListItem","position":2,"name":"العين السخنة","item":"https://example.com/sokhna.html"}]}
+</script>
+<!-- WebSite + SearchAction -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Islam Real Estate",
+  "url":"https://example.com/",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://example.com/search.html?q={query}",
+    "query-input":"required name=query"
+  }
+}
 </script>
 </head>
 <body>
@@ -162,31 +197,58 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
   <div class="searchwrap">
     <div class="searchbar" role="search">
       <input id="siteSearch" type="search" placeholder="ابحث عن صفحة أو مشروع…" aria-label="بحث الموقع" autocomplete="off">
-      <div class="suggestions" id="suggestBox" role="listbox" aria-label="اقتراحات البحث"></div>
+      <div class="suggestions" id="suggest" role="listbox" aria-label="اقتراحات البحث"></div>
     </div>
   </div>
 
-  <!-- روابط سريعة -->
+  <!-- روابط سريعة — GIF دائرة + عنوان/وصف جنبها (بالترتيب المطلوب) -->
   <section class="features" aria-label="روابط سريعة">
-    <a class="cardfeat" href="offers.html">
-      <div class="media"><img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض ساخنة" loading="lazy"></div>
-      <div class="capwrap"><span class="cap">عروض مميزه</span></div>
-    </a>
-    <a class="cardfeat" href="list.html">
-      <div class="media"><img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="أضف وحدتك" loading="lazy"></div>
-      <div class="capwrap"><span class="cap">أضف وحدتك</span></div>
-    </a>
-    <a class="cardfeat" href="resale.html">
-      <div class="media"><img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة بيع" loading="lazy"></div>
-      <div class="capwrap"><span class="cap">إعادة بيع</span></div>
-    </a>
+    <!-- تحت الإنشاء_1 -->
     <a class="cardfeat" href="offplan.html">
-      <div class="media"><img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy"></div>
-      <div class="capwrap"><span class="cap">تحت الإنشاء</span></div>
+      <div class="dot">
+        <img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">تحت الإنشاء</div>
+        <div class="sub">مشاريع جديدة</div>
+      </div>
+    </a>
+
+    <!-- أعرض وحدتك_2 -->
+    <a class="cardfeat" href="list.html">
+      <div class="dot">
+        <img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="أعرض وحدتك للبيع" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">أعرض وحدتك</div>
+        <div class="sub">بيع وحدتك بسرعة</div>
+      </div>
+    </a>
+
+    <!-- إعادة البيع_3 -->
+    <a class="cardfeat" href="resale.html">
+      <div class="dot">
+        <img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة بيع" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">إعادة البيع</div>
+        <div class="sub">جاهزة للاستلام</div>
+      </div>
+    </a>
+
+    <!-- عروض مميزة_4 -->
+    <a class="cardfeat" href="offers.html">
+      <div class="dot">
+        <img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة" loading="lazy">
+      </div>
+      <div class="meta">
+        <div class="title">عروض مميزة</div>
+        <div class="sub">خصومات وتقسيط</div>
+      </div>
     </a>
   </section>
 
-  <!-- الطرق -->
+  <!-- الطرق (2 عمود دائمًا: موبايل وPC) -->
   <section class="routes" aria-label="طرق العين السخنة">
     <a class="route" href="zafarana.html">
       <div class="media-cover"><img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة" loading="lazy"></div>
@@ -322,44 +384,82 @@ document.addEventListener('click',e=>{
 /* اللغة */
 document.getElementById('langToggle').addEventListener('click',()=>{location.href='sokhna-en.html';});
 
-/* البحث والاقتراحات + زر Enter */
-const PAGES=[
-  {name:'الرئيسية', url:'index.html'},
-  {name:'العين السخنة', url:'sokhna.html'},
-  {name:'طريق الزعفرانة', url:'zafarana.html'},
-  {name:'طريق السويس', url:'suez.html'},
-  {name:'الساحل الشمالي', url:'north.html'},
-  {name:'القاهرة الجديدة', url:'Cairo.html'},
-  {name:'عين هيلز', url:'einhills.html'},
-  {name:'مورانو', url:'murano.html'},
-  {name:'لوجانو', url:'lugano.html'}
-];
+/* =========================
+   البحث (search-index.json)
+   ========================= */
 (function(){
-  const input=document.getElementById('siteSearch');
-  const box=document.getElementById('suggestBox');
-  function render(list){
-    box.innerHTML='';
-    if(!list.length){ box.style.display='none'; return; }
-    list.forEach((it,i)=>{
-      const a=document.createElement('a');
-      a.href=it.url; a.textContent=it.name; a.setAttribute('role','option'); a.dataset.index=i;
-      box.appendChild(a);
-    });
-    box.style.display='block';
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
+
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
+
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    a.setAttribute('role','option');
+    a.setAttribute('tabindex','-1');
+    return a;
+  };
+
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
   }
-  input.addEventListener('input',()=>{
-    const q=input.value.trim().toLowerCase();
-    if(!q){ box.style.display='none'; return; }
-    render(PAGES.filter(p=>p.name.toLowerCase().includes(q)).slice(0,8));
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach((r,i)=>{
+      const a = makeItem(r);
+      if(i===0) a.setAttribute('aria-selected','true');
+      BOX.appendChild(a);
+    });
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
   });
-  input.addEventListener('keydown',e=>{
-    if(e.key==='Enter'){
-      const q=input.value.trim().toLowerCase();
-      const match=PAGES.find(p=>p.name.toLowerCase().includes(q));
-      if(match) location.href=match.url;
+
+  INPUT.addEventListener('keydown', (e)=>{
+    const options = Array.from(BOX.querySelectorAll('a'));
+    const currentIndex = options.findIndex(o=>o.getAttribute('aria-selected')==='true');
+    if(e.key === 'ArrowDown' && options.length){
+      e.preventDefault();
+      const next = options[(currentIndex+1) % options.length];
+      options.forEach(o=>o.removeAttribute('aria-selected'));
+      next.setAttribute('aria-selected','true'); next.focus();
     }
+    if(e.key === 'ArrowUp' && options.length){
+      e.preventDefault();
+      const prev = options[(currentIndex-1+options.length) % options.length];
+      options.forEach(o=>o.removeAttribute('aria-selected'));
+      prev.setAttribute('aria-selected','true'); prev.focus();
+    }
+    if(e.key === 'Enter'){
+      const firstSelected = BOX.querySelector('a[aria-selected="true"]') || BOX.querySelector('a');
+      if(firstSelected){ window.location.href = firstSelected.href; }
+    }
+    if(e.key === 'Escape'){ BOX.style.display='none'; }
   });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.searchbar')) box.style.display='none'; });
 })();
 </script>
 </body>
