@@ -19,105 +19,93 @@
 
     .sf-wrap{max-width:var(--wrap);margin:auto;padding:18px 14px 10px}
 
-    .sf-main{
-      display:grid;
-      grid-template-columns: 2.4fr 1.6fr; /* (Left) columns — (Right) logo+desc */
-      align-items:start;
-      gap: var(--gap-x);
-    }
-
-    /* Brand + description */
-    .sf-brand{text-align:left;min-width:230px}
-    .sf-logo img{height:var(--logo);width:auto;display:block;margin-inline-start:0;margin-bottom:8px}
-    .sf-desc{font-weight:700;line-height:1.8;font-size:var(--text);max-width:360px}
+    /* Brand + description at top */
+    .sf-head{text-align:left;margin-bottom:20px}
+    .sf-logo img{height:var(--logo);width:auto;display:block;margin-bottom:8px}
+    .sf-desc{font-weight:600;line-height:1.6;font-size:var(--text);max-width:480px}
 
     /* Columns */
     .sf-cols{
       display:grid;
-      grid-template-columns: repeat(3, minmax(140px, 1fr));
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
       gap: var(--gap-x);
       align-items:start;
     }
     .sf-col h4{margin:0 0 8px;font-weight:900;font-size:var(--title)}
-    .sf-links a{display:block;padding:4px 0;font-weight:700;font-size:var(--text)}
-    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:6px 0;font-weight:700;font-size:var(--text)}
+    .sf-links a{display:block;padding:3px 0;font-weight:500;font-size:var(--text);line-height:1.6}
+    .sf-contacts a{display:flex;align-items:center;gap:8px;padding:4px 0;font-weight:500;font-size:var(--text);line-height:1.6}
     .sf-contacts img{width:18px;height:18px;object-fit:contain}
 
     /* Bottom line */
-    .sf-bottom{border-top:1px solid var(--line);margin-top:12px;padding:10px 0;font-size:var(--fine);text-align:center;color:#111}
+    .sf-bottom{border-top:1px solid var(--line);margin-top:14px;padding:10px 0;font-size:var(--fine);text-align:center;color:#111}
 
     @media (max-width: 680px){
       .site-footer{--gap-x:16px}
-      .sf-main{grid-template-columns: 1fr;gap: 10px}
-      .sf-brand{order:2;text-align:center}
+      .sf-head{text-align:center}
       .sf-logo img{margin:0 auto 6px}
-      .sf-desc{margin:0 auto;max-width:520px}
+      .sf-desc{margin:0 auto;max-width:520px;text-align:center}
       .sf-cols{
-        order:1;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        justify-items:center;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 18px;
         text-align:center;
+        justify-items:center;
       }
-      .sf-col{min-width:0}
       .sf-links a,.sf-contacts a{padding:3px 0}
     }
   </style>
 
   <div class="sf-wrap">
-    <div class="sf-main">
-      <!-- Columns (Left) -->
-      <div class="sf-cols">
-        <!-- Quick Links -->
-        <div class="sf-col">
-          <h4>Quick Links</h4>
-          <nav class="sf-links" aria-label="Quick Links">
-            <a href="sokhna-en.html">Ain Sokhna</a>
-            <a href="newcairo-en.html">New Cairo</a>
-            <a href="north-en.html">North Coast</a>
-            <a href="resale-en.html">Resale</a>
-            <a href="listyourunit-en.html">List Your Unit</a>
-            <a href="offers-en.html">Special Offers</a>
-            <a href="privacy-en.html">Privacy Policy</a>
-          </nav>
-        </div>
+    <!-- Logo + description on top -->
+    <div class="sf-head">
+      <div class="sf-logo">
+        <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate">
+      </div>
+      <div class="sf-desc">
+        Exclusive offers on <b>Ain Sokhna</b>, <b>North Coast</b>, and <b>New Cairo</b> projects,<br>
+        with <b>Resale</b> services and easy <b>List Your Unit</b>.
+      </div>
+    </div>
 
-        <!-- Featured Projects -->
-        <div class="sf-col">
-          <h4>Featured Projects</h4>
-          <nav class="sf-links" aria-label="Featured Projects">
-            <a href="lugano-en.html">Lugano</a>
-            <a href="murano-en.html">Murano</a>
-            <a href="einhills-en.html">Ein Hills</a>
-            <a href="sokhnahills-en.html">Sokhna Hills</a>
-          </nav>
-        </div>
-
-        <!-- Contact -->
-        <div class="sf-col">
-          <h4>Contact</h4>
-          <div class="sf-contacts" aria-label="Contact">
-            <a href="tel:+201050072527" title="Direct Call">
-              <img src="https://c.top4top.io/p_3536r902r0.png" alt="Phone"> Direct Call
-            </a>
-            <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="WhatsApp">
-              <img src="https://g.top4top.io/p_3536rc1d61.png" alt="WhatsApp"> WhatsApp
-            </a>
-            <a href="mailto:islammesmail@gmail.com" title="Email">
-              <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="Email"> Email
-            </a>
-          </div>
-        </div>
+    <!-- Columns below -->
+    <div class="sf-cols">
+      <!-- Quick Links -->
+      <div class="sf-col">
+        <h4>Quick Links</h4>
+        <nav class="sf-links" aria-label="Quick Links">
+          <a href="sokhna-en.html">Ain Sokhna</a>
+          <a href="newcairo-en.html">New Cairo</a>
+          <a href="north-en.html">North Coast</a>
+          <a href="resale-en.html">Resale</a>
+          <a href="listyourunit-en.html">List Your Unit</a>
+          <a href="offers-en.html">Special Offers</a>
+          <a href="privacy-en.html">Privacy Policy</a>
+        </nav>
       </div>
 
-      <!-- Logo + description (Right) -->
-      <div class="sf-brand">
-        <div class="sf-logo">
-          <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Real Estate">
-        </div>
-        <div class="sf-desc">
-          Exclusive offers on <b>Ain Sokhna</b>, <b>North Coast</b>, and <b>New Cairo</b> projects,<br>
-          with <b>Resale</b> services and easy <b>List Your Unit</b>.
+      <!-- Featured Projects -->
+      <div class="sf-col">
+        <h4>Featured Projects</h4>
+        <nav class="sf-links" aria-label="Featured Projects">
+          <a href="lugano-en.html">Lugano</a>
+          <a href="murano-en.html">Murano</a>
+          <a href="einhills-en.html">Ein Hills</a>
+          <a href="sokhnahills-en.html">Sokhna Hills</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div class="sf-col">
+        <h4>Contact</h4>
+        <div class="sf-contacts" aria-label="Contact">
+          <a href="tel:+201050072527" title="Direct Call">
+            <img src="https://c.top4top.io/p_3536r902r0.png" alt="Phone"> Direct Call
+          </a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" title="WhatsApp">
+            <img src="https://g.top4top.io/p_3536rc1d61.png" alt="WhatsApp"> WhatsApp
+          </a>
+          <a href="mailto:islammesmail@gmail.com" title="Email">
+            <img src="https://h.top4top.io/p_3536cmi2c2.png" alt="Email"> Email
+          </a>
         </div>
       </div>
     </div>
