@@ -3,18 +3,18 @@
   :root {
     --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569;
     --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
-    --ire-logo-h:65px;
+    --ire-logo-h:63px; /* logo height */
   }
-  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ire-line)}
-  .ire-nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--ire-line)}
+  .ire-nav{max-width:1200px;margin:auto;padding:6px 16px;display:flex;align-items:center;gap:12px} /* thinner */
   .ire-brand{line-height:0;display:flex;align-items:center}
   .ire-brand img{height:var(--ire-logo-h);width:auto}
   .ire-spacer{flex:1}
   .ire-right{display:flex;align-items:center;gap:10px}
-  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
   .ire-chip:hover{background:var(--ire-soft)}
   .ire-links{display:flex;align-items:center;gap:12px;margin-inline-start:8px}
-  .ire-links a{font-weight:800;padding:8px 10px;border-radius:10px}
+  .ire-links a{font-weight:800;padding:7px 10px;border-radius:10px}
   .ire-links a:hover{background:var(--ire-soft)}
   .ire-dd{position:relative}
   .ire-panel{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:240px;background:#fff;border:1px solid var(--ire-line);border-radius:12px;box-shadow:var(--ire-shadow);padding:6px;display:none}
@@ -23,7 +23,7 @@
   .ire-panel a:hover{background:var(--ire-soft)}
   .ire-monly{display:none}
   .ire-mbar{display:flex;gap:8px;margin-inline-start:auto}
-  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:8px 12px;font-weight:800}
+  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800}
   .ire-slide{display:none;border-top:1px solid var(--ire-line);border-bottom:1px solid var(--ire-line);background:#fff}
   .ire-slide .ire-inner{max-width:1200px;margin:auto;padding:10px 16px}
   .ire-list a{display:block;padding:10px;border-radius:10px;font-weight:700}
