@@ -1,11 +1,15 @@
 <!-- ====== HEADER (AR) — Islam Real Estate ====== -->
 <style>
   /* scoped AR header styles */
-  :root { --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569; --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06); }
+  :root {
+    --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569; --ire-soft:#f8fafc;
+    --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
+    --ire-logo-h:70px; /* ← ارتفاع اللوجو */
+  }
   .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ire-line)}
   .ire-nav{max-width:1200px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
   .ire-brand{line-height:0;display:flex;align-items:center}
-  .ire-brand img{height:65px;width:auto}
+  .ire-brand img{height:var(--ire-logo-h);width:auto}
   .ire-spacer{flex:1}
   /* desktop right side */
   .ire-right{display:flex;align-items:center;gap:10px}
@@ -44,7 +48,7 @@
   <div class="ire-nav">
     <!-- Logo -->
     <a class="ire-brand" href="index.html" aria-label="الرئيسية">
-      <img src="https://b.top4top.io/p_353609whb0.png" alt="إسلام للتسويق العقاري">
+      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري">
     </a>
 
     <div class="ire-spacer"></div>
@@ -127,10 +131,8 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
     const panel = document.querySelector(sel);
     if(!panel) return;
     const open = getComputedStyle(panel).display!=='none';
-    // close others
     document.querySelectorAll('.ire-slide').forEach(p=>p.style.display='none');
     panel.style.display = open ? 'none' : 'block';
-    // scroll into view if opened
     if(!open){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
