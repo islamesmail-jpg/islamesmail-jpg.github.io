@@ -28,7 +28,7 @@
 <meta name="twitter:description" content="قارن بين المشاريع والمطورين واختر وحدتك المثالية.">
 <meta name="twitter:image" content="https://j.top4top.io/p_3531rrodg0.png">
 
-<!-- Favicon (تم التبديل) -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://i.top4top.io/p_3536599nr0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://i.top4top.io/p_3536599nr0.png">
 
@@ -113,8 +113,10 @@ img{max-width:100%;display:block}
 }
 .search input{flex:1;border:0;outline:0;font-size:1rem;background:transparent;padding:10px 12px}
 .search button{border:0;background:#0b3a5e;color:#fff;font-weight:800;border-radius:140px;padding:12px 22px;cursor:pointer}
+/* اقتراحات البحث (لون أسود) */
 .sugg{position:absolute;top:calc(100% + 8px);right:0;left:0;background:#fff;border:1px solid var(--line);border-radius:16px;display:none;max-height:320px;overflow:auto;box-shadow:var(--shadow);text-align:right;z-index:90}
-.sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line);color:#000} /* ← هنا اللون أسود */
+.sugg a:hover{background:var(--soft)}
 .kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
 @media (max-width:900px){.hero-visual{background-attachment:scroll}}
 
@@ -131,17 +133,23 @@ img{max-width:100%;display:block}
 .section{padding:28px 0}
 .section h2{font-size:1.25rem;margin:0 0 12px}
 
-/* QUICK TILES */
+/* QUICK TILES (نسخة ستايل السخنة) */
 .quick-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.tile{padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff;transition:.2s;display:flex;align-items:center;gap:12px}
+.tile{
+  padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff;
+  transition:.2s;display:flex;align-items:center;gap:14px
+}
 .tile:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
-.tile b{display:block}
-.tile .sub{margin:6px 0 0;color:var(--muted);font-size:.95rem}
-/* جعل الأيقونة دائرة مع الحفاظ على المقاس الحالي */
+/* أيقونة دائرية أكبر */
 .tile .ico{
-  width:34px;height:34px;flex:0 0 34px;border-radius:50%;
+  width:56px;height:56px;flex:0 0 56px;border-radius:50%;
   object-fit:cover;overflow:hidden;border:1px solid var(--line);background:#fff;
 }
+/* نص بالعرض مع قابلية اللف */
+.tile .text{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tile b{display:inline-block;font-weight:800}
+.tile .dot{opacity:.5}
+.tile .sub{margin:0;color:var(--muted);font-size:.95rem}
 @media(max-width:992px){.quick-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* HBAR cards */
@@ -233,7 +241,6 @@ img{max-width:100%;display:block}
         <p class="sub">ابحث وقارن بين أفضل المشاريع والكمباوندات في العين السخنة والساحل الشمالي والقاهرة الجديدة — شراء، استثمار، أو إضافة وحدتك بثقة.</p>
 
         <div class="search-wrap" role="search">
-          <!-- تم تهيئة الحقول IDs لتوافق سكريبت البحث الجديد -->
           <form class="search" aria-label="بحث داخل الموقع">
             <input id="siteSearch" type="text" placeholder="ابحث باسم المشروع أو المنطقة أو المطوّر أو نوع الوحدة" autocomplete="off" aria-label="حقل البحث">
             <button id="searchBtn" type="button" aria-label="تنفيذ البحث">بحث</button>
@@ -263,25 +270,33 @@ img{max-width:100%;display:block}
       <!-- 1) تحت الإنشاء / مشاريع جديدة -->
       <a class="tile" href="zafarana.html">
         <img class="ico" src="https://c.top4top.io/p_3529com4g0.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy">
-        <div><b>تحت الإنشاء</b><div class="sub">مشاريع جديدة</div></div>
+        <div class="text">
+          <b>تحت الإنشاء</b><span class="dot">•</span><span class="sub">مشاريع جديدة</span>
+        </div>
       </a>
 
       <!-- 2) أعرض وحدتك / بيع وحدتك بسرعة -->
       <a class="tile" href="list.html">
         <img class="ico" src="https://g.top4top.io/p_3529q7vag0.gif" alt="أعرض وحدتك" loading="lazy">
-        <div><b>أعرض وحدتك</b><div class="sub">بيع وحدتك بسرعة</div></div>
+        <div class="text">
+          <b>أعرض وحدتك</b><span class="dot">•</span><span class="sub">بيع وحدتك بسرعة</span>
+        </div>
       </a>
 
       <!-- 3) إعادة البيع / جاهزة للاستلام -->
       <a class="tile" href="resale.html">
         <img class="ico" src="https://f.top4top.io/p_3529n8g7t3.gif" alt="إعادة البيع" loading="lazy">
-        <div><b>إعادة البيع</b><div class="sub">جاهزة للاستلام</div></div>
+        <div class="text">
+          <b>إعادة البيع</b><span class="dot">•</span><span class="sub">جاهزة للاستلام</span>
+        </div>
       </a>
 
       <!-- 4) عروض مميزة / خصومات وتقسيط -->
       <a class="tile" href="offers.html">
         <img class="ico" src="https://e.top4top.io/p_3529qupm22.gif" alt="عروض مميزة" loading="lazy">
-        <div><b>عروض مميزة</b><div class="sub">خصومات وتقسيط</div></div>
+        <div class="text">
+          <b>عروض مميزة</b><span class="dot">•</span><span class="sub">خصومات وتقسيط</span>
+        </div>
       </a>
     </div>
   </div>
@@ -399,7 +414,7 @@ document.addEventListener('click',(e)=>{
 });
 </script>
 
-<!-- ===== استبدال كود البحث بالنسخة المطلوبة ===== -->
+<!-- ===== كود البحث (نفسه) مع عرض النتائج بالأسود ===== -->
 <script>
 (function(){
   const INPUT = document.getElementById('siteSearch');
