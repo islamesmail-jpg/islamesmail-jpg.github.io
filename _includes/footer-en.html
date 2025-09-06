@@ -13,10 +13,22 @@
 
     .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px}
 
-    /* Logo + description */
-    .sf-head{text-align:left;margin-bottom:20px}
-    .sf-logo img{height:50px;width:auto;display:block;margin-bottom:8px}
-    .sf-desc{font-weight:600;line-height:1.7;font-size:15px}
+    /* Logo + description side by side */
+    .sf-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:24px;
+      flex-wrap:wrap;
+    }
+    .sf-logo img{height:55px;width:auto;display:block}
+    .sf-desc{
+      font-weight:500;
+      line-height:1.6;
+      font-size:14px;
+      flex:1;
+    }
 
     /* Columns */
     .sf-cols{
@@ -47,7 +59,7 @@
         <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
       </div>
       <div class="sf-desc">
-        Exclusive offers on projects in <b>Ain Sokhna</b>, <b>North Coast</b> and <b>New Cairo</b>,<br>
+        Exclusive offers on projects in <b>Ain Sokhna</b>, <b>North Coast</b> and <b>New Cairo</b>, 
         with <b>Resale services</b> and <b>List your unit easily</b>.
       </div>
     </div>
