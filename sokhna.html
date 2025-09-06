@@ -23,7 +23,8 @@
   /* أحجام سريعة */
   --dot:74px;      /* قطر الدائرة دِسكتوب */
   --dot-m:60px;    /* قطر الدائرة موبايل */
-  --route-ratio:16/9;/* نسبة صورة الطرق */
+  --route-ratio:16/9;   /* دسكتوب */
+  --route-ratio-m:5/4;  /* موبايل أصغر لارتفاع أقل */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -80,22 +81,42 @@ img{max-width:100%;display:block}
 @media(max-width:520px){
   .dot{width:var(--dot-m);height:var(--dot-m);flex-basis:var(--dot-m)}
 }
-.meta{
-  flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;
-}
-.meta .title{
-  font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.meta .sub{
-  font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+.meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* الطرق — دائمًا عمودين (موبايل وPC) */
-.routes{margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-.route{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;position:relative}
-.media-cover{width:100%;aspect-ratio:var(--route-ratio);background:#f8fafc}
-.media-cover img{width:100%;height:100%;object-fit:cover}
-.route .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--gold);border-radius:10px;text-align:center;font-weight:800;color:#7a5b12;padding:8px}
+/* الطرق — دايمًا عمودين + تحسين موبايل لتصغير المربعات */
+.routes{
+  margin-top:16px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))
+}
+.route{
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+@media(hover:hover){
+  .route:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(15,23,42,.06)}
+}
+.media-cover{
+  width:100%;
+  aspect-ratio:var(--route-ratio);
+  background:#f8fafc;
+}
+.media-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
+.route .cap{
+  position:absolute;left:10px;right:10px;bottom:10px;
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--gold);
+  border-radius:10px;
+  text-align:center;font-weight:800;color:#7a5b12;
+  padding:8px;font-size:14px;line-height:1.2;
+}
+/* ضبط الموبايل: كرت أصغر، فراغات أقل، كابشن أصغر */
+@media(max-width:640px){
+  .routes{gap:8px}
+  .route{border-radius:10px}
+  .media-cover{aspect-ratio:var(--route-ratio-m)}
+  .route .cap{left:6px;right:6px;bottom:6px;padding:6px;font-size:12px;border-radius:8px}
+}
 
 /* المحتوى */
 .cardx{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}
@@ -201,61 +222,38 @@ footer{margin-top:24px;background:#fff;border-top:1px solid var(--line)}
     </div>
   </div>
 
-  <!-- روابط سريعة — GIF دائرة + عنوان/وصف جنبها (بالترتيب المطلوب) -->
+  <!-- روابط سريعة -->
   <section class="features" aria-label="روابط سريعة">
-    <!-- تحت الإنشاء_1 -->
     <a class="cardfeat" href="offplan.html">
-      <div class="dot">
-        <img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy">
-      </div>
-      <div class="meta">
-        <div class="title">تحت الإنشاء</div>
-        <div class="sub">مشاريع جديدة</div>
-      </div>
+      <div class="dot"><img src="https://j.top4top.io/p_35303sd560.gif" alt="مشروعات جديدة تحت الإنشاء" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="meta"><div class="title">تحت الإنشاء</div><div class="sub">مشاريع جديدة</div></div>
     </a>
-
-    <!-- أعرض وحدتك_2 -->
     <a class="cardfeat" href="list.html">
-      <div class="dot">
-        <img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="أعرض وحدتك للبيع" loading="lazy">
-      </div>
-      <div class="meta">
-        <div class="title">أعرض وحدتك</div>
-        <div class="sub">بيع وحدتك بسرعة</div>
-      </div>
+      <div class="dot"><img src="https://a.top4top.io/p_3530h2i5u3.gif" alt="أعرض وحدتك للبيع" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="meta"><div class="title">أعرض وحدتك</div><div class="sub">بيع وحدتك بسرعة</div></div>
     </a>
-
-    <!-- إعادة البيع_3 -->
     <a class="cardfeat" href="resale.html">
-      <div class="dot">
-        <img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة بيع" loading="lazy">
-      </div>
-      <div class="meta">
-        <div class="title">إعادة البيع</div>
-        <div class="sub">جاهزة للاستلام</div>
-      </div>
+      <div class="dot"><img src="https://k.top4top.io/p_353056uve1.gif" alt="إعادة بيع" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="meta"><div class="title">إعادة البيع</div><div class="sub">جاهزة للاستلام</div></div>
     </a>
-
-    <!-- عروض مميزة_4 -->
     <a class="cardfeat" href="offers.html">
-      <div class="dot">
-        <img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة" loading="lazy">
-      </div>
-      <div class="meta">
-        <div class="title">عروض مميزة</div>
-        <div class="sub">خصومات وتقسيط</div>
-      </div>
+      <div class="dot"><img src="https://l.top4top.io/p_3530x05wq2.gif" alt="عروض مميزة" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="meta"><div class="title">عروض مميزة</div><div class="sub">خصومات وتقسيط</div></div>
     </a>
   </section>
 
-  <!-- الطرق (2 عمود دائمًا: موبايل وPC) -->
+  <!-- الطرق (2 عمود دائمًا + موبايل أصغر) -->
   <section class="routes" aria-label="طرق العين السخنة">
     <a class="route" href="zafarana.html">
-      <div class="media-cover"><img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة" loading="lazy"></div>
+      <div class="media-cover">
+        <img src="https://d.top4top.io/p_3522y933c1.jpeg" alt="طريق الزعفرانة" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
       <div class="cap">طريق الزعفرانة</div>
     </a>
     <a class="route" href="suez.html">
-      <div class="media-cover"><img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس" loading="lazy"></div>
+      <div class="media-cover">
+        <img src="https://c.top4top.io/p_3522kobih0.jpeg" alt="طريق السويس" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
       <div class="cap">طريق السويس</div>
     </a>
   </section>
