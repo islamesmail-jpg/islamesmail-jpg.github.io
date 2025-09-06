@@ -1,4 +1,4 @@
-<footer class="site-footer" dir="rtl" aria-label="تذييل الموقع">
+<footer class="site-footer" dir="rtl" aria-label="فوتر الموقع">
   <style>
     .site-footer{
       --wrap: 1120px;
@@ -14,14 +14,26 @@
     .sf-wrap{max-width:var(--wrap);margin:auto;padding:24px 16px}
 
     /* اللوجو + الوصف */
-    .sf-head{text-align:right;margin-bottom:20px}
-    .sf-logo img{height:50px;width:auto;display:block;margin-bottom:8px}
-    .sf-desc{font-weight:600;line-height:1.7;font-size:15px}
+    .sf-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:24px;
+      flex-wrap:wrap;
+    }
+    .sf-logo img{height:55px;width:auto;display:block}
+    .sf-desc{
+      font-weight:500;
+      line-height:1.6;
+      font-size:14px;
+      flex:1;
+    }
 
     /* الأعمدة */
     .sf-cols{
       display:grid;
-      grid-template-columns: repeat(3, 1fr); /* تفضل 3 أعمدة على أي شاشة */
+      grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
       gap:20px;
       text-align:right;
     }
@@ -36,7 +48,7 @@
     .sf-contacts a{display:flex;align-items:center;gap:6px}
     .sf-contacts img{width:18px;height:18px;object-fit:contain}
 
-    /* خط النهاية */
+    /* السطر الأخير */
     .sf-bottom{border-top:1px solid var(--line);margin-top:14px;padding:10px 0;font-size:12px;text-align:center;color:#111}
   </style>
 
@@ -47,7 +59,7 @@
         <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="إسلام إسماعيل للتسويق العقاري">
       </div>
       <div class="sf-desc">
-        عروض مميزة وحصرية على مشاريع <b>العين السخنة</b> و<b>الساحل الشمالي</b> و<b>القاهرة الجديدة</b>،<br>
+        عروض مميزة وحصرية على مشاريع <b>العين السخنة</b> و<b>الساحل الشمالي</b> و<b>القاهرة الجديدة</b>، 
         مع خدمات <b>إعادة البيع</b> و<b>أعرض وحدتك بسهولة</b>.
       </div>
     </div>
@@ -78,14 +90,14 @@
       <div class="sf-col">
         <h4>التواصل</h4>
         <div class="sf-contacts">
-          <a href="tel:+201050072527"><img src="https://c.top4top.io/p_3536r902r0.png" alt="هاتف"> الاتصال مباشر</a>
+          <a href="tel:+201050072527"><img src="https://c.top4top.io/p_3536r902r0.png" alt="اتصال"> الاتصال مباشر</a>
           <a href="https://wa.me/201050072527" target="_blank"><img src="https://g.top4top.io/p_3536rc1d61.png" alt="واتساب"> الواتساب</a>
-          <a href="mailto:islammesmail@gmail.com"><img src="https://h.top4top.io/p_3536cmi2c2.png" alt="إيميل"> الايميل</a>
+          <a href="mailto:islammesmail@gmail.com"><img src="https://h.top4top.io/p_3536cmi2c2.png" alt="ايميل"> الايميل</a>
         </div>
       </div>
     </div>
 
-    <div class="sf-bottom">© <span id="sf-year-ar"></span> Islam Real Estate — جميع الحقوق محفوظة</div>
+    <div class="sf-bottom">© <span id="sf-year-ar"></span> إسلام إسماعيل للتسويق العقاري — جميع الحقوق محفوظة</div>
   </div>
 
   <script>
