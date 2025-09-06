@@ -6,7 +6,7 @@
       --line:#e5e7eb;
       --soft:#f8fafc;
       position:sticky; top:0; z-index:1000;
-      background:rgba(255,255,255,.86);         /* translucent bar */
+      background:rgba(255,255,255,.86);
       backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
       border-bottom:1px solid var(--line);
       font-family:"Poppins", Arial, sans-serif;
@@ -17,13 +17,12 @@
       padding:10px 16px;
     }
 
-    /* Logo (left in EN) */
+    /* Logo (left) */
     .brand{display:inline-flex; align-items:center; line-height:0}
     .brand img{height:46px; width:auto; display:block}
 
-    .spacer{flex:1} /* clean gap between logo and controls */
+    .spacer{flex:1}
 
-    /* Pills (language / contact / areas) */
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px; background:#fff; color:var(--ink);
@@ -35,9 +34,7 @@
     .pill:hover{background:var(--soft)}
     .pill:active{transform:translateY(1px)}
     .pill:focus-visible{outline:2px solid #cbd5e1; outline-offset:2px}
-    .ico{font-size:16px; line-height:1}
 
-    /* Dropdowns */
     .dropdown{position:relative}
     .menu{
       position:absolute; left:0; top:calc(100% + 8px);
@@ -48,18 +45,14 @@
     }
     .dropdown.open .menu{display:block}
     .menu a{
-      display:flex; align-items:center; gap:10px;
+      display:flex; align-items:center;
       padding:10px 12px; border-radius:10px;
       font-weight:700; color:var(--ink); text-decoration:none;
     }
     .menu a:hover{background:#f1f5f9}
-    .menu .item-icon{width:18px; height:18px; object-fit:contain}
     .menu .sub{font-size:12px; color:#64748b; margin-left:auto}
 
-    /* PC nav links */
-    .nav-links{
-      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
-    }
+    .nav-links{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
     .nav-links a{
       display:inline-flex; align-items:center;
       padding:8px 10px; border-radius:10px; font-weight:800; font-size:14px;
@@ -67,62 +60,44 @@
     }
     .nav-links a:hover{background:#f1f5f9}
 
-    /* Groups */
     .actions-pc{display:flex; align-items:center; gap:10px}
     .actions-mobile{display:none; align-items:center; gap:8px}
 
-    /* Mobile behavior */
+    /* Mobile smaller pills */
     @media (max-width: 900px){
       .actions-pc{display:none}
       .nav-links{display:none}
       .actions-mobile{display:flex}
       .brand img{height:42px}
-      .pill{padding:8px 10px; font-size:13px; border-radius:10px}
+      .pill{padding:6px 9px; font-size:12.5px; border-radius:10px}
       .menu{min-width:210px}
+      .sh-wrap{gap:12px}
     }
   </style>
 
   <div class="sh-wrap">
-    <!-- Logo (left) -->
+    <!-- Logo -->
     <a class="brand" href="index-en.html" aria-label="Go to Home">
       <img src="https://f.top4top.io/p_3530kc1gs0.png" alt="Islam Esmail Real Estate">
     </a>
 
     <div class="spacer" aria-hidden="true"></div>
 
-    <!-- ===== Mobile: 3 pills (Language / Contact / Areas) ===== -->
+    <!-- Mobile: 3 compact pills -->
     <div class="actions-mobile" aria-label="Mobile quick actions">
-      <!-- Language (to AR) -->
-      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">
-        <span class="ico">🌐</span><span>AR</span>
-      </a>
+      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">AR</a>
 
-      <!-- Contact -->
       <div class="dropdown" id="m-contact">
-        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-contact">
-          <span class="ico">☎️</span><span>Contact</span>
-        </button>
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-contact">Contact</button>
         <nav id="menu-m-contact" class="menu" role="menu" aria-label="Contact options">
-          <a href="tel:+201050072527" role="menuitem">
-            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
-            Call <span class="sub">+20 105 007 2527</span>
-          </a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
-            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
-            WhatsApp
-          </a>
-          <a href="mailto:islammesmail@gmail.com" role="menuitem">
-            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
-            Email
-          </a>
+          <a href="tel:+201050072527" role="menuitem">Call <span class="sub">+20 105 007 2527</span></a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">WhatsApp</a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">Email</a>
         </nav>
       </div>
 
-      <!-- Areas -->
       <div class="dropdown" id="m-areas">
-        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-areas">
-          <span class="ico">📍</span><span>Areas</span>
-        </button>
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-m-areas">Areas</button>
         <nav id="menu-m-areas" class="menu" role="menu" aria-label="Areas">
           <a href="sokhna-en.html" role="menuitem">Ain Sokhna</a>
           <a href="north-en.html" role="menuitem">North Coast</a>
@@ -131,31 +106,16 @@
       </div>
     </div>
 
-    <!-- ===== PC: Language + Contact (pills) + main links ===== -->
+    <!-- PC: Language + Contact (pills) + main links -->
     <div class="actions-pc" aria-label="Desktop quick actions">
-      <!-- Language -->
-      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">
-        <span class="ico">🌐</span><span>AR</span>
-      </a>
+      <a class="pill" href="index.html" hreflang="ar" aria-label="Arabic">AR</a>
 
-      <!-- Contact -->
       <div class="dropdown" id="pc-contact">
-        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-pc-contact">
-          <span class="ico">☎️</span><span>Contact</span>
-        </button>
+        <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="menu-pc-contact">Contact</button>
         <nav id="menu-pc-contact" class="menu" role="menu" aria-label="Contact options">
-          <a href="tel:+201050072527" role="menuitem">
-            <img class="item-icon" src="https://c.top4top.io/p_3536r902r0.png" alt="">
-            Call <span class="sub">+20 105 007 2527</span>
-          </a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">
-            <img class="item-icon" src="https://g.top4top.io/p_3536rc1d61.png" alt="">
-            WhatsApp
-          </a>
-          <a href="mailto:islammesmail@gmail.com" role="menuitem">
-            <img class="item-icon" src="https://h.top4top.io/p_3536cmi2c2.png" alt="">
-            Email
-          </a>
+          <a href="tel:+201050072527" role="menuitem">Call <span class="sub">+20 105 007 2527</span></a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener" role="menuitem">WhatsApp</a>
+          <a href="mailto:islammesmail@gmail.com" role="menuitem">Email</a>
         </nav>
       </div>
     </div>
@@ -165,7 +125,7 @@
       <a href="north-en.html">North Coast</a>
       <a href="newcairo-en.html">New Cairo</a>
       <a href="resale-en.html">Resale</a>
-      <a href="listyourunit-en.html">List Your Unit</a>
+      <a href="listyourunit-en.html">Sell Your Unit</a>
     </nav>
   </div>
 
@@ -188,14 +148,12 @@
       // PC
       document.querySelector('#pc-contact > button')?.addEventListener('click',()=>toggle('pc-contact'));
 
-      // Close on outside click
       document.addEventListener('click',(e)=>{
         if(!e.target.closest('.dropdown')){
           document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
           document.querySelectorAll('.dropdown > button').forEach(b=>b.setAttribute('aria-expanded','false'));
         }
       });
-      // Close on ESC
       document.addEventListener('keydown',(e)=>{
         if(e.key==='Escape'){
           document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
