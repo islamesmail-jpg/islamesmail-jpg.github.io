@@ -84,18 +84,18 @@ img{max-width:100%;display:block}
 .suggestions a:last-child{border-bottom:0}
 .suggestions a:hover{background:#f8fafc}
 
-/* Quick links (4 tiles) — EXACTLY as AR version */
-.features{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
+/* Quick links (4 tiles) — slightly smaller while keeping font sizes */
+.features{display:grid;gap:10px;grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
-.cardfeat{border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;align-items:center;gap:12px;padding:12px}
+.cardfeat{border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;align-items:center;gap:10px;padding:10px}
 .cardfeat:hover{background:#f8fafc}
-.dot{flex:0 0 74px;width:74px;height:74px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}
+.dot{flex:0 0 60px;width:60px;height:60px;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}
 .dot img{width:100%;height:100%;object-fit:contain}
 .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .meta .title{font-weight:800;font-size:15px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta .sub{font-size:13px;line-height:1.25;color:var(--muted);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* ↓↓↓ Mobile shrink (same as AR) */
+/* ↓↓↓ Mobile shrink (unchanged) */
 @media (max-width: 520px){
   .features{gap:10px}
   .cardfeat{padding:9px 10px;gap:10px}
