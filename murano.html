@@ -18,7 +18,7 @@ permalink: /murano.html
 <link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/murano.html">
 <link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/murano-en.html">
 
-<!-- ===== Branding to replace "GitHub" label in SERP/snippets ===== -->
+<!-- Branding -->
 <meta name="application-name" content="إسلام للتسويق العقاري" />
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 <meta property="og:site_name" content="إسلام للتسويق العقاري" />
@@ -27,7 +27,7 @@ permalink: /murano.html
 <link rel="icon" type="image/png" href="https://d.top4top.io/p_3537t01ex0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://d.top4top.io/p_3537t01ex0.png">
 
-<!-- Open Graph / Twitter -->
+<!-- OG/Twitter -->
 <meta property="og:locale" content="ar_AR">
 <meta property="og:title" content="مشروع مورانو وادي دجلة العين السخنة | Murano Wadi Degla" />
 <meta property="og:description" content="فيديو، صور، ماستر بلان، موقع وخدمات، وأسعار المطوّر وإعادة البيع لمشروع مورانو العين السخنة." />
@@ -40,10 +40,8 @@ permalink: /murano.html
 <meta name="twitter:description" content="تفاصيل كاملة وصور عالية الجودة لمشروع مورانو السخنة + تواصل مباشر.">
 <meta name="twitter:image" content="https://c.top4top.io/p_35249hfap2.jpg">
 
-<!-- Hidden keywords -->
 <meta name="keywords" content="مورانو, قرية مورانو, مورانو العين السخنة, Murano Wadi Degla, وادي دجلة العقارية, مشروع مورانو السخنة, طريق الزعفرانة, شاليهات, فلل, شقق, تقسيط, إعادة بيع, أسعار المطور, أفضل قرى العين السخنة, شاليه على البحر, منتجعات, Ain Sokhna, Egypt real estate, Islam Real Estate, إسلام للتسويق العقاري" />
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -51,82 +49,62 @@ permalink: /murano.html
   --bg:#ffffff; --card:#f8fafc; --text:#111827; --muted:#4b5563;
   --accent:#111827; --field:#f3f4f6; --radius:16px; --wrap:1120px;
   --shadow:0 6px 16px rgba(0,0,0,.06); --line:#e5e7eb;
-  --tap: 48px; /* لمس مريح للموبايل */
+  --tap:48px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
-/* ======= HEADER (AR) — جديد حسب طلبك ======= */
+/* ===== HEADER ===== */
 :root{
   --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569;
   --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.08);
   --ire-logo-h:62px;
 }
-.ire-topbar{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(255,255,255,.78);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid var(--ire-line)
-}
+.ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--ire-line)}
 .ire-nav{max-width:1200px;margin:auto;padding:8px 16px;display:flex;align-items:center;gap:14px}
 .ire-brand{line-height:0;display:flex;align-items:center}
 .ire-brand img{height:var(--ire-logo-h);width:auto}
 .ire-spacer{flex:1}
-
-/* مستطيلات (لغة/تواصل/مشاريع) */
+.ire-right{display:flex;align-items:center;gap:12px}
 .ire-chip{
-  min-height:var(--tap);
-  display:inline-flex;align-items:center;gap:10px;
-  padding:10px 14px;border-radius:12px;
-  background:#fff;border:1px solid var(--ire-line);
-  font-weight:800;color:var(--ire-ink);cursor:pointer;
-  box-shadow:var(--ire-shadow);
-  user-select:none
+  min-height:var(--tap);display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--ire-line);
+  font-weight:800;color:var(--ire-ink);cursor:pointer;box-shadow:var(--ire-shadow);user-select:none
 }
 .ire-chip:hover{background:var(--ire-soft)}
 .ire-chip img{width:22px;height:22px;object-fit:contain}
-
-/* لوائح منبثقة */
 .ire-dd{position:relative}
-.ire-panel{
-  position:absolute;inset-inline-end:0;top:calc(100% + 8px);
-  min-width:270px;background:#fff;border:1px solid var(--ire-line);
-  border-radius:12px;box-shadow:var(--ire-shadow);padding:6px;display:none
-}
+.ire-panel{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:270px;background:#fff;border:1px solid var(--ire-line);border-radius:12px;box-shadow:var(--ire-shadow);padding:6px;display:none}
 .ire-dd.open>.ire-panel{display:block}
-.ire-panel a{
-  display:flex;align-items:center;gap:10px;
-  padding:12px;border-radius:10px;font-weight:700;color:var(--ire-ink);text-decoration:none
-}
+.ire-panel a{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;font-weight:700;color:var(--ire-ink);text-decoration:none}
 .ire-panel a:hover{background:var(--ire-soft)}
 .ire-panel a img{width:22px;height:22px;object-fit:contain}
-
-/* روابط المناطق (ديسكتوب) */
 .ire-links{display:flex;align-items:center;gap:14px;margin-inline-start:8px}
 .ire-links a{font-weight:800;padding:8px 10px;border-radius:10px;color:var(--ire-ink);text-decoration:none}
 .ire-links a:hover{background:var(--ire-soft)}
-
-/* موبايل */
-.ire-monly{display:none}
-.ire-mbar{display:flex;gap:10px;margin-inline-start:auto}
+/* Mobile row (only one row, equal chips) */
+.ire-monly{display:none;gap:8px;margin-inline-start:auto}
+.ire-monly .ire-chip{flex:1;justify-content:center}
 .ire-slide{display:none;border-top:1px solid var(--ire-line);border-bottom:1px solid var(--ire-line);background:#fff}
 .ire-slide .ire-inner{max-width:1200px;margin:auto;padding:10px 16px}
 .ire-list a{display:block;padding:12px;border-radius:10px;font-weight:700;color:var(--ire-ink);text-decoration:none}
 .ire-list a:hover{background:var(--ire-soft)}
-@media (max-width: 980px){
-  .ire-links{display:none}
+@media (max-width:980px){
+  .ire-right{display:none}          /* إخفاء عناصر الديسكتوب — يمنع التكرار */
   .ire-monly{display:flex}
+  .ire-brand img{height:56px}
+  .ire-monly .ire-chip{min-height:44px;padding:8px 10px;font-size:14px}
 }
 
-/* ====== Breadcrumb ====== */
+/* ===== Breadcrumb ===== */
 .breadcrumb{background:#fff;border-bottom:1px solid var(--line)}
 .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 16px;font-size:14px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap}
 .breadcrumb a{color:#1f2937;text-decoration:none}
 .breadcrumb a:hover{text-decoration:underline}
 .breadcrumb .sep{opacity:.6;margin:0 .35rem}
 
-/* ====== Search ====== */
+/* ===== Search ===== */
 .search-wrap{background:#fff;border-bottom:1px solid var(--line)}
 .search-inner{max-width:var(--wrap);margin:auto;padding:10px 16px;position:relative}
 .search-box{display:flex;gap:10px}
@@ -136,7 +114,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .suggest a:last-child{border-bottom:0}
 .suggest a:hover{background:#f9fafb}
 
-/* ====== Hero ====== */
+/* ===== Hero ===== */
 .hero{padding:28px 16px;border-bottom:1px solid var(--line);background:#f9fafb}
 .hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
 .hero h1{margin:0;line-height:1.2}
@@ -148,16 +126,16 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .hero .dev a:hover{background:#f3f4f6}
 @media(max-width:720px){.hero .line-top{font-size:30px}.hero .line-sub{font-size:20px}}
 
-/* ====== Layout ====== */
+/* ===== Layout ===== */
 .wrapper{max-width:var(--wrap);margin:auto;padding:0 16px 40px}
 
-/* ====== Video ====== */
+/* ===== Video ===== */
 .video-card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin:18px 0;border:1px solid var(--line)}
 .video-card h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
 .video-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .video-wrap video{width:100%;height:auto;display:block;background:#000}
 
-/* ====== Slider ====== */
+/* ===== Slider ===== */
 .slider-wrap{position:relative;margin:18px auto 6px}
 .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px;cursor:grab;scrollbar-width:none}
 .slider::-webkit-scrollbar{display:none}
@@ -168,18 +146,18 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* ====== Badge ====== */
+/* Badge */
 .slider-badge{position:absolute;bottom:10px;inset-inline-start:14px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:12px;padding:6px 10px;z-index:6;text-decoration:none;color:#111}
 .slider-badge img{height:20px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:13px}
 
-/* ====== Share / Copy ====== */
+/* Share / Copy */
 .icons-row{display:flex;align-items:center;gap:10px;margin:12px 0}
 .icon-btn{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:var(--shadow)}
 .icon-btn img{width:24px;height:24px;object-fit:contain}
 .icon-btn:hover{background:#f9fafb}
 
-/* ====== Prices ====== */
+/* Prices */
 .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:12px 0}
 .price-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .price-title{font-weight:800;font-size:15px;margin:0 0 6px;text-align:center}
@@ -189,19 +167,19 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
 .master-pill:hover{filter:brightness(.98)}
 
-/* ====== Lightbox ====== */
+/* Lightbox */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:0;z-index:100}
 .modal.open{display:flex}
 .modal img{max-width:96vw;max-height:94vh;display:block}
 .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
 .counter{position:absolute;top:16px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:13px}
 
-/* ====== Text ====== */
+/* Text */
 section h2{margin:16px 0 8px;font-size:20px;color:var(--accent)}
 section p,section li{color:#4b5563}
 ul{margin:8px 0 12px}
 
-/* ====== Contact ====== */
+/* Contact */
 .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin:24px 0;border:1px solid var(--line)}
 .card .icon{display:flex;justify-content:center;margin:0 0 6px}
 .card .icon img{height:28px;width:auto}
@@ -216,20 +194,15 @@ textarea{min-height:100px;resize:vertical}
 button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
 button:hover{filter:brightness(.95)}
 
-/* ====== زر واتساب عائم ====== */
-.fab-wa{
-  position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;
-  width:58px;height:58px;border-radius:50%;
-  background:#25D366;border:1px solid rgba(0,0,0,.05);
-  display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)
-}
+/* Floating WhatsApp */
+.fab-wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .fab-wa img{width:34px;height:34px;object-fit:contain}
 @media (max-width:480px){.fab-wa{width:54px;height:54px}}
 </style>
 </head>
 <body>
 
-<!-- ====== HEADER (AR) — جديد ====== -->
+<!-- ===== HEADER ===== -->
 <header class="ire-topbar" dir="rtl" aria-label="الشريط العلوي">
   <div class="ire-nav">
     <!-- Logo -->
@@ -239,36 +212,21 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- Desktop: مستطيلات + روابط -->
-    <div class="ire-right" aria-label="عناصر الهيدر" style="display:flex;align-items:center;gap:12px">
-      <!-- لغة -->
-      <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English (EN)">
-        EN
-      </button>
+    <!-- Desktop -->
+    <div class="ire-right" aria-label="عناصر الهيدر">
+      <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
-      <!-- تواصل (منبثق بالأيقونات الجديدة) -->
       <div class="ire-dd" id="ire-dd-contact-ar">
-        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">
-          التواصل ▾
-        </button>
+        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
         <div class="ire-panel" role="menu" aria-label="روابط التواصل">
-          <a href="tel:+201050072527">
-            <img src="https://g.top4top.io/p_3537gu3tl0.png" alt="اتصال"> اتصال بنا
-          </a>
-          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">
-            <img src="https://i.top4top.io/p_3537mv0672.png" alt="واتساب"> واتساب
-          </a>
-          <a href="mailto:islammesmail@gmail.com">
-            <img src="https://h.top4top.io/p_3537gb6jr1.png" alt="إيميل"> الإيميل
-          </a>
+          <a href="tel:+201050072527"><img src="https://g.top4top.io/p_3537gu3tl0.png" alt="اتصال"> اتصال بنا</a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener"><img src="https://i.top4top.io/p_3537mv0672.png" alt="واتساب"> واتساب</a>
+          <a href="mailto:islammesmail@gmail.com"><img src="https://h.top4top.io/p_3537gb6jr1.png" alt="إيميل"> الإيميل</a>
         </div>
       </div>
 
-      <!-- المشاريع (منبثق) -->
       <div class="ire-dd" id="ire-dd-projects-ar">
-        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">
-          + المشاريع ▾
-        </button>
+        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">+ المشاريع ▾</button>
         <div class="ire-panel" role="menu" aria-label="روابط المشاريع">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
@@ -278,7 +236,6 @@ button:hover{filter:brightness(.95)}
         </div>
       </div>
 
-      <!-- روابط المناطق (تبقى مرئية بالديسكتوب) -->
       <nav class="ire-links" aria-label="روابط المناطق">
         <a href="sokhna.html">العين السخنة</a>
         <a href="north.html">الساحل الشمالي</a>
@@ -288,8 +245,8 @@ button:hover{filter:brightness(.95)}
       </nav>
     </div>
 
-    <!-- موبايل: ثلاث مستطيلات -->
-    <div class="ire-monly" aria-label="عناصر الموبايل" style="margin-inline-start:auto;gap:10px">
+    <!-- Mobile (single row, equal chips) -->
+    <div class="ire-monly" aria-label="عناصر الموبايل">
       <button class="ire-chip" type="button" data-ire-toggle="#ire-slide-projects">+ المشاريع</button>
       <div class="ire-dd" id="ire-dd-contact-m">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
@@ -303,7 +260,7 @@ button:hover{filter:brightness(.95)}
     </div>
   </div>
 
-  <!-- شريحة المشاريع (موبايل) -->
+  <!-- Mobile projects sheet -->
   <div id="ire-slide-projects" class="ire-slide" aria-hidden="true">
     <div class="ire-inner">
       <nav class="ire-list" aria-label="روابط المشاريع">
@@ -317,9 +274,8 @@ button:hover{filter:brightness(.95)}
   </div>
 </header>
 
-<!-- سكربتات الهيدر (قائمة/لغة/منبثقات) -->
 <script>
-/* فتح/غلق منبثق عام */
+/* dropdowns */
 function bindDropdown(rootId){
   const dd = document.getElementById(rootId);
   if(!dd) return;
@@ -333,11 +289,9 @@ function bindDropdown(rootId){
     if(!dd.contains(e.target)) { dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
   });
 }
-bindDropdown('ire-dd-contact-ar');
-bindDropdown('ire-dd-projects-ar');
-bindDropdown('ire-dd-contact-m');
+bindDropdown('ire-dd-contact-ar'); bindDropdown('ire-dd-projects-ar'); bindDropdown('ire-dd-contact-m');
 
-/* Mobile inline panel toggle */
+/* mobile sheet toggle */
 document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   b.addEventListener('click', ()=>{
     const sel = b.getAttribute('data-ire-toggle');
@@ -350,23 +304,14 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   });
 });
 
-/* Language switch: AR → EN (نفس الصفحة) */
+/* AR → EN (same page) */
 (function(){
-  function toEN(file){
-    if(/-en\.html$/i.test(file)) return file;
-    if(/\.html$/i.test(file)) return file.replace(/\.html$/i,'-en.html');
-    return (file||'index') + '-en.html';
-  }
-  function switchEN(){
-    var file = (location.pathname.split('/').pop() || 'index.html');
-    var dest = toEN(file);
-    var prefix = location.pathname.replace(/[^\/]+$/, '');
-    location.href = prefix + dest;
-  }
+  function toEN(file){ if(/-en\.html$/i.test(file)) return file; if(/\.html$/i.test(file)) return file.replace(/\.html$/i,'-en.html'); return (file||'index')+'-en.html'; }
+  function switchEN(){ var f=(location.pathname.split('/').pop()||'index.html'); var dest=toEN(f); var prefix=location.pathname.replace(/[^\/]+$/,''); location.href=prefix+dest; }
   document.querySelectorAll('[data-ire-lang="en"]').forEach(el=> el.addEventListener('click', switchEN));
 })();
 </script>
-<!-- ====== /HEADER ====== -->
+<!-- ===== /HEADER ===== -->
 
 <!-- ===== Breadcrumb ===== -->
 <div class="breadcrumb" aria-label="Breadcrumbs">
@@ -469,9 +414,91 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
     <a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">الماستر بلان المشروع</a>
   </div>
 
-  <!-- ===== الوصف (كما هو) ===== -->
-  <!-- (نفس نصوصك بالضبط بدون تغيير) -->
-  <!-- ===== /الوصف ===== -->
+  <!-- ===== الوصف (كامل كما أرسلته) ===== -->
+  <section>
+    <h2>1- عن مشروع مورانو وادى دجله</h2>
+    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
+
+    <h2>2- موقع قرية مورانو العين السخنة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+
+    <h2>3- أهم الطرق والمحاور بالقرب من murano</h2>
+    <ul>
+      <li>يقع طريق الجلالة على بعد 18 كيلو فقط من قرية مورانو السخنة.</li>
+      <li>أما عن المسافة لمحطة قطار العين السخنة فهي 14 كيلو.</li>
+      <li>ويفصل بين قرية مورانو العين السخنة والقاهرة 136 كيلو.</li>
+      <li>وطريق القطامية على بعد 112 كيلو.</li>
+    </ul>
+
+    <h2>4- مساحة مورانو وادي دجلة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها.
+    أدى اتساع مساحة murano sokhna وتقسيمتها المميزة إلى الجمع بين الخصوصية والراحة داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
+
+    <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
+    <p>يعتمد تصميم قرية مورانو على مفهوم مبتكر يجمع بين الرفاهية والطبيعة، حيث تم تصميم المخطط العام للقرية بطريقة تضمن توفير تجربة متميزة لسكانها، فكل زاوية تُضفي جوّاً فريدًا، وتشمل مرافق murano sokhna</p>
+    <ul>
+      <li><strong>حمامات السباحة:</strong> المتنوعة بمختلف الأحجام والمساحات لتلبي جميع الاحتياجات، فيمكنك ممارسة رياضة السباحة في أي وقت والحفاظ على لياقتك، كما يمكن لأطفالك الاستمتاع بالسباحة معك أو وحدهم دون قلق.</li>
+      <li><strong>مناطق ترفيهية للأطفال:</strong> بأعلى معايير السلامة، لتضمن لأطفالك قضاء أمتع الأوقات داخل القرية واللعب براحة وأمان تام.</li>
+      <li><strong>المطاعم والمقاهي:</strong> المتنوعة بمستويات عالمية راقية، فكل ما تفكر فيه أو ترغب به ستجده متوفرا داخل مطاعم مورانو بأشهى الطرق.</li>
+      <li><strong>المحلات التجارية:</strong> لتتسوق احتياجاتك بمنتهى السهولة دون الحاجة للخروج من قرية مورانو العين السخنة، تتواجد مجموعة من المحلات التجارية التي تلبي احتياجاتك كلها.</li>
+      <li><strong>ممرات للمشي وركوب الدراجات:</strong> بشكل آمن ومريح، بين المساحات الخضراء الشاسعة وفي جو نقي نظيف يضمن لك صفاء الذهن وراحة البال.</li>
+    </ul>
+
+    <h2>6- عن مورانو وادي دجله</h2>
+    <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
+
+    <h2>7- موقع قرية مورانو العين السخنة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+
+    <h2>8- أهم الطرق والمحاور بالقرب من murano</h2>
+    <ul>
+      <li>يقع طريق الجلالة على بعد 18 كيلو فقط من قرية مورانو السخنة.</li>
+      <li>أما عن المسافة لمحطة قطار العين السخنة فهي 14 كيلو.</li>
+      <li>ويفصل بين قرية مورانو العين السخنة والقاهرة 136 كيلو.</li>
+      <li>وطريق القطامية على بعد 112 كيلو.</li>
+    </ul>
+
+    <h2>مساحة مورانو وادي دجلة</h2>
+    <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها.
+    أدى اتساع مساحة murano sokhna وتقسيمتها المميزة إلى الجمع بين الخصوصية والراحة داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
+
+    <h2>8- أنواع الوحدات في Murano Wadi Degla</h2>
+    <p>تتنوع وحدات قرية مورانو العين السخنة لتشمل أنماطاً عديدة تلبي احتياجات جميع السكان، مع الأخذ في الاعتبار العديد من العوامل الهامة في كل الوحدات مثل: الإطلالات المميزة على المناظر الطبيعية، وجودة التصاميم، وتوفر الخدمات والمرافق المختلفة التي تنتشر بمختلف أنحاء القرية.
+    انقسمت الوحدات السكنية داخل قرية مورانو إلى:</p>
+    <ul>
+      <li>شقق.</li>
+      <li>فلل.</li>
+    </ul>
+    <p>وتأتي جميع شقق وفلل murano sokhna بمساحات متنوعة لتناسب جميع الأذواق والميزانيات، وتشمل هذه الأنماط وحدات سكنية عالية الجودة مصممة بعناية فائقة لتوفير راحة كاملة وتجربة سكنية مميزة.</p>
+
+    <h2>7- مرافق قرية مورانو السخنة</h2>
+    <ul>
+      <li>شاطئ رملي ممتد بطول 750 مترًا.</li>
+      <li>مارينا بطول 100 متر.</li>
+      <li>منتجع فندقي 4 نجوم.</li>
+      <li>مطاعم ومقاهي راقية.</li>
+      <li>منطقة تجارية متكاملة.</li>
+      <li>سبا فاخر (ساونا ومساج).</li>
+      <li>ملاعب رياضية متنوعة (كرة قدم الشاطئ، الكرة الطائرة).</li>
+      <li>ينابيع ماء ساخنة طبيعية.</li>
+    </ul>
+
+    <h2>8- عن وادي دجلة للتطوير العقاري</h2>
+    <p>تأسست شركة وادي دجلة للتطوير العقاري في عام 2005، وأصبحت رائدة في مجال التطوير العقاري على مدار السنوات الـ 18 الماضية، حيث يبلغ إجمالي مساحة مشاريعها 5.5 مليون متر مربع.
+    وتمتد محفظة أعمال وادي دجلة إلى 16 مشروعًا، منها 12 مشروعًا مكتملًا، تضم أكثر من 10,000 وحدة سكنية، موزعة على القاهرة، والجيزة، والساحل الشمالي، والعين السخنة.
+    تعمل وادي دجلة على تصميم وبناء كل مشروع بما يلائم الأسرة المصرية، مع توفير أعلى معايير الفخامة، وإنشاء مساحات مزودة ببنية تحتية مناسبة، وخدمات مجتمعية، ومساحات خضراء، لضمان مستقبل مشرق لعائلتك.</p>
+
+    <h2>9- أهم مشروعات وادي دجلة للتطوير العقاري</h2>
+    <ul>
+      <li>بلومار دوم — العين السخنة</li>
+      <li>مارينا وادي دجلة — العين السخنة</li>
+      <li>بلومار — الساحل الشمالي</li>
+      <li>نيوبوليس — مدينة المستقبل</li>
+      <li>بيراميدز ووك — السادس من أكتوبر</li>
+      <li>بروميناد — السادس من أكتوبر</li>
+      <li>بروميناد — القاهرة الجديدة</li>
+    </ul>
+  </section>
 
   <!-- ===== Contact ===== -->
   <section class="card" id="contact">
@@ -506,10 +533,9 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 
 </div>
 
-<!-- ===== Footer include (ثابت) ===== -->
 {% include footer-ar.html %}
 
-<!-- ===== Lightbox ===== -->
+<!-- Lightbox -->
 <div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور">
   <div id="lbCount" class="counter" aria-live="polite"></div>
   <button class="nav left" id="lbPrev" aria-label="السابق">‹</button>
@@ -517,7 +543,7 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   <button class="nav right" id="lbNext" aria-label="التالي">›</button>
 </div>
 
-<!-- JSON-LD (Organization + Breadcrumb + WebSite) -->
+<!-- JSON-LD -->
 <script>
 (function(){
   const data = [{
@@ -533,11 +559,8 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
       {"@type":"ListItem","position":4,"name":"مورانو","item":location.href}
     ]
   },{
-    "@context":"https://schema.org","@type":"Organization",
-    "@id": location.origin + "/#org",
-    "name":"إسلام للتسويق العقاري",
-    "alternateName":"Islam Real Estate",
-    "url":location.origin + "/",
+    "@context":"https://schema.org","@type":"Organization","@id": location.origin + "/#org",
+    "name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/",
     "logo":{"@type":"ImageObject","url":"https://d.top4top.io/p_3537t01ex0.png"},
     "contactPoint":[{"@type":"ContactPoint","telephone":"+20-105-007-2527","contactType":"sales","areaServed":"EG","availableLanguage":["ar","en"]}]
   }];
@@ -545,7 +568,7 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 })();
 </script>
 
-<!-- ===== كود البحث ===== -->
+<!-- Search code -->
 <script>
 (function(){
   const INPUT = document.getElementById('siteSearch');
@@ -601,20 +624,18 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 })();
 </script>
 
-<!-- ===== Slider + Lightbox + Share/Copy + Contact actions ===== -->
+<!-- Slider + Lightbox + Share/Copy + Contact -->
 <script>
 (function(){
   const scroller = document.getElementById('slider'); if(!scroller) return;
   const next = document.getElementById('nextBtn'), prev = document.getElementById('prevBtn');
 
-  // أسرع استجابة للأسهم
   const STEP_RATIO = 0.95;
   const step = ()=> Math.min(scroller.clientWidth*STEP_RATIO, 720);
 
   next?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'?-1:1)*step(),behavior:'smooth'}));
   prev?.addEventListener('click', ()=> scroller.scrollBy({left:(document.dir==='rtl'? 1:-1)*step(),behavior:'smooth'}));
 
-  // سحب للفون/الكمبيوتر
   let isDown=false, startX=0, scrollLeft=0;
   const start = e => { isDown=true; startX=(e.pageX||e.touches?.[0].pageX); scrollLeft=scroller.scrollLeft; scroller.style.cursor='grabbing'; }
   const move  = e => { if(!isDown) return; const x=(e.pageX||e.touches?.[0].pageX); const walk=(x-startX); scroller.scrollLeft = scrollLeft - walk * (document.dir==='rtl'?-1:1); }
@@ -625,7 +646,6 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   scroller.addEventListener('touchmove', move, {passive:true});
   scroller.addEventListener('touchend', end);
 
-  // Lightbox
   const slides = Array.from(scroller.querySelectorAll('.slide img'));
   const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg'),
         lbPrev=document.getElementById('lbPrev'), lbNext=document.getElementById('lbNext'),
@@ -638,13 +658,11 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   lbPrev.addEventListener('click', ()=>{ idx=(idx-1+gallerySrcs.length)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); });
   lb.addEventListener('click', e=>{ if(e.target===lb) { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
 
-  // Master plan في لايت بوكس
   document.getElementById('openMaster').addEventListener('click', (e)=>{ 
     e.preventDefault(); lbImg.src='https://k.top4top.io/p_35373aga50.jpg'; 
     lbCount.textContent = 'الماستر بلان'; lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
   });
 
-  // Share / Copy
   const PAGE_URL = location.href.split('#')[0];
   const SHARE_TEXT = `أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة.
 وصف كامل + الموقع + الخدمات + ماستر بلان.
@@ -652,15 +670,9 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
   const shareBtn = document.getElementById('shareBtn');
   const copyBtn  = document.getElementById('copyBtn');
   async function copy(text){ try{ await navigator.clipboard.writeText(text); alert('تم نسخ الرابط'); }catch{ alert('لم يتم النسخ'); } }
-  shareBtn?.addEventListener('click', async ()=>{
-    try{
-      if(navigator.share){ await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:PAGE_URL}); return; }
-    }catch(e){}
-    copy(PAGE_URL);
-  });
+  shareBtn?.addEventListener('click', async ()=>{ try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla', text:SHARE_TEXT, url:PAGE_URL}); return; } }catch(e){} copy(PAGE_URL); });
   copyBtn?.addEventListener('click', ()=> copy(PAGE_URL));
 
-  // Contact actions
   const val = id => (document.getElementById(id)?.value || '').trim();
   const build = ()=> ({name:val('name'), project:val('project'), unit:val('unit'), rooms:val('rooms'), note:val('note')});
   document.getElementById('btnWA')?.addEventListener('click', ()=>{
@@ -685,7 +697,7 @@ document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
 })();
 </script>
 
-<!-- ===== زر واتساب عائم (أيقونة جديدة) ===== -->
+<!-- Floating WhatsApp (new icon) -->
 <a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="تواصل واتساب">
   <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
 </a>
