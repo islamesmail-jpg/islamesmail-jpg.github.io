@@ -18,12 +18,12 @@ permalink: /murano.html
 <link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/murano.html">
 <link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/murano-en.html">
 
-<!-- ===== Branding (اسم يظهر بدل GitHub حيثما أمكن) ===== -->
+<!-- ===== Branding (يقلّل ظهور GitHub كاسم) ===== -->
 <meta name="application-name" content="إسلام للتسويق العقاري" />
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 <meta property="og:site_name" content="إسلام للتسويق العقاري" />
 
-<!-- Favicons / Logo used by some UAs -->
+<!-- Favicons / Logo -->
 <link rel="icon" type="image/png" href="https://d.top4top.io/p_3537t01ex0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://d.top4top.io/p_3537t01ex0.png">
 
@@ -110,8 +110,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .slider-badge img{height:20px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:13px}
 
-/* Share / Copy */
-.icons-row{display:flex;align-items:center;gap:10px;margin:10px 0}
+/* Share / Copy row */
+.icons-row{display:flex;align-items:center;gap:10px;margin:12px 0}
 .icon-btn{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:var(--shadow)}
 .icon-btn img{width:24px;height:24px;object-fit:contain}
 .icon-btn:hover{background:#f9fafb}
@@ -152,11 +152,6 @@ textarea{min-height:100px;resize:vertical}
 .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s}
 button:hover{filter:brightness(.95)}
-
-/* إخفاء صور متكررة أسفل الفيديو على PC (نكتفي بالسلايدر) */
-@media(min-width:1024px){
-  .below-video-grid{display:none}
-}
 </style>
 </head>
 <body>
@@ -170,6 +165,7 @@ button:hover{filter:brightness(.95)}
     <a href="/">الرئيسية</a><span class="sep">»</span>
     <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
     <a href="/zafarana.html">طريق الزعفرانة</a><span class="sep">»</span>
+    <span aria-current="page">مورانو</span>
   </div>
 </div>
 
@@ -237,13 +233,7 @@ button:hover{filter:brightness(.95)}
     </div>
   </div>
 
-  <!-- صور تحت الفيديو (تُخفى على PC) -->
-  <div class="below-video-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0">
-    <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano extra" style="width:100%;border-radius:18px;border:1px solid var(--line)">
-    <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano extra" style="width:100%;border-radius:18px;border:1px solid var(--line)">
-  </div>
-
-  <!-- Share + Copy -->
+  <!-- ===== Share + Copy (فوق الأسعار مباشرة) ===== -->
   <div class="icons-row">
     <button class="icon-btn" id="shareBtn" title="مشاركة الصفحة">
       <img src="https://c.top4top.io/p_3537yhy740.png" alt="Share"> مشاركة
@@ -253,7 +243,7 @@ button:hover{filter:brightness(.95)}
     </button>
   </div>
 
-  <!-- Prices -->
+  <!-- ===== Prices (المستطيلين) ===== -->
   <div class="prices">
     <div class="price-card">
       <div class="price-title">سعر المطوّر</div>
@@ -428,7 +418,7 @@ button:hover{filter:brightness(.95)}
 })();
 </script>
 
-<!-- ===== كود البحث (كما طلبت) ===== -->
+<!-- ===== كود البحث ===== -->
 <script>
 (function(){
   const INPUT = document.getElementById('siteSearch');
