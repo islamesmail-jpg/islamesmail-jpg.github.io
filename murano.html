@@ -18,7 +18,7 @@ permalink: /murano.html
 <link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/murano.html">
 <link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/murano-en.html">
 
-<!-- ===== Branding (يقلّل ظهور GitHub كاسم) ===== -->
+<!-- ===== Branding to replace "GitHub" label in SERP/snippets ===== -->
 <meta name="application-name" content="إسلام للتسويق العقاري" />
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 <meta property="og:site_name" content="إسلام للتسويق العقاري" />
@@ -156,8 +156,154 @@ button:hover{filter:brightness(.95)}
 </head>
 <body>
 
-<!-- ===== Header include ===== -->
-{% include header-ar.html %}
+<!-- ====== HEADER (AR) — Islam Real Estate ====== -->
+<style>
+  :root {
+    --ire-line:#e5e7eb; --ire-ink:#0f172a; --ire-muted:#475569;
+    --ire-soft:#f8fafc; --ire-radius:12px; --ire-shadow:0 10px 22px rgba(0,0,0,.06);
+    --ire-logo-h:63px;
+  }
+  .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--ire-line)}
+  .ire-nav{max-width:1200px;margin:auto;padding:6px 16px;display:flex;align-items:center;gap:12px}
+  .ire-brand{line-height:0;display:flex;align-items:center}
+  .ire-brand img{height:var(--ire-logo-h);width:auto}
+  .ire-spacer{flex:1}
+  .ire-right{display:flex;align-items:center;gap:10px}
+  .ire-chip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+  .ire-chip:hover{background:var(--ire-soft)}
+  .ire-links{display:flex;align-items:center;gap:12px;margin-inline-start:8px}
+  .ire-links a{font-weight:800;padding:7px 10px;border-radius:10px;color:var(--ire-ink);text-decoration:none}
+  .ire-links a:hover{background:var(--ire-soft)}
+  .ire-dd{position:relative}
+  .ire-panel{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:240px;background:#fff;border:1px solid var(--ire-line);border-radius:12px;box-shadow:var(--ire-shadow);padding:6px;display:none}
+  .ire-dd.open>.ire-panel{display:block}
+  .ire-panel a{display:block;padding:10px;border-radius:10px;font-weight:700;color:var(--ire-ink);text-decoration:none}
+  .ire-panel a:hover{background:var(--ire-soft)}
+  .ire-monly{display:none}
+  .ire-mbar{display:flex;gap:8px;margin-inline-start:auto}
+  .ire-mchip{border:1px solid var(--ire-line);background:#fff;border-radius:var(--ire-radius);padding:7px 12px;font-weight:800}
+  .ire-slide{display:none;border-top:1px solid var(--ire-line);border-bottom:1px solid var(--ire-line);background:#fff}
+  .ire-slide .ire-inner{max-width:1200px;margin:auto;padding:10px 16px}
+  .ire-list a{display:block;padding:10px;border-radius:10px;font-weight:700;color:var(--ire-ink);text-decoration:none}
+  .ire-list a:hover{background:var(--ire-soft)}
+  @media (max-width: 920px){
+    .ire-links{display:none}
+    .ire-dd{display:none}
+    .ire-chip.ire-lang{display:none}
+    .ire-monly{display:flex}
+  }
+</style>
+
+<header class="ire-topbar" dir="rtl">
+  <div class="ire-nav">
+    <!-- Logo -->
+    <a class="ire-brand" href="index.html" aria-label="الرئيسية">
+      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري">
+    </a>
+
+    <div class="ire-spacer"></div>
+
+    <!-- Desktop (right side) -->
+    <div class="ire-right" aria-label="روابط علويّة">
+      <!-- Contact dropdown -->
+      <div class="ire-dd" id="ire-dd-contact-ar">
+        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
+        <div class="ire-panel" role="menu" aria-label="روابط التواصل">
+          <a href="tel:+201050072527">📞 اتصال هاتفي</a>
+          <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+          <a href="mailto:islammesmail@gmail.com">✉️ الإيميل</a>
+        </div>
+      </div>
+
+      <!-- Language (switch to same page EN) -->
+      <button class="ire-chip ire-lang" type="button" data-ire-lang="en" aria-label="English">EN</button>
+
+      <!-- Area links -->
+      <nav class="ire-links" aria-label="روابط المناطق">
+        <a href="sokhna.html">العين السخنة</a>
+        <a href="north.html">الساحل الشمالي</a>
+        <a href="Cairo.html">القاهرة الجديدة</a>
+        <a href="resale.html">إعادة البيع</a>
+        <a href="list.html">أعرض وحدتك</a>
+      </nav>
+    </div>
+
+    <!-- Mobile controls -->
+    <div class="ire-monly">
+      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-proj">المشاريع</button>
+      <button class="ire-mchip" type="button" data-ire-toggle="#ire-slide-contact">التواصل</button>
+      <button class="ire-mchip" type="button" data-ire-lang="en" aria-label="English">EN</button>
+    </div>
+  </div>
+  <!-- Mobile inline panels -->
+  <div id="ire-slide-proj" class="ire-slide">
+    <div class="ire-inner">
+      <nav class="ire-list" aria-label="المشاريع">
+        <a href="sokhna.html">العين السخنة</a>
+        <a href="north.html">الساحل الشمالي</a>
+        <a href="Cairo.html">القاهرة الجديدة</a>
+        <a href="resale.html">إعادة البيع</a>
+        <a href="list.html">أعرض وحدتك</a>
+      </nav>
+    </div>
+  </div>
+  <div id="ire-slide-contact" class="ire-slide">
+    <div class="ire-inner">
+      <div class="ire-list" aria-label="التواصل">
+        <a href="tel:+201050072527">📞 اتصال هاتفي</a>
+        <a href="https://wa.me/201050072527" target="_blank" rel="noopener">💬 واتساب</a>
+        <a href="mailto:islammesmail@gmail.com">✉️ الإيميل</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+/* Desktop dropdown (Contact) */
+(function(){
+  const dd = document.getElementById('ire-dd-contact-ar');
+  if(!dd) return;
+  const btn = dd.querySelector('button');
+  btn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const open = dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open?'true':'false');
+  });
+  document.addEventListener('click', (e)=>{
+    if(!dd.contains(e.target)) { dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  });
+})();
+
+/* Mobile inline panels toggle */
+document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const sel = b.getAttribute('data-ire-toggle');
+    const panel = document.querySelector(sel);
+    if(!panel) return;
+    const open = getComputedStyle(panel).display!=='none';
+    document.querySelectorAll('.ire-slide').forEach(p=>p.style.display='none');
+    panel.style.display = open ? 'none' : 'block';
+    if(!open){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+/* Language switch: AR → EN (same page) */
+(function(){
+  function toEN(file){
+    if(/-en\.html$/i.test(file)) return file;
+    if(/\.html$/i.test(file)) return file.replace(/\.html$/i,'-en.html');
+    return (file||'index') + '-en.html';
+  }
+  function switchEN(){
+    var file = (location.pathname.split('/').pop() || 'index.html');
+    var dest = toEN(file);
+    var prefix = location.pathname.replace(/[^\/]+$/, '');
+    location.href = prefix + dest;
+  }
+  document.querySelectorAll('[data-ire-lang="en"]').forEach(el=> el.addEventListener('click', switchEN));
+})();
+</script>
+<!-- ====== /HEADER (AR) ====== -->
 
 <!-- ===== Breadcrumb ===== -->
 <div class="breadcrumb" aria-label="Breadcrumbs">
@@ -379,7 +525,7 @@ button:hover{filter:brightness(.95)}
 
 </div>
 
-<!-- ===== Footer include ===== -->
+<!-- ===== Footer include (ثابت) ===== -->
 {% include footer-ar.html %}
 
 <!-- ===== Lightbox ===== -->
