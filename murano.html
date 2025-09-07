@@ -9,7 +9,7 @@
 <!-- ===== Core SEO ===== -->
 <title>قرية مورانو العين السخنة وادي دجلة العقارية - Murano | ISLAM</title>
 <meta name="description" content="كل تفاصيل مشروع مورانو وادي دجلة بالعين السخنة: أسعار المطوّر وأفضل عروض إعادة البيع، فيديو وصور بجودة عالية مع تكبير وتقليب، ماستر بلان واضح، الموقع والخدمات وأنواع الوحدات. تواصل مباشر عبر الهاتف أو واتساب." />
-<meta name="robots" content="index,follow" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 <link rel="canonical" href="https://islamesmail-jpg.github.io/murano.html"/>
 
 <link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/murano-en.html">
@@ -19,7 +19,7 @@
 <link rel="icon" type="image/png" href="https://g.top4top.io/p_3536gqqv70.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://g.top4top.io/p_3536gqqv70.png">
 
-<!-- Brand labels (helps avoid “GitHub” label in previews) -->
+<!-- Brand labels (to avoid showing “GitHub” in previews) -->
 <meta name="application-name" content="إسلام للتسويق العقاري" />
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 
@@ -42,7 +42,6 @@
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -60,8 +59,8 @@ body{
   -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
 }
 
-/* ===== منع ظهور عناصر فاضية في الهيدر الجلوبال (لو موجودة) ===== */
-header a:empty, header button:empty, header li:empty {display:none !important}
+/* اخفاء أي عناصر فاضية جاية من ملف الهيدر عشان المربعات */
+header a:empty, header button:empty, .nav-links a:empty, .top-links a:empty { display:none !important; }
 
 /* BREADCRUMB */
 .breadcrumb{background:#fff;border-bottom:1px solid var(--line);width:100%}
@@ -168,14 +167,14 @@ button:hover{filter:brightness(.95)}
 .fab-wa a{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.05)}
 .fab-wa img{width:28px;height:28px}
 
-/* ردع تحميل الصور/الفيديو */
+/* منع تحميل/سحب الصور والفيديو */
 img, video{ -webkit-user-drag:none; user-drag:none }
 img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 </style>
 </head>
 <body>
 
-<!-- ===== Header include (بدل الهيدر كله) ===== -->
+<!-- ===== Header include ===== -->
 {% include header-ar.html %}
 
 <!-- BREADCRUMB -->
@@ -292,7 +291,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
     <a href="#" id="openMaster" class="master-pill" aria-haspopup="dialog" aria-controls="lightbox">ماستر بلان المشروع</a>
   </div>
 
-  <!-- DESCRIPTION (FULL — بدون أي نقص) -->
+  <!-- DESCRIPTION -->
   <section>
     <h2>1- عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
@@ -394,7 +393,7 @@ img, .modal img{ -webkit-touch-callout:none; -webkit-user-select:none; user-sele
 
 </div>
 
-<!-- ===== Footer include (بدل الفوتر كله) ===== -->
+<!-- ===== Footer include ===== -->
 {% include footer-ar.html %}
 
 <!-- LIGHTBOX -->
@@ -410,23 +409,24 @@ const $ = s => document.querySelector(s);
 
 /* JSON-LD (Breadcrumb + WebSite + Organization) */
 (function(){
+  const origin = 'https://islamesmail-jpg.github.io';
   const data = [{
     "@context":"https://schema.org","@type":"WebSite",
-    "name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/",
-    "potentialAction":{"@type":"SearchAction","target": location.origin + "/search?q={query}","query-input":"required name=query"}
+    "name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url": origin + "/",
+    "potentialAction":{"@type":"SearchAction","target": origin + "/search?q={query}","query-input":"required name=query"}
   },{
     "@context":"https://schema.org","@type":"BreadcrumbList",
     "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"الرئيسية","item":location.origin+"/"},
-      {"@type":"ListItem","position":2,"name":"العين السخنة","item":location.origin+"/sokhna.html"},
-      {"@type":"ListItem","position":3,"name":"مورانو","item":location.href}
+      {"@type":"ListItem","position":1,"name":"الرئيسية","item":origin+"/"},
+      {"@type":"ListItem","position":2,"name":"العين السخنة","item":origin+"/sokhna.html"},
+      {"@type":"ListItem","position":3,"name":"مورانو","item":origin+"/murano.html"}
     ]
   },{
     "@context":"https://schema.org","@type":"Organization",
-    "@id": location.origin + "/#org",
+    "@id": origin + "/#org",
     "name":"إسلام للتسويق العقاري",
     "alternateName":"Islam Real Estate",
-    "url":location.origin + "/",
+    "url":origin + "/",
     "logo":{"@type":"ImageObject","url":"https://g.top4top.io/p_3536gqqv70.png"},
     "contactPoint":[{"@type":"ContactPoint","telephone":"+20-105-007-2527","contactType":"sales","areaServed":"EG","availableLanguage":["ar","en"]}]
   }];
@@ -578,9 +578,14 @@ const $ = s => document.querySelector(s);
     }
   });
 })();
-</script>
 
-<script>
+/* إزالة أي عناصر فاضية في الهيدر لو بقيت بعد التحميل */
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('header a, header button').forEach(function(el){
+    if (!el.querySelector('img') && !el.textContent.trim()) el.remove();
+  });
+});
+
 /* منع الحفظ/الطباعة + كليك يمين */
 document.addEventListener('keydown', (e)=>{
   const k = e.key.toLowerCase();
