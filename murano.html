@@ -86,20 +86,24 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 }
 .ire-panel a:hover{background:#f8fafc}
 
-/* يمين الهيدر (التلاتة لزقين سوا بالموبايل / اتنين على الـPC) */
+/* يمين الهيدر */
 .ire-actions{display:flex;gap:0}
 .ire-actions > *:not(:first-child){margin-inline-start:-1px} /* دمج الحدود */
 
 /* روابط الـPC (مباشرة) */
 .ire-links{display:none}
 @media (min-width:981px){
-  #ire-dd-areas{display:none} /* PC: نخفي المناطق المنبثقة */
+  #ire-dd-areas{display:none} /* PC: نخفي المناطق المنبثقة تمامًا */
   .ire-links{display:flex;gap:10px;margin-inline-start:10px}
-  .ire-links a{display:inline-flex;align-items:center;padding:0 14px;height:var(--chip-h);border:1px solid var(--line);border-radius:var(--chip-radius);background:#fff;box-shadow:var(--shadow);font-weight:800;color:#0f172a;text-decoration:none}
+  .ire-links a{
+    display:inline-flex;align-items:center;padding:0 14px;height:var(--chip-h);
+    border:1px solid var(--line);border-radius:var(--chip-radius);
+    background:#fff;box-shadow:var(--shadow);font-weight:800;color:#0f172a;text-decoration:none
+  }
   .ire-links a:hover{background:#f8fafc}
 }
 
-/* موبايل: التلات مستطيلات جنب بعض */
+/* موبايل */
 @media (max-width:980px){
   .ire-brand img{height:50px}
   .ire-chip{font-size:14px}
@@ -155,19 +159,27 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .slider-badge img{height:18px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:12px}
 
-/* ===== Share/Copy: مستطيل واحد مُقسّم ===== */
-.actions-row{display:flex;align-items:center;gap:10px;margin:12px 0;flex-wrap:wrap}
-.seg-chip{
-  display:inline-flex;align-items:center;overflow:hidden;
-  border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:var(--shadow);
+/* ===== Share & Copy: صغيرين وجنب بعض في صف واحد ===== */
+.actions-row{
+  margin:12px 0;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:nowrap;     /* دايمًا صف واحد */
 }
-.seg-chip button{
-  appearance:none;background:#fff;border:0;border-inline-start:1px solid var(--line);
-  padding:10px 14px;font-weight:800;color:#0f172a;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:42px
+.chip-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  height:38px;                 /* أصغر */
+  width:150px;                 /* عرض صغير ثابت */
+  padding:0 10px;
+  border:1px solid var(--line);border-radius:12px;
+  background:#fff;box-shadow:var(--shadow);
+  font-weight:800;font-size:13px;color:#0f172a;cursor:pointer;
+  white-space:nowrap;
 }
-.seg-chip button:first-child{border-inline-start:0}
-.seg-chip img{width:20px;height:20px}
-.seg-chip button:hover{background:#f8fafc}
+.chip-cta img{width:16px;height:16px}
+.chip-cta:hover{background:#f8fafc}
 
 /* بانِل مشاركة (Fallback للـPC) */
 .share-panel{position:relative}
@@ -225,7 +237,7 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- التلات مستطيلات (لزقين) على الموبايل / اتنين على الـPC -->
+    <!-- PC: EN + التواصل (لزقين) + روابط مباشرة / موبايل: EN + التواصل + المناطق منبثق -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
@@ -361,17 +373,15 @@ bindDropdown('ire-dd-areas');
     </div>
   </div>
 
-  <!-- ===== Share + Copy (مستطيل واحد مُقسّم) ===== -->
+  <!-- ===== Share + Copy (صغيرين وجنب بعض) ===== -->
   <div class="actions-row">
     <span class="share-panel" id="sharePanel">
-      <span class="seg-chip">
-        <button id="shareBtn" title="مشاركة الصفحة">
-          <img src="https://c.top4top.io/p_3537yhy740.png" alt=""> المشاركة
-        </button>
-        <button id="copyBtn" title="نسخ رابط الصفحة">
-          <img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ
-        </button>
-      </span>
+      <button class="chip-cta" id="shareBtn" title="مشاركة الصفحة">
+        <img src="https://c.top4top.io/p_3537yhy740.png" alt=""> المشاركة
+      </button>
+      <button class="chip-cta" id="copyBtn" title="نسخ رابط الصفحة">
+        <img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ
+      </button>
 
       <!-- بانِلFallback للديسكتوب -->
       <div class="share-sheet" id="shareSheet" aria-label="مشاركة">
