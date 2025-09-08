@@ -198,6 +198,8 @@ ul{margin:8px 0 12px}
 
 /* Contact */
 .card{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);margin:22px 0;border:1px solid var(--line)}
+.card .icon{display:flex;justify-content:center;margin:0 0 6px}
+.card .icon img{height:36px;width:auto}
 .grid{display:grid;gap:12px}
 @media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
 input,select,textarea{width:100%;background:var(--field);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:6px}
@@ -456,6 +458,9 @@ bindDropdown('ire-dd-areas');
 
   <!-- ===== Contact ===== -->
   <section class="card" id="contact">
+    <div class="icon">
+      <img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية">
+    </div>
     <h3 style="text-align:center;margin:0 0 6px">تحتاج إلى مساعدة عقارية ؟</h3>
     <p class="sub" style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
     <form id="leadForm" novalidate>
