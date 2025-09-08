@@ -86,13 +86,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 }
 .ire-panel a:hover{background:#f8fafc}
 
-/* يمين الهيدر */
-.ire-actions{display:flex;gap:10px}
+/* يمين الهيدر (التلاتة لزقين سوا بالموبايل / اتنين على الـPC) */
+.ire-actions{display:flex;gap:0}
+.ire-actions > *:not(:first-child){margin-inline-start:-1px} /* دمج الحدود */
 
 /* روابط الـPC (مباشرة) */
 .ire-links{display:none}
 @media (min-width:981px){
-  .ire-links{display:flex;gap:10px;margin-inline-start:8px}
+  #ire-dd-areas{display:none} /* PC: نخفي المناطق المنبثقة */
+  .ire-links{display:flex;gap:10px;margin-inline-start:10px}
   .ire-links a{display:inline-flex;align-items:center;padding:0 14px;height:var(--chip-h);border:1px solid var(--line);border-radius:var(--chip-radius);background:#fff;box-shadow:var(--shadow);font-weight:800;color:#0f172a;text-decoration:none}
   .ire-links a:hover{background:#f8fafc}
 }
@@ -221,7 +223,7 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- التلات مستطيلات (موبايل) + EN/تواصل في الـPC -->
+    <!-- التلات مستطيلات (لزقين) على الموبايل / اتنين على الـPC -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
@@ -234,8 +236,17 @@ button:hover{filter:brightness(.95)}
         </div>
       </div>
 
-      <!-- موبايل: قائمة روابط مباشرة (بدل المناطق) -->
-      <button class="ire-chip" type="button" data-ire-toggle="#ire-slide-links" aria-label="القائمة">القائمة</button>
+      <!-- موبايل فقط: المناطق ▾ -->
+      <div class="ire-dd" id="ire-dd-areas">
+        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
+        <div class="ire-panel" role="menu" aria-label="روابط المناطق">
+          <a href="sokhna.html">العين السخنة</a>
+          <a href="north.html">الساحل الشمالي</a>
+          <a href="Cairo.html">القاهرة الجديدة</a>
+          <a href="resale.html">إعادة البيع</a>
+          <a href="list.html">أعرض وحدتك</a>
+        </div>
+      </div>
     </div>
 
     <!-- PC: روابط مباشرة -->
@@ -243,22 +254,9 @@ button:hover{filter:brightness(.95)}
       <a href="sokhna.html">العين السخنة</a>
       <a href="north.html">الساحل الشمالي</a>
       <a href="Cairo.html">القاهرة الجديدة</a>
-      <a href="list.html">أعرض وحدتك</a>
       <a href="resale.html">إعادة البيع</a>
+      <a href="list.html">أعرض وحدتك</a>
     </nav>
-  </div>
-
-  <!-- شريحة الروابط (موبايل فقط) -->
-  <div id="ire-slide-links" class="ire-slide" style="display:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff">
-    <div class="ire-inner" style="max-width:1200px;margin:auto;padding:10px 16px">
-      <nav class="ire-list" aria-label="روابط الصفحات">
-        <a href="sokhna.html">العين السخنة</a>
-        <a href="north.html">الساحل الشمالي</a>
-        <a href="Cairo.html">القاهرة الجديدة</a>
-        <a href="list.html">أعرض وحدتك</a>
-        <a href="resale.html">إعادة البيع</a>
-      </nav>
-    </div>
   </div>
 </header>
 
@@ -277,6 +275,7 @@ function bindDropdown(id){
   });
 }
 bindDropdown('ire-dd-contact');
+bindDropdown('ire-dd-areas');
 
 /* زر EN يبدّل لنفس الاسم مع -en.html */
 (function(){
@@ -284,19 +283,6 @@ bindDropdown('ire-dd-contact');
   function switchEN(){ var f=(location.pathname.split('/').pop()||'index.html'); var dest=toEN(f); var prefix=location.pathname.replace(/[^\/]+$/,''); location.href=prefix+dest; }
   document.querySelectorAll('[data-ire-lang="en"]').forEach(el=> el.addEventListener('click', switchEN));
 })();
-
-/* فتح/غلق شريحة الروابط (موبايل) */
-document.querySelectorAll('[data-ire-toggle]')?.forEach(b=>{
-  b.addEventListener('click', ()=>{
-    const sel = b.getAttribute('data-ire-toggle');
-    const panel = document.querySelector(sel);
-    if(!panel) return;
-    const open = getComputedStyle(panel).display!=='none';
-    document.querySelectorAll('.ire-slide').forEach(p=>p.style.display='none');
-    panel.style.display = open ? 'none' : 'block';
-    if(!open){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
-  });
-});
 </script>
 <!-- ===== /HEADER ===== -->
 
