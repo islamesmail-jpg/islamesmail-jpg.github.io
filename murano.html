@@ -46,7 +46,7 @@ permalink: /murano.html
   --bg:#ffffff; --card:#f8fafc; --text:#0f172a; --muted:#475569;
   --accent:#0f172a; --field:#f3f4f6; --wrap:1120px;
   --line:#e5e7eb; --shadow:0 8px 18px rgba(0,0,0,.06);
-  --chip-radius:12px; --chip-h:40px; /* أصغر للّغة والاتصال */
+  --chip-radius:12px; --chip-h:36px; /* أصغر لزر اللغة والاتصال */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -60,14 +60,15 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .ire-brand img{height:var(--ire-logo-h);width:auto}
 .ire-spacer{flex:1}
 
-/* زرّ (EN/التواصل) */
+/* أزرار EN/التواصل (أصغر + مسافة واضحة) */
+.ire-actions{display:flex;gap:12px;align-items:center}
 .ire-chip{
   height:var(--chip-h);
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:0 12px;border-radius:var(--chip-radius);
   background:#fff;border:1px solid var(--line);
   box-shadow:var(--shadow);
-  font-weight:800;font-size:14px;color:#0f172a;
+  font-weight:800;font-size:13px;color:#0f172a;
   cursor:pointer;user-select:none;white-space:nowrap;
 }
 .ire-chip:hover{background:#f8fafc}
@@ -86,21 +87,37 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 }
 .ire-panel a:hover{background:#f8fafc}
 
-/* مجموعة اليمين */
-.ire-actions{display:flex;gap:0}
-.ire-actions > *:not(:first-child){margin-inline-start:-1px} /* دمج الحدود */
-
-/* روابط الـPC كنص فقط (بدون مستطيلات) */
+/* روابط الـPC كنص فقط + ظل ناعم عند الهوفر */
 .ire-links{display:none}
 @media (min-width:981px){
-  #ire-dd-areas{display:none} /* PC: نخفي المناطق المنبثقة */
-  .ire-links{display:flex;gap:16px;margin-inline-start:14px}
+  #ire-dd-areas{display:none}
+  .ire-links{display:flex;gap:18px;margin-inline-start:6px}
   .ire-links a{
+    position:relative;
     display:inline-flex;align-items:center;
     font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;
-    padding:6px 0; /* نص فقط */
+    padding:6px 0; line-height:1.2;
+    transition:color .2s ease;
   }
-  .ire-links a:hover{color:#111;text-decoration:underline}
+  .ire-links a::after{
+    content:"";
+    position:absolute;
+    inset-inline-start:0; inset-inline-end:0;
+    bottom:-6px;
+    height:8px; border-radius:8px;
+    background:rgba(15,23,42,.10);
+    box-shadow:0 8px 14px rgba(15,23,42,.12);
+    opacity:0; transform:translateY(6px) scaleX(.6);
+    transition:opacity .25s ease, transform .25s ease;
+    pointer-events:none;
+  }
+  .ire-links a:hover{color:#0b1221;}
+  .ire-links a:hover::after{
+    opacity:1; transform:translateY(0) scaleX(1);
+  }
+  .ire-links a:focus-visible{
+    outline:2px solid #0f172a; outline-offset:3px; border-radius:6px;
+  }
 }
 
 /* موبايل */
@@ -159,7 +176,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .slider-badge img{height:18px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:12px}
 
-/* ===== Share & Copy: صغيرين وجنب بعض في صف واحد ===== */
+/* ===== Share & Copy ===== */
 .actions-row{
   margin:12px 0;
   display:flex;
@@ -192,18 +209,6 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .price-link{display:block;text-align:center;font-weight:700;text-decoration:none;color:#222;background:#f3f3f3;border-radius:10px;padding:8px;font-size:13px}
 .master-wrap{text-align:center;margin:6px 0 18px}
 .master-pill{display:inline-block;background:#fff;color:#000;padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--line)}
-
-/* Lightbox */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;padding:0;z-index:100}
-.modal.open{display:flex}
-.modal img{max-width:96vw;max-height:94vh;display:block}
-.modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
-.counter{position:absolute;top:16px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:13px}
-
-/* نصوص */
-section h2{margin:16px 0 8px;font-size:18px;color:var(--accent)}
-section p,section li{color:#4b5563}
-ul{margin:8px 0 12px}
 
 /* FAQ */
 .faq{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:22px 0;box-shadow:var(--shadow)}
@@ -241,7 +246,7 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- بداية: اللغة ثم الاتصال (أصغر) -->
+    <!-- أزرار صغيرة (EN + التواصل) ثم روابط نص -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
@@ -265,16 +270,16 @@ button:hover{filter:brightness(.95)}
           <a href="list.html">أعرض وحدتك</a>
         </div>
       </div>
-    </div>
 
-    <!-- PC: روابط نصية مباشرة (بدون مستطيلات) -->
-    <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
-      <a href="sokhna.html">العين السخنة</a>
-      <a href="north.html">الساحل الشمالي</a>
-      <a href="Cairo.html">القاهرة الجديدة</a>
-      <a href="resale.html">إعادة البيع</a>
-      <a href="list.html">أعرض وحدتك</a>
-    </nav>
+      <!-- PC: روابط نصية (ستايل جديد بظل ناعم) -->
+      <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
+        <a href="sokhna.html">العين السخنة</a>
+        <a href="north.html">الساحل الشمالي</a>
+        <a href="Cairo.html">القاهرة الجديدة</a>
+        <a href="list.html">أعرض وحدتك</a>
+        <a href="resale.html">إعادة البيع</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -377,7 +382,7 @@ bindDropdown('ire-dd-areas');
     </div>
   </div>
 
-  <!-- ===== Share + Copy (صغيرين وجنب بعض) ===== -->
+  <!-- ===== Share + Copy ===== -->
   <div class="actions-row">
     <span class="share-panel" id="sharePanel">
       <button class="chip-cta" id="shareBtn" title="مشاركة الصفحة">
@@ -470,29 +475,13 @@ bindDropdown('ire-dd-areas');
     </ul>
   </section>
 
-  <!-- ===== FAQ (جديد فوق المساعدة) ===== -->
+  <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <h2>أسئلة شائعة عن مورانو</h2>
-
-    <details>
-      <summary>هل يوجد تقسيط وعروض حالية؟</summary>
-      <p>نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل معنا لمعرفة أحدث الأنظمة المناسبة لميزانيتك.</p>
-    </details>
-
-    <details>
-      <summary>ما المسافة من القاهرة؟</summary>
-      <p>حوالي 136 كم عبر طريق العين السخنة/الزعفرانة، مع وصول سهل من الطرق والمحاور الرئيسية.</p>
-    </details>
-
-    <details>
-      <summary>هل الشاطئ خاص؟ وما طوله؟</summary>
-      <p>يوجد شاطئ رملي خاص بطول يقارب 750 متر مع مرافق وخدمات على البحر.</p>
-    </details>
-
-    <details>
-      <summary>هل يوجد فندق ومنطقة تجارية داخل المشروع؟</summary>
-      <p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية لتلبية الاحتياجات اليومية.</p>
-    </details>
+    <details><summary>هل يوجد تقسيط وعروض حالية؟</summary><p>نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل معنا لمعرفة أحدث الأنظمة المناسبة لميزانيتك.</p></details>
+    <details><summary>ما المسافة من القاهرة؟</summary><p>حوالي 136 كم عبر طريق العين السخنة/الزعفرانة، مع وصول سهل من الطرق والمحاور الرئيسية.</p></details>
+    <details><summary>هل الشاطئ خاص؟ وما طوله؟</summary><p>يوجد شاطئ رملي خاص بطول يقارب 750 متر مع مرافق وخدمات على البحر.</p></details>
+    <details><summary>هل يوجد فندق ومنطقة تجارية داخل المشروع؟</summary><p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية.</p></details>
   </section>
 
   <!-- ===== Contact ===== -->
@@ -545,7 +534,6 @@ bindDropdown('ire-dd-areas');
 (()=>{const data=[
   {"@context":"https://schema.org","@type":"WebSite","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","potentialAction":{"@type":"SearchAction","target": location.origin + "/search?q={query}","query-input":"required name=query"}},
   {"@context":"https://schema.org","@type":"Organization","@id": location.origin + "/#org","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","logo":{"@type":"ImageObject","url":"https://b.top4top.io/p_3538236as0.png"}},
-  /* FAQPage لتحسين الظهور */
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"هل يوجد تقسيط وعروض حالية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل لمعرفة أحدث الأنظمة."}},
     {"@type":"Question","name":"ما المسافة من القاهرة؟","acceptedAnswer":{"@type":"Answer","text":"حوالي 136 كم عبر طريق العين السخنة/الزعفرانة."}},
