@@ -46,11 +46,18 @@ permalink: /murano.html
   --bg:#ffffff; --card:#f8fafc; --text:#0f172a; --muted:#475569;
   --accent:#0f172a; --field:#f3f4f6; --wrap:1120px;
   --line:#e5e7eb; --shadow:0 8px 18px rgba(0,0,0,.06);
-  --chip-radius:12px; --chip-h:36px; /* أصغر لزر اللغة والاتصال */
+  --chip-radius:12px; --chip-h:36px;
+  --grad:linear-gradient(90deg,#0ea5e9,#22c55e,#a855f7); /* متدرّج روابط الـPC */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"kern","liga","clig","calt";
+  letter-spacing:.1px;
+}
 
 /* ===== HEADER ===== */
 :root{ --ire-logo-h:56px; }
@@ -60,7 +67,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .ire-brand img{height:var(--ire-logo-h);width:auto}
 .ire-spacer{flex:1}
 
-/* أزرار EN/التواصل (أصغر + مسافة واضحة) */
+/* أزرار EN/التواصل (أصغر) */
 .ire-actions{display:flex;gap:12px;align-items:center}
 .ire-chip{
   height:var(--chip-h);
@@ -87,43 +94,35 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 }
 .ire-panel a:hover{background:#f8fafc}
 
-/* روابط الـPC كنص فقط + ظل ناعم عند الهوفر */
+/* روابط الـPC كنص فقط + Underline متدرّج عند الهوفر */
 .ire-links{display:none}
 @media (min-width:981px){
-  #ire-dd-areas{display:none}
   .ire-links{display:flex;gap:18px;margin-inline-start:6px}
   .ire-links a{
     position:relative;
     display:inline-flex;align-items:center;
     font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;
     padding:6px 0; line-height:1.2;
-    transition:color .2s ease;
+    transition:color .25s ease;
   }
   .ire-links a::after{
     content:"";
-    position:absolute;
-    inset-inline-start:0; inset-inline-end:0;
-    bottom:-6px;
-    height:8px; border-radius:8px;
-    background:rgba(15,23,42,.10);
-    box-shadow:0 8px 14px rgba(15,23,42,.12);
-    opacity:0; transform:translateY(6px) scaleX(.6);
+    position:absolute; left:0; right:0; bottom:-4px;
+    height:3px; border-radius:3px;
+    background:var(--grad);
+    opacity:0; transform:scaleX(0.4); transform-origin:center;
     transition:opacity .25s ease, transform .25s ease;
-    pointer-events:none;
   }
   .ire-links a:hover{color:#0b1221;}
-  .ire-links a:hover::after{
-    opacity:1; transform:translateY(0) scaleX(1);
-  }
-  .ire-links a:focus-visible{
-    outline:2px solid #0f172a; outline-offset:3px; border-radius:6px;
-  }
+  .ire-links a:hover::after{opacity:1; transform:scaleX(1);}
+  .ire-links a:focus-visible{outline:2px solid #0f172a; outline-offset:3px; border-radius:6px}
 }
 
-/* موبايل */
+/* موبايل: تقليل المسافة بين الأزرار وجعل EN بجانب التواصل */
 @media (max-width:980px){
   .ire-brand img{height:50px}
-  .ire-chip{font-size:13px}
+  .ire-actions{gap:6px}                 /* تقليل المسافة */
+  .ire-chip{font-size:13px;padding:0 10px}
 }
 
 /* ===== Breadcrumb ===== */
@@ -144,7 +143,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 /* ===== Hero ===== */
 .hero{padding:22px 14px;border-bottom:1px solid var(--line);background:#f9fafb}
 .hero .overlay{max-width:var(--wrap);margin:auto;text-align:center}
-.hero h1{margin:0;line-height:1.2}
+.hero h1{margin:0;line-height:1.2;letter-spacing:.2px}
 .hero .line-top{display:block;font-weight:800;font-size:30px}
 .hero .line-sub{display:block;font-weight:700;font-size:18px}
 .hero .dev{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:15px;justify-content:center}
@@ -246,7 +245,7 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- أزرار صغيرة (EN + التواصل) ثم روابط نص -->
+    <!-- أزرار صغيرة (EN + التواصل) وعلى الموبايل جنب بعض -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
@@ -259,19 +258,7 @@ button:hover{filter:brightness(.95)}
         </div>
       </div>
 
-      <!-- موبايل فقط: المناطق ▾ -->
-      <div class="ire-dd" id="ire-dd-areas">
-        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
-        <div class="ire-panel" role="menu" aria-label="روابط المناطق">
-          <a href="sokhna.html">العين السخنة</a>
-          <a href="north.html">الساحل الشمالي</a>
-          <a href="Cairo.html">القاهرة الجديدة</a>
-          <a href="resale.html">إعادة البيع</a>
-          <a href="list.html">أعرض وحدتك</a>
-        </div>
-      </div>
-
-      <!-- PC: روابط نصية (ستايل جديد بظل ناعم) -->
+      <!-- روابط النص (كمبيوتر) بمتدرج لوني تحت الرابط عند الهوفر -->
       <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
         <a href="sokhna.html">العين السخنة</a>
         <a href="north.html">الساحل الشمالي</a>
@@ -298,7 +285,6 @@ function bindDropdown(id){
   });
 }
 bindDropdown('ire-dd-contact');
-bindDropdown('ire-dd-areas');
 
 /* زر EN يبدّل لنفس الاسم مع -en.html */
 (function(){
@@ -533,13 +519,7 @@ bindDropdown('ire-dd-areas');
 <script>
 (()=>{const data=[
   {"@context":"https://schema.org","@type":"WebSite","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","potentialAction":{"@type":"SearchAction","target": location.origin + "/search?q={query}","query-input":"required name=query"}},
-  {"@context":"https://schema.org","@type":"Organization","@id": location.origin + "/#org","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","logo":{"@type":"ImageObject","url":"https://b.top4top.io/p_3538236as0.png"}},
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"هل يوجد تقسيط وعروض حالية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل لمعرفة أحدث الأنظمة."}},
-    {"@type":"Question","name":"ما المسافة من القاهرة؟","acceptedAnswer":{"@type":"Answer","text":"حوالي 136 كم عبر طريق العين السخنة/الزعفرانة."}},
-    {"@type":"Question","name":"هل الشاطئ خاص؟","acceptedAnswer":{"@type":"Answer","text":"نعم، شاطئ رملي خاص بطول يقارب 750 متر."}},
-    {"@type":"Question","name":"هل يوجد فندق ومنطقة تجارية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، فندق 4 نجوم ومطاعم ومقاهي ومنطقة تجارية داخل المشروع."}}
-  ]}
+  {"@context":"https://schema.org","@type":"Organization","@id": location.origin + "/#org","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","logo":{"@type":"ImageObject","url":"https://b.top4top.io/p_3538236as0.png"}}
 ];const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(data);document.head.appendChild(s);})();
 
 /* بحث داخلي */
