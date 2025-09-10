@@ -364,12 +364,13 @@ bindDropdown('ire-dd-areas');
     </a>
 
     <div class="slider" id="slider">
-      <figure class="slide"><img loading="lazy" src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1" oncontextmenu="return false"></figure>
-      <figure class="slide"><img loading="lazy" src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2" oncontextmenu="return false"></figure>
-      <figure class="slide"><img loading="lazy" src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3" oncontextmenu="return false"></figure>
-      <figure class="slide"><img loading="lazy" src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4" oncontextmenu="return false"></figure>
-      <figure class="slide"><img loading="lazy" src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5" oncontextmenu="return false"></figure>
-      <figure class="slide"><img loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6" oncontextmenu="return false"></figure>
+      <!-- أضفت data-lb لكل صورة لفتح اللايت بوكس -->
+      <figure class="slide"><img data-lb loading="lazy" src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1" oncontextmenu="return false"></figure>
+      <figure class="slide"><img data-lb loading="lazy" src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2" oncontextmenu="return false"></figure>
+      <figure class="slide"><img data-lb loading="lazy" src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3" oncontextmenu="return false"></figure>
+      <figure class="slide"><img data-lb loading="lazy" src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4" oncontextmenu="return false"></figure>
+      <figure class="slide"><img data-lb loading="lazy" src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5" oncontextmenu="return false"></figure>
+      <figure class="slide"><img data-lb loading="lazy" src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6" oncontextmenu="return false"></figure>
     </div>
   </div>
 
@@ -553,6 +554,7 @@ bindDropdown('ire-dd-areas');
 
 /* Slider + Lightbox + Share/Copy + Forms */
 (()=>{const sc=document.getElementById('slider');if(!sc)return;
+/* سحب + أسهم */
 const next=document.getElementById('nextBtn'),prev=document.getElementById('prevBtn'),STEP=()=>Math.min(sc.clientWidth*.95,720);
 next?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?-1:1)*STEP(),behavior:'smooth'}));
 prev?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?1:-1)*STEP(),behavior:'smooth'}));
@@ -563,20 +565,24 @@ const st=e=>{down=true;x0=(e.pageX||e.touches?.[0].pageX);l0=sc.scrollLeft;sc.st
 sc.addEventListener('mousedown',st);sc.addEventListener('mousemove',mv);sc.addEventListener('mouseleave',ed);sc.addEventListener('mouseup',ed);
 sc.addEventListener('touchstart',st,{passive:true});sc.addEventListener('touchmove',mv,{passive:true});sc.addEventListener('touchend',ed);
 
-const imgs=Array.from(sc.querySelectorAll('.slide img'));
+/* Lightbox للصور: كل صورة عليها data-lb */
+const slides=[...sc.querySelectorAll('.slide img')];
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),
       lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext'),lbCount=document.getElementById('lbCount');
-const srcs=imgs.map(s=>s.src);let i=0;
-const setC=()=>lbCount.textContent=(i+1)+' / '+srcs.length;
-function openLB(k){i=k;lbImg.src=srcs[i];setC();lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
-imgs.forEach((im,k)=>{im.style.cursor='zoom-in';im.addEventListener('click',()=>openLB(k))});
-lbNext.addEventListener('click',()=>{i=(i+1)%srcs.length;lbImg.src=srcs[i];setC()});
-lbPrev.addEventListener('click',()=>{i=(i-1+srcs.length)%srcs.length;lbImg.src=srcs[i];setC()});
-lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');lb.setAttribute('aria-hidden','true')}});
+const gallerySrcs=slides.map(s=>s.src);let idx=0;
+function setCount(){ lbCount.textContent=(idx+1)+' / '+gallerySrcs.length; }
+function openLB(i){ idx=i; lbImg.src=gallerySrcs[idx]; setCount(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
+slides.forEach((img,i)=>{ img.style.cursor='zoom-in'; img.addEventListener('click',()=>openLB(i)); });
+lbNext.addEventListener('click',()=>{ idx=(idx+1)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); });
+lbPrev.addEventListener('click',()=>{ idx=(idx-1+gallerySrcs.length)%gallerySrcs.length; lbImg.src=gallerySrcs[idx]; setCount(); });
+lb.addEventListener('click',e=>{ if(e.target===lb){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }});
 
+/* زر ماستر بلان يفتح نفس اللايت بوكس بصورة الماستر */
 document.getElementById('openMaster').addEventListener('click',e=>{
-  e.preventDefault();lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
-  lbCount.textContent='الماستر بلان';lb.classList.add('open');lb.setAttribute('aria-hidden','false')
+  e.preventDefault();
+  lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
+  lbCount.textContent='الماستر بلان';
+  lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
 });
 
 /* Share + Copy */
@@ -586,7 +592,7 @@ const shareBtn=document.getElementById('shareBtn'),copyBtn=document.getElementBy
 function setLinks(){
   document.getElementById('waShare').href=`https://wa.me/?text=${encodeURIComponent(TEXT)}`;
   document.getElementById('fbShare').href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(URL)}`;
-  document.getElementById('xShare').href=`https://twitter.com/intent/tweet?url=${encodeURIComponent(URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`
+  document.getElementById('xShare').href=`https://twitter.com/intent/tweet?url=${encodeURIComponent(URL)}&text=${encodeURIComponent('Murano Wadi Degla')}`;
 }
 setLinks();
 async function copy(t){try{await navigator.clipboard.writeText(t);alert('تم نسخ الرابط')}catch{alert('لم يتم النسخ')}}
