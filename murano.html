@@ -22,7 +22,6 @@ permalink: /murano.html
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 <meta property="og:site_name" content="إسلام للتسويق العقاري" />
 
-<!-- أيقونة الموقع -->
 <link rel="icon" type="image/png" href="https://b.top4top.io/p_3538236as0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://b.top4top.io/p_3538236as0.png">
 
@@ -46,14 +45,15 @@ permalink: /murano.html
   --bg:#ffffff; --card:#f8fafc; --text:#0f172a; --muted:#475569;
   --accent:#0f172a; --field:#f3f4f6; --wrap:1120px;
   --line:#e5e7eb; --shadow:0 8px 18px rgba(0,0,0,.06);
-  --chip-radius:12px; --chip-h:40px;
-  --gradient: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 50%, #fff 100%);
+  --chip-radius:12px; --chip-h:40px;                     /* للتواصل */
+  --chip-sm-h:32px; --chip-sm-f:12px;                    /* EN أصغر */
+  --gradient:linear-gradient(135deg,#eef2ff 0%,#f5f3ff 50%,#fff 100%);
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
 
-/* ===== HEADER ===== */
+/* ===== HEADER مطابق للصورة ===== */
 :root{ --ire-logo-h:56px; }
 .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ire-nav{max-width:1200px;margin:auto;padding:8px 14px;display:flex;align-items:center;gap:16px}
@@ -61,18 +61,14 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .ire-brand img{height:var(--ire-logo-h);width:auto}
 .ire-spacer{flex:1}
 
-/* أزرار EN/التواصل */
+/* أزرار */
 .ire-chip{
-  height:var(--chip-h);
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:0 10px;border-radius:var(--chip-radius);
-  background:#fff;border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  font-weight:800;font-size:13px;color:#0f172a;cursor:pointer;white-space:nowrap;
+  height:var(--chip-h);display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:0 12px;border-radius:var(--chip-radius);background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow);font-weight:800;font-size:14px;color:#0f172a;cursor:pointer;white-space:nowrap;
 }
 .ire-chip:hover{background:#f8fafc}
-/* EN أصغر */
-.ire-chip.en{height:34px;font-size:12px;padding:0 9px}
+.ire-chip--sm{height:var(--chip-sm-h); font-size:var(--chip-sm-f); padding:0 10px}
 
 /* Dropdown */
 .ire-dd{position:relative}
@@ -82,41 +78,35 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
   border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none
 }
 .ire-dd.open>.ire-panel{display:block}
-.ire-panel a{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;border-radius:10px;font-weight:700;color:#0f172a;text-decoration:none
-}
+.ire-panel a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-weight:700;color:#0f172a;text-decoration:none}
 .ire-panel a:hover{background:#f8fafc}
 
-/* روابط نصية بظل سفلي لطيف عند الهوفر */
+/* روابط PC نصية يسار */
 .ire-links{display:none}
 @media (min-width:981px){
-  #ire-dd-areas{display:none} /* PC: نخفي المنبثق */
-  .ire-links{
-    display:flex;gap:18px;align-items:center;margin-inline-end:16px
-  }
+  .ire-links{display:flex;gap:18px;align-items:center;flex-wrap:nowrap;white-space:nowrap}
   .ire-links a{
     position:relative;display:inline-flex;align-items:center;
-    font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;
-    padding:8px 4px;border-radius:10px;transition:all .18s ease;
+    font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;padding:10px 4px;border-radius:10px;transition:.18s;
   }
   .ire-links a::after{
-    content:"";position:absolute;inset:calc(100% - 3px) 0 auto 0;height:3px;border-radius:2px;
-    background:var(--gradient);opacity:0;transform:translateY(4px);transition:all .18s ease;
+    content:"";position:absolute;inset:calc(100% - 3px) 0 auto 0;height:3px;border-radius:2px;background:var(--gradient);
+    opacity:0;transform:translateY(4px);transition:.18s;
   }
   .ire-links a:hover{color:#0b1220;background:rgba(15,23,42,.03);box-shadow:0 6px 16px rgba(0,0,0,.06), inset 0 0 0 1px rgba(0,0,0,.03)}
   .ire-links a:hover::after{opacity:1;transform:translateY(0)}
 }
 
-/* مجموعة اليسار: الروابط النصية + EN + التواصل (كلهم جنب بعض) */
-.ire-actions{display:flex;gap:10px;align-items:center}
+/* يسار الهيدر: الروابط ثم التواصل ثم EN — صف واحد */
+.ire-actions{display:flex;gap:12px;align-items:center;flex-wrap:nowrap}
 
-/* موبايل */
+/* موبايل: EN + تواصل + المناطق جنب بعض */
 @media (max-width:980px){
   .ire-brand img{height:50px}
-  .ire-chip{font-size:13px}
   .ire-nav{gap:10px}
   .ire-actions{gap:6px}
+  .ire-chip{font-size:13px}
+  .ire-links{display:none}
 }
 
 /* ===== Breadcrumb ===== */
@@ -175,7 +165,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .chip-cta img{width:16px;height:16px}
 .chip-cta:hover{background:#f8fafc}
 
-/* بانِل مشاركة (Fallback للـPC) */
+/* بانِل مشاركة */
 .share-panel{position:relative}
 .share-sheet{position:absolute;inset-inline-start:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px;display:none;min-width:240px;z-index:20}
 .share-panel.open .share-sheet{display:block}
@@ -197,7 +187,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
 .counter{position:absolute;top:16px;inset-inline-start:50%;transform:translateX(-50%);background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:10px;font-size:13px}
 
-/* نصوص */
+/* نصوص عامة */
 section h2{margin:16px 0 8px;font-size:18px;color:var(--accent)}
 section p,section li{color:#4b5563}
 ul{margin:8px 0 12px}
@@ -232,25 +222,23 @@ button:hover{filter:brightness(.95)}
 <header class="ire-topbar" aria-label="الشريط العلوي">
   <div class="ire-nav">
 
-    <!-- Logo يمين -->
+    <!-- الشعار يمين -->
     <a class="ire-brand" href="index.html" aria-label="الرئيسية">
       <img src="https://g.top4top.io/p_3536wp82v0.png" alt="Islam Esmail — الشعار">
     </a>
 
-    <!-- مسافة مريحة تبعد النصوص عن اللوجو -->
+    <!-- مسافة لعزل العناصر عن الشعار -->
     <div class="ire-spacer"></div>
 
-    <!-- يسار: الروابط النصية + EN (أصغر) + التواصل — كلهم جنب بعض -->
+    <!-- يسار: الروابط النصية + التواصل + EN + للموبايل مناطق -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
         <a href="sokhna.html">العين السخنة</a>
         <a href="north.html">الساحل الشمالي</a>
         <a href="Cairo.html">القاهرة الجديدة</a>
-        <a href="list.html">أعرض وحدتك</a>
         <a href="resale.html">إعادة البيع</a>
+        <a href="list.html">أعرض وحدتك</a>
       </nav>
-
-      <button class="ire-chip en" type="button" data-ire-lang="en" aria-label="English">EN</button>
 
       <div class="ire-dd" id="ire-dd-contact">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
@@ -261,7 +249,9 @@ button:hover{filter:brightness(.95)}
         </div>
       </div>
 
-      <!-- موبايل: المناطق ▾ -->
+      <button class="ire-chip ire-chip--sm" type="button" data-ire-lang="en" aria-label="English">EN</button>
+
+      <!-- موبايل فقط: مناطق ▾ -->
       <div class="ire-dd" id="ire-dd-areas">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
         <div class="ire-panel" role="menu" aria-label="روابط المناطق">
@@ -294,7 +284,7 @@ function bindDropdown(id){
 bindDropdown('ire-dd-contact');
 bindDropdown('ire-dd-areas');
 
-/* زر EN يبدّل لنفس الاسم مع -en.html */
+/* EN → الملف الإنجليزي بنفس الاسم مع -en */
 (function(){
   function toEN(file){ if(/-en\.html$/i.test(file)) return file;
     if(/\.html$/i.test(file)) return file.replace(/\.html$/i,'-en.html');
@@ -393,7 +383,6 @@ bindDropdown('ire-dd-areas');
         <img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ
       </button>
 
-      <!-- بانِلFallback للديسكتوب -->
       <div class="share-sheet" id="shareSheet" aria-label="مشاركة">
         <a target="_blank" rel="noopener" id="waShare" href="#">WhatsApp</a>
         <a target="_blank" rel="noopener" id="fbShare" href="#">Facebook</a>
@@ -493,15 +482,13 @@ bindDropdown('ire-dd-areas');
     </details>
     <details>
       <summary>هل يوجد فندق ومنطقة تجارية داخل المشروع؟</summary>
-      <p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية.</p>
+      <p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية لتلبية الاحتياجات اليومية.</p>
     </details>
   </section>
 
   <!-- ===== Contact ===== -->
   <section class="card" id="contact">
-    <div class="icon">
-      <img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية">
-    </div>
+    <div class="icon"><img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية"></div>
     <h3 style="text-align:center;margin:0 0 6px">تحتاج إلى مساعدة عقارية ؟</h3>
     <p class="sub" style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
     <form id="leadForm" novalidate>
@@ -551,70 +538,40 @@ bindDropdown('ire-dd-areas');
     {"@type":"Question","name":"هل يوجد تقسيط وعروض حالية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل لمعرفة أحدث الأنظمة."}},
     {"@type":"Question","name":"ما المسافة من القاهرة؟","acceptedAnswer":{"@type":"Answer","text":"حوالي 136 كم عبر طريق العين السخنة/الزعفرانة."}},
     {"@type":"Question","name":"هل الشاطئ خاص؟","acceptedAnswer":{"@type":"Answer","text":"نعم، شاطئ رملي خاص بطول يقارب 750 متر."}},
-    {"@type":"Question","name":"هل يوجد فندق ومنطقة تجارية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، فندق 4 نجوم ومطاعم ومقاهي ومنطقة تجارية داخل المشروع."}}
+    {"@type":"Question","name":"هل يوجد فندق ومنطقة تجارية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، فندق 4 نجوم ومطاعم ومقاهي ومنطقة تجارية."}}
   ]}
 ];const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(data);document.head.appendChild(s);})();
 
-/* بحث داخلي */
-(()=>{const I=document.getElementById('siteSearch'),B=document.getElementById('suggest');if(!I||!B)return;let IDX=[];
-fetch('/search-index.json',{cache:'no-store'}).then(r=>r.json()).then(j=>IDX=Array.isArray(j)?j:[]).catch(()=>IDX=[]);
-const mk=it=>{const a=document.createElement('a');a.href=it.url;a.textContent=it.title;a.setAttribute('aria-label',it.title);return a};
-function search(q){q=(q||'').trim().toLowerCase();if(!q)return[];
-return IDX.map(it=>{
-  const hay=(it.title+' '+(it.keywords||'')).toLowerCase();
-  const t=it.title.toLowerCase().includes(q)?2:0;
-  const k=hay.includes(q)?1:0;
-  return {...it,score:t+k}
-}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,8)}
-function render(list){B.innerHTML='';if(!list.length){B.style.display='none';return}
-list.forEach(r=>B.appendChild(mk(r)));B.style.display='block'}
-I.addEventListener('input',()=>render(search(I.value)));
-document.addEventListener('click',e=>{if(!B.contains(e.target)&&e.target!==I)B.style.display='none'});
-I.addEventListener('keydown',e=>{if(e.key==='Enter'){const f=B.querySelector('a');if(f)location.href=f.href;}})})();
+/* بحث داخلي مبسّط */
+(()=>{const I=document.getElementById('siteSearch'),B=document.getElementById('suggest');if(!I||!B)return;let IDX=[];fetch('/search-index.json',{cache:'no-store'}).then(r=>r.json()).then(j=>IDX=Array.isArray(j)?j:[]).catch(()=>IDX=[]);const mk=it=>{const a=document.createElement('a');a.href=it.url;a.textContent=it.title;a.setAttribute('aria-label',it.title);return a};function search(q){q=(q||'').trim().toLowerCase();if(!q)return[];return IDX.map(it=>{const hay=(it.title+' '+(it.keywords||'')).toLowerCase();const t=it.title.toLowerCase().includes(q)?2:0;const k=hay.includes(q)?1:0;return {...it,score:t+k}}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,8)}function render(list){B.innerHTML='';if(!list.length){B.style.display='none';return}list.forEach(r=>B.appendChild(mk(r)));B.style.display='block'}I.addEventListener('input',()=>render(search(I.value)));document.addEventListener('click',e=>{if(!B.contains(e.target)&&e.target!==I)B.style.display='none'});I.addEventListener('keydown',e=>{if(e.key==='Enter'){const f=B.querySelector('a');if(f)location.href=f.href;}})})();
 
 /* Slider + Lightbox + Share/Copy + Forms */
 (()=>{const sc=document.getElementById('slider');if(!sc)return;
-const next=document.getElementById('nextBtn'),prev=document.getElementById('prevBtn'),
-STEP=()=>Math.min(sc.clientWidth*.95,720);
+const next=document.getElementById('nextBtn'),prev=document.getElementById('prevBtn'),STEP=()=>Math.min(sc.clientWidth*.95,720);
 next?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?-1:1)*STEP(),behavior:'smooth'}));
 prev?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?1:-1)*STEP(),behavior:'smooth'}));
-let down=false,x0=0,l0=0;
-const st=e=>{down=true;x0=(e.pageX||e.touches?.[0].pageX);l0=sc.scrollLeft;sc.style.cursor='grabbing'},
-      mv=e=>{if(!down)return;const x=(e.pageX||e.touches?.[0].pageX);sc.scrollLeft=l0-(x-x0)*(document.dir==='rtl'?-1:1)},
-      ed=()=>{down=false;sc.style.cursor='grab'};
-sc.addEventListener('mousedown',st);sc.addEventListener('mousemove',mv);
-sc.addEventListener('mouseleave',ed);sc.addEventListener('mouseup',ed);
-sc.addEventListener('touchstart',st,{passive:true});
-sc.addEventListener('touchmove',mv,{passive:true});
-sc.addEventListener('touchend',ed);
+let down=false,x0=0,l0=0;const st=e=>{down=true;x0=(e.pageX||e.touches?.[0].pageX);l0=sc.scrollLeft;sc.style.cursor='grabbing'},mv=e=>{if(!down)return;const x=(e.pageX||e.touches?.[0].pageX);sc.scrollLeft=l0-(x-x0)*(document.dir==='rtl'?-1:1)},ed=()=>{down=false;sc.style.cursor='grab'};
+sc.addEventListener('mousedown',st);sc.addEventListener('mousemove',mv);sc.addEventListener('mouseleave',ed);sc.addEventListener('mouseup',ed);
+sc.addEventListener('touchstart',st,{passive:true});sc.addEventListener('touchmove',mv,{passive:true});sc.addEventListener('touchend',ed);
 
 /* Lightbox للصور والماستر بلان */
 const imgs=Array.from(sc.querySelectorAll('.slide img'));
-const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),
-      lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext'),
-      lbCount=document.getElementById('lbCount');
-const srcs=imgs.map(s=>s.src);let i=0;
-const setC=()=>lbCount.textContent=(i+1)+' / '+srcs.length;
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext'),lbCount=document.getElementById('lbCount');
+const srcs=imgs.map(s=>s.src);let i=0;const setC=()=>lbCount.textContent=(i+1)+' / '+srcs.length;
 function openLB(k){i=k;lbImg.src=srcs[i];setC();lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
 imgs.forEach((im,k)=>{im.style.cursor='zoom-in';im.addEventListener('click',()=>openLB(k))});
 lbNext.addEventListener('click',()=>{i=(i+1)%srcs.length;lbImg.src=srcs[i];setC()});
 lbPrev.addEventListener('click',()=>{i=(i-1+srcs.length)%srcs.length;lbImg.src=srcs[i];setC()});
 lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');lb.setAttribute('aria-hidden','true')}});
 
-/* فتح الماستر بلان داخل لايت بوكس */
 document.getElementById('openMaster').addEventListener('click',e=>{
-  e.preventDefault();
-  lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
-  lbCount.textContent='الماستر بلان';
-  lb.classList.add('open');lb.setAttribute('aria-hidden','false');
+  e.preventDefault();lbImg.src='https://k.top4top.io/p_35373aga50.jpg';lbCount.textContent='الماستر بلان';lb.classList.add('open');lb.setAttribute('aria-hidden','false');
 });
 
 /* Share + Copy */
 const URL=location.href.split('#')[0];
 const TEXT=`أفضل العروض والأسعار لمشروع مورانو وادي دجلة بالعين السخنة.\nوصف كامل + الموقع + الخدمات + ماستر بلان.\nللمزيد: ${URL}`;
-const shareBtn=document.getElementById('shareBtn'),
-      copyBtn=document.getElementById('copyBtn'),
-      panel=document.getElementById('sharePanel');
+const shareBtn=document.getElementById('shareBtn'),copyBtn=document.getElementById('copyBtn'),panel=document.getElementById('sharePanel');
 function setLinks(){
   document.getElementById('waShare').href=`https://wa.me/?text=${encodeURIComponent(TEXT)}`;
   document.getElementById('fbShare').href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(URL)}`;
@@ -622,29 +579,16 @@ function setLinks(){
 }
 setLinks();
 async function copy(t){try{await navigator.clipboard.writeText(t);alert('تم نسخ الرابط')}catch{alert('لم يتم النسخ')}}
-shareBtn?.addEventListener('click',async()=>{
-  try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla',text:TEXT,url:URL}); return; } }
-  catch(e){}
-  panel.classList.toggle('open');
-});
-document.addEventListener('click',e=>{ if(!panel.contains(e.target)) panel.classList.remove('open') });
+shareBtn?.addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:'Murano Wadi Degla',text:TEXT,url:URL});return}}catch(e){}panel.classList.toggle('open')});
+document.addEventListener('click',e=>{if(!panel.contains(e.target))panel.classList.remove('open')});
 document.getElementById('fallbackCopy').addEventListener('click',()=>copy(URL));
 copyBtn?.addEventListener('click',()=>copy(URL));
 
 /* واتساب/إيميل من الفورم */
 const val=id=>(document.getElementById(id)?.value||'').trim();
 const build=()=>({name:val('name'),project:val('project'),unit:val('unit'),rooms:val('rooms'),note:val('note')});
-document.getElementById('btnWA')?.addEventListener('click',()=>{
-  const d=build();
-  const txt=`مرحبا، أود الاستفسار عن ${d.project}.\nالاسم: ${d.name}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;
-  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
-});
-document.getElementById('btnMail')?.addEventListener('click',()=>{
-  const d=build();
-  const subject=`استفسار عن ${d.project}`;
-  const body=`الاسم: ${d.name}\nالمشروع: ${d.project}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;
-  location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+document.getElementById('btnWA')?.addEventListener('click',()=>{const d=build();const txt=`مرحبا، أود الاستفسار عن ${d.project}.\nالاسم: ${d.name}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank')});
+document.getElementById('btnMail')?.addEventListener('click',()=>{const d=build();const subject=`استفسار عن ${d.project}`;const body=`الاسم: ${d.name}\nالمشروع: ${d.project}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`});
 })();
 </script>
 
