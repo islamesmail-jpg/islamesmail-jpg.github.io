@@ -22,23 +22,27 @@ permalink: /murano.html
 <meta name="apple-mobile-web-app-title" content="إسلام للتسويق العقاري" />
 <meta property="og:site_name" content="إسلام للتسويق العقاري" />
 
-<!-- أيقونة الموقع -->
+<!-- Favicons -->
 <link rel="icon" type="image/png" href="https://b.top4top.io/p_3538236as0.png" sizes="32x32">
 <link rel="apple-touch-icon" href="https://b.top4top.io/p_3538236as0.png">
 
+<!-- Open Graph / Twitter -->
 <meta property="og:locale" content="ar_AR">
 <meta property="og:title" content="مشروع مورانو وادى دجلة العين السخنه | islam" />
 <meta property="og:description" content="كل تفاصيل Murano Wadi Degla: الموقع، المسافات، الماستر بلان، أنواع الوحدات، الخدمات، الفيديو والصور، والأسعار." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://islamesmail-jpg.github.io/murano.html" />
 <meta property="og:image" content="https://c.top4top.io/p_35249hfap2.jpg" />
+<meta property="og:image:alt" content="Murano Wadi Degla — صورة مشاركة" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="مشروع مورانو وادى دجلة العين السخنه | islam">
 <meta name="twitter:description" content="Murano Ain Sokhna: كل التفاصيل + صور وفيديو + تواصل مباشر.">
 <meta name="twitter:image" content="https://c.top4top.io/p_35249hfap2.jpg">
 
+<!-- Hidden Keywords -->
 <meta name="keywords" content="مورانو, قرية مورانو, مورانو العين السخنة, Murano Wadi Degla, وادي دجلة العقارية, مشروع مورانو السخنة, طريق الزعفرانة, شاليهات, فلل, شقق, تقسيط, إعادة بيع, أسعار المطور, أفضل قرى العين السخنة, Ain Sokhna, Egypt real estate, Islam Real Estate, إسلام للتسويق العقاري" />
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -47,67 +51,48 @@ permalink: /murano.html
   --accent:#0f172a; --field:#f3f4f6; --wrap:1120px;
   --line:#e5e7eb; --shadow:0 8px 18px rgba(0,0,0,.06);
   --chip-radius:12px; --chip-h:40px;
+  --ire-logo-h:56px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
-img{user-select:none;-webkit-user-drag:none}
-video{user-select:none}
+img, video{ -webkit-user-drag:none; user-drag:none }
+img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 
-/* ===== HEADER ===== */
-:root{ --ire-logo-h:56px; }
+/* ===== HEADER (نفس كود مورانو/لوجانو) ===== */
 .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ire-nav{max-width:1200px;margin:auto;padding:8px 14px;display:flex;align-items:center;gap:12px}
 .ire-brand{line-height:0;display:flex;align-items:center}
 .ire-brand img{height:var(--ire-logo-h);width:auto}
 .ire-spacer{flex:1}
-
-/* أزرار EN/التواصل/المناطق */
 .ire-chip{
-  height:var(--chip-h);
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:0 12px;border-radius:var(--chip-radius);
-  background:#fff;border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  font-weight:800;font-size:13px;color:#0f172a;
-  cursor:pointer;user-select:none;white-space:nowrap;
+  height:var(--chip-h);display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:0 12px;border-radius:var(--chip-radius);background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow);font-weight:800;font-size:13px;color:#0f172a;cursor:pointer;white-space:nowrap;
 }
 .ire-chip:hover{background:#f8fafc}
-
-/* Dropdown */
 .ire-dd{position:relative}
 .ire-panel{
-  position:absolute;inset-inline-end:0;top:calc(100% + 8px);
-  min-width:240px;background:#fff;border:1px solid var(--line);
+  position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:240px;background:#fff;border:1px solid var(--line);
   border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none
 }
 .ire-dd.open>.ire-panel{display:block}
-.ire-panel a{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;border-radius:10px;font-weight:700;color:#0f172a;text-decoration:none
-}
+.ire-panel a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-weight:700;color:#0f172a;text-decoration:none}
 .ire-panel a:hover{background:#f8fafc}
-
-/* روابط الـPC كنص + خط سفلي متدرّج */
 .ire-links{display:none}
 @media (min-width:981px){
-  #ire-dd-areas{display:none} /* PC: المناطق تظهر موبايل فقط */
+  #ire-dd-areas{display:none}
   .ire-links{display:flex;gap:16px;margin-inline-start:14px;align-items:center}
   .ire-links a{
-    display:inline-flex;align-items:center;
-    font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;
+    display:inline-flex;align-items:center;font-weight:800;font-size:15px;color:#0f172a;text-decoration:none;
     padding:6px 0; position:relative;
   }
   .ire-links a::after{
-    content:""; position:absolute; inset-inline-start:0; bottom:-4px;
-    width:0%; height:3px; border-radius:3px;
-    background-image:linear-gradient(90deg,#0f172a,#334155);
-    transition:width .25s ease;
+    content:""; position:absolute; inset-inline-start:0; bottom:-4px; width:0%; height:3px; border-radius:3px;
+    background-image:linear-gradient(90deg,#0f172a,#334155); transition:width .25s ease;
   }
   .ire-links a:hover::after{width:100%}
 }
-
-/* ترتيب الموبايل: مناطق ▾ ثم تواصل ▾ ثم EN */
 .ire-actions{display:flex;gap:8px}
 @media (max-width:980px){
   .ire-brand img{height:50px}
@@ -126,6 +111,16 @@ video{user-select:none}
 }
 .breadcrumb a:hover{background-size:100% 2px;color:#0f172a}
 .breadcrumb .sep{opacity:.6;margin:0 .35rem}
+
+/* ===== Search (بلوك البحث) ===== */
+.search-wrap{background:#fff;border-bottom:1px solid var(--line);width:100%}
+.search-inner{max-width:var(--wrap);margin:auto;padding:10px 16px;position:relative}
+.search-box{display:flex;gap:10px}
+.search-box input{flex:1;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.suggest{position:absolute;top:100%;inset-inline-start:16px;right:16px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:6px;display:none;max-height:280px;overflow:auto;z-index:1200}
+.suggest a{display:block;padding:10px 12px;color:#111;text-decoration:none;border-bottom:1px solid #f3f4f6}
+.suggest a:last-child{border-bottom:0}
+.suggest a:hover{background:#f9fafb}
 
 /* ===== Hero ===== */
 .hero{padding:22px 14px;border-bottom:1px solid var(--line);background:#f9fafb}
@@ -158,7 +153,7 @@ video{user-select:none}
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
 
-/* شارة فوق السلايدر */
+/* شارة المطوّر فوق السلايدر */
 .slider-badge{position:absolute;bottom:10px;inset-inline-start:14px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:12px;padding:6px 10px;z-index:6;text-decoration:none;color:#111}
 .slider-badge img{height:18px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:12px}
@@ -236,7 +231,7 @@ button:hover{filter:brightness(.95)}
 
     <div class="ire-spacer"></div>
 
-    <!-- موبايل: مناطق ▾ ثم تواصل ▾ ثم EN (جنب بعض) | PC: روابط نصية -->
+    <!-- موبايل: مناطق ▾ ثم تواصل ▾ ثم EN | PC: روابط نصية -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <div class="ire-dd" id="ire-dd-areas">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
@@ -305,6 +300,16 @@ bindDropdown('ire-dd-areas');
     <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
     <a href="/zafarana.html">طريق الزعفرانة</a><span class="sep">»</span>
     <span aria-current="page">مورانو</span>
+  </div>
+</div>
+
+<!-- ===== SEARCH ===== -->
+<div class="search-wrap" role="search" aria-label="بحث">
+  <div class="search-inner">
+    <div class="search-box">
+      <input id="siteSearch" type="search" placeholder="ابحث عن مشروع أو مطوّر…" autocomplete="off" aria-label="بحث داخلي" />
+    </div>
+    <div id="suggest" class="suggest" aria-live="polite"></div>
   </div>
 </div>
 
@@ -476,9 +481,7 @@ bindDropdown('ire-dd-areas');
 
   <!-- ===== Contact ===== -->
   <section class="card" id="contact">
-    <div class="icon">
-      <img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية">
-    </div>
+    <div class="icon"><img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية"></div>
     <h3 style="text-align:center;margin:0 0 6px">تحتاج إلى مساعدة عقارية ؟</h3>
     <p class="sub" style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
     <form id="leadForm" novalidate>
@@ -509,9 +512,10 @@ bindDropdown('ire-dd-areas');
 
 </div>
 
+<!-- ===== Footer include (ثابت) ===== -->
 {% include footer-ar.html %}
 
-<!-- Lightbox -->
+<!-- ===== Lightbox ===== -->
 <div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور">
   <div id="lbCount" class="counter" aria-live="polite"></div>
   <button class="nav left" id="lbPrev" aria-label="السابق">‹</button>
@@ -519,7 +523,7 @@ bindDropdown('ire-dd-areas');
   <button class="nav right" id="lbNext" aria-label="التالي">›</button>
 </div>
 
-<!-- JSON-LD + سكربتات -->
+<!-- ===== JSON-LD ===== -->
 <script>
 (()=>{const data=[
   {"@context":"https://schema.org","@type":"WebSite","name":"إسلام للتسويق العقاري","alternateName":"Islam Real Estate","url":location.origin + "/","potentialAction":{"@type":"SearchAction","target": location.origin + "/search?q={query}","query-input":"required name=query"}},
@@ -537,10 +541,12 @@ bindDropdown('ire-dd-areas');
     {"@type":"Question","name":"هل يوجد فندق ومنطقة تجارية؟","acceptedAnswer":{"@type":"Answer","text":"نعم، فندق 4 نجوم ومنطقة تجارية داخل المشروع."}}
   ]}
 ];const s=document.createElement('script');s.type='application/ld+json';s.textContent=JSON.stringify(data);document.head.appendChild(s);})();
+</script>
 
-/* Slider + Lightbox + Share/Copy + Forms */
+<!-- ===== Slider + Lightbox + Share/Copy + Forms ===== -->
+<script>
 (()=>{const sc=document.getElementById('slider');if(!sc)return;
-/* سحب + أسهم */
+/* أسهم + سحب */
 const next=document.getElementById('nextBtn'),prev=document.getElementById('prevBtn'),STEP=()=>Math.min(sc.clientWidth*.95,720);
 next?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?-1:1)*STEP(),behavior:'smooth'}));
 prev?.addEventListener('click',()=>sc.scrollBy({left:(document.dir==='rtl'?1:-1)*STEP(),behavior:'smooth'}));
@@ -608,7 +614,62 @@ document.getElementById('btnMail')?.addEventListener('click',()=>{
 })();
 </script>
 
-<!-- Floating WhatsApp -->
+<!-- ===== SEARCH SCRIPT (نفس كود لوجانو) ===== -->
+<script>
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
+
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
+
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
+
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+</script>
+
+<!-- ===== Floating WhatsApp ===== -->
 <a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="تواصل واتساب">
   <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
 </a>
