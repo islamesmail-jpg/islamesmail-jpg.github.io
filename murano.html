@@ -40,7 +40,7 @@ permalink: /murano.html
 <meta name="twitter:image" content="https://c.top4top.io/p_35249hfap2.jpg">
 
 <!-- Hidden Keywords -->
-<meta name="keywords" content="مورانو, قرية مورانو, مورانو العين السخنة, Murano Wadi Degla, وادي دجلة العقارية, مشروع مورانو السخنة, طريق الزعفرانة, شاليهات, فلل, شقق, تقسيط, إعادة بيع, أسعار المطور, أفضل قرى العين السخنة, Ain Sokhna, Egypt real estate, Islam Real Estate, إسلام للتسويق العقاري" />
+<meta name="keywords" content="مورانو, قرية مورانو, مورانو العين السخنة, Murano Wadi Degla, وادي دجلة العقارية, مشروع مورانو السخنة, طريق الزعفرانة, شاليهات, فلل, شقق, تقسيط, إعادة بيع, أسعار المطور, أفضل قرى العين السخنة, Ain Sokhna, Egypt real estate, Islam Real Estate, إسلام للتسويق العقاري, أقرب قرية للقاهرة" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:"Tajawal",Arial
 img, video{ -webkit-user-drag:none; user-drag:none }
 img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 
-/* ===== HEADER (نفس كود مورانو/لوجانو) ===== */
+/* ===== HEADER ===== */
 .ire-topbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .ire-nav{max-width:1200px;margin:auto;padding:8px 14px;display:flex;align-items:center;gap:12px}
 .ire-brand{line-height:0;display:flex;align-items:center}
@@ -112,15 +112,32 @@ img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 .breadcrumb a:hover{background-size:100% 2px;color:#0f172a}
 .breadcrumb .sep{opacity:.6;margin:0 .35rem}
 
-/* ===== Search (بلوك البحث) ===== */
+/* ===== SEARCH (شريط + فلاتر + سَجِست) ===== */
 .search-wrap{background:#fff;border-bottom:1px solid var(--line);width:100%}
 .search-inner{max-width:var(--wrap);margin:auto;padding:10px 16px;position:relative}
-.search-box{display:flex;gap:10px}
-.search-box input{flex:1;background:var(--field);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.search-bar{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.search-input{flex:1;display:flex;align-items:center;gap:8px;padding:10px 12px}
+.search-input input{width:100%;border:0;outline:0;font-size:14px;background:var(--field);border-radius:12px;padding:10px 12px}
+.search-actions{display:flex;gap:6px;align-items:center;padding:6px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#f8fafc;cursor:pointer}
+.icon-btn:hover{background:#fff}
+.icon-btn img{width:22px;height:22px}
 .suggest{position:absolute;top:100%;inset-inline-start:16px;right:16px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);margin-top:6px;display:none;max-height:280px;overflow:auto;z-index:1200}
 .suggest a{display:block;padding:10px 12px;color:#111;text-decoration:none;border-bottom:1px solid #f3f4f6}
 .suggest a:last-child{border-bottom:0}
 .suggest a:hover{background:#f9fafb}
+
+/* Filter panel */
+.filter-panel{margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;display:none}
+.filter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.filter-grid label{font-size:12px;color:#64748b;display:block;margin-bottom:6px}
+.filter-grid select{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.range-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.range-grid input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.filter-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.btn{padding:10px 14px;border-radius:12px;border:1px solid var(--line);cursor:pointer;font-weight:700}
+.btn-primary{background:#0b3a5e;color:#fff;border-color:#0b3a5e}
+.btn-outline{background:#fff}
 
 /* ===== Hero ===== */
 .hero{padding:22px 14px;border-bottom:1px solid var(--line);background:#f9fafb}
@@ -152,8 +169,6 @@ img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none }
 .arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);z-index:5}
 .arrow.left{inset-inline-start:8px}
 .arrow.right{inset-inline-end:8px}
-
-/* شارة المطوّر فوق السلايدر */
 .slider-badge{position:absolute;bottom:10px;inset-inline-start:14px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:12px;padding:6px 10px;z-index:6;text-decoration:none;color:#111}
 .slider-badge img{height:18px;width:auto;border-radius:6px}
 .slider-badge .t{font-size:12px}
@@ -214,9 +229,29 @@ textarea{min-height:100px;resize:vertical}
 button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
 button:hover{filter:brightness(.95)}
 
+/* Units (قسم وحدات متاحة داخل الصفحة) */
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.unit{overflow:hidden}
+.unit .cover{height:190px;background:#eef2f7;display:block}
+.unit .body{padding:12px}
+.unit h3{margin:0 0 6px;font-size:18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:#475569}
+.actions{display:flex;gap:8px;margin-top:10px}
+.button{display:inline-block;border:1px solid var(--line);padding:10px 12px;border-radius:12px;text-decoration:none;color:#0f172a;font-weight:700}
+.button.primary{background:#0b3a5e;border-color:#0b3a5e;color:#fff}
+.button.accent{background:#e4c24a;border-color:#e4c24a;color:#111}
+
 /* Floating WhatsApp */
 .fab-wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .fab-wa img{width:32px;height:32px}
+
+/* Responsive tweaks */
+@media (max-width:960px){.units{grid-template-columns:1fr 1fr}}
+@media (max-width:720px){
+  .filter-grid{grid-template-columns:1fr 1fr}
+  .range-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.units{grid-template-columns:1fr}}
 </style>
 </head>
 <body oncontextmenu="return false">
@@ -224,14 +259,10 @@ button:hover{filter:brightness(.95)}
 <!-- ===== HEADER ===== -->
 <header class="ire-topbar" aria-label="الشريط العلوي">
   <div class="ire-nav">
-    <!-- Logo -->
     <a class="ire-brand" href="index.html" aria-label="الرئيسية">
       <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري — الشعار">
     </a>
-
     <div class="ire-spacer"></div>
-
-    <!-- موبايل: مناطق ▾ ثم تواصل ▾ ثم EN | PC: روابط نصية -->
     <div class="ire-actions" aria-label="عناصر الهيدر">
       <div class="ire-dd" id="ire-dd-areas">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
@@ -243,7 +274,6 @@ button:hover{filter:brightness(.95)}
           <a href="list.html">أعرض وحدتك</a>
         </div>
       </div>
-
       <div class="ire-dd" id="ire-dd-contact">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
         <div class="ire-panel" role="menu" aria-label="روابط التواصل">
@@ -252,11 +282,8 @@ button:hover{filter:brightness(.95)}
           <a href="mailto:islammesmail@gmail.com">الإيميل</a>
         </div>
       </div>
-
       <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
     </div>
-
-    <!-- PC: روابط نصية مباشرة -->
     <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
       <a href="sokhna.html">العين السخنة</a>
       <a href="north.html">الساحل الشمالي</a>
@@ -267,7 +294,6 @@ button:hover{filter:brightness(.95)}
   </div>
 </header>
 
-<!-- سكربتات الهيدر -->
 <script>
 function bindDropdown(id){
   const dd=document.getElementById(id); if(!dd) return;
@@ -291,7 +317,6 @@ bindDropdown('ire-dd-areas');
   document.querySelectorAll('[data-ire-lang="en"]').forEach(el=> el.addEventListener('click', switchEN));
 })();
 </script>
-<!-- ===== /HEADER ===== -->
 
 <!-- ===== Breadcrumb ===== -->
 <div class="breadcrumb" aria-label="Breadcrumbs">
@@ -303,13 +328,100 @@ bindDropdown('ire-dd-areas');
   </div>
 </div>
 
-<!-- ===== SEARCH ===== -->
+<!-- ===== SEARCH (شريط + أيقونات + فلاتر + سَجِست) ===== -->
 <div class="search-wrap" role="search" aria-label="بحث">
   <div class="search-inner">
-    <div class="search-box">
-      <input id="siteSearch" type="search" placeholder="ابحث عن مشروع أو مطوّر…" autocomplete="off" aria-label="بحث داخلي" />
+    <div class="search-bar">
+      <div class="search-input">
+        <input id="siteSearch" type="search" placeholder="ابحث عن مشروع أو مطوّر…" autocomplete="off" aria-autocomplete="list" aria-controls="suggest" />
+      </div>
+      <div class="search-actions">
+        <button id="filterToggle" class="icon-btn" title="Filters" aria-expanded="false" aria-controls="filterPanel">
+          <img src="https://f.top4top.io/p_3546zedm00.png" alt="فلتر">
+        </button>
+        <button id="searchGo" class="icon-btn" title="Search">
+          <img src="https://h.top4top.io/p_35464imy82.png" alt="بحث">
+        </button>
+      </div>
     </div>
-    <div id="suggest" class="suggest" aria-live="polite"></div>
+    <div id="suggest" class="suggest" role="listbox" aria-label="Suggestions"></div>
+
+    <!-- لوحة الفلاتر -->
+    <div id="filterPanel" class="filter-panel" aria-hidden="true">
+      <div class="filter-grid">
+        <div>
+          <label for="fDeveloper">المطوّر / Developer</label>
+          <select id="fDeveloper"><option value="">— الكل / Any —</option></select>
+        </div>
+        <div>
+          <label for="fProject">المشروع / Project</label>
+          <select id="fProject"><option value="">— الكل / Any —</option></select>
+        </div>
+        <div>
+          <label for="fBedrooms">عدد الغرف / Bedrooms</label>
+          <select id="fBedrooms">
+            <option value="">— الكل / Any —</option>
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4+</option>
+          </select>
+        </div>
+        <div>
+          <label for="fUnitType">نوع الوحدة / Unit type</label>
+          <select id="fUnitType">
+            <option value="">— الكل / Any —</option>
+            <option value="chalet">شاليه</option>
+            <option value="apartment">شقة</option>
+            <option value="villa">فيلا</option>
+            <option value="townhouse">تاون هاوس</option>
+            <option value="twinhouse">توين هاوس</option>
+            <option value="studio">ستوديو</option>
+          </select>
+        </div>
+        <div>
+          <label for="fPayment">طريقة السداد / Payment</label>
+          <select id="fPayment">
+            <option value="">— الكل / Any —</option>
+            <option value="cash">كاش</option>
+            <option value="installments">تقسيط</option>
+          </select>
+        </div>
+        <div>
+          <label for="fDelivery">مدة الاستلام / Delivery</label>
+          <select id="fDelivery">
+            <option value="">— الكل / Any —</option>
+            <option value="0">فوري</option>
+            <option value="6">≤ 6 شهور</option>
+            <option value="12">≤ 12 شهر</option>
+            <option value="24">≤ 24 شهر</option>
+            <option value="36">≤ 36 شهر</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="range-grid">
+        <div><label for="fPriceMin">أقل سعر / Min price</label><input id="fPriceMin" type="number" inputmode="numeric" placeholder="EGP" /></div>
+        <div><label for="fPriceMax">أعلى سعر / Max price</label><input id="fPriceMax" type="number" inputmode="numeric" placeholder="EGP" /></div>
+        <div><label for="fAreaMin">أقل مساحة / Min area</label><input id="fAreaMin" type="number" inputmode="numeric" placeholder="m²" /></div>
+        <div><label for="fAreaMax">أقصى مساحة / Max area</label><input id="fAreaMax" type="number" inputmode="numeric" placeholder="m²" /></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label for="fSort">ترتيب / Sort</label>
+        <select id="fSort" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff">
+          <option value="">— الافتراضي / Default —</option>
+          <option value="price_asc">السعر ↑</option>
+          <option value="price_desc">السعر ↓</option>
+          <option value="area_asc">المساحة ↑</option>
+          <option value="area_desc">المساحة ↓</option>
+          <option value="delivery_asc">الأقرب استلامًا</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button class="btn btn-outline" id="clearFilters">مسح / Clear</button>
+        <button class="btn btn-primary" id="applyFilters">بحث / Apply</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -346,7 +458,7 @@ bindDropdown('ire-dd-areas');
     </div>
   </section>
 
-  <!-- ===== Slider (يفتح لايت بوكس) ===== -->
+  <!-- ===== Slider (الصور الأصلية كما كانت) ===== -->
   <div class="slider-wrap" id="gallery">
     <button class="arrow left" id="prevBtn" aria-label="السابق">‹</button>
     <button class="arrow right" id="nextBtn" aria-label="التالي">›</button>
@@ -458,25 +570,22 @@ bindDropdown('ire-dd-areas');
     </ul>
   </section>
 
+  <!-- ===== وحدات متاحة داخل الصفحة (الصورة التي أرسلتها هنا فقط) ===== -->
+  <section id="units" class="card" style="padding:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      <h2 style="margin:0">وحدات متاحة في مورانو</h2>
+      <a class="button accent" href="/murano-unit.html">عرض كل الوحدات</a>
+    </div>
+    <div id="unitsGrid" class="units" style="margin-top:12px"></div>
+  </section>
+
   <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <h2>أسئلة شائعة عن مورانو</h2>
-    <details>
-      <summary>هل يوجد تقسيط وعروض حالية؟</summary>
-      <p>نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل معنا لمعرفة أحدث الأنظمة المناسبة لميزانيتك.</p>
-    </details>
-    <details>
-      <summary>ما المسافة من القاهرة؟</summary>
-      <p>حوالي 136 كم عبر طريق العين السخنة/الزعفرانة، مع وصول سهل من الطرق والمحاور الرئيسية.</p>
-    </details>
-    <details>
-      <summary>هل الشاطئ خاص؟ وما طوله؟</summary>
-      <p>يوجد شاطئ رملي خاص بطول يقارب 750 متر مع مرافق وخدمات على البحر.</p>
-    </details>
-    <details>
-      <summary>هل يوجد فندق ومنطقة تجارية داخل المشروع؟</summary>
-      <p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية لتلبية الاحتياجات اليومية.</p>
-    </details>
+    <details><summary>هل يوجد تقسيط وعروض حالية؟</summary><p>نعم، تتوفر خطط تقسيط مرنة وعروض موسمية. تواصل معنا لمعرفة أحدث الأنظمة المناسبة لميزانيتك.</p></details>
+    <details><summary>ما المسافة من القاهرة؟</summary><p>حوالي 136 كم عبر طريق العين السخنة/الزعفرانة، مع وصول سهل من الطرق والمحاور الرئيسية.</p></details>
+    <details><summary>هل الشاطئ خاص؟ وما طوله؟</summary><p>يوجد شاطئ رملي خاص بطول يقارب 750 متر مع مرافق وخدمات على البحر.</p></details>
+    <details><summary>هل يوجد فندق ومنطقة تجارية داخل المشروع؟</summary><p>نعم، منتجع فندقي 4 نجوم، إلى جانب مطاعم ومقاهي ومنطقة تجارية لتلبية الاحتياجات اليومية.</p></details>
   </section>
 
   <!-- ===== Contact ===== -->
@@ -512,7 +621,7 @@ bindDropdown('ire-dd-areas');
 
 </div>
 
-<!-- ===== Footer include (ثابت) ===== -->
+<!-- ===== Footer include ===== -->
 {% include footer-ar.html %}
 
 <!-- ===== Lightbox ===== -->
@@ -614,58 +723,184 @@ document.getElementById('btnMail')?.addEventListener('click',()=>{
 })();
 </script>
 
-<!-- ===== SEARCH SCRIPT (نفس كود لوجانو) ===== -->
+<!-- ===== SEARCH + FILTER SCRIPT (يوجه لصفحة الوحدات) ===== -->
 <script>
 (function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX   = document.getElementById('suggest');
-  if(!INPUT || !BOX) return;
+  const INPUT=document.getElementById('siteSearch');
+  const BOX=document.getElementById('suggest');
+  const FILTERS=document.getElementById('filterPanel');
+  const TOGGLE=document.getElementById('filterToggle');
+  const GO=document.getElementById('searchGo');
+  const F_DEV=document.getElementById('fDeveloper');
+  const F_PROJ=document.getElementById('fProject');
+  const F_BED=document.getElementById('fBedrooms');
+  const F_TYPE=document.getElementById('fUnitType');
+  const F_PAY=document.getElementById('fPayment');
+  const F_DEL=document.getElementById('fDelivery');
+  const F_PMIN=document.getElementById('fPriceMin');
+  const F_PMAX=document.getElementById('fPriceMax');
+  const F_AMIN=document.getElementById('fAreaMin');
+  const F_AMAX=document.getElementById('fAreaMax');
+  const F_SORT=document.getElementById('fSort');
+  const CLEAR=document.getElementById('clearFilters');
+  const APPLY=document.getElementById('applyFilters');
 
-  let SITE_INDEX = [];
-  fetch('/search-index.json', {cache:'no-store'})
-    .then(r => r.json())
-    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-    .catch(() => SITE_INDEX = []);
+  if(!INPUT||!BOX) return;
+  const LANG='ar';
+  let SITE_INDEX=[];
+  const UNITS_ROUTES={ 'murano':{ar:'/murano-unit.html',en:'/murano-unit-en.html'} };
 
-  const makeItem = it => {
-    const a = document.createElement('a');
-    a.href = it.url;
-    a.textContent = it.title;
-    return a;
-  };
+  // اطلب فهرس الموقع
+  fetch('/search-index.json',{cache:'no-store'})
+    .then(r=>r.json())
+    .then(json=>{ SITE_INDEX=Array.isArray(json)?json:[]; buildFilterOptions(SITE_INDEX); })
+    .catch(()=>{ SITE_INDEX=[]; });
 
+  function buildFilterOptions(data){
+    const uniq=a=>[...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCompare(y,'ar',{sensitivity:'base'}));
+    uniq(data.map(x=>x.developer)).forEach(v=> F_DEV.insertAdjacentHTML('beforeend',`<option value="${escapeAttr(v)}">${v}</option>`));
+    uniq(data.map(x=>x.project)).forEach(v=> F_PROJ.insertAdjacentHTML('beforeend',`<option value="${escapeAttr(v)}">${v}</option>`));
+  }
+  function escapeAttr(s){return String(s||'').replaceAll('"','&quot;');}
+
+  // اقتراحات
+  const makeItem=it=>{const a=document.createElement('a');a.href=it.url;a.textContent=it.title;a.setAttribute('role','option');return a;};
   function search(q){
-    q = (q || '').trim().toLowerCase();
-    if(!q) return [];
-    return SITE_INDEX
-      .map(it=>{
-        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
-        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
-        const inKeys  = hay.includes(q) ? 1 : 0;
-        return {...it, score: inTitle + inKeys};
-      })
-      .filter(x => x.score > 0)
-      .sort((a,b) => b.score - a.score)
-      .slice(0,8);
+    q=(q||'').trim().toLowerCase(); if(!q) return [];
+    return SITE_INDEX.map(it=>{
+      const hay=(it.title+' '+(it.keywords||'')+' '+(it.project||'')+' '+(it.developer||'')+' '+(it.area_name||'')).toLowerCase();
+      const inTitle=(it.title||'').toLowerCase().includes(q)?2:0;
+      const inKeys = hay.includes(q)?1:0;
+      return {...it,score:inTitle+inKeys};
+    }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,8);
   }
-
   function render(list){
-    BOX.innerHTML = '';
-    if(list.length === 0){ BOX.style.display='none'; return; }
-    list.forEach(r => BOX.appendChild(makeItem(r)));
-    BOX.style.display = 'block';
+    BOX.innerHTML=''; if(!list.length){BOX.style.display='none';return;}
+    list.forEach(r=>BOX.appendChild(makeItem(r))); BOX.style.display='block';
   }
 
-  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-  document.addEventListener('click', (e)=>{
-    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  INPUT.addEventListener('input',()=> render(search(INPUT.value)));
+  document.addEventListener('click',(e)=>{ if(!BOX.contains(e.target)&&e.target!==INPUT) BOX.style.display='none'; });
+  INPUT.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ e.preventDefault(); doSearch(); }});
+  GO.addEventListener('click',doSearch);
+
+  // فتح/غلق الفلاتر
+  TOGGLE.addEventListener('click',()=>{
+    const open=FILTERS.style.display==='block';
+    FILTERS.style.display=open?'none':'block';
+    TOGGLE.setAttribute('aria-expanded', String(!open));
+    FILTERS.setAttribute('aria-hidden', String(open));
   });
-  INPUT.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter'){
-      const first = BOX.querySelector('a');
-      if(first){ window.location.href = first.href; }
+
+  CLEAR.addEventListener('click',()=>{
+    [F_DEV,F_PROJ,F_BED,F_TYPE,F_PAY,F_DEL,F_PMIN,F_PMAX,F_AMIN,F_AMAX].forEach(el=> el.value='');
+    F_SORT.value='';
+  });
+
+  APPLY.addEventListener('click',()=>{
+    const chosen=collectFilters();
+    navigateToUnits(chosen);
+  });
+
+  function collectFilters(){
+    return {
+      developer:F_DEV.value, project:F_PROJ.value,
+      bedrooms:F_BED.value, unit_type:F_TYPE.value,
+      payment:F_PAY.value,  delivery:F_DEL.value,
+      price_min:F_PMIN.value, price_max:F_PMAX.value,
+      area_min:F_AMIN.value,  area_max:F_AMAX.value,
+      sort:F_SORT.value
+    };
+  }
+
+  function doSearch(){
+    const hasFilter=[F_DEV.value,F_PROJ.value,F_BED.value,F_TYPE.value,F_PAY.value,F_DEL.value,F_PMIN.value,F_PMAX.value,F_AMIN.value,F_AMAX.value,F_SORT.value].some(Boolean);
+    if(hasFilter){ navigateToUnits(collectFilters()); return; }
+    const first=BOX.querySelector('a');
+    if(first){ window.location.href=first.href; return; }
+    const q=(INPUT.value||'').trim(); if(!q) return;
+    const guess=guessProjectFromText(q);
+    if(guess){ window.location.href=resolveUnitsUrl(guess,LANG,{}); }
+  }
+
+  function guessProjectFromText(text){
+    const q=(text||'').toLowerCase(); if(!q) return '';
+    const hit=SITE_INDEX.find(it=>(it.project||'').toLowerCase().includes(q)||(it.title||'').toLowerCase().includes(q));
+    return hit ? (hit.project || hit.title) : '';
+  }
+  function slugify(s){
+    return String(s||'').trim().toLowerCase()
+      .replace(/[\u0621-\u064A\s]+/g, s=> s===' ' ? '-' : s)
+      .replace(/[^a-z0-9\-\u0621-\u064A]/g,'').replace(/-+/g,'-');
+  }
+  function buildQS(obj){
+    const esc=encodeURIComponent;
+    return Object.entries(obj).filter(([,v])=> String(v||'').trim()!=='').map(([k,v])=>`${esc(k)}=${esc(v)}`).join('&');
+  }
+  function resolveUnitsUrl(projectName, lang, filters){
+    const key=(projectName||'').trim().toLowerCase();
+    let route = UNITS_ROUTES[key]?.[lang] || UNITS_ROUTES[key]?.ar;
+    if(!route){
+      const base=slugify(projectName||'units');
+      route = lang==='en' ? `/${base}-unit-en.html` : `/${base}-unit.html`;
     }
-  });
+    const qs=buildQS({
+      q:(INPUT.value||'').trim(),
+      developer:filters.developer||'',
+      project:projectName||'',
+      bedrooms:filters.bedrooms||'',
+      unit_type:filters.unit_type||'',
+      payment:filters.payment||'',
+      delivery:filters.delivery||'',
+      price_min:filters.price_min||'',
+      price_max:filters.price_max||'',
+      area_min:filters.area_min||'',
+      area_max:filters.area_max||'',
+      sort:filters.sort||''
+    });
+    return qs ? `${route}?${qs}` : route;
+  }
+  function navigateToUnits(filters){
+    const pname = filters.project || (search(INPUT.value)[0]?.project) || guessProjectFromText(INPUT.value) || 'murano';
+    const url = resolveUnitsUrl(pname, LANG, filters);
+    window.location.href = url;
+  }
+})();
+</script>
+
+<!-- ===== Inline Units (عرض سريع داخل الصفحة) ===== -->
+<script>
+(function(){
+  // استخدمنا صورتك هنا فقط في الوحدات المتاحة
+  const IMG="https://l.top4top.io/p_3547oj09j1.jpg";
+  const UNITS=[
+    {id:"mu-101", title:"شاليه 2 غرف — 95م² فرش جزئي", price:4200000, area:95, bedrooms:2, unit_type:"chalet", payment:"installments", delivery_months:12, href:"/murano-unit.html#mu-101", img:IMG},
+    {id:"mu-102", title:"شاليه 1 غرفة — 65م² سوبر لوكس", price:3150000, area:65, bedrooms:1, unit_type:"chalet", payment:"cash", delivery_months:0, href:"/murano-unit.html#mu-102", img:IMG},
+    {id:"mu-103", title:"توين هاوس — 3 غرف — 180م²", price:9800000, area:180, bedrooms:3, unit_type:"twinhouse", payment:"installments", delivery_months:24, href:"/murano-unit.html#mu-103", img:IMG}
+  ];
+  const grid=document.getElementById('unitsGrid'); if(!grid) return;
+  const fmt=(n)=> new Intl.NumberFormat('ar-EG').format(n);
+  grid.innerHTML=UNITS.map(u=>`
+    <article class="unit card" id="\${u.id}">
+      <a class="cover" href="\${u.href}">
+        <img loading="lazy" alt="\${u.title}" src="\${u.img}" style="width:100%;height:100%;object-fit:cover">
+      </a>
+      <div class="body">
+        <h3>\${u.title}</h3>
+        <div class="meta">
+          <span>المساحة \${u.area} م²</span>
+          <span>غرف \${u.bedrooms}</span>
+          <span>\${u.payment==='cash'?'كاش':'تقسيط'}</span>
+          <span>\${u.delivery_months===0?'استلام فوري':`≤ \${u.delivery_months} شهر`}</span>
+        </div>
+        <div class="actions">
+          <a class="button" href="\${u.href}">التفاصيل</a>
+          <a class="button primary" href="https://wa.me/201050072527?text=\${encodeURIComponent('مهتم بوحدة '+u.id+' في مورانو')}" target="_blank">واتساب</a>
+        </div>
+        <div class="meta" style="margin-top:6px"><strong>EGP \${fmt(u.price)}</strong></div>
+      </div>
+    </article>
+  `).join('');
 })();
 </script>
 
