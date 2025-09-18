@@ -6,138 +6,147 @@ permalink: /murano.html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>مشروع مورانو وادى دجلة العين السخنه | islam</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<!-- خط راقي وموحّد -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
 <style>
-/* ====== تثبيت الهيدر ضد أي CSS خارجي ====== */
-.ire-topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:1000}
-.ire-nav{max-width:1120px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 14px}
-.ire-brand img{height:56px;width:auto;display:block}
-.ire-links a,.ire-chip,.ire-panel a{all:unset}
-.ire-links a,.ire-panel a{cursor:pointer;color:#111827;text-decoration:none;font-weight:800}
-.ire-links{margin-inline-start:auto;display:none;gap:14px}
-.ire-actions{margin-inline-start:auto;display:flex;gap:10px}
-.ire-chip{border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer}
-.ire-dd{position:relative}
-.ire-panel{position:absolute;top:42px;inset-inline-start:0;background:#fff;border:1px solid #e5e7eb;border-radius:12px;min-width:180px;box-shadow:0 10px 24px rgba(2,8,23,.12);display:none;padding:8px}
-.ire-panel a{display:block;padding:8px 10px;border-radius:10px}
-.ire-panel a:hover{background:#f3f4f6}
-.ire-dd.open .ire-panel{display:block}
-@media(min-width:1024px){.ire-links{display:flex}}
+/* ============ أساسيات عامة ============ */
+:root{
+  --wrap:1180px;
+  --line:#e5e7eb;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --brand:#0b3a5e;
+  --shadow:0 10px 26px rgba(2,8,23,.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.9}
 
-/* ====== Murano Page Scope ====== */
-.mu-scope{--wrap:1120px;--line:#e5e7eb;--shadow:0 8px 18px rgba(0,0,0,.06);--ink:#0f172a;--brand:#0b3a5e}
-.mu-scope *{box-sizing:border-box}
-.mu-scope h1,h2,h3{margin:0 0 10px}
-.mu-scope .container{max-width:var(--wrap);margin:auto;padding:0 14px}
+/* ============ هيدر ثابت أنيق ============ */
+.ire-topbar{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line)}
+.ire-nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 14px}
+.ire-group{display:flex;gap:10px;align-items:center}
+.ire-chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:#fff;font-weight:800;cursor:pointer}
+.ire-dd{position:relative}
+.ire-panel{position:absolute;top:48px;inset-inline-start:0;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:200px;box-shadow:0 14px 36px rgba(2,8,23,.12);display:none;padding:8px}
+.ire-dd.open .ire-panel{display:block}
+.ire-panel a{display:block;padding:10px;border-radius:10px;color:#111827;text-decoration:none;font-weight:800}
+.ire-panel a:hover{background:#f3f4f6}
+.ire-brand{margin-inline-start:auto}
+.ire-brand img{height:56px;width:auto;display:block}
+
+/* ============ صفحة مورانو (نطاق خاص) ============ */
+.mu{--card:#fff}
+.mu .container{max-width:var(--wrap);margin:auto;padding:0 14px}
+.mu h1,h2,h3{margin:0 0 10px}
 
 /* breadcrumb */
-.mu-scope .breadcrumb{border-bottom:1px solid var(--line);background:#fff}
-.mu-scope .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:10px 14px;font-size:14px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
-.mu-scope .breadcrumb a{color:#1f2937;text-decoration:none}
-.mu-scope .breadcrumb .sep{opacity:.6}
+.mu .breadcrumb{border-bottom:1px solid var(--line);background:#fff}
+.mu .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:10px 14px;font-size:14px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
+.mu .breadcrumb a{color:#1f2937;text-decoration:none}
 
-/* section title + Show all */
-.mu-scope .title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px auto 8px;max-width:var(--wrap);padding:0 14px}
-.mu-scope .title-row h2{font-size:22px;color:var(--ink)}
-.mu-scope .btn-all{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;text-decoration:none;color:#0f172a}
-.mu-scope .btn-all:hover{background:#f8fafc}
+/* عنوان + زر عرض الكل */
+.mu .title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px auto 8px;max-width:var(--wrap);padding:0 14px}
+.mu .title-row h2{font-size:26px;font-weight:900}
+.mu .btn-all{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;text-decoration:none;color:#0f172a}
+.mu .btn-all:hover{background:#f8fafc}
 
-/* tabs */
-.mu-scope .tabs{max-width:var(--wrap);margin:8px auto;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex}
-.mu-scope .tabs button{flex:1;padding:12px 10px;background:#fff;border:0;cursor:pointer;font-weight:800;color:#0f172a}
-.mu-scope .tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
+/* Tabs */
+.mu .tabs{max-width:var(--wrap);margin:8px auto;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex}
+.mu .tabs button{flex:1;padding:12px;background:#fff;border:0;cursor:pointer;font-weight:900}
+.mu .tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
 
-/* grid */
-.mu-scope .grid{max-width:var(--wrap);margin:12px auto;display:grid;gap:14px;padding:0 14px}
-@media(min-width:1024px){.mu-scope .grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:680px) and (max-width:1023.98px){.mu-scope .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:679.98px){.mu-scope .grid{grid-template-columns:1fr}}
+/* Grid كروت الوحدات */
+.mu .grid{max-width:var(--wrap);margin:12px auto;display:grid;gap:16px;padding:0 14px}
+@media(min-width:1024px){.mu .grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:720px) and (max-width:1023.98px){.mu .grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:719.98px){.mu .grid{grid-template-columns:1fr}}
 
-/* card */
-.mu-scope .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
-.mu-scope .cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
-.mu-scope .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mu .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.mu .cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
+.mu .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-/* badges */
-.mu-scope .badge-stack{position:absolute;inset-inline-start:12px;top:12px;display:flex;gap:6px;flex-direction:column}
-.mu-scope .btype{background:#22c55e;color:#fff;padding:6px 10px;border-radius:999px;font-weight:800;font-size:13px}
-.mu-scope .btype.dev{background:#0ea5e9}
-.mu-scope .delivery{position:absolute;inset-inline-end:12px;bottom:12px;background:rgba(0,0,0,.78);color:#fff;padding:8px 12px;border-radius:14px;font-weight:800;display:flex;align-items:center;gap:8px}
-.mu-scope .delivery .yr{background:#111827;color:#fff;padding:4px 8px;border-radius:10px;font-weight:800}
+/* Badges */
+.mu .badge-stack{position:absolute;inset-inline-start:12px;top:12px;display:flex;gap:8px;flex-direction:column}
+.mu .btype{background:#22c55e;color:#fff;padding:7px 12px;border-radius:999px;font-weight:900;font-size:13px}
+.mu .btype.dev{background:#0ea5e9}
+.mu .delivery{position:absolute;inset-inline-end:12px;bottom:12px;background:rgba(0,0,0,.82);color:#fff;padding:8px 12px;border-radius:14px;font-weight:900;display:flex;align-items:center;gap:8px}
+.mu .delivery .yr{background:#111827;padding:4px 8px;border-radius:10px}
 
-/* body + meta icons */
-.mu-scope .body{padding:12px}
-.mu-scope .title{font-weight:800;color:#0f172a;font-size:18px}
-.mu-scope .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;color:#475569;font-size:14px}
-.mu-scope .meta span{display:inline-flex;align-items:center;gap:6px}
-.mu-scope .meta img{width:18px;height:18px}
+/* Body + meta */
+.mu .body{padding:12px}
+.mu .title{font-weight:900;color:#0f172a;font-size:18px}
+.mu .meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;color:#475569;font-size:14px}
+.mu .meta span{display:inline-flex;align-items:center;gap:6px}
+.mu .meta img{width:18px;height:18px}
 
-/* price line */
-.mu-scope .price{margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.mu-scope .price strong{font-size:18px;color:#111827}
-.mu-scope .chip{background:#f1f5f9;border:1px solid var(--line);color:#0f172a;border-radius:999px;padding:6px 10px;font-weight:800;font-size:13px}
-.mu-scope .chip.cash{background:#10b981;color:#fff;border-color:#10b981}
-.mu-scope .chip.inst{background:#111827;color:#fff;border-color:#111827}
+/* Price */
+.mu .price{margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mu .price strong{font-size:18px}
+.mu .chip{background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-weight:900;font-size:13px}
+.mu .chip.cash{background:#10b981;color:#fff;border-color:#10b981}
+.mu .chip.inst{background:#111827;color:#fff;border-color:#111827}
 
-/* video + gallery */
-.mu-scope .video-card{max-width:var(--wrap);margin:18px auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:12px}
-.mu-scope .video-card h3{font-size:18px;color:#0f172a;margin-bottom:8px}
-.mu-scope .gallery{max-width:var(--wrap);margin:10px auto 8px;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(3,1fr)}
-.mu-scope .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
-@media(max-width:720px){.mu-scope .gallery{grid-template-columns:1fr 1fr}}
+/* فيديو + المعرض */
+.mu .video-card{max-width:var(--wrap);margin:18px auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:12px}
+.mu .video-card h3{font-size:20px;font-weight:900;margin-bottom:8px}
+.mu .gallery{max-width:var(--wrap);margin:10px auto 8px;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(3,1fr)}
+.mu .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
+@media(max-width:420px){.mu .gallery{grid-template-columns:repeat(3,1fr)}}
 
-/* share/copy row — جنب بعض */
-.mu-scope .actions-row{max-width:var(--wrap);margin:8px auto 16px;padding:0 14px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
-.mu-scope .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;min-width:150px;justify-content:center}
-.mu-scope .chip-btn img{width:18px;height:18px}
-@media(max-width:480px){.mu-scope .actions-row{flex-wrap:wrap}}
+/* مشاركة + نسخ جنب بعض */
+.mu .actions-row{max-width:var(--wrap);margin:8px auto 16px;padding:0 14px;display:flex;gap:12px;justify-content:center;flex-wrap:nowrap}
+.mu .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 16px;font-weight:900;cursor:pointer;min-width:160px;justify-content:center}
+.mu .chip-btn img{width:18px;height:18px}
 
-/* price small cards */
-.mu-scope .prices{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(2,1fr)}
-.mu-scope .p-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:12px;text-align:center}
-.mu-scope .p-card .t{font-weight:900;font-size:18px;color:#0f172a;margin-bottom:6px}
-.mu-scope .p-card a{display:block;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-decoration:none;color:#111827;font-weight:800}
-@media(max-width:600px){.mu-scope .prices{grid-template-columns:1fr}}
+/* كروت أسعار صغيرة */
+.mu .prices{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(2,1fr)}
+.mu .p-card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px;text-align:center}
+.mu .p-card .t{font-weight:900;font-size:18px;margin-bottom:6px}
+.mu .p-card a{display:block;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:#111827;font-weight:900}
+@media(max-width:620px){.mu .prices{grid-template-columns:1fr}}
 
-/* master plan pill */
-.mu-scope .master-wrap{text-align:center;margin:12px auto}
-.mu-scope .master-pill{display:inline-block;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:12px;font-weight:800;text-decoration:none;color:#0f172a;box-shadow:var(--shadow)}
+/* ماستر بلان زر */
+.mu .master-wrap{text-align:center;margin:12px auto}
+.mu .master-pill{display:inline-block;background:#fff;border:1px solid var(--line);padding:10px 16px;border-radius:12px;font-weight:900;text-decoration:none;color:#0f172a;box-shadow:var(--shadow)}
 
-/* layout: description + sticky help */
-.mu-scope .wrap2{max-width:var(--wrap);margin:auto;display:grid;gap:16px;padding:0 14px 26px;grid-template-columns:3fr 1.4fr}
-@media(max-width:980px){.mu-scope .wrap2{grid-template-columns:1fr}}
-.mu-scope section h2{font-size:20px;color:#0f172a;margin-top:12px}
-.mu-scope section p, .mu-scope section li{color:#475569}
-.mu-scope .help{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;position:sticky;top:96px;height:max-content}
-.mu-scope .help .icon{display:flex;justify-content:center;margin-bottom:6px}
-.mu-scope .help .icon img{height:38px}
+/* وصف + مساعدة (جانباً على الكمبيوتر) */
+.mu .wrap2{max-width:var(--wrap);margin:auto;display:grid;gap:18px;padding:0 14px 30px;grid-template-columns:3fr 1.4fr}
+@media(max-width:980px){.mu .wrap2{grid-template-columns:1fr}}
+.mu section h2{font-size:22px;font-weight:900;margin-top:12px}
+.mu section p,.mu section li{color:#475569}
+.mu .help{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;position:sticky;top:96px;height:max-content}
+.mu .help .icon{display:flex;justify-content:center;margin-bottom:6px}
+.mu .help .icon img{height:38px}
 
-/* lightbox */
-.mu-scope .modal{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:0;z-index:9999}
-.mu-scope .modal.open{display:flex}
-.mu-scope .modal img{max-width:96vw;max-height:94vh;border-radius:8px}
-.mu-scope .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
-.mu-scope .modal .left{inset-inline-start:16px}
-.mu-scope .modal .right{inset-inline-end:16px}
+/* Lightbox */
+.mu .modal{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:9999}
+.mu .modal.open{display:flex}
+.mu .modal img{max-width:96vw;max-height:94vh;border-radius:10px}
+.mu .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:#fff;opacity:.95;cursor:pointer}
+.mu .modal .left{inset-inline-start:16px}
+.mu .modal .right{inset-inline-end:16px}
+
+/* زر واتساب */
+.fab-wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.fab-wa img{width:32px;height:32px}
 </style>
 </head>
-
 <body>
-<!-- ===== HEADER الأصلي ===== -->
-<header class="ire-topbar" aria-label="الشريط العلوي">
+
+<!-- ============ الهيدر ============ -->
+<header class="ire-topbar">
   <div class="ire-nav">
-    <a class="ire-brand" href="index.html" aria-label="الرئيسية">
-      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري — الشعار">
-    </a>
-    <div class="ire-actions" aria-label="الهاتف/اللغة">
-      <div class="ire-dd" id="ire-dd-areas">
-        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
-        <div class="ire-panel" role="menu">
+    <div class="ire-group">
+      <a class="ire-chip" href="/en">EN</a>
+      <div class="ire-dd" id="dd-areas">
+        <button class="ire-chip" type="button">المناطق ▾</button>
+        <div class="ire-panel">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
           <a href="Cairo.html">القاهرة الجديدة</a>
@@ -145,81 +154,68 @@ permalink: /murano.html
           <a href="list.html">أعرض وحدتك</a>
         </div>
       </div>
-      <div class="ire-dd" id="ire-dd-contact">
-        <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
-        <div class="ire-panel" role="menu">
+      <div class="ire-dd" id="dd-contact">
+        <button class="ire-chip" type="button">التواصل ▾</button>
+        <div class="ire-panel">
           <a href="tel:+201050072527">اتصل بنا</a>
           <a href="https://wa.me/201050072527" target="_blank" rel="noopener">واتساب</a>
           <a href="mailto:islammesmail@gmail.com">الإيميل</a>
         </div>
       </div>
-      <a class="ire-chip" href="/en" aria-label="English">EN</a>
     </div>
-    <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
-      <a href="sokhna.html">العين السخنة</a>
-      <a href="north.html">الساحل الشمالي</a>
-      <a href="Cairo.html">القاهرة الجديدة</a>
-      <a href="resale.html">إعادة البيع</a>
-      <a href="list.html">أعرض وحدتك</a>
-    </nav>
+    <a class="ire-brand" href="index.html" aria-label="الرئيسية">
+      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="ISLAM ESMAIL"/>
+    </a>
   </div>
 </header>
 
-<div class="mu-scope">
+<div class="mu">
 
   <!-- Breadcrumb -->
   <div class="breadcrumb">
     <div class="inner">
-      <a href="/">الرئيسية</a><span class="sep">»</span>
-      <a href="/sokhna.html">العين السخنة</a><span class="sep">»</span>
-      <a href="/zafarana.html">طريق الزعفرانة</a><span class="sep">»</span>
-      <span aria-current="page">مورانو</span>
+      <a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » مورانو
     </div>
   </div>
 
-  <!-- Title + Show all -->
+  <!-- Title + Show-all -->
   <div class="title-row">
     <h2>وحدات في مورانو وادي دجلة</h2>
     <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
   </div>
 
   <!-- Tabs -->
-  <div class="tabs" id="unitTabs" role="tablist">
+  <div class="tabs" id="unitTabs">
     <button class="active" data-tab="all">الكل</button>
     <button data-tab="developer">المطور</button>
     <button data-tab="resale">إعادة البيع</button>
   </div>
 
-  <!-- Units Grid -->
-  <div id="unitsGrid" class="grid" aria-live="polite"></div>
+  <!-- Units -->
+  <div id="unitsGrid" class="grid"></div>
 
   <!-- Video -->
   <section class="video-card">
     <h3>فيديو المشروع</h3>
-    <video controls playsinline preload="metadata"
-           poster="https://c.top4top.io/p_35249hfap2.jpg"
-           controlsList="nodownload noplaybackrate"
-           oncontextmenu="return false" disablePictureInPicture style="width:100%;border-radius:12px">
+    <video controls playsinline preload="metadata" poster="https://c.top4top.io/p_35249hfap2.jpg"
+      controlsList="nodownload noplaybackrate" oncontextmenu="return false" disablePictureInPicture
+      style="width:100%;border-radius:14px">
       <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4"/>
       متصفحك لا يدعم تشغيل الفيديو.
     </video>
   </section>
 
-  <!-- Gallery (فوق المشاركة/النسخ) -->
+  <!-- Gallery (ثلاث صور جنب بعض دائماً) -->
   <div class="gallery">
     <img data-lb src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1">
     <img data-lb src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2">
     <img data-lb src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3">
   </div>
 
-  <!-- Share + Copy (جنب بعض) -->
+  <!-- Share + Copy row -->
   <div class="actions-row">
-    <button class="chip-btn" id="shareBtn">
-      <img src="https://c.top4top.io/p_3537yhy740.png" alt=""> مشاركة
-    </button>
-    <button class="chip-btn" id="copyBtn">
-      <img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ
-    </button>
+    <button class="chip-btn" id="shareBtn"><img src="https://c.top4top.io/p_3537yhy740.png" alt="">مشاركة</button>
+    <button class="chip-btn" id="copyBtn"><img src="https://d.top4top.io/p_3537i1eqa1.png" alt="">نسخ</button>
   </div>
 
   <!-- Prices small -->
@@ -239,15 +235,15 @@ permalink: /murano.html
     <a href="#" id="openMaster" class="master-pill">الماستر بلان المشروع</a>
   </div>
 
-  <!-- وصف + مساعدة لاصقة -->
+  <!-- وصف + مساعدة (جانباً على الكمبيوتر) -->
   <div class="wrap2">
     <main>
-      <section id="desc" class="container" style="padding:0">
+      <section id="desc">
         <h2>1- عن مشروع مورانو وادي دجلة</h2>
-        <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة …</p>
+        <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم <b>Murano Wadi Degla</b> بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
 
         <h2>2- موقع قرية مورانو العين السخنة</h2>
-        <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز …</p>
+        <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ <b>Murano Wadi Degla</b> حيث تقع قرية مورانو في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
 
         <h2>3- أهم الطرق والمحاور بالقرب من مورانو</h2>
         <ul>
@@ -258,7 +254,7 @@ permalink: /murano.html
         </ul>
 
         <h2>4- مساحة مورانو وادي دجلة</h2>
-        <p>…</p>
+        <p>أفردت وادي دجلة مساحة واسعة للمشروع مع توزيع مدروس لاستغلال المساحة بأفضل صورة، ما أنتج بيئة سكنية مميّزة تجمع بين الخصوصية والراحة، ومساحات خضراء رحبة ومسطحات مائية تُضفي إحساسًا بالهدوء والاسترخاء، مع تواجد وفير للمرافق والخدمات الترفيهية.</p>
 
         <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
         <ul>
@@ -271,7 +267,7 @@ permalink: /murano.html
 
         <h2>6- أنواع الوحدات في Murano Wadi Degla</h2>
         <ul><li>شقق.</li><li>فلل.</li></ul>
-        <p>…</p>
+        <p>وتأتي الشقق والفلل بمساحات متعددة تناسب مختلف الأذواق والميزانيات، مع تشطيبات عالية الجودة وتجربة سكنية مميزة.</p>
 
         <h2>7- مرافق قرية مورانو السخنة</h2>
         <ul>
@@ -281,15 +277,29 @@ permalink: /murano.html
           <li><b>منطقة تجارية</b>، <b>سبا</b>، وملاعب شاطئية.</li>
           <li><b>ينابيع مياه ساخنة طبيعية</b>.</li>
         </ul>
+
+        <h2>8- عن وادي دجلة للتطوير العقاري</h2>
+        <p>تأسست شركة وادي دجلة للتطوير العقاري عام 2005، وباتت من رواد التطوير العقاري خلال أكثر من 18 سنة، بإجمالي محفظة مشروعات تبلغ <b>5.5 مليون م²</b>. تضم المحفظة <b>16 مشروعًا</b> منها <b>12 مشروعًا مكتملًا</b> بأكثر من <b>10,000 وحدة</b> موزعة على القاهرة والجيزة والساحل الشمالي والعين السخنة.</p>
+
+        <h2>9- أهم مشروعات وادي دجلة</h2>
+        <ul>
+          <li>بلومار دوم – العين السخنة</li>
+          <li>مارينا وادي دجلة – العين السخنة</li>
+          <li>بلومار – الساحل الشمالي</li>
+          <li>نيوبوليس – مدينة المستقبل</li>
+          <li>بيراميدز ووك – السادس من أكتوبر</li>
+          <li>بروميناد – السادس من أكتوبر</li>
+          <li>بروميناد – القاهرة الجديدة</li>
+        </ul>
       </section>
     </main>
 
     <aside class="help" id="contact">
       <div class="icon"><img src="https://d.top4top.io/p_3538h5c6o0.png" alt=""></div>
-      <h3 style="text-align:center;margin:0 0 6px;color:#0f172a">تحتاج إلى مساعدة عقارية ؟</h3>
-      <p class="sub" style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
+      <h3 style="text-align:center;margin:0 0 6px">تحتاج إلى مساعدة عقارية ؟</h3>
+      <p style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
       <form id="leadForm" novalidate>
-        <div class="grid" style="display:grid;gap:10px">
+        <div style="display:grid;gap:10px">
           <div><label for="name">الاسم</label><input id="name" type="text" placeholder="اكتب اسمك" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px"></div>
           <div><label for="project">الموقع المفضل (اسم المشروع)</label><input id="project" type="text" value="Murano Wadi Degla" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px"></div>
           <div>
@@ -309,16 +319,16 @@ permalink: /murano.html
           </div>
         </div>
         <div style="margin-top:12px"><label for="note">ملحوظة</label><textarea id="note" placeholder="أي تفاصيل إضافية…" style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:100px"></textarea></div>
-        <div class="btns" style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
-          <button type="button" id="btnWA" style="width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:800;font-size:15px;cursor:pointer">إرسال عبر الواتساب</button>
-          <button type="button" id="btnMail" style="width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:800;font-size:15px;cursor:pointer">إرسال عبر الإيميل</button>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+          <button type="button" id="btnWA" style="border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الواتساب</button>
+          <button type="button" id="btnMail" style="border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الإيميل</button>
         </div>
       </form>
     </aside>
   </div>
 
   <!-- Lightbox -->
-  <div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور">
+  <div class="modal" id="lightbox" aria-hidden="true">
     <button class="nav left" id="lbPrev">‹</button>
     <img id="lbImg" src="" alt="">
     <button class="nav right" id="lbNext">›</button>
@@ -327,45 +337,42 @@ permalink: /murano.html
 
 {% include footer-ar.html %}
 
+<!-- واتساب عايم -->
+<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
+</a>
+
 <script>
-/* فتح/غلق منسدلات الهيدر */
-function bindDropdown(id){
+/* منسدلات الهيدر */
+function bindDD(id){
   const dd=document.getElementById(id); if(!dd) return;
   const btn=dd.querySelector('button');
-  btn.addEventListener('click',e=>{
-    e.stopPropagation();
-    const open=dd.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open?'true':'false');
-  });
-  document.addEventListener('click',e=>{
-    if(!dd.contains(e.target)){ dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-  });
+  btn.addEventListener('click',e=>{e.stopPropagation();dd.classList.toggle('open');});
+  document.addEventListener('click',e=>{if(!dd.contains(e.target)) dd.classList.remove('open');});
 }
-bindDropdown('ire-dd-contact');
-bindDropdown('ire-dd-areas');
+bindDD('dd-areas'); bindDD('dd-contact');
 
-/* أيقونات */
-const ICON_BED="https://a.top4top.io/p_3548e8beq1.png";
+/* أيقونات الميتا */
+const ICON_BED ="https://a.top4top.io/p_3548e8beq1.png";
 const ICON_BATH="https://b.top4top.io/p_3548n15ar2.png";
 const ICON_AREA="https://l.top4top.io/p_35485t5zz0.png";
 
-/* بيانات الوحدات */
+/* وحدات تجريبية (استبدل الصور لو حبيت) */
 const IMG="https://l.top4top.io/p_3547oj09j1.jpg";
-const unitsData=[
-  {id:"mu-101", title:"شاليه 2 غرف — 95م²", tab:"developer", type:"مطور", typeClass:"dev", deliveryText:"التسليم في", deliveryYear:"2027", bed:2, bath:1, area:95, price:8009600, plan:{monthly:77900, years:7}, href:"/murano-unit.html#mu-101", img:IMG},
-  {id:"mu-102", title:"شاليه 1 غرفة — 65م²", tab:"resale", type:"إعادة البيع", typeClass:"resale", deliveryText:"استلام فوري", deliveryYear:"", bed:1, bath:1, area:65, price:3150000, cash:true, href:"/murano-unit.html#mu-102", img:IMG},
-  {id:"mu-103", title:"توين هاوس — 3 غرف — 180م²", tab:"developer", type:"مطور", typeClass:"dev", deliveryText:"التسليم في", deliveryYear:"2026", bed:3, bath:3, area:180, price:9800000, plan:{monthly:145000, years:8}, href:"/murano-unit.html#mu-103", img:IMG}
+const units=[
+  {id:"1",title:"شاليه 2 غرف — 95م²",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2027",bed:2,bath:1,area:95,price:8009600,plan:{monthly:77900,years:7},img:IMG,href:"/murano-unit.html#1"},
+  {id:"2",title:"شاليه 1 غرفة — 65م²",tab:"resale",type:"إعادة البيع",typeClass:"resale",deliveryText:"استلام فوري",deliveryYear:"",bed:1,bath:1,area:65,price:3150000,cash:true,img:IMG,href:"/murano-unit.html#2"},
+  {id:"3",title:"توين هاوس — 3 غرف — 180م²",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2026",bed:3,bath:3,area:180,price:9800000,plan:{monthly:145000,years:8},img:IMG,href:"/murano-unit.html#3"}
 ];
-
-/* رسم الكروت */
 const grid=document.getElementById('unitsGrid');
-function fmt(n){return new Intl.NumberFormat('ar-EG').format(n)}
-function unitCard(u){
-  const priceLine = u.cash
-     ? `<span class="chip cash">كاش</span><strong>EGP ${fmt(u.price)}</strong>`
-     : (u.plan ? `<span class="chip inst">${fmt(u.plan.monthly)} ج/شهريًا | ${u.plan.years} سنوات</span><strong>EGP ${fmt(u.price)}</strong>` : `<strong>EGP ${fmt(u.price)}</strong>`);
-  return `
-  <article class="card">
+const nf=new Intl.NumberFormat('ar-EG');
+const fmt=n=>nf.format(n);
+function card(u){
+  const price = u.cash
+   ? `<span class="chip cash">كاش</span><strong>EGP ${fmt(u.price)}</strong>`
+   : u.plan ? `<span class="chip inst">${fmt(u.plan.monthly)} ج/شهريًا | ${u.plan.years} سنوات</span><strong>EGP ${fmt(u.price)}</strong>`
+            : `<strong>EGP ${fmt(u.price)}</strong>`;
+  return `<article class="card">
     <a class="cover" href="${u.href}">
       <img src="${u.img}" alt="${u.title}" loading="lazy">
       <div class="badge-stack"><span class="btype ${u.typeClass==='dev'?'dev':''}">${u.type}</span></div>
@@ -378,66 +385,56 @@ function unitCard(u){
         <span><img src="${ICON_BATH}" alt=""> ${u.bath} حمامات</span>
         <span><img src="${ICON_AREA}" alt=""> ${u.area} م²</span>
       </div>
-      <div class="price">${priceLine}</div>
+      <div class="price">${price}</div>
     </div>
   </article>`;
 }
-function render(tab){ grid.innerHTML = unitsData.filter(u => tab==='all' || u.tab===tab).map(unitCard).join(''); }
+function render(tab){grid.innerHTML=units.filter(u=>tab==='all'||u.tab===tab).map(card).join('');}
 render('all');
-document.querySelectorAll('#unitTabs button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('#unitTabs button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active'); render(btn.dataset.tab);
-  });
+document.querySelectorAll('#unitTabs button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#unitTabs button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); render(b.dataset.tab);
+  })
 });
 
 /* مشاركة + نسخ */
-const URL=location.href.split('#')[0];
-const TEXT=`أفضل العروض والأسعار لمشروع مورانو وادي دجلة.\nللمزيد: ${URL}`;
+const url=location.href.split('#')[0];
 document.getElementById('shareBtn')?.addEventListener('click',async()=>{
-  try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla',text:TEXT,url:URL}); } }catch(e){}
+  try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla',text:'أفضل العروض والأسعار لمشروع مورانو وادي دجلة',url}); } }catch(e){}
 });
 document.getElementById('copyBtn')?.addEventListener('click',async()=>{
-  try{ await navigator.clipboard.writeText(URL); alert('تم نسخ الرابط'); } catch(e){ alert('تعذر النسخ'); }
+  try{ await navigator.clipboard.writeText(url); alert('تم نسخ الرابط'); }catch(e){ alert('تعذر النسخ'); }
 });
 
-/* Lightbox للصور + الماستر بلان */
+/* Lightbox للصور والماستر بلان */
 const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
-const imgs=[...document.querySelectorAll('[data-lb]')]; let idx=0;
-function openLB(i){ idx=i; lbImg.src=imgs[idx].src; lb.classList.add('open'); }
-function next(){ idx=(idx+1)%imgs.length; lbImg.src=imgs[idx].src; }
-function prev(){ idx=(idx-1+imgs.length)%imgs.length; lbImg.src=imgs[idx].src; }
-imgs.forEach((im,i)=> im.addEventListener('click',()=>openLB(i)));
+const gImgs=[...document.querySelectorAll('[data-lb]')]; let i=0;
+function openLB(k){i=k;lbImg.src=gImgs[i].src;lb.classList.add('open')}
+function next(){i=(i+1)%gImgs.length;lbImg.src=gImgs[i].src}
+function prev(){i=(i-1+gImgs.length)%gImgs.length;lbImg.src=gImgs[i].src}
+gImgs.forEach((im,k)=>im.addEventListener('click',()=>openLB(k)));
 document.getElementById('lbNext').addEventListener('click',next);
 document.getElementById('lbPrev').addEventListener('click',prev);
-lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('open'); });
+lb.addEventListener('click',e=>{if(e.target===lb) lb.classList.remove('open')});
 document.getElementById('openMaster').addEventListener('click',e=>{
   e.preventDefault();
-  lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
+  lbImg.src='https://k.top4top.io/p_35373aga50.jpg'; /* صورة الماستر بلان */
   lb.classList.add('open');
 });
 
-/* واتساب/إيميل للفورم */
-const val=id=>(document.getElementById(id)?.value||'').trim();
-const build=()=>({name:val('name'),project:val('project'),unit:val('unit'),rooms:val('rooms'),note:val('note')});
+/* إرسال الواتساب/الإيميل للفورم */
+const v=id=>(document.getElementById(id)?.value||'').trim();
+function build(){return{n:v('name'),p:v('project'),u:v('unit'),r:v('rooms'),t:v('note')}}
 document.getElementById('btnWA')?.addEventListener('click',()=>{
   const d=build();
-  const txt=`مرحبا، أود الاستفسار عن ${d.project}.\nالاسم: ${d.name}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;
+  const txt=`مرحبا، أود الاستفسار عن ${d.p}.\nالاسم: ${d.n}\nالنوع: ${d.u}\nالغرف: ${d.r}\nملاحظات: ${d.t}`;
   window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank')
 });
 document.getElementById('btnMail')?.addEventListener('click',()=>{
   const d=build();
-  const subject=`استفسار عن ${d.project}`;
-  const body=`الاسم: ${d.name}\nالمشروع: ${d.project}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;
-  location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent('استفسار عن '+d.p)}&body=${encodeURIComponent('الاسم: '+d.n+'\nالمشروع: '+d.p+'\nالنوع: '+d.u+'\nالغرف: '+d.r+'\nملاحظات: '+d.t)}`
 });
 </script>
-
-<!-- زر واتساب عايم -->
-<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp"
-   style="position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)">
-  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp" style="width:32px;height:32px">
-</a>
-
 </body>
 </html>
