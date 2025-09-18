@@ -13,12 +13,12 @@ permalink: /murano.html
 <style>
 :root{
   --wrap:1180px; --line:#e5e7eb; --ink:#0f172a; --muted:#64748b; --brand:#0b3a5e;
-  --shadow:0 10px 26px rgba(2,8,23,.06); --pill:#111827;
+  --shadow:0 10px 26px rgba(2,8,23,.06);
 }
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.75;font-size:14px}
 
-/* ===== header ===== */
+/* header */
 .topbar{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line)}
 .nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:8px;padding:8px 12px}
 .group{display:flex;gap:6px}
@@ -30,63 +30,56 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .brand{margin-inline-start:auto}
 .brand img{height:46px}
 
-/* ===== page chrome ===== */
 .container{max-width:var(--wrap);margin:auto;padding:0 12px}
+
+/* breadcrumb */
 .breadcrumb{border-bottom:1px solid var(--line)}
 .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 12px;font-size:12px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
 .breadcrumb a{color:#1f2937;text-decoration:none}
 
-/* === NEW: project head with developer badge === */
-.proj-head{max-width:var(--wrap);margin:8px auto 6px;display:flex;align-items:center;gap:12px;padding:0 12px}
-.ph-title{flex:1}
-.ph-title h1{margin:0;font-size:20px;font-weight:900}
-.ph-dev{display:flex;align-items:center;gap:10px}
+/* ===== Project head ===== */
+.proj-head{max-width:var(--wrap);margin:10px auto 6px;padding:0 12px}
+.ph-row{display:flex;align-items:center;gap:10px}
+.ph-row h1{margin:0;font-size:20px;font-weight:900}
+.btn-all{margin-inline-start:auto;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-weight:900;text-decoration:none;color:#0f172a;font-size:12px}
+.ph-dev{margin-top:6px;display:flex;align-items:center;gap:10px}
 .ph-dev a{display:flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:6px 10px;background:#fff}
 .ph-dev .t{font-weight:900;color:#0b3a5e;font-size:12px}
 .ph-dev img{height:30px;width:auto;border-radius:8px}
 
-/* ===== units title + tabs ===== */
-.titlebar{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin:12px auto 6px;max-width:var(--wrap);padding:0 12px}
-.titlebar h2{font-size:17px;font-weight:900}
-.btn-all{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-weight:900;text-decoration:none;color:#0f172a;font-size:12px}
-
+/* tabs */
 .tabs{max-width:var(--wrap);margin:6px auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex}
 .tabs button{flex:1;padding:8px 6px;background:#fff;border:0;cursor:pointer;font-weight:900;font-size:13px}
 .tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
 
-/* ===== units grid & card ===== */
+/* ===== Units grid + card ===== */
 .grid{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 12px;grid-template-columns:1fr}
 @media(min-width:992px){.grid{grid-template-columns:repeat(2,1fr)}}
 
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
-.card .cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
+.card .cover{position:relative;aspect-ratio: 2 / 1; /* أقصر من 16:9 */ background:#f3f4f6}
 .card .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)}
-.badge-type{position:absolute;top:12px;inset-inline-end:12px;background:#22c55e;color:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900}
+/* أصغر للبادجات */
+.badge-type{position:absolute;top:10px;inset-inline-end:10px;background:#22c55e;color:#fff;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900}
 .badge-type.dev{background:#0ea5e9}
-.badge-delivery{position:absolute;bottom:12px;inset-inline-start:12px;background:rgba(17,24,39,.9);color:#fff;border-radius:12px;padding:6px 10px;font-weight:900;display:flex;gap:8px;align-items:center;font-size:12.5px}
-.badge-delivery .year{background:#0b1020;border-radius:8px;padding:2px 8px;font-size:12px}
+.badge-delivery{position:absolute;bottom:10px;inset-inline-start:10px;background:rgba(17,24,39,.9);color:#fff;border-radius:10px;padding:5px 9px;font-weight:900;display:flex;gap:8px;align-items:center;font-size:11.5px}
+.badge-delivery .year{background:#0b1020;border-radius:8px;padding:1px 7px;font-size:11px}
 
 .card .info{padding:10px 12px 12px}
 .row-top{display:flex;align-items:center;gap:8px;margin-bottom:4px}
 .loc{color:#94a3b8;font-weight:800;font-size:12px}
-.logo{margin-inline-start:auto;display:flex;align-items:center;gap:6px}
-.logo img{height:24px;width:auto}
-.title{display:flex;align-items:center;gap:8px}
 .title h3{margin:2px 0 6px;font-size:18px;font-weight:900;color:#0f172a;letter-spacing:.1px}
-
 .features{display:flex;gap:14px;align-items:center;color:#475569;font-size:13px;font-weight:800;margin:6px 0 10px;flex-wrap:wrap}
 .f{display:inline-flex;align-items:center;gap:6px}
 .f img{width:17px;height:17px}
 .sep{width:1px;height:16px;background:#e2e8f0;border-radius:10px}
-
 .price-row{display:flex;align-items:center;gap:10px;justify-content:space-between}
 .plan{background:#111827;color:#fff;border-radius:999px;padding:7px 12px;font-weight:900;font-size:12.5px;white-space:nowrap}
 .price{font-weight:900;font-size:22px;color:#0f172a}
 
-/* ===== video + gallery + actions ===== */
+/* video + gallery */
 .video-card{max-width:var(--wrap);margin:14px auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px}
 .video-card h3{font-size:16px;font-weight:900;margin-bottom:6px}
-
 .gallery-wrap{max-width:var(--wrap);margin:8px auto 6px;padding:0 12px}
 .gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
 .gallery::-webkit-scrollbar{height:7px}.gallery::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px}
@@ -97,7 +90,7 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .btn-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-weight:900;cursor:pointer;min-width:120px;justify-content:center;font-size:12.5px}
 .btn-chip img{width:18px;height:18px}
 
-/* two compact price boxes */
+/* compact prices */
 .prices{max-width:var(--wrap);margin:8px auto 0;display:grid;gap:10px;padding:0 12px;grid-template-columns:repeat(2,1fr)}
 .pcard{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;text-align:center}
 .pcard .t{font-weight:900;font-size:14px;margin-bottom:4px}
@@ -152,11 +145,11 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
 
 <div class="breadcrumb"><div class="inner"><a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » مورانو</div></div>
 
-<!-- NEW: عنوان المشروع + لوجو المطوّر -->
+<!-- Project head: title row + developer under it -->
 <div class="proj-head">
-  <div class="ph-title">
+  <div class="ph-row">
     <h1>مشروع مورانو وادي دجلة</h1>
-    <div style="color:#6b7280;font-weight:800;font-size:12px">العين السخنة — طريق الزعفرانة</div>
+    <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
   </div>
   <div class="ph-dev">
     <a href="/wadidegla.html" title="صفحة المطوّر">
@@ -164,11 +157,6 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
       <span class="t">المطوِّر: Wadi Degla Developments</span>
     </a>
   </div>
-</div>
-
-<div class="titlebar">
-  <h2>وحدات في مورانو وادي دجلة</h2>
-  <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
 </div>
 
 <div class="tabs" id="unitTabs">
@@ -263,6 +251,7 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
   </aside>
 </div>
 
+<!-- Lightbox -->
 <div class="modal" id="lightbox" aria-hidden="true">
   <button class="nav left" id="lbPrev">‹</button>
   <img id="lbImg" src="" alt="">
@@ -276,23 +265,19 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
 </a>
 
 <script>
-/* dropdowns */
 function bindDD(id){const dd=document.getElementById(id);if(!dd)return;const b=dd.querySelector('button');b.addEventListener('click',e=>{e.stopPropagation();dd.classList.toggle('open')});document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')})}
 bindDD('dd-areas');bindDD('dd-contact');
 
-/* icons */
 const ICON_BED ="https://a.top4top.io/p_3548e8beq1.png";
 const ICON_BATH="https://b.top4top.io/p_3548n15ar2.png";
 const ICON_AREA="https://l.top4top.io/p_35485t5zz0.png";
 
-/* demo images & data */
 const IMG="https://l.top4top.io/p_3547oj09j1.jpg";
 const units=[
-  {id:"1",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2027",bed:2,bath:1,area:95,price:8009600,plan:{monthly:77900,years:7},img:IMG,logo:"",href:"/murano-unit.html#1"},
-  {id:"2",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",tab:"resale",type:"إعادة البيع",typeClass:"resale",deliveryText:"استلام فوري",deliveryYear:"",bed:1,bath:1,area:65,price:3150000,cash:true,img:IMG,logo:"",href:"/murano-unit.html#2"},
-  {id:"3",city:"العين السخنة، مصر",title:"توين هاوس — مورانو",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2026",bed:3,bath:3,area:180,price:9800000,plan:{monthly:145000,years:8},img:IMG,logo:"",href:"/murano-unit.html#3"}
+  {id:"1",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2027",bed:2,bath:1,area:95,price:8009600,plan:{monthly:77900,years:7},img:IMG,href:"/murano-unit.html#1"},
+  {id:"2",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",tab:"resale",type:"إعادة البيع",typeClass:"resale",deliveryText:"استلام فوري",deliveryYear:"",bed:1,bath:1,area:65,price:3150000,cash:true,img:IMG,href:"/murano-unit.html#2"},
+  {id:"3",city:"العين السخنة، مصر",title:"توين هاوس — مورانو",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2026",bed:3,bath:3,area:180,price:9800000,plan:{monthly:145000,years:8},img:IMG,href:"/murano-unit.html#3"}
 ];
-
 const nf=new Intl.NumberFormat('ar-EG'); const fmt=n=>nf.format(n);
 const grid=document.getElementById('unitsGrid');
 
@@ -308,12 +293,8 @@ function unitCard(u){
       <span class="badge-delivery">${u.deliveryText}${u.deliveryYear?` <span class="year">${u.deliveryYear}</span>`:''}</span>
     </a>
     <div class="info">
-      <div class="row-top">
-        <span class="loc">${u.city||''}</span>
-        <div class="logo">${u.logo?`<img src="${u.logo}" alt="developer">`:''}</div>
-      </div>
+      <div class="row-top"><span class="loc">${u.city||''}</span></div>
       <div class="title"><h3>${u.title}</h3></div>
-
       <div class="features">
         <span class="f"><img src="${ICON_AREA}" alt=""> ${u.area} م²</span>
         <span class="sep"></span>
@@ -321,7 +302,6 @@ function unitCard(u){
         <span class="sep"></span>
         <span class="f"><img src="${ICON_BED}" alt=""> ${u.bed} غرف</span>
       </div>
-
       <div class="price-row">
         ${plan}
         <div class="price">جم ${fmt(u.price)}</div>
@@ -355,7 +335,7 @@ document.getElementById('openMaster').addEventListener('click',e=>{e.preventDefa
 
 /* swipe drag for gallery */
 (function(){const s=document.getElementById('gal');if(!s)return;let d=false,x0,sl; s.addEventListener('pointerdown',e=>{d=true;s.setPointerCapture(e.pointerId);x0=e.clientX;sl=s.scrollLeft}); s.addEventListener('pointermove',e=>{if(!d)return;s.scrollLeft=sl-(e.clientX-x0)});['pointerup','pointercancel','mouseleave'].forEach(ev=>s.addEventListener(ev,()=>d=false));})();
- 
+
 /* lead actions */
 const val=id=>(document.getElementById(id)?.value||'').trim();
 function formData(){return{n:val('name'),p:val('project'),u:val('unit'),r:val('rooms'),t:val('note')}}
