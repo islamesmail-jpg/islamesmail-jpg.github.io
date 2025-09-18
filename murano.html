@@ -18,7 +18,7 @@ permalink: /murano.html
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.75;font-size:14px}
 
-/* ===== header (أزرار سوداء وصغيرة ومتجاورة) ===== */
+/* ===== header ===== */
 .topbar{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line)}
 .nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:8px;padding:8px 12px}
 .group{display:flex;gap:6px}
@@ -36,6 +36,16 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 12px;font-size:12px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
 .breadcrumb a{color:#1f2937;text-decoration:none}
 
+/* === NEW: project head with developer badge === */
+.proj-head{max-width:var(--wrap);margin:8px auto 6px;display:flex;align-items:center;gap:12px;padding:0 12px}
+.ph-title{flex:1}
+.ph-title h1{margin:0;font-size:20px;font-weight:900}
+.ph-dev{display:flex;align-items:center;gap:10px}
+.ph-dev a{display:flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:6px 10px;background:#fff}
+.ph-dev .t{font-weight:900;color:#0b3a5e;font-size:12px}
+.ph-dev img{height:30px;width:auto;border-radius:8px}
+
+/* ===== units title + tabs ===== */
 .titlebar{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin:12px auto 6px;max-width:var(--wrap);padding:0 12px}
 .titlebar h2{font-size:17px;font-weight:900}
 .btn-all{border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-weight:900;text-decoration:none;color:#0f172a;font-size:12px}
@@ -44,11 +54,10 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .tabs button{flex:1;padding:8px 6px;background:#fff;border:0;cursor:pointer;font-weight:900;font-size:13px}
 .tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
 
-/* ===== units grid ===== */
+/* ===== units grid & card ===== */
 .grid{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 12px;grid-template-columns:1fr}
 @media(min-width:992px){.grid{grid-template-columns:repeat(2,1fr)}}
 
-/* ===== card (ستايل شبيه بالصورة) ===== */
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .card .cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
 .card .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)}
@@ -65,18 +74,16 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .title{display:flex;align-items:center;gap:8px}
 .title h3{margin:2px 0 6px;font-size:18px;font-weight:900;color:#0f172a;letter-spacing:.1px}
 
-/* features row with separators */
 .features{display:flex;gap:14px;align-items:center;color:#475569;font-size:13px;font-weight:800;margin:6px 0 10px;flex-wrap:wrap}
 .f{display:inline-flex;align-items:center;gap:6px}
 .f img{width:17px;height:17px}
 .sep{width:1px;height:16px;background:#e2e8f0;border-radius:10px}
 
-/* bottom price row */
 .price-row{display:flex;align-items:center;gap:10px;justify-content:space-between}
-.plan{background:var(--pill);color:#fff;border-radius:999px;padding:7px 12px;font-weight:900;font-size:12.5px;white-space:nowrap}
+.plan{background:#111827;color:#fff;border-radius:999px;padding:7px 12px;font-weight:900;font-size:12.5px;white-space:nowrap}
 .price{font-weight:900;font-size:22px;color:#0f172a}
 
-/* ===== video + gallery ===== */
+/* ===== video + gallery + actions ===== */
 .video-card{max-width:var(--wrap);margin:14px auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px}
 .video-card h3{font-size:16px;font-weight:900;margin-bottom:6px}
 
@@ -86,7 +93,6 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 .gallery img{flex:0 0 220px;height:150px;scroll-snap-align:center;border-radius:12px;border:1px solid var(--line);object-fit:cover;cursor:zoom-in}
 @media(min-width:992px){.gallery img{flex-basis:260px;height:160px}}
 
-/* actions */
 .actions{max-width:var(--wrap);margin:6px auto 10px;padding:0 12px;display:flex;gap:10px;justify-content:center}
 .btn-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 10px;font-weight:900;cursor:pointer;min-width:120px;justify-content:center;font-size:12.5px}
 .btn-chip img{width:18px;height:18px}
@@ -146,6 +152,20 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
 
 <div class="breadcrumb"><div class="inner"><a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » مورانو</div></div>
 
+<!-- NEW: عنوان المشروع + لوجو المطوّر -->
+<div class="proj-head">
+  <div class="ph-title">
+    <h1>مشروع مورانو وادي دجلة</h1>
+    <div style="color:#6b7280;font-weight:800;font-size:12px">العين السخنة — طريق الزعفرانة</div>
+  </div>
+  <div class="ph-dev">
+    <a href="/wadidegla.html" title="صفحة المطوّر">
+      <img src="https://c.top4top.io/p_3537bk3m10.jpg" alt="Wadi Degla Developments">
+      <span class="t">المطوِّر: Wadi Degla Developments</span>
+    </a>
+  </div>
+</div>
+
 <div class="titlebar">
   <h2>وحدات في مورانو وادي دجلة</h2>
   <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
@@ -194,16 +214,16 @@ section h2{font-size:15.5px;font-weight:900;margin-top:10px}
   <main>
     <section id="desc" class="container">
       <h2>1- عن مشروع مورانو وادي دجلة</h2>
-      <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة... (النص الكامل كما أرسلته سابقًا).</p>
+      <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة…</p>
       <h2>2- موقع قرية مورانو العين السخنة</h2>
-      <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ <b>Murano Wadi Degla</b>...</p>
+      <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ <b>Murano Wadi Degla</b>…</p>
       <h2>3- أهم الطرق والمحاور بالقرب من مورانو</h2>
       <ul><li>طريق الجلالة يبعد <b>18 كم</b>.</li><li>محطة قطار العين السخنة <b>14 كم</b>.</li><li>القاهرة <b>136 كم</b>.</li><li>طريق القطامية <b>112 كم</b>.</li></ul>
-      <h2>4- مساحة مورانو وادي دجلة</h2><p>أفردت وادي دجلة مساحة واسعة للمشروع...</p>
+      <h2>4- مساحة مورانو وادي دجلة</h2><p>أفردت وادي دجلة مساحة واسعة للمشروع…</p>
       <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
       <ul><li>حمامات سباحة</li><li>ألعاب أطفال</li><li>مطاعم ومقاهي</li><li>محلات تجارية</li><li>ممشى ودراجات</li></ul>
       <h2>6- أنواع الوحدات في Murano Wadi Degla</h2><ul><li>شقق</li><li>فلل</li></ul>
-      <p>وتأتي الشقق والفلل بمساحات متعددة...</p>
+      <p>وتأتي الشقق والفلل بمساحات متعددة…</p>
       <h2>7- مرافق قرية مورانو السخنة</h2>
       <ul><li>شاطئ رملي 750م</li><li>مارينا 100م</li><li>فندق 4 نجوم</li><li>منطقة تجارية وسبا وملاعب شاطئية</li><li>ينابيع مياه ساخنة طبيعية</li></ul>
       <h2>8- عن وادي دجلة للتطوير العقاري</h2>
@@ -321,7 +341,7 @@ const url=location.href.split('#')[0];
 document.getElementById('shareBtn')?.addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:'Murano Wadi Degla',text:'أفضل العروض والأسعار لمشروع مورانو وادي دجلة',url})}}catch(e){}});
 document.getElementById('copyBtn')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(url);alert('تم نسخ الرابط')}catch(e){alert('تعذر النسخ')}});
 
-/* lightbox */
+/* lightbox + master plan */
 const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
 const gImgs=[...document.querySelectorAll('[data-lb]')]; let i=0;
 function openLB(k){i=k;lbImg.src=gImgs[i].src;lb.classList.add('open')}
