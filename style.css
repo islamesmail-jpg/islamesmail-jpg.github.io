@@ -1,8 +1,8 @@
 /* =========================
-   Islam Real Estate – Global CSS
+   Islam Real Estate – Global CSS (safer)
    ========================= */
 
-/* Colors & tokens */
+/* Tokens */
 :root{
   --ink:#0b0f19;
   --muted:#cbd5e1;
@@ -12,66 +12,52 @@
   --card:#101829;
   --line:#2a3958;
   --light:#f8fafc;
+  --radius:16px;
 }
 
-/* Reset + base */
+/* Base reset */
 *{box-sizing:border-box}
 html,body{height:100%}
-body{
-  margin:0;
-  background:var(--ink);
-  color:#fff;
-  font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  line-height:1.6;
-}
-img{max-width:100%;display:block}
+body{margin:0;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.6}
 
-/* Utilities */
+/* Utilities (محايدة) */
 .container{max-width:1100px;margin:auto;padding:0 16px}
+.pill{border-radius:999px;border:1px solid var(--gold);padding:7px 12px;font-weight:800}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:8px;padding:12px 18px;border-radius:999px;
-  border:1.6px solid var(--gold);color:var(--gold);background:transparent;
-  text-decoration:none;font-weight:900;cursor:pointer
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 18px;border-radius:999px;border:1.6px solid var(--gold);
+  color:var(--gold);background:transparent;text-decoration:none;font-weight:900;cursor:pointer
 }
 .btn:hover{background:var(--gold);color:#111}
 .btn-ghost{border-color:#b58b00;color:#b58b00}
-.pill{border-radius:999px;border:1px solid var(--gold);padding:7px 12px;font-weight:800}
 
 /* =========================
-   Topbar (center logo)
+   THEMES
    ========================= */
-.topbar,.nav{position:sticky;top:0;z-index:60;background:#f3f4f6;border-bottom:1px solid #e5e7eb}
-.topbar .container,.navin{
-  position:relative;display:flex;align-items:center;justify-content:center;height:74px
+body.theme-dark{
+  background:var(--ink); color:#fff;
+}
+body.theme-light{
+  background:#fff; color:#0f172a;
 }
 
-/* left/right control groups */
-.topbar .left, .topbar .right{
-  position:absolute;inset-block:0;display:flex;align-items:center;gap:10px
+/* =========================
+   Topbar (يشتغل في الثيمين)
+   ========================= */
+.topbar,.nav{
+  position:sticky;top:0;z-index:60;background:#f3f4f6;border-bottom:1px solid #e5e7eb
 }
-.topbar .left{right:16px}
-.topbar .right{left:16px}
-
-/* language + contact buttons */
-.btnx{
-  border:1px solid #b58b00;background:transparent;color:#b58b00;
-  border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer
-}
+.topbar .container,.navin{position:relative;display:flex;align-items:center;justify-content:center;height:74px}
+.topbar .left,.topbar .right{position:absolute;inset-block:0;display:flex;align-items:center;gap:10px}
+.topbar .left{right:16px}.topbar .right{left:16px}
+.btnx{border:1px solid #b58b00;background:transparent;color:#b58b00;border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer}
 .btnx:hover{background:#fff2c2}
-
-/* brand circle in center */
-.brand-circle{
-  width:60px;height:60px;border:2px solid #e5e7eb;border-radius:999px;
-  overflow:hidden;background:#fff;display:grid;place-items:center;
-  box-shadow:0 4px 12px rgba(0,0,0,.08)
-}
+.brand-circle{width:60px;height:60px;border:2px solid #e5e7eb;border-radius:999px;overflow:hidden;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.08)}
 .brand-circle img{width:100%;height:100%;object-fit:cover}
-
-/* Projects dropdown (summary) */
 .menu-btn{font-weight:800;color:#111827;text-decoration:none}
 .menu-btn:hover{color:#b58b00}
 
+/* Menus */
 .menu{position:relative}
 .menu-panel{
   position:absolute;top:76px;right:0;background:#fff;color:#111;
@@ -79,28 +65,20 @@ img{max-width:100%;display:block}
   box-shadow:0 10px 30px rgba(2,8,23,.15);display:none
 }
 .menu.open .menu-panel{display:block}
-.menu a.item{
-  display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;
-  text-decoration:none;color:#111827;font-weight:700
-}
+.menu a.item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;text-decoration:none;color:#111827;font-weight:700}
 .menu a.item:hover{background:#f3f4f6}
 
-/* Contact dropdown */
 .contact{position:relative}
 .contact-panel{
-  position:absolute;top:76px;left:0;background:#fff;color:#111;
-  border:1px solid #e5e7eb;border-radius:14px;min-width:230px;padding:8px;
+  position:absolute;top:76px;left:0;background:#fff;color:#111;border:1px solid #e5e7eb;border-radius:14px;min-width:230px;padding:8px;
   box-shadow:0 10px 30px rgba(2,8,23,.15);display:none
 }
 .contact.open .contact-panel{display:block}
-.contact-panel a{
-  display:flex;gap:8px;padding:8px 10px;border-radius:10px;
-  text-decoration:none;color:#111827;font-weight:700
-}
+.contact-panel a{display:flex;gap:8px;padding:8px 10px;border-radius:10px;text-decoration:none;color:#111827;font-weight:700}
 .contact-panel a:hover{background:#f3f4f6}
 
 /* =========================
-   Hero
+   HERO (للهوم مثلاً)
    ========================= */
 .hero{
   position:relative;min-height:56vh;display:grid;place-items:center;
@@ -111,25 +89,24 @@ img{max-width:100%;display:block}
   width:100%;height:100%;display:grid;place-items:center;padding:40px 16px
 }
 .hero .inner{max-width:980px;text-align:center}
-.hero h1{
-  margin:0;font-size:clamp(26px,5.6vw,48px);font-weight:800;
-  text-shadow:0 6px 16px rgba(0,0,0,.45)
-}
+.hero h1{margin:0;font-size:clamp(26px,5.6vw,48px);font-weight:800;text-shadow:0 6px 16px rgba(0,0,0,.45)}
 .hero .sub{margin-top:10px;color:var(--gold-2);font-weight:800;font-size:clamp(15px,2.2vw,20px)}
 .hero .areas{margin-top:8px;font-weight:700}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
 
 /* =========================
-   Resale box
+   Sections عامة
    ========================= */
 .section{padding:24px 0}
-.box{
-  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px
-}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+body.theme-light .box{background:#fff;border-color:#e5e7eb}
 .box h3{margin:0 0 12px;font-size:1.15rem}
 .select,.input,.textarea{
   width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
   background:#0b1323;color:#fff;font-weight:700
+}
+body.theme-light .select, body.theme-light .input, body.theme-light .textarea{
+  background:#fff;color:#0f172a;border-color:#e5e7eb
 }
 .mt8{margin-top:8px}.mt12{margin-top:12px}
 .row{display:grid;gap:12px}
@@ -138,81 +115,32 @@ img{max-width:100%;display:block}
 .hint{margin-top:8px;color:#9fb0c8;font-weight:700}
 
 /* =========================
-   Area cards (3 in a row)
+   Cards & grids (عام لكن غير مؤذٍ)
    ========================= */
-.areas-grid{
-  display:grid;gap:16px;margin-top:18px;
-  grid-template-columns:repeat(3,1fr)
-}
-.area-card{
-  position:relative;border-radius:16px;overflow:hidden;border:1px solid #3a4b70;cursor:pointer;
-  transition:transform .2s ease, box-shadow .2s ease
-}
+.areas-grid{display:grid;gap:16px;margin-top:18px;grid-template-columns:repeat(3,1fr)}
+.area-card{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid #3a4b70;cursor:pointer;transition:transform .2s, box-shadow .2s}
 .area-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
 .area-card img{width:100%;height:180px;object-fit:cover;display:block}
-.area-card .cap{
-  position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);
-  color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:12px;
-  font-weight:800;text-align:center
-}
+.area-card .cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:var(--gold);border:1px solid var(--gold);padding:8px 12px;border-radius:12px;font-weight:800;text-align:center}
 
-/* =========================
-   Inner pages (projects)
-   ========================= */
-.pg-hero{position:relative;border:1px solid #2b3a57;border-radius:16px;overflow:hidden}
-.pg-hero img{width:100%;height:210px;object-fit:cover;display:block}
-.pg-hero .title{
-  position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.55);
-  border:1px solid var(--gold);color:var(--gold);padding:8px 14px;border-radius:12px;font-weight:800
-}
+/* ملاحظة مهمة:
+   كان عندنا rule عامة `.card img{ height:140px }` بتكسر كروت صفحات داخلية.
+   استبدلناها باستهدافات محددة فقط حيث نحتاجها. */
 
-.grid{
-  display:grid;gap:14px;margin-top:14px;grid-template-columns:repeat(3,1fr)
-}
-.card{
-  background:var(--card);border:1px solid var(--line);border-radius:14px;
-  overflow:hidden;display:flex;flex-direction:column
-}
-.card img{width:100%;height:78px;object-fit:contain;background:#0e1425}
-.card .body{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.card .name{font-weight:800}
-.card .ask{white-space:nowrap}
-
-/* Project card image fit */
-.card img{
-  width:100%;
-  height:140px;        /* ارتفاع مناسب للموبايل */
-  object-fit:cover;    /* يملأ المساحة بدون تمدد مشوّه */
-  background:#0e1425;
-}
-@media (min-width:768px){
-  .card img{height:160px;}
-}
+/* مثال: شبكة الهوم بس */
+.home-grid .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.home-grid .card img{width:100%;height:160px;object-fit:cover;background:#0e1425}
+.home-grid .card .body{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.home-grid .card .name{font-weight:800}
+.home-grid .card .ask{white-space:nowrap}
 
 /* Footer */
-footer{
-  text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:22px
-}
+footer{text-align:center;color:#9fb0c8;border-top:1px solid #1a2438;padding:18px;margin-top:22px}
+body.theme-light footer{color:#6b7280;border-top-color:#e5e7eb}
 .social{margin-top:10px;display:flex;gap:10px;justify-content:center}
 .sbtn{border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:800}
 
-/* =========================
-   Responsive
-   ========================= */
-
-/* Small screens: keep 3 cards in row by shrinking; if width very small, fall back to 2 */
-@media(max-width: 480px){
-  .areas-grid, .grid{grid-template-columns:repeat(2,1fr)}
-}
-
-/* Tablets */
-@media(min-width:768px){
-  .row.cols-2{grid-template-columns:repeat(2,1fr)}
-}
-
-/* Big screens */
-@media(min-width:1200px){
-  .brand-circle{width:66px;height:66px}
-  .hero h1{font-size:52px}
-  .areas-grid .area-card img{height:200px}
-    }
+/* Responsive */
+@media(max-width:480px){.areas-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:768px){.row.cols-2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.brand-circle{width:66px;height:66px}}
