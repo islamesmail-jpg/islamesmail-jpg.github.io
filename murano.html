@@ -10,11 +10,9 @@ permalink: /murano.html
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>مشروع مورانو وادى دجلة العين السخنه | islam</title>
 
-<!-- خط راقي وموحّد -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
 <style>
-/* ============ أساسيات عامة ============ */
 :root{
   --wrap:1180px;
   --line:#e5e7eb;
@@ -25,121 +23,118 @@ permalink: /murano.html
 }
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.9}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.8;font-size:15px}
 
-/* ============ هيدر ثابت أنيق ============ */
+/* ===== Header (smaller, black text) ===== */
 .ire-topbar{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--line)}
-.ire-nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:10px 14px}
-.ire-group{display:flex;gap:10px;align-items:center}
-.ire-chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:#fff;font-weight:800;cursor:pointer}
+.ire-nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:10px;padding:8px 12px}
+.ire-group{display:flex;gap:6px;align-items:center}
+.ire-chip{
+  border:1px solid var(--line);border-radius:10px;padding:6px 10px;
+  background:#fff;font-weight:800;color:#111;cursor:pointer;font-size:14px
+}
 .ire-dd{position:relative}
-.ire-panel{position:absolute;top:48px;inset-inline-start:0;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:200px;box-shadow:0 14px 36px rgba(2,8,23,.12);display:none;padding:8px}
+.ire-panel{
+  position:absolute;top:40px;inset-inline-start:0;background:#fff;border:1px solid var(--line);
+  border-radius:12px;min-width:200px;box-shadow:0 14px 36px rgba(2,8,23,.12);display:none;padding:8px
+}
 .ire-dd.open .ire-panel{display:block}
-.ire-panel a{display:block;padding:10px;border-radius:10px;color:#111827;text-decoration:none;font-weight:800}
+.ire-panel a{display:block;padding:8px 10px;border-radius:10px;color:#111827;text-decoration:none;font-weight:800;font-size:14px}
 .ire-panel a:hover{background:#f3f4f6}
 .ire-brand{margin-inline-start:auto}
-.ire-brand img{height:56px;width:auto;display:block}
+.ire-brand img{height:52px;width:auto;display:block}
 
-/* ============ صفحة مورانو (نطاق خاص) ============ */
-.mu{--card:#fff}
-.mu .container{max-width:var(--wrap);margin:auto;padding:0 14px}
-.mu h1,h2,h3{margin:0 0 10px}
-
-/* breadcrumb */
+/* ===== Page ===== */
+.mu .container{max-width:var(--wrap);margin:auto;padding:0 12px}
+.mu h1,h2,h3{margin:0 0 8px}
 .mu .breadcrumb{border-bottom:1px solid var(--line);background:#fff}
-.mu .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:10px 14px;font-size:14px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
+.mu .breadcrumb .inner{max-width:var(--wrap);margin:auto;padding:8px 12px;font-size:13px;color:#94a3b8;display:flex;gap:6px;flex-wrap:wrap}
 .mu .breadcrumb a{color:#1f2937;text-decoration:none}
 
-/* عنوان + زر عرض الكل */
-.mu .title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px auto 8px;max-width:var(--wrap);padding:0 14px}
-.mu .title-row h2{font-size:26px;font-weight:900}
-.mu .btn-all{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;text-decoration:none;color:#0f172a}
+/* Title + show all */
+.mu .title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:12px auto 6px;max-width:var(--wrap);padding:0 12px}
+.mu .title-row h2{font-size:22px;font-weight:900}
+.mu .btn-all{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-weight:800;text-decoration:none;color:#0f172a;font-size:14px}
 .mu .btn-all:hover{background:#f8fafc}
 
 /* Tabs */
-.mu .tabs{max-width:var(--wrap);margin:8px auto;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex}
-.mu .tabs button{flex:1;padding:12px;background:#fff;border:0;cursor:pointer;font-weight:900}
+.mu .tabs{max-width:var(--wrap);margin:6px auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex}
+.mu .tabs button{flex:1;padding:10px;background:#fff;border:0;cursor:pointer;font-weight:900;font-size:14px}
 .mu .tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
 
-/* Grid كروت الوحدات */
-.mu .grid{max-width:var(--wrap);margin:12px auto;display:grid;gap:16px;padding:0 14px}
+/* Units grid */
+.mu .grid{max-width:var(--wrap);margin:10px auto;display:grid;gap:14px;padding:0 12px}
 @media(min-width:1024px){.mu .grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:720px) and (max-width:1023.98px){.mu .grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:719.98px){.mu .grid{grid-template-columns:1fr}}
-
-.mu .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.mu .card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .mu .cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
 .mu .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-
-/* Badges */
-.mu .badge-stack{position:absolute;inset-inline-start:12px;top:12px;display:flex;gap:8px;flex-direction:column}
-.mu .btype{background:#22c55e;color:#fff;padding:7px 12px;border-radius:999px;font-weight:900;font-size:13px}
+.mu .badge-stack{position:absolute;inset-inline-start:10px;top:10px;display:flex;gap:6px;flex-direction:column}
+.mu .btype{background:#22c55e;color:#fff;padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px}
 .mu .btype.dev{background:#0ea5e9}
-.mu .delivery{position:absolute;inset-inline-end:12px;bottom:12px;background:rgba(0,0,0,.82);color:#fff;padding:8px 12px;border-radius:14px;font-weight:900;display:flex;align-items:center;gap:8px}
-.mu .delivery .yr{background:#111827;padding:4px 8px;border-radius:10px}
-
-/* Body + meta */
-.mu .body{padding:12px}
-.mu .title{font-weight:900;color:#0f172a;font-size:18px}
-.mu .meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;color:#475569;font-size:14px}
+.mu .delivery{position:absolute;inset-inline-end:10px;bottom:10px;background:rgba(0,0,0,.82);color:#fff;padding:6px 10px;border-radius:12px;font-weight:900;display:flex;align-items:center;gap:6px;font-size:13px}
+.mu .delivery .yr{background:#111827;padding:3px 7px;border-radius:8px;font-size:12px}
+.mu .body{padding:10px}
+.mu .title{font-weight:900;color:#0f172a;font-size:16px}
+.mu .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;color:#475569;font-size:13px}
 .mu .meta span{display:inline-flex;align-items:center;gap:6px}
-.mu .meta img{width:18px;height:18px}
-
-/* Price */
-.mu .price{margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.mu .price strong{font-size:18px}
-.mu .chip{background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-weight:900;font-size:13px}
+.mu .meta img{width:17px;height:17px}
+.mu .price{margin-top:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.mu .price strong{font-size:16px}
+.mu .chip{background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-weight:900;font-size:12px}
 .mu .chip.cash{background:#10b981;color:#fff;border-color:#10b981}
 .mu .chip.inst{background:#111827;color:#fff;border-color:#111827}
 
-/* فيديو + المعرض */
-.mu .video-card{max-width:var(--wrap);margin:18px auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:12px}
-.mu .video-card h3{font-size:20px;font-weight:900;margin-bottom:8px}
-.mu .gallery{max-width:var(--wrap);margin:10px auto 8px;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(3,1fr)}
-.mu .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
-@media(max-width:420px){.mu .gallery{grid-template-columns:repeat(3,1fr)}}
+/* Video + gallery */
+.mu .video-card{max-width:var(--wrap);margin:14px auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:10px}
+.mu .video-card h3{font-size:18px;font-weight:900;margin-bottom:6px}
+.mu .gallery{max-width:var(--wrap);margin:8px auto 6px;display:grid;gap:10px;padding:0 12px;grid-template-columns:repeat(3,1fr)}
+.mu .gallery img{width:100%;border-radius:12px;border:1px solid var(--line);aspect-ratio:4/3;object-fit:cover;cursor:zoom-in}
+@media(max-width:480px){.mu .gallery{grid-template-columns:repeat(2,1fr)}}
 
-/* مشاركة + نسخ جنب بعض */
-.mu .actions-row{max-width:var(--wrap);margin:8px auto 16px;padding:0 14px;display:flex;gap:12px;justify-content:center;flex-wrap:nowrap}
-.mu .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 16px;font-weight:900;cursor:pointer;min-width:160px;justify-content:center}
+/* share + copy inline */
+.mu .actions-row{max-width:var(--wrap);margin:6px auto 12px;padding:0 12px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
+.mu .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-weight:900;cursor:pointer;min-width:140px;justify-content:center;font-size:14px}
 .mu .chip-btn img{width:18px;height:18px}
 
-/* كروت أسعار صغيرة */
-.mu .prices{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(2,1fr)}
-.mu .p-card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px;text-align:center}
-.mu .p-card .t{font-weight:900;font-size:18px;margin-bottom:6px}
-.mu .p-card a{display:block;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:#111827;font-weight:900}
+/* small price boxes (50% height roughly) */
+.mu .prices{max-width:var(--wrap);margin:8px auto;display:grid;gap:10px;padding:0 12px;grid-template-columns:repeat(2,1fr)}
+.mu .p-card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;text-align:center}
+.mu .p-card .t{font-weight:900;font-size:16px;margin-bottom:4px}
+.mu .p-card a{display:block;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;padding:9px 10px;text-decoration:none;color:#111827;font-weight:900;font-size:14px}
 @media(max-width:620px){.mu .prices{grid-template-columns:1fr}}
 
-/* ماستر بلان زر */
-.mu .master-wrap{text-align:center;margin:12px auto}
-.mu .master-pill{display:inline-block;background:#fff;border:1px solid var(--line);padding:10px 16px;border-radius:12px;font-weight:900;text-decoration:none;color:#0f172a;box-shadow:var(--shadow)}
+/* master plan button smaller */
+.mu .master-wrap{text-align:center;margin:8px auto}
+.mu .master-pill{display:inline-block;background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:10px;font-weight:900;text-decoration:none;color:#0f172a;box-shadow:var(--shadow);font-size:14px}
 
-/* وصف + مساعدة (جانباً على الكمبيوتر) */
-.mu .wrap2{max-width:var(--wrap);margin:auto;display:grid;gap:18px;padding:0 14px 30px;grid-template-columns:3fr 1.4fr}
+/* Description + help */
+.mu .wrap2{max-width:var(--wrap);margin:auto;display:grid;gap:14px;padding:0 12px 24px;grid-template-columns:3fr 1.35fr}
 @media(max-width:980px){.mu .wrap2{grid-template-columns:1fr}}
-.mu section h2{font-size:22px;font-weight:900;margin-top:12px}
+.mu section h2{font-size:18px;font-weight:900;margin-top:10px}
 .mu section p,.mu section li{color:#475569}
-.mu .help{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px;position:sticky;top:96px;height:max-content}
+
+/* help box */
+.mu .help{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:12px;position:sticky;top:84px;height:max-content}
 .mu .help .icon{display:flex;justify-content:center;margin-bottom:6px}
-.mu .help .icon img{height:38px}
+.mu .help .icon img{height:34px}
 
 /* Lightbox */
 .mu .modal{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:9999}
 .mu .modal.open{display:flex}
 .mu .modal img{max-width:96vw;max-height:94vh;border-radius:10px}
-.mu .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:#fff;opacity:.95;cursor:pointer}
-.mu .modal .left{inset-inline-start:16px}
-.mu .modal .right{inset-inline-end:16px}
+.mu .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:#fff;opacity:.95;cursor:pointer}
+.mu .modal .left{inset-inline-start:14px}
+.mu .modal .right{inset-inline-end:14px}
 
-/* زر واتساب */
+/* WhatsApp FAB */
 .fab-wa{position:fixed;bottom:18px;inset-inline-start:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .fab-wa img{width:32px;height:32px}
 </style>
 </head>
 <body>
 
-<!-- ============ الهيدر ============ -->
 <header class="ire-topbar">
   <div class="ire-nav">
     <div class="ire-group">
@@ -170,55 +165,42 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 </header>
 
 <div class="mu">
+  <div class="breadcrumb"><div class="inner"><a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » مورانو</div></div>
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <div class="inner">
-      <a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » مورانو
-    </div>
-  </div>
-
-  <!-- Title + Show-all -->
   <div class="title-row">
     <h2>وحدات في مورانو وادي دجلة</h2>
     <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
   </div>
 
-  <!-- Tabs -->
   <div class="tabs" id="unitTabs">
     <button class="active" data-tab="all">الكل</button>
     <button data-tab="developer">المطور</button>
     <button data-tab="resale">إعادة البيع</button>
   </div>
 
-  <!-- Units -->
   <div id="unitsGrid" class="grid"></div>
 
-  <!-- Video -->
   <section class="video-card">
     <h3>فيديو المشروع</h3>
     <video controls playsinline preload="metadata" poster="https://c.top4top.io/p_35249hfap2.jpg"
       controlsList="nodownload noplaybackrate" oncontextmenu="return false" disablePictureInPicture
-      style="width:100%;border-radius:14px">
+      style="width:100%;border-radius:12px">
       <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4"/>
       متصفحك لا يدعم تشغيل الفيديو.
     </video>
   </section>
 
-  <!-- Gallery (ثلاث صور جنب بعض دائماً) -->
   <div class="gallery">
     <img data-lb src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1">
     <img data-lb src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2">
     <img data-lb src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3">
   </div>
 
-  <!-- Share + Copy row -->
   <div class="actions-row">
     <button class="chip-btn" id="shareBtn"><img src="https://c.top4top.io/p_3537yhy740.png" alt="">مشاركة</button>
     <button class="chip-btn" id="copyBtn"><img src="https://d.top4top.io/p_3537i1eqa1.png" alt="">نسخ</button>
   </div>
 
-  <!-- Prices small -->
   <div class="prices">
     <div class="p-card">
       <div class="t">سعر المطوّر</div>
@@ -230,12 +212,10 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
     </div>
   </div>
 
-  <!-- Master plan -->
   <div class="master-wrap">
     <a href="#" id="openMaster" class="master-pill">الماستر بلان المشروع</a>
   </div>
 
-  <!-- وصف + مساعدة (جانباً على الكمبيوتر) -->
   <div class="wrap2">
     <main>
       <section id="desc">
@@ -297,14 +277,14 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
     <aside class="help" id="contact">
       <div class="icon"><img src="https://d.top4top.io/p_3538h5c6o0.png" alt=""></div>
       <h3 style="text-align:center;margin:0 0 6px">تحتاج إلى مساعدة عقارية ؟</h3>
-      <p style="text-align:center;margin:0 0 12px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
+      <p style="text-align:center;margin:0 0 10px;color:#6b7280">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
       <form id="leadForm" novalidate>
-        <div style="display:grid;gap:10px">
-          <div><label for="name">الاسم</label><input id="name" type="text" placeholder="اكتب اسمك" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px"></div>
-          <div><label for="project">الموقع المفضل (اسم المشروع)</label><input id="project" type="text" value="Murano Wadi Degla" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px"></div>
+        <div style="display:grid;gap:8px">
+          <div><label for="name">الاسم</label><input id="name" type="text" placeholder="اكتب اسمك" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px"></div>
+          <div><label for="project">الموقع المفضل (اسم المشروع)</label><input id="project" type="text" value="Murano Wadi Degla" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px"></div>
           <div>
             <label for="unit">اختر نوع الوحدة</label>
-            <select id="unit" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px">
+            <select id="unit" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px">
               <option value="" disabled selected>اختر نوع الوحدة</option>
               <option>شقه</option><option>فيلا</option><option>أستوديو</option>
               <option>توين فيلا</option><option>تاون فيلا</option><option>شاليه</option>
@@ -312,22 +292,21 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
           </div>
           <div>
             <label for="rooms">عدد الغرف</label>
-            <select id="rooms" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px">
+            <select id="rooms" required style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px">
               <option value="" disabled selected>اختر عدد الغرف</option>
               <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
             </select>
           </div>
         </div>
-        <div style="margin-top:12px"><label for="note">ملحوظة</label><textarea id="note" placeholder="أي تفاصيل إضافية…" style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:100px"></textarea></div>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
-          <button type="button" id="btnWA" style="border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الواتساب</button>
-          <button type="button" id="btnMail" style="border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الإيميل</button>
+        <div style="margin-top:10px"><label for="note">ملحوظة</label><textarea id="note" placeholder="أي تفاصيل إضافية…" style="width:100%;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px;min-height:90px"></textarea></div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+          <button type="button" id="btnWA" style="border:none;border-radius:10px;padding:11px 12px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الواتساب</button>
+          <button type="button" id="btnMail" style="border:none;border-radius:10px;padding:11px 12px;background:#111827;color:#fff;font-weight:900;cursor:pointer">إرسال عبر الإيميل</button>
         </div>
       </form>
     </aside>
   </div>
 
-  <!-- Lightbox -->
   <div class="modal" id="lightbox" aria-hidden="true">
     <button class="nav left" id="lbPrev">‹</button>
     <img id="lbImg" src="" alt="">
@@ -337,13 +316,12 @@ body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-ap
 
 {% include footer-ar.html %}
 
-<!-- واتساب عايم -->
 <a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp">
   <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
 </a>
 
 <script>
-/* منسدلات الهيدر */
+/* dropdowns */
 function bindDD(id){
   const dd=document.getElementById(id); if(!dd) return;
   const btn=dd.querySelector('button');
@@ -352,12 +330,12 @@ function bindDD(id){
 }
 bindDD('dd-areas'); bindDD('dd-contact');
 
-/* أيقونات الميتا */
+/* icons */
 const ICON_BED ="https://a.top4top.io/p_3548e8beq1.png";
 const ICON_BATH="https://b.top4top.io/p_3548n15ar2.png";
 const ICON_AREA="https://l.top4top.io/p_35485t5zz0.png";
 
-/* وحدات تجريبية (استبدل الصور لو حبيت) */
+/* units */
 const IMG="https://l.top4top.io/p_3547oj09j1.jpg";
 const units=[
   {id:"1",title:"شاليه 2 غرف — 95م²",tab:"developer",type:"مطور",typeClass:"dev",deliveryText:"التسليم في",deliveryYear:"2027",bed:2,bath:1,area:95,price:8009600,plan:{monthly:77900,years:7},img:IMG,href:"/murano-unit.html#1"},
@@ -398,7 +376,7 @@ document.querySelectorAll('#unitTabs button').forEach(b=>{
   })
 });
 
-/* مشاركة + نسخ */
+/* share/copy */
 const url=location.href.split('#')[0];
 document.getElementById('shareBtn')?.addEventListener('click',async()=>{
   try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla',text:'أفضل العروض والأسعار لمشروع مورانو وادي دجلة',url}); } }catch(e){}
@@ -407,7 +385,7 @@ document.getElementById('copyBtn')?.addEventListener('click',async()=>{
   try{ await navigator.clipboard.writeText(url); alert('تم نسخ الرابط'); }catch(e){ alert('تعذر النسخ'); }
 });
 
-/* Lightbox للصور والماستر بلان */
+/* Lightbox */
 const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
 const gImgs=[...document.querySelectorAll('[data-lb]')]; let i=0;
 function openLB(k){i=k;lbImg.src=gImgs[i].src;lb.classList.add('open')}
@@ -419,11 +397,11 @@ document.getElementById('lbPrev').addEventListener('click',prev);
 lb.addEventListener('click',e=>{if(e.target===lb) lb.classList.remove('open')});
 document.getElementById('openMaster').addEventListener('click',e=>{
   e.preventDefault();
-  lbImg.src='https://k.top4top.io/p_35373aga50.jpg'; /* صورة الماستر بلان */
+  lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
   lb.classList.add('open');
 });
 
-/* إرسال الواتساب/الإيميل للفورم */
+/* lead actions */
 const v=id=>(document.getElementById(id)?.value||'').trim();
 function build(){return{n:v('name'),p:v('project'),u:v('unit'),r:v('rooms'),t:v('note')}}
 document.getElementById('btnWA')?.addEventListener('click',()=>{
