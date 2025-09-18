@@ -10,155 +10,164 @@ permalink: /murano.html
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>مشروع مورانو وادى دجلة العين السخنه | islam</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{--mu-wrap:1120px;--mu-line:#e5e7eb;--mu-shadow:0 10px 24px rgba(0,0,0,.08);--mu-ink:#0f172a;--mu-muted:#64748b;--mu-accent:#0b3a5e;--mu-card:#f8fafc;--mu-pill:#22c55e;--mu-sky:#0ea5e9}
-*{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+/* ====== SCOPE to defeat global style.css ====== */
+.mu-scope{--wrap:1120px;--line:#e5e7eb;--shadow:0 10px 24px rgba(0,0,0,.08);--ink:#0f172a;--muted:#64748b;--accent:#0b3a5e;--card:#f8fafc;--pill:#22c55e;--sky:#0ea5e9;background:#fff;color:var(--ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
+.mu-scope *{box-sizing:border-box}
+.mu-scope img{max-width:100%;display:block}
 
-/* Header + breadcrumb */
-.mu-topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--mu-line);z-index:1000;backdrop-filter:blur(8px)}
-.mu-nav{max-width:var(--mu-wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:8px 14px}
-.mu-nav .brand img{height:56px;width:auto}
-.mu-spacer{flex:1}
-.mu-bc{border-bottom:1px solid var(--mu-line);background:#fff}
-.mu-bc .inner{max-width:var(--mu-wrap);margin:auto;padding:8px 14px;color:#94a3b8;font-size:14px;display:flex;gap:6px;flex-wrap:wrap}
-.mu-bc a{color:#475569;text-decoration:none}
+/* Fix any global resets */
+.mu-scope a{text-decoration:none;color:inherit}
+.mu-scope h1,h2,h3{margin:0 0 .5rem}
+.mu-scope input, .mu-scope select, .mu-scope textarea{font-family:inherit}
 
-/* ===== Units ===== */
-.mu-units{max-width:var(--mu-wrap);margin:14px auto 8px;padding:0 14px}
-.mu-units-h{display:flex;align-items:center;justify-content:space-between;margin:8px 0 10px}
-.mu-units-h h2{margin:0;font-size:22px}
-.mu-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--mu-line);padding:10px 12px;border-radius:12px;text-decoration:none;color:var(--mu-ink);font-weight:800;background:#fff}
+/* Header + breadcrumb (scoped) */
+.mu-scope .top{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:1000;backdrop-filter:blur(8px)}
+.mu-scope .nav{max-width:var(--wrap);margin:auto;display:flex;align-items:center;gap:12px;padding:8px 14px}
+.mu-scope .nav .brand img{height:56px;width:auto}
+.mu-scope .spacer{flex:1}
+.mu-scope .bc{border-bottom:1px solid var(--line);background:#fff}
+.mu-scope .bc .inner{max-width:var(--wrap);margin:auto;padding:8px 14px;color:#94a3b8;font-size:14px;display:flex;gap:6px;flex-wrap:wrap}
+.mu-scope .bc a{color:#475569}
+
+/* Units header */
+.mu-scope .units{max-width:var(--wrap);margin:14px auto 8px;padding:0 14px}
+.mu-scope .units-h{display:flex;align-items:center;justify-content:space-between;margin:8px 0 10px}
+.mu-scope .units-h h2{font-size:22px}
+.mu-scope .btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:10px 12px;border-radius:12px;background:#fff;font-weight:800}
 
 /* Tabs */
-.mu-tabs{display:flex;margin:10px 0;border:1px solid var(--mu-line);border-radius:12px;overflow:hidden;background:#f8fafc}
-.mu-tabs button{flex:1;padding:12px 14px;font-weight:800;background:none;border:none;cursor:pointer}
-.mu-tabs button+button{border-inline-start:1px solid var(--mu-line)}
-.mu-tabs button.active{background:#fff;box-shadow:inset 0 -3px var(--mu-accent);color:var(--mu-accent)}
+.mu-scope .tabs{display:flex;margin:10px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#f8fafc}
+.mu-scope .tabs button{flex:1;padding:12px 14px;font-weight:800;background:none;border:none;cursor:pointer}
+.mu-scope .tabs button+button{border-inline-start:1px solid var(--line)}
+.mu-scope .tabs button.active{background:#fff;box-shadow:inset 0 -3px var(--accent);color:var(--accent)}
 
 /* Grid */
-.mu-grid{display:grid;gap:14px}
-@media(min-width:1201px){.mu-grid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:720px) and (max-width:1200px){.mu-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:719px){.mu-grid{grid-template-columns:1fr}}
+.mu-scope .grid{display:grid;gap:14px}
+@media(min-width:1201px){.mu-scope .grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:720px) and (max-width:1200px){.mu-scope .grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:719px){.mu-scope .grid{grid-template-columns:1fr}}
 
-/* ===== Card ===== */
-.mu-card{position:relative;background:#fff;border:1px solid var(--mu-line);border-radius:18px;overflow:hidden;box-shadow:var(--mu-shadow)}
-.mu-cover{position:relative;height:220px !important;background:#eef2f7}
-@media(min-width:1024px){.mu-cover{height:240px !important}}
-.mu-cover img{width:100% !important;height:100% !important;object-fit:cover !important;display:block}
+/* Card */
+.mu-scope .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.mu-scope .cover{position:relative;height:240px !important;background:#eef2f7}
+@media(max-width:768px){.mu-scope .cover{height:220px !important}}
+/* Kill global .card img rule from style.css */
+.mu-scope .cover img{width:100% !important;height:100% !important;object-fit:cover !important;display:block}
 
-/* type badge (top-right) */
-.mu-badge-type{position:absolute;top:12px;inset-inline-end:12px;background:var(--mu-pill);color:#fff;font-weight:800;font-size:13px;padding:7px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.12);z-index:2}
-.mu-badge-type.dev{background:var(--mu-sky)}
-/* delivery (bottom-left) */
-.mu-deliver{position:absolute;bottom:14px;inset-inline-start:14px;background:rgba(0,0,0,.62);color:#fff;border-radius:14px;padding:10px 12px;font-weight:800;z-index:2}
-.mu-deliver big{display:block;font-size:22px;line-height:1;margin-top:2px}
+/* Badges */
+.mu-scope .b-type{position:absolute;top:12px;inset-inline-end:12px;background:var(--pill);color:#fff;font-weight:800;font-size:13px;padding:7px 12px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.12);z-index:2}
+.mu-scope .b-type.dev{background:var(--sky)}
+.mu-scope .b-del{position:absolute;bottom:14px;inset-inline-start:14px;background:rgba(0,0,0,.65);color:#fff;border-radius:14px;padding:10px 12px;font-weight:800;z-index:2}
+.mu-scope .b-del big{display:block;font-size:22px;line-height:1;margin-top:2px}
 
-/* body */
-.mu-body{padding:14px 14px 12px}
-.mu-loc{color:#94a3b8;font-weight:800}
-.mu-ttl{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:6px 0 10px}
-.mu-ttl h3{margin:0;font-size:18px}
-.mu-devlogo{height:26px;width:auto;border-radius:6px}
+/* Body */
+.mu-scope .body{padding:14px 14px 12px}
+.mu-scope .loc{color:#94a3b8;font-weight:800}
+.mu-scope .ttl{display:flex;align-items:center;gap:10px;justify-content:space-between;margin:6px 0 10px}
+.mu-scope .ttl h3{font-size:18px}
+.mu-scope .devlogo{height:26px;width:auto;border-radius:6px}
 
-/* meta row (icons) */
-.mu-meta{display:flex;gap:18px;align-items:center;color:#475569;font-weight:800;margin-top:4px}
-.mu-meta .it{display:inline-flex;align-items:center;gap:6px}
-.mu-meta .it img{width:18px;height:18px}
+/* Meta row */
+.mu-scope .meta{display:flex;gap:18px;align-items:center;color:#475569;font-weight:800;margin-top:4px}
+.mu-scope .meta .it{display:inline-flex;align-items:center;gap:6px}
+.mu-scope .meta .it img{width:18px;height:18px}
 
-/* price row */
-.mu-price{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
-.mu-price .m{color:#334155;font-weight:800}
-.mu-price .t{font-size:22px;font-weight:800}
+/* Price row */
+.mu-scope .price{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.mu-scope .price .m{color:#334155;font-weight:800}
+.mu-scope .price .t{font-size:22px;font-weight:800}
 
-/* actions */
-.mu-actions{display:flex;gap:8px;margin-top:12px}
-.mu-round{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:999px;border:1px solid var(--mu-line);background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.08)}
-.mu-round img{width:22px;height:22px}
+/* Actions */
+.mu-scope .actions{display:flex;gap:8px;margin-top:12px}
+.mu-scope .round{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+.mu-scope .round img{width:22px;height:22px}
 
-/* ===== Video / Slider / Share / Prices ===== */
-.mu-section{background:var(--mu-card);border-radius:14px;padding:14px;box-shadow:var(--mu-shadow);margin:16px auto;border:1px solid var(--mu-line);max-width:var(--mu-wrap)}
-.mu-vwrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--mu-line)}
-.mu-vwrap video{width:100%;height:auto;display:block;background:#000}
+/* Section blocks */
+.mu-scope .section{background:var(--card);border-radius:14px;padding:14px;box-shadow:var(--shadow);margin:16px auto;border:1px solid var(--line);max-width:var(--wrap)}
+.mu-scope .vwrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.mu-scope .vwrap video{width:100%;height:auto;background:#000}
 
 /* Gallery + Lightbox */
-.mu-slider-wrap{position:relative;margin:16px auto 6px;max-width:var(--mu-wrap);padding:0 14px}
-.mu-slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px;cursor:grab;scrollbar-width:none}
-.mu-slider::-webkit-scrollbar{display:none}
-.mu-slider img{height:180px;border-radius:12px;scroll-snap-align:center;cursor:zoom-in}
-.mu-lb{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;z-index:1000}
-.mu-lb.open{display:flex}
-.mu-lb img{max-width:96vw;max-height:94vh;display:block;border-radius:10px}
-.mu-lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
-.mu-lb .nav.l{inset-inline-start:20px}.mu-lb .nav.r{inset-inline-end:20px}
+.mu-scope .slider-wrap{position:relative;margin:16px auto 6px;max-width:var(--wrap);padding:0 14px}
+.mu-scope .slider{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px;cursor:grab;scrollbar-width:none}
+.mu-scope .slider::-webkit-scrollbar{display:none}
+.mu-scope .slider img{height:180px;border-radius:12px;scroll-snap-align:center;cursor:zoom-in}
 
-/* Share row */
-.mu-actions-row{margin:12px auto;display:flex;gap:10px;justify-content:center;align-items:center;max-width:var(--mu-wrap)}
-.mu-chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid var(--mu-line);border-radius:12px;background:#fff;box-shadow:var(--mu-shadow);font-weight:800;font-size:13px}
-.mu-chip img{width:18px;height:18px}
+.mu-scope .lb{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;z-index:3000}
+.mu-scope .lb.open{display:flex}
+.mu-scope .lb img{max-width:96vw;max-height:94vh;border-radius:10px}
+.mu-scope .lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
+.mu-scope .lb .nav.l{inset-inline-start:20px}.mu-scope .lb .nav.r{inset-inline-end:20px}
 
-/* Prices cards (smaller) */
-.mu-prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:12px auto;max-width:var(--mu-wrap);padding:0 14px}
-.mu-price-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--mu-shadow);border:1px solid var(--mu-line);text-align:center}
-.mu-price-card .ttl{font-weight:800;margin:0 0 4px;font-size:15px}
-.mu-price-card a{display:inline-block;padding:6px 10px;border-radius:10px;background:#f3f3f3;color:#111;text-decoration:none;font-weight:700;font-size:13px}
+/* Share + prices (smaller) */
+.mu-scope .row-actions{margin:12px auto;display:flex;gap:10px;justify-content:center;align-items:center;max-width:var(--wrap)}
+.mu-scope .chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:var(--shadow);font-weight:800;font-size:13px}
+.mu-scope .chip img{width:18px;height:18px}
+
+.mu-scope .prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:12px auto;max-width:var(--wrap);padding:0 14px}
+.mu-scope .p-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center}
+.mu-scope .p-card .ttl{font-weight:800;margin:0 0 4px;font-size:15px}
+.mu-scope .p-card a{display:inline-block;padding:6px 10px;border-radius:10px;background:#f3f3f3;color:#111;font-weight:700}
 
 /* Description + sticky help */
-.mu-wrap{max-width:var(--mu-wrap);margin:auto;padding:0 14px 36px;display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,1.2fr);gap:20px;align-items:start}
-@media(max-width:1024px){.mu-wrap{grid-template-columns:1fr}}
-.mu-help{position:sticky;top:90px;align-self:start;background:#f8fafc;border:1px solid var(--mu-line);border-radius:14px;padding:18px;box-shadow:var(--mu-shadow)}
-.mu-help .icon{display:flex;justify-content:center;margin:0 0 6px}
-.mu-help .icon img{height:36px}
-.mu-help h3{margin:0 0 6px;text-align:center}
-.mu-help p{margin:0 0 12px;text-align:center;color:#6b7280}
-.mu-help .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-.mu-help button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+.mu-scope .wrap{max-width:var(--wrap);margin:auto;padding:0 14px 36px;display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,1.2fr);gap:20px;align-items:start}
+@media(max-width:1024px){.mu-scope .wrap{grid-template-columns:1fr}}
+.mu-scope .help{position:sticky;top:90px;align-self:start;background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+.mu-scope .help .icon{display:flex;justify-content:center;margin:0 0 6px}
+.mu-scope .help .icon img{height:36px}
+.mu-scope .help h3{margin:0 0 6px;text-align:center}
+.mu-scope .help p{margin:0 0 12px;text-align:center;color:#6b7280}
+.mu-scope .help .btns{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.mu-scope .help button{width:100%;border:none;border-radius:12px;padding:12px 14px;background:#111827;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
 
 /* FAQ */
-.mu-faq{background:var(--mu-card);border:1px solid var(--mu-line);border-radius:14px;padding:16px;margin:22px auto;box-shadow:var(--mu-shadow);max-width:var(--mu-wrap)}
-.mu-faq h2{margin:0 0 10px;color:#0b3a5e}
-.mu-faq details{background:#fff;border:1px solid var(--mu-line);border-radius:12px;padding:10px 12px;margin:10px 0}
-.mu-faq summary{font-weight:800;cursor:pointer}
+.mu-scope .faq{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:22px auto;box-shadow:var(--shadow);max-width:var(--wrap)}
+.mu-scope .faq h2{margin:0 0 10px;color:#0b3a5e}
+.mu-scope .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}
+.mu-scope .faq summary{font-weight:800;cursor:pointer}
 
-/* Floating WA */
-.mu-fab{position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
-.mu-fab img{width:32px;height:32px}
+/* FAB */
+.mu-scope .fab{position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.mu-scope .fab img{width:32px;height:32px}
 </style>
 </head>
 <body>
 
-<header class="mu-topbar">
-  <div class="mu-nav">
+<div class="mu-scope"><!-- SCOPE START -->
+
+<header class="top">
+  <div class="nav">
     <a class="brand" href="index.html" aria-label="الرئيسية"><img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري"></a>
-    <div class="mu-spacer"></div>
+    <div class="spacer"></div>
   </div>
 </header>
 
-<div class="mu-bc"><div class="inner">
+<div class="bc"><div class="inner">
   <a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » <span>مورانو</span>
 </div></div>
 
 <!-- ===== Units ===== -->
-<section class="mu-units">
-  <div class="mu-units-h">
+<section class="units">
+  <div class="units-h">
     <h2>وحدات في مورانو وادي دجلة</h2>
-    <a class="mu-btn" href="/murano-unit.html">عرض الكل</a>
+    <a class="btn" href="/murano-unit.html">عرض الكل</a>
   </div>
 
-  <div class="mu-tabs" role="tablist" aria-label="أقسام الوحدات">
+  <div class="tabs" role="tablist" aria-label="أقسام الوحدات">
     <button class="active" role="tab" data-tab="all" aria-selected="true">الكل</button>
     <button role="tab" data-tab="developer" aria-selected="false">المطور</button>
     <button role="tab" data-tab="resale" aria-selected="false">إعادة البيع</button>
   </div>
 
-  <div id="muGrid" class="mu-grid" role="tabpanel" aria-live="polite"></div>
+  <div id="grid" class="grid" role="tabpanel" aria-live="polite"></div>
 </section>
 
 <!-- ===== Video ===== -->
-<section class="mu-section" aria-labelledby="vTitle">
+<section class="section" aria-labelledby="vTitle">
   <h2 id="vTitle" style="margin:0 0 10px;color:#0b3a5e">فيديو المشروع</h2>
-  <div class="mu-vwrap">
+  <div class="vwrap">
     <video controls playsinline preload="metadata"
            poster="https://c.top4top.io/p_35249hfap2.jpg"
            controlsList="nodownload noplaybackrate"
@@ -170,8 +179,8 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 </section>
 
 <!-- ===== Gallery + Lightbox ===== -->
-<div class="mu-slider-wrap">
-  <div class="mu-slider" id="muSlider">
+<div class="slider-wrap">
+  <div class="slider" id="slider">
     <img data-lb src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1">
     <img data-lb src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2">
     <img data-lb src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3">
@@ -180,29 +189,29 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
   </div>
 </div>
 
-<div class="mu-lb" id="muLb" aria-hidden="true">
-  <button class="nav l" id="muPrev">‹</button>
-  <img id="muLbImg" src="" alt="">
-  <button class="nav r" id="muNext">›</button>
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="nav l" id="prev">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="nav r" id="next">›</button>
 </div>
 
 <!-- ===== Share / Prices ===== -->
-<div class="mu-actions-row">
-  <button class="mu-chip" id="shareBtn"><img src="https://c.top4top.io/p_3537yhy740.png" alt=""> مشاركة</button>
-  <button class="mu-chip" id="copyBtn"><img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ</button>
+<div class="row-actions">
+  <button class="chip" id="shareBtn"><img src="https://c.top4top.io/p_3537yhy740.png" alt=""> مشاركة</button>
+  <button class="chip" id="copyBtn"><img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ</button>
 </div>
 
-<div class="mu-prices">
-  <div class="mu-price-card"><div class="ttl">سعر المطوّر</div><a href="#contact">استفسر عن العروض</a></div>
-  <div class="mu-price-card"><div class="ttl">سعر إعادة البيع</div><a href="#contact">تواصل لمعرفة السعر</a></div>
+<div class="prices">
+  <div class="p-card"><div class="ttl">سعر المطوّر</div><a href="#contact">استفسر عن العروض</a></div>
+  <div class="p-card"><div class="ttl">سعر إعادة البيع</div><a href="#contact">تواصل لمعرفة السعر</a></div>
 </div>
 
 <div style="text-align:center;margin:8px 0 18px">
-  <a href="#" id="openMaster" class="mu-chip" style="text-decoration:none">الماستر بلان المشروع</a>
+  <a href="#" id="openMaster" class="chip" style="text-decoration:none">الماستر بلان المشروع</a>
 </div>
 
 <!-- ===== Description + Help ===== -->
-<div class="mu-wrap">
+<div class="wrap">
   <main id="desc">
     <h2>1- عن مشروع مورانو وادي دجلة</h2>
     <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة… تم تصميم <b>Murano Wadi Degla</b> بعناية لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع كافة وسائل الراحة والترفيه.</p>
@@ -227,7 +236,7 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
     </ul>
   </main>
 
-  <aside class="mu-help" id="contact">
+  <aside class="help" id="contact">
     <div class="icon"><img src="https://d.top4top.io/p_3538h5c6o0.png" alt="مساعدة عقارية"></div>
     <h3>تحتاج إلى مساعدة عقارية ؟</h3>
     <p>املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
@@ -257,7 +266,7 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 </div>
 
 <!-- ===== FAQ ===== -->
-<section class="mu-faq">
+<section class="faq">
   <h2>أسئلة شائعة عن مورانو</h2>
   <details><summary>هل يوجد تقسيط وعروض حالية؟</summary><p>نعم، تتوفر خطط تقسيط مرنة وعروض موسمية.</p></details>
   <details><summary>ما المسافة من القاهرة؟</summary><p>حوالي 136 كم عبر طريق العين السخنة/الزعفرانة.</p></details>
@@ -266,60 +275,61 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 
 {% include footer-ar.html %}
 
-<!-- ===== JS ===== -->
+<!-- Floating WhatsApp -->
+<a class="fab" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
+  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
+</a>
+
+</div><!-- /mu-scope -->
+
 <script>
-/* Icons + logos */
-const MU_ICONS={ bed:"https://a.top4top.io/p_3548e8beq1.png", bath:"https://b.top4top.io/p_3548n15ar2.png", area:"https://l.top4top.io/p_35485t5zz0.png", wa:"https://i.top4top.io/p_3537mv0672.png", call:"https://d.top4top.io/p_3537i1eqa1.png" };
-const MU_DEV="https://c.top4top.io/p_3537bk3m10.jpg";
-const MU_IMG="https://l.top4top.io/p_3547oj09j1.jpg";
+/* ===== Icons + dev logo ===== */
+const I={ bed:"https://a.top4top.io/p_3548e8beq1.png", bath:"https://b.top4top.io/p_3548n15ar2.png", area:"https://l.top4top.io/p_35485t5zz0.png", wa:"https://i.top4top.io/p_3537mv0672.png", call:"https://d.top4top.io/p_3537i1eqa1.png" };
+const DEV="https://c.top4top.io/p_3537bk3m10.jpg";
+const PH="https://l.top4top.io/p_3547oj09j1.jpg";
 
-/* Units */
-const MU_UNITS=[
-  {id:"mu-201",tab:"resale",type:"إعادة البيع",typeClass:"resale",delText:"التسليم في",delYear:"2027",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:3,area:115,payment:"installments",monthly:77900,years:7,price:8009600,img:MU_IMG,href:"#"},
-  {id:"mu-202",tab:"developer",type:"مطور",typeClass:"dev",delText:"استلام خلال",delYear:"24 شهر",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:2,area:95,payment:"installments",monthly:145000,years:8,price:5200000,img:MU_IMG,href:"#"},
-  {id:"mu-203",tab:"developer",type:"مطور",typeClass:"dev",delText:"استلام خلال",delYear:"12 شهر",city:"العين السخنة، مصر",title:"توين هاوس — مورانو وادي دجلة",bed:3,bath:3,area:180,payment:"cash",monthly:null,years:null,price:9800000,img:MU_IMG,href:"#"}
+/* ===== Units data (demo) ===== */
+const UNITS=[
+  {id:"mu-201",tab:"resale",type:"إعادة البيع",cls:"",delTxt:"التسليم في",delVal:"2027",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:3,area:115,payment:"installments",monthly:77900,years:7,price:8009600,img:PH,href:"#"},
+  {id:"mu-202",tab:"developer",type:"مطور",cls:"dev",delTxt:"استلام خلال",delVal:"24 شهر",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:2,area:95,payment:"installments",monthly:145000,years:8,price:5200000,img:PH,href:"#"},
+  {id:"mu-203",tab:"developer",type:"مطور",cls:"dev",delTxt:"استلام خلال",delVal:"12 شهر",city:"العين السخنة، مصر",title:"توين هاوس — مورانو وادي دجلة",bed:3,bath:3,area:180,payment:"cash",monthly:null,years:null,price:9800000,img:PH,href:"#"}
 ];
-const muFmt=new Intl.NumberFormat('ar-EG');
-const muGrid=document.getElementById('muGrid');
+const fmt=new Intl.NumberFormat('ar-EG');
+const grid=document.getElementById('grid');
 
-function muCard(u){
-  const monthly = u.payment==="installments" ? `${muFmt.format(u.monthly)} شهريًا / ${u.years} سنوات` : "كاش";
+function card(u){
+  const monthly = u.payment==="installments" ? `${fmt.format(u.monthly)} شهريًا / ${u.years} سنوات` : "كاش";
   return `
-  <article class="mu-card" id="${u.id}">
-    <a class="mu-cover" href="${u.href}">
+  <article class="card" id="${u.id}">
+    <a class="cover" href="${u.href}">
       <img src="${u.img}" alt="${u.title}" loading="lazy" referrerpolicy="no-referrer">
-      <span class="mu-badge-type ${u.typeClass}">${u.type}</span>
-      <div class="mu-deliver"><span>${u.delText}</span><big>${u.delYear}</big></div>
+      <span class="b-type ${u.cls}">${u.type}</span>
+      <div class="b-del"><span>${u.delTxt}</span><big>${u.delVal}</big></div>
     </a>
-    <div class="mu-body">
-      <div class="mu-loc">${u.city}</div>
-      <div class="mu-ttl"><h3>${u.title}</h3><img class="mu-devlogo" src="${MU_DEV}" alt="Wadi Degla"></div>
-      <div class="mu-meta">
-        <span class="it"><img src="${MU_ICONS.area}" alt="المساحة"> ${u.area} م²</span>
-        <span class="it"><img src="${MU_ICONS.bath}" alt="حمامات"> ${u.bath}</span>
-        <span class="it"><img src="${MU_ICONS.bed}" alt="غرف"> ${u.bed}</span>
+    <div class="body">
+      <div class="loc">${u.city}</div>
+      <div class="ttl"><h3>${u.title}</h3><img class="devlogo" src="${DEV}" alt="Wadi Degla"></div>
+      <div class="meta">
+        <span class="it"><img src="${I.area}" alt="المساحة"> ${u.area} م²</span>
+        <span class="it"><img src="${I.bath}" alt="حمامات"> ${u.bath}</span>
+        <span class="it"><img src="${I.bed}" alt="غرف"> ${u.bed}</span>
       </div>
-      <div class="mu-price">
-        <div class="m">${monthly}</div>
-        <div class="t">جم ${muFmt.format(u.price)}</div>
-      </div>
-      <div class="mu-actions">
-        <a class="mu-round" target="_blank" href="https://wa.me/201050072527?text=${encodeURIComponent('مهتم بوحدة '+u.id+' في مورانو')}"><img src="${MU_ICONS.wa}" alt="واتساب"></a>
-        <a class="mu-round" href="tel:+201050072527"><img src="${MU_ICONS.call}" alt="اتصال"></a>
+      <div class="price"><div class="m">${monthly}</div><div class="t">جم ${fmt.format(u.price)}</div></div>
+      <div class="actions">
+        <a class="round" target="_blank" href="https://wa.me/201050072527?text=${encodeURIComponent('مهتم بوحدة '+u.id+' في مورانو')}"><img src="${I.wa}" alt="واتساب"></a>
+        <a class="round" href="tel:+201050072527"><img src="${I.call}" alt="اتصال"></a>
       </div>
     </div>
   </article>`;
 }
-function muRender(tab){ const list = tab==='all'? MU_UNITS : MU_UNITS.filter(x=>x.tab===tab); muGrid.innerHTML=list.map(muCard).join(''); }
-muRender('all');
+function render(tab){const list=tab==='all'?UNITS:UNITS.filter(x=>x.tab===tab);grid.innerHTML=list.map(card).join('');}
+render('all');
 
 /* Tabs */
-document.querySelectorAll('.mu-tabs button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.mu-tabs button').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false')});
-    btn.classList.add('active');btn.setAttribute('aria-selected','true');muRender(btn.dataset.tab);
-  });
-});
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});
+  b.classList.add('active');b.setAttribute('aria-selected','true');render(b.dataset.tab);
+}));
 
 /* Share + Copy */
 (()=>{const URL=location.href.split('#')[0];
@@ -327,20 +337,16 @@ document.getElementById('shareBtn')?.addEventListener('click',async()=>{try{if(n
 document.getElementById('copyBtn')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(URL);alert('تم نسخ الرابط');}catch{alert('لم يتم النسخ');}});})();
 
 /* Lightbox (gallery + master plan) */
-(()=>{const lb=document.getElementById('muLb'),img=document.getElementById('muLbImg');const pics=[...document.querySelectorAll('[data-lb]')].map(i=>i.src);let i=0;
+(()=>{const lb=document.getElementById('lb'),img=document.getElementById('lbImg');const pics=[...document.querySelectorAll('[data-lb]')].map(i=>i.src);let i=0;
 function open(n){i=n;img.src=pics[i];lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
 function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true')}
-document.getElementById('muSlider').querySelectorAll('[data-lb]').forEach((el,idx)=>{el.addEventListener('click',()=>open(idx));});
-document.getElementById('muNext').addEventListener('click',()=>{i=(i+1)%pics.length;img.src=pics[i]});
-document.getElementById('muPrev').addEventListener('click',()=>{i=(i-1+pics.length)%pics.length;img.src=pics[i]});
+document.getElementById('slider').querySelectorAll('[data-lb]').forEach((el,idx)=>el.addEventListener('click',()=>open(idx)));
+document.getElementById('next').addEventListener('click',()=>{i=(i+1)%pics.length;img.src=pics[i]});
+document.getElementById('prev').addEventListener('click',()=>{i=(i-1+pics.length)%pics.length;img.src=pics[i]});
 lb.addEventListener('click',e=>{if(e.target===lb) close();});
-
-/* master plan into lightbox */
 document.getElementById('openMaster')?.addEventListener('click',e=>{
-  e.preventDefault();
-  const src='https://k.top4top.io/p_35373aga50.jpg';
-  if(!pics.includes(src)) pics.push(src);
-  open(pics.indexOf(src));
+  e.preventDefault(); const src='https://k.top4top.io/p_35373aga50.jpg';
+  if(!pics.includes(src)) pics.push(src); open(pics.indexOf(src));
 });
 })();
 
@@ -351,9 +357,5 @@ document.getElementById('btnWA')?.addEventListener('click',()=>{const x=d();cons
 document.getElementById('btnMail')?.addEventListener('click',()=>{const x=d();const s=`استفسار عن ${x.project}`;const b=`الاسم: ${x.name}\nالمشروع: ${x.project}\nالنوع: ${x.unit}\nالغرف: ${x.rooms}\nملاحظات: ${x.note}`;location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(b)}`;});
 })();
 </script>
-
-<a class="mu-fab" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
-  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
-</a>
 </body>
 </html>
