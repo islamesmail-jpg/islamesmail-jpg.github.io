@@ -11,7 +11,6 @@ permalink: /murano.html
 <title>مشروع مورانو وادى دجلة العين السخنه | islam</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-/* ============ THEME (namespaced) ============ */
 :root{--mu-wrap:1120px;--mu-line:#e5e7eb;--mu-shadow:0 10px 24px rgba(0,0,0,.08);--mu-ink:#0f172a;--mu-muted:#64748b;--mu-accent:#0b3a5e;--mu-card:#f8fafc;--mu-pill:#22c55e;--mu-sky:#0ea5e9}
 *{box-sizing:border-box}
 body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,Helvetica,sans-serif;line-height:1.85}
@@ -43,7 +42,7 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 @media(min-width:720px) and (max-width:1200px){.mu-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:719px){.mu-grid{grid-template-columns:1fr}}
 
-/* ===== Card (match reference) ===== */
+/* ===== Card ===== */
 .mu-card{position:relative;background:#fff;border:1px solid var(--mu-line);border-radius:18px;overflow:hidden;box-shadow:var(--mu-shadow)}
 .mu-cover{position:relative;height:220px !important;background:#eef2f7}
 @media(min-width:1024px){.mu-cover{height:240px !important}}
@@ -99,11 +98,11 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 .mu-chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid var(--mu-line);border-radius:12px;background:#fff;box-shadow:var(--mu-shadow);font-weight:800;font-size:13px}
 .mu-chip img{width:18px;height:18px}
 
-/* Prices cards */
+/* Prices cards (smaller) */
 .mu-prices{display:grid;grid-template-columns:repeat(2,minmax(140px,1fr));gap:12px;margin:12px auto;max-width:var(--mu-wrap);padding:0 14px}
-.mu-price-card{background:#fff;border-radius:12px;padding:16px;box-shadow:var(--mu-shadow);border:1px solid var(--mu-line);text-align:center}
-.mu-price-card .ttl{font-weight:800;margin:0 0 6px}
-.mu-price-card a{display:inline-block;padding:8px 10px;border-radius:10px;background:#f3f3f3;color:#111;text-decoration:none;font-weight:700}
+.mu-price-card{background:#fff;border-radius:12px;padding:12px;box-shadow:var(--mu-shadow);border:1px solid var(--mu-line);text-align:center}
+.mu-price-card .ttl{font-weight:800;margin:0 0 4px;font-size:15px}
+.mu-price-card a{display:inline-block;padding:6px 10px;border-radius:10px;background:#f3f3f3;color:#111;text-decoration:none;font-weight:700;font-size:13px}
 
 /* Description + sticky help */
 .mu-wrap{max-width:var(--mu-wrap);margin:auto;padding:0 14px 36px;display:grid;grid-template-columns:minmax(0,3fr) minmax(280px,1.2fr);gap:20px;align-items:start}
@@ -129,7 +128,6 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 </head>
 <body>
 
-<!-- Header -->
 <header class="mu-topbar">
   <div class="mu-nav">
     <a class="brand" href="index.html" aria-label="الرئيسية"><img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري"></a>
@@ -137,7 +135,6 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
   </div>
 </header>
 
-<!-- Breadcrumb -->
 <div class="mu-bc"><div class="inner">
   <a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <a href="/zafarana.html">طريق الزعفرانة</a> » <span>مورانو</span>
 </div></div>
@@ -201,7 +198,7 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 </div>
 
 <div style="text-align:center;margin:8px 0 18px">
-  <a href="https://k.top4top.io/p_35373aga50.jpg" target="_blank" rel="noopener" class="mu-chip" style="text-decoration:none">الماستر بلان المشروع</a>
+  <a href="#" id="openMaster" class="mu-chip" style="text-decoration:none">الماستر بلان المشروع</a>
 </div>
 
 <!-- ===== Description + Help ===== -->
@@ -271,12 +268,12 @@ body{margin:0;background:#fff;color:var(--mu-ink);font-family:"Tajawal",Arial,He
 
 <!-- ===== JS ===== -->
 <script>
-/* صور/أيقونات */
+/* Icons + logos */
 const MU_ICONS={ bed:"https://a.top4top.io/p_3548e8beq1.png", bath:"https://b.top4top.io/p_3548n15ar2.png", area:"https://l.top4top.io/p_35485t5zz0.png", wa:"https://i.top4top.io/p_3537mv0672.png", call:"https://d.top4top.io/p_3537i1eqa1.png" };
 const MU_DEV="https://c.top4top.io/p_3537bk3m10.jpg";
 const MU_IMG="https://l.top4top.io/p_3547oj09j1.jpg";
 
-/* وحدات */
+/* Units */
 const MU_UNITS=[
   {id:"mu-201",tab:"resale",type:"إعادة البيع",typeClass:"resale",delText:"التسليم في",delYear:"2027",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:3,area:115,payment:"installments",monthly:77900,years:7,price:8009600,img:MU_IMG,href:"#"},
   {id:"mu-202",tab:"developer",type:"مطور",typeClass:"dev",delText:"استلام خلال",delYear:"24 شهر",city:"العين السخنة، مصر",title:"شاليه — مورانو وادي دجلة",bed:2,bath:2,area:95,payment:"installments",monthly:145000,years:8,price:5200000,img:MU_IMG,href:"#"},
@@ -285,7 +282,6 @@ const MU_UNITS=[
 const muFmt=new Intl.NumberFormat('ar-EG');
 const muGrid=document.getElementById('muGrid');
 
-/* كارت الوحدة */
 function muCard(u){
   const monthly = u.payment==="installments" ? `${muFmt.format(u.monthly)} شهريًا / ${u.years} سنوات` : "كاش";
   return `
@@ -330,7 +326,7 @@ document.querySelectorAll('.mu-tabs button').forEach(btn=>{
 document.getElementById('shareBtn')?.addEventListener('click',async()=>{try{if(navigator.share){await navigator.share({title:document.title,text:'مشروع مورانو وادي دجلة',url:URL});}}catch(e){}});
 document.getElementById('copyBtn')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(URL);alert('تم نسخ الرابط');}catch{alert('لم يتم النسخ');}});})();
 
-/* Lightbox */
+/* Lightbox (gallery + master plan) */
 (()=>{const lb=document.getElementById('muLb'),img=document.getElementById('muLbImg');const pics=[...document.querySelectorAll('[data-lb]')].map(i=>i.src);let i=0;
 function open(n){i=n;img.src=pics[i];lb.classList.add('open');lb.setAttribute('aria-hidden','false')}
 function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true')}
@@ -338,6 +334,14 @@ document.getElementById('muSlider').querySelectorAll('[data-lb]').forEach((el,id
 document.getElementById('muNext').addEventListener('click',()=>{i=(i+1)%pics.length;img.src=pics[i]});
 document.getElementById('muPrev').addEventListener('click',()=>{i=(i-1+pics.length)%pics.length;img.src=pics[i]});
 lb.addEventListener('click',e=>{if(e.target===lb) close();});
+
+/* master plan into lightbox */
+document.getElementById('openMaster')?.addEventListener('click',e=>{
+  e.preventDefault();
+  const src='https://k.top4top.io/p_35373aga50.jpg';
+  if(!pics.includes(src)) pics.push(src);
+  open(pics.indexOf(src));
+});
 })();
 
 /* Help form */
@@ -348,7 +352,6 @@ document.getElementById('btnMail')?.addEventListener('click',()=>{const x=d();co
 })();
 </script>
 
-<!-- Floating WA -->
 <a class="mu-fab" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="واتساب">
   <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
 </a>
