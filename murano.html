@@ -13,13 +13,26 @@ permalink: /murano.html
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* ============== Murano Page Scope ============== */
-.mu-scope{--wrap:1120px;--line:#e5e7eb;--shadow:0 8px 18px rgba(0,0,0,.06);--ink:#0f172a;--muted:#64748b;--brand:#0b3a5e;--chip:#111827}
+/* ====== تثبيت الهيدر ضد أي CSS خارجي ====== */
+.ire-topbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:1000}
+.ire-nav{max-width:1120px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 14px}
+.ire-brand img{height:56px;width:auto;display:block}
+.ire-links a,.ire-chip,.ire-panel a{all:unset}
+.ire-links a,.ire-panel a{cursor:pointer;color:#111827;text-decoration:none;font-weight:800}
+.ire-links{margin-inline-start:auto;display:none;gap:14px}
+.ire-actions{margin-inline-start:auto;display:flex;gap:10px}
+.ire-chip{border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer}
+.ire-dd{position:relative}
+.ire-panel{position:absolute;top:42px;inset-inline-start:0;background:#fff;border:1px solid #e5e7eb;border-radius:12px;min-width:180px;box-shadow:0 10px 24px rgba(2,8,23,.12);display:none;padding:8px}
+.ire-panel a{display:block;padding:8px 10px;border-radius:10px}
+.ire-panel a:hover{background:#f3f4f6}
+.ire-dd.open .ire-panel{display:block}
+@media(min-width:1024px){.ire-links{display:flex}}
+
+/* ====== Murano Page Scope ====== */
+.mu-scope{--wrap:1120px;--line:#e5e7eb;--shadow:0 8px 18px rgba(0,0,0,.06);--ink:#0f172a;--brand:#0b3a5e}
 .mu-scope *{box-sizing:border-box}
 .mu-scope h1,h2,h3{margin:0 0 10px}
-.mu-scope body, .mu-scope{font-family:"Tajawal",system-ui,Arial}
-
-/* containers */
 .mu-scope .container{max-width:var(--wrap);margin:auto;padding:0 14px}
 
 /* breadcrumb */
@@ -28,7 +41,7 @@ permalink: /murano.html
 .mu-scope .breadcrumb a{color:#1f2937;text-decoration:none}
 .mu-scope .breadcrumb .sep{opacity:.6}
 
-/* section title + “عرض الكل” */
+/* section title + Show all */
 .mu-scope .title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px auto 8px;max-width:var(--wrap);padding:0 14px}
 .mu-scope .title-row h2{font-size:22px;color:var(--ink)}
 .mu-scope .btn-all{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;text-decoration:none;color:#0f172a}
@@ -57,7 +70,7 @@ permalink: /murano.html
 .mu-scope .delivery{position:absolute;inset-inline-end:12px;bottom:12px;background:rgba(0,0,0,.78);color:#fff;padding:8px 12px;border-radius:14px;font-weight:800;display:flex;align-items:center;gap:8px}
 .mu-scope .delivery .yr{background:#111827;color:#fff;padding:4px 8px;border-radius:10px;font-weight:800}
 
-/* body */
+/* body + meta icons */
 .mu-scope .body{padding:12px}
 .mu-scope .title{font-weight:800;color:#0f172a;font-size:18px}
 .mu-scope .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;color:#475569;font-size:14px}
@@ -74,14 +87,15 @@ permalink: /murano.html
 /* video + gallery */
 .mu-scope .video-card{max-width:var(--wrap);margin:18px auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:12px}
 .mu-scope .video-card h3{font-size:18px;color:#0f172a;margin-bottom:8px}
-.mu-scope .gallery{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(3,1fr)}
-.mu-scope .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover}
+.mu-scope .gallery{max-width:var(--wrap);margin:10px auto 8px;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(3,1fr)}
+.mu-scope .gallery img{width:100%;border-radius:14px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
 @media(max-width:720px){.mu-scope .gallery{grid-template-columns:1fr 1fr}}
 
-/* share/copy */
-.mu-scope .actions-row{max-width:var(--wrap);margin:8px auto 16px;padding:0 14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.mu-scope .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer}
+/* share/copy row — جنب بعض */
+.mu-scope .actions-row{max-width:var(--wrap);margin:8px auto 16px;padding:0 14px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
+.mu-scope .chip-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;min-width:150px;justify-content:center}
 .mu-scope .chip-btn img{width:18px;height:18px}
+@media(max-width:480px){.mu-scope .actions-row{flex-wrap:wrap}}
 
 /* price small cards */
 .mu-scope .prices{max-width:var(--wrap);margin:10px auto;display:grid;gap:12px;padding:0 14px;grid-template-columns:repeat(2,1fr)}
@@ -110,23 +124,20 @@ permalink: /murano.html
 .mu-scope .modal .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.9);cursor:pointer}
 .mu-scope .modal .left{inset-inline-start:16px}
 .mu-scope .modal .right{inset-inline-end:16px}
-
-/* keep header safe: no global selectors outside .mu-scope */
 </style>
 </head>
 
 <body>
-<!-- ===== HEADER الأصلي (بدون أي تعديل) ===== -->
+<!-- ===== HEADER الأصلي ===== -->
 <header class="ire-topbar" aria-label="الشريط العلوي">
   <div class="ire-nav">
     <a class="ire-brand" href="index.html" aria-label="الرئيسية">
-      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري — الشعار" style="height:56px;width:auto">
+      <img src="https://g.top4top.io/p_3536wp82v0.png" alt="إسلام للتسويق العقاري — الشعار">
     </a>
-    <div class="ire-spacer"></div>
-    <div class="ire-actions" aria-label="عناصر الهيدر">
+    <div class="ire-actions" aria-label="الهاتف/اللغة">
       <div class="ire-dd" id="ire-dd-areas">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">المناطق ▾</button>
-        <div class="ire-panel" role="menu" aria-label="روابط المناطق">
+        <div class="ire-panel" role="menu">
           <a href="sokhna.html">العين السخنة</a>
           <a href="north.html">الساحل الشمالي</a>
           <a href="Cairo.html">القاهرة الجديدة</a>
@@ -136,13 +147,13 @@ permalink: /murano.html
       </div>
       <div class="ire-dd" id="ire-dd-contact">
         <button class="ire-chip" type="button" aria-haspopup="true" aria-expanded="false">التواصل ▾</button>
-        <div class="ire-panel" role="menu" aria-label="روابط التواصل">
-          <a href="tel:+201050072527">اتصال بنا</a>
+        <div class="ire-panel" role="menu">
+          <a href="tel:+201050072527">اتصل بنا</a>
           <a href="https://wa.me/201050072527" target="_blank" rel="noopener">واتساب</a>
           <a href="mailto:islammesmail@gmail.com">الإيميل</a>
         </div>
       </div>
-      <button class="ire-chip" type="button" data-ire-lang="en" aria-label="English">EN</button>
+      <a class="ire-chip" href="/en" aria-label="English">EN</a>
     </div>
     <nav class="ire-links" aria-label="روابط الصفحات (كمبيوتر)">
       <a href="sokhna.html">العين السخنة</a>
@@ -155,7 +166,8 @@ permalink: /murano.html
 </header>
 
 <div class="mu-scope">
-  <!-- ===== Breadcrumb ===== -->
+
+  <!-- Breadcrumb -->
   <div class="breadcrumb">
     <div class="inner">
       <a href="/">الرئيسية</a><span class="sep">»</span>
@@ -165,23 +177,23 @@ permalink: /murano.html
     </div>
   </div>
 
-  <!-- ===== Title + Show All ===== -->
+  <!-- Title + Show all -->
   <div class="title-row">
     <h2>وحدات في مورانو وادي دجلة</h2>
     <a class="btn-all" href="/murano-unit.html">عرض الكل</a>
   </div>
 
-  <!-- ===== Tabs ===== -->
-  <div class="tabs" id="unitTabs" role="tablist" aria-label="تصنيف الوحدات">
+  <!-- Tabs -->
+  <div class="tabs" id="unitTabs" role="tablist">
     <button class="active" data-tab="all">الكل</button>
     <button data-tab="developer">المطور</button>
     <button data-tab="resale">إعادة البيع</button>
   </div>
 
-  <!-- ===== Units Grid ===== -->
+  <!-- Units Grid -->
   <div id="unitsGrid" class="grid" aria-live="polite"></div>
 
-  <!-- ===== Video ===== -->
+  <!-- Video -->
   <section class="video-card">
     <h3>فيديو المشروع</h3>
     <video controls playsinline preload="metadata"
@@ -193,20 +205,24 @@ permalink: /murano.html
     </video>
   </section>
 
-  <!-- ===== Gallery ===== -->
+  <!-- Gallery (فوق المشاركة/النسخ) -->
   <div class="gallery">
     <img data-lb src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1">
     <img data-lb src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2">
     <img data-lb src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3">
   </div>
 
-  <!-- ===== Share + Copy ===== -->
+  <!-- Share + Copy (جنب بعض) -->
   <div class="actions-row">
-    <button class="chip-btn" id="shareBtn"><img src="https://c.top4top.io/p_3537yhy740.png" alt="">مشاركة</button>
-    <button class="chip-btn" id="copyBtn"><img src="https://d.top4top.io/p_3537i1eqa1.png" alt="">نسخ</button>
+    <button class="chip-btn" id="shareBtn">
+      <img src="https://c.top4top.io/p_3537yhy740.png" alt=""> مشاركة
+    </button>
+    <button class="chip-btn" id="copyBtn">
+      <img src="https://d.top4top.io/p_3537i1eqa1.png" alt=""> نسخ
+    </button>
   </div>
 
-  <!-- ===== Prices small ===== -->
+  <!-- Prices small -->
   <div class="prices">
     <div class="p-card">
       <div class="t">سعر المطوّر</div>
@@ -223,15 +239,15 @@ permalink: /murano.html
     <a href="#" id="openMaster" class="master-pill">الماستر بلان المشروع</a>
   </div>
 
-  <!-- ===== Description + Sticky Help ===== -->
+  <!-- وصف + مساعدة لاصقة -->
   <div class="wrap2">
     <main>
       <section id="desc" class="container" style="padding:0">
         <h2>1- عن مشروع مورانو وادي دجلة</h2>
-        <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم <b>Murano Wadi Degla</b> بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
+        <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة …</p>
 
         <h2>2- موقع قرية مورانو العين السخنة</h2>
-        <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ <b>Murano Wadi Degla</b> حيث تقع قرية مورانو في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+        <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز …</p>
 
         <h2>3- أهم الطرق والمحاور بالقرب من مورانو</h2>
         <ul>
@@ -242,7 +258,7 @@ permalink: /murano.html
         </ul>
 
         <h2>4- مساحة مورانو وادي دجلة</h2>
-        <p>أفردت وادي دجلة مساحة واسعة للمشروع مع توزيع مدروس لاستغلال المساحة بأفضل صورة، ما أنتج بيئة سكنية مميّزة تجمع بين الخصوصية والراحة، ومساحات خضراء رحبة ومسطحات مائية تُضفي إحساسًا بالهدوء والاسترخاء، مع تواجد وفير للمرافق والخدمات الترفيهية.</p>
+        <p>…</p>
 
         <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
         <ul>
@@ -255,7 +271,7 @@ permalink: /murano.html
 
         <h2>6- أنواع الوحدات في Murano Wadi Degla</h2>
         <ul><li>شقق.</li><li>فلل.</li></ul>
-        <p>وتأتي الشقق والفلل بمساحات متعددة تناسب مختلف الأذواق والميزانيات، مع تشطيبات عالية الجودة وتجربة سكنية مميزة.</p>
+        <p>…</p>
 
         <h2>7- مرافق قرية مورانو السخنة</h2>
         <ul>
@@ -301,7 +317,7 @@ permalink: /murano.html
     </aside>
   </div>
 
-  <!-- ===== Lightbox ===== -->
+  <!-- Lightbox -->
   <div class="modal" id="lightbox" aria-hidden="true" role="dialog" aria-label="عرض الصور">
     <button class="nav left" id="lbPrev">‹</button>
     <img id="lbImg" src="" alt="">
@@ -311,9 +327,8 @@ permalink: /murano.html
 
 {% include footer-ar.html %}
 
-<!-- ===== Page Scripts (scoped) ===== -->
 <script>
-/* dropdowns in header (existing) */
+/* فتح/غلق منسدلات الهيدر */
 function bindDropdown(id){
   const dd=document.getElementById(id); if(!dd) return;
   const btn=dd.querySelector('button');
@@ -329,33 +344,31 @@ function bindDropdown(id){
 bindDropdown('ire-dd-contact');
 bindDropdown('ire-dd-areas');
 
-/* ===== Units data ===== */
+/* أيقونات */
 const ICON_BED="https://a.top4top.io/p_3548e8beq1.png";
 const ICON_BATH="https://b.top4top.io/p_3548n15ar2.png";
 const ICON_AREA="https://l.top4top.io/p_35485t5zz0.png";
-const IMG="https://l.top4top.io/p_3547oj09j1.jpg"; // صورة عامة للوحدات
 
+/* بيانات الوحدات */
+const IMG="https://l.top4top.io/p_3547oj09j1.jpg";
 const unitsData=[
   {id:"mu-101", title:"شاليه 2 غرف — 95م²", tab:"developer", type:"مطور", typeClass:"dev", deliveryText:"التسليم في", deliveryYear:"2027", bed:2, bath:1, area:95, price:8009600, plan:{monthly:77900, years:7}, href:"/murano-unit.html#mu-101", img:IMG},
   {id:"mu-102", title:"شاليه 1 غرفة — 65م²", tab:"resale", type:"إعادة البيع", typeClass:"resale", deliveryText:"استلام فوري", deliveryYear:"", bed:1, bath:1, area:65, price:3150000, cash:true, href:"/murano-unit.html#mu-102", img:IMG},
   {id:"mu-103", title:"توين هاوس — 3 غرف — 180م²", tab:"developer", type:"مطور", typeClass:"dev", deliveryText:"التسليم في", deliveryYear:"2026", bed:3, bath:3, area:180, price:9800000, plan:{monthly:145000, years:8}, href:"/murano-unit.html#mu-103", img:IMG}
 ];
 
-/* ===== Render units ===== */
+/* رسم الكروت */
 const grid=document.getElementById('unitsGrid');
 function fmt(n){return new Intl.NumberFormat('ar-EG').format(n)}
 function unitCard(u){
   const priceLine = u.cash
      ? `<span class="chip cash">كاش</span><strong>EGP ${fmt(u.price)}</strong>`
      : (u.plan ? `<span class="chip inst">${fmt(u.plan.monthly)} ج/شهريًا | ${u.plan.years} سنوات</span><strong>EGP ${fmt(u.price)}</strong>` : `<strong>EGP ${fmt(u.price)}</strong>`);
-
   return `
   <article class="card">
     <a class="cover" href="${u.href}">
       <img src="${u.img}" alt="${u.title}" loading="lazy">
-      <div class="badge-stack">
-        <span class="btype ${u.typeClass==='dev'?'dev':''}">${u.type}</span>
-      </div>
+      <div class="badge-stack"><span class="btype ${u.typeClass==='dev'?'dev':''}">${u.type}</span></div>
       <div class="delivery">${u.deliveryText}${u.deliveryYear?` <span class="yr">${u.deliveryYear}</span>`:''}</div>
     </a>
     <div class="body">
@@ -369,24 +382,18 @@ function unitCard(u){
     </div>
   </article>`;
 }
-function render(tab){
-  const list = unitsData.filter(u => tab==='all' || u.tab===tab);
-  grid.innerHTML = list.map(unitCard).join('');
-}
+function render(tab){ grid.innerHTML = unitsData.filter(u => tab==='all' || u.tab===tab).map(unitCard).join(''); }
 render('all');
-
-/* tabs */
 document.querySelectorAll('#unitTabs button').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('#unitTabs button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    render(btn.dataset.tab);
+    btn.classList.add('active'); render(btn.dataset.tab);
   });
 });
 
-/* share + copy */
+/* مشاركة + نسخ */
 const URL=location.href.split('#')[0];
-const TEXT=`أفضل العروض والأسعار لمشروع مورانو وادي دجلة.\nوصف كامل + الموقع + الخدمات + ماستر بلان.\nللمزيد: ${URL}`;
+const TEXT=`أفضل العروض والأسعار لمشروع مورانو وادي دجلة.\nللمزيد: ${URL}`;
 document.getElementById('shareBtn')?.addEventListener('click',async()=>{
   try{ if(navigator.share){ await navigator.share({title:'Murano Wadi Degla',text:TEXT,url:URL}); } }catch(e){}
 });
@@ -394,7 +401,23 @@ document.getElementById('copyBtn')?.addEventListener('click',async()=>{
   try{ await navigator.clipboard.writeText(URL); alert('تم نسخ الرابط'); } catch(e){ alert('تعذر النسخ'); }
 });
 
-/* WhatsApp/Email form */
+/* Lightbox للصور + الماستر بلان */
+const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
+const imgs=[...document.querySelectorAll('[data-lb]')]; let idx=0;
+function openLB(i){ idx=i; lbImg.src=imgs[idx].src; lb.classList.add('open'); }
+function next(){ idx=(idx+1)%imgs.length; lbImg.src=imgs[idx].src; }
+function prev(){ idx=(idx-1+imgs.length)%imgs.length; lbImg.src=imgs[idx].src; }
+imgs.forEach((im,i)=> im.addEventListener('click',()=>openLB(i)));
+document.getElementById('lbNext').addEventListener('click',next);
+document.getElementById('lbPrev').addEventListener('click',prev);
+lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('open'); });
+document.getElementById('openMaster').addEventListener('click',e=>{
+  e.preventDefault();
+  lbImg.src='https://k.top4top.io/p_35373aga50.jpg';
+  lb.classList.add('open');
+});
+
+/* واتساب/إيميل للفورم */
 const val=id=>(document.getElementById(id)?.value||'').trim();
 const build=()=>({name:val('name'),project:val('project'),unit:val('unit'),rooms:val('rooms'),note:val('note')});
 document.getElementById('btnWA')?.addEventListener('click',()=>{
@@ -408,26 +431,11 @@ document.getElementById('btnMail')?.addEventListener('click',()=>{
   const body=`الاسم: ${d.name}\nالمشروع: ${d.project}\nالنوع: ${d.unit}\nالغرف: ${d.rooms}\nملاحظات: ${d.note}`;
   location.href=`mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 });
-
-/* Lightbox (gallery + master plan) */
-const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
-const imgs=[...document.querySelectorAll('[data-lb]')]; let idx=0;
-function openLB(i){ idx=i; lbImg.src=imgs[idx].src; lb.classList.add('open'); }
-function next(){ idx=(idx+1)%imgs.length; lbImg.src=imgs[idx].src; }
-function prev(){ idx=(idx-1+imgs.length)%imgs.length; lbImg.src=imgs[idx].src; }
-imgs.forEach((im,i)=>{ im.style.cursor='zoom-in'; im.addEventListener('click',()=>openLB(i)); });
-document.getElementById('lbNext').addEventListener('click',next);
-document.getElementById('lbPrev').addEventListener('click',prev);
-lb.addEventListener('click',e=>{ if(e.target===lb) lb.classList.remove('open'); });
-document.getElementById('openMaster').addEventListener('click',e=>{
-  e.preventDefault();
-  lbImg.src='https://k.top4top.io/p_35373aga50.jpg'; // الماستر بلان
-  lb.classList.add('open');
-});
 </script>
 
-<!-- Floating WhatsApp (اختياري) -->
-<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="تواصل واتساب" style="position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)">
+<!-- زر واتساب عايم -->
+<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp"
+   style="position:fixed;bottom:18px;inset-inline-start:18px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;border:1px solid rgba(0,0,0,.05);display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25)">
   <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp" style="width:32px;height:32px">
 </a>
 
