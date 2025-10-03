@@ -14,7 +14,7 @@ permalink: /Murano/murano.html
 <meta name="keywords" content="مورانو العين السخنة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة للتطوير العقاري, Murano أسعار, اسلام عقارات">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght{400;600;700;800;900}&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -31,16 +31,16 @@ permalink: /Murano/murano.html
 </script>
 
 <style>
-/* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق */
+/* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق Nawy-like */
 :root{
-  --wrap:1180px; --line:#e5e7eb; /* خط رمادي فاتح جداً */
-  --ink:#1f2937; /* أسود هادئ (لطيف) */
-  --muted:#6b7280; /* رمادي للقراءة */
-  --primary-blue:#2563eb; /* أزرق أساسي قوي */
-  --accent:#25D366; /* واتساب */
+  --wrap:1180px; --line:#e5e7eb; 
+  --ink:#1f2937; 
+  --muted:#6b7280; 
+  --primary-blue:#2563eb; 
+  --accent:#25D366; 
   --dev:#2563eb; 
   --resale:#f59e0b; 
-  --available:#10b981; /* أخضر للمتاح */
+  --available:#10b981; 
   --sold:#dc2626; 
   --shadow:0 10px 25px rgba(0,0,0,.08); 
   --radius:10px;
@@ -129,15 +129,15 @@ a:hover{color:#1d4ed8;}
 .carousel-img.active{display:block;}
 
 .unit-badges{position:absolute;inset:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;}
-/* شارات صغيرة وأنيقة ومحددة على قد الكلمة */
+/* شارات صغيرة وأنيقة ومحددة على قد الكلمة - تم الإصلاح هنا */
 .badge{
   pointer-events:auto;
-  padding:4px 8px; /* حجم أصغر */
+  padding:4px 8px; 
   border-radius:6px;
   color:#fff;font-weight:700;font-size:13px;white-space:nowrap;
   width:fit-content; /* الأهم: تحديد العرض ليناسب النص فقط */
-  text-align:center;
   box-shadow:0 1px 3px rgba(0,0,0,.2);
+  align-self:flex-start; /* لضمان عدم التمدد الرأسي */
 }
 .badge.type.dev{background:var(--dev);}
 .badge.type.resale{background:var(--resale);}
@@ -154,7 +154,7 @@ a:hover{color:#1d4ed8;}
   font-weight:600;font-size:14px;
   color:var(--ink);
 }
-.spec-pill img{width:18px;height:18px;}
+.spec-pill img{width:18px;height:18px;} /* حجم الأيقونات */
 .price-pill{
   display:inline-block;padding:10px 15px;
   border-radius:8px;background:#f3f4f6;
@@ -190,6 +190,7 @@ a:hover{color:#1d4ed8;}
   transition: all 0.3s;
 }
 .master-btn:hover{background:#1d4ed8;border-color:#1d4ed8;}
+.master-icon{height:20px; width:20px; filter: invert(1); /* جعل الأيقونة بيضاء لتتناسب مع الخلفية الزرقاء */ }
 
 /* الوصف والمساعدة (عمودين) */
 .wrap2{max-width:var(--wrap);margin:30px auto;display:grid;gap:30px;padding:0 15px;grid-template-columns:3fr 1fr}
@@ -202,10 +203,11 @@ a:hover{color:#1d4ed8;}
 /* صندوق المساعدة (Sticky Help Box) */
 .help{
   position:sticky;top:90px;padding:20px;border-radius:var(--radius);
-  background:#f9fafb; /* خلفية فاتحة جداً */
+  background:#f9fafb; 
   border:1px solid var(--line);box-shadow:var(--shadow);
   text-align:center;
 }
+.help-icon{width:80px;height:80px;object-fit:contain;margin-bottom:10px;}
 .help h3{color:var(--primary-blue);}
 .help button{
   background:var(--primary-blue);
@@ -217,6 +219,18 @@ a:hover{color:#1d4ed8;}
 .fab-wa{
   width:58px;height:58px;
 }
+/* Lightbox CSS */
+#lightbox{
+  position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);
+  z-index:9999;display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+#lbImg{max-width:90%;max-height:90%;object-fit:contain;transition:opacity 0.3s;}
+.lb-close{position:absolute;top:20px;right:30px;font-size:30px;color:#fff;cursor:pointer;background:none;border:none;z-index:10000}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:60px;color:#fff;cursor:pointer;padding:10px;user-select:none;z-index:10000;opacity:0.8;transition:opacity 0.2s;}
+.lb-prev:hover,.lb-next:hover{opacity:1;}
+.lb-prev{left:20px;}
+.lb-next{right:20px;}
 </style>
 </head>
 <body>
@@ -294,7 +308,7 @@ a:hover{color:#1d4ed8;}
 
     <div class="masterplan" role="region" aria-label="ماستر بلان المشروع">
       <div class="master-btn" onclick="openLightboxMaster(0)" title="عرض ماستر بلان">
-        <img src="https://j.top4top.io/p_3562u73ul0.png" alt="master icon" class="master-icon">
+        <img src="https://i.top4top.io/p_3563id7jh0.png" alt="master icon" class="master-icon">
         عرض الماستر بلان (المخطط العام)
       </div>
     </div>
@@ -425,12 +439,14 @@ a:hover{color:#1d4ed8;}
   async function fetchJson(url){
     try{ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw 0; return await r.json(); }catch(e){ return null; }
   }
+  // قد تحتاج لتغيير المسار إذا كنت تستخدم بيئة Jekyll أو أخرى
   let units = await fetchJson('/Murano/murano-units.json') || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json') || [];
   if(!units || !units.length){
     // بيانات تجريبية إذا فشل الجلب
     units = [
-      { "id":101, "title":"شاليه فاخر 3 غرف - إطلالة بحرية", "status":"available", "type":"developer", "link":"/Murano/murano.units101.html", "price":"9,500,000", "bed":3, "bath":2, "area":"125 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg","https://a.top4top.io/p_3524wj4b00.jpg"], "city":"العين السخنة" },
-      { "id":102, "title":"فيلا للبيع في مورانو - استلام فوري", "status":"available", "type":"resale", "link":"/Murano/murano.units102.html", "price":"15,500,000", "bed":4, "bath":3, "area":"200 م²", "images":["https://d.top4top.io/p_35241i6053.jpg","https://e.top4top.io/p_3524z9c0n4.jpg"], "city":"العين السخنة" }
+      { "id":101, "title":"شاليه فاخر 3 غرف - إطلالة بحرية", "status":"available", "type":"developer", "link":"/Murano/murano.units101.html", "price":"9500000", "bed":3, "bath":2, "area":"125 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg","https://a.top4top.io/p_3524wj4b00.jpg"], "city":"العين السخنة" },
+      { "id":102, "title":"فيلا للبيع في مورانو - استلام فوري", "status":"available", "type":"resale", "link":"/Murano/murano.units102.html", "price":"15500000", "bed":4, "bath":3, "area":"200 م²", "images":["https://d.top4top.io/p_35241i6053.jpg","https://e.top4top.io/p_3524z9c0n4.jpg"], "city":"العين السخنة" },
+      { "id":103, "title":"شقة 2 غرفة - المرحلة الثانية", "status":"sold", "type":"developer", "link":"/Murano/murano.units103.html", "price":"6000000", "bed":2, "bath":1, "area":"90 م²", "images":["https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" }
     ];
   }
 
@@ -488,21 +504,25 @@ a:hover{color:#1d4ed8;}
     const h = document.createElement('h4'); h.textContent = u.title || 'وحدة سكنية';
     const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة');
     
-    // المواصفات (غرف، حمامات، مساحة) - تم التأكد من روابط الأيقونات
+    // المواصفات (غرف، حمامات، مساحة) - تم تحديث الروابط والتأكد من عرض البيانات
     const specs = document.createElement('div'); specs.className='spec-row';
     if(u.bed){
-        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; pillBed.innerHTML = `<img src="https://i.top4top.io/p_3564883v60.png" alt="غرف"> ${u.bed} غرف`;
+        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
+        pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="عدد الغرف"> ${u.bed} غرف`;
         specs.appendChild(pillBed);
     }
     if(u.bath){
-        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; pillBath.innerHTML = `<img src="https://j.top4top.io/p_3564h3h191.png" alt="حمامات"> ${u.bath} حمام`;
+        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; 
+        pillBath.innerHTML = `<img src="https://k.top4top.io/p_3563vaqnl2.png" alt="عدد الحمامات"> ${u.bath} حمام`;
         specs.appendChild(pillBath);
     }
     if(u.area){
-        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; pillArea.innerHTML = `<img src="https://k.top4top.io/p_356461k1b2.png" alt="المساحة"> ${u.area}`;
+        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; 
+        pillArea.innerHTML = `<img src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة"> ${u.area}`;
         specs.appendChild(pillArea);
     }
-
+    
+    // السعر
     const price = document.createElement('div'); 
     price.className='price-pill'; 
     price.textContent = (u.price ? ('ج.م ' + (isNaN(String(u.price).replace(/[^0-9.-]+/g,'')) ? u.price : fmt(u.price))) : 'اتصال لمعرفة السعر');
@@ -546,7 +566,7 @@ a:hover{color:#1d4ed8;}
 
 })();
 
-/* ---------------- Lightbox and other scripts (بدون تغيير) ---------------- */
+/* ---------------- Lightbox and other scripts ---------------- */
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbClose = document.getElementById('lbClose');
@@ -568,29 +588,65 @@ const masterImages = [
 let lbIndex = 0;
 let lbSet = galleryImages;
 
-function openLightboxFromGallery(i){
-  lbSet = galleryImages;
+function openLightbox(set, i){
+  lbSet = set;
   lbIndex = i % lbSet.length;
   lbImg.src = lbSet[lbIndex];
   lb.style.display = 'flex';
   lb.setAttribute('aria-hidden','false');
+}
+
+function openLightboxFromGallery(i){
+  openLightbox(galleryImages, i);
 }
 function openLightboxMaster(i){
-  lbSet = masterImages;
-  lbIndex = i % lbSet.length;
-  lbImg.src = lbSet[lbIndex];
-  lb.style.display = 'flex';
-  lb.setAttribute('aria-hidden','false');
+  openLightbox(masterImages, i);
 }
+
 function closeLightbox(){ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); }
+
 function changeLightbox(dir){
   lbIndex = (lbIndex + dir + lbSet.length) % lbSet.length;
   lbImg.src = lbSet[lbIndex];
 }
+
 lbClose.addEventListener('click', closeLightbox);
 lbPrev.addEventListener('click', ()=> changeLightbox(-1));
 lbNext.addEventListener('click', ()=> changeLightbox(1));
 lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+
+// إضافة دعم السحب للتنقل في اللايت بوكس (Touch/Pointer Events)
+(function(){
+  let isDown = false;
+  let startX = 0;
+  
+  lb.addEventListener('pointerdown', (e) => {
+    if(e.target !== lbImg) return;
+    isDown = true;
+    startX = e.clientX;
+    lb.setPointerCapture(e.pointerId);
+  });
+
+  lb.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+  });
+
+  lb.addEventListener('pointerup', (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const diff = e.clientX - startX;
+    const threshold = 100; // مسافة السحب للتغيير
+
+    if (diff > threshold) { // سحب لليمين (Previous)
+      changeLightbox(-1);
+    } else if (diff < -threshold) { // سحب لليسار (Next)
+      changeLightbox(1);
+    }
+  });
+
+})();
+
 
 /* تمرير الصور المصغرة بالماوس (drag) */
 (function(elId){
@@ -627,7 +683,7 @@ document.getElementById('hMail').addEventListener('click', ()=> {
   location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
 });
 
-/* FAQ render + Toggle (مع إضافة JSON-LD للأسئلة الشائعة لتحسين محركات البحث) */
+/* FAQ render + Toggle */
 (function(){
   const faqData = [
     {q:"ما هو موقع مشروع مورانو بالتحديد؟", a:"يقع مشروع مورانو في نهاية طريق العين السخنة وبداية طريق الزعفرانة، مما يجعله أقرب قرى العين السخنة للقاهرة."},
