@@ -14,7 +14,7 @@ permalink: /Murano/murano.html
 <meta name="keywords" content="مورانو العين السخنة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة للتطوير العقاري, Murano أسعار, اسلام عقارات">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght+400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 /* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق */
@@ -319,7 +319,7 @@ a:hover{color:#1d4ed8;}
 <div class="container">
 
   <div class="breadcrumb" aria-hidden="false">
-    <a href="/">الرئيسية</a> » <a href="/sokhna.html">العين السخنة</a> » <span>الزعفرانة</span>
+    <a href="{{ site.baseurl }}/">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <span>الزعفرانة</span>
   </div>
 
   <div class="title-block" role="banner">
@@ -339,7 +339,7 @@ a:hover{color:#1d4ed8;}
           <button class="tab-btn" data-filter="developer" role="tab">المطور</button>
           <button class="tab-btn" data-filter="resale" role="tab">إعادة البيع</button>
         </div>
-        <a class="show-all-link" href="/Murano/murano.units.html" title="عرض كل الوحدات">عرض الكل</a>
+        <a class="show-all-link" href="{{ site.baseurl }}/Murano/murano.units.html" title="عرض كل الوحدات">عرض الكل</a>
       </div>
     </div>
 
@@ -469,22 +469,21 @@ a:hover{color:#1d4ed8;}
 
 <script>
 /* ---------------- 1. Search Script ---------------- */
-// تم التأكد من أن جميع الروابط المُنشأة هنا تستخدم الـ URL أو الـ permalink
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
   if(!INPUT || !BOX) return;
 
   let SITE_INDEX = [];
-  fetch('/search-index.json', {cache:'no-store'})
+  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'}) // تم تصحيح مسار البحث
     .then(r => r.json())
     .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
     .catch(() => SITE_INDEX = []);
 
   const makeItem = it => {
     const a = document.createElement('a');
-    // التأكد من استخدام الـ url أو الـ permalink المطلق
-    a.href = it.url || it.permalink; 
+    // استخدام الدالة المساعدة لضمان عدم تكرار المسار
+    a.href = ensureAbsolutePath(it.url || it.permalink); 
     a.textContent = it.title || it.name || it.permalink || 'بدون عنوان';
     return a;
   };
@@ -524,13 +523,27 @@ a:hover{color:#1d4ed8;}
 })();
 
 /* ---------------- 2. Units loader + cards ---------------- */
+// دالة مساعدة لضمان بدء المسار بـ baseurl إذا لم يكن رابطًا كاملاً
+function ensureAbsolutePath(path){
+  if(!path) return '{{ site.baseurl }}/';
+  // إذا كان يبدأ ببروتوكول أو # اتركه كما هو
+  if(path.startsWith('http') || path.startsWith('#')) return path;
+  
+  // نضمن أن path يبدأ بـ /
+  const cleanedPath = path.startsWith('/') ? path : '/' + path;
+
+  // نستخدم baseurl لتجنب مشكلة الـ subfolder
+  return '{{ site.baseurl }}' + cleanedPath;
+}
+
 (async function(){
   const GRID = document.getElementById('unitsGrid');
   async function fetchJson(url){
     try{ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw 0; return await r.json(); }catch(e){ return null; }
   }
   // محاولة جلب البيانات من مسارين مختلفين للتأكد من التحميل
-  let units = await fetchJson('/Murano/murano-units.json') || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json') || [];
+  const jsonPath = ensureAbsolutePath('/Murano/murano-units.json').replace('//','/'); // تصحيح مسار الـ JSON
+  let units = await fetchJson(jsonPath) || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json') || [];
   if(!units || !units.length){
     // بيانات تجريبية إذا فشل الجلب - تم استخدام مسارات مطلقة افتراضية للروابط
     units = [
@@ -538,15 +551,6 @@ a:hover{color:#1d4ed8;}
       { "id":102, "title":"فيلا للبيع في مورانو - استلام فوري", "status":"available", "type":"resale", "link":"/Murano/units102.html", "price":"15500000", "bed":4, "bath":3, "area":"200 م²", "images":["https://d.top4top.io/p_35241i6053.jpg","https://e.top4top.io/p_3524z9c0n4.jpg"], "city":"العين السخنة" },
       { "id":103, "title":"شقة 2 غرفة - المرحلة الثانية", "status":"sold", "type":"developer", "link":"/Murano/units103.html", "price":"6000000", "bed":2, "bath":1, "area":"90 م²", "images":["https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" }
     ];
-  }
-
-  // دالة لتصحيح المسار (إضافة / في البداية إذا لم تكن موجودة)
-  function ensureAbsolutePath(path){
-    if(!path) return '/';
-    // إذا كان يبدأ ببروتوكول أو # اتركه كما هو
-    if(path.startsWith('http') || path.startsWith('#')) return path;
-    // إذا كان لا يبدأ بـ / أضفها
-    return path.startsWith('/') ? path : '/' + path;
   }
 
   function fmt(n){ 
@@ -567,7 +571,7 @@ a:hover{color:#1d4ed8;}
   function createCard(u){
     const card = document.createElement('article'); card.className='unit-card'; card.setAttribute('role','article');
     
-    // استخدام دالة تصحيح المسار عند الضغط
+    // استخدام دالة تصحيح المسار عند الضغط لضمان الانتقال الصحيح
     card.onclick = ()=> { if(u.link) window.location.href = ensureAbsolutePath(u.link); };
 
     // صور الوحدة
