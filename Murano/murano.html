@@ -51,6 +51,12 @@ a:hover{color:#1d4ed8;}
     max-width:var(--wrap);margin:0 auto;
 }
 .header-logo img{height:40px;width:auto;}
+/*
+  ملاحظة: الـ Header هنا يتم تضمينه باستخدام {% include header-ar.html %}،
+  ولكن لأغراض العرض والتأكد من صحة الروابط، يجب أن تكون الروابط
+  الموجودة داخل header-ar.html تبدأ بـ {{ site.baseurl }}/.
+  مثل: <a href="{{ site.baseurl }}/index.html">الرئيسية</a>
+*/
 .header-nav a{
     font-weight:700;padding:8px 12px;
     color:var(--ink);
@@ -90,7 +96,7 @@ a:hover{color:#1d4ed8;}
 /* الحاوية الرئيسية */
 .container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 
-/* شريط التنقل (breadcrumb) */
+/* شريط التنقل (breadcrumb) - تم تعديل جميع الروابط هنا */
 .breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
 
 /* كتلة العنوان والمطور */
@@ -270,7 +276,7 @@ a:hover{color:#1d4ed8;}
 #hWA{background:var(--accent);color:#fff;margin-bottom:5px;}
 #hMail{background:var(--primary-blue);color:#fff;}
 
-/* Floating WhatsApp - تم التعديل هنا لجعله أخضر */
+/* Floating WhatsApp */
 .fab-wa{
   width:58px;height:58px;
   position:fixed;bottom:20px;right:20px;
@@ -282,8 +288,7 @@ a:hover{color:#1d4ed8;}
 .fab-wa img{
   width:100%;
   height:100%;
-  /* عكس لون أيقونة الواتساب لتصبح بيضاء */
-  filter: invert(1); 
+  filter: invert(1); /* أيقونة بيضاء */
 }
 
 
@@ -298,7 +303,7 @@ a:hover{color:#1d4ed8;}
 .footer-col{min-width:150px;}
 .footer-col ul{list-style:none;padding:0;margin:10px 0 0 0;}
 .footer-col ul li a{
-    color:var(--ink); /* تم تعديل هذا السطر ليصبح أسود (var(--ink)) */
+    color:var(--ink); 
     font-size:15px;
     font-weight:400;
 }
@@ -329,7 +334,7 @@ a:hover{color:#1d4ed8;}
 <div class="container">
 
   <div class="breadcrumb" aria-hidden="false">
-    <a href="{{ site.baseurl }}/">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <span>الزعفرانة</span>
+    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <span>الزعفرانة</span>
   </div>
 
   <div class="title-block" role="banner">
@@ -485,7 +490,8 @@ a:hover{color:#1d4ed8;}
   if(!INPUT || !BOX) return;
 
   let SITE_INDEX = [];
-  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'}) // تم تصحيح مسار البحث
+  // استخدام المسار المطلق مع site.baseurl لجلب ملف البحث
+  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'}) 
     .then(r => r.json())
     .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
     .catch(() => SITE_INDEX = []);
@@ -533,22 +539,23 @@ a:hover{color:#1d4ed8;}
 })();
 
 /* ---------------- 2. Units loader + cards ---------------- */
-// دالة مساعدة لضمان بدء المسار بـ baseurl إذا لم يكن رابطًا كاملاً
+// دالة مساعدة لضمان بدء المسار بـ baseurl وتجنب التكرار
 function ensureAbsolutePath(path){
   if(!path) return '{{ site.baseurl }}/';
-  // إذا كان يبدأ ببروتوكول أو # اتركه كما هو
   if(path.startsWith('http') || path.startsWith('#')) return path;
   
   // نضمن أن path يبدأ بـ /
   let cleanedPath = path.startsWith('/') ? path : '/' + path;
   
-  // إزالة أي تكرار للمسار الفرعي (مثل murano/murano)
+  // تجربة إزالة اسم المجلد (Murano) إذا كان مكررًا بشكل خاطئ
   const subFolder = '/Murano';
+  // التحقق من تكرار المسار (مثل /Murano/Murano/sokhna.html) - هذه خطوة احترازية 
+  // قد تكون غير ضرورية إذا كان استخدام site.baseurl صحيحًا في جميع الملفات.
   if (cleanedPath.toLowerCase().startsWith(subFolder.toLowerCase() + subFolder.toLowerCase())) {
      cleanedPath = cleanedPath.substring(subFolder.length);
   }
 
-  // نستخدم baseurl لتجنب مشكلة الـ subfolder
+  // نستخدم baseurl لضمان توجيه الروابط الخارجية للمجلد الصحيح
   return '{{ site.baseurl }}' + cleanedPath;
 }
 
@@ -557,11 +564,12 @@ function ensureAbsolutePath(path){
   async function fetchJson(url){
     try{ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw 0; return await r.json(); }catch(e){ return null; }
   }
-  // محاولة جلب البيانات من مسارين مختلفين للتأكد من التحميل
-  const jsonPath = ensureAbsolutePath('/Murano/murano-units.json').replace('//','/'); // تصحيح مسار الـ JSON
+  // جلب البيانات من المسار المطلق المُصحح
+  const jsonPath = ensureAbsolutePath('/Murano/murano-units.json').replace('//','/'); 
   let units = await fetchJson(jsonPath) || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json') || [];
+  
+  // بيانات تجريبية (للتأكد من عمل العرض)
   if(!units || !units.length){
-    // بيانات تجريبية إذا فشل الجلب - تم استخدام مسارات مطلقة افتراضية للروابط
     units = [
       { "id":101, "title":"شاليه فاخر 3 غرف - إطلالة بحرية", "status":"available", "type":"developer", "link":"/Murano/units101.html", "price":"9500000", "bed":3, "bath":2, "area":"125 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg","https://a.top4top.io/p_3524wj4b00.jpg"], "city":"العين السخنة" },
       { "id":102, "title":"فيلا للبيع في مورانو - استلام فوري", "status":"available", "type":"resale", "link":"/Murano/units102.html", "price":"15500000", "bed":4, "bath":3, "area":"200 م²", "images":["https://d.top4top.io/p_35241i6053.jpg","https://e.top4top.io/p_3524z9c0n4.jpg"], "city":"العين السخنة" },
