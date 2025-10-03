@@ -95,26 +95,32 @@ a:hover{color:#1d4ed8;}
 
 /* كتلة العنوان والمطور */
 .title-block{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:20px;text-align:center;}
-.title-block h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)} /* تم تصغير الخط قليلاً */
+.title-block h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)} 
 .dev-center{
     display:flex;align-items:center;gap:15px;
     padding:10px 20px;border:1px solid var(--line);
     border-radius:var(--radius);background:#fff;
     box-shadow:0 2px 8px rgba(0,0,0,.05);
-    cursor:pointer; /* تم إضافة مؤشر اليد ليظهر أنه قابل للضغط */
+    cursor:pointer; 
 }
-.dev-badge{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--ink);}
+.dev-badge{font-weight:700;font-size:16px;color:var(--ink);}
 .dev-logo{height:40px;width:auto;object-fit:contain;padding:5px;border-radius:5px;} 
 
 /* قسم الوحدات */
 .units-section{max-width:var(--wrap);margin:10px auto 24px auto;padding:0 15px;text-align:right;}
 .units-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;gap:15px;flex-wrap:wrap;}
 .units-header .title{font-weight:800;font-size:24px;margin-top:0;} 
-.tablist{display:flex;gap:10px;align-items:center}
+.tablist{
+  display:flex;gap:10px;align-items:center;
+  flex-wrap:nowrap; /* التأكد من أن الفلاتر تظل في صف واحد */
+  overflow-x: auto; /* إضافة سكرول أفقي إذا ضاقت الشاشة جداً */
+  padding: 5px 0;
+}
 .tab-btn{
   padding:8px 16px;border-radius:20px;
   border:1px solid var(--line);background:#f9fafb;font-weight:700;
   cursor:pointer;transition: all 0.3s;font-size:15px;
+  flex-shrink: 0; /* منع الأزرار من الانكماش */
 }
 .tab-btn.active{background:var(--primary-blue);color:#fff;border-color:var(--primary-blue);box-shadow:0 4px 8px rgba(37,99,235,.2);}
 .tab-btn:hover:not(.active){background:#f3f4f6;}
@@ -124,6 +130,7 @@ a:hover{color:#1d4ed8;}
   border:1px solid var(--primary-blue);
   transition: all 0.3s;
   font-size:15px;
+  flex-shrink: 0;
 }
 .show-all-link:hover{background:var(--primary-blue);color:#fff;}
 
@@ -210,6 +217,7 @@ a:hover{color:#1d4ed8;}
 .slider-thumbs{display:flex;gap:12px;overflow-x:auto;padding:6px 2px;cursor:grab;
   scrollbar-width: thin; scrollbar-color: var(--primary-blue) #f1f1f1;
 }
+/* إضافة onclick لفتح الصور في Lightbox */
 .slider-thumbs img{
   flex:0 0 340px;height:210px;object-fit:cover;
   border-radius:var(--radius);cursor:pointer;
@@ -221,6 +229,7 @@ a:hover{color:#1d4ed8;}
 
 /* الماستر بلان */
 .masterplan{margin:24px auto;text-align:center;display:flex;justify-content:center;gap:15px}
+/* تم تعديل onclick لفتح Master Plan في Lightbox */
 .master-btn{
   display:inline-flex;align-items:center;gap:10px;
   border:1px solid var(--primary-blue);padding:12px 25px;
@@ -248,14 +257,15 @@ a:hover{color:#1d4ed8;}
 .faq-a{padding:15px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;margin-top:-1px;display:none;font-size:16px;line-height:1.7;}
 
 
-/* صندوق المساعدة (Sticky Help Box) - تم تعديل خاصية position */
+/* صندوق المساعدة (Sticky Help Box) - تم تعديل خاصية position + الحجم */
 .help{
-  position:sticky; /* تم تغييرها لتصبح sticky */
+  position:sticky; /* لجعله يتحرك مع السكرول */
   top:90px; /* المسافة من الأعلى عند التمرير */
   padding:20px;border-radius:var(--radius);
   background:#f9fafb; 
   border:1px solid var(--line);box-shadow:var(--shadow);
   text-align:center;
+  max-width: 100%; /* لجعله يتكيف مع العمود */
 }
 .help-icon{width:80px;height:80px;object-fit:contain;margin-bottom:10px;}
 .help h3{color:var(--primary-blue);margin:0;font-size:22px;} 
@@ -350,7 +360,7 @@ a:hover{color:#1d4ed8;}
         <div class="tablist" role="tablist" aria-label="فلترة الوحدات">
           <button class="tab-btn active" data-filter="all" role="tab">الكل</button>
           <button class="tab-btn" data-filter="developer" role="tab">المطور</button>
-          <button class="tab-btn" data-filter="resale" role="tab">إعادة البيع</button>
+          <button class="tab-btn" data-filter="resale" role="tab">إعادة بيع</button>
         </div>
         <a class="show-all-link" href="{{ site.baseurl }}/murano.units.html" title="عرض كل الوحدات">عرض الكل</a>
       </div>
@@ -589,12 +599,12 @@ function ensureAbsolutePath(path){
     try{ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw 0; return await r.json(); }catch(e){ return null; }
   }
   
-  // *** الجزء المُركز عليه: هنا نحدد الرابط لجلب ملف الـ JSON ***
+  // *** هنا رابط جلب ملف الـ JSON للوحدات ***
   let units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json') || 
               await fetchJson('{{ site.baseurl }}/murano-units.json') || 
               []; 
   
-  // بيانات تجريبية (للتأكد من عمل العرض) - للحماية في حالة فشل الروابط
+  // بيانات تجريبية (للتأكد من عمل العرض)
   if(!units || !units.length){
     units = [
       { "id":101, "title":"شاليه 2 غرف - واجهة بحرية (تجريبية)", "status":"available", "type":"developer", "link":"/murano.units.html#101", "price":"4,800,000", "bed":2, "bath":1, "area":"105 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" },
@@ -665,7 +675,6 @@ function ensureAbsolutePath(path){
     
     // المواصفات (غرف، حمامات، مساحة)
     const specs = document.createElement('div'); specs.className='spec-row';
-    // تم إصلاح مشكلة [object Object] عبر التأكد من عرض النصوص بدلاً من الكائنات
     if(u.bed){
         const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
         pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="عدد الغرف"> ${u.bed} غرف`;
@@ -739,7 +748,8 @@ const galleryImages = [
   "https://a.top4top.io/p_3524wj4b00.jpg", "https://d.top4top.io/p_35241i6053.jpg", 
   "https://e.top4top.io/p_3524z9c0n4.jpg", "https://f.top4top.io/p_3524tljl25.jpg"
 ];
-const masterImages = ["https://l.top4top.io/p_3563k5j6r0.jpg"]; // Placeholder for Master Plan
+// تم تحديث رابط الماستر بلان هنا
+const masterImages = ["https://j.top4top.io/p_3563qrcdc1.jpeg"]; 
 let lbIndex = 0;
 let lbSet = galleryImages;
 
@@ -754,11 +764,16 @@ function openLightbox(set, i){
 }
 
 function openLightboxFromGallery(i){ openLightbox(galleryImages, i); }
-function openLightboxMaster(i){ openLightbox(masterImages, i); }
+// تم ربط زر الماستر بلان بالـ Lightbox
+function openLightboxMaster(i){ 
+  openLightbox(masterImages, i); 
+  lbPrev.style.display = lbNext.style.display = 'none'; // تعطيل الأسهم للماستر بلان (صورة واحدة)
+}
 
 function closeLightbox(){ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); }
 
 function changeLightbox(dir){
+  if(lbSet.length <= 1) return; // لا تتحرك إذا كانت مجموعة الصور واحدة (مثل الماستر بلان)
   lbIndex = (lbIndex + dir + lbSet.length) % lbSet.length;
   lbImg.src = lbSet[lbIndex];
 }
@@ -781,7 +796,9 @@ lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); }
     const diff = e.clientX - startX; const threshold = 80;
     if (diff > threshold) { changeLightbox(-1); } // سحب لليمين (Previous)
     else if (diff < -threshold) { changeLightbox(1); } // سحب لليسار (Next)
-    else if (Math.abs(diff) < 10) { closeLightbox(); } // نقرة بسيطة
+    else if (Math.abs(diff) < 10) { 
+        // نقرة بسيطة (للتأكد من عدم الإغلاق إذا كان هناك سحب خفيف)
+    }
   });
 })();
 
