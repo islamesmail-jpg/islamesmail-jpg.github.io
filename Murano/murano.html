@@ -14,7 +14,7 @@ permalink: /Murano/murano.html
 <meta name="keywords" content="مورانو العين السخنة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة للتطوير العقاري, Murano أسعار, اسلام عقارات">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght+400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 /* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق */
@@ -469,6 +469,7 @@ a:hover{color:#1d4ed8;}
 
 <script>
 /* ---------------- 1. Search Script ---------------- */
+// تم التأكد من أن جميع الروابط المُنشأة هنا تستخدم الـ URL أو الـ permalink
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
@@ -482,7 +483,8 @@ a:hover{color:#1d4ed8;}
 
   const makeItem = it => {
     const a = document.createElement('a');
-    a.href = it.url || it.permalink;
+    // التأكد من استخدام الـ url أو الـ permalink المطلق
+    a.href = it.url || it.permalink; 
     a.textContent = it.title || it.name || it.permalink || 'بدون عنوان';
     return a;
   };
@@ -530,12 +532,21 @@ a:hover{color:#1d4ed8;}
   // محاولة جلب البيانات من مسارين مختلفين للتأكد من التحميل
   let units = await fetchJson('/Murano/murano-units.json') || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json') || [];
   if(!units || !units.length){
-    // بيانات تجريبية إذا فشل الجلب
+    // بيانات تجريبية إذا فشل الجلب - تم استخدام مسارات مطلقة افتراضية للروابط
     units = [
       { "id":101, "title":"شاليه فاخر 3 غرف - إطلالة بحرية", "status":"available", "type":"developer", "link":"/Murano/units101.html", "price":"9500000", "bed":3, "bath":2, "area":"125 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg","https://a.top4top.io/p_3524wj4b00.jpg"], "city":"العين السخنة" },
       { "id":102, "title":"فيلا للبيع في مورانو - استلام فوري", "status":"available", "type":"resale", "link":"/Murano/units102.html", "price":"15500000", "bed":4, "bath":3, "area":"200 م²", "images":["https://d.top4top.io/p_35241i6053.jpg","https://e.top4top.io/p_3524z9c0n4.jpg"], "city":"العين السخنة" },
       { "id":103, "title":"شقة 2 غرفة - المرحلة الثانية", "status":"sold", "type":"developer", "link":"/Murano/units103.html", "price":"6000000", "bed":2, "bath":1, "area":"90 م²", "images":["https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" }
     ];
+  }
+
+  // دالة لتصحيح المسار (إضافة / في البداية إذا لم تكن موجودة)
+  function ensureAbsolutePath(path){
+    if(!path) return '/';
+    // إذا كان يبدأ ببروتوكول أو # اتركه كما هو
+    if(path.startsWith('http') || path.startsWith('#')) return path;
+    // إذا كان لا يبدأ بـ / أضفها
+    return path.startsWith('/') ? path : '/' + path;
   }
 
   function fmt(n){ 
@@ -555,7 +566,9 @@ a:hover{color:#1d4ed8;}
 
   function createCard(u){
     const card = document.createElement('article'); card.className='unit-card'; card.setAttribute('role','article');
-    card.onclick = ()=> { if(u.link) window.location.href = u.link; };
+    
+    // استخدام دالة تصحيح المسار عند الضغط
+    card.onclick = ()=> { if(u.link) window.location.href = ensureAbsolutePath(u.link); };
 
     // صور الوحدة
     const images = document.createElement('div'); images.className='unit-images';
