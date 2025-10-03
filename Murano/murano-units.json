@@ -1,0 +1,47 @@
+[
+  {
+    "id": "101",
+    "slug": "murano-units101.html",
+    "city": "العين السخنة، مصر",
+    "title": "شاليه 2 غرف — مورانو وادي دجلة",
+    "tab": "developer",
+    "type": "مطور",
+    "typeClass": "dev",
+    "deliveryText": "التسليم في",
+    "deliveryYear": "2027",
+    "bed": 2,
+    "bath": 1,
+    "area": 95,
+    "price": 8009600,
+    "payment": { "type": "installment", "downPercent": 10, "years": 7 },
+    "images": [
+      "https://c.top4top.io/p_35249hfap2.jpg",
+      "https://b.top4top.io/p_3524bqo0h1.jpg",
+      "https://a.top4top.io/p_3524wj4b00.jpg"
+    ],
+    "shortDesc": "شاليه بموقع مميز داخل مورانو وادي دجلة مع خطة سداد مرنة.",
+    "desc": "شاليه بموقع مميز داخل مورانو وادي دجلة، تصميم عصري ومطلات جميلة، قرب الخدمات والشاطئ. المشروع يوفر مساحات خضراء، حمامات سباحة ومناطق ترفيهية. مناسب للاستثمار أو قضاء الإجازات."
+  },
+  {
+    "id": "102",
+    "slug": "murano-units102.html",
+    "city": "العين السخنة، مصر",
+    "title": "شاليه 1 غرفة — مورانو وادي دجلة (استلام فوري)",
+    "tab": "resale",
+    "type": "إعادة البيع",
+    "typeClass": "resale",
+    "deliveryText": "استلام فوري",
+    "deliveryYear": "",
+    "bed": 1,
+    "bath": 1,
+    "area": 65,
+    "price": 3150000,
+    "payment": { "type": "cash" },
+    "images": [
+      "https://d.top4top.io/p_35241i6053.jpg",
+      "https://e.top4top.io/p_3524z9c0n4.jpg"
+    ],
+    "shortDesc": "شاليه جاهز للاستلام الفوري بموقع رائع داخل مورانو.",
+    "desc": "شاليه جاهز للاستلام الفوري، مفروش جزئياً، موقع مميز داخل المشروع وقريب من الخدمات والشاطئ. مناسب للاستخدام الفوري أو التأجير الصيفي."
+  }
+]
