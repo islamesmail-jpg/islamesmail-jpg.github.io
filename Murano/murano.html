@@ -23,7 +23,7 @@ permalink: /Murano/murano.html
   --ink:#1f2937; /* أسود هادئ (لون النص الأساسي) */
   --muted:#6b7280; 
   --primary-blue:#2563eb; 
-  --accent:#25D366; 
+  --accent:#25D366; /* أخضر الواتساب */
   --dev:#2563eb; 
   --resale:#f59e0b; 
   --available:#10b981; 
@@ -270,15 +270,21 @@ a:hover{color:#1d4ed8;}
 #hWA{background:var(--accent);color:#fff;margin-bottom:5px;}
 #hMail{background:var(--primary-blue);color:#fff;}
 
-/* Floating WhatsApp */
+/* Floating WhatsApp - تم التعديل هنا لجعله أخضر */
 .fab-wa{
   width:58px;height:58px;
   position:fixed;bottom:20px;right:20px;
   z-index:1100;
   border-radius:50%;
+  background:var(--accent); /* خلفية خضراء */
   box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
-.fab-wa img{width:100%;height:100%;}
+.fab-wa img{
+  width:100%;
+  height:100%;
+  /* عكس لون أيقونة الواتساب لتصبح بيضاء */
+  filter: invert(1); 
+}
 
 
 /* التذييل CSS (لتنسيق الملف المُتضمن) */
@@ -291,7 +297,11 @@ a:hover{color:#1d4ed8;}
 .footer-links{display:flex;justify-content:center;gap:40px;text-align:right;flex-wrap:wrap;font-size:16px;padding:10px 0;}
 .footer-col{min-width:150px;}
 .footer-col ul{list-style:none;padding:0;margin:10px 0 0 0;}
-.footer-col ul li a{color:var(--ink);font-size:15px;font-weight:400;}
+.footer-col ul li a{
+    color:var(--ink); /* تم تعديل هذا السطر ليصبح أسود (var(--ink)) */
+    font-size:15px;
+    font-weight:400;
+}
 
 /* Lightbox CSS */
 #lightbox{
@@ -530,7 +540,13 @@ function ensureAbsolutePath(path){
   if(path.startsWith('http') || path.startsWith('#')) return path;
   
   // نضمن أن path يبدأ بـ /
-  const cleanedPath = path.startsWith('/') ? path : '/' + path;
+  let cleanedPath = path.startsWith('/') ? path : '/' + path;
+  
+  // إزالة أي تكرار للمسار الفرعي (مثل murano/murano)
+  const subFolder = '/Murano';
+  if (cleanedPath.toLowerCase().startsWith(subFolder.toLowerCase() + subFolder.toLowerCase())) {
+     cleanedPath = cleanedPath.substring(subFolder.length);
+  }
 
   // نستخدم baseurl لتجنب مشكلة الـ subfolder
   return '{{ site.baseurl }}' + cleanedPath;
