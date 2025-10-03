@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>وحدات مورانو — Murano Units</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--wrap:1180px;--line:#e5e7eb;--ink:#0f172a;--muted:#64748b;--brand:#0b3a5e}
+*{box-sizing:border-box}body{font-family:"Cairo",system-ui,Arial;margin:0;background:#f8fafc;color:var(--ink);line-height:1.6}
+.container{max-width:var(--wrap);margin:auto;padding:12px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;justify-content:flex-start;margin-bottom:12px}
+.tabs button{padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:900}
+.tabs button.active{box-shadow:inset 0 -3px var(--brand);color:var(--brand)}
+
+/* grid: 1 column mobile, 2 columns desktop */
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:992px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+/* card */
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 20px rgba(2,8,23,.04);display:flex;flex-direction:column}
+.cover{position:relative;aspect-ratio:16/9;background:#f3f4f6}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.badge-type{position:absolute;top:10px;right:10px;padding:6px 10px;border-radius:12px;color:#fff;font-weight:900;font-size:13px}
+.badge-type.dev{background:#0ea5e9}
+.badge-type.resale{background:#10b981}
+.badge-delivery{position:absolute;bottom:10px;left:10px;background:rgba(17,24,39,.9);color:#fff;padding:6px 10px;border-radius:10px;font-weight:900}
+
+/* info */
+.info{padding:12px}
+.title h3{margin:0;font-size:16px;font-weight:900}
+.loc{color:var(--muted);font-weight:800;font-size:13px}
+.features{display:flex;gap:10px;margin:10px 0;color:#475569;font-weight:800;align-items:center;flex-wrap:wrap}
+.f{display:inline-flex;align-items:center;gap:6px}
+.f img{width:18px;height:18px}
+.sep{width:1px;height:18px;background:#e2e8f0;border-radius:10px;margin-inline:6px}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.plan{background:#111827;color:#fff;border-radius:999px;padding:7px 12px;font-weight:900;font-size:13px}
+.price{font-weight:900;font-size:18px;color:#0f172a}
+
+/* actions */
+.controls{display:flex;gap:8px;justify-content:center;margin:18px 0}
+.btn-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-weight:900;cursor:pointer}
+
+/* small responsive */
+@media(max-width:520px){.title h3{font-size:15px}.price{font-size:16px}}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2 style="margin:0 0 12px">الوحدات المتاحة — Murano</h2>
+
+    <div class="tabs" id="unitTabs">
+      <button class="active" data-tab="all">الكل</button>
+      <button data-tab="developer">المطور</button>
+      <button data-tab="resale">إعادة البيع</button>
+    </div>
+
+    <div id="unitsGrid" class="grid" aria-live="polite"></div>
+
+    <div class="controls">
+      <a class="btn-chip" href="/murano.html">رجوع لصفحة المشروع</a>
+    </div>
+  </div>
+
+<script>
+const ICON_BED ="https://a.top4top.io/p_3548e8beq1.png";
+const ICON_BATH="https://b.top4top.io/p_3548n15ar2.png";
+const ICON_AREA="https://l.top4top.io/p_35485t5zz0.png";
+
+async function loadUnits(tab="all"){
+  try{
+    const res = await fetch('murano-units.json');
+    const units = await res.json();
+    const grid = document.getElementById('unitsGrid');
+    const nf = new Intl.NumberFormat('ar-EG');
+    function card(u){
+      const plan = u.payment?.type === 'cash' ? `<span class="plan" style="background:#10b981">كاش</span>`
+        : u.payment?.type === 'installment' ? `<span class="plan">قسط • مقدم ${u.payment.downPercent || 0}%</span>` : '';
+      return `
+      <article class="card">
+        <a class="cover" href="${u.slug}" aria-label="${u.title}">
+          <img src="${(u.images&&u.images[0])||u.img||'https://l.top4top.io/p_3547oj09j1.jpg'}" alt="${u.title}" loading="lazy">
+          <span class="badge-type ${u.typeClass==='dev'?'dev':'resale'}">${u.type}</span>
+          <span class="badge-delivery">${u.deliveryText}${u.deliveryYear?` <span class="year">${u.deliveryYear}</span>`:''}</span>
+        </a>
+        <div class="info">
+          <div><span class="loc">${u.city||''}</span></div>
+          <div class="title"><h3>${u.title}</h3></div>
+          <div class="features">
+            <span class="f"><img src="${ICON_AREA}" alt="area"> ${u.area} م²</span>
+            <span class="sep"></span>
+            <span class="f"><img src="${ICON_BATH}" alt="bath"> ${u.bath} حمام</span>
+            <span class="sep"></span>
+            <span class="f"><img src="${ICON_BED}" alt="bed"> ${u.bed} غرف</span>
+          </div>
+          <div class="price-row">
+            ${plan}
+            <div class="price">جم ${nf.format(u.price)}</div>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    grid.innerHTML = units.filter(u=>tab==='all'||u.tab===tab).map(card).join('');
+  }catch(e){
+    console.error(e);
+    document.getElementById('unitsGrid').innerHTML = '<div>حدث خطأ أثناء تحميل الوحدات.</div>';
+  }
+}
+loadUnits();
+
+document.querySelectorAll('#unitTabs button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#unitTabs button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    loadUnits(b.dataset.tab);
+  });
+});
+</script>
+</body>
+</html>
