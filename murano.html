@@ -10,6 +10,8 @@ permalink: /murano.html
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>مورانو وادي دجلة - شاليهات وفيلات للبيع، أسعار، الموقع والمرافق | Islam Real Estate</title>
+<meta name="description" content="اكتشف شاليهات ولوحدات مشروع مورانو وادي دجلة (Murano Wadi Degla) في العين السخنة. تفاصيل الأسعار، أنظمة السداد، الموقع، والمرافق الفاخرة. تواصل الآن لمعرفة العروض المتاحة.">
+<meta name="keywords" content="مورانو وادي دجلة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة, Murano أسعار, اسلام عقارات">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,7 +20,7 @@ permalink: /murano.html
 /* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق */
 :root{
   --wrap:1180px; --line:#e5e7eb; 
-  --ink:#1f2937; /* أسود هادئ (لون النص الأساسي) */
+  --ink:#000000; /* تم التعديل إلى الأسود الخالص حسب الطلب */
   --muted:#6b7280; 
   --primary-blue:#2563eb; 
   --accent:#25D366; /* أخضر الواتساب */
@@ -88,7 +90,7 @@ a:hover{color:#1d4ed8;}
 /* الحاوية الرئيسية */
 .container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 
-/* شريط التنقل (breadcrumb) - تم تعديل جميع الروابط هنا */
+/* شريط التنقل (breadcrumb) */
 .breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
 
 /* كتلة العنوان والمطور */
@@ -531,7 +533,7 @@ a:hover{color:#1d4ed8;}
 })();
 
 /* ---------------- 2. Units loader + cards ---------------- */
-// دالة مساعدة لضمان بدء المسار بـ baseurl وتجنب التكرار
+// دالة مساعدة لضمان بدء المسار بـ baseurl وتجنب التكرار. بما أن الصفحة في الجذر، site.baseurl فارغ.
 function ensureAbsolutePath(path){
   if(!path) return '{{ site.baseurl }}/';
   if(path.startsWith('http') || path.startsWith('#')) return path;
@@ -686,6 +688,7 @@ const lbClose = document.getElementById('lbClose');
 const lbPrev = document.getElementById('lbPrev');
 const lbNext = document.getElementById('lbNext');
 
+// روابط الصور الخارجية التي تم إرسالها مسبقًا
 const galleryImages = [
   "https://i.top4top.io/p_35640r36l0.jpg", "https://j.top4top.io/p_3564i502f1.jpg", 
   "https://k.top4top.io/p_356488d9p2.jpg", "https://l.top4top.io/p_35641d49c3.jpg", 
