@@ -11,7 +11,7 @@ permalink: /murano.html
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>مورانو وادي دجلة - شاليهات وفيلات للبيع، أسعار، الموقع والمرافق | Islam Real Estate</title>
 <meta name="description" content="اكتشف شاليهات ولوحدات مشروع مورانو وادي دجلة (Murano Wadi Degla) في العين السخنة. تفاصيل الأسعار، أنظمة السداد، الموقع، والمرافق الفاخرة. تواصل الآن لمعرفة العروض المتاحة.">
-<meta name="keywords" content="مورانو وادي دجلة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة, Murano أسعار, اسلام عقارات">
+<meta name="keywords" content="مورانو وادي دجلة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة, Murano أسعار, اسلام عقارات, العين السخنة">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@ a:hover{color:#1d4ed8;}
 
 /* كتلة العنوان والمطور */
 .title-block{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:20px;text-align:center;}
-.title-block h1{margin:0;font-size:32px;font-weight:900;color:var(--ink)} 
+.title-block h1{margin:0;font-size:36px;font-weight:900;color:var(--ink)} /* حجم خط أكبر للعنوان الرئيسي */
 .dev-center{
     display:flex;align-items:center;gap:15px;
     padding:10px 20px;border:1px solid var(--line);
@@ -108,7 +108,7 @@ a:hover{color:#1d4ed8;}
 /* قسم الوحدات */
 .units-section{max-width:var(--wrap);margin:10px auto 24px auto;padding:0 15px;text-align:right;}
 .units-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;gap:15px;flex-wrap:wrap;}
-.units-header .title{font-weight:800;font-size:22px;margin-top:0;}
+.units-header .title{font-weight:800;font-size:24px;margin-top:0;} /* حجم خط أكبر لعنوان قسم الوحدات */
 .tablist{display:flex;gap:10px;align-items:center}
 .tab-btn{
   padding:8px 16px;border-radius:20px;
@@ -163,19 +163,19 @@ a:hover{color:#1d4ed8;}
 
 /* بيانات الوحدة */
 .unit-meta{padding:15px;display:flex;flex-direction:column;gap:10px;text-align:right;}
-.unit-meta h4{margin:0;font-size:18px;font-weight:800;color:var(--ink);}
-.unit-meta .small{color:var(--muted);font-size:14px;}
+.unit-meta h4{margin:0;font-size:20px;font-weight:800;color:var(--ink);} /* حجم خط أكبر لعنوان الوحدة */
+.unit-meta .small{color:var(--muted);font-size:15px;}
 .spec-row{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px;margin-top:5px;justify-content:flex-start;}
 .spec-pill{
   display:flex;align-items:center;gap:6px;
-  font-weight:600;font-size:14px;
+  font-weight:600;font-size:15px; /* حجم خط أكبر لتفاصيل الوحدة */
   color:var(--ink);
 }
 .spec-pill img{width:18px;height:18px;} 
 .price-pill{
   display:inline-block;padding:10px 15px;
   border-radius:8px;background:#f3f4f6;
-  font-weight:800;font-size:18px;
+  font-weight:800;font-size:20px; /* حجم خط أكبر للسعر */
   color:var(--primary-blue);
   align-self:flex-start;
   margin-top:10px;
@@ -184,7 +184,7 @@ a:hover{color:#1d4ed8;}
 /* الميديا والصور المصغرة */
 .media-wrap{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 .video-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.05);margin-bottom:18px}
-.video-card h3{text-align:right;margin:6px 0 15px 0;font-size:18px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;}
+.video-card h3{text-align:right;margin:6px 0 15px 0;font-size:22px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;} /* حجم خط أكبر لعنوان الفيديو */
 
 /* أزرار المشاركة والنسخ */
 .share-row{display:flex;gap:15px;margin-top:20px;justify-content:center;}
@@ -222,20 +222,22 @@ a:hover{color:#1d4ed8;}
 .masterplan{margin:24px auto;text-align:center;display:flex;justify-content:center;gap:15px}
 .master-btn{
   display:inline-flex;align-items:center;gap:10px;
+  /* تم تعديل الخلفية إلى الأبيض والحد إلى الأزرق */
   border:1px solid var(--primary-blue);padding:12px 25px;
-  border-radius:25px;cursor:pointer;background:var(--primary-blue);
-  color:#fff;font-weight:800;
-  box-shadow:0 4px 10px rgba(37,99,235,.2);
+  border-radius:25px;cursor:pointer;background:#fff; 
+  color:var(--primary-blue);font-weight:800; /* لون الخط أزرق */
+  box-shadow:0 4px 10px rgba(rgba(37,99,235,.2)); /* ظل خفيف */
   transition: all 0.3s;
 }
-.master-btn:hover{background:#1d4ed8;border-color:#1d4ed8;}
-.master-icon{height:20px; width:20px; filter: invert(1); }
+.master-btn:hover{background:#f3f4f6;} /* خلفية رمادية فاتحة عند التحويم */
+.master-icon{height:20px; width:20px; filter: none; } /* الأيقونة بدون فلتر أبيض الآن لتظهر مع الخلفية البيضاء */
 
 /* الوصف والمساعدة (عمودين) */
 .wrap2{max-width:var(--wrap);margin:30px auto;display:grid;gap:30px;padding:0 15px;grid-template-columns:3fr 1fr}
 @media(max-width:980px){.wrap2{grid-template-columns:1fr}}
-.section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
-.section h2{font-size:24px;font-weight:800;color:var(--ink);margin-top:0;padding-top:0;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px;text-align:right;}
+.section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 44px 10px rgba(0,0,0,.05);}
+.section h2{font-size:26px;font-weight:800;color:var(--ink);margin-top:0;padding-top:0;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px;text-align:right;} /* حجم خط أكبر للعناوين الفرعية */
+.section h3{font-size:20px;font-weight:700;color:var(--ink);margin-top:20px;margin-bottom:10px;text-align:right;} /* حجم خط لـ h3s */
 .section p, .section li{color:var(--ink);font-size:17px;line-height:1.8;}
 
 /* الأسئلة الشائعة */
@@ -254,7 +256,7 @@ a:hover{color:#1d4ed8;}
   text-align:center;
 }
 .help-icon{width:80px;height:80px;object-fit:contain;margin-bottom:10px;}
-.help h3{color:var(--primary-blue);margin:0;font-size:20px;}
+.help h3{color:var(--primary-blue);margin:0;font-size:22px;} /* حجم خط أكبر لعنوان المساعدة */
 .help p{font-size:15px;margin-bottom:15px;line-height:1.5;}
 .help label{display:block;text-align:right;font-weight:600;font-size:14px;margin-top:10px;}
 .help input, .help select, .help textarea{
@@ -332,9 +334,9 @@ a:hover{color:#1d4ed8;}
   </div>
 
   <div class="title-block" role="banner">
-    <h1>مشروع مورانو وادي دجلة</h1>
+    <h1>مشروع مورانو وادي دجلة | Murano Wadi Degla</h1>
     <div class="dev-center" aria-hidden="false">
-      <img src="https://j.top4top.io/p_3563m8lzd0.jpg" alt="Wadi Degla Logo" class="dev-logo" onerror="this.onerror=null;this.src='https://f.top4top.io/p_3562107rr0.png'">
+      <img src="https://e.top4top.io/p_3563069vg0.jpg" alt="Wadi Degla Logo" class="dev-logo" onerror="this.onerror=null;this.src='https://f.top4top.io/p_3562107rr0.png'">
       <div class="dev-badge">المطور: وادي دجلة للتنمية العقارية</div>
     </div>
   </div>
@@ -361,23 +363,24 @@ a:hover{color:#1d4ed8;}
   <section class="media-wrap" aria-label="فيديو وصور المشروع">
     
     <div class="video-card" role="region" aria-label="فيديو المشروع">
-      <h3>فيديو المشروع</h3>
-      <video controls playsinline preload="metadata" poster="https://d.top4top.io/p_35632yq1x3.jpg"
+      <h3>فيديو عن مشروع مورانو وادي دجلة</h3>
+      <video controls playsinline preload="metadata" poster="https://c.top4top.io/p_35249hfap2.jpg"
               controlsList="nodownload noplaybackrate" oncontextmenu="return false" disablePictureInPicture style="width:100%;border-radius:var(--radius);box-shadow:0 4px 10px rgba(0,0,0,.1);">
-        <source src="https://m.top4top.io/m_35641775q0.mp4" type="video/mp4">
+        <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4">
         متصفحك لا يدعم تشغيل الفيديو.
       </video>
     </div>
 
     <div class="section" style="padding:15px">
-      <h3>صور المشروع (Gallery)</h3>
+      <h3>صور مشروع مورانو العين السخنة</h3>
 
       <div class="slider-thumbs" id="thumbs" aria-hidden="false">
-        <img src="https://i.top4top.io/p_35640r36l0.jpg" alt="Murano 1" loading="lazy" onclick="openLightboxFromGallery(0)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano1/600/400'">
-        <img src="https://j.top4top.io/p_3564i502f1.jpg" alt="Murano 2" loading="lazy" onclick="openLightboxFromGallery(1)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano2/600/400'">
-        <img src="https://k.top4top.io/p_356488d9p2.jpg" alt="Murano 3" loading="lazy" onclick="openLightboxFromGallery(2)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano3/600/400'">
-        <img src="https://l.top4top.io/p_35641d49c3.jpg" alt="Murano 4" loading="lazy" onclick="openLightboxFromGallery(3)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano4/600/400'">
-        <img src="https://a.top4top.io/p_3564n1g9c4.jpg" alt="Murano 5" loading="lazy" onclick="openLightboxFromGallery(4)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano5/600/400'">
+        <img src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1" loading="lazy" onclick="openLightboxFromGallery(0)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano1/600/400'">
+        <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2" loading="lazy" onclick="openLightboxFromGallery(1)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano2/600/400'">
+        <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3" loading="lazy" onclick="openLightboxFromGallery(2)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano3/600/400'">
+        <img src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4" loading="lazy" onclick="openLightboxFromGallery(3)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano4/600/400'">
+        <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5" loading="lazy" onclick="openLightboxFromGallery(4)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano5/600/400'">
+        <img src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6" loading="lazy" onclick="openLightboxFromGallery(5)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano6/600/400'">
       </div>
 
       <div class="share-row">
@@ -396,28 +399,64 @@ a:hover{color:#1d4ed8;}
   <div class="wrap2" role="main">
 
     <main class="section" id="description">
-      <h2>عن مشروع مورانو وادي دجلة</h2>
-      <p>يُعد مشروع **مورانو العين السخنة** (Murano Wadi Degla) أحد أبرز المشاريع الساحلية لشركة وادي دجلة للتنمية العقارية. يجمع المشروع بين الموقع المتميز على البحر الأحمر والتصميمات العصرية لتوفير ملاذ صيفي متكامل وراقي.</p>
+      <h2>1. عن مشروع مورانو وادي دجلة</h2>
+      <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
 
-      <h2>موقع مورانو الاستراتيجي</h2>
-      <p>يتمتع مورانو بموقع مثالي في قلب العين السخنة، مما يجعله سهل الوصول إليه وقريبًا من أهم المعالم والطرق الرئيسية:</p>
+      <h2>2. موقع قرية مورانو العين السخنة</h2>
+      <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+      
+      <h3>أهم الطرق والمحاور بالقرب من مورانو</h3>
       <ul>
-        <li>**القاهرة:** على بعد 90 دقيقة فقط من القاهرة الجديدة.</li>
-        <li>**طريق السويس:** يقع مباشرة على الطريق، مما يسهل الوصول والمغادرة.</li>
-        <li>**الخدمات:** يقع بالقرب من بورتو السخنة ومناطق الخدمات الرئيسية.</li>
+        <li>يقع طريق الجلالة على بعد 18 كيلو فقط من قرية مورانو السخنة.</li>
+        <li>أما عن المسافة لمحطة قطار العين السخنة فهي 14 كيلو.</li>
+        <li>ويفصل بين قرية مورانو العين السخنة والقاهرة 136 كيلو.</li>
+        <li>وطريق القطامية على بعد 112 كيلو.</li>
       </ul>
 
-      <h2>أهم المرافق والخدمات في Murano Wadi Degla</h2>
-      <p>يوفر مورانو مجموعة واسعة من المرافق الترفيهية والخدمية لتلبية جميع احتياجات المقيمين:</p>
+      <h2>3. مساحة مورانو وادي دجلة</h2>
+      <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها.</p>
+      <p>أدى اتساع مساحة murano sokhna وتقسيمتها المميزة إلى الجمع بين الخصوصية والراحة داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
+
+      <h2>4. ماستر بلان ومرافق قرية مورانو العين السخنة</h2>
+      <p>يعتمد تصميم قرية مورانو على مفهوم مبتكر يجمع بين الرفاهية والطبيعة، حيث تم تصميم المخطط العام للقرية بطريقة تضمن توفير تجربة متميزة لسكانها، فكل زاوية تُضفي جوّاً فريدًا، وتشمل مرافق murano sokhna:</p>
       <ul>
-        <li>**الشاطئ:** شاطئ رملي خاص ومميز.</li>
-        <li>**المسابح:** عدة حمامات سباحة متنوعة الأحجام والأعماق.</li>
-        <li>**الترفيه:** منطقة تجارية متكاملة تضم محلات ومطاعم وكافيهات فاخرة.</li>
-        <li>**الإقامة:** فندق خمس نجوم لإقامة الأصدقاء والضيوف.</li>
+        <li>**حمامات السباحة:** المتنوعة بمختلف الأحجام والمساحات لتلبي جميع الاحتياجات، فيمكنك ممارسة رياضة السباحة في أي وقت والحفاظ على لياقتك، كما يمكن لأطفالك الاستمتاع بالسباحة معك أو وحدهم دون قلق.</li>
+        <li>**مناطق ترفيهية للأطفال:** بأعلى معايير السلامة، لتضمن لأطفالك قضاء أمتع الأوقات داخل القرية واللعب براحة وأمان تام.</li>
+        <li>**المطاعم والمقاهي:** المتنوعة بمستويات عالمية راقية، فكل ما تفكر فيه أو ترغب به ستجده متوفرا داخل مطاعم مورانو بأشهى الطرق.</li>
+        <li>**المحلات التجارية:** لتتسوق احتياجاتك بمنتهى السهولة دون الحاجة للخروج من قرية مورانو العين السخنة، تتواجد مجموعة من المحلات التجارية التي تلبي احتياجاتك كلها.</li>
+        <li>**ممرات للمشي وركوب الدراجات:** بشكل آمن ومريح، بين المساحات الخضراء الشاسعة وفي جو نقي نظيف يضمن لك صفاء الذهن وراحة البال.</li>
+        <li>**شاطئ رملي ممتد بطول 750 مترًا:** حيث يمكنك الاستمتاع بأشعة الشمس الدافئة على شاطئ البحر الأحمر الخلاب.</li>
+        <li>**مارينا بطول 100 متر:** انطلق في رحلات بحرية ممتعة من المارينا، أو تمتع بنزهة هادئة على طول رصيفها المميز.</li>
+        <li>**منتجع فندقي 4 نجوم:** دلّل نفسك بالإقامة في منتجع فاخر من فئة الأربع نجوم، مع غرف فسيحة وخدمات عالمية المستوى داخل قرية مورانو العين السخنة.</li>
+        <li>**سبا فاخر:** استرخِ ورتّب ذهنك بعد جلسة ساونا ومساج مريحة بأفضل منتجات للعناية بالجسم.</li>
+        <li>**ملاعب رياضية متنوعة (كرة قدم الشاطئ، الكرة الطائرة):** ملاعب رياضية تناسب جميع الأذواق والاهتمامات.</li>
+        <li>**ينابيع ماء ساخنة طبيعية:** استمتع بخصائص الينابيع الساخنة الطبيعية الغنية بالمعادن في قرية مورانو العين السخنة.</li>
       </ul>
       
-      <h2>وحدات وأنظمة سداد مورانو</h2>
-      <p>يضم المشروع وحدات سكنية مصممة بأناقة تشمل **شاليهات** و **شقق فندقية** و **فيلات مستقلة**. تقدم وادي دجلة أنظمة سداد ميسرة تبدأ بمقدم منخفض وفترات تقسيط تصل إلى 7 سنوات، مع توفير وحدات جاهزة للتسليم الفوري أو للتسليم خلال سنة.</p>
+      <h2>5. أنواع الوحدات في Murano Wadi Degla</h2>
+      <p>تتنوع وحدات قرية مورانو العين السخنة لتشمل أنماطاً عديدة تلبي احتياجات جميع السكان، مع الأخذ في الاعتبار العديد من العوامل الهامة في كل الوحدات مثل: الإطلالات المميزة على المناظر الطبيعية، وجودة التصاميم، وتوفر الخدمات والمرافق المختلفة التي تحيط تنتشر بمختلف أنحاء القرية.</p>
+      <p>انقسمت الوحدات السكنية داخل قرية مورانو إلي:</p>
+      <ul>
+        <li>شقق.</li>
+        <li>فلل.</li>
+      </ul>
+      <p>وتأتي جميع شقق وفلل murano sokhna بمساحات متنوعة لتناسب جميع الأذواق والميزانيات، وتشمل هذه الأنماط وحدات سكنية عالية الجودة مصممة بعناية فائقة لتوفير راحة كاملة وتجربة سكنية مميزة.</p>
+
+      <h2>6. عن وادي دجلة للتطوير العقاري (المطور)</h2>
+      <p>تأسست شركة وادي دجلة للتطوير العقاري في عام 2005، وأصبحت رائدة في مجال التطوير العقاري على مدار السنوات الـ 18 الماضية، حيث يبلغ إجمالي مساحة مشاريعها 5.5 مليون متر مربع.</p>
+      <p>وتمتد محفظة أعمال وادي دجلة إلى 16 مشروعًا، منها 12 مشروعًا مكتملًا، تضم أكثر من 10,000 وحدة سكنية، موزعة على القاهرة، والجيزة، والساحل الشمالي، والعين السخنة.</p>
+      <p>تعمل وادي دجلة على تصميم وبناء كل مشروع بما يلائم الأسرة المصرية، مع توفير أعلى معايير الفخامة، وإنشاء مساحات مزودة ببنية تحتية مناسبة، وخدمات مجتمعية، ومساحات خضراء، لضمان مستقبل مشرق لعائلتك.</p>
+
+      <h3>أهم مشروعات وادي دجلة للتطوير العقاري</h3>
+      <ul>
+        <li>بلومار دوم العين السخنة</li>
+        <li>مارينا وادي دجلة العين السخنة</li>
+        <li>بلومار الساحل الشمالي</li>
+        <li>نيوبوليس مدينة المستقبل</li>
+        <li>بيراميدز ووك السادس من أكتوبر</li>
+        <li>بروميناد السادس من أكتوبر</li>
+        <li>بروميناد القاهرة الجديدة</li>
+      </ul>
 
       <div style="margin-top:25px">
         <h2>الأسئلة الشائعة عن مشروع مورانو وادي دجلة</h2>
@@ -447,7 +486,7 @@ a:hover{color:#1d4ed8;}
 
         <label for="hUnit">نوع الوحدة المهتم بها</label>
         <select id="hUnit">
-          <option>شاليه</option><option>شقة فندقية</option><option>فيلا</option><option>توين هاوس</option>
+          <option>شاليه</option><option>شقة فندقية</option><option>فيلا</option><option>توين هاوس</option><option>شقة</option>
         </select>
 
         <label for="hBudget">الميزانية التقريبية</label>
@@ -550,16 +589,17 @@ function ensureAbsolutePath(path){
   async function fetchJson(url){
     try{ const r = await fetch(url, {cache:'no-store'}); if(!r.ok) throw 0; return await r.json(); }catch(e){ return null; }
   }
-  // جلب البيانات من المسار المطلق المُصحح
-  const jsonPath = ensureAbsolutePath('/murano-units.json').replace('//','/'); 
-  let units = await fetchJson(jsonPath) || await fetchJson('https://islamesmail-jpg.github.io/murano-units.json') || [];
   
-  // بيانات تجريبية (للتأكد من عمل العرض)
+  // *** الجزء المُركز عليه: هنا نحدد الرابط لجلب ملف الـ JSON ***
+  let units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json') || 
+              await fetchJson('{{ site.baseurl }}/murano-units.json') || 
+              []; // قائمة فارغة في حالة فشل الجلب
+  
+  // بيانات تجريبية (للتأكد من عمل العرض) - للحماية في حالة فشل الروابط
   if(!units || !units.length){
     units = [
-      { "id":101, "title":"شاليه 2 غرف - واجهة بحرية", "status":"available", "type":"developer", "link":"/murano.units.html#101", "price":"4800000", "bed":2, "bath":1, "area":"105 م²", "images":["https://i.top4top.io/p_35640r36l0.jpg","https://j.top4top.io/p_3564i502f1.jpg"], "city":"العين السخنة" },
-      { "id":102, "title":"شقة فندقية 1 غرفة - استلام فوري", "status":"available", "type":"resale", "link":"/murano.units.html#102", "price":"2750000", "bed":1, "bath":1, "area":"75 م²", "images":["https://k.top4top.io/p_356488d9p2.jpg","https://l.top4top.io/p_35641d49c3.jpg"], "city":"العين السخنة" },
-      { "id":103, "title":"فيلا فاخرة - إعادة بيع (فرصة)", "status":"resale", "type":"resale", "link":"/murano.units.html#103", "price":"15000000", "bed":3, "bath":3, "area":"180 م²", "images":["https://a.top4top.io/p_3564n1g9c4.jpg"], "city":"العين السخنة" }
+      { "id":101, "title":"شاليه 2 غرف - واجهة بحرية (وحدة تجريبية)", "status":"available", "type":"developer", "link":"/murano.units.html#101", "price":"4800000", "bed":2, "bath":1, "area":"105 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" },
+      { "id":102, "title":"شقة فندقية 1 غرفة (وحدة تجريبية)", "status":"available", "type":"resale", "link":"/murano.units.html#102", "price":"2750000", "bed":1, "bath":1, "area":"75 م²", "images":["https://a.top4top.io/p_3524wj4b00.jpg","https://d.top4top.io/p_35241i6053.jpg"], "city":"العين السخنة" }
     ];
   }
 
@@ -690,9 +730,9 @@ const lbNext = document.getElementById('lbNext');
 
 // روابط الصور الخارجية التي تم إرسالها مسبقًا
 const galleryImages = [
-  "https://i.top4top.io/p_35640r36l0.jpg", "https://j.top4top.io/p_3564i502f1.jpg", 
-  "https://k.top4top.io/p_356488d9p2.jpg", "https://l.top4top.io/p_35641d49c3.jpg", 
-  "https://a.top4top.io/p_3564n1g9c4.jpg"
+  "https://c.top4top.io/p_35249hfap2.jpg", "https://b.top4top.io/p_3524bqo0h1.jpg", 
+  "https://a.top4top.io/p_3524wj4b00.jpg", "https://d.top4top.io/p_35241i6053.jpg", 
+  "https://e.top4top.io/p_3524z9c0n4.jpg", "https://f.top4top.io/p_3524tljl25.jpg"
 ];
 const masterImages = ["https://l.top4top.io/p_3563k5j6r0.jpg"]; // Placeholder for Master Plan
 let lbIndex = 0;
@@ -779,7 +819,8 @@ document.getElementById('hMail').addEventListener('click', ()=> {
   const faqData = [
     {q:"ما هو موقع مشروع مورانو بالتحديد؟", a:"يقع مشروع مورانو (Murano) في موقع متميز بالعين السخنة، على بعد 90 دقيقة من القاهرة الجديدة وعلى طريق السويس مباشرة، مما يضمن سهولة الوصول."},
     {q:"ما هو اسم الشركة المطورة لمشروع مورانو؟", a:"الشركة المطورة هي وادي دجلة للتنمية العقارية (Wadi Degla Developments)، وهي شركة ذات سمعة قوية في تطوير المشاريع الساحلية والسكنية."},
-    {q:"ما هي أنواع الوحدات المتاحة في مورانو؟", a:"يتضمن المشروع شاليهات، وشقق فندقية، بالإضافة إلى فيلات، وتتوفر فيه خيارات استلام فوري أو تحت الإنشاء بأنظمة سداد ميسرة."}
+    {q:"ما هي أنواع الوحدات المتاحة في مورانو؟", a:"يتضمن المشروع شاليهات، وشقق فندقية، بالإضافة إلى فيلات وشقق، وتتوفر فيه خيارات استلام فوري أو تحت الإنشاء بأنظمة سداد ميسرة."},
+    {q:"ما هي أهم المرافق والخدمات في قرية مورانو؟", a:"توفر مورانو شاطئًا خاصًا بطول 750 مترًا، مارينا، منتجعًا فندقيًا 4 نجوم، مطاعم ومقاهي، مناطق تجارية، سبا فاخر، ملاعب رياضية، وينابيع مياه ساخنة طبيعية."}
   ];
 
   const faqList = document.getElementById('faqList');
