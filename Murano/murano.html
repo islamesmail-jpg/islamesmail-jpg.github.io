@@ -12,6 +12,7 @@ permalink: /Murano/murano.html
 <title>مشروع مورانو وادى دجلة العين السخنة | islam real estate</title>
 <meta name="description" content="تفاصيل مشروع مورانو وادي دجلة - الموقع، المرافق، الوحدات المتاحة (قسط وكاش)، صور وفيديو، ماستر بلان، وأسئلة شائعة.">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
   --wrap:1180px; --line:#e6e9ef; --ink:#0f172a; --muted:#607089; --brand:#0b3a5e; --accent:#25D366; --shadow:0 10px 26px rgba(2,8,23,.06);
@@ -20,70 +21,84 @@ permalink: /Murano/murano.html
 html,body{height:100%}
 body{margin:0;background:#fff;color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;line-height:1.6;font-size:15px}
 a{color:inherit;text-decoration:none}
+.container{max-width:var(--wrap);margin:0 auto;padding:0 14px}
 
-/* layout */
-.container{max-width:var(--wrap);margin:0 auto;padding:0 12px}
-
-/* header include area visual fallback (real header from include) */
+/* header include area keeps site's header via include */
 .header-placeholder{display:none}
 
-/* search */
-.search-row{padding:18px 0}
+/* SEARCH */
+.search-row{padding:14px 0}
 .search-wrap{max-width:980px;margin:0 auto;position:relative}
-#siteSearch{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;font-weight:700}
-#suggest{position:absolute;left:0;right:0;top:calc(100% + 10px);background:#fff;border:1px solid var(--line);border-radius:10px;display:none;z-index:1200;overflow:hidden;box-shadow:0 8px 24px rgba(2,8,23,.06)}
+#siteSearch{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-weight:800}
+#suggest{position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--line);border-radius:10px;display:none;z-index:1200;overflow:hidden;box-shadow:0 8px 24px rgba(2,8,23,.06)}
 #suggest a{display:block;padding:10px 12px;font-weight:800;color:var(--ink)}
 #suggest a:hover{background:#f7fafc}
-
-/* small note under search */
-.search-note{font-size:13px;color:var(--muted);text-align:right;margin-top:8px}
+.search-note{font-size:13px;color:var(--muted);text-align:right;margin-top:8px;white-space:nowrap;overflow:auto}
 
 /* title */
-.title-block{margin:18px auto 8px;text-align:center}
-.title-block h1{margin:0;font-size:30px;font-weight:900}
-.title-block .dev{margin-top:8px;color:var(--muted);display:flex;justify-content:center;align-items:center;gap:12px}
-.dev-logo{width:86px;height:46px;border-radius:8px;object-fit:cover;cursor:pointer}
+.title-block{margin:12px auto 6px;text-align:center}
+.title-block h1{margin:0;font-size:28px;font-weight:900}
+.title-block .dev-row{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:10px}
 
-/* slider */
-.slider{max-width:var(--wrap);margin:20px auto;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+/* developer small card */
+.dev-card{display:inline-flex;align-items:center;gap:12px;padding:8px;border-radius:10px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+.dev-logo{width:80px;height:50px;object-fit:contain;border-radius:6px;background:#fff;padding:6px}
+.dev-text{font-weight:800;color:var(--muted);font-size:14px}
+
+/* main slider (big) */
+.slider{max-width:var(--wrap);margin:18px auto;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
 .slider img{display:block;width:100%;height:520px;object-fit:cover}
 @media(max-width:720px){ .slider img{height:360px} }
 
-/* units header and tabs */
-.units-section{max-width:var(--wrap);margin:10px auto;padding:0 12px}
-.units-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.units-header .title{font-weight:900}
+/* UNITS SECTION */
+.units-section{max-width:var(--wrap);margin:16px auto;padding:0 12px}
+.units-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:12px}
+.units-header .title{font-weight:900;font-size:18px}
 .tablist{display:flex;gap:8px;align-items:center}
 .tab-btn{padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:900;cursor:pointer}
 .tab-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
 
-/* units grid */
-.units-grid{display:grid;gap:12px}
+/* show-all small button above units */
+.show-all-top{margin-bottom:10px;text-align:left} /* left in RTL is visually start side */
+.show-all-top a{display:inline-block;padding:6px 12px;border-radius:8px;border:1px solid var(--brand);font-weight:900;color:var(--brand)}
+
+/* units grid inside a box (the "مستطيل") */
+.units-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:var(--shadow)}
+.units-grid{display:grid;gap:12px;margin-top:6px}
 @media(min-width:920px){.units-grid{grid-template-columns:repeat(2,1fr)}}
-.unit-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow)}
+.unit-card{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;border:1px solid #f1f3f7}
 .unit-card img{width:160px;height:110px;object-fit:cover;border-radius:8px}
-.unit-card .meta{flex:1}
-.unit-card .meta h4{margin:0;font-size:15px;font-weight:900}
-.unit-card .meta .small{color:var(--muted);font-size:13px}
+.unit-meta h4{margin:0;font-size:15px;font-weight:900}
+.unit-meta .small{color:var(--muted);font-size:13px}
+.unit-price{margin-top:8px;font-weight:900;color:var(--brand)}
 
-/* show-all small rectangle */
-.show-all{margin-top:12px;text-align:right}
-.show-all a{display:inline-block;padding:6px 12px;border-radius:8px;border:1px solid var(--brand);font-weight:900;color:var(--brand)}
+/* MEDIA & THUMBS */
+.media-wrap{max-width:var(--wrap);margin:18px auto;padding:0 12px}
+.video-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:var(--shadow)}
+.slider-thumbs{display:flex;gap:10px;overflow:auto;padding:6px 2px}
+.slider-thumbs img{flex:0 0 320px;height:200px;object-fit:cover;border-radius:10px;cursor:pointer}
+@media(max-width:720px){ .slider-thumbs img{flex:0 0 220px;height:140px} }
 
-/* layout for description + help */
+/* share/copy */
+.share-row{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.btn-share, .btn-copy{padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:900}
+
+/* master plan */
+.masterplan{margin:18px auto;text-align:center}
+.masterplan img{max-width:100%;border-radius:10px}
+
+/* description + FAQ + layout */
 .wrap2{max-width:var(--wrap);margin:20px auto;display:grid;gap:18px;padding:0 12px;grid-template-columns:1fr}
 @media(min-width:980px){.wrap2{grid-template-columns:3fr 1.15fr}}
 .section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
-.help{position:sticky;top:84px;padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}
-
-/* help icon above title */
-.help .help-icon{width:68px;height:68px;display:block;margin:0 auto 8px;}
-
-/* FAQ accordion */
 .faq-list{margin-top:14px}
 .faq-item{border-radius:10px;padding:12px;border:1px solid var(--line);background:#fbfdff;margin:8px 0}
 .faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:900}
 .faq-a{display:none;margin-top:8px;color:var(--muted)}
+
+/* help box */
+.help{position:sticky;top:84px;padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}
+.help .help-icon{width:72px;height:72px;margin:0 auto 8px;display:block}
 
 /* footer */
 .footer{margin-top:28px;padding:18px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
@@ -93,23 +108,25 @@ a{color:inherit;text-decoration:none}
 #lightbox img{max-width:96vw;max-height:92vh;border-radius:8px}
 .lb-close{position:absolute;top:18px;left:18px;padding:8px 12px;border-radius:8px;background:#fff;border:0;font-weight:900}
 
-/* small responsive tweaks */
-@media(max-width:480px){
-  .title-block h1{font-size:24px}
-  .unit-card img{width:120px;height:90px}
+/* responsiveness */
+@media(max-width:600px){
+  .dev-card{padding:6px}
+  .dev-logo{width:64px;height:40px}
+  .tab-btn{padding:6px 10px;font-size:14px}
+  .slider img{height:320px}
 }
 </style>
 </head>
 <body>
 
-<!-- include header (Jekyll include) -->
+<!-- header (Jekyll include) -->
 {% include header-ar.html %}
 
 <div class="container">
 
   <!-- SEARCH -->
   <div class="search-row">
-    <div class="search-wrap" style="max-width:980px;margin:auto">
+    <div class="search-wrap">
       <input id="siteSearch" placeholder="ابحث في الموقع — اكتب اسم المشروع أو الكلمة المفتاحية..." aria-label="بحث">
       <div id="suggest" role="listbox"></div>
       <div class="search-note" id="searchNote">تحديث: قوائم الوحدات والتفاصيل محدثة باستمرار — ابحث باسم الوحدة أو الكود.</div>
@@ -117,52 +134,65 @@ a{color:inherit;text-decoration:none}
   </div>
 
   <!-- breadcrumb -->
-  <div style="text-align:right;color:var(--muted);font-size:13px;margin-bottom:4px">
+  <div style="text-align:right;color:var(--muted);font-size:13px;margin-bottom:6px">
     <a href="/" style="color:var(--muted)">الرئيسية</a> » <a href="/sokhna.html" style="color:var(--muted)">العين السخنة</a> » <span>الزعفرانة</span>
   </div>
 
-  <!-- TITLE -->
+  <!-- TITLE + DEVELOPER small card -->
   <section class="title-block">
     <h1>مشروع مورانو وادي دجلة</h1>
-    <div class="dev" aria-hidden="false">
-      <a href="/developers/wadi-degla.html" title="اضغط للدخول إلى صفحة المطور: وادي دجلة للتطوير العقاري">
-        <img src="https://k.top4top.io/p_3562jxmc10.jpg" alt="Wadi Degla" class="dev-logo"
-             onerror="this.onerror=null;this.src='https://picsum.photos/seed/wadidegla/400/200'">
-      </a>
-      <div style="margin-top:6px;color:var(--muted);font-weight:800">
-        <a href="/developers/wadi-degla.html" title="اضغط للدخول إلى صفحة المطور">المطور: وادي دجلة للتطوير العقاري</a>
+
+    <div class="dev-row" aria-hidden="false">
+      <div class="dev-card" title="اضغط للدخول إلى صفحة المطور: وادي دجلة للتطوير العقاري">
+        <a href="/developers/wadi-degla.html" style="display:inline-flex;align-items:center;gap:10px">
+          <img src="https://k.top4top.io/p_3562jxmc10.jpg" alt="Wadi Degla" class="dev-logo"
+               onerror="this.onerror=null;this.src='https://picsum.photos/seed/wadidegla/400/200'">
+          <div style="text-align:right">
+            <div style="font-weight:900;font-size:15px">Wadi Degla</div>
+            <div class="dev-text">المطور: وادي دجلة للتطوير العقاري</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SLIDER -->
+  <!-- MAIN SLIDER (big image) -->
   <div class="slider" id="mainSlider" aria-hidden="false">
-    <img src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano - 1" loading="lazy"
+    <img src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano - Main" loading="lazy"
          onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano1/1200/800'">
   </div>
 
-  <!-- UNITS PREVIEW -->
+  <!-- UNITS SECTION -->
   <section class="units-section">
-    <div class="units-header">
-      <div class="title">الوحدات المتاحة في مشروع مورانو</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px">
+      <div class="units-header">
+        <div class="title">الوحدات المتاحة في مشروع مورانو</div>
+      </div>
+
+      <!-- tabs -->
       <div class="tablist" role="tablist" aria-label="فلترة الوحدات">
-        <button class="tab-btn active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+        <button class="tab-btn tab-btn-active" data-filter="all" role="tab" aria-selected="true">الكل</button>
         <button class="tab-btn" data-filter="developer" role="tab">المطور</button>
         <button class="tab-btn" data-filter="resale" role="tab">إعادة البيع</button>
       </div>
     </div>
 
-    <div id="unitsGrid" class="units-grid" aria-live="polite">
-      <!-- وحدات ستُحمّل من JSON بواسطة JS -->
-      <div style="text-align:center;color:var(--muted);padding:20px">جاري تحميل معاينة الوحدات...</div>
+    <!-- show-all above the units box (small rectangle on text size) -->
+    <div class="show-all-top">
+      <a href="/Murano/murano.units.html" title="عرض كل الوحدات">عرض الكل</a>
     </div>
 
-    <div class="show-all"><a href="/Murano/murano.units.html" title="عرض كل الوحدات">عرض الكل</a></div>
+    <!-- units box (the rectangle) -->
+    <div class="units-box">
+      <div id="unitsGrid" class="units-grid" aria-live="polite">
+        <div style="text-align:center;color:var(--muted);padding:20px">جاري تحميل معاينة الوحدات...</div>
+      </div>
+    </div>
   </section>
 
-  <!-- media & gallery -->
-  <section class="media-wrap" style="max-width:var(--wrap);margin:18px auto;padding:0 12px">
-    <div class="section video-card" style="padding:12px">
+  <!-- VIDEO & IMAGES -->
+  <section class="media-wrap">
+    <div class="video-card" style="margin-bottom:12px">
       <h3 style="margin:6px 0;font-size:16px;font-weight:900">فيديو المشروع</h3>
       <video controls playsinline preload="metadata" poster="https://c.top4top.io/p_35249hfap2.jpg"
              controlsList="nodownload noplaybackrate" oncontextmenu="return false" disablePictureInPicture style="width:100%;border-radius:8px">
@@ -171,26 +201,40 @@ a{color:inherit;text-decoration:none}
       </video>
     </div>
 
-    <div style="margin-top:12px" class="section">
-      <div class="slider-thumbs" style="display:flex;gap:8px;overflow:auto;padding-bottom:6px">
-        <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="img1" style="flex:0 0 260px;height:150px;object-fit:cover;border-radius:8px;cursor:pointer"
+    <div class="section" style="padding:12px">
+      <h3 style="margin:6px 0;font-size:16px;font-weight:900">صور المشروع</h3>
+
+      <div class="slider-thumbs" id="thumbs">
+        <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 1" loading="lazy"
              onclick="openLightbox(this.src)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano2/600/400'">
-        <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="img2" style="flex:0 0 260px;height:150px;object-fit:cover;border-radius:8px;cursor:pointer"
+        <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 2" loading="lazy"
              onclick="openLightbox(this.src)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano3/600/400'">
-        <img src="https://d.top4top.io/p_35241i6053.jpg" alt="img3" style="flex:0 0 260px;height:150px;object-fit:cover;border-radius:8px;cursor:pointer"
+        <img src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 3" loading="lazy"
              onclick="openLightbox(this.src)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano4/600/400'">
+        <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 4" loading="lazy"
+             onclick="openLightbox(this.src)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano5/600/400'">
       </div>
-      <div style="text-align:center;margin-top:10px">
-        <a href="#" id="openMasterPlan" class="masterplan-btn" style="display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:900">
-          <img src="https://j.top4top.io/p_3562u73ul0.png" alt="master" style="width:20px"> ماستر بلان المشروع
-        </a>
+
+      <!-- share & copy -->
+      <div class="share-row">
+        <button class="btn-share" onclick="sharePage()">مشاركة</button>
+        <button class="btn-copy" onclick="copyLink()">نسخ رابط الصفحة</button>
       </div>
+    </div>
+
+    <!-- masterplan -->
+    <div class="masterplan" style="margin-top:18px">
+      <a href="#" id="openMasterPlan" title="ماستر بلان المشروع">
+        <img src="https://k.top4top.io/p_35373aga50.jpg" alt="Master Plan" onerror="this.onerror=null;this.src='https://picsum.photos/seed/masterplan/1200/700'">
+      </a>
     </div>
   </section>
 
-  <!-- DESCRIPTION + HELP -->
+  <!-- DESCRIPTION + FAQ + HELP -->
   <div class="wrap2">
+
     <main class="section" id="description">
+
       <h2>1- عن مشروع مورانو وادى دجلة</h2>
       <p>
         تُعد قرية مورانو العين السخنة ملاذاً هادئاً يدمج بين سحر البحر الأحمر وراحة الحياة العصرية. صُمم المشروع ليمنح سكانه تجربة متكاملة من حيث الخصوصية والمرافق — شواطئ رملية، مساحات خضراء، ونمط حياة عائلي متكامل. يركز التصميم على مراعاة المناظر الطبيعية وتوفير مساحات مفتوحة ووحدات متنوعة تناسب العائلة والمستثمرين.
@@ -212,7 +256,6 @@ a{color:inherit;text-decoration:none}
       </p>
 
       <h2>5- ماستر بلان قرية مورانو العين السخنة</h2>
-      <p>المخطط العام يضم:</p>
       <ul>
         <li>شاطئ رملي ممتد ومناطق استراحة خاصة.</li>
         <li>مناطق سباحة متعددة وأندية رياضية.</li>
@@ -262,7 +305,7 @@ a{color:inherit;text-decoration:none}
     <!-- HELP BOX -->
     <aside class="help" id="helpBox" aria-labelledby="helpTitle">
       <img src="https://c.top4top.io/p_3563kzyu40.png" alt="icon" class="help-icon" onerror="this.onerror=null;this.src='https://picsum.photos/seed/helpicon/120/120'">
-      <h3 id="helpTitle" style="margin:0 0 8px;text-align:center">تحتاج إلى مساعدة عقارية؟</h3>
+      <h3 id="helpTitle" style="margin:8px 0;text-align:center">تحتاج إلى مساعدة عقارية؟</h3>
       <p style="text-align:center;color:var(--muted);margin:0 0 10px">املأ بياناتك وسنعاود الاتصال بك قريبًا</p>
 
       <div style="text-align:right">
@@ -307,9 +350,9 @@ a{color:inherit;text-decoration:none}
     </aside>
   </div>
 
-  <!-- footer include -->
+  <!-- footer include (Arabic) -->
   <footer class="footer">
-    {% include footer-en.html %}
+    {% include footer-ar.html %}
   </footer>
 
 </div>
@@ -322,7 +365,7 @@ a{color:inherit;text-decoration:none}
 
 <!-- SCRIPTS -->
 <script>
-/* ---------------- Search (from /search-index.json) ---------------- */
+/* ===================== Search (from /search-index.json) ===================== */
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
@@ -332,12 +375,7 @@ a{color:inherit;text-decoration:none}
   fetch('/search-index.json', {cache:'no-store'})
     .then(r => r.json())
     .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-    .catch(()=> {
-      // fallback: try Murano specific index
-      fetch('/Murano/search-index.json', {cache:'no-store'})
-        .then(r=> r.json()).then(j=> SITE_INDEX = Array.isArray(j)?j:[])
-        .catch(()=> SITE_INDEX = []);
-    });
+    .catch(()=> { SITE_INDEX = []; });
 
   const makeItem = it => {
     const a = document.createElement('a');
@@ -352,7 +390,7 @@ a{color:inherit;text-decoration:none}
     if(!q) return [];
     return SITE_INDEX
       .map(it=>{
-        const hay = (it.title + ' ' + (it.keywords||'') + ' ' + (it.categories||'')).toLowerCase();
+        const hay = ((it.title||'') + ' ' + (it.keywords||'') + ' ' + (it.categories||'')).toLowerCase();
         const inTitle = (it.title || '').toLowerCase().includes(q) ? 2 : 0;
         const inKeys  = hay.includes(q) ? 1 : 0;
         return {...it, score: inTitle + inKeys};
@@ -381,10 +419,11 @@ a{color:inherit;text-decoration:none}
   });
 })();
 
-/* ---------------- Units loader + Tabs ---------------- */
+/* ===================== Units loader (from /Murano/murano-units.json) + Tabs ===================== */
 (async function(){
   const GRID = document.getElementById('unitsGrid');
   let units = [];
+
   async function tryFetch(url){
     try{
       const res = await fetch(url, {cache:'no-store'});
@@ -393,14 +432,13 @@ a{color:inherit;text-decoration:none}
     }catch(e){ return null; }
   }
 
-  // try known locations then fallback to example data
-  units = await tryFetch('https://islamesmail-jpg.github.io/Murano/murano-units.json')
-       || await tryFetch('/Murano/murano-units.json')
-       || await tryFetch('/murano-units.json')
-       || [];
+  // Primary source as requested
+  units = await tryFetch('/Murano/murano-units.json')
+        || await tryFetch('https://islamesmail-jpg.github.io/Murano/murano-units.json')
+        || [];
 
-  if(!units.length){
-    // sample fallback units (so page never empty)
+  if(!units || !units.length){
+    // fallback sample - ensures page never empty (you can remove when you upload real JSON)
     units = [
       { title: "شاليه 2 غرف - إطلالة بحرية", slug:"unit1.html", images:["https://picsum.photos/seed/unit1/800/600"], city:"العين السخنة", area:95, bed:2, price:1200000, source:"developer" },
       { title: "فيلا مستقلة 220م", slug:"unit2.html", images:["https://picsum.photos/seed/unit2/800/600"], city:"العين السخنة", area:220, bed:4, price:4200000, source:"resale" }
@@ -411,9 +449,8 @@ a{color:inherit;text-decoration:none}
     try { return new Intl.NumberFormat('ar-EG').format(n); } catch(e){ return n; }
   }
 
-  function buildCard(u){
+  function cardHtml(u){
     const img = (u.images && u.images[0]) || u.img || u.image || 'https://picsum.photos/seed/unitfallback/600/400';
-    const srcSafe = img;
     const title = u.title || 'وحدة';
     const city = u.city || '';
     const area = u.area || '';
@@ -422,11 +459,11 @@ a{color:inherit;text-decoration:none}
     const slug = u.slug ? (u.slug.startsWith('http') ? u.slug : ('/Murano/' + u.slug)) : '#';
     return `<a href="${slug}" style="text-decoration:none;color:inherit">
       <div class="unit-card" role="article">
-        <img src="${srcSafe}" alt="${title}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(title)}/600/400'">
-        <div class="meta">
+        <img src="${img}" alt="${title}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(title)}/600/400'">
+        <div class="unit-meta">
           <h4>${title}</h4>
-          <div class="small">${city} • ${area ? area + ' م²' : ''} ${bed ? ' • ' + bed + ' غرف' : ''}</div>
-          <div style="margin-top:8px;font-weight:900;color:var(--brand)">ج.م ${price ? fmt(price) : 'اتصال لمعرفة السعر'}</div>
+          <div class="small">${city} ${area ? ' • ' + area + ' م²' : ''} ${bed ? ' • ' + bed + ' غرف' : ''}</div>
+          <div class="unit-price">ج.م ${price ? fmt(price) : 'اتصال لمعرفة السعر'}</div>
         </div>
       </div></a>`;
   }
@@ -436,37 +473,36 @@ a{color:inherit;text-decoration:none}
       GRID.innerHTML = '<div style="padding:20px;color:var(--muted);text-align:center">لا توجد وحدات حالياً</div>';
       return;
     }
-    const html = list.slice(0,8).map(buildCard).join('');
+    const html = list.slice(0,8).map(cardHtml).join('');
     GRID.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">${html}</div>`;
   }
 
-  // initial render (all)
   renderGrid(units);
 
-  // tabs filter
+  // Tabs filter
   const tabs = document.querySelectorAll('.tab-btn');
   tabs.forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      tabs.forEach(b=> b.classList.remove('active'));
-      btn.classList.add('active');
+      tabs.forEach(b=> b.classList.remove('tab-btn-active'));
+      btn.classList.add('tab-btn-active');
       const f = btn.getAttribute('data-filter');
       if(f === 'all'){ renderGrid(units); return; }
-      // try several common fields
       const filtered = units.filter(u=>{
         const s = ((u.source||'') + ' ' + (u.listingType||'') + ' ' + (u.type||'') + ' ' + (u.tags||'')).toLowerCase();
-        if(f === 'developer') return s.includes('dev') || s.includes('developer') || s.includes('new') || s.includes('مطور') || (u.source && u.source.toLowerCase().includes('dev'));
-        if(f === 'resale') return s.includes('resale') || s.includes('preowned') || s.includes('used') || s.includes('re-sale') || s.includes('اعادة') || (u.source && u.source.toLowerCase().includes('resale'));
+        if(f === 'developer') return s.includes('dev') || s.includes('developer') || s.includes('مطور') || (u.source && u.source.toLowerCase().includes('dev'));
+        if(f === 'resale') return s.includes('resale') || s.includes('اعادة') || (u.source && u.source.toLowerCase().includes('resale'));
         return true;
       });
-      renderGrid(filtered.length?filtered:units.filter((_,i)=>i<4)); // if none match, show first few as fallback
+      renderGrid(filtered.length ? filtered : units.slice(0,4));
     });
   });
 })();
 
-/* ---------------- lightbox ---------------- */
+/* ===================== Lightbox + Masterplan open ===================== */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbClose = document.getElementById('lbClose');
+
 function openLightbox(src){
   lbImg.src = src;
   lightbox.style.display = 'flex';
@@ -481,29 +517,54 @@ if(document.getElementById('openMasterPlan')){
 lbClose.addEventListener('click', ()=> { lightbox.style.display = 'none'; lightbox.setAttribute('aria-hidden','true'); });
 lightbox.addEventListener('click', e=> { if(e.target === lightbox) { lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); } });
 
-/* ---------------- Help form actions ---------------- */
+/* Enable dragging on thumbs for swipe-like behavior */
+(function(){
+  const el = document.getElementById('thumbs');
+  if(!el) return;
+  let down=false,startX,scrollLeft;
+  el.addEventListener('pointerdown', e=>{ down=true; startX = e.clientX; scrollLeft = el.scrollLeft; el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', e=>{ if(!down) return; el.scrollLeft = scrollLeft - (e.clientX - startX); });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=> el.addEventListener(ev, ()=> down=false));
+})();
+
+/* ===================== Share & Copy functions ===================== */
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=> {
+    alert('تم نسخ رابط الصفحة');
+  }).catch(()=> alert('تعذر نسخ الرابط'));
+}
+
+function sharePage(){
+  if(navigator.share){
+    navigator.share({title: document.title, url: window.location.href}).catch(()=>{});
+  } else {
+    copyLink();
+  }
+}
+
+/* ===================== Help form actions ===================== */
 function getVal(id){ return (document.getElementById(id)?.value||'').trim(); }
 document.getElementById('hWA').addEventListener('click', ()=>{
   const txt = `مرحباً، استفسار عن ${getVal('hProject')} - الاسم: ${getVal('hName')} - الهاتف: ${getVal('hPhone')} - النوع: ${getVal('hUnit')} - الغرف: ${getVal('hRooms')} - الميزانية: ${getVal('hBudget')} - ملاحظة: ${getVal('hNote')}`;
-  const phone = '201050072527'; // your contact
+  const phone = '201050072527';
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(txt)}`;
   window.open(url,'_blank');
 });
 document.getElementById('hMail').addEventListener('click', ()=>{
   const subj = `استفسار عن ${getVal('hProject')} - ${getVal('hName')}`;
-  const body = `الاسم: ${getVal('hName')}\nالهاتف: ${getVal('hPhone')}\nالإيميل: ${getVal('hEmail')}\nطريقة التواصل المفضلة: ${getVal('hContact')}\nالمشروع: ${getVal('hProject')}\nالنوع: ${getVal('hUnit')}\nالغرف: ${getVal('hRooms')}\nالميزانية: ${getVal('hBudget')}\nملاحظات:\n${getVal('hNote')}`;
+  const body = `الاسم: ${getVal('hName')}\nالهاتف: ${getVal('hPhone')}\nالإيميل: ${getVal('hEmail')}\nطريقة التواصل: ${getVal('hContact')}\nالمشروع: ${getVal('hProject')}\nالنوع: ${getVal('hUnit')}\nالغرف: ${getVal('hRooms')}\nالميزانية: ${getVal('hBudget')}\nملاحظات:\n${getVal('hNote')}`;
   location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
 });
 
-/* ---------------- FAQ accordion + JSON-LD for SEO ---------------- */
+/* ===================== FAQ accordion + JSON-LD ===================== */
 (function(){
   const faqData = [
     {q:"هل يوجد استلام فوري؟", a:"نعم — بعض وحدات إعادة البيع جاهزة للاستلام فوراً. وحدات المطور قد تكون بمواعيد تسليم محددة حسب العقد. تحقق من تفاصيل الوحدة قبل الحجز."},
-    {q:"ما هي خيارات السداد؟", a:"تتنوع خطط السداد بين كاش وتقسيط مع دفعات أولى وجداول سداد تمتد لسنوات حسب سياسة المطور. نعرض تفاصيل خطط السداد لكل وحدة عند الضغط على 'عرض تفاصيل'."},
+    {q:"ما هي خيارات السداد؟", a:"تتنوع خطط السداد بين كاش وتقسيط مع دفعات أولى وجداول سداد تمتد لسنوات حسب سياسة المطور."},
     {q:"ما هي المساحات المتاحة؟", a:"المشروع يقدم شاليهات تبدأ من حوالي 60-95 م²، وشقق وتوين هاوس وفيلات بمساحات مختلفة تصل إلى أكثر من 200 م²."},
     {q:"ما مدى قرب المشروع من القاهرة؟", a:"المسافة تقريبية إلى القاهرة حوالي 130-140 كم عبر محاور العين السخنة والطريق الدائري."},
     {q:"هل توجد مرافق ترفيهية؟", a:"يوجد شاطئ رملي، مناطق سباحة، مارينا، مطاعم، سبا، وأنشطة ترفيهية للأطفال والعائلات."},
-    {q:"هل يسمح بالتأجير أو إعادة البيع؟", a:"نعم، يسمح عادةً بالتأجير وإعادة البيع بحسب شروط العقد. قد تختلف شروط الطرح الأولي بين المطور والوحدات المعروضة للبيع بحالة إعادة البيع."},
+    {q:"هل يسمح بالتأجير أو إعادة البيع؟", a:"نعم، يسمح عادةً بالتأجير وإعادة البيع بحسب شروط العقد. قد تختلف الشروط بين المطور ووحدات إعادة البيع."},
     {q:"كيف أحجز وحدة؟", a:"يمكن الحجز بالاتصال بالمدير أو عبر نموذج التواصل/الواتساب الموجود في صندوق المساعدة، أو زيارة مكتب المبيعات بالمشروع."},
     {q:"هل توجد خدمات تشغيل وإدارة؟", a:"المشروع يوفر إدارة وتشغيل للمرافق العامة وحفظ الأمن، بالإضافة إلى خدمات الصيانة والخدمات الفندقية لبعض المناطق."}
   ];
@@ -517,7 +578,6 @@ document.getElementById('hMail').addEventListener('click', ()=>{
     const a = document.createElement('div'); a.className='faq-a'; a.textContent = it.a;
     q.addEventListener('click', ()=> {
       const isOpen = a.style.display === 'block';
-      // close others
       document.querySelectorAll('.faq-a').forEach(el=> el.style.display='none');
       document.querySelectorAll('.faq-q span:last-child').forEach(el=> el.textContent = '+');
       if(!isOpen){ a.style.display='block'; q.querySelector('span:last-child').textContent='−'; q.focus(); }
@@ -527,23 +587,18 @@ document.getElementById('hMail').addEventListener('click', ()=>{
     item.appendChild(q); item.appendChild(a); container.appendChild(item);
   });
 
-  /* JSON-LD structured FAQ */
   const faqLd = {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity": faqData.map(f=>({
       "@type":"Question",
       "name": f.q,
-      "acceptedAnswer": {
-        "@type":"Answer",
-        "text": f.a
-      }
+      "acceptedAnswer": { "@type":"Answer", "text": f.a }
     }))
   };
   const s = document.createElement('script'); s.type='application/ld+json'; s.text = JSON.stringify(faqLd); document.head.appendChild(s);
 })();
 
-/* end scripts */
 </script>
 </body>
 </html>
