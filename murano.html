@@ -20,7 +20,7 @@ permalink: /murano.html
 /* تعاريف الألوان والظلال المتغيرة - تصميم مبسط وأنيق */
 :root{
   --wrap:1180px; --line:#e5e7eb; 
-  --ink:#000000; /* تم التعديل إلى الأسود الخالص حسب الطلب */
+  --ink:#000000; /* تم التأكد من اللون الأسود الخالص */
   --muted:#6b7280; 
   --primary-blue:#2563eb; 
   --accent:#25D366; /* أخضر الواتساب */
@@ -43,7 +43,7 @@ body{
 a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
 a:hover{color:#1d4ed8;}
 
-/* الـ Header CSS (لتنسيق الملف المُضمن) */
+/* الـ Header CSS (تم تعديل اللون ليكون أسود) */
 .header{
     border-bottom:1px solid var(--line);
     padding:10px 15px;
@@ -53,7 +53,7 @@ a:hover{color:#1d4ed8;}
 .header-logo img{height:40px;width:auto;}
 .header-nav a{
     font-weight:700;padding:8px 12px;
-    color:var(--ink);
+    color:var(--ink); /* لون الخط أسود */
     border-radius:5px;
     transition: background 0.2s;
 }
@@ -95,12 +95,13 @@ a:hover{color:#1d4ed8;}
 
 /* كتلة العنوان والمطور */
 .title-block{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:20px;text-align:center;}
-.title-block h1{margin:0;font-size:36px;font-weight:900;color:var(--ink)} /* حجم خط أكبر للعنوان الرئيسي */
+.title-block h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)} /* تم تصغير الخط قليلاً */
 .dev-center{
     display:flex;align-items:center;gap:15px;
     padding:10px 20px;border:1px solid var(--line);
     border-radius:var(--radius);background:#fff;
     box-shadow:0 2px 8px rgba(0,0,0,.05);
+    cursor:pointer; /* تم إضافة مؤشر اليد ليظهر أنه قابل للضغط */
 }
 .dev-badge{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--ink);}
 .dev-logo{height:40px;width:auto;object-fit:contain;padding:5px;border-radius:5px;} 
@@ -108,7 +109,7 @@ a:hover{color:#1d4ed8;}
 /* قسم الوحدات */
 .units-section{max-width:var(--wrap);margin:10px auto 24px auto;padding:0 15px;text-align:right;}
 .units-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;gap:15px;flex-wrap:wrap;}
-.units-header .title{font-weight:800;font-size:24px;margin-top:0;} /* حجم خط أكبر لعنوان قسم الوحدات */
+.units-header .title{font-weight:800;font-size:24px;margin-top:0;} 
 .tablist{display:flex;gap:10px;align-items:center}
 .tab-btn{
   padding:8px 16px;border-radius:20px;
@@ -163,19 +164,19 @@ a:hover{color:#1d4ed8;}
 
 /* بيانات الوحدة */
 .unit-meta{padding:15px;display:flex;flex-direction:column;gap:10px;text-align:right;}
-.unit-meta h4{margin:0;font-size:20px;font-weight:800;color:var(--ink);} /* حجم خط أكبر لعنوان الوحدة */
+.unit-meta h4{margin:0;font-size:20px;font-weight:800;color:var(--ink);} 
 .unit-meta .small{color:var(--muted);font-size:15px;}
 .spec-row{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px;margin-top:5px;justify-content:flex-start;}
 .spec-pill{
   display:flex;align-items:center;gap:6px;
-  font-weight:600;font-size:15px; /* حجم خط أكبر لتفاصيل الوحدة */
+  font-weight:600;font-size:15px; 
   color:var(--ink);
 }
 .spec-pill img{width:18px;height:18px;} 
 .price-pill{
   display:inline-block;padding:10px 15px;
   border-radius:8px;background:#f3f4f6;
-  font-weight:800;font-size:20px; /* حجم خط أكبر للسعر */
+  font-weight:800;font-size:20px; 
   color:var(--primary-blue);
   align-self:flex-start;
   margin-top:10px;
@@ -184,7 +185,7 @@ a:hover{color:#1d4ed8;}
 /* الميديا والصور المصغرة */
 .media-wrap{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 .video-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.05);margin-bottom:18px}
-.video-card h3{text-align:right;margin:6px 0 15px 0;font-size:22px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;} /* حجم خط أكبر لعنوان الفيديو */
+.video-card h3{text-align:right;margin:6px 0 15px 0;font-size:22px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;} 
 
 /* أزرار المشاركة والنسخ */
 .share-row{display:flex;gap:15px;margin-top:20px;justify-content:center;}
@@ -222,22 +223,21 @@ a:hover{color:#1d4ed8;}
 .masterplan{margin:24px auto;text-align:center;display:flex;justify-content:center;gap:15px}
 .master-btn{
   display:inline-flex;align-items:center;gap:10px;
-  /* تم تعديل الخلفية إلى الأبيض والحد إلى الأزرق */
   border:1px solid var(--primary-blue);padding:12px 25px;
   border-radius:25px;cursor:pointer;background:#fff; 
-  color:var(--primary-blue);font-weight:800; /* لون الخط أزرق */
-  box-shadow:0 4px 10px rgba(rgba(37,99,235,.2)); /* ظل خفيف */
+  color:var(--primary-blue);font-weight:800; 
+  box-shadow:0 4px 10px rgba(rgba(37,99,235,.2)); 
   transition: all 0.3s;
 }
-.master-btn:hover{background:#f3f4f6;} /* خلفية رمادية فاتحة عند التحويم */
-.master-icon{height:20px; width:20px; filter: none; } /* الأيقونة بدون فلتر أبيض الآن لتظهر مع الخلفية البيضاء */
+.master-btn:hover{background:#f3f4f6;} 
+.master-icon{height:20px; width:20px; filter: none; } 
 
 /* الوصف والمساعدة (عمودين) */
 .wrap2{max-width:var(--wrap);margin:30px auto;display:grid;gap:30px;padding:0 15px;grid-template-columns:3fr 1fr}
 @media(max-width:980px){.wrap2{grid-template-columns:1fr}}
 .section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 44px 10px rgba(0,0,0,.05);}
-.section h2{font-size:26px;font-weight:800;color:var(--ink);margin-top:0;padding-top:0;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px;text-align:right;} /* حجم خط أكبر للعناوين الفرعية */
-.section h3{font-size:20px;font-weight:700;color:var(--ink);margin-top:20px;margin-bottom:10px;text-align:right;} /* حجم خط لـ h3s */
+.section h2{font-size:26px;font-weight:800;color:var(--ink);margin-top:0;padding-top:0;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px;text-align:right;} 
+.section h3{font-size:20px;font-weight:700;color:var(--ink);margin-top:20px;margin-bottom:10px;text-align:right;} 
 .section p, .section li{color:var(--ink);font-size:17px;line-height:1.8;}
 
 /* الأسئلة الشائعة */
@@ -248,15 +248,17 @@ a:hover{color:#1d4ed8;}
 .faq-a{padding:15px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;margin-top:-1px;display:none;font-size:16px;line-height:1.7;}
 
 
-/* صندوق المساعدة (Sticky Help Box) */
+/* صندوق المساعدة (Sticky Help Box) - تم تعديل خاصية position */
 .help{
-  position:sticky;top:90px;padding:20px;border-radius:var(--radius);
+  position:sticky; /* تم تغييرها لتصبح sticky */
+  top:90px; /* المسافة من الأعلى عند التمرير */
+  padding:20px;border-radius:var(--radius);
   background:#f9fafb; 
   border:1px solid var(--line);box-shadow:var(--shadow);
   text-align:center;
 }
 .help-icon{width:80px;height:80px;object-fit:contain;margin-bottom:10px;}
-.help h3{color:var(--primary-blue);margin:0;font-size:22px;} /* حجم خط أكبر لعنوان المساعدة */
+.help h3{color:var(--primary-blue);margin:0;font-size:22px;} 
 .help p{font-size:15px;margin-bottom:15px;line-height:1.5;}
 .help label{display:block;text-align:right;font-weight:600;font-size:14px;margin-top:10px;}
 .help input, .help select, .help textarea{
@@ -278,20 +280,20 @@ a:hover{color:#1d4ed8;}
   position:fixed;bottom:20px;right:20px;
   z-index:1100;
   border-radius:50%;
-  background:var(--accent); /* خلفية خضراء */
+  background:var(--accent); 
   box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 .fab-wa img{
   width:100%;
   height:100%;
-  filter: invert(1); /* أيقونة بيضاء */
+  filter: invert(1); 
 }
 
 
-/* التذييل CSS (لتنسيق الملف المُضمن) */
+/* التذييل CSS (تم التأكد من اللون الأسود) */
 .footer{
     margin-top:30px;padding:20px;text-align:center;
-    color:var(--ink);
+    color:var(--ink); /* لون الخط أسود */
     font-size:14px;
     border-top:1px solid var(--line);
 }
@@ -299,7 +301,7 @@ a:hover{color:#1d4ed8;}
 .footer-col{min-width:150px;}
 .footer-col ul{list-style:none;padding:0;margin:10px 0 0 0;}
 .footer-col ul li a{
-    color:var(--ink); 
+    color:var(--ink); /* لون الخط أسود */
     font-size:15px;
     font-weight:400;
 }
@@ -330,15 +332,15 @@ a:hover{color:#1d4ed8;}
 <div class="container">
 
   <div class="breadcrumb" aria-hidden="false">
-    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <span>مورانو</span>
+    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/zafarana.html">الزعفرانة</a> » <span>مشروع مورانو</span>
   </div>
 
   <div class="title-block" role="banner">
     <h1>مشروع مورانو وادي دجلة | Murano Wadi Degla</h1>
-    <div class="dev-center" aria-hidden="false">
+    <a href="{{ site.baseurl }}/wadi-degla.html" title="المطور: وادي دجلة" class="dev-center" aria-hidden="false">
       <img src="https://e.top4top.io/p_3563069vg0.jpg" alt="Wadi Degla Logo" class="dev-logo" onerror="this.onerror=null;this.src='https://f.top4top.io/p_3562107rr0.png'">
       <div class="dev-badge">المطور: وادي دجلة للتنمية العقارية</div>
-    </div>
+    </a>
   </div>
   <section class="units-section" aria-labelledby="unitsTitle">
     <div class="units-header">
@@ -572,15 +574,12 @@ a:hover{color:#1d4ed8;}
 })();
 
 /* ---------------- 2. Units loader + cards ---------------- */
-// دالة مساعدة لضمان بدء المسار بـ baseurl وتجنب التكرار. بما أن الصفحة في الجذر، site.baseurl فارغ.
 function ensureAbsolutePath(path){
   if(!path) return '{{ site.baseurl }}/';
   if(path.startsWith('http') || path.startsWith('#')) return path;
   
-  // نضمن أن path يبدأ بـ /
   let cleanedPath = path.startsWith('/') ? path : '/' + path;
   
-  // نستخدم baseurl لضمان توجيه الروابط الخارجية للمجلد الصحيح
   return '{{ site.baseurl }}' + cleanedPath;
 }
 
@@ -593,18 +592,23 @@ function ensureAbsolutePath(path){
   // *** الجزء المُركز عليه: هنا نحدد الرابط لجلب ملف الـ JSON ***
   let units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json') || 
               await fetchJson('{{ site.baseurl }}/murano-units.json') || 
-              []; // قائمة فارغة في حالة فشل الجلب
+              []; 
   
   // بيانات تجريبية (للتأكد من عمل العرض) - للحماية في حالة فشل الروابط
   if(!units || !units.length){
     units = [
-      { "id":101, "title":"شاليه 2 غرف - واجهة بحرية (وحدة تجريبية)", "status":"available", "type":"developer", "link":"/murano.units.html#101", "price":"4800000", "bed":2, "bath":1, "area":"105 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" },
-      { "id":102, "title":"شقة فندقية 1 غرفة (وحدة تجريبية)", "status":"available", "type":"resale", "link":"/murano.units.html#102", "price":"2750000", "bed":1, "bath":1, "area":"75 م²", "images":["https://a.top4top.io/p_3524wj4b00.jpg","https://d.top4top.io/p_35241i6053.jpg"], "city":"العين السخنة" }
+      { "id":101, "title":"شاليه 2 غرف - واجهة بحرية (تجريبية)", "status":"available", "type":"developer", "link":"/murano.units.html#101", "price":"4,800,000", "bed":2, "bath":1, "area":"105 م²", "images":["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg"], "city":"العين السخنة" },
+      { "id":102, "title":"شقة فندقية 1 غرفة (تجريبية)", "status":"available", "type":"resale", "link":"/murano.units.html#102", "price":"2,750,000", "bed":1, "bath":1, "area":"75 م²", "images":["https://a.top4top.io/p_3524wj4b00.jpg","https://d.top4top.io/p_35241i6053.jpg"], "city":"العين السخنة" }
     ];
   }
 
   function fmt(n){ 
-    try{ return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); }
+    try{ 
+        // إذا كان السعر يحتوي على فواصل بالفعل، يتم عرضه كما هو
+        if (typeof n === 'string' && n.includes(',')) return n;
+        // يتم تحويل الرقم إلى تنسيق مصري مع فواصل
+        return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); 
+    }
     catch(e){ return n; } 
   }
 
@@ -661,6 +665,7 @@ function ensureAbsolutePath(path){
     
     // المواصفات (غرف، حمامات، مساحة)
     const specs = document.createElement('div'); specs.className='spec-row';
+    // تم إصلاح مشكلة [object Object] عبر التأكد من عرض النصوص بدلاً من الكائنات
     if(u.bed){
         const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
         pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="عدد الغرف"> ${u.bed} غرف`;
@@ -680,7 +685,7 @@ function ensureAbsolutePath(path){
     // السعر
     const price = document.createElement('div'); 
     price.className='price-pill'; 
-    price.textContent = (u.price ? ('ج.م ' + (isNaN(String(u.price).replace(/[^0-9.-]+/g,'')) ? u.price : fmt(u.price))) : 'اتصال لمعرفة السعر');
+    price.textContent = (u.price ? ('ج.م ' + fmt(u.price)) : 'اتصال لمعرفة السعر');
 
     meta.appendChild(h); meta.appendChild(small); meta.appendChild(specs); meta.appendChild(price);
 
@@ -776,6 +781,7 @@ lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); }
     const diff = e.clientX - startX; const threshold = 80;
     if (diff > threshold) { changeLightbox(-1); } // سحب لليمين (Previous)
     else if (diff < -threshold) { changeLightbox(1); } // سحب لليسار (Next)
+    else if (Math.abs(diff) < 10) { closeLightbox(); } // نقرة بسيطة
   });
 })();
 
@@ -817,7 +823,7 @@ document.getElementById('hMail').addEventListener('click', ()=> {
 /* ---------------- 5. FAQ render + Schema.org ---------------- */
 (function(){
   const faqData = [
-    {q:"ما هو موقع مشروع مورانو بالتحديد؟", a:"يقع مشروع مورانو (Murano) في موقع متميز بالعين السخنة، على بعد 90 دقيقة من القاهرة الجديدة وعلى طريق السويس مباشرة، مما يضمن سهولة الوصول."},
+    {q:"ما هو موقع مشروع مورانو بالتحديد؟", a:"يقع مشروع مورانو (Murano) في منطقة الزعفرانة بالعين السخنة، على بعد 90 دقيقة من القاهرة الجديدة وعلى طريق السويس مباشرة."},
     {q:"ما هو اسم الشركة المطورة لمشروع مورانو؟", a:"الشركة المطورة هي وادي دجلة للتنمية العقارية (Wadi Degla Developments)، وهي شركة ذات سمعة قوية في تطوير المشاريع الساحلية والسكنية."},
     {q:"ما هي أنواع الوحدات المتاحة في مورانو؟", a:"يتضمن المشروع شاليهات، وشقق فندقية، بالإضافة إلى فيلات وشقق، وتتوفر فيه خيارات استلام فوري أو تحت الإنشاء بأنظمة سداد ميسرة."},
     {q:"ما هي أهم المرافق والخدمات في قرية مورانو؟", a:"توفر مورانو شاطئًا خاصًا بطول 750 مترًا، مارينا، منتجعًا فندقيًا 4 نجوم، مطاعم ومقاهي، مناطق تجارية، سبا فاخر، ملاعب رياضية، وينابيع مياه ساخنة طبيعية."}
