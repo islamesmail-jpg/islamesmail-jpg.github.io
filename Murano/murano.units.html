@@ -1,157 +1,218 @@
 ---
 layout: none
-title: "الوحدات المتاحة في مشروع مورانو وادي دجلة | Islam Real Estate"
-permalink: /murano.units.html
+title: "جميع وحدات مشروع مورانو | islam real estate"
+permalink: /Murano/murano.units.html
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الوحدات المتاحة في مشروع مورانو وادي دجلة</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>جميع وحدات مورانو | islam real estate</title>
+<meta name="description" content="قائمة جميع الوحدات المتاحة في مشروع مورانو وادي دجلة — عرض كامل لكل الوحدات (المطور - إعادة البيع) مع تفاصيل وصور وخيارات الاتصال.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{ --wrap:1180px; --line:#e6e9ef; --muted:#607089; --brand:#0b3a5e; --accent:#25D366; --shadow:0 8px 20px rgba(2,8,23,.06);}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;background:#fff;color:#0f172a;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--wrap);margin:0 auto;padding:18px}
 
-  <!-- SEO -->
-  <meta name="description" content="جميع الوحدات المتاحة في مشروع مورانو وادي دجلة العين السخنة، وحدات من المطور وإعادة بيع بأنظمة سداد متنوعة.">
-  <meta property="og:image" content="https://f.top4top.io/p_3562107rr0.png">
-  <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
+/* header include visual kept by include */
+.header-placeholder{display:none}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+/* breadcrumb + title */
+.breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:8px}
+.page-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.page-title h1{margin:0;font-size:22px;font-weight:900}
+.back-link{font-weight:800;color:var(--brand);font-size:14px}
+
+/* controls */
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.filter-btn{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:900;cursor:pointer}
+.filter-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+.search-small{margin-left:12px;padding:8px 12px;border:1px solid var(--line);border-radius:8px}
+
+/* grid */
+.units-grid{display:grid;gap:12px}
+@media(min-width:920px){ .units-grid{grid-template-columns:repeat(3,1fr)} }
+.unit-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.unit-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.unit-meta h3{margin:0;font-size:16px;font-weight:900}
+.unit-meta .small{color:var(--muted);font-size:13px}
+.unit-price{font-weight:900;color:var(--brand);margin-top:6px}
+
+/* empty */
+.empty{padding:28px;text-align:center;color:var(--muted)}
+
+/* pagination (simple) */
+.pager{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.pager button{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer}
+
+/* footer include spacing */
+.footer-placeholder{margin-top:28px}
+</style>
 </head>
 <body>
 
-<!-- ===== Header ===== -->
-<header class="header">
-  <div class="menu-icon">
-    <img src="https://b.top4top.io/p_3562aqxzq0.png" alt="menu" id="menuToggle">
-  </div>
-  <div class="logo">
-    <a href="murano.html">Islam Real Estate</a>
-  </div>
-</header>
+{% include header-ar.html %}
 
-<!-- ===== Side Menu ===== -->
-<nav id="sideMenu" class="side-menu">
-  <ul>
-    <li><a href="tel:+201234567890"><i class="fa fa-phone"></i> اتصال هاتفي</a></li>
-    <li><a href="https://wa.me/201234567890"><i class="fab fa-whatsapp"></i> واتساب</a></li>
-    <li><a href="mailto:info@islam.com"><i class="fa fa-envelope"></i> ايميل</a></li>
-    <hr>
-    <li><strong>المناطق</strong></li>
-    <li><a href="#">العين السخنة</a></li>
-    <li><a href="#">الساحل الشمالي</a></li>
-    <li><a href="#">القاهرة الجديدة</a></li>
-    <hr>
-    <li><a href="#">أعرض وحدتك</a></li>
-    <li><a href="#"><img src="https://c.top4top.io/p_356205c1o1.png" width="18"> English</a></li>
-  </ul>
-</nav>
+<div class="container">
 
-<!-- ===== Breadcrumb ===== -->
-<div class="breadcrumb">
-  <a href="murano.html">الرئيسية</a> » <a href="#">العين السخنة</a> » <span>الوحدات المتاحة</span>
+  <div class="breadcrumb">
+    <a href="/Murano/murano.html">صفحة المشروع</a> » <span>جميع الوحدات</span>
+  </div>
+
+  <div class="page-title">
+    <h1>جميع وحدات مشروع مورانو</h1>
+    <a class="back-link" href="/Murano/murano.html">◀ رجوع إلى صفحة المشروع</a>
+  </div>
+
+  <!-- controls: tabs + small search -->
+  <div class="controls" role="toolbar" aria-label="فلترة الوحدات">
+    <div style="display:flex;gap:8px">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="developer">المطور</button>
+      <button class="filter-btn" data-filter="resale">إعادة البيع</button>
+    </div>
+    <input id="unitsFilter" class="search-small" placeholder="ابحث باسم الوحدة أو الكود..." aria-label="ابحث في الوحدات">
+  </div>
+
+  <!-- units grid -->
+  <div id="unitsGrid" class="units-grid" aria-live="polite">
+    <div class="empty">جاري تحميل الوحدات...</div>
+  </div>
+
+  <!-- pager (عرض بسيط لوحدات كثيرة) -->
+  <div id="pager" class="pager" style="display:none">
+    <button id="prevPage">السابق</button>
+    <div id="pageInfo" style="padding:8px 12px"></div>
+    <button id="nextPage">التالي</button>
+  </div>
+
+  <div class="footer-placeholder"></div>
 </div>
 
-<!-- ===== Title ===== -->
-<section class="title-section">
-  <h1>الوحدات المتاحة في مشروع مورانو وادي دجلة</h1>
-</section>
+{% include footer-ar.html %}
 
-<!-- ===== Units Grid ===== -->
-<section class="units-list">
-  <div id="unitsGrid" class="units-grid"></div>
-</section>
-
-<!-- ===== Footer ===== -->
-<footer>
-  <p>© 2025 Islam Real Estate. جميع الحقوق محفوظة.</p>
-</footer>
-
-<!-- ===== Floating WhatsApp ===== -->
-<a href="https://wa.me/201234567890" class="float-whatsapp"><i class="fab fa-whatsapp"></i></a>
-
-<!-- ===== Scripts ===== -->
 <script>
-  // Open/Close menu
-  document.getElementById('menuToggle').onclick = () => {
-    document.getElementById('sideMenu').classList.toggle('open');
-  };
+/*
+  Murano units page
+  - This file must be located at /Murano/murano.units.html
+  - The page loads units from /Murano/murano-units.json (primary).
+*/
 
-  // Load units from JSON
-  fetch("murano-units.json")
-    .then(res => res.json())
-    .then(data => {
-      let html = '';
-      data.units.forEach(u => {
-        html += `
-          <div class="unit-card">
-            <div class="unit-image">
-              <img src="${u.image}" alt="${u.title}">
-              <span class="unit-badge ${u.type === 'مطور' ? 'developer' : 'resale'}">${u.type}</span>
-            </div>
-            <div class="unit-info">
-              <h3><a href="${u.link}">${u.title}</a></h3>
-              <p><i class="fa fa-bed"></i> ${u.rooms} غرف</p>
-              <p><i class="fa fa-bath"></i> ${u.bathrooms} حمام</p>
-              <p><i class="fa fa-ruler-combined"></i> ${u.area} م²</p>
-              <p class="price">${u.price} ${u.payment}</p>
-              ${u.plan ? `<p class="plan">خطة السداد: ${u.plan}</p>` : ""}
-              ${u.delivery ? `<p class="delivery">الاستلام: ${u.delivery}</p>` : ""}
-            </div>
-          </div>
-        `;
-      });
-      document.getElementById('unitsGrid').innerHTML = html;
+(async function(){
+  const GRID = document.getElementById('unitsGrid');
+  const FILTER_INPUT = document.getElementById('unitsFilter');
+  const tabs = document.querySelectorAll('.filter-btn');
+  const pager = document.getElementById('pager');
+  const prevBtn = document.getElementById('prevPage');
+  const nextBtn = document.getElementById('nextPage');
+  const pageInfo = document.getElementById('pageInfo');
+
+  // pagination settings
+  let currentPage = 1;
+  const perPage = 12;
+  let units = [];
+  let filteredUnits = [];
+
+  async function fetchJson(url){
+    try{
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error('bad');
+      return await r.json();
+    }catch(e){ return null; }
+  }
+
+  // try primary path requested by you
+  units = await fetchJson('/Murano/murano-units.json')
+         || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json')
+         || await fetchJson('/murano-units.json')
+         || [];
+
+  // fallback sample (will be replaced when you upload real JSON)
+  if(!units || units.length === 0){
+    units = [
+      { id:1, title:"شاليه 2 غرف - إطلالة بحرية", slug:"unit1.html", images:["https://picsum.photos/seed/unit1/800/600"], city:"العين السخنة", area:95, bed:2, price:1200000, source:"developer" },
+      { id:2, title:"فيلا مستقلة 220م", slug:"unit2.html", images:["https://picsum.photos/seed/unit2/800/600"], city:"العين السخنة", area:220, bed:4, price:4200000, source:"resale" },
+      { id:3, title:"شاليه 1 غرفة", slug:"unit3.html", images:["https://picsum.photos/seed/unit3/800/600"], city:"العين السخنة", area:60, bed:1, price:850000, source:"developer" }
+    ];
+  }
+
+  function fmt(n){ try{ return new Intl.NumberFormat('ar-EG').format(n); }catch(e){ return n; } }
+
+  function unitCard(u){
+    const img = (u.images && u.images[0]) || u.img || 'https://picsum.photos/seed/unitfallback/600/400';
+    const slug = u.slug ? (u.slug.startsWith('http') ? u.slug : '/Murano/' + u.slug) : '#';
+    return `<div class="unit-card" role="article">
+      <a href="${slug}" style="text-decoration:none;color:inherit">
+        <img src="${img}" alt="${(u.title||'وحدة')}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(u.title||'unit')}/600/400'">
+        <div class="unit-meta">
+          <h3>${u.title||'وحدة'}</h3>
+          <div class="small">${u.city||''}${u.area? ' • ' + u.area + ' م²' : ''}${u.bed? ' • ' + u.bed + ' غرف' : ''}</div>
+          <div class="unit-price">ج.م ${u.price ? fmt(u.price) : 'اتصال لمعرفة السعر'}</div>
+        </div>
+      </a>
+    </div>`;
+  }
+
+  function renderPage(page = 1){
+    const start = (page-1) * perPage;
+    const list = filteredUnits.slice(start, start + perPage);
+    if(!list.length){
+      GRID.innerHTML = `<div class="empty">لا توجد وحدات مطابقة للفلتر.</div>`;
+      pager.style.display = 'none';
+      return;
+    }
+    const html = list.map(unitCard).join('');
+    GRID.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">${html}</div>`;
+    // pager
+    const totalPages = Math.ceil(filteredUnits.length / perPage);
+    if(totalPages > 1){
+      pager.style.display = 'flex';
+      pageInfo.textContent = 'الصفحة ' + page + ' من ' + totalPages;
+      prevBtn.disabled = page <= 1;
+      nextBtn.disabled = page >= totalPages;
+    } else { pager.style.display = 'none'; }
+  }
+
+  // initial filter = all
+  function applyFilter(type, q){
+    q = (q||'').trim().toLowerCase();
+    filteredUnits = units.filter(u=>{
+      const matchType = (type === 'all') || ((type === 'developer') && ((u.source||'').toLowerCase().includes('dev') || (u.source||'').toLowerCase().includes('developer'))) || ((type === 'resale') && ((u.source||'').toLowerCase().includes('resale')));
+      const hay = ((u.title||'') + ' ' + (u.city||'') + ' ' + (u.tags||'') + ' ' + (u.slug||'')).toLowerCase();
+      const matchQ = q ? hay.includes(q) : true;
+      return matchType && matchQ;
     });
+    currentPage = 1;
+    renderPage(currentPage);
+  }
+
+  // wire filters
+  let activeFilter = 'all';
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      tabs.forEach(b=> b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter') || 'all';
+      applyFilter(activeFilter, FILTER_INPUT.value);
+    });
+  });
+
+  // search small
+  FILTER_INPUT.addEventListener('input', ()=> { applyFilter(activeFilter, FILTER_INPUT.value); });
+
+  // pager actions
+  prevBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; renderPage(currentPage); } });
+  nextBtn.addEventListener('click', ()=> { const tp = Math.ceil(filteredUnits.length / perPage); if(currentPage < tp){ currentPage++; renderPage(currentPage); } });
+
+  // start
+  filteredUnits = units.slice();
+  renderPage(currentPage);
+
+})();
 </script>
-
-<style>
-.units-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-  gap: 20px;
-  padding: 20px;
-}
-.unit-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.unit-image {
-  position: relative;
-}
-.unit-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.unit-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #fff;
-}
-.unit-badge.developer { background: #2e86de; }
-.unit-badge.resale { background: #27ae60; }
-.unit-info {
-  padding: 15px;
-}
-.unit-info h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-.price {
-  font-weight: bold;
-  color: #d35400;
-}
-</style>
-
 </body>
 </html>
