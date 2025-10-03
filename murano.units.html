@@ -1,6 +1,6 @@
 ---
 layout: none
-title: "جميع وحدات مشروع مورانو | islam real estate"
+title: "جميع وحدات مشروع مورانو | اسلام real estate"
 permalink: /murano.units.html
 ---
 
@@ -9,99 +9,289 @@ permalink: /murano.units.html
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>جميع وحدات مورانو | islam real estate</title>
-<meta name="description" content="قائمة جميع الوحدات المتاحة في مشروع مورانو وادي دجلة — عرض كامل لكل الوحدات (المطور - إعادة البيع) مع تفاصيل وصور وخيارات الاتصال.">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>جميع وحدات مورانو وادي دجلة - عرض كامل (المطور وإعادة البيع) | Islam Real Estate</title>
+<meta name="description" content="قائمة بجميع الوحدات المتاحة في مشروع مورانو وادي دجلة، العين السخنة. عرض كامل لكل الوحدات (المطور - إعادة البيع) مع تفاصيل وصور وخيارات الاتصال.">
+<link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{ --wrap:1180px; --line:#e6e9ef; --muted:#607089; --brand:#0b3a5e; --accent:#25D366; --shadow:0 8px 20px rgba(2,8,23,.06);}
-*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;background:#fff;color:#0f172a;line-height:1.6}
-a{color:inherit;text-decoration:none}
-.container{max-width:var(--wrap);margin:0 auto;padding:18px}
+/* تعاريف الألوان والظلال المتغيرة - تم توحيدها مع صفحة murano.html */
+:root{
+  --wrap:1180px; --line:#e5e7eb; 
+  --ink:#000000;
+  --muted:#6b7280; 
+  --primary-blue:#2563eb; 
+  --accent:#25D366; 
+  --dev:#2563eb; 
+  --resale:#f59e0b; 
+  --available:#10b981; 
+  --sold:#dc2626; 
+  --shadow:0 10px 25px rgba(0,0,0,.08); 
+  --radius:10px;
+}
+/* إعادة ضبط عامة وخطوط */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:#ffffff; 
+  color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;
+  line-height:1.7; 
+  font-size:16px; 
+}
+a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
+a:hover{color:#1d4ed8;}
 
-/* header include visual kept by include */
-.header-placeholder{display:none}
+/* الـ Header CSS (تم توحيده) */
+.header-placeholder{display:none} /* يتم استبدالها بـ include */
 
-/* breadcrumb + title */
-.breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:8px}
+/* شريط البحث (تم نسخه من murano.html) */
+.search-row{border-bottom:1px solid var(--line);padding:15px 0;text-align:center;background:#f9fafb;}
+.search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
+#siteSearch{
+  width:100%;max-width:520px;padding:12px 20px;
+  border:1px solid var(--line);border-radius:25px; 
+  font-weight:600;font-size:16px;
+  box-shadow:0 2px 5px rgba(0,0,0,.05);
+}
+#siteSearch:focus{border-color:var(--primary-blue);box-shadow:0 0 0 3px rgba(37,99,235,.2);}
+#suggest{
+  position:absolute;left:0;right:0;top:calc(100% + 10px);
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  display:none;z-index:1200;overflow:hidden;box-shadow:var(--shadow);
+}
+#suggest a{
+    display:block;padding:12px 14px;font-weight:600;color:var(--ink);cursor:pointer;
+}
+#suggest a:hover{background:#f3f4f6}
+
+
+/* الحاوية الرئيسية */
+.container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
+
+/* شريط التنقل (breadcrumb) */
+.breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
+
+/* العنوان وأزرار الرجوع */
 .page-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
-.page-title h1{margin:0;font-size:22px;font-weight:900}
-.back-link{font-weight:800;color:var(--brand);font-size:14px}
+.page-title h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)}
+.back-link{
+    font-weight:700;padding:8px 14px;
+    border-radius:25px;color:var(--primary-blue);display:inline-block;
+    border:1px solid var(--primary-blue);
+    transition: all 0.3s;
+    font-size:15px;
+}
+.back-link:hover{background:var(--primary-blue);color:#fff;}
 
-/* controls */
-.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
-.filter-btn{padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:900;cursor:pointer}
-.filter-btn.active{background:var(--brand);color:#fff;border-color:var(--brand)}
-.search-small{margin-left:12px;padding:8px 12px;border:1px solid var(--line);border-radius:8px}
+/* أدوات التحكم (Controls) */
+.controls{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0;
+  border-bottom:1px solid var(--line);padding-bottom:15px;
+  justify-content:space-between;
+}
+.tablist{
+  display:flex;gap:10px;align-items:center;
+  flex-wrap:nowrap;
+  overflow-x: auto;
+  padding: 5px 0;
+}
+.filter-btn{
+  padding:8px 16px;border-radius:20px;
+  border:1px solid var(--line);background:#f9fafb;font-weight:700;
+  cursor:pointer;transition: all 0.3s;font-size:15px;
+  flex-shrink: 0;
+}
+.filter-btn.active{background:var(--primary-blue);color:#fff;border-color:var(--primary-blue);box-shadow:0 4px 8px rgba(37,99,235,.2);}
+.filter-btn:hover:not(.active){background:#f3f4f6;}
+.search-small{
+  padding:8px 16px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  font-weight:600;
+  font-size:15px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.search-small:focus{border-color:var(--primary-blue);}
 
-/* grid */
-.units-grid{display:grid;gap:12px}
-@media(min-width:920px){ .units-grid{grid-template-columns:repeat(3,1fr)} }
-.unit-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
-.unit-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-.unit-meta h3{margin:0;font-size:16px;font-weight:900}
-.unit-meta .small{color:var(--muted);font-size:13px}
-.unit-price{font-weight:900;color:var(--brand);margin-top:6px}
+/* شبكة الوحدات (Grid) */
+.units-grid{display:grid;gap:20px;margin-top:20px}
+@media(min-width:920px){.units-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.units-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
 
-/* empty */
-.empty{padding:28px;text-align:center;color:var(--muted)}
+/* بطاقة الوحدة - تم نسخ تصميم murano.html */
+.unit-card{
+  display:flex;flex-direction:column;
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--line);background:#fff;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  cursor:pointer;
+}
+.unit-card:hover{box-shadow:var(--shadow);border-color:#ccc;}
 
-/* pagination (simple) */
-.pager{display:flex;gap:8px;justify-content:center;margin-top:18px}
-.pager button{padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;cursor:pointer}
+.unit-images{position:relative;background:#000;height:220px;}
+.unit-images img{width:100%;height:100%;object-fit:cover;}
 
-/* footer include spacing */
-.footer-placeholder{margin-top:28px}
+.unit-badges{position:absolute;inset:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;}
+.badge{
+  pointer-events:auto;padding:4px 8px;border-radius:6px;
+  color:#fff;font-weight:700;font-size:13px;white-space:nowrap;
+  width:fit-content;box-shadow:0 1px 3px rgba(0,0,0,.2);
+  align-self:flex-start;
+}
+.badge.type.dev{background:var(--dev);}
+.badge.type.resale{background:var(--resale);}
+.badge.status.available{background:var(--available);} 
+.badge.status.sold{background:var(--sold);}
+
+
+.unit-meta{padding:15px;display:flex;flex-direction:column;gap:10px;text-align:right;flex-grow:1;}
+.unit-meta h3{margin:0;font-size:18px;font-weight:800;color:var(--ink);} 
+.unit-meta .small{color:var(--muted);font-size:14px;margin-top:-4px;}
+.spec-row{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px;margin-top:5px;justify-content:flex-start;}
+.spec-pill{
+  display:flex;align-items:center;gap:6px;
+  font-weight:600;font-size:14px; 
+  color:var(--ink);
+}
+.spec-pill img{width:16px;height:16px;} 
+.unit-price{
+  display:inline-block;padding:10px 15px;
+  border-radius:8px;background:#f3f4f6;
+  font-weight:800;font-size:18px; 
+  color:var(--primary-blue);
+  align-self:flex-start;
+  margin-top:10px;
+}
+
+/* حالة الفراغ (Empty State) */
+.empty{
+  padding:50px;text-align:center;color:var(--muted);
+  font-size:18px;font-weight:700;
+  border:1px dashed var(--line);
+  border-radius:var(--radius);
+  margin-top:20px;
+}
+
+/* pagination */
+.pager{display:flex;gap:12px;justify-content:center;margin-top:25px;align-items:center;}
+.pager button{
+    padding:10px 18px;border:1px solid var(--line);border-radius:25px;
+    background:#fff;cursor:pointer;font-weight:700;
+    transition: all 0.2s;
+}
+.pager button:hover:not(:disabled){background:#f3f4f6;border-color:#ccc;}
+.pager button:disabled{opacity:0.6;cursor:not-allowed;}
+.pager div{font-weight:600;}
+
 </style>
 </head>
 <body>
 
 {% include header-ar.html %}
 
+<div class="search-row" role="search" aria-label="بحث الموقع">
+  <div class="search-wrap">
+    <input id="siteSearch" placeholder="أبحث عن مشروعك (اسم المشروع أو المدينة)" aria-label="أبحث عن مشروعك">
+    <div id="suggest" role="listbox"></div>
+  </div>
+</div>
+
 <div class="container">
 
-  <div class="breadcrumb">
-    <a href="/murano.html">صفحة المشروع</a> » <span>جميع الوحدات</span>
+  <div class="breadcrumb" aria-hidden="false">
+    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/zafarana.html">الزعفرانة</a> » <a href="{{ site.baseurl }}/murano.html">مشروع مورانو</a> » <span>جميع الوحدات</span>
   </div>
 
   <div class="page-title">
-    <h1>جميع وحدات مشروع مورانو</h1>
-    <a class="back-link" href="/murano.html">◀ رجوع إلى صفحة المشروع</a>
+    <h1>جميع وحدات مشروع مورانو وادي دجلة</h1>
+    <a class="back-link" href="{{ site.baseurl }}/murano.html">◀ رجوع لصفحة المشروع</a>
   </div>
 
-  <!-- controls: tabs + small search -->
   <div class="controls" role="toolbar" aria-label="فلترة الوحدات">
-    <div style="display:flex;gap:8px">
-      <button class="filter-btn active" data-filter="all">الكل</button>
-      <button class="filter-btn" data-filter="developer">المطور</button>
-      <button class="filter-btn" data-filter="resale">إعادة البيع</button>
+    <div class="tablist" role="tablist" aria-label="فلترة الوحدات">
+      <button class="filter-btn active" data-filter="all" role="tab">الكل</button>
+      <button class="filter-btn" data-filter="developer" role="tab">المطور</button>
+      <button class="filter-btn" data-filter="resale" role="tab">إعادة البيع</button>
     </div>
-    <input id="unitsFilter" class="search-small" placeholder="ابحث باسم الوحدة أو الكود..." aria-label="ابحث في الوحدات">
+    <input id="unitsFilter" class="search-small" placeholder="ابحث باسم الوحدة، الكود، أو التفاصيل..." aria-label="ابحث في الوحدات">
   </div>
 
-  <!-- units grid -->
   <div id="unitsGrid" class="units-grid" aria-live="polite">
     <div class="empty">جاري تحميل الوحدات...</div>
   </div>
 
-  <!-- pager (عرض بسيط لوحدات كثيرة) -->
-  <div id="pager" class="pager" style="display:none">
-    <button id="prevPage">السابق</button>
+  <div id="pager" class="pager" style="display:none" role="navigation" aria-label="تنقل الصفحات">
+    <button id="prevPage" aria-label="الصفحة السابقة">السابق</button>
     <div id="pageInfo" style="padding:8px 12px"></div>
-    <button id="nextPage">التالي</button>
+    <button id="nextPage" aria-label="الصفحة التالية">التالي</button>
   </div>
 
-  <div class="footer-placeholder"></div>
 </div>
 
 {% include footer-ar.html %}
 
 <script>
-/*
-  Murano units page
-  - This file must be located at /Murano/murano.units.html
-  - The page loads units from /Murano/murano-units.json (primary).
-*/
+// دالة مساعدة لتصحيح المسارات المطلقة والنسبية
+function ensureAbsolutePath(path){
+  if(!path) return '{{ site.baseurl }}/';
+  if(path.startsWith('http') || path.startsWith('#')) return path;
+  let cleanedPath = path.startsWith('/') ? path : '/' + path;
+  return '{{ site.baseurl }}' + cleanedPath;
+}
 
+/* ---------------- 1. Search Script (موحد مع murano.html) ---------------- */
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX    = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
+
+  let SITE_INDEX = [];
+  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'}) 
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
+
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = ensureAbsolutePath(it.url || it.permalink); 
+    a.textContent = it.title || it.name || it.permalink || 'بدون عنوان';
+    return a;
+  };
+
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = ((it.title||'') + ' ' + (it.keywords||'') + ' ' + (it.categories||'')).toLowerCase();
+        const inTitle = (it.title||'').toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+
+/* ---------------- 2. Units loading, Card rendering, and Filtering ---------------- */
 (async function(){
   const GRID = document.getElementById('unitsGrid');
   const FILTER_INPUT = document.getElementById('unitsFilter');
@@ -119,55 +309,114 @@ a{color:inherit;text-decoration:none}
 
   async function fetchJson(url){
     try{
+      // نستخدم المسار المطلق لضمان التحميل من ملف JSON المخصص
       const r = await fetch(url, {cache:'no-store'});
       if(!r.ok) throw new Error('bad');
       return await r.json();
     }catch(e){ return null; }
   }
 
-  // try primary path requested by you
-  units = await fetchJson('/Murano/murano-units.json')
-         || await fetchJson('https://islamesmail-jpg.github.io/Murano/murano-units.json')
-         || await fetchJson('/murano-units.json')
-         || [];
+  // *** محاولة جلب ملف الوحدات من المسارات المتوقعة ***
+  units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json')
+           || await fetchJson('{{ site.baseurl }}/murano-units.json')
+           || [];
 
-  // fallback sample (will be replaced when you upload real JSON)
+  // بيانات تجريبية في حالة عدم تحميل JSON
   if(!units || units.length === 0){
     units = [
-      { id:1, title:"شاليه 2 غرف - إطلالة بحرية", slug:"unit1.html", images:["https://picsum.photos/seed/unit1/800/600"], city:"العين السخنة", area:95, bed:2, price:1200000, source:"developer" },
-      { id:2, title:"فيلا مستقلة 220م", slug:"unit2.html", images:["https://picsum.photos/seed/unit2/800/600"], city:"العين السخنة", area:220, bed:4, price:4200000, source:"resale" },
-      { id:3, title:"شاليه 1 غرفة", slug:"unit3.html", images:["https://picsum.photos/seed/unit3/800/600"], city:"العين السخنة", area:60, bed:1, price:850000, source:"developer" }
+      { "id":101, "title":"شاليه 2 غرف - واجهة بحرية (تجريبية)", "status":"available", "source":"developer", "link":"#unit-101", "price":"4800000", "bed":2, "bath":1, "area":"105", "images":["https://c.top4top.io/p_35249hfap2.jpg"], "city":"العين السخنة" },
+      { "id":102, "title":"شقة فندقية 1 غرفة (تجريبية)", "status":"available", "source":"resale", "link":"#unit-102", "price":"2750000", "bed":1, "bath":1, "area":"75", "images":["https://a.top4top.io/p_3524wj4b00.jpg"], "city":"العين السخنة" }
     ];
   }
 
-  function fmt(n){ try{ return new Intl.NumberFormat('ar-EG').format(n); }catch(e){ return n; } }
+  function fmt(n){ 
+      try{ 
+          if (typeof n === 'string' && n.includes(',')) return n;
+          return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); 
+      }
+      catch(e){ return n; } 
+  }
 
+  // ** دالة إنشاء بطاقة الوحدة (محدثة لتطابق صفحة murano.html) **
   function unitCard(u){
-    const img = (u.images && u.images[0]) || u.img || 'https://picsum.photos/seed/unitfallback/600/400';
-    const slug = u.slug ? (u.slug.startsWith('http') ? u.slug : '/Murano/' + u.slug) : '#';
-    return `<div class="unit-card" role="article">
-      <a href="${slug}" style="text-decoration:none;color:inherit">
-        <img src="${img}" alt="${(u.title||'وحدة')}" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${encodeURIComponent(u.title||'unit')}/600/400'">
-        <div class="unit-meta">
-          <h3>${u.title||'وحدة'}</h3>
-          <div class="small">${u.city||''}${u.area? ' • ' + u.area + ' م²' : ''}${u.bed? ' • ' + u.bed + ' غرف' : ''}</div>
-          <div class="unit-price">ج.م ${u.price ? fmt(u.price) : 'اتصال لمعرفة السعر'}</div>
-        </div>
-      </a>
-    </div>`;
+      const img = (u.images && u.images[0]) || u.img || 'https://picsum.photos/seed/unitfallback/600/400';
+      // استخدام u.link للانتقال للصفحة المحددة (سواء كان رابط داخلي أو خارجي)
+      const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
+
+      const card = document.createElement('article'); 
+      card.className='unit-card'; 
+      card.setAttribute('role','article');
+      card.onclick = ()=> { window.location.href = linkTarget; };
+
+      // صور الوحدة + الشارات
+      const images = document.createElement('div'); 
+      images.className='unit-images';
+      images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${u.id||'fallback'}/800/600';">`;
+      
+      const badges = document.createElement('div'); 
+      badges.className='unit-badges';
+      const type = (u.source||'').toLowerCase().includes('dev') || (u.source||'').toLowerCase().includes('developer') ? 'developer' : 'resale';
+      const status = (u.status||'').toLowerCase().includes('sold') ? 'sold' : 'available';
+
+      const typeBadge = document.createElement('div'); typeBadge.className = 'badge type ' + (type==='developer' ? 'dev' : 'resale');
+      typeBadge.textContent = (type==='developer' ? 'مطور' : 'إعادة بيع');
+      const statusBadge = document.createElement('div'); statusBadge.className = 'badge status ' + (status==='available' ? 'available' : 'sold');
+      statusBadge.textContent = (status==='available' ? 'متاح' : 'مباع');
+      badges.appendChild(typeBadge); badges.appendChild(statusBadge);
+      images.appendChild(badges);
+      
+      // البيانات الوصفية
+      const meta = document.createElement('div'); 
+      meta.className='unit-meta';
+      const h = document.createElement('h3'); h.textContent = u.title || 'وحدة سكنية';
+      const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة');
+      
+      // المواصفات (غرف، حمامات، مساحة)
+      const specs = document.createElement('div'); 
+      specs.className='spec-row';
+      if(u.bed){
+          const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
+          pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="عدد الغرف"> ${u.bed} غرف`;
+          specs.appendChild(pillBed);
+      }
+      if(u.bath){
+          const pillBath = document.createElement('div'); pillBath.className='spec-pill'; 
+          pillBath.innerHTML = `<img src="https://k.top4top.io/p_3563vaqnl2.png" alt="عدد الحمامات"> ${u.bath} حمام`;
+          specs.appendChild(pillBath);
+      }
+      if(u.area){
+          const pillArea = document.createElement('div'); pillArea.className='spec-pill'; 
+          pillArea.innerHTML = `<img src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة"> ${u.area} م²`;
+          specs.appendChild(pillArea);
+      }
+      
+      // السعر
+      const price = document.createElement('div'); 
+      price.className='unit-price'; 
+      price.textContent = (u.price ? ('ج.م ' + fmt(u.price)) : 'اتصال لمعرفة السعر');
+
+      meta.appendChild(h); meta.appendChild(small); meta.appendChild(specs); meta.appendChild(price);
+
+      card.appendChild(images); card.appendChild(meta);
+      return card;
   }
 
   function renderPage(page = 1){
     const start = (page-1) * perPage;
     const list = filteredUnits.slice(start, start + perPage);
+    
+    GRID.innerHTML = '';
     if(!list.length){
       GRID.innerHTML = `<div class="empty">لا توجد وحدات مطابقة للفلتر.</div>`;
       pager.style.display = 'none';
       return;
     }
-    const html = list.map(unitCard).join('');
-    GRID.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">${html}</div>`;
-    // pager
+    
+    const frag = document.createDocumentFragment();
+    list.forEach(u => frag.appendChild(unitCard(u)));
+    GRID.appendChild(frag);
+
+    // pager logic
     const totalPages = Math.ceil(filteredUnits.length / perPage);
     if(totalPages > 1){
       pager.style.display = 'flex';
@@ -180,12 +429,21 @@ a{color:inherit;text-decoration:none}
   // initial filter = all
   function applyFilter(type, q){
     q = (q||'').trim().toLowerCase();
+    
     filteredUnits = units.filter(u=>{
-      const matchType = (type === 'all') || ((type === 'developer') && ((u.source||'').toLowerCase().includes('dev') || (u.source||'').toLowerCase().includes('developer'))) || ((type === 'resale') && ((u.source||'').toLowerCase().includes('resale')));
-      const hay = ((u.title||'') + ' ' + (u.city||'') + ' ' + (u.tags||'') + ' ' + (u.slug||'')).toLowerCase();
+      const source = (u.source||'').toLowerCase();
+      // مطابقة الفلتر (الكل / مطور / إعادة بيع)
+      const matchType = (type === 'all') || 
+                        (type === 'developer' && (source.includes('dev') || source.includes('developer'))) || 
+                        (type === 'resale' && source.includes('resale'));
+      
+      // مطابقة البحث النصي (العنوان، المدينة، الكود/slug، tags)
+      const hay = ((u.title||'') + ' ' + (u.city||'') + ' ' + (u.tags||'') + ' ' + (u.id||'') + ' ' + (u.slug||'')).toLowerCase();
       const matchQ = q ? hay.includes(q) : true;
+      
       return matchType && matchQ;
     });
+    
     currentPage = 1;
     renderPage(currentPage);
   }
