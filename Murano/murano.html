@@ -43,7 +43,7 @@ body{
 a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
 a:hover{color:#1d4ed8;}
 
-/* الـ Header (محتوى افتراضي لـ Jekyll Include) */
+/* الـ Header CSS (لتنسيق الملف المُتضمن) */
 .header{
     border-bottom:1px solid var(--line);
     padding:10px 15px;
@@ -184,7 +184,7 @@ a:hover{color:#1d4ed8;}
 /* الميديا والصور المصغرة */
 .media-wrap{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 .video-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.05);margin-bottom:18px}
-.video-card h3{text-align:right;}
+.video-card h3{text-align:right;margin:6px 0 15px 0;font-size:18px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;}
 
 /* أزرار المشاركة والنسخ */
 .share-row{display:flex;gap:15px;margin-top:20px;justify-content:center;}
@@ -281,7 +281,7 @@ a:hover{color:#1d4ed8;}
 .fab-wa img{width:100%;height:100%;}
 
 
-/* التذييل */
+/* التذييل CSS (لتنسيق الملف المُتضمن) */
 .footer{
     margin-top:30px;padding:20px;text-align:center;
     color:var(--ink);
@@ -310,17 +310,6 @@ a:hover{color:#1d4ed8;}
 <body>
 
 {% include header-ar.html %}
-<header class="header">
-    <div class="header-logo">
-        <img src="https://f.top4top.io/p_3562107rr0.png" alt="Islam Esmail Real Estate Logo">
-    </div>
-    <nav class="header-nav">
-        <a href="/">المشاريع</a>
-        <a href="/offers.html">العروض</a>
-        <a href="/contact.html">التواصل</a>
-        <a href="/en.html" class="lang-btn">EN</a>
-    </nav>
-</header>
 <div class="search-row" role="search" aria-label="بحث الموقع">
   <div class="search-wrap">
     <input id="siteSearch" placeholder="أبحث عن مشروعك (اسم المشروع أو المدينة)" aria-label="أبحث عن مشروعك">
@@ -372,7 +361,7 @@ a:hover{color:#1d4ed8;}
     </div>
 
     <div class="section" style="padding:15px">
-      <h3 style="margin:6px 0 15px 0;font-size:18px;font-weight:800;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:10px;text-align:right;">صور المشروع (Gallery)</h3>
+      <h3>صور المشروع (Gallery)</h3>
 
       <div class="slider-thumbs" id="thumbs" aria-hidden="false">
         <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 1" loading="lazy" onclick="openLightboxFromGallery(0)" onerror="this.onerror=null;this.src='https://picsum.photos/seed/murano2/600/400'">
@@ -465,23 +454,6 @@ a:hover{color:#1d4ed8;}
 
   </div>
   {% include footer-ar.html %}
-  <footer class="footer">
-    <div class="footer-links">
-        <div class="footer-col">
-            <strong>روابط سريعة</strong>
-            <ul><li><a href="/sokhna.html">العين السخنة</a></li><li><a href="/cairo.html">القاهرة الجديدة</a></li><li><a href="/north-coast.html">الساحل الشمالي</a></li><li><a href="/resale.html">إعادة البيع</a></li><li><a href="/offers.html">عروض مميزة</a></li><li><a href="/policy.html">سياسة الخصوصية</a></li></ul>
-        </div>
-        <div class="footer-col">
-            <strong>مشاريع مميزة</strong>
-            <ul><li><a href="/Murano/murano.html">مورانو</a></li><li><a href="/Lojain/lojain.html">لوجين</a></li></ul>
-        </div>
-        <div class="footer-col">
-            <strong>اتصل بنا</strong>
-            <ul><li><a href="tel:+201050072527">الاتصال المباشر</a></li><li><a href="https://wa.me/201050072527" target="_blank">الواتساب</a></li><li><a href="mailto:islammesmail@gmail.com">الإيميل</a></li></ul>
-        </div>
-    </div>
-    <p>جميع الحقوق محفوظة &copy; 2024 اسلام للعقارات | Murano Wadi Degla</p>
-  </footer>
   </div>
 
 <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
@@ -497,14 +469,12 @@ a:hover{color:#1d4ed8;}
 
 <script>
 /* ---------------- 1. Search Script ---------------- */
-// تم دمج كود البحث الذي طلبته هنا
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
   if(!INPUT || !BOX) return;
 
   let SITE_INDEX = [];
-  // حاول جلب ملف search-index.json من المسار الأصلي والمحلي
   fetch('/search-index.json', {cache:'no-store'})
     .then(r => r.json())
     .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
