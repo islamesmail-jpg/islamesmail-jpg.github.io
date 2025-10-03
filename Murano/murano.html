@@ -9,9 +9,9 @@ permalink: /Murano/murano.html
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>مشروع مورانو وادى دجلة العين السخنة | اسلام للعقارات</title>
-<meta name="description" content="تفاصيل مشروع مورانو وادي دجلة - الموقع، المرافق، الوحدات المتاحة (قسط وكاش)، صور وفيديو، ماستر بلان، وأسئلة شائعة.">
-<meta name="keywords" content="مورانو, Murano, وادي دجلة, العين السخنة, شاليهات, وحدات للبيع, تقسيط, اسلام اسماعيل">
+<title>مورانو وادي دجلة العين السخنة - وحدات، أسعار، الموقع والمرافق | Islam Real Estate</title>
+<meta name="description" content="اكتشف شاليهات ووحدات مشروع مورانو وادي دجلة بالعين السخنة. تفاصيل الأسعار، أنظمة السداد، الموقع الاستراتيجي، والمرافق الفاخرة (ينابيع ساخنة). تواصل الآن لمعرفة العروض المتاحة.">
+<meta name="keywords" content="مورانو العين السخنة, Murano Wadi Degla, شاليهات للبيع, وحدات للبيع بالتقسيط, وادي دجلة للتطوير العقاري, Murano أسعار, اسلام عقارات">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,7 +21,12 @@ permalink: /Murano/murano.html
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "مشروع مورانو وادي دجلة العين السخنة",
-  "description": "تفاصيل مشروع مورانو وادي دجلة: الموقع، المرافق، الوحدات المتاحة، صور، فيديو، ماستر بلان، وأسئلة شائعة."
+  "description": "اكتشف شاليهات ووحدات مشروع مورانو وادي دجلة بالعين السخنة. تفاصيل الأسعار، أنظمة السداد، الموقع الاستراتيجي، والمرافق الفاخرة.",
+  "url": "https://islamesmail-jpg.github.io/Murano/murano.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Islam Real Estate"
+  }
 }
 </script>
 
@@ -31,11 +36,11 @@ permalink: /Murano/murano.html
   --wrap:1180px; --line:#e5e7eb; /* خط رمادي فاتح جداً */
   --ink:#1f2937; /* أسود هادئ (لطيف) */
   --muted:#6b7280; /* رمادي للقراءة */
-  --brand:#10b981; /* لون أخضر أو أزرق هادئ (نختار الأزرق Nawy-like) */
-  --primary-blue:#2563eb; 
+  --primary-blue:#2563eb; /* أزرق أساسي قوي */
   --accent:#25D366; /* واتساب */
-  --dev:#2563eb; /* أزرق داكن للمطور */
-  --resale:#f59e0b; /* برتقالي فاتح لإعادة البيع */
+  --dev:#2563eb; 
+  --resale:#f59e0b; 
+  --available:#10b981; /* أخضر للمتاح */
   --sold:#dc2626; 
   --shadow:0 10px 25px rgba(0,0,0,.08); 
   --radius:10px;
@@ -81,10 +86,8 @@ a:hover{color:#1d4ed8;}
 .title-block h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)} 
 .dev-center{display:flex;align-items:center;gap:15px}
 .dev-badge{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--muted);}
-.dev-logo{height:30px;width:auto;} 
-
-/* السلايدر الرئيسي - تم إلغاؤه وتعديل مكانه ليصبح أول صورة مصغرة */
-.main-slider{display:none;} 
+/* لوجو المطور */
+.dev-logo{height:40px;width:auto;object-fit:contain;border:1px solid var(--line);padding:5px;border-radius:5px;} 
 
 /* قسم الوحدات */
 .units-section{max-width:var(--wrap);margin:10px auto 24px auto;padding:0 15px}
@@ -126,17 +129,19 @@ a:hover{color:#1d4ed8;}
 .carousel-img.active{display:block;}
 
 .unit-badges{position:absolute;inset:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;}
-/* شارات صغيرة وأنيقة */
+/* شارات صغيرة وأنيقة ومحددة على قد الكلمة */
 .badge{
   pointer-events:auto;
   padding:4px 8px; /* حجم أصغر */
   border-radius:6px;
   color:#fff;font-weight:700;font-size:13px;white-space:nowrap;
-  min-width:45px; text-align:center;
+  width:fit-content; /* الأهم: تحديد العرض ليناسب النص فقط */
+  text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,.2);
 }
 .badge.type.dev{background:var(--dev);}
 .badge.type.resale{background:var(--resale);}
-.badge.status.available{background:#10b981;} /* أخضر للمتاح */
+.badge.status.available{background:var(--available);} 
 .badge.status.sold{background:var(--sold);}
 
 /* بيانات الوحدة */
@@ -192,6 +197,7 @@ a:hover{color:#1d4ed8;}
 .section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 4px 10px rgba(0,0,0,.05);}
 .section h2{font-size:24px;font-weight:800;color:var(--ink);margin-top:0;padding-top:0;border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:20px;}
 .section p, .section li{color:var(--ink);font-size:16px;line-height:1.8;}
+.section ul{margin-top:-10px;}
 
 /* صندوق المساعدة (Sticky Help Box) */
 .help{
@@ -233,7 +239,7 @@ a:hover{color:#1d4ed8;}
   <div class="title-block" role="banner">
     <h1>مشروع مورانو وادي دجلة</h1>
     <div class="dev-center" aria-hidden="false">
-      <img src="https://i.top4top.io/p_3564z6f5p0.png" alt="Wadi Degla Logo" class="dev-logo" onerror="this.onerror=null;this.src='https://f.top4top.io/p_3562107rr0.png'">
+      <img src="https://b.top4top.io/p_356353dpy0.jpg" alt="Wadi Degla Logo" class="dev-logo" onerror="this.onerror=null;this.src='https://f.top4top.io/p_3562107rr0.png'">
       <div class="dev-badge">المطور: وادي دجلة للتطوير العقاري</div>
     </div>
   </div>
@@ -298,23 +304,27 @@ a:hover{color:#1d4ed8;}
 
     <main class="section" id="description">
       <h2>عن مشروع مورانو وادى دجلة</h2>
-      <p>تُعد قرية **مورانو العين السخنة** ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي. فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية. وتم تصميم **Murano Wadi Degla** بعناية فائقة لتوفير بيئة استثنائية تُركز على **الهدوء والسكينة**، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود **ينابيع مياه ساخنة طبيعية** تُضيف لمسة مميزة إلى القرية.</p>
+      <p>تُعد قرية **مورانو العين السخنة** ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي. فعلى شواطئ البحر الأحمر تُقدم **مورانو** تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية. وتم تصميم **Murano Wadi Degla** بعناية فائقة لتوفير بيئة استثنائية تُركز على **الهدوء والسكينة**، مع توفير كافة وسائل الراحة والترفيه.</p>
 
-      <h2>موقع قرية مورانو العين السخنة الاستراتيجي</h2>
-      <p>اهتمت **وادي دجلة للتطوير العقاري** باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في **نهاية طريق العين السخنة وبداية طريق الزعفرانة**. هذا الموقع يجعلها **أقرب منطقة ساحلية للعاصمة**، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+      <h2>موقع مورانو الاستراتيجي وأهم الطرق</h2>
+      <p>تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في **نهاية طريق العين السخنة وبداية طريق الزعفرانة**. هذا الموقع يجعلها **أقرب منطقة ساحلية للعاصمة**، كما تتميز بقربها من الطرق والمحاور الرئيسية:</p>
+      <ul>
+        <li>**طريق الجلالة:** على بعد **18 كيلو** فقط.</li>
+        <li>**القاهرة:** يفصل بين قرية مورانو العين السخنة والقاهرة **136 كيلو**.</li>
+      </ul>
 
       <h2>أهم المرافق والخدمات في Murano Wadi Degla</h2>
-      <p>تتميز Murano Wadi Degla بمجموعة واسعة من المرافق والخدمات المصممة لتوفير تجربة حياة متكاملة، وتشمل هذه المرافق:</p>
+      <p>تتميز Murano Wadi Degla بمجموعة واسعة من المرافق والخدمات المصممة لتوفير تجربة حياة متكاملة، ومن أبرزها:</p>
       <ul>
         <li>**الشاطئ:** شاطئ رملي ممتد بطول **750 مترًا**.</li>
+        <li>**الاسترخاء:** سبا فاخر و**ينابيع ماء ساخنة طبيعية فريدة** تُستخدم للاستشفاء.</li>
+        <li>**الإقامة:** منتجع فندقي **4 نجوم**.</li>
         <li>**المارينا:** مارينا بطول **100 متر** لمحبي اليخوت.</li>
-        <li>**الإقامة:** منتجع فندقي **4 نجوم** لخدمة الزوار.</li>
-        <li>**الترفيه:** حمامات سباحة متنوعة، مناطق ترفيهية آمنة للأطفال.</li>
-        <li>**الاسترخاء:** سبا فاخر و**ينابيع ماء ساخنة طبيعية فريدة**.</li>
+        <li>**الترفيه:** حمامات سباحة متنوعة، ومنطقة تجارية متكاملة.</li>
       </ul>
       
-      <h2>وحدات مورانو وادي دجلة</h2>
-      <p>تتنوع وحدات قرية مورانو العين السخنة لتشمل أنماطاً عديدة تلبي احتياجات جميع السكان، وتتراوح بين: **شقق** و**فلل** بمساحات متنوعة. وتأتي جميع وحدات murano sokhna بإطلالات مميزة وتصاميم عالية الجودة، وتوفر راحة كاملة وتجربة سكنية مميزة.</p>
+      <h2>وحدات وأنظمة سداد مورانو وادي دجلة</h2>
+      <p>تتنوع وحدات قرية مورانو العين السخنة لتشمل أنماطاً عديدة تلبي احتياجات جميع السكان، وتتراوح بين: **شقق** و**فلل** بمساحات متنوعة. تتوفر خيارات الدفع النقدي (كاش) لوحدات إعادة البيع، وأنظمة التقسيط المتنوعة لوحدات المطور التي تبدأ بمقدم وتصل إلى عدة سنوات.</p>
 
       <div style="margin-top:25px">
         <h2>الأسئلة الشائعة عن مشروع مورانو</h2>
@@ -478,18 +488,18 @@ a:hover{color:#1d4ed8;}
     const h = document.createElement('h4'); h.textContent = u.title || 'وحدة سكنية';
     const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة');
     
-    // المواصفات (غرف، حمامات، مساحة) - تصميم نظيف
+    // المواصفات (غرف، حمامات، مساحة) - تم التأكد من روابط الأيقونات
     const specs = document.createElement('div'); specs.className='spec-row';
     if(u.bed){
-        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563hwk0x0.png" alt="غرف"> ${u.bed} غرف`;
+        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; pillBed.innerHTML = `<img src="https://i.top4top.io/p_3564883v60.png" alt="غرف"> ${u.bed} غرف`;
         specs.appendChild(pillBed);
     }
     if(u.bath){
-        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; pillBath.innerHTML = `<img src="https://k.top4top.io/p_3563tqam81.png" alt="حمامات"> ${u.bath} حمام`;
+        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; pillBath.innerHTML = `<img src="https://j.top4top.io/p_3564h3h191.png" alt="حمامات"> ${u.bath} حمام`;
         specs.appendChild(pillBath);
     }
     if(u.area){
-        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; pillArea.innerHTML = `<img src="https://l.top4top.io/p_3563brh8h2.png" alt="المساحة"> ${u.area}`;
+        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; pillArea.innerHTML = `<img src="https://k.top4top.io/p_356461k1b2.png" alt="المساحة"> ${u.area}`;
         specs.appendChild(pillArea);
     }
 
