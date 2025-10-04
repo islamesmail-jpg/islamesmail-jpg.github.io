@@ -39,6 +39,15 @@ permalink: /murano-units.html
   .tabs button { padding:10px 20px; border:none; border-radius:20px; cursor:pointer; background:#eee; font-weight:bold; }
   .tabs button.active { background:#007BFF; color:#fff; }
   .box { background:#f9f9f9; padding:20px; margin:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:10px; }
+  .card { background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1); overflow:hidden; transition:0.3s; }
+  .card:hover { transform:translateY(-5px); }
+  .card img { width:100%; height:200px; object-fit:cover; }
+  .card-body { padding:15px; }
+  .card-body h3 { font-size:18px; margin:0 0 10px; color:#007BFF; }
+  .card-body p { margin:5px 0; font-size:14px; color:#444; }
+  .card-body .price { color:#28a745; font-weight:bold; font-size:16px; }
+  .card-body .btn { display:inline-block; margin-top:10px; background:#007BFF; color:#fff; padding:8px 12px; border-radius:6px; text-decoration:none; font-size:14px; }
   .contact { text-align:center; padding:30px; background:#f1f1f1; border-radius:12px; margin:20px; }
   .contact a { display:inline-block; margin:10px; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold; color:#fff; }
   .contact a.whatsapp { background:#25d366; }
@@ -90,21 +99,21 @@ permalink: /murano-units.html
 
 <!-- Tabs -->
 <div class="tabs">
-  <button class="active">الكل</button>
-  <button>المطور</button>
-  <button>إعادة البيع</button>
+  <button class="active" data-filter="all">الكل</button>
+  <button data-filter="developer">المطور</button>
+  <button data-filter="resale">إعادة البيع</button>
 </div>
 
 <!-- Units -->
 <div id="units" class="box">
   <h2>الوحدات المتاحة</h2>
-  <div id="units-container">يتم تحميل الوحدات من murano-units.json ...</div>
+  <div id="units-container" class="cards"></div>
 </div>
 
 <!-- Suggestions -->
 <div class="box">
   <h2>وحدات مقترحة</h2>
-  <div id="suggestions-container">يتم تحميل الوحدات من suggestion.json ...</div>
+  <div id="suggestions-container" class="cards"></div>
 </div>
 
 <!-- FAQ -->
@@ -128,18 +137,56 @@ permalink: /murano-units.html
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// مثال بسيط لجلب الوحدات
+let allUnits = [];
+
+// دالة لعرض الوحدات في كروت
+function renderUnits(data, containerId){
+  let container = document.getElementById(containerId);
+  container.innerHTML = "";
+  data.forEach(unit=>{
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${unit.image || 'https://via.placeholder.com/400x250'}" alt="${unit.name}">
+      <div class="card-body">
+        <h3>${unit.name || 'وحدة عقارية'}</h3>
+        <p>الكود: ${unit.code || '-'}</p>
+        <p>المساحة: ${unit.size || '-'} م²</p>
+        <p class="price">السعر: ${unit.price || 'متاح عند الطلب'}</p>
+        <a href="https://wa.me/201050072527?text=مهتم بالوحدة ${unit.code || ''}" class="btn">تواصل واتساب</a>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// جلب بيانات الوحدات
 fetch('/murano-units.json')
   .then(res=>res.json())
   .then(data=>{
-    document.getElementById('units-container').innerHTML = JSON.stringify(data,null,2);
+    allUnits = data;
+    renderUnits(allUnits,"units-container");
   });
 
+// جلب بيانات الوحدات المقترحة
 fetch('/suggestion.json')
   .then(res=>res.json())
-  .then(data=>{
-    document.getElementById('suggestions-container').innerHTML = JSON.stringify(data,null,2);
+  .then(data=> renderUnits(data,"suggestions-container"));
+
+// فلترة التبويبات
+document.querySelectorAll(".tabs button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    let filter = btn.dataset.filter;
+    if(filter === "all"){
+      renderUnits(allUnits,"units-container");
+    } else {
+      let filtered = allUnits.filter(u=>u.type === filter);
+      renderUnits(filtered,"units-container");
+    }
   });
+});
 </script>
 
 </body>
