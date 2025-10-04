@@ -9,7 +9,7 @@ permalink: /murano.units.html
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>جميع وحدات مورانو وادي دجلة - عرض كامل (المطور وإعادة البيع) | Islam Real Estate</title>
+<title>وحدات متاحة في مشروع مورانو وادي دجلة - عرض كامل (المطور وإعادة البيع) | Islam Real Estate</title>
 <meta name="description" content="قائمة بجميع الوحدات المتاحة في مشروع مورانو وادي دجلة، العين السخنة. عرض كامل لكل الوحدات (المطور - إعادة البيع) مع تفاصيل وصور وخيارات الاتصال.">
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -66,7 +66,13 @@ a:hover{color:#1d4ed8;}
   display:flex;justify-content:space-between;align-items:center;gap:12px;
   margin-bottom:10px; padding-bottom: 10px; border-bottom: 1px solid var(--line);
 }
-.page-title h1{margin:0;font-size:24px;font-weight:900;color:var(--ink); white-space: nowrap; font-weight: 700;} /* خط أصغر ليتناسب مع سطر واحد */
+.page-title h1{
+  margin:0;font-size:24px; /* تم تصغير حجم الخط */
+  font-weight:900;color:var(--ink); 
+  white-space: nowrap; 
+  font-weight: 700;
+  line-height: 1.2; /* تعديل لضمان بقائه في سطر واحد قدر الإمكان */
+} 
 .back-link{
     font-weight:700;padding:8px 14px;
     border-radius:25px;color:var(--primary-blue);display:inline-block;
@@ -388,7 +394,7 @@ a:hover{color:#1d4ed8;}
     <div class="assistant-box">
         <h3>تحتاج إلى مساعدة عقارية متخصصة؟</h3>
         <p>سواء كنت تبحث عن استثمار أو وحدة صيفية، فريقنا مستعد لمساعدتك في العثور على الوحدة المثالية.</p>
-        <a href="tel:01xxxxxxxxxx" class="assistant-btn">اتصل بنا الآن</a>
+        <a href="tel:01012345678" class="assistant-btn">اتصل بنا الآن</a>
     </div>
 </div>
 
@@ -475,7 +481,7 @@ function ensureAbsolutePath(path){
   // روابط الأيقونات الافتراضية للوحدات
   const CALL_ICON = 'https://a.top4top.io/p_35630i4cg0.png';
   const WHATSAPP_ICON = 'https://b.top4top.io/p_3563sd96h1.png';
-  // روابط الاتصال الافتراضية
+  // روابط الاتصال الافتراضية - (تستخدم في حال عدم تحديد رقم لكل وحدة)
   const DEFAULT_PHONE = '01012345678'; 
   const DEFAULT_WHATSAPP_LINK = 'https://wa.me/201012345678';
 
@@ -493,7 +499,7 @@ function ensureAbsolutePath(path){
            || await fetchJson('{{ site.baseurl }}/murano-units.json')
            || [];
 
-  // بيانات تجريبية (في حالة الفشل)
+  // بيانات تجريبية (في حالة الفشل في تحميل JSON)
   if(!units || units.length === 0){
     units = [
       { "id":101, "title":"شاليه 2 غرف - واجهة بحرية", "status":"available", "type":"developer", "link":"#unit-101", "price":"4800000", "bed":2, "bath":1, "area":"105", "images":["https://c.top4top.io/p_35249hfap2.jpg"], "city":"العين السخنة", "phone": DEFAULT_PHONE, "whatsapp": DEFAULT_WHATSAPP_LINK },
