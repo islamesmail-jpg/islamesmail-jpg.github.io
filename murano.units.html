@@ -157,7 +157,7 @@ a:hover{color:#1d4ed8;}
     display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin:18px 0;
     justify-content:space-between;
 }
-/* تنسيق التبويبات (الكل | المطور | إعادة البيع) */
+/* تنسيق التبويبات (الكل | المطور | إعادة البيع) - تم الحفاظ عليها للفلترة فقط */
 .tablist{
     display:flex;gap:10px;align-items:center;flex-wrap:nowrap;padding: 5px 0;
 }
@@ -205,7 +205,7 @@ a:hover{color:#1d4ed8;}
 }
 .unit-images img{width:100%;height:100%;object-fit:cover;}
 
-/* الشارات (مطور / إعادة بيع) - **تم تحسينها لتكون على مقاس الكلمة** */
+/* الشارات (مطور / إعادة بيع) - **تم تعديلها لتظهر فوق الصورة فقط** */
 .unit-badges{position:absolute;inset:8px;display:flex;justify-content:space-between;gap:6px;pointer-events:none;}
 .badge{
     pointer-events:auto;padding:4px 8px;border-radius:4px;
@@ -803,6 +803,7 @@ function unitCard(u){
     images.href = linkTarget;
     images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG.replace('fallback', u.id||'fallback')}';">`;
     
+    // 🌟 الشارات (Badge) تظهر الآن فوق الصورة
     const badges = document.createElement('div'); 
     badges.className='unit-badges';
     
