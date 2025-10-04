@@ -97,17 +97,20 @@ a:hover{color:#1d4ed8;}
     margin: 20px 0;
 }
 
-/* 🌟 الأيقونات الجديدة (صور / فيديو / موقع) - حجم صغير وتوسيط */
+/* 🌟 الأيقونات الجديدة (صور / فيديو / موقع) - حجم مناسب وتوسيط */
 .icon-links-section{
     border-radius:var(--radius);
-    padding:15px; /* تصغير البادينغ */
+    padding: 10px 15px; /* تقليل البادينغ الرأسي */
     background:#fff;
     margin-bottom: 20px;
+    width: fit-content; /* جعل المستطيل على قد المحتوى */
+    margin-left: auto;
+    margin-right: auto;
 }
 .icon-links{
     display: flex;
     justify-content: center;
-    gap: 20px; /* مسافة مناسبة بين الأيقونات */
+    gap: 18px; /* تقليل المسافة بين الأيقونات */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -116,21 +119,21 @@ a:hover{color:#1d4ed8;}
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.3s, color 0.3s;
+    transition: opacity 0.3s, color 0.3s;
     text-align: center;
     color: var(--muted);
 }
 .icon-link-item:hover{
-    transform: translateY(-3px);
+    opacity: 0.8;
     color: var(--primary-blue);
 }
 .icon-link-item img{
-    width: 40px; /* حجم صغير جداً */
-    height: 40px;
+    width: 35px; /* **حجم أصغر** */
+    height: 35px;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,.1);
-    border: 2px solid #fff;
-    transition: border-color 0.3s, transform 0.3s;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,.05); - تم إزالة الظل */
+    border: 1px solid var(--line); /* إضافة حدود بسيطة */
+    transition: border-color 0.3s;
     object-fit: cover;
 }
 .icon-link-item:hover img{
@@ -138,13 +141,14 @@ a:hover{color:#1d4ed8;}
 }
 .icon-link-item span{
     margin-top: 5px;
-    font-size: 13px; /* تصغير حجم الخط */
-    font-weight: 700;
+    font-size: 11px; /* تصغير حجم الخط جداً */
+    font-weight: 600;
+    white-space: nowrap;
 }
 @media(max-width:400px){
-    .icon-links{gap: 15px;}
-    .icon-link-item img{width: 35px; height: 35px;}
-    .icon-link-item span{font-size: 12px;}
+    .icon-links{gap: 12px;}
+    .icon-link-item img{width: 30px; height: 30px;} /* تصغير إضافي على الموبايل */
+    .icon-link-item span{font-size: 10px;}
 }
 
 
