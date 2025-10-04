@@ -1,1105 +1,803 @@
----
-layout: none
-title: "وحدات للبيع في مشروع مورانو وادي دجلة - العين السخنة | Islam Real Estate"
-permalink: /murano.units.html
----
-
+-----
+-----
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>وحدات للبيع في مشروع مورانو وادي دجلة - عرض كامل (المطور وإعادة البيع) | Islam Real Estate</title>
-<meta name="description" content="قائمة بجميع الوحدات المتاحة للبيع في منتجع مورانو وادي دجلة، العين السخنة. عرض شامل للشاليهات والدوبلكس (المطور - إعادة البيع) مع تفاصيل المساحات والأسعار وخيارات الاتصال المباشر." />
-<meta name="keywords" content="مورانو, وحدات مورانو, شاليهات مورانو, العين السخنة, وادي دجلة, عقارات العين السخنة, بيع شاليهات, اسلام للعقارات" />
-<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/murano.units.html" />
-
-<link rel="icon" href="https://a.top4top.io/p_3564oavf30.png" type="image/png" /> 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght%40400%3B600%3B700%3B800%3B900&display=swap" rel="stylesheet" />
+<title>وحدات للبيع في مشروع مورانو وادي دجلة | Islam Real Estate</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
-/* تعاريف الألوان والظلال المتغيرة */
 :root{
-    --wrap:1180px; --line:#e5e7eb; 
-    --ink:#000000;
-    --muted:#6b7280; 
-    --primary-blue:#2563eb; 
-    --accent:#25D366; 
-    --dev:var(--primary-blue); /* لون المطور */
-    --resale:#f59e0b; /* لون إعادة البيع */
-    --shadow:0 10px 25px rgba(0,0,0,.08); 
-    --radius:10px;
+    --wrap:1200px;
+    --line:#e2e8f0;
+    --ink:#1e293b;
+    --muted:#64748b;
+    --light-bg:#f8fafc;
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --accent:#25D366;
+    --dev-badge:#3b82f6;
+    --resale-badge:#f59e0b;
+    --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+    --shadow-md:0 4px 12px rgba(0,0,0,.1);
+    --shadow-lg:0 10px 30px rgba(0,0,0,.12);
+    --radius:12px;
+    --transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* إعادة ضبط عامة وخطوط */
-*{box-sizing:border-box}
+
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-    margin:0;background:#ffffff;
-    color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;
-    line-height:1.7; 
-    font-size:16px; 
+    background:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color:var(--ink);
+    font-family:"Cairo",system-ui,sans-serif;
+    line-height:1.7;
+    font-size:16px;
 }
-a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
-a:hover{color:#1d4ed8;}
+a{color:var(--primary);text-decoration:none;transition:var(--transition)}
+a:hover{color:var(--primary-dark)}
 
 /* شريط البحث العلوي */
 .search-row{
-    border-bottom:1px solid var(--line);
-    padding:15px 0;
-    text-align:center;
-    background:#f9fafb;
-    border:1px solid var(--line);
-    margin-top: -1px;
+    background:#fff;
+    border-bottom:2px solid var(--line);
+    padding:20px 0;
+    box-shadow:var(--shadow-sm);
 }
-.search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
+.search-wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 20px;
+    position:relative;
+}
 #siteSearch{
-    width:100%;max-width:520px;padding:12px 20px;
-    border:1px solid var(--line);border-radius:25px; 
-    font-weight:600;font-size:16px;
-    box-shadow:0 2px 5px rgba(0,0,0,.05);
+    width:100%;
+    max-width:600px;
+    padding:14px 24px;
+    border:2px solid var(--line);
+    border-radius:50px;
+    font-weight:600;
+    font-size:16px;
+    transition:var(--transition);
+    background:#fff;
+    margin:0 auto;
+    display:block;
 }
-#siteSearch:focus{border-color:var(--primary-blue);box-shadow:0 0 0 3px rgba(37,99,235,.2);}
-#suggest{
-    position:absolute;left:0;right:0;top:calc(100% + 10px);
-    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    display:none;z-index:1200;overflow:hidden;box-shadow:var(--shadow);
+#siteSearch:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(37,99,235,.1);
+    outline:none;
 }
-#suggest a{display:block;padding:12px 14px;font-weight:600;color:var(--ink);cursor:pointer;}
-#suggest a:hover{background:#f3f4f6}
 
-
-/* الحاوية الرئيسية والتنقل */
-.container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
-.section-box{
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:20px;
-    background:#fff;
-    margin-bottom: 20px;
+/* الحاوية الرئيسية */
+.container{
+    max-width:var(--wrap);
+    margin:30px auto;
+    padding:0 20px;
 }
+
+/* Breadcrumb */
 .breadcrumb{
-    color:var(--muted);font-size:14px;text-align:right;
-    margin-bottom:10px; 
-    white-space: nowrap; overflow-x: auto;
-    padding: 0 15px;
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:20px;
+    padding:12px 20px;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+}
+.breadcrumb a{
+    color:var(--muted);
+    transition:var(--transition);
+}
+.breadcrumb a:hover{
+    color:var(--primary);
+}
+
+/* العنوان الرئيسي */
+.page-title{
+    text-align:center;
+    padding:40px 20px;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md);
+    margin-bottom:30px;
+    position:relative;
+    overflow:hidden;
+}
+.page-title::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
 .page-title h1{
-    margin:0;
-    font-size:26px; 
-    font-weight:900;
-    color:var(--ink); 
-    text-align: center;
-} 
-.divider{
-    height: 1px;
-    background: var(--line);
-    margin: 20px 0;
+    font-size:32px;
+    font-weight:900;
+    color:var(--ink);
+    margin-bottom:10px;
+    background:linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
 }
 
-/* 🌟 قسم الأيقونات (صورة/فيديو/موقع) - حجم صغير وتوسيط */
+/* قسم الأيقونات */
 .icon-links-section{
-    border-radius:var(--radius);
-    padding: 10px 15px;
-    background:#fff;
-    margin-bottom: 20px;
-    width: fit-content; 
-    margin-left: auto;
-    margin-right: auto;
+    background:#fff;
+    border-radius:var(--radius);
+    padding:25px;
+    box-shadow:var(--shadow-md);
+    margin-bottom:30px;
 }
 .icon-links{
-    display: flex;
-    justify-content: center;
-    gap: 25px; 
-    align-items: center;
-    flex-wrap: wrap;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
 }
 .icon-link-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: opacity 0.3s, color 0.3s;
-    text-align: center;
-    color: var(--muted);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    cursor:pointer;
+    transition:var(--transition);
+    padding:15px;
+    border-radius:var(--radius);
 }
 .icon-link-item:hover{
-    opacity: 0.8;
-    color: var(--primary-blue);
+    transform:translateY(-5px);
+    background:var(--light-bg);
 }
 .icon-link-item img{
-    width: 45px; 
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid var(--line); 
-    transition: border-color 0.3s, transform 0.3s;
-    object-fit: cover;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:3px solid var(--primary);
+    transition:var(--transition);
+    object-fit:cover;
+    box-shadow:var(--shadow-sm);
 }
 .icon-link-item:hover img{
-    border-color: var(--primary-blue);
-    transform: scale(1.05);
+    border-color:var(--accent);
+    transform:scale(1.1);
+    box-shadow:var(--shadow-md);
 }
 .icon-link-item span{
-    margin-top: 5px;
-    font-size: 12px; 
-    font-weight: 600;
-    white-space: nowrap;
-}
-@media(max-width:400px){
-    .icon-links{gap: 15px;}
-    .icon-link-item img{width: 40px; height: 40px;} 
-    .icon-link-item span{font-size: 11px;}
+    margin-top:10px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--ink);
 }
 
-
-/* أدوات التحكم والفلترة */
+/* أدوات التحكم */
 .controls{
-    display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin:18px 0;
-    justify-content:center; /* توسيط شريط الفلترة والبحث */
-    flex-direction: column;
+    background:#fff;
+    border-radius:var(--radius);
+    padding:25px;
+    box-shadow:var(--shadow-md);
+    margin-bottom:30px;
 }
 .tablist{
-    display:flex;gap:10px;align-items:center;flex-wrap:nowrap;padding: 5px 0;
-    order: 1; /* الترتيب ليظهر في الأعلى */
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:20px;
 }
 .filter-btn{
-    padding:8px 16px;border-radius:20px;
-    border:1px solid var(--line);background:#f9fafb;font-weight:700;
-    cursor:pointer;transition: all 0.3s;font-size:15px;
-    flex-shrink: 0;
+    padding:12px 28px;
+    border-radius:50px;
+    border:2px solid var(--line);
+    background:#fff;
+    font-weight:700;
+    cursor:pointer;
+    transition:var(--transition);
+    font-size:15px;
+    color:var(--ink);
 }
-.filter-btn.active{background:var(--primary-blue);color:#fff;border-color:var(--primary-blue);box-shadow:0 4px 8px rgba(37,99,235,.2);}
-.filter-btn:hover:not(.active){background:#f3f4f6;}
+.filter-btn:hover:not(.active){
+    background:var(--light-bg);
+    border-color:var(--primary);
+    transform:translateY(-2px);
+}
+.filter-btn.active{
+    background:var(--primary);
+    color:#fff;
+    border-color:var(--primary);
+    box-shadow:0 4px 12px rgba(37,99,235,.3);
+}
 .search-small{
-    padding:8px 16px;border:1px solid var(--line);border-radius:20px;
-    font-weight:600;font-size:15px;box-shadow:0 1px 3px rgba(0,0,0,.05);
-    width: 100%;
-    max-width: 400px;
-    order: 2; /* الترتيب ليظهر في الأسفل */
-    text-align: right;
+    width:100%;
+    max-width:500px;
+    margin:0 auto;
+    display:block;
+    padding:12px 24px;
+    border:2px solid var(--line);
+    border-radius:50px;
+    font-weight:600;
+    font-size:15px;
+    transition:var(--transition);
+    text-align:right;
+}
+.search-small:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(37,99,235,.1);
+    outline:none;
 }
 
-/* شبكة الوحدات - قائمة (List View) */
+/* شبكة الوحدات */
 .units-grid{
-    display:flex; 
-    flex-direction:column; 
-    gap:20px; 
-    margin-top:20px;
+    display:grid;
+    gap:25px;
+    grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
 }
 
-/* بطاقة الوحدة (تم الحفاظ على التنسيق السابق لـ unit-card) */
+/* بطاقة الوحدة */
 .unit-card{
-    display:flex; 
-    flex-direction:row; 
-    border-radius:var(--radius); overflow:hidden;
-    border:1px solid var(--line); background:#fff;
-    transition: box-shadow 0.3s, border-color 0.3s;
-    cursor:pointer;
-    min-height: 180px;
+    background:#fff;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:2px solid var(--line);
+    transition:var(--transition);
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
 }
-.unit-card:hover{box-shadow:var(--shadow);border-color:#ccc;}
+.unit-card:hover{
+    box-shadow:var(--shadow-lg);
+    border-color:var(--primary);
+    transform:translateY(-5px);
+}
+
 .unit-images{
-    position:relative; 
-    min-width: 180px; 
-    max-width: 180px; 
-    height: 180px;
-    background:#000;
-    flex-shrink: 0;
+    position:relative;
+    height:220px;
+    background:#000;
+    overflow:hidden;
 }
-.unit-images img{width:100%;height:100%;object-fit:cover;}
-.unit-badges{position:absolute;inset:8px;display:flex;justify-content:space-between;gap:6px;pointer-events:none;}
+.unit-images img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:var(--transition);
+}
+.unit-card:hover .unit-images img{
+    transform:scale(1.05);
+}
+
+.unit-badges{
+    position:absolute;
+    top:15px;
+    right:15px;
+    left:15px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
 .badge{
-    pointer-events:auto;padding:4px 8px;border-radius:4px;
-    color:#fff;font-weight:700;font-size:12px;white-space:nowrap;
-    width:fit-content;
-    box-shadow:0 1px 3px rgba(0,0,0,.2);
-    align-self:flex-start;
+    padding:6px 14px;
+    border-radius:20px;
+    color:#fff;
+    font-weight:700;
+    font-size:12px;
+    box-shadow:var(--shadow-md);
+    backdrop-filter:blur(10px);
 }
-.badge.dev{background-color: var(--dev);}
-.badge.resale{background-color: var(--resale);}
+.badge.dev{
+    background:var(--dev-badge);
+}
+.badge.resale{
+    background:var(--resale-badge);
+}
+
 .unit-meta{
-    padding:15px; 
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: 1fr 140px;
-    gap: 10px 20px;
-    align-items: start;
+    padding:20px;
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
-.unit-meta h3{margin:0;font-size:18px;font-weight:800;color:var(--ink); grid-column: 1 / span 1;}
-.unit-meta .small{color:var(--muted);font-size:12px;margin-top:5px; grid-column: 1 / span 1;}
-.details-section { 
-    grid-column: 1 / 2; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 8px; 
-    align-items: flex-start;
-    margin-top: 10px;
+.unit-meta h3{
+    font-size:20px;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:5px;
 }
-.details-section > div { 
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--ink);
+.unit-meta .small{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.details-section{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:15px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+.details-section > div{
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
 }
 .details-section strong{
-      color: var(--muted);
+    color:var(--muted);
+    font-weight:700;
 }
-.details-section .price-lead {
-      color: var(--resale);
-      font-size: 16px;
-      font-weight: 800;
-      margin-top: 5px;
+
+.spec-row{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
-.spec-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:flex-start;}
 .spec-pill{
-    display:flex;align-items:center;gap:6px;
-    font-weight:600;font-size:14px;color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    background:var(--light-bg);
+    border-radius:20px;
+    font-weight:600;
+    font-size:14px;
+    color:var(--ink);
 }
-.spec-pill img{width:16px;height:16px; filter: grayscale(1);}
-.price-actions-section { 
-    grid-column: 2 / 3; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    align-items: center; 
-    padding-left: 10px; 
-    border-left: 1px solid var(--line);
-    text-align: center;
-    justify-content: space-between;
-    height: 100%;
+.spec-pill img{
+    width:18px;
+    height:18px;
+    filter:grayscale(0.5);
 }
+
+.price-lead{
+    font-size:22px;
+    font-weight:900;
+    color:var(--primary);
+    margin-top:10px;
+}
+
 .contact-actions{
-    display: flex; 
-    gap: 10px; 
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: 20px;
+    display:flex;
+    gap:12px;
+    margin-top:auto;
 }
 .action-btn{
-    display: flex; align-items: center; justify-content: center;
-    width: 45px; height: 45px; border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,.2);
-    transition: transform 0.2s;
-    cursor: pointer;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:50px;
+    border-radius:var(--radius);
+    transition:var(--transition);
+    cursor:pointer;
+    font-weight:700;
+    font-size:14px;
+    color:#fff;
 }
-.action-btn.call{ background-color: var(--primary-blue); }
-.action-btn.whatsapp{ background-color: var(--accent); }
-.action-btn img{width: 25px; height: 25px; filter: invert(1);}
-@media(max-width:850px){
-    .unit-card{flex-direction:column;}
-    .unit-images{min-width: 100%; max-width: 100%; height: 200px;}
-    .unit-meta{
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .unit-meta h3, .unit-meta .small{grid-column: 1 / span 1;}
-    .price-actions-section { 
-        grid-column: 1 / 2; 
-        border-left: none; 
-        padding-left: 0;
-        padding-top: 15px;
-        border-top: 1px solid var(--line);
-        align-items: stretch;
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .contact-actions{justify-content: flex-end; margin: 0;}
+.action-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+}
+.action-btn.call{
+    background:var(--primary);
+}
+.action-btn.whatsapp{
+    background:var(--accent);
+}
+.action-btn img{
+    width:24px;
+    height:24px;
+    filter:invert(1);
 }
 
-/* 🌟 نموذج التواصل - تصميم أنيق ومرتب */
-.contact-form-section{
-    padding: 30px;
-    text-align: center;
-    background: #f9fafb;
+/* Pager */
+.pager{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin:30px 0;
+    padding:20px;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md);
 }
-.contact-form-section h2 {
-    margin-top: 0; margin-bottom: 10px; font-size: 24px; font-weight: 800;
+#pageInfo{
+    padding:10px 20px;
+    font-weight:700;
+    color:var(--ink);
+}
+
+/* نموذج التواصل */
+.contact-form-section{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:40px;
+    box-shadow:var(--shadow-lg);
+    margin-top:40px;
+}
+.contact-form-section h2{
+    font-size:28px;
+    font-weight:900;
+    text-align:center;
+    margin-bottom:15px;
+    color:var(--ink);
 }
 .contact-form-section p{
-    color: var(--muted); margin-bottom: 25px; line-height: 1.6;
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:30px;
+    font-size:16px;
 }
-.contact-form-section form {
-    display: grid; gap: 15px; max-width: 600px; margin: 0 auto;
-    background: #fff; padding: 25px; border-radius: var(--radius);
-    box-shadow: var(--shadow); border: 1px solid var(--line);
+.contact-form-section form{
+    max-width:700px;
+    margin:0 auto;
+    display:grid;
+    gap:20px;
 }
-.contact-form-section input:not([type="radio"]), .contact-form-section select, .contact-form-section textarea {
-    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px;
-    font-family: inherit; font-size: 15px; text-align: right;
-    transition: border-color 0.2s, box-shadow 0.2s;
+.contact-form-section input:not([type="radio"]),
+.contact-form-section select,
+.contact-form-section textarea{
+    width:100%;
+    padding:14px 20px;
+    border:2px solid var(--line);
+    border-radius:var(--radius);
+    font-family:inherit;
+    font-size:15px;
+    transition:var(--transition);
+    background:#fff;
 }
-.contact-form-section input:focus, .contact-form-section select:focus, .contact-form-section textarea:focus {
-    border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); outline: none;
-}
-
-/* 🌟 أزرار التبديل لنوع الوحدة */
-.form-unit-type-group {
-    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 5px 0;
-}
-.form-unit-type-group label {
-    background: #f3f4f6; padding: 8px 15px; border-radius: 20px; 
-    cursor: pointer; transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-    font-weight: 600; border: 1px solid var(--line); white-space: nowrap;
-}
-.form-unit-type-group input[type="radio"]:checked + label {
-    background: var(--primary-blue); color: #fff; border-color: var(--primary-blue);
-    box-shadow: 0 2px 5px rgba(37,99,235,.2);
-}
-.form-unit-type-group input[type="radio"] { display: none; }
-
-.form-actions {
-    display: flex; gap: 15px; justify-content: center; margin-top: 15px;
-}
-.form-btn {
-    padding: 12px 25px; border: none; border-radius: 8px; font-weight: 700;
-    cursor: pointer; transition: opacity 0.2s, transform 0.2s; width: 100%;
-}
-.form-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-.form-btn.whatsapp { background: var(--accent); color: #fff; }
-.form-btn.email { background: #e5e7eb; color: var(--ink); }
-
-/* زر الواتساب العائم */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: var(--accent);
-    color: white;
-    border-radius: 50%;
-    width: 55px; 
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: transform 0.3s;
-}
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-.whatsapp-float img {
-    width: 28px; 
-    height: 28px;
-    filter: invert(1);
+.contact-form-section input:focus,
+.contact-form-section select:focus,
+.contact-form-section textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(37,99,235,.1);
+    outline:none;
 }
 
-/* Lightbox (شاشة منبثقة) - تصميم راقي */
-.lightbox {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    backdrop-filter: blur(5px);
+.form-unit-type-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
 }
-.lightbox.open { display: flex; }
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    background: #fff;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
+.form-unit-type-group label{
+    padding:10px 20px;
+    border-radius:50px;
+    background:var(--light-bg);
+    border:2px solid var(--line);
+    cursor:pointer;
+    transition:var(--transition);
+    font-weight:700;
 }
-.lightbox-content img, .lightbox-content video {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    object-fit: contain;
+.form-unit-type-group input[type="radio"]:checked + label{
+    background:var(--primary);
+    color:#fff;
+    border-color:var(--primary);
+    box-shadow:0 4px 12px rgba(37,99,235,.3);
 }
-.lightbox-content iframe {
-    width: 90vw;
-    height: 60vh;
-    max-width: 1000px; /* لضمان حجم جيد على الديسكتوب */
-    max-height: 600px;
-    display: block;
-    border: none;
+.form-unit-type-group input[type="radio"]{
+    display:none;
 }
-.lightbox-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 10000;
-    text-shadow: 0 0 5px #000;
-    transition: color 0.2s;
+
+.form-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
-.lightbox-close:hover {
-    color: #ccc;
+.form-btn{
+    padding:16px 24px;
+    border:none;
+    border-radius:var(--radius);
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    transition:var(--transition);
 }
-.lightbox-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      padding: 15px;
-      cursor: pointer;
-      z-index: 10001;
-      user-select: none;
-      border: none;
-      font-size: 24px;
-      border-radius: 5px;
-      transition: background 0.3s;
+.form-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
 }
-.lightbox-nav-btn:hover { background: rgba(0,0,0,0.7); }
-.lightbox-prev { right: auto; left: 10px; }
-.lightbox-next { right: 10px; left: auto; }
-/* FAQ Styles */
-.faq-list {
-    margin-top: 20px;
-    text-align: right;
+.form-btn.whatsapp{
+    background:var(--accent);
+    color:#fff;
 }
-.faq-list details {
-    background-color: #f9fafb;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
+.form-btn.email{
+    background:var(--light-bg);
+    color:var(--ink);
+    border:2px solid var(--line);
 }
-.faq-list summary {
-    font-weight: 700;
-    padding: 15px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--ink);
+
+/* FAQ */
+.faq-list{
+    margin-top:20px;
 }
-.faq-list summary::after {
-    content: '▼';
-    margin-right: 10px;
-    transition: transform 0.3s;
+.faq-list details{
+    background:#fff;
+    border:2px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:15px;
+    transition:var(--transition);
 }
-.faq-list details[open] summary::after {
-    transform: rotate(180deg);
+.faq-list details:hover{
+    border-color:var(--primary);
 }
-.faq-list p {
-    padding: 0 20px 15px 20px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
+.faq-list summary{
+    padding:20px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:16px;
+    color:var(--ink);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.faq-list summary::after{
+    content:'▼';
+    transition:var(--transition);
+    color:var(--primary);
+    font-size:12px;
+}
+.faq-list details[open] summary::after{
+    transform:rotate(180deg);
+}
+.faq-list p{
+    padding:0 20px 20px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* واتساب عائم */
+.whatsapp-float{
+    position:fixed;
+    bottom:25px;
+    left:25px;
+    width:65px;
+    height:65px;
+    background:var(--accent);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-lg);
+    z-index:1000;
+    transition:var(--transition);
+    animation:pulse 2s infinite;
+}
+.whatsapp-float:hover{
+    transform:scale(1.1);
+    box-shadow:0 8px 20px rgba(37,211,102,.4);
+}
+.whatsapp-float img{
+    width:35px;
+    height:35px;
+    filter:invert(1);
+}
+@keyframes pulse{
+    0%, 100%{box-shadow:var(--shadow-lg)}
+    50%{box-shadow:0 8px 30px rgba(37,211,102,.5)}
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .page-title h1{font-size:24px}
+    .units-grid{grid-template-columns:1fr}
+    .form-actions{grid-template-columns:1fr}
+    .icon-links{gap:25px}
+    .icon-link-item img{width:50px;height:50px}
+}
+
+.empty{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+    font-size:18px;
+    font-weight:600;
 }
 </style>
 </head>
 <body>
 
-<div id="lightbox" class="lightbox">
-    <span class="lightbox-close">×</span>
-    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" style="display:none;">‹</button>
-    <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" style="display:none;">›</button>
-    <div id="lightbox-content" class="lightbox-content"></div>
+<div class="search-row">
+  <div class="search-wrap">
+    <input id="siteSearch" placeholder="ابحث عن مشروعك (اسم المشروع أو المدينة)" />
+  </div>
 </div>
-
-{% include header-ar.html %}
-
-<div class="search-row" role="search" aria-label="بحث الموقع">
-  <div class="search-wrap">
-    <input id="siteSearch" placeholder="أبحث عن مشروعك (اسم المشروع أو المدينة)" aria-label="أبحث عن مشروعك">
-    <div id="suggest" role="listbox"></div>
-  </div>
-</div>
-<div class="divider"></div>
 
 <div class="container">
 
-        <div class="breadcrumb" aria-hidden="false">
-    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/murano.html">مشروع مورانو وادي دجلة</a>
-  </div>
+  <div class="breadcrumb">
+    <a href="#">الرئيسية</a> » <a href="#">العين السخنة</a> » <a href="#">مشروع مورانو وادي دجلة</a>
+  </div>
 
-        <div class="section-box icon-links-section">
-      <div class="icon-links">
-          <a class="icon-link-item" data-type="gallery">
-              <img src="https://c.top4top.io/p_3564sbc0d0.png" alt="صور المشروع">
-              <span>صور المشروع</span>
-          </a>
-          <a class="icon-link-item" data-type="video" data-src="https://i.top4top.io/m_3524euftk0.mp4">
-              <img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو المشروع">
-              <span>فيديو المشروع</span>
-          </a>
-          <a class="icon-link-item" data-type="map" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14002.593930810793!2d32.483188547214515!3d29.757045158145465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1452636a0c5c8f87%3A0x62957f12e9b89150!2sMurano%20Wadi%20Degla!5e0!3m2!1sar!2seg!4v1699708703417!5m2!1sar!2seg">
-              <img src="https://d.top4top.io/p_3564912551.png" alt="موقع القرية">
-              <span>موقع القرية</span>
-          </a>
-      </div>
-  </div>
-  <div class="divider"></div>
+  <div class="page-title">
+    <h1>وحدات متاحة للبيع في مشروع مورانو وادي دجلة - العين السخنة</h1>
+  </div>
 
-        <div class="page-title" style="text-align:center;">
-    <h1>وحدات متاحة للبيع في مشروع مورانو وادي دجلة - العين السخنة</h1>
-  </div>
-  <div class="divider"></div>
+  <div class="icon-links-section">
+    <div class="icon-links">
+      <div class="icon-link-item">
+        <img src="https://c.top4top.io/p_3564sbc0d0.png" alt="صور المشروع">
+        <span>صور المشروع</span>
+      </div>
+      <div class="icon-link-item">
+        <img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو المشروع">
+        <span>فيديو المشروع</span>
+      </div>
+      <div class="icon-link-item">
+        <img src="https://d.top4top.io/p_3564912551.png" alt="موقع القرية">
+        <span>موقع القرية</span>
+      </div>
+    </div>
+  </div>
 
-        <div class="controls section-box" style="margin-top:0;">
-    <div class="tablist" role="tablist" aria-label="فلترة الوحدات">
-      <button class="filter-btn active" data-filter="all" role="tab">الكل</button>
-      <button class="filter-btn" data-filter="developer" role="tab">المطور</button>
-      <button class="filter-btn" data-filter="resale" role="tab">إعادة البيع</button>
-    </div>
-    <input id="unitsFilter" class="search-small" placeholder="ابحث باسم الوحدة، الكود، أو التفاصيل..." aria-label="ابحث في الوحدات">
-  </div>
-  <div class="divider"></div>
+  <div class="controls">
+    <div class="tablist">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="developer">المطور</button>
+      <button class="filter-btn" data-filter="resale">إعادة البيع</button>
+    </div>
+    <input id="unitsFilter" class="search-small" placeholder="ابحث باسم الوحدة، الكود، أو التفاصيل...">
+  </div>
 
-        <div id="unitsGrid" class="units-grid" aria-live="polite">
-    <div class="empty">جاري تحميل الوحدات...</div>
-  </div>
+  <div id="unitsGrid" class="units-grid">
+    <!-- بطاقات نموذجية للعرض -->
+    <div class="unit-card">
+      <div class="unit-images">
+        <img src="https://picsum.photos/seed/unit1/400/300" alt="شاليه">
+        <div class="unit-badges">
+          <div class="badge dev">المطور</div>
+        </div>
+      </div>
+      <div class="unit-meta">
+        <h3>شاليه للبيع 120م</h3>
+        <div class="small">العين السخنة، طريق الزعفرانة</div>
+        <div class="details-section">
+          <div><strong>النوع:</strong> شاليه</div>
+          <div><strong>التسليم:</strong> فوري</div>
+          <div class="spec-row">
+            <div class="spec-pill">
+              <img src="https://j.top4top.io/p_3563c1mt61.png" alt="غرف">
+              2 غرف
+            </div>
+            <div class="spec-pill">
+              <img src="https://k.top4top.io/p_3563vaqnl2.png" alt="حمامات">
+              2 حمام
+            </div>
+            <div class="spec-pill">
+              <img src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة">
+              120 م²
+            </div>
+          </div>
+          <div class="price-lead">السعر: 2,500,000 ج.م</div>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:01050072527" class="action-btn call">
+            <img src="https://d.top4top.io/p_35643luom0.png" alt="اتصال">
+            اتصل الآن
+          </a>
+          <a href="https://wa.me/201050072527" class="action-btn whatsapp">
+            <img src="https://e.top4top.io/p_3564lzic71.png" alt="واتساب">
+            واتساب
+          </a>
+        </div>
+      </div>
+    </div>
 
-    <div id="pager" class="pager" style="display:flex; justify-content:center; align-items:center; gap:10px; margin: 20px 0;" role="navigation" aria-label="تنقل الصفحات">
-    <button id="prevPage" aria-label="الصفحة السابقة" class="filter-btn">السابق</button>
-    <div id="pageInfo" style="padding:8px 12px; font-weight: 600;"></div>
-    <button id="nextPage" aria-label="الصفحة التالية" class="filter-btn">التالي</button>
-  </div>
-  <div class="divider"></div>
+    <div class="unit-card">
+      <div class="unit-images">
+        <img src="https://picsum.photos/seed/unit2/400/300" alt="شاليه">
+        <div class="unit-badges">
+          <div class="badge resale">إعادة بيع</div>
+        </div>
+      </div>
+      <div class="unit-meta">
+        <h3>دوبلكس فاخر 180م</h3>
+        <div class="small">العين السخنة، طريق الزعفرانة</div>
+        <div class="details-section">
+          <div><strong>النوع:</strong> دوبلكس</div>
+          <div><strong>التسليم:</strong> فوري</div>
+          <div class="spec-row">
+            <div class="spec-pill">
+              <img src="https://j.top4top.io/p_3563c1mt61.png" alt="غرف">
+              3 غرف
+            </div>
+            <div class="spec-pill">
+              <img src="https://k.top4top.io/p_3563vaqnl2.png" alt="حمامات">
+              3 حمام
+            </div>
+            <div class="spec-pill">
+              <img src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة">
+              180 م²
+            </div>
+          </div>
+          <div class="price-lead">السعر: 3,800,000 ج.م</div>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:01050072527" class="action-btn call">
+            <img src="https://d.top4top.io/p_35643luom0.png" alt="اتصال">
+            اتصل الآن
+          </a>
+          <a href="https://wa.me/201050072527" class="action-btn whatsapp">
+            <img src="https://e.top4top.io/p_3564lzic71.png" alt="واتساب">
+            واتساب
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pager" class="pager">
+    <button id="prevPage" class="filter-btn">السابق</button>
+    <div id="pageInfo">الصفحة 1 من 3</div>
+    <button id="nextPage" class="filter-btn">التالي</button>
+  </div>
 
 </div>
 
-
-<div class="container section-box" id="suggestions-box" style="display:none; background:#fff;">
-  <h2>وحدات مقترحة قد تهمك</h2>
-  <div id="suggestionsGrid" class="units-grid" style="gap:15px; margin-top:15px;">
-    </div>
-  <div id="suggestionsEmpty" class="empty" style="display:none; margin-top:10px; color:var(--muted); text-align:center;">لا توجد نتائج مقترحة حالياً.</div>
+<div class="container contact-form-section">
+  <h2>تحتاج إلى استشارة عقارية متخصصة؟</h2>
+  <p>املأ بياناتك وسنعاود الاتصال بك قريبًا لمعرفة أفضل العروض المناسبة لميزانيتك واحتياجاتك</p>
+  
+  <form>
+    <input type="text" placeholder="الاسم الكامل" required>
+    <input type="tel" placeholder="الهاتف المحمول (مثال: 010xxxxxxxx)" required>
+    <input type="email" placeholder="البريد الإلكتروني (اختياري)">
+    <select>
+      <option>مشروع مورانو - العين السخنة</option>
+      <option>مشروع آخر/استفسار عام</option>
+    </select>
+    
+    <div class="form-unit-type-group">
+      <input type="radio" id="typeChalet" name="unitType" checked>
+      <label for="typeChalet">شاليه</label>
+      
+      <input type="radio" id="typeVilla" name="unitType">
+      <label for="typeVilla">فيلا</label>
+      
+      <input type="radio" id="typeStudio" name="unitType">
+      <label for="typeStudio">استوديو</label>
+      
+      <input type="radio" id="typeTwin" name="unitType">
+      <label for="typeTwin">توين هاوس</label>
+    </div>
+    
+    <input type="text" placeholder="الميزانية التقريبية">
+    <textarea placeholder="ملاحظة / تفاصيل إضافية (اختياري)" rows="4"></textarea>
+    
+    <div class="form-actions">
+      <button type="button" class="form-btn whatsapp">إرسال عبر واتساب</button>
+      <button type="button" class="form-btn email">إرسال عبر إيميل</button>
+    </div>
+  </form>
 </div>
-<div class="divider"></div>
 
-<div class="container extra-section section-box" style="background:#f9fafb;">
-    <h2>الأسئلة الشائعة حول مشروع مورانو (FAQ)</h2>
-    <div class="faq-list">
-        <details>
-            <summary>ما هي أسعار الشاليهات المتاحة في مورانو العين السخنة؟</summary>
-            <p>تختلف الأسعار حسب مساحة الوحدة ونوعها (مطوّر أو إعادة بيع) وتاريخ تسليمها. الأسعار المعروضة في القائمة أعلاه هي للوحدات المتاحة حاليًا من المطور و/أو وحدات إعادة البيع، وننصح بالتواصل المباشر للحصول على آخر تحديث للأسعار وخيارات السداد.</p>
-        </details>
-        <details>
-            <summary>ما هي أنواع الوحدات المتاحة في مورانو؟</summary>
-            <p>يوفر مشروع مورانو وحدات متنوعة تشمل الشاليهات، الدوبلكس، والاستوديوهات. تتوفر وحدات بإطلالات مباشرة على البحر أو على حمامات السباحة.</p>
-        </details>
-        <details>
-            <summary>هل تتوفر وحدات بتسهيلات سداد من المطور؟</summary>
-            <p>نعم، تتوفر عادةً وحدات مباشرة من المطور مع خطط سداد مرنة. الوحدات المعروضة كـ "إعادة بيع" تتطلب في الغالب دفعة نقدية أكبر.</p>
-        </details>
-    </div>
+<div class="container" style="background:#fff;border-radius:12px;padding:40px;box-shadow:var(--shadow-lg);margin-top:30px">
+  <h2 style="font-size:28px;font-weight:900;margin-bottom:20px">الأسئلة الشائعة حول مشروع مورانو (FAQ)</h2>
+  <div class="faq-list">
+    <details>
+      <summary>ما هي أسعار الشاليهات المتاحة في مورانو العين السخنة؟</summary>
+      <p>تختلف الأسعار حسب مساحة الوحدة ونوعها (مطوّر أو إعادة بيع) وتاريخ تسليمها. الأسعار المعروضة في القائمة أعلاه هي للوحدات المتاحة حاليًا من المطور و/أو وحدات إعادة البيع، وننصح بالتواصل المباشر للحصول على آخر تحديث للأسعار وخيارات السداد.</p>
+    </details>
+    <details>
+      <summary>ما هي أنواع الوحدات المتاحة في مورانو؟</summary>
+      <p>يوفر مشروع مورانو وحدات متنوعة تشمل الشاليهات، الدوبلكس، والاستوديوهات. تتوفر وحدات بإطلالات مباشرة على البحر أو على حمامات السباحة.</p>
+    </details>
+    <details>
+      <summary>هل تتوفر وحدات بتسهيلات سداد من المطور؟</summary>
+      <p>نعم، تتوفر عادةً وحدات مباشرة من المطور مع خطط سداد مرنة. الوحدات المعروضة كـ "إعادة بيع" تتطلب في الغالب دفعة نقدية أكبر.</p>
+    </details>
+  </div>
 </div>
-<div class="divider"></div>
 
-
-<div class="container section-box contact-form-section">
-    <h2>تحتاج إلى استشارة عقارية متخصصة؟</h2>
-    <p>املأ بياناتك وسنعاود الاتصال بك قريبًا لمعرفة أفضل العروض المناسبة لميزانيتك واحتياجاتك.</p>
-    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 20px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-
-    <form id="detailedContactForm" dir="rtl" onsubmit="event.preventDefault(); return false;">
-        <input type="text" id="formName" placeholder="الاسم الكامل" required>
-        <input type="tel" id="formPhone" placeholder="الهاتف المحمول (مثال: 010xxxxxxxx)" required pattern="[0-9]{11,}" title="يجب أن يتكون من 11 رقمًا على الأقل.">
-        <input type="email" id="formEmail" placeholder="البريد الإلكتروني (اختياري)">
-        <select id="formProject">
-            <option value="Murano">مشروع مورانو - العين السخنة</option>
-            <option value="Other">مشروع آخر/استفسار عام</option>
-        </select>
-
-                <div class="form-unit-type-group" role="radiogroup" aria-label="نوع الوحدة المهتم بها">
-            <input type="radio" id="typeChalet" name="unitType" value="شاليه" checked><label for="typeChalet">شاليه</label>
-            <input type="radio" id="typeVilla" name="unitType" value="فيلا"><label for="typeVilla">فيلا</label>
-            <input type="radio" id="typeStudio" name="unitType" value="استوديو"><label for="typeStudio">استوديو</label>
-            <input type="radio" id="typeTwin" name="unitType" value="توين هاوس"><label for="typeTwin">توين هاوس</label>
-            <input type="radio" id="typeTown" name="unitType" value="تاون هاوس"><label for="typeTown">تاون هاوس</label>
-            <input type="radio" id="typeApp" name="unitType" value="شقة"><label for="typeApp">شقة</label>
-        </div>
-        
-        <input type="text" id="formBudget" placeholder="الميزانية التقريبية (بالأرقام)" value="">
-        <textarea id="formNotes" placeholder="ملاحظة / تفاصيل إضافية (اختياري)" rows="3"></textarea>
-        
-        <div class="form-actions">
-            <button type="button" class="form-btn whatsapp" onclick="sendFormViaWhatsapp(event)">إرسال استفساري عبر واتساب</button>
-            <button type="button" class="form-btn email" onclick="sendFormViaEmail(event)">إرسال عبر إيميل</button>
-        </div>
-    </form>
-</div>
-<div class="divider"></div>
-
-
-{% include footer-ar.html %}
-
-<a href="https://wa.me/201050072527" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب مباشر">
-    <img src="https://e.top4top.io/p_3564lzic71.png" alt="WhatsApp Icon">
+<a href="https://wa.me/201050072527" class="whatsapp-float">
+  <img src="https://e.top4top.io/p_3564lzic71.png" alt="WhatsApp">
 </a>
 
-
-<script>
-// دالة مساعدة لتصحيح المسارات المطلقة والنسبية
-function ensureAbsolutePath(path){
-  if(!path) return '{{ site.baseurl }}/';
-  if(path.startsWith('http') || path.startsWith('#')) return path;
-  let cleanedPath = path.startsWith('/') ? path : '/' + path;
-  return '{{ site.baseurl }}' + cleanedPath;
-}
-
-/* ---------------- 1. Search Script (البحث العلوي) ---------------- */
-(function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX   = document.getElementById('suggest');
-  if(!INPUT || !BOX) return;
-
-  let SITE_INDEX = [];
-  fetch(ensureAbsolutePath('/search-index.json'), {cache:'no-store'}) 
-    .then(r => r.json())
-    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-    .catch(() => SITE_INDEX = []);
-
-  const makeItem = it => {
-    const a = document.createElement('a');
-    a.href = ensureAbsolutePath(it.url || it.permalink); 
-    a.textContent = it.title || it.name || it.permalink || 'بدون عنوان';
-    return a;
-  };
-
-  function search(q){
-    q = (q || '').trim().toLowerCase();
-    if(!q) return [];
-    return SITE_INDEX
-      .map(it=>{
-        const hay = ((it.title||'') + ' ' + (it.keywords||'') + ' ' + (it.categories||'')).toLowerCase();
-        const inTitle = (it.title||'').toLowerCase().includes(q) ? 2 : 0;
-        const inKeys  = hay.includes(q) ? 1 : 0;
-        return {...it, score: inTitle + inKeys};
-      })
-      .filter(x => x.score > 0)
-      .sort((a,b) => b.score - a.score)
-      .slice(0,8);
-  }
-
-  function render(list){
-    BOX.innerHTML = '';
-    if(list.length === 0){ BOX.style.display='none'; return; }
-    list.forEach(r => BOX.appendChild(makeItem(r)));
-    BOX.style.display = 'block';
-  }
-
-  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-  document.addEventListener('click', (e)=>{
-    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
-  });
-  INPUT.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter'){
-      const first = BOX.querySelector('a');
-      if(first){ window.location.href = first.href; }
-    }
-  });
-})();
-
-
-/* ---------------- 2. Units loading, Card rendering, and Filtering (تم الحفاظ على الوظيفة) ---------------- */
-const CALL_ICON = 'https://d.top4top.io/p_35643luom0.png';
-const WHATSAPP_ICON = 'https://e.top4top.io/p_3564lzic71.png';
-const BED_ICON = 'https://j.top4top.io/p_3563c1mt61.png';
-const BATH_ICON = 'https://k.top4top.io/p_3563vaqnl2.png';
-const AREA_ICON = 'https://l.top4top.io/p_3563ijjuf3.png';
-const DEFAULT_PHONE = '01050072527'; 
-const DEFAULT_WHATSAPP_LINK = 'https://wa.me/201050072527';
-const FALLBACK_IMG = 'https://picsum.photos/seed/unitfallback/600/400';
-
-function fmt(n){ 
-    try{ 
-        if (typeof n === 'string' && n.includes(',')) return n;
-        return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); 
-    }
-    catch(e){ return n; } 
-}
-
-// دالة إنشاء بطاقة الوحدة
-function unitCard(u){
-    const img = (u.images && u.images[0]) || u.img || FALLBACK_IMG;
-    const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
-    const phoneLink = `tel:${u.phone || DEFAULT_PHONE}`;
-    const whatsappLink = u.whatsapp || DEFAULT_WHATSAPP_LINK;
-
-    const card = document.createElement('article'); 
-    card.className='unit-card'; 
-    card.setAttribute('role','article');
-
-    const images = document.createElement('a'); 
-    images.className='unit-images';
-    images.href = linkTarget;
-    images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG.replace('fallback', u.id||'fallback')}';">`;
-    
-    const badges = document.createElement('div'); 
-    badges.className='unit-badges';
-    
-    const typeText = (u.type||'').toLowerCase(); 
-    const isDeveloper = typeText.includes('dev') || typeText.includes('developer') || typeText.includes('مطور');
-    const type = isDeveloper ? 'developer' : 'resale';
-    
-    const typeBadge = document.createElement('div'); 
-    typeBadge.className = 'badge ' + (type==='developer' ? 'dev' : 'resale');
-    typeBadge.textContent = (type==='developer' ? 'المطور' : 'إعادة بيع');
-    
-    badges.appendChild(typeBadge);
-    images.appendChild(badges);
-    
-    const meta = document.createElement('div'); 
-    meta.className='unit-meta';
-
-    const h = document.createElement('h3'); 
-    const titleLink = document.createElement('a');
-    titleLink.href = linkTarget;
-    titleLink.textContent = u.title || 'وحدة سكنية';
-    h.appendChild(titleLink);
-    
-    const detailsSection = document.createElement('div');
-    detailsSection.className = 'details-section';
-
-    const typeRow = document.createElement('div');
-    typeRow.innerHTML = `<strong>النوع:</strong> ${u.unit_type || 'شاليه'}`;
-    detailsSection.appendChild(typeRow);
-    
-    const deliveryRow = document.createElement('div');
-    deliveryRow.innerHTML = `<strong>التسليم:</strong> ${u.delivery || 'غير محدد'}`;
-    detailsSection.appendChild(deliveryRow);
-
-    const specs = document.createElement('div'); 
-    specs.className='spec-row';
-    
-    if(u.bed){
-        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
-        pillBed.innerHTML = `<img src="${BED_ICON}" alt="غرف"> ${u.bed} غرف`;
-        specs.appendChild(pillBed);
-    }
-    if(u.bath){
-        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; 
-        pillBath.innerHTML = `<img src="${BATH_ICON}" alt="حمامات"> ${u.bath} حمام`;
-        specs.appendChild(pillBath);
-    }
-    if(u.area){
-        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; 
-        pillArea.innerHTML = `<img src="${AREA_ICON}" alt="المساحة"> ${u.area} م²`;
-        specs.appendChild(pillArea);
-    }
-    detailsSection.appendChild(specs);
-
-    const price = u.price;
-    const priceRow = document.createElement('div');
-    priceRow.className = 'price-lead';
-    priceRow.textContent = price ? ('السعر: ج.م ' + fmt(price)) : 'اتصل لمعرفة السعر';
-    detailsSection.appendChild(priceRow);
-    
-    const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة') + ', طريق الزعفرانة';
-
-    const priceActionsSection = document.createElement('div');
-    priceActionsSection.className = 'price-actions-section';
-    
-    const actions = document.createElement('div');
-    actions.className = 'contact-actions';
-
-    const callBtn = document.createElement('a');
-    callBtn.className = 'action-btn call';
-    callBtn.href = phoneLink;
-    callBtn.innerHTML = `<img src="${CALL_ICON}" alt="اتصال">`;
-
-    const whatsappBtn = document.createElement('a');
-    whatsappBtn.className = 'action-btn whatsapp';
-    whatsappBtn.href = whatsappLink;
-    whatsappBtn.target = '_blank';
-    whatsappBtn.innerHTML = `<img src="${WHATSAPP_ICON}" alt="واتساب">`;
-
-    actions.appendChild(callBtn);
-    actions.appendChild(whatsappBtn);
-    
-    priceActionsSection.appendChild(actions);
-
-    meta.appendChild(h); 
-    meta.appendChild(small); 
-    meta.appendChild(detailsSection); 
-    meta.appendChild(priceActionsSection);
-
-    card.appendChild(images); 
-    card.appendChild(meta);
-    return card;
-}
-
-
-(async function(){
-  const GRID = document.getElementById('unitsGrid');
-  const FILTER_INPUT = document.getElementById('unitsFilter');
-  const tabs = document.querySelectorAll('.filter-btn');
-  const pager = document.getElementById('pager');
-  const prevBtn = document.getElementById('prevPage');
-  const nextBtn = document.getElementById('nextPage');
-  const pageInfo = document.getElementById('pageInfo');
-
-  let currentPage = 1;
-  const perPage = 8;
-  let units = [];
-  let filteredUnits = [];
-  
-  async function fetchJson(url){
-    try{
-      const r = await fetch(url, {cache:'no-store'});
-      if(!r.ok) throw new Error('bad');
-      return await r.json();
-    }catch(e){ return null; }
-  }
-
-  // *** جلب ملف الوحدات ***
-  units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json')
-             || await fetchJson('{{ site.baseurl }}/murano-units.json')
-             || [];
-
-  function renderPage(page = 1){
-    const start = (page-1) * perPage;
-    const list = filteredUnits.slice(start, start + perPage);
-    
-    GRID.innerHTML = '';
-    if(!list.length){
-      GRID.innerHTML = `<div class="empty" style="text-align:center;">لا توجد وحدات مطابقة للفلتر.</div>`;
-      pager.style.display = 'none';
-      return;
-    }
-    
-    const frag = document.createDocumentFragment();
-    list.forEach(u => frag.appendChild(unitCard(u)));
-    GRID.appendChild(frag);
-
-    // pager logic
-    const totalPages = Math.ceil(filteredUnits.length / perPage);
-    if(totalPages > 1){
-      pager.style.display = 'flex';
-      pageInfo.textContent = 'الصفحة ' + page + ' من ' + totalPages;
-      prevBtn.disabled = page <= 1;
-      nextBtn.disabled = page >= totalPages;
-    } else { pager.style.display = 'none'; }
-  }
-
-  // initial filter = all
-  function applyFilter(type, q){
-    q = (q||'').trim().toLowerCase();
-    
-    filteredUnits = units.filter(u=>{
-      const typeValue = (u.type||'').toLowerCase(); 
-      const isDeveloper = typeValue.includes('dev') || typeValue.includes('developer') || typeValue.includes('مطور');
-      
-      const matchType = (type === 'all') || 
-                        (type === 'developer' && isDeveloper) || 
-                        (type === 'resale' && !isDeveloper);
-      
-      const hay = ((u.title||'') + ' ' + (u.city||'') + ' ' + (u.tags||'') + ' ' + (u.id||'') + ' ' + (u.slug||'')).toLowerCase();
-      const matchQ = q ? hay.includes(q) : true;
-      
-      return matchType && matchQ;
-    });
-    
-    currentPage = 1;
-    renderPage(currentPage);
-  }
-
-  // wire filters
-  let activeFilter = 'all';
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=> {
-      tabs.forEach(b=> b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.getAttribute('data-filter') || 'all';
-      applyFilter(activeFilter, FILTER_INPUT.value);
-    });
-  });
-
-  // search small
-  FILTER_INPUT.addEventListener('input', ()=> { applyFilter(activeFilter, FILTER_INPUT.value); });
-
-  // pager actions
-  prevBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; renderPage(currentPage); } });
-  nextBtn.addEventListener('click', ()=> { const tp = Math.ceil(filteredUnits.length / perPage); if(currentPage < tp){ currentPage++; renderPage(currentPage); } });
-
-  // start
-  filteredUnits = units.slice();
-  renderPage(currentPage);
-
-})();
-
-/* ---------------- 3. Suggestions loading ---------------- */
-(async function(){
-    const SUGGESTIONS_BOX = document.getElementById('suggestions-box');
-    const SUGGESTIONS_GRID = document.getElementById('suggestionsGrid');
-    const SUGGESTIONS_EMPTY = document.getElementById('suggestionsEmpty');
-
-    async function fetchJson(url){
-      try{
-        const r = await fetch(url, {cache:'no-store'});
-        if(!r.ok) throw new Error('bad');
-        return await r.json();
-      }catch(e){ return null; }
-    }
-    
-    const suggestions = await fetchJson('https://islamesmail-jpg.github.io/suggestion.json')
-                      || await fetchJson('{{ site.baseurl }}/suggestion.json')
-                      || [];
-
-    if(suggestions.length > 0){
-        SUGGESTIONS_BOX.style.display = 'block';
-        SUGGESTIONS_GRID.innerHTML = '';
-        const frag = document.createDocumentFragment();
-        suggestions.slice(0, 3).forEach(u => { 
-            if (typeof unitCard === 'function') {
-                frag.appendChild(unitCard(u));
-            }
-        });
-        SUGGESTIONS_GRID.appendChild(frag);
-    } else {
-        SUGGESTIONS_BOX.style.display = 'block';
-        SUGGESTIONS_EMPTY.style.display = 'block';
-    }
-})();
-
-/* ---------------- 4. Lightbox Logic (الصور والفيديو والموقع) ---------------- */
-(function(){
-    const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.getElementById('lightbox-content');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.getElementById('lightboxPrev');
-    const nextBtn = document.getElementById('lightboxNext');
-    const mediaLinks = document.querySelectorAll('.icon-link-item');
-    
-    // صور معرض المشروع
-    const GALLERY_IMAGES = [
-      'https://c.top4top.io/p_3564wfv960.jpg',
-      'https://d.top4top.io/p_3564b0j821.jpeg',
-      'https://e.top4top.io/p_35645doza2.jpeg',
-      'https://f.top4top.io/p_35645oxjc3.jpg'
-    ];
-    let currentImageIndex = 0;
-
-    const openLightbox = (contentElement, enableNav = false) => {
-        lightboxContent.innerHTML = '';
-        lightboxContent.appendChild(contentElement);
-        lightbox.classList.add('open');
-        prevBtn.style.display = enableNav && GALLERY_IMAGES.length > 1 ? 'block' : 'none';
-        nextBtn.style.display = enableNav && GALLERY_IMAGES.length > 1 ? 'block' : 'none';
-        document.body.style.overflow = 'hidden'; 
-    };
-
-    const closeLightbox = () => {
-        lightbox.classList.remove('open');
-        lightboxContent.innerHTML = '';
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-        document.body.style.overflow = ''; 
-    };
-
-    const showImage = (index) => {
-        currentImageIndex = (index + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
-        const img = document.createElement('img');
-        img.src = GALLERY_IMAGES[currentImageIndex];
-        img.alt = `صورة رقم ${currentImageIndex + 1}`;
-        openLightbox(img, true);
-    };
-    
-    const nextImage = () => showImage(currentImageIndex + 1);
-    const prevImage = () => showImage(currentImageIndex - 1);
-
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.id === 'lightbox') { closeLightbox(); }
-    });
-
-    prevBtn.addEventListener('click', prevImage);
-    nextBtn.addEventListener('click', nextImage);
-
-    // دعم السحب (Swipe) لمعرض الصور
-    let startX = 0;
-    lightbox.addEventListener('touchstart', (e) => {
-        if (lightbox.classList.contains('open') && prevBtn.style.display === 'block') {
-            startX = e.touches[0].clientX;
-        }
-    });
-    lightbox.addEventListener('touchend', (e) => {
-        if (prevBtn.style.display !== 'block') return;
-        const endX = e.changedTouches[0].clientX;
-        const diff = endX - startX;
-        if (Math.abs(diff) > 50) { 
-            if (diff > 0) { prevImage(); } 
-            else { nextImage(); } 
-        }
-    });
-
-    // ربط الروابط
-    mediaLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const type = link.getAttribute('data-type');
-            const src = link.getAttribute('data-src');
-
-            let contentElement;
-            
-            if (type === 'video') {
-                contentElement = document.createElement('video');
-                contentElement.src = src;
-                contentElement.controls = true;
-                contentElement.autoplay = true;
-                contentElement.preload = 'auto';
-                contentElement.style.maxWidth = '90vw';
-                contentElement.style.maxHeight = '90vh';
-                openLightbox(contentElement, false);
-            } else if (type === 'map') {
-                contentElement = document.createElement('iframe');
-                contentElement.src = src; 
-                contentElement.allowFullscreen = true;
-                contentElement.loading = 'lazy';
-                openLightbox(contentElement, false);
-            } else if (type === 'gallery') {
-                showImage(0); 
-            }
-        });
-    });
-})();
-
-/* ---------------- 5. Contact Form Submission Logic ---------------- */
-function getFormData() {
-    const name = document.getElementById('formName').value;
-    const phone = document.getElementById('formPhone').value;
-    const email = document.getElementById('formEmail').value;
-    const project = document.getElementById('formProject').value;
-    const unitType = document.querySelector('input[name="unitType"]:checked') ? document.querySelector('input[name="unitType"]:checked').value : 'غير محدد';
-    const budget = document.getElementById('formBudget').value;
-    const notes = document.getElementById('formNotes').value;
-
-    if (!name || !phone || phone.length < 11 || !/^[0-9]+$/.test(phone)) {
-        alert('الرجاء إدخال الاسم ورقم الهاتف المحمول بشكل صحيح (11 رقمًا على الأقل، أرقام فقط).');
-        return null;
-    }
-
-    return `
-الاستفسار:
-*الاسم:* ${name}
-*الهاتف:* ${phone}
-*البريد:* ${email || 'لا يوجد'}
-*المشروع:* ${project}
-*نوع الوحدة:* ${unitType}
-*الميزانية:* ${budget || 'لم تُحدد'}
-*ملاحظات إضافية:* ${notes || 'لا يوجد'}
-`;
-}
-
-function sendFormViaWhatsapp(e) {
-    const formData = getFormData();
-    if (formData) {
-        const message = encodeURIComponent(`*طلب استشارة عقارية من صفحة وحدات مورانو:*\n\n${formData}`);
-        const whatsappLink = `https://wa.me/201050072527?text=${message}`;
-        window.open(whatsappLink, '_blank');
-    }
-}
-
-function sendFormViaEmail(e) {
-    const formData = getFormData();
-    if (formData) {
-        const subject = encodeURIComponent('استفسار عقاري عن وحدات مورانو');
-        const body = encodeURIComponent(`الرجاء مراجعة بيانات الاستفسار التالية:\n\n${formData}`);
-        window.location.href = `mailto:info@islamrealestate.com?subject=${subject}&body=${body}`;
-    }
-}
-</script>
 </body>
 </html>
