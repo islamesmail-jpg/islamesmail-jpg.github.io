@@ -99,18 +99,19 @@ a:hover{color:#1d4ed8;}
 
 /* الأيقونات الجديدة (صور / فيديو / موقع) */
 .icon-links-section{
-    border:1px solid var(--line); /* إطار المستطيل للقسم */
+    /* border:1px solid var(--line); تم إزالة الإطار من هنا */
     border-radius:var(--radius);
-    padding:20px;
+    padding:20px 0; /* تعديل البادينج */
     background:#fff;
     margin-bottom: 20px; /* فاصل بين الأقسام */
 }
 .icon-links{
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 25px; /* المسافة بين الأيقونات */
     align-items: center;
     padding: 10px 0;
+    flex-wrap: wrap; /* للسماح بالالتفاف على الشاشات الصغيرة */
 }
 .icon-link-item{
     display: flex;
@@ -119,21 +120,24 @@ a:hover{color:#1d4ed8;}
     cursor: pointer;
     transition: transform 0.2s;
     text-align: center;
+    color: var(--ink); /* لون النص افتراضي */
 }
 .icon-link-item:hover{
     transform: translateY(-3px);
     color: var(--primary-blue);
 }
 .icon-link-item img{
-    width: 60px;
-    height: 60px;
+    width: 50px; /* حجم أصغر للأيقونة */
+    height: 50px; /* حجم أصغر للأيقونة */
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0,0,0,.1);
     border: 3px solid #fff;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.2s;
+    object-fit: cover; /* التأكد من أن الصورة لا تتشوه */
 }
 .icon-link-item:hover img{
     border-color: var(--primary-blue);
+    transform: scale(1.05);
 }
 .icon-link-item span{
     margin-top: 8px;
@@ -223,9 +227,13 @@ a:hover{color:#1d4ed8;}
   align-items: flex-start;
   margin-top: 10px;
 }
-.details-section > div {
+.details-section > div { 
     font-weight: 600;
     font-size: 15px;
+    color: var(--ink); /* لون نص التفاصيل */
+}
+.details-section strong{
+    color: var(--muted);
 }
 .details-section .price-lead {
     color: var(--resale);
@@ -295,9 +303,15 @@ a:hover{color:#1d4ed8;}
   .details-section{padding-bottom: 0;}
 }
 @media(max-width:600px){
-    .icon-link-item img{width: 50px; height: 50px;}
-    .icon-link-item span{font-size: 13px;}
-    .icon-links{gap: 15px;}
+    .icon-link-item img{width: 40px; height: 40px;} /* أصغر على الجوال */
+    .icon-link-item span{font-size: 12px;}
+    .icon-links{gap: 10px;}
+    .contact-form-section form { padding: 0 10px; } /* بادينج للنموذج على الجوال */
+    .form-unit-type-group label {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    .form-actions { flex-direction: column; } /* الأزرار فوق بعضها */
 }
 
 
@@ -320,7 +334,7 @@ a:hover{color:#1d4ed8;}
     max-width: 600px;
     margin: 0 auto;
 }
-.contact-form-section input, .contact-form-section select, .contact-form-section textarea {
+.contact-form-section input:not([type="radio"]), .contact-form-section select, .contact-form-section textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--line);
@@ -333,6 +347,7 @@ a:hover{color:#1d4ed8;}
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    margin-top: 5px; /* مسافة أعلى */
     margin-bottom: 5px;
 }
 .form-unit-type-group label {
@@ -340,12 +355,14 @@ a:hover{color:#1d4ed8;}
     padding: 8px 12px;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
     font-weight: 600;
+    border: 1px solid var(--line); /* إضافة إطار لأزرار التبديل */
 }
 .form-unit-type-group input[type="radio"]:checked + label {
     background: var(--primary-blue);
     color: #fff;
+    border-color: var(--primary-blue); /* لون الإطار عند التحديد */
     box-shadow: 0 2px 5px rgba(37,99,235,.2);
 }
 .form-unit-type-group input[type="radio"] { display: none; }
@@ -361,10 +378,10 @@ a:hover{color:#1d4ed8;}
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
     width: 100%;
 }
-.form-btn:hover { opacity: 0.9; }
+.form-btn:hover { opacity: 0.9; transform: translateY(-2px); }
 .form-btn.whatsapp { background: var(--accent); color: #fff; }
 .form-btn.email { background: #e5e7eb; color: var(--ink); }
 
@@ -438,17 +455,60 @@ a:hover{color:#1d4ed8;}
     user-select: none;
     border: none;
     font-size: 24px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
-.lightbox-prev { right: auto; left: 10px; border-radius: 5px 0 0 5px; }
-.lightbox-next { right: 10px; left: auto; border-radius: 0 5px 5px 0; }
+.lightbox-nav-btn:hover { background: rgba(0,0,0,0.7); }
+.lightbox-prev { right: auto; left: 10px; }
+.lightbox-next { right: 10px; left: auto; }
+
+/* FAQ Styles */
+.faq-list {
+    margin-top: 20px;
+    text-align: right;
+}
+.faq-list details {
+    background-color: #f9fafb;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+.faq-list details:hover {
+    background-color: #f3f4f6;
+}
+.faq-list summary {
+    font-weight: 700;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink);
+}
+.faq-list summary::after {
+    content: '▼'; /* رمز يشير إلى أنها قابلة للتوسيع */
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+.faq-list details[open] summary::after {
+    transform: rotate(180deg);
+}
+.faq-list p {
+    padding: 0 20px 15px 20px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
 </style>
 </head>
 <body>
 
 <div id="lightbox" class="lightbox">
     <span class="lightbox-close">×</span>
-    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" style="display:none;">&lsaquo;</button>
-    <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" style="display:none;">&rsaquo;</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" style="display:none;">‹</button>
+    <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" style="display:none;">›</button>
     <div id="lightbox-content" class="lightbox-content"></div>
 </div>
 
@@ -476,7 +536,7 @@ a:hover{color:#1d4ed8;}
               <img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو المشروع">
               <span>فيديو المشروع</span>
           </a>
-          <a class="icon-link-item" data-type="map" data-src="https://maps.app.goo.gl/cWchnTUbMpX9HcrPA?g_st=awb">
+          <a class="icon-link-item" data-type="map" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.886026909472!2d32.5517336!3d29.6101918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532e8c2c192667%3A0x6b447a16f399d949!2sMurano%20Wadi%20Degla!5e0!3m2!1sen!2seg!4v1707070707070!5m2!1sen!2seg">
               <img src="https://d.top4top.io/p_3564912551.png" alt="موقع القرية">
               <span>موقع القرية</span>
           </a>
@@ -658,6 +718,148 @@ function ensureAbsolutePath(path){
 
 
 /* ---------------- 2. Units loading, Card rendering, and Filtering ---------------- */
+// تم وضع المتغيرات العامة هنا لجعل دالة unitCard متاحة للوحدات المقترحة
+const CALL_ICON = 'https://d.top4top.io/p_35643luom0.png';
+const WHATSAPP_ICON = 'https://e.top4top.io/p_3564lzic71.png';
+const BED_ICON = 'https://j.top4top.io/p_3563c1mt61.png';
+const BATH_ICON = 'https://k.top4top.io/p_3563vaqnl2.png';
+const AREA_ICON = 'https://l.top4top.io/p_3563ijjuf3.png';
+const DEFAULT_PHONE = '01050072527'; 
+const DEFAULT_WHATSAPP_LINK = 'https://wa.me/201050072527';
+const FALLBACK_IMG = 'https://picsum.photos/seed/unitfallback/600/400';
+
+function fmt(n){ 
+    try{ 
+        if (typeof n === 'string' && n.includes(',')) return n;
+        return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); 
+    }
+    catch(e){ return n; } 
+}
+
+// ** دالة إنشاء بطاقة الوحدة (تصميم القائمة الجديد) **
+function unitCard(u){
+    const img = (u.images && u.images[0]) || u.img || FALLBACK_IMG;
+    const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
+    const phoneLink = `tel:${u.phone || DEFAULT_PHONE}`;
+    const whatsappLink = u.whatsapp || DEFAULT_WHATSAPP_LINK;
+
+    const card = document.createElement('article'); 
+    card.className='unit-card'; 
+    card.setAttribute('role','article');
+
+    // صور الوحدة + الشارات
+    const images = document.createElement('a'); 
+    images.className='unit-images';
+    images.href = linkTarget;
+    images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG.replace('fallback', u.id||'fallback')}';">`;
+    
+    const badges = document.createElement('div'); 
+    badges.className='unit-badges';
+    
+    const typeText = (u.type||'').toLowerCase(); 
+    const isDeveloper = typeText.includes('dev') || typeText.includes('developer') || typeText.includes('مطور');
+    const type = isDeveloper ? 'developer' : 'resale';
+    
+    const typeBadge = document.createElement('div'); typeBadge.className = 'badge type ' + (type==='developer' ? 'dev' : 'resale');
+    typeBadge.textContent = (type==='developer' ? 'مطور' : 'إعادة بيع');
+    
+    badges.appendChild(typeBadge);
+    images.appendChild(badges);
+    
+    // البيانات الوصفية والسعر والأزرار
+    const meta = document.createElement('div'); 
+    meta.className='unit-meta';
+
+    // 1. العنوان والمدينة
+    const h = document.createElement('h3'); 
+    const titleLink = document.createElement('a');
+    titleLink.href = linkTarget;
+    titleLink.textContent = u.title || 'وحدة سكنية';
+    h.appendChild(titleLink);
+    
+    // 2. تفاصيل الوحدة
+    const detailsSection = document.createElement('div');
+    detailsSection.className = 'details-section';
+
+    // نوع الوحدة والتسليم
+    const typeRow = document.createElement('div');
+    typeRow.innerHTML = `<strong>النوع:</strong> ${u.unit_type || 'شاليه'}`;
+    detailsSection.appendChild(typeRow);
+    
+    const deliveryRow = document.createElement('div');
+    deliveryRow.innerHTML = `<strong>التسليم:</strong> ${u.delivery || 'غير محدد'}`;
+    detailsSection.appendChild(deliveryRow);
+
+    // الغرف، الحمامات، المساحة
+    const specs = document.createElement('div'); 
+    specs.className='spec-row';
+    
+    if(u.bed){
+        const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
+        pillBed.innerHTML = `<img src="${BED_ICON}" alt="غرف"> ${u.bed} غرف`;
+        specs.appendChild(pillBed);
+    }
+    if(u.bath){
+        const pillBath = document.createElement('div'); pillBath.className='spec-pill'; 
+        pillBath.innerHTML = `<img src="${BATH_ICON}" alt="حمامات"> ${u.bath} حمام`;
+        specs.appendChild(pillBath);
+    }
+    if(u.area){
+        const pillArea = document.createElement('div'); pillArea.className='spec-pill'; 
+        pillArea.innerHTML = `<img src="${AREA_ICON}" alt="المساحة"> ${u.area} م²`;
+        specs.appendChild(pillArea);
+    }
+    detailsSection.appendChild(specs);
+
+    // السعر بدلاً من المقدم
+    const price = u.price;
+    const priceRow = document.createElement('div');
+    priceRow.className = 'price-lead';
+    priceRow.textContent = price ? ('السعر: ج.م ' + fmt(price)) : 'اتصل لمعرفة السعر';
+    detailsSection.appendChild(priceRow);
+    
+    // الموقع بخط صغير
+    const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة') + ', طريق الزعفرانة';
+
+    // 3. الأزرار
+    const priceActionsSection = document.createElement('div');
+    priceActionsSection.className = 'price-actions-section';
+    
+    const actions = document.createElement('div');
+    actions.className = 'contact-actions';
+
+    // زر الاتصال
+    const callBtn = document.createElement('a');
+    callBtn.className = 'action-btn call';
+    callBtn.href = phoneLink;
+    callBtn.innerHTML = `<img src="${CALL_ICON}" alt="اتصال">`;
+
+    // زر الواتساب
+    const whatsappBtn = document.createElement('a');
+    whatsappBtn.className = 'action-btn whatsapp';
+    whatsappBtn.href = whatsappLink;
+    whatsappBtn.target = '_blank';
+    whatsappBtn.innerHTML = `<img src="${WHATSAPP_ICON}" alt="واتساب">`;
+
+    actions.appendChild(callBtn);
+    actions.appendChild(whatsappBtn);
+    
+    // تجميع الأزرار
+    priceActionsSection.appendChild(actions);
+
+    // تجميع البيانات الوصفية
+    meta.appendChild(h); 
+    meta.appendChild(small); 
+    meta.appendChild(detailsSection); 
+    meta.appendChild(priceActionsSection);
+
+    // تجميع البطاقة
+    card.appendChild(images); 
+    card.appendChild(meta);
+    return card;
+}
+
+
 (async function(){
   const GRID = document.getElementById('unitsGrid');
   const FILTER_INPUT = document.getElementById('unitsFilter');
@@ -672,20 +874,7 @@ function ensureAbsolutePath(path){
   const perPage = 8;
   let units = [];
   let filteredUnits = [];
-  // روابط الأيقونات الافتراضية للوحدات
-  const CALL_ICON = 'https://d.top4top.io/p_35643luom0.png';
-  const WHATSAPP_ICON = 'https://e.top4top.io/p_3564lzic71.png';
-  // روابط أيقونات المواصفات
-  const BED_ICON = 'https://j.top4top.io/p_3563c1mt61.png';
-  const BATH_ICON = 'https://k.top4top.io/p_3563vaqnl2.png';
-  const AREA_ICON = 'https://l.top4top.io/p_3563ijjuf3.png';
   
-  // روابط الاتصال الافتراضية - تم تحديث الرقم
-  const DEFAULT_PHONE = '01050072527'; 
-  const DEFAULT_WHATSAPP_LINK = 'https://wa.me/201050072527';
-  const FALLBACK_IMG = 'https://picsum.photos/seed/unitfallback/600/400';
-
-
   async function fetchJson(url){
     try{
       const r = await fetch(url, {cache:'no-store'});
@@ -698,138 +887,6 @@ function ensureAbsolutePath(path){
   units = await fetchJson('https://islamesmail-jpg.github.io/murano-units.json')
              || await fetchJson('{{ site.baseurl }}/murano-units.json')
              || [];
-
-  // دالة تنسيق الأرقام
-  function fmt(n){ 
-      try{ 
-          if (typeof n === 'string' && n.includes(',')) return n;
-          return new Intl.NumberFormat('ar-EG').format(Number(String(n).replace(/[^0-9.-]+/g,''))); 
-      }
-      catch(e){ return n; } 
-  }
-
-  // ** دالة إنشاء بطاقة الوحدة (تصميم القائمة الجديد) **
-  function unitCard(u){
-      const img = (u.images && u.images[0]) || u.img || FALLBACK_IMG;
-      const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
-      const phoneLink = `tel:${u.phone || DEFAULT_PHONE}`;
-      const whatsappLink = u.whatsapp || DEFAULT_WHATSAPP_LINK;
-
-      const card = document.createElement('article'); 
-      card.className='unit-card'; 
-      card.setAttribute('role','article');
-
-      // صور الوحدة + الشارات
-      const images = document.createElement('a'); 
-      images.className='unit-images';
-      images.href = linkTarget;
-      images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMG.replace('fallback', u.id||'fallback')}';">`;
-      
-      const badges = document.createElement('div'); 
-      badges.className='unit-badges';
-      
-      const typeText = (u.type||'').toLowerCase(); 
-      const isDeveloper = typeText.includes('dev') || typeText.includes('developer') || typeText.includes('مطور');
-      const type = isDeveloper ? 'developer' : 'resale';
-      
-      const typeBadge = document.createElement('div'); typeBadge.className = 'badge type ' + (type==='developer' ? 'dev' : 'resale');
-      typeBadge.textContent = (type==='developer' ? 'مطور' : 'إعادة بيع');
-      
-      badges.appendChild(typeBadge);
-      images.appendChild(badges);
-      
-      // البيانات الوصفية والسعر والأزرار
-      const meta = document.createElement('div'); 
-      meta.className='unit-meta';
-
-      // 1. العنوان والمدينة
-      const h = document.createElement('h3'); 
-      const titleLink = document.createElement('a');
-      titleLink.href = linkTarget;
-      titleLink.textContent = u.title || 'وحدة سكنية';
-      h.appendChild(titleLink);
-      
-      // 2. تفاصيل الوحدة
-      const detailsSection = document.createElement('div');
-      detailsSection.className = 'details-section';
-
-      // نوع الوحدة والتسليم
-      const typeRow = document.createElement('div');
-      typeRow.innerHTML = `<strong>النوع:</strong> ${u.unit_type || 'شاليه'}`;
-      detailsSection.appendChild(typeRow);
-      
-      const deliveryRow = document.createElement('div');
-      deliveryRow.innerHTML = `<strong>التسليم:</strong> ${u.delivery || 'غير محدد'}`;
-      detailsSection.appendChild(deliveryRow);
-
-      // الغرف، الحمامات، المساحة
-      const specs = document.createElement('div'); 
-      specs.className='spec-row';
-      
-      if(u.bed){
-          const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
-          pillBed.innerHTML = `<img src="${BED_ICON}" alt="غرف"> ${u.bed} غرف`;
-          specs.appendChild(pillBed);
-      }
-      if(u.bath){
-          const pillBath = document.createElement('div'); pillBath.className='spec-pill'; 
-          pillBath.innerHTML = `<img src="${BATH_ICON}" alt="حمامات"> ${u.bath} حمام`;
-          specs.appendChild(pillBath);
-      }
-      if(u.area){
-          const pillArea = document.createElement('div'); pillArea.className='spec-pill'; 
-          pillArea.innerHTML = `<img src="${AREA_ICON}" alt="المساحة"> ${u.area} م²`;
-          specs.appendChild(pillArea);
-      }
-      detailsSection.appendChild(specs);
-
-      // السعر بدلاً من المقدم
-      const price = u.price;
-      const priceRow = document.createElement('div');
-      priceRow.className = 'price-lead';
-      priceRow.textContent = price ? ('السعر: ج.م ' + fmt(price)) : 'اتصل لمعرفة السعر';
-      detailsSection.appendChild(priceRow);
-      
-      // الموقع بخط صغير
-      const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة') + ', طريق الزعفرانة';
-
-      // 3. الأزرار
-      const priceActionsSection = document.createElement('div');
-      priceActionsSection.className = 'price-actions-section';
-      
-      const actions = document.createElement('div');
-      actions.className = 'contact-actions';
-
-      // زر الاتصال
-      const callBtn = document.createElement('a');
-      callBtn.className = 'action-btn call';
-      callBtn.href = phoneLink;
-      callBtn.innerHTML = `<img src="${CALL_ICON}" alt="اتصال">`;
-
-      // زر الواتساب
-      const whatsappBtn = document.createElement('a');
-      whatsappBtn.className = 'action-btn whatsapp';
-      whatsappBtn.href = whatsappLink;
-      whatsappBtn.target = '_blank';
-      whatsappBtn.innerHTML = `<img src="${WHATSAPP_ICON}" alt="واتساب">`;
-
-      actions.appendChild(callBtn);
-      actions.appendChild(whatsappBtn);
-      
-      // تجميع الأزرار
-      priceActionsSection.appendChild(actions);
-
-      // تجميع البيانات الوصفية
-      meta.appendChild(h); 
-      meta.appendChild(small); 
-      meta.appendChild(detailsSection); 
-      meta.appendChild(priceActionsSection);
-
-      // تجميع البطاقة
-      card.appendChild(images); 
-      card.appendChild(meta);
-      return card;
-  }
 
   function renderPage(page = 1){
     const start = (page-1) * perPage;
@@ -905,13 +962,11 @@ function ensureAbsolutePath(path){
 })();
 
 /* ---------------- 3. Suggestions loading ---------------- */
-// ... (الكود الخاص بالوحدات المقترحة لم يتم تعديله) ...
 (async function(){
     const SUGGESTIONS_BOX = document.getElementById('suggestions-box');
     const SUGGESTIONS_GRID = document.getElementById('suggestionsGrid');
     const SUGGESTIONS_EMPTY = document.getElementById('suggestionsEmpty');
 
-    // إعادة استخدام دالة fetchJson من القسم السابق
     async function fetchJson(url){
       try{
         const r = await fetch(url, {cache:'no-store'});
@@ -928,19 +983,8 @@ function ensureAbsolutePath(path){
         SUGGESTIONS_BOX.style.display = 'block';
         SUGGESTIONS_GRID.innerHTML = '';
         const frag = document.createDocumentFragment();
-        // نستخدم نفس دالة unitCard لبطاقات الوحدات المقترحة (للتناسق)
-        // تم جلب الدالة unitCard من الكود أعلاه مباشرة
-        const unitCardFromAbove = (u) => {
-            // هذا مجرد مكان، يجب أن تكون الدالة unitCard معرفة في نطاق أعلى أو إعادة تعريفها هنا
-            return document.createElement('article'); // Placeholder
-        };
-        // نظرًا لصعوبة الوصول لدالة unitCard بسبب النطاق، سنفترض أنها موجودة
-        // يجب وضع الكود كاملاً في ملف واحد أو التأكد من النطاق
-        // ولغرض هذا التعديل، سنعتمد على أن الدالة الأولى ستعمل
-        suggestions.slice(0, 3).forEach(u => {
-            // يجب أن نعتمد على أن دالة unitCard أصبحت معرفة
-            // إذا لم تظهر الوحدات المقترحة، قم بدمج الكود كاملاً في ملف واحد
-            // مؤقتاً، سنستخدم الكود أعلاه
+        suggestions.slice(0, 3).forEach(u => { // عرض 3 وحدات مقترحة كحد أقصى
+            // نستخدم نفس دالة unitCard المعرفة في النطاق العام
             if (typeof unitCard === 'function') {
                 frag.appendChild(unitCard(u));
             }
@@ -969,10 +1013,12 @@ function ensureAbsolutePath(path){
     ];
     let currentImageIndex = 0;
 
-    const openLightbox = (content) => {
+    const openLightbox = (contentElement, enableNav = false) => {
         lightboxContent.innerHTML = '';
-        lightboxContent.appendChild(content);
+        lightboxContent.appendChild(contentElement);
         lightbox.classList.add('open');
+        prevBtn.style.display = enableNav ? 'block' : 'none';
+        nextBtn.style.display = enableNav ? 'block' : 'none';
     };
 
     const closeLightbox = () => {
@@ -984,14 +1030,11 @@ function ensureAbsolutePath(path){
 
     const showImage = (index) => {
         currentImageIndex = (index + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
-        lightboxContent.innerHTML = '';
         const img = document.createElement('img');
         img.src = GALLERY_IMAGES[currentImageIndex];
         img.style.maxWidth = '90vw';
         img.style.maxHeight = '90vh';
-        lightboxContent.appendChild(img);
-        prevBtn.style.display = 'block';
-        nextBtn.style.display = 'block';
+        openLightbox(img, true); // تفعيل أزرار التنقل
     };
     
     const nextImage = () => showImage(currentImageIndex + 1);
@@ -1007,14 +1050,20 @@ function ensureAbsolutePath(path){
 
     // دعم السحب (للجوال)
     let startX = 0;
-    lightboxContent.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    let isSwiping = false;
+    lightboxContent.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+    });
     lightboxContent.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
         const endX = e.changedTouches[0].clientX;
         const diff = endX - startX;
         if (Math.abs(diff) > 50) { // اعتبارها سحبة إذا كانت المسافة > 50 بكسل
             if (diff > 0) { prevImage(); } // سحب لليمين
             else { nextImage(); } // سحب لليسار
         }
+        isSwiping = false;
     });
 
     mediaLinks.forEach(link => {
@@ -1030,29 +1079,22 @@ function ensureAbsolutePath(path){
                 contentElement.src = src;
                 contentElement.controls = true;
                 contentElement.autoplay = true;
-                contentElement.preload = 'auto'; // لجعله أسرع
+                contentElement.preload = 'auto';
                 contentElement.style.maxWidth = '90vw';
                 contentElement.style.maxHeight = '90vh';
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
+                openLightbox(contentElement, false);
             } else if (type === 'map') {
                 contentElement = document.createElement('iframe');
-                // استخدام الإحداثيات المطلوبة لمركز الخريطة
-                const mapEmbedSrc = `https://maps.google.com/maps?q=29.592823,32.341065&hl=ar&z=14&output=embed`;
-                contentElement.src = mapEmbedSrc;
+                // تم تحديث رابط Google Maps ليكون أكثر تحديدًا
+                contentElement.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.886026909472!2d32.5517336!3d29.6101918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532e8c2c192667%3A0x6b447a16f399d949!2sMurano%20Wadi%20Degla!5e0!3m2!1sen!2seg!4v1707070707070!5m2!1sen!2seg';
                 contentElement.style.width = '1000px';
                 contentElement.style.height = '600px';
                 contentElement.style.border = 'none';
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
+                contentElement.allowFullscreen = true;
+                contentElement.loading = 'lazy';
+                openLightbox(contentElement, false);
             } else if (type === 'gallery') {
-                // عرض صورة واحدة مع إمكانية التنقل
-                showImage(0); // عرض أول صورة
-                return; // نعود بعد إتمام العملية داخل showImage
-            }
-
-            if (contentElement) {
-                openLightbox(contentElement);
+                showImage(0); // عرض أول صورة مع التنقل
             }
         });
     });
