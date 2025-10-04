@@ -14,14 +14,14 @@ permalink: /murano.units.html
 <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* تعاريف الألوان والظلال المتغيرة - تم توحيدها مع صفحة murano.html */
+/* تعاريف الألوان والظلال المتغيرة */
 :root{
   --wrap:1180px; --line:#e5e7eb; 
   --ink:#000000;
   --muted:#6b7280; 
-  --primary-blue:#2563eb; 
-  --accent:#25D366; 
-  --dev:#2563eb; 
+  --primary-blue:#2563eb; /* أزرق للمطور ولزر الاتصال */
+  --accent:#25D366; /* أخضر للواتساب */
+  --dev:var(--primary-blue); 
   --resale:#f59e0b; 
   --available:#10b981; 
   --sold:#dc2626; 
@@ -40,10 +40,7 @@ body{
 a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
 a:hover{color:#1d4ed8;}
 
-/* الـ Header CSS (تم توحيده) */
-.header-placeholder{display:none} /* يتم استبدالها بـ include */
-
-/* شريط البحث (تم نسخه من murano.html) */
+/* شريط البحث */
 .search-row{border-bottom:1px solid var(--line);padding:15px 0;text-align:center;background:#f9fafb;}
 .search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
 #siteSearch{
@@ -66,11 +63,7 @@ a:hover{color:#1d4ed8;}
 
 /* الحاوية الرئيسية */
 .container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
-
-/* شريط التنقل (breadcrumb) */
 .breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
-
-/* العنوان وأزرار الرجوع */
 .page-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
 .page-title h1{margin:0;font-size:30px;font-weight:900;color:var(--ink)}
 .back-link{
@@ -84,15 +77,14 @@ a:hover{color:#1d4ed8;}
 
 /* أدوات التحكم (Controls) */
 .controls{
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0;
+  display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin:18px 0;
   border-bottom:1px solid var(--line);padding-bottom:15px;
   justify-content:space-between;
 }
+/* تنسيق التبويبات (الكل | المطور | إعادة البيع) */
 .tablist{
   display:flex;gap:10px;align-items:center;
-  flex-wrap:nowrap;
-  overflow-x: auto;
-  padding: 5px 0;
+  flex-wrap:nowrap;padding: 5px 0;
 }
 .filter-btn{
   padding:8px 16px;border-radius:20px;
@@ -103,33 +95,43 @@ a:hover{color:#1d4ed8;}
 .filter-btn.active{background:var(--primary-blue);color:#fff;border-color:var(--primary-blue);box-shadow:0 4px 8px rgba(37,99,235,.2);}
 .filter-btn:hover:not(.active){background:#f3f4f6;}
 .search-small{
-  padding:8px 16px;
-  border:1px solid var(--line);
-  border-radius:20px;
-  font-weight:600;
-  font-size:15px;
-  box-shadow:0 1px 3px rgba(0,0,0,.05);
+  padding:8px 16px;border:1px solid var(--line);border-radius:20px;
+  font-weight:600;font-size:15px;box-shadow:0 1px 3px rgba(0,0,0,.05);
 }
 .search-small:focus{border-color:var(--primary-blue);}
 
-/* شبكة الوحدات (Grid) */
-.units-grid{display:grid;gap:20px;margin-top:20px}
-@media(min-width:920px){.units-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:720px){.units-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
+/* شبكة الوحدات - تم التعديل إلى قائمة (List) */
+.units-grid{
+  display:flex; 
+  flex-direction:column; /* عرض عمودي (تحت بعض) */
+  gap:20px; 
+  margin-top:20px;
+}
 
-/* بطاقة الوحدة - تم نسخ تصميم murano.html */
+/* بطاقة الوحدة - تصميم القائمة الأفقي (List View) */
 .unit-card{
-  display:flex;flex-direction:column;
-  border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--line);background:#fff;
+  display:flex; 
+  flex-direction:row; /* الصورة على اليمين والتفاصيل على اليسار */
+  border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--line); background:#fff;
   transition: box-shadow 0.3s, border-color 0.3s;
   cursor:pointer;
+  min-height: 200px;
 }
 .unit-card:hover{box-shadow:var(--shadow);border-color:#ccc;}
 
-.unit-images{position:relative;background:#000;height:220px;}
+/* قسم الصورة والشارات */
+.unit-images{
+  position:relative; 
+  min-width: 250px; 
+  max-width: 250px; /* حجم ثابت للصورة */
+  height: auto; 
+  background:#000;
+  flex-shrink: 0;
+}
 .unit-images img{width:100%;height:100%;object-fit:cover;}
 
+/* الشارات (مطور / إعادة بيع) */
 .unit-badges{position:absolute;inset:12px;display:flex;justify-content:space-between;gap:10px;pointer-events:none;}
 .badge{
   pointer-events:auto;padding:4px 8px;border-radius:6px;
@@ -142,27 +144,100 @@ a:hover{color:#1d4ed8;}
 .badge.status.available{background:var(--available);} 
 .badge.status.sold{background:var(--sold);}
 
+/* قسم البيانات الوصفية والسعر والأزرار */
+.unit-meta{
+  padding:15px; 
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 180px; /* عمود للتفاصيل وعمود للسعر والأزرار */
+  gap: 10px 20px;
+  align-items: start;
+}
+.unit-meta h3{margin:0;font-size:20px;font-weight:800;color:var(--ink); grid-column: 1 / span 2;} 
+.unit-meta .small{color:var(--muted);font-size:14px;margin-top:-4px; grid-column: 1 / span 2; border-bottom: 1px solid var(--line); padding-bottom: 10px;}
 
-.unit-meta{padding:15px;display:flex;flex-direction:column;gap:10px;text-align:right;flex-grow:1;}
-.unit-meta h3{margin:0;font-size:18px;font-weight:800;color:var(--ink);} 
-.unit-meta .small{color:var(--muted);font-size:14px;margin-top:-4px;}
-.spec-row{display:flex;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px;margin-top:5px;justify-content:flex-start;}
+/* المواصفات (غرف، حمامات، مساحة) */
+.details-section { 
+  grid-column: 1 / 2; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+  align-items: flex-start;
+}
+.spec-row{display:flex;gap:25px;flex-wrap:wrap;justify-content:flex-start; margin-top: 5px;}
 .spec-pill{
   display:flex;align-items:center;gap:6px;
-  font-weight:600;font-size:14px; 
-  color:var(--ink);
+  font-weight:600;font-size:15px;color:var(--ink);
 }
-.spec-pill img{width:16px;height:16px;} 
+.spec-pill img{width:18px;height:18px;} 
+
+/* قسم السعر والإجراءات */
+.price-actions-section { 
+  grid-column: 2 / 3; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  align-items: flex-end; 
+  padding-right: 15px; 
+  border-right: 1px solid var(--line); /* خط فاصل عمودي */
+  text-align: center;
+}
 .unit-price{
-  display:inline-block;padding:10px 15px;
+  padding:10px 15px;
   border-radius:8px;background:#f3f4f6;
   font-weight:800;font-size:18px; 
   color:var(--primary-blue);
-  align-self:flex-start;
-  margin-top:10px;
+  align-self:flex-end;
+  margin-top:0;
 }
 
-/* حالة الفراغ (Empty State) */
+/* أزرار الاتصال والواتساب الجديدة */
+.contact-actions{
+  display: flex; 
+  gap: 10px; 
+  justify-content: flex-end; 
+  margin-top: 5px;
+}
+.action-btn{
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.action-btn:hover{transform: scale(1.05);}
+.action-btn img{width: 24px; height: 24px; filter: brightness(0) invert(1);} /* يجعل الأيقونة بيضاء */
+.action-btn.call{background: var(--primary-blue);} /* الدائرة الزرقاء */
+.action-btn.whatsapp{background: var(--accent);} /* الدائرة الخضراء */
+
+
+/* التنسيقات المتجاوبة (Responsive) للشاشات الصغيرة */
+@media(max-width:850px){
+  .unit-card{flex-direction:column;}
+  .unit-images{min-width: 100%; max-width: 100%; height: 250px;}
+  .unit-meta{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .unit-meta h3, .unit-meta .small{grid-column: 1 / span 1; border-bottom: none; padding-bottom: 0;}
+  .price-actions-section { 
+    grid-column: 1 / 2; 
+    border-right: none; /* إلغاء الخط الفاصل العمودي */
+    padding-right: 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    align-items: stretch;
+    flex-direction: row-reverse; /* نقل السعر على اليسار والأزرار على اليمين */
+    justify-content: space-between;
+  }
+  .unit-price{align-self: flex-start; margin: 0;}
+  .contact-actions{justify-content: flex-start; margin: 0;}
+  .details-section{padding-bottom: 10px;}
+}
+@media(max-width:720px){
+  .search-small{width:100%}
+}
+
 .empty{
   padding:50px;text-align:center;color:var(--muted);
   font-size:18px;font-weight:700;
@@ -306,10 +381,15 @@ function ensureAbsolutePath(path){
   const perPage = 12;
   let units = [];
   let filteredUnits = [];
+  // روابط الأيقونات
+  const CALL_ICON = 'https://a.top4top.io/p_35630i4cg0.png';
+  const WHATSAPP_ICON = 'https://b.top4top.io/p_3563sd96h1.png';
+  // روابط الاتصال الافتراضية - (يرجى إضافة u.phone و u.whatsapp إلى JSON لتصبح ديناميكية)
+  const DEFAULT_PHONE = '01xxxxxxxxxx'; 
+  const DEFAULT_WHATSAPP_LINK = 'https://wa.me/201xxxxxxxxxx';
 
   async function fetchJson(url){
     try{
-      // نستخدم المسار المطلق لضمان التحميل من ملف JSON المخصص
       const r = await fetch(url, {cache:'no-store'});
       if(!r.ok) throw new Error('bad');
       return await r.json();
@@ -337,30 +417,29 @@ function ensureAbsolutePath(path){
       catch(e){ return n; } 
   }
 
-  // ** دالة إنشاء بطاقة الوحدة (محدثة لتطابق صفحة murano.html) **
+  // ** دالة إنشاء بطاقة الوحدة (محدثة لتصميم القائمة) **
   function unitCard(u){
       const img = (u.images && u.images[0]) || u.img || 'https://picsum.photos/seed/unitfallback/600/400';
-      // استخدام u.link للانتقال للصفحة المحددة (سواء كان رابط داخلي أو خارجي)
+      // ملاحظة: تم إزالة ربط الضغط على البطاقة بالكامل بالـ link لمنع تعارضها مع أزرار الاتصال
       const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
 
       const card = document.createElement('article'); 
       card.className='unit-card'; 
       card.setAttribute('role','article');
-      card.onclick = ()=> { window.location.href = linkTarget; };
+      // card.onclick = ()=> { window.location.href = linkTarget; }; // تم تعطيل الضغط على البطاقة كلها
 
       // صور الوحدة + الشارات
-      const images = document.createElement('div'); 
+      const images = document.createElement('a'); 
       images.className='unit-images';
+      images.href = linkTarget;
       images.innerHTML = `<img src="${img}" alt="${u.title || 'وحدة سكنية'}" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${u.id||'fallback'}/800/600';">`;
       
       const badges = document.createElement('div'); 
       badges.className='unit-badges';
       
-      // ****** تم التعديل هنا للبحث في u.type بدلاً من u.source ******
-      const typeText = (u.type||'').toLowerCase(); // يستخدم حقل 'type'
+      const typeText = (u.type||'').toLowerCase(); 
       const isDeveloper = typeText.includes('dev') || typeText.includes('developer') || typeText.includes('مطور');
       const type = isDeveloper ? 'developer' : 'resale';
-      // ***************************************************************
       
       const status = (u.status||'').toLowerCase().includes('sold') ? 'sold' : 'available';
 
@@ -371,15 +450,21 @@ function ensureAbsolutePath(path){
       badges.appendChild(typeBadge); badges.appendChild(statusBadge);
       images.appendChild(badges);
       
-      // البيانات الوصفية
+      // البيانات الوصفية والسعر والأزرار
       const meta = document.createElement('div'); 
       meta.className='unit-meta';
-      const h = document.createElement('h3'); h.textContent = u.title || 'وحدة سكنية';
+
+      // 1. العنوان والمدينة
+      const h = document.createElement('a'); h.href=linkTarget; h.textContent = u.title || 'وحدة سكنية';
       const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة');
       
-      // المواصفات (غرف، حمامات، مساحة)
+      // 2. المواصفات (غرف، حمامات، مساحة)
+      const detailsSection = document.createElement('div');
+      detailsSection.className = 'details-section';
+
       const specs = document.createElement('div'); 
       specs.className='spec-row';
+      
       if(u.bed){
           const pillBed = document.createElement('div'); pillBed.className='spec-pill'; 
           pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="عدد الغرف"> ${u.bed} غرف`;
@@ -395,15 +480,47 @@ function ensureAbsolutePath(path){
           pillArea.innerHTML = `<img src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة"> ${u.area} م²`;
           specs.appendChild(pillArea);
       }
-      
-      // السعر
+      detailsSection.appendChild(specs);
+
+      // 3. السعر والأزرار
+      const priceActionsSection = document.createElement('div');
+      priceActionsSection.className = 'price-actions-section';
+
       const price = document.createElement('div'); 
       price.className='unit-price'; 
       price.textContent = (u.price ? ('ج.م ' + fmt(u.price)) : 'اتصال لمعرفة السعر');
+      
+      const actions = document.createElement('div');
+      actions.className = 'contact-actions';
 
-      meta.appendChild(h); meta.appendChild(small); meta.appendChild(specs); meta.appendChild(price);
+      // زر الاتصال (أزرق)
+      const callBtn = document.createElement('a');
+      callBtn.className = 'action-btn call';
+      callBtn.href = `tel:${u.phone || DEFAULT_PHONE}`;
+      callBtn.innerHTML = `<img src="${CALL_ICON}" alt="اتصال">`;
 
-      card.appendChild(images); card.appendChild(meta);
+      // زر الواتساب (أخضر)
+      const whatsappBtn = document.createElement('a');
+      whatsappBtn.className = 'action-btn whatsapp';
+      whatsappBtn.href = u.whatsapp || DEFAULT_WHATSAPP_LINK;
+      whatsappBtn.target = '_blank';
+      whatsappBtn.innerHTML = `<img src="${WHATSAPP_ICON}" alt="واتساب">`;
+
+      actions.appendChild(callBtn);
+      actions.appendChild(whatsappBtn);
+      
+      priceActionsSection.appendChild(price);
+      priceActionsSection.appendChild(actions);
+
+      // تجميع البيانات الوصفية
+      meta.appendChild(h); 
+      meta.appendChild(small); 
+      meta.appendChild(detailsSection); 
+      meta.appendChild(priceActionsSection);
+
+      // تجميع البطاقة
+      card.appendChild(images); 
+      card.appendChild(meta);
       return card;
   }
 
@@ -437,10 +554,9 @@ function ensureAbsolutePath(path){
     q = (q||'').trim().toLowerCase();
     
     filteredUnits = units.filter(u=>{
-      // ****** تم التعديل هنا للبحث في u.type بدلاً من u.source ******
       const typeValue = (u.type||'').toLowerCase(); // يستخدم حقل 'type'
       const isDeveloper = typeValue.includes('dev') || typeValue.includes('developer') || typeValue.includes('مطور');
-      
+      
       // مطابقة الفلتر (الكل / مطور / إعادة بيع)
       const matchType = (type === 'all') || 
                         (type === 'developer' && isDeveloper) || 
