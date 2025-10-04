@@ -43,7 +43,7 @@ body{
 a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s}
 a:hover{color:#1d4ed8}
 
-/* Breadcrumb */
+/* Breadcrumb - Adjusted based on request: no box/line */
 .breadcrumb{
     color:var(--muted);
     font-size:14px;
@@ -53,9 +53,10 @@ a:hover{color:#1d4ed8}
     margin:0 auto;
     padding-left:15px;
     padding-right:15px;
+    border:none; /* Remove border/box */
 }
-.breadcrumb a{color:var(--muted)}
-.breadcrumb a:hover{color:var(--primary-blue)}
+.breadcrumb a{color:var(--muted); text-decoration: none;}
+.breadcrumb a:hover{color:var(--primary-blue); text-decoration: underline;}
 
 /* Search Bar */
 .search-row{
@@ -115,7 +116,7 @@ a:hover{color:#1d4ed8}
     padding:0 15px;
 }
 
-/* Page Title */
+/* Page Title - Centered with separator */
 .page-title{
     text-align:center;
     margin:30px 0;
@@ -126,6 +127,13 @@ a:hover{color:#1d4ed8}
     font-weight:900;
     color:var(--ink);
     line-height:1.4;
+}
+.separator {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    margin: 15px auto 30px auto;
+    border-radius: 2px;
 }
 
 /* Icons Section */
@@ -147,7 +155,7 @@ a:hover{color:#1d4ed8}
     transform:translateY(-5px);
 }
 .icon-item img{
-    width:45px;
+    width:45px; /* Ensure consistent small size */
     height:45px;
     border-radius:50%;
     border:2px solid var(--primary-blue);
@@ -212,7 +220,7 @@ a:hover{color:#1d4ed8}
     box-shadow:0 0 0 3px rgba(37,99,235,.2);
 }
 
-/* Units Grid */
+/* Units Grid (Card styling remains the same) */
 .units-grid{
     display:flex;
     flex-direction:column;
@@ -411,15 +419,13 @@ a:hover{color:#1d4ed8}
     margin:30px 0;
 }
 
-/* Suggestions */
+/* Suggestions, FAQ, Contact Form Styles (Kept as provided) */
 .suggestions-box h2{
     font-size:24px;
     font-weight:900;
     margin-bottom:20px;
     text-align:center;
 }
-
-/* FAQ */
 .faq-section h2{
     font-size:24px;
     font-weight:900;
@@ -588,7 +594,7 @@ a:hover{color:#1d4ed8}
     filter:invert(1);
 }
 
-/* Lightbox */
+/* Lightbox (Kept the same structure) */
 .lightbox{
     position:fixed;
     top:0;
@@ -671,7 +677,7 @@ a:hover{color:#1d4ed8}
     left:auto;
 }
 
-/* Responsive */
+/* Responsive (Kept the same) */
 @media(max-width:850px){
     .unit-card{flex-direction:column}
     .unit-images{
@@ -717,55 +723,6 @@ a:hover{color:#1d4ed8}
     color:var(--muted);
     font-size:16px;
 }
-
-/* Footer Section */
-.footer{
-    background:#1f2937; /* Dark Gray */
-    color:#d1d5db; /* Light Gray Text */
-    padding:40px 0;
-    margin-top:50px;
-    font-size:15px;
-}
-.footer-wrap{
-    max-width:var(--wrap);
-    margin:0 auto;
-    padding:0 15px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
-    text-align:right;
-}
-.footer-column h4{
-    color:#fff;
-    font-size:18px;
-    font-weight:800;
-    margin-top:0;
-    margin-bottom:15px;
-    border-bottom:2px solid var(--primary-blue);
-    padding-bottom:5px;
-    width:fit-content;
-    padding-left:10px;
-}
-.footer-column p{
-    margin-bottom:10px;
-}
-.footer-column a{
-    display:block;
-    color:#d1d5db;
-    margin-bottom:8px;
-    transition:color 0.2s;
-}
-.footer-column a:hover{
-    color:var(--accent);
-}
-.footer-bottom{
-    text-align:center;
-    border-top:1px solid #374151;
-    padding-top:20px;
-    margin-top:30px;
-    font-size:14px;
-}
-
 </style>
 </head>
 <body onload="initPage()">
@@ -779,7 +736,7 @@ a:hover{color:#1d4ed8}
 
 <header style="background:var(--primary-blue); color:white; padding:15px 0; text-align:center;">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:24px; font-weight:900;">Islam Real Estate</span>
+        <span style="font-size:24px; font-weight:900;">Islam Real Estate (Header Placeholder)</span>
         <nav>
             <a href="/index.html" style="color:white; margin-left:20px; font-weight:600;">الرئيسية</a>
             <a href="/projects.html" style="color:white; margin-left:20px; font-weight:600;">المشاريع</a>
@@ -790,9 +747,13 @@ a:hover{color:#1d4ed8}
 
 
 <div class="breadcrumb">
-    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » 
-    <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » 
-    <a href="{{ site.baseurl }}/murano.html">مشروع مورانو وادي دجلة</a>
+    <a href="/index.html">الرئيسية</a> 
+    <span style="color:var(--muted); margin:0 5px;">»</span>
+    <a href="/sokhna.html">العين السخنة</a>
+    <span style="color:var(--muted); margin:0 5px;">»</span>
+    <a href="/murano.html">مشروع مورانو</a>
+    <span style="color:var(--muted); margin:0 5px;">»</span>
+    وحدات متاحة في مورانو
 </div>
 
 <div class="search-row">
@@ -805,6 +766,7 @@ a:hover{color:#1d4ed8}
 <div class="container">
     <div class="page-title">
         <h1>وحدات متاحة للبيع في مشروع مورانو وادي دجلة - العين السخنة</h1>
+        <div class="separator"></div>
     </div>
 </div>
 
@@ -817,13 +779,16 @@ a:hover{color:#1d4ed8}
             </div>
             <div class="icon-item" data-type="video" data-src="https://i.top4top.io/m_3524euftk0.mp4" onclick="openLightbox('video', this.getAttribute('data-src'))">
                 <img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو المشروع">
-                <small style="display:block; margin-top:5px; font-weight:600; color:var(--primary-blue);">الفيديو</small>
+                <small style="display:block; margin-top:5px; font-weight:600; color:var(--primary-blue);">فيديو</small>
             </div>
-            <div class="icon-item" data-type="map" data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13778.694589283734!2d32.4042296!3d29.6800049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145398246d6b2c2b%3A0x6a0f01a88b50a7c9!2sMurano%20Wadi%20Degla!5e0!3m2!1sen!2seg!4v1727788414457!5m2!1sen!2seg" onclick="openLightbox('map', this.getAttribute('data-src'))">
+            <div class="icon-item" data-type="map" data-src="https://maps.app.goo.gl/cWchnTUbMpX9HcrPA?g_st=awb" onclick="openLightbox('map', this.getAttribute('data-src'))">
                 <img src="https://d.top4top.io/p_3564912551.png" alt="موقع القرية">
                 <small style="display:block; margin-top:5px; font-weight:600; color:var(--primary-blue);">الموقع</small>
             </div>
         </div>
+        <p style="text-align:center; font-size:14px; color:var(--muted); margin-top:10px;">
+            الموقع الحالي: H8VR+554 Murano Wadi Degla Al Ain Al Sokhna, عتاقة، محافظة السويس 8128020
+        </p>
     </div>
 </div>
 
@@ -841,9 +806,12 @@ a:hover{color:#1d4ed8}
 </div>
 
 <div class="container">
-    <div id="unitsGrid" class="units-grid">
-        <div class="empty">جاري تحميل الوحدات...</div>
-    </div>
+    <div class="section-box" style="padding: 20px;">
+        <h2 style="font-size:20px; font-weight:700; text-align:right; margin-top:0;">الوحدات المتاحة للبيع حالياً</h2>
+        <div id="unitsGrid" class="units-grid">
+            <div class="empty">جاري تحميل الوحدات...</div>
+        </div>
+    </div>
     
         <div id="pager" class="pager" style="display:none">
         <button id="prevPage" onclick="loadPage(currentPage - 1)">السابق</button>
@@ -853,10 +821,11 @@ a:hover{color:#1d4ed8}
 </div>
 
 <div class="container">
-    <div class="section-box suggestions-box" id="suggestions-box" style="display:none">
-        <h2>وحدات مقترحة قد تهمك</h2>
-        <div id="suggestionsGrid" class="units-grid"></div>
-        <div id="suggestionsEmpty" class="empty" style="display:none">لا توجد نتائج مقترحة حالياً.</div>
+    <div class="section-box suggestions-box" id="suggestions-box">
+        <h2>وحدات مقترحة قد تهمك في مشاريع أخرى</h2>
+        <div id="suggestionsGrid" class="units-grid">
+            <div class="empty">جاري تحميل الوحدات المقترحة...</div>
+        </div>
     </div>
 </div>
 
@@ -885,9 +854,9 @@ a:hover{color:#1d4ed8}
         <h2>تحتاج إلى استشارة عقارية متخصصة؟</h2>
         <p>املأ بياناتك وسنعاود الاتصال بك قريبًا لمعرفة أفضل العروض المناسبة لميزانيتك واحتياجاتك</p>
         
-        <form id="detailedContactForm" onsubmit="event.preventDefault(); sendContactForm(); return false">
+        <form id="detailedContactForm" onsubmit="event.preventDefault(); return false">
             <input type="text" id="formName" placeholder="الاسم الكامل" required>
-            <input type="tel" id="formPhone" placeholder="الهاتف المحمول (مثال: 010xxxxxxxx)" required pattern="[0-9]{11,}">
+            <input type="tel" id="formPhone" placeholder="الهاتف المحمول (مثال: 01050072527)" required pattern="[0-9]{11,}">
             <input type="email" id="formEmail" placeholder="البريد الإلكتروني (اختياري)">
             <select id="formProject">
                 <option value="Murano">مشروع مورانو - العين السخنة</option>
@@ -914,7 +883,7 @@ a:hover{color:#1d4ed8}
                 <button type="button" class="form-btn whatsapp" onclick="sendContactForm('whatsapp')">
                     إرسال عبر واتساب (مباشر) 🟢
                 </button>
-                <button type="submit" class="form-btn email">
+                <button type="button" class="form-btn email" onclick="sendContactForm('email')">
                     إرسال النموذج (بريد إلكتروني) 📧
                 </button>
             </div>
@@ -922,92 +891,70 @@ a:hover{color:#1d4ed8}
     </div>
 </div>
 
-<div class="footer">
-    <div class="footer-wrap">
-        <div class="footer-column">
-            <h4>تواصل معنا</h4>
-            <p>للحصول على أفضل العروض والوحدات المتاحة:</p>
-            <a href="tel:+201000000000">اتصل بنا: 010xxxxxxxx</a>
-            <a href="mailto:info@islamrealestate.com">البريد الإلكتروني: info@islamrealestate.com</a>
-        </div>
-        <div class="footer-column">
-            <h4>روابط سريعة</h4>
-            <a href="/index.html">الصفحة الرئيسية</a>
-            <a href="/sokhna.html">مشاريع العين السخنة</a>
-            <a href="/contact.html">اتصل بنا</a>
-        </div>
-        <div class="footer-column">
-            <h4>المشاريع المميزة</h4>
-            <a href="/murano.html">مورانو وادي دجلة</a>
-            <a href="/project-x.html">مشروع آخر في السخنة</a>
-            <a href="/project-y.html">مشروع في الساحل الشمالي</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2025 Islam Real Estate. جميع الحقوق محفوظة.
+<div class="footer" style="background:#1f2937; color:#d1d5db; padding:40px 0; margin-top:50px;">
+    <div class="container" style="text-align:center;">
+        <p style="margin-bottom:10px;">Islam Real Estate | تواصل معنا: 01050072527 | البريد: islammesmail@gmail.com</p>
+        <p style="font-size:14px;">© 2025 جميع الحقوق محفوظة.</p>
     </div>
 </div>
 
 
-<a href="https://wa.me/201000000000?text=مرحباً، أود الاستفسار عن وحدات مورانو العين السخنة." class="whatsapp-float" target="_blank">
+<a href="https://wa.me/201050072527?text=مرحباً، أود الاستفسار عن وحدات مورانو وادي دجلة." class="whatsapp-float" target="_blank">
     <img src="https://e.top4top.io/p_356445xj32.png" alt="WhatsApp">
 </a>
 
 <script>
-    // --- Mock Data ---
+    // --- Mock Data: murano-units.json content simulation ---
     const unitsData = [
         {
-            id: 'M001',
-            type: 'شاليه',
-            status: 'developer',
-            developer: 'وادي دجلة',
-            area: 80,
-            bedrooms: 2,
-            delivery: '2026',
-            price: '3,500,000 ج.م.',
-            payment: 'مقدم 10% وتقسيط 7 سنوات',
-            details: 'شاليه دور أرضي بحديقة، إطلالة على حمام السباحة',
-            image: 'https://cdn.top4top.io/i_3564sbc0d0.jpg',
+            id: 'M001', type: 'شاليه', status: 'developer', developer: 'وادي دجلة', area: 80, bedrooms: 2, delivery: '2026',
+            price: '3,500,000 ج.م.', payment: 'مقدم 10% وتقسيط 7 سنوات', details: 'شاليه دور أرضي بحديقة، إطلالة على حمام السباحة',
+            image: 'https://c.top4top.io/p_3564wfv960.jpg',
             media: [
-                'https://cdn.top4top.io/i_3564sbc0d0.jpg',
-                'https://cdn.top4top.io/i_3564sbc0d1.jpg',
-                'https://i.top4top.io/m_3524euftk0.mp4' // Video Example
+                'https://c.top4top.io/p_3564wfv960.jpg', 'https://d.top4top.io/p_3564b0j821.jpeg', 'https://i.top4top.io/m_3524euftk0.mp4' // Video
             ]
         },
         {
-            id: 'R005',
-            type: 'دوبلكس',
-            status: 'resale',
-            developer: 'إعادة بيع',
-            area: 160,
-            bedrooms: 3,
-            delivery: 'فورى',
-            price: '4,800,000 ج.م.',
-            payment: 'نقدًا',
-            details: 'دوبلكس صف أول على البحر، تشطيب سوبر لوكس',
-            image: 'https://cdn.top4top.io/i_3564sbc0d2.jpg',
+            id: 'R005', type: 'دوبلكس', status: 'resale', developer: 'إعادة بيع', area: 160, bedrooms: 3, delivery: 'فورى',
+            price: '4,800,000 ج.م.', payment: 'نقدًا', details: 'دوبلكس صف أول على البحر، تشطيب سوبر لوكس',
+            image: 'https://e.top4top.io/p_35645doza2.jpeg',
             media: [
-                'https://cdn.top4top.io/i_3564sbc0d2.jpg',
-                'https://cdn.top4top.io/i_3564sbc0d3.jpg'
+                'https://e.top4top.io/p_35645doza2.jpeg', 'https://f.top4top.io/p_35645oxjc3.jpg', 'https://g.top4top.io/p_3564whend4.jpg'
             ]
         },
         {
-            id: 'M007',
-            type: 'شاليه',
-            status: 'developer',
-            developer: 'وادي دجلة',
-            area: 120,
-            bedrooms: 3,
-            delivery: '2027',
-            price: '5,100,000 ج.م.',
-            payment: 'مقدم 15% وتقسيط 8 سنوات',
-            details: 'شاليه علوي بفيو بانورامي للبحر',
-            image: 'https://cdn.top4top.io/i_3564sbc0d4.jpg',
+            id: 'M007', type: 'شاليه', status: 'developer', developer: 'وادي دجلة', area: 120, bedrooms: 3, delivery: '2027',
+            price: '5,100,000 ج.م.', payment: 'مقدم 15% وتقسيط 8 سنوات', details: 'شاليه علوي بفيو بانورامي للبحر',
+            image: 'https://h.top4top.io/p_356488equ5.jpg',
             media: [
-                'https://cdn.top4top.io/i_3564sbc0d4.jpg'
+                'https://h.top4top.io/p_356488equ5.jpg', 'https://i.top4top.io/p_3564fopx66.jpg', 'https://j.top4top.io/p_35648q42a7.jpg'
             ]
+        },
+        {
+            id: 'R009', type: 'استوديو', status: 'resale', developer: 'إعادة بيع', area: 55, bedrooms: 1, delivery: 'فورى',
+            price: '1,950,000 ج.م.', payment: 'نقدًا', details: 'استوديو مفروش بالكامل، قريب من الشاطئ',
+            image: 'https://k.top4top.io/p_3564p17n68.jpg',
+            media: [
+                'https://k.top4top.io/p_3564p17n68.jpg', 'https://l.top4top.io/p_35642y2h19.jpg'
+            ]
+        },
+    ];
+
+    // --- Mock Data: suggestion.json content simulation ---
+    const suggestionsData = [
+        {
+            id: 'S01', type: 'شاليه', status: 'developer', developer: 'مشروع آخر (جديد)', area: 90, bedrooms: 2, delivery: '2028',
+            price: '4,200,000 ج.م.', payment: 'تقسيط 10 سنوات', details: 'شاليه بحديقة خاصة ومقدم منخفض',
+            image: 'https://c.top4top.io/p_3564sbc0d0.png', // Using an existing image for mock
+            media: ['https://c.top4top.io/p_3564sbc0d0.png']
+        },
+        {
+            id: 'S02', type: 'فيلا', status: 'resale', developer: 'إعادة بيع', area: 250, bedrooms: 4, delivery: 'فورى',
+            price: '12,500,000 ج.م.', payment: 'نقدًا', details: 'فيلا مستقلة بإطلالة مباشرة على البحر',
+            image: 'https://e.top4top.io/p_35645doza2.jpeg',
+            media: ['https://e.top4top.io/p_35645doza2.jpeg']
         }
-    ]; // Add more mock data for realistic pagination and searching
+    ];
     
     const unitsPerPage = 10;
     let filteredUnits = [];
@@ -1017,21 +964,20 @@ a:hover{color:#1d4ed8}
 
     // --- Utility Functions ---
 
-    // Function to format the price for WhatsApp
     const formatPriceForWhatsapp = (price) => {
         return price.replace(/ /g, ' ').replace(/\./g, '').replace(/ج\.م\./g, 'جنيه');
     }
 
-    // Function to create a unit card HTML
     const createUnitCard = (unit) => {
         const badgeClass = unit.status === 'developer' ? 'dev' : 'resale';
         const badgeText = unit.status === 'developer' ? 'من المطور' : 'إعادة بيع';
-        const whatsappLink = `https://wa.me/201000000000?text=مرحباً، أود الاستفسار عن الوحدة كود: ${unit.id} في مورانو العين السخنة.\n*تفاصيل الوحدة*:\nالنوع: ${unit.type}\nالمساحة: ${unit.area}متر مربع\nالحالة: ${badgeText}\nالسعر: ${formatPriceForWhatsapp(unit.price)}`;
+        const phoneNumber = '01050072527';
+        const whatsappLink = `https://wa.me/20${phoneNumber}?text=مرحباً، أود الاستفسار عن الوحدة كود: ${unit.id} في ${unit.developer.includes('مورانو') ? 'مورانو العين السخنة' : unit.developer}.\n*تفاصيل الوحدة*:\nالنوع: ${unit.type}\nالمساحة: ${unit.area}متر مربع\nالحالة: ${badgeText}\nالسعر: ${formatPriceForWhatsapp(unit.price)}`;
 
         return `
             <div class="unit-card" data-id="${unit.id}" data-type="${unit.type}" data-status="${unit.status}" onclick="openLightbox('unit', '${unit.id}')">
                 <div class="unit-images">
-                    <img src="${unit.image}" alt="${unit.type} في مورانو كود ${unit.id}" loading="lazy" />
+                    <img src="${unit.image}" alt="${unit.type} في ${unit.developer} كود ${unit.id}" loading="lazy" />
                     <div class="unit-badges">
                         <span class="badge ${badgeClass}">${badgeText}</span>
                         ${unit.delivery.toLowerCase() === 'فورى' ? `<span class="badge" style="background-color:#4ade80;">استلام فورى</span>` : ''}
@@ -1056,7 +1002,7 @@ a:hover{color:#1d4ed8}
                             <a class="action-btn whatsapp" href="${whatsappLink}" target="_blank" onclick="event.stopPropagation();">
                                 <img src="https://e.top4top.io/p_356445xj32.png" alt="WhatsApp">
                             </a>
-                            <a class="action-btn call" href="tel:+201000000000" onclick="event.stopPropagation();">
+                            <a class="action-btn call" href="tel:+20${phoneNumber}" onclick="event.stopPropagation();">
                                 <img src="https://f.top4top.io/p_356441g6n3.png" alt="Call">
                             </a>
                         </div>
@@ -1068,44 +1014,46 @@ a:hover{color:#1d4ed8}
 
     // --- Main Page Logic ---
 
-    // Renders the current page of units
     const renderUnits = (units, containerId) => {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
+        const isMainGrid = (containerId === 'unitsGrid');
 
         if (units.length === 0) {
             container.innerHTML = '<div class="empty">عفواً، لا توجد وحدات متاحة حالياً تطابق معايير البحث.</div>';
-            document.getElementById('pager').style.display = 'none';
-            document.getElementById('suggestions-box').style.display = 'block';
+            if (isMainGrid) {
+                document.getElementById('pager').style.display = 'none';
+            }
             return;
         }
 
-        const startIndex = (currentPage - 1) * unitsPerPage;
-        const endIndex = startIndex + unitsPerPage;
+        const startIndex = isMainGrid ? (currentPage - 1) * unitsPerPage : 0;
+        const endIndex = isMainGrid ? startIndex + unitsPerPage : units.length;
         const unitsToDisplay = units.slice(startIndex, endIndex);
 
         unitsToDisplay.forEach(unit => {
             container.innerHTML += createUnitCard(unit);
         });
 
-        // Update Pager
-        const totalPages = Math.ceil(units.length / unitsPerPage);
-        const pager = document.getElementById('pager');
-        const prevPageBtn = document.getElementById('prevPage');
-        const nextPageBtn = document.getElementById('nextPage');
-        const pageInfo = document.getElementById('pageInfo');
+        // Update Pager (only for main grid)
+        if (isMainGrid) {
+            const totalPages = Math.ceil(units.length / unitsPerPage);
+            const pager = document.getElementById('pager');
+            const prevPageBtn = document.getElementById('prevPage');
+            const nextPageBtn = document.getElementById('nextPage');
+            const pageInfo = document.getElementById('pageInfo');
 
-        if (totalPages > 1 && containerId === 'unitsGrid') {
-            pager.style.display = 'flex';
-            pageInfo.textContent = `صفحة ${currentPage} من ${totalPages}`;
-            prevPageBtn.disabled = currentPage === 1;
-            nextPageBtn.disabled = currentPage === totalPages;
-        } else if (containerId === 'unitsGrid') {
-            pager.style.display = 'none';
+            if (totalPages > 1) {
+                pager.style.display = 'flex';
+                pageInfo.textContent = `صفحة ${currentPage} من ${totalPages}`;
+                prevPageBtn.disabled = currentPage === 1;
+                nextPageBtn.disabled = currentPage === totalPages;
+            } else {
+                pager.style.display = 'none';
+            }
         }
     };
 
-    // Loads a specific page of units
     const loadPage = (page) => {
         const totalPages = Math.ceil(filteredUnits.length / unitsPerPage);
         if (page < 1 || page > totalPages) return;
@@ -1115,26 +1063,21 @@ a:hover{color:#1d4ed8}
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Filters units based on 'developer' or 'resale'
     const filterUnits = (filter) => {
-        // Update active button state
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
 
-        // Apply filter
         if (filter === 'all') {
             filteredUnits = unitsData;
         } else {
             filteredUnits = unitsData.filter(unit => unit.status === filter);
         }
 
-        document.getElementById('unitsFilter').value = ''; // Clear search on filter change
+        document.getElementById('unitsFilter').value = ''; 
         currentPage = 1;
         renderUnits(filteredUnits, 'unitsGrid');
-        document.getElementById('suggestions-box').style.display = 'none';
     };
 
-    // Searches units based on text input
     const searchUnits = () => {
         const searchText = document.getElementById('unitsFilter').value.toLowerCase().trim();
         const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
@@ -1167,9 +1110,10 @@ a:hover{color:#1d4ed8}
         document.getElementById('lightboxNext').style.display = 'none';
         
         if (type === 'gallery') {
-            // Get all images from a predefined list (for general gallery)
-            // Using media from all units for a full project gallery demo
-            currentLightboxMedia = [...new Set(unitsData.flatMap(unit => unit.media).filter(src => src && !src.endsWith('.mp4')))];
+            // Get all unique media sources (images only for general gallery)
+            currentLightboxMedia = unitsData.flatMap(unit => unit.media).filter(src => src && !src.endsWith('.mp4'));
+            // Remove duplicates
+            currentLightboxMedia = [...new Set(currentLightboxMedia)]; 
             currentMediaIndex = 0;
             if (currentLightboxMedia.length > 0) {
                 displayMedia(currentLightboxMedia[currentMediaIndex]);
@@ -1183,8 +1127,7 @@ a:hover{color:#1d4ed8}
         } else if (type === 'video' && sourceOrId) {
             content.innerHTML = `<video src="${sourceOrId}" controls autoplay style="max-width:100%; max-height:100%;"></video>`;
         } else if (type === 'map' && sourceOrId) {
-            // Using iframe for an embedded map
-            content.innerHTML = `<iframe src="${sourceOrId}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+            content.innerHTML = `<iframe src="https://maps.google.com/maps?q=${sourceOrId.replace(/ /g, '+')}&output=embed" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
         } else if (type === 'unit' && sourceOrId) {
             const unit = unitsData.find(u => u.id === sourceOrId);
             if (unit && unit.media) {
@@ -1235,9 +1178,11 @@ a:hover{color:#1d4ed8}
         const project = document.getElementById('formProject').value;
         const unitType = document.querySelector('input[name="unitType"]:checked').value;
         const message = document.getElementById('formMessage').value || 'لا توجد رسالة إضافية.';
+        const targetEmail = 'islammesmail@gmail.com';
+        const targetPhone = '01050072527';
 
-        if (!name || !phone) {
-            alert('الرجاء إدخال الاسم ورقم الهاتف.');
+        if (!name || !phone || phone.length < 11) {
+            alert('الرجاء إدخال الاسم ورقم الهاتف بشكل صحيح (11 رقم على الأقل).');
             return;
         }
 
@@ -1254,21 +1199,29 @@ a:hover{color:#1d4ed8}
         `;
 
         if (method === 'whatsapp') {
-            const whatsappLink = `https://wa.me/201000000000?text=${encodeURIComponent(fullMessage.trim())}`;
+            const whatsappLink = `https://wa.me/20${targetPhone}?text=${encodeURIComponent(fullMessage.trim())}`;
             window.open(whatsappLink, '_blank');
-        } else {
-            // Simulate form submission (e.g., to an endpoint or email service)
-            alert(`تم إرسال نموذج الاتصال بالبريد الإلكتروني (محاكاة).\nسنعاود الاتصال بك قريباً!`);
-            console.log('Form Submitted (Email Simulation):', fullMessage);
-            document.getElementById('detailedContactForm').reset();
+        } else if (method === 'email') {
+            // Using mailto link for email submission
+            const subject = encodeURIComponent(`استفسار عن وحدات ${project}`);
+            const body = encodeURIComponent(fullMessage.trim());
+            window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+            
+            // Note: After opening mailto, usually forms are not reset automatically.
+            alert('تم فتح تطبيق البريد الإلكتروني. يرجى مراجعة المسودة وإرسالها.');
         }
+
+        // Optional: clear the form after successful submission/link generation
+        document.getElementById('detailedContactForm').reset();
     };
 
     // --- Page Initialization ---
     const initPage = () => {
-        // Initial load should display all units
         filteredUnits = unitsData;
-        loadPage(1);
+        
+        // Render main units and suggestions
+        renderUnits(filteredUnits, 'unitsGrid');
+        renderUnits(suggestionsData, 'suggestionsGrid');
 
         // Event listener for main site search (mock/placeholder functionality)
         document.getElementById('siteSearch').addEventListener('input', function() {
@@ -1277,13 +1230,11 @@ a:hover{color:#1d4ed8}
             suggest.innerHTML = '';
             
             if (query.length > 1) {
-                // Mock suggestions logic
                 const mockProjects = ['العين السخنة', 'مورانو وادي دجلة', 'الساحل الشمالي', 'القاهرة الجديدة'];
                 const matched = mockProjects.filter(p => p.includes(query));
                 
                 if (matched.length > 0) {
                     matched.forEach(match => {
-                        // Assuming links exist for these projects
                         const link = match.includes('مورانو') ? '/murano.html' : '/sokhna.html'; 
                         suggest.innerHTML += `<a href="${link}">${match}</a>`;
                     });
@@ -1296,7 +1247,6 @@ a:hover{color:#1d4ed8}
             }
         });
 
-        // Hide suggestions on click outside
         document.addEventListener('click', function(e) {
             if (!document.querySelector('.search-wrap').contains(e.target)) {
                 document.getElementById('suggest').style.display = 'none';
