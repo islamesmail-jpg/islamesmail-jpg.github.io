@@ -35,7 +35,7 @@ permalink: /murano.units.html
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;background:#ffffff; /* خلفية بيضاء صافية */
+  margin:0;background:#ffffff;
   color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;
   line-height:1.7; 
   font-size:16px; 
@@ -43,14 +43,14 @@ body{
 a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s;}
 a:hover{color:#1d4ed8;}
 
-/* شريط البحث العلوي - تم وضعه في مستطيل منفصل مع خلفية خفيفة */
+/* شريط البحث العلوي */
 .search-row{
   border-bottom:1px solid var(--line);
   padding:15px 0;
   text-align:center;
-  background:#f9fafb; /* مستطيل خفيف للخلفية */
+  background:#f9fafb;
   border:1px solid var(--line);
-  margin-top: -1px; /* لدمجه مع الهيدر */
+  margin-top: -1px;
 }
 .search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
 #siteSearch{
@@ -72,78 +72,81 @@ a:hover{color:#1d4ed8;}
 /* الحاوية الرئيسية والتنقل */
 .container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
 .section-box{
-  border:1px solid var(--line); /* إطار المستطيل لكل قسم */
+  border:1px solid var(--line);
   border-radius:var(--radius);
   padding:20px;
   background:#fff;
-  margin-bottom: 20px; /* فاصل بين الأقسام */
+  margin-bottom: 20px;
 }
 .breadcrumb{
   color:var(--muted);font-size:14px;text-align:right;
   margin-bottom:10px; 
-  white-space: nowrap; overflow-x: auto; /* للحفاظ على سطر واحد */
-  padding: 0 15px; /* لإلغاء البادينج الداخلي للحاوية */
+  white-space: nowrap; overflow-x: auto;
+  padding: 0 15px;
 }
 .page-title h1{
   margin:0;
   font-size:26px; 
   font-weight:900;
   color:var(--ink); 
-  text-align: center; /* العنوان في منتصف الصفحة */
+  text-align: center;
 } 
 .divider{
     height: 1px;
     background: var(--line);
-    margin: 20px 0; /* فاصل واضح */
+    margin: 20px 0;
 }
 
-/* الأيقونات الجديدة (صور / فيديو / موقع) */
+/* 🌟 الأيقونات الجديدة (صور / فيديو / موقع) - تم تحسين التنسيق */
 .icon-links-section{
-    /* border:1px solid var(--line); تم إزالة الإطار من هنا */
     border-radius:var(--radius);
-    padding:20px 0; /* تعديل البادينج */
+    padding:20px 0;
     background:#fff;
-    margin-bottom: 20px; /* فاصل بين الأقسام */
+    margin-bottom: 20px;
 }
 .icon-links{
     display: flex;
     justify-content: center;
-    gap: 25px; /* المسافة بين الأيقونات */
+    gap: 30px; /* مسافة أكبر قليلاً */
     align-items: center;
     padding: 10px 0;
-    flex-wrap: wrap; /* للسماح بالالتفاف على الشاشات الصغيرة */
+    flex-wrap: wrap;
 }
 .icon-link-item{
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.3s, color 0.3s;
     text-align: center;
-    color: var(--ink); /* لون النص افتراضي */
+    color: var(--muted); /* لون رمادي خفيف افتراضي */
 }
 .icon-link-item:hover{
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.05); /* تأثير ارتقاء أنيق */
     color: var(--primary-blue);
 }
 .icon-link-item img{
-    width: 50px; /* حجم أصغر للأيقونة */
-    height: 50px; /* حجم أصغر للأيقونة */
+    width: 50px; /* حجم صغير */
+    height: 50px;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,.1);
     border: 3px solid #fff;
-    transition: border-color 0.3s, transform 0.2s;
-    object-fit: cover; /* التأكد من أن الصورة لا تتشوه */
+    transition: border-color 0.3s, transform 0.3s;
+    object-fit: cover;
 }
 .icon-link-item:hover img{
     border-color: var(--primary-blue);
-    transform: scale(1.05);
 }
 .icon-link-item span{
     margin-top: 8px;
     font-size: 14px;
     font-weight: 700;
 }
+/* تنسيق خاص لتوزيع الأيقونات على الشاشات الأصغر */
+@media(max-width:400px){
+  .icon-links{gap: 20px;}
+}
+
 
 /* أدوات التحكم والفلترة */
 .controls{
@@ -192,7 +195,7 @@ a:hover{color:#1d4ed8;}
   position:relative; 
   min-width: 180px; 
   max-width: 180px; 
-  height: 180px; /* جعله مربعاً */
+  height: 180px;
   background:#000;
   flex-shrink: 0;
 }
@@ -211,12 +214,12 @@ a:hover{color:#1d4ed8;}
   padding:15px; 
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 140px; /* تغيير في التقسيم */
+  grid-template-columns: 1fr 140px;
   gap: 10px 20px;
   align-items: start;
 }
 .unit-meta h3{margin:0;font-size:18px;font-weight:800;color:var(--ink); grid-column: 1 / span 1;}
-.unit-meta .small{color:var(--muted);font-size:12px;margin-top:5px; grid-column: 1 / span 1;} /* تفاصيل الموقع */
+.unit-meta .small{color:var(--muted);font-size:12px;margin-top:5px; grid-column: 1 / span 1;}
 
 /* تفاصيل الوحدة (غرف، حمامات، مساحة) */
 .details-section { 
@@ -230,7 +233,7 @@ a:hover{color:#1d4ed8;}
 .details-section > div { 
     font-weight: 600;
     font-size: 15px;
-    color: var(--ink); /* لون نص التفاصيل */
+    color: var(--ink);
 }
 .details-section strong{
     color: var(--muted);
@@ -246,7 +249,7 @@ a:hover{color:#1d4ed8;}
   display:flex;align-items:center;gap:6px;
   font-weight:600;font-size:14px;color:var(--ink);
 }
-.spec-pill img{width:16px;height:16px; filter: grayscale(1);} /* تصغير حجم الأيقونات */
+.spec-pill img{width:16px;height:16px; filter: grayscale(1);}
 
 /* قسم الأزرار والاتصال (في أقصى اليسار) */
 .price-actions-section { 
@@ -256,7 +259,7 @@ a:hover{color:#1d4ed8;}
   gap: 10px; 
   align-items: center; 
   padding-left: 10px; 
-  border-left: 1px solid var(--line); /* فاصل بين البيانات والأزرار */
+  border-left: 1px solid var(--line);
   text-align: center;
   justify-content: space-between;
   height: 100%;
@@ -265,12 +268,12 @@ a:hover{color:#1d4ed8;}
   display: flex; 
   gap: 10px; 
   justify-content: center;
-  align-items: flex-end; /* لأسفل */
+  align-items: flex-end;
   margin-top: 20px;
 }
 .action-btn{
   display: flex; align-items: center; justify-content: center;
-  width: 45px; height: 45px; border-radius: 50%; /* تكبير الأزرار قليلاً */
+  width: 45px; height: 45px; border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,.2);
   transition: transform 0.2s;
   cursor: pointer;
@@ -278,7 +281,7 @@ a:hover{color:#1d4ed8;}
 /* ألوان الأزرار المخصصة */
 .action-btn.call{ background-color: var(--primary-blue); }
 .action-btn.whatsapp{ background-color: var(--accent); }
-.action-btn img{width: 25px; height: 25px; filter: invert(1);} /* الأيقونات بيضاء */
+.action-btn img{width: 25px; height: 25px; filter: invert(1);}
 
 /* التنسيقات المتجاوبة (Responsive) */
 @media(max-width:850px){
@@ -303,19 +306,19 @@ a:hover{color:#1d4ed8;}
   .details-section{padding-bottom: 0;}
 }
 @media(max-width:600px){
-    .icon-link-item img{width: 40px; height: 40px;} /* أصغر على الجوال */
+    .icon-link-item img{width: 40px; height: 40px;}
     .icon-link-item span{font-size: 12px;}
-    .icon-links{gap: 10px;}
-    .contact-form-section form { padding: 0 10px; } /* بادينج للنموذج على الجوال */
+    .icon-links{gap: 15px;}
+    .contact-form-section form { padding: 0 10px; }
     .form-unit-type-group label {
-        padding: 6px 10px;
-        font-size: 13px;
+        padding: 8px 12px;
+        font-size: 14px;
     }
-    .form-actions { flex-direction: column; } /* الأزرار فوق بعضها */
+    .form-actions { flex-direction: column; }
 }
 
 
-/* نموذج التواصل الجديد */
+/* 🌟 نموذج التواصل الجديد - تنسيق أفضل */
 .contact-form-section{
     padding: 30px;
     text-align: center;
@@ -341,31 +344,35 @@ a:hover{color:#1d4ed8;}
     border-radius: 8px;
     font-family: inherit;
     font-size: 15px;
+    text-align: right; /* ضمان محاذاة النص لليمين */
 }
+/* 🌟 أزرار التبديل لنوع الوحدة */
 .form-unit-type-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px; /* تقليل المسافة بين الأزرار */
     justify-content: center;
-    margin-top: 5px; /* مسافة أعلى */
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 .form-unit-type-group label {
     background: #f3f4f6;
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 20px; /* شكل بيضاوي لأزرار التبديل */
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s, color 0.2s;
     font-weight: 600;
-    border: 1px solid var(--line); /* إضافة إطار لأزرار التبديل */
+    border: 1px solid var(--line);
+    white-space: nowrap;
 }
 .form-unit-type-group input[type="radio"]:checked + label {
     background: var(--primary-blue);
     color: #fff;
-    border-color: var(--primary-blue); /* لون الإطار عند التحديد */
+    border-color: var(--primary-blue);
     box-shadow: 0 2px 5px rgba(37,99,235,.2);
 }
 .form-unit-type-group input[type="radio"] { display: none; }
+
 .form-actions {
     display: flex;
     gap: 15px;
@@ -411,7 +418,7 @@ a:hover{color:#1d4ed8;}
     filter: invert(1);
 }
 
-/* Lightbox (محاكي Lightbox بسيط) */
+/* 🌟 Lightbox (شاشة منبثقة) - تصميم راقي */
 .lightbox {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -420,28 +427,51 @@ a:hover{color:#1d4ed8;}
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  backdrop-filter: blur(5px); /* تأثير ضبابي راقي */
 }
 .lightbox.open { display: flex; }
 .lightbox-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
-.lightbox-content img, .lightbox-content video, .lightbox-content iframe {
+.lightbox-content img, .lightbox-content video {
   max-width: 100%;
   max-height: 100%;
   display: block;
 }
+.lightbox-content iframe {
+  width: 1000px; /* حجم افتراضي كبير للخريطة */
+  height: 600px;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: block;
+  border: none;
+}
+@media(max-width:800px){
+  .lightbox-content iframe {
+    width: 90vw;
+    height: 60vh;
+  }
+}
 .lightbox-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   color: #fff;
-  font-size: 30px;
+  font-size: 36px; /* حجم أكبر للإغلاق */
   font-weight: bold;
   cursor: pointer;
   z-index: 10000;
   text-shadow: 0 0 5px #000;
+  transition: color 0.2s;
+}
+.lightbox-close:hover {
+  color: #ccc;
 }
 .lightbox-nav-btn {
     position: absolute;
@@ -487,7 +517,7 @@ a:hover{color:#1d4ed8;}
     color: var(--ink);
 }
 .faq-list summary::after {
-    content: '▼'; /* رمز يشير إلى أنها قابلة للتوسيع */
+    content: '▼';
     margin-right: 10px;
     transition: transform 0.3s;
 }
@@ -526,7 +556,8 @@ a:hover{color:#1d4ed8;}
     <div class="breadcrumb" aria-hidden="false">
     <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/murano.html">مشروع مورانو</a> » <span style="font-size: 13px;">وحدات متاحة في مورانو</span>
   </div>
-      <div class="icon-links-section">
+
+        <div class="icon-links-section">
       <div class="icon-links">
           <a class="icon-link-item" data-type="gallery">
               <img src="https://c.top4top.io/p_3564sbc0d0.png" alt="صور المشروع">
@@ -536,7 +567,7 @@ a:hover{color:#1d4ed8;}
               <img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو المشروع">
               <span>فيديو المشروع</span>
           </a>
-          <a class="icon-link-item" data-type="map" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.886026909472!2d32.5517336!3d29.6101918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532e8c2c192667%3A0x6b447a16f399d949!2sMurano%20Wadi%20Degla!5e0!3m2!1sen!2seg!4v1707070707070!5m2!1sen!2seg">
+          <a class="icon-link-item" data-type="map" data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13854.49626577549!2d32.4087541!3d29.6224097!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532688755b403d%3A0xc3f58a36d90a59b2!2sMurano%20El%20Sokhna!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg">
               <img src="https://d.top4top.io/p_3564912551.png" alt="موقع القرية">
               <span>موقع القرية</span>
           </a>
@@ -662,8 +693,7 @@ function ensureAbsolutePath(path){
   return '{{ site.baseurl }}' + cleanedPath;
 }
 
-/* ---------------- 1. Search Script (تم تحديث المسار) ---------------- */
-// ... (الكود الخاص بالبحث لم يتم تعديله بناءً على طلبك) ...
+/* ---------------- 1. Search Script (البحث العلوي) ---------------- */
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
@@ -718,7 +748,6 @@ function ensureAbsolutePath(path){
 
 
 /* ---------------- 2. Units loading, Card rendering, and Filtering ---------------- */
-// تم وضع المتغيرات العامة هنا لجعل دالة unitCard متاحة للوحدات المقترحة
 const CALL_ICON = 'https://d.top4top.io/p_35643luom0.png';
 const WHATSAPP_ICON = 'https://e.top4top.io/p_3564lzic71.png';
 const BED_ICON = 'https://j.top4top.io/p_3563c1mt61.png';
@@ -736,7 +765,7 @@ function fmt(n){ 
     catch(e){ return n; } 
 }
 
-// ** دالة إنشاء بطاقة الوحدة (تصميم القائمة الجديد) **
+// دالة إنشاء بطاقة الوحدة
 function unitCard(u){
     const img = (u.images && u.images[0]) || u.img || FALLBACK_IMG;
     const linkTarget = u.link ? ensureAbsolutePath(u.link) : '#'; 
@@ -747,7 +776,6 @@ function unitCard(u){
     card.className='unit-card'; 
     card.setAttribute('role','article');
 
-    // صور الوحدة + الشارات
     const images = document.createElement('a'); 
     images.className='unit-images';
     images.href = linkTarget;
@@ -766,22 +794,18 @@ function unitCard(u){
     badges.appendChild(typeBadge);
     images.appendChild(badges);
     
-    // البيانات الوصفية والسعر والأزرار
     const meta = document.createElement('div'); 
     meta.className='unit-meta';
 
-    // 1. العنوان والمدينة
     const h = document.createElement('h3'); 
     const titleLink = document.createElement('a');
     titleLink.href = linkTarget;
     titleLink.textContent = u.title || 'وحدة سكنية';
     h.appendChild(titleLink);
     
-    // 2. تفاصيل الوحدة
     const detailsSection = document.createElement('div');
     detailsSection.className = 'details-section';
 
-    // نوع الوحدة والتسليم
     const typeRow = document.createElement('div');
     typeRow.innerHTML = `<strong>النوع:</strong> ${u.unit_type || 'شاليه'}`;
     detailsSection.appendChild(typeRow);
@@ -790,7 +814,6 @@ function unitCard(u){
     deliveryRow.innerHTML = `<strong>التسليم:</strong> ${u.delivery || 'غير محدد'}`;
     detailsSection.appendChild(deliveryRow);
 
-    // الغرف، الحمامات، المساحة
     const specs = document.createElement('div'); 
     specs.className='spec-row';
     
@@ -811,30 +834,25 @@ function unitCard(u){
     }
     detailsSection.appendChild(specs);
 
-    // السعر بدلاً من المقدم
     const price = u.price;
     const priceRow = document.createElement('div');
     priceRow.className = 'price-lead';
     priceRow.textContent = price ? ('السعر: ج.م ' + fmt(price)) : 'اتصل لمعرفة السعر';
     detailsSection.appendChild(priceRow);
     
-    // الموقع بخط صغير
     const small = document.createElement('div'); small.className='small'; small.textContent = (u.city || 'العين السخنة') + ', طريق الزعفرانة';
 
-    // 3. الأزرار
     const priceActionsSection = document.createElement('div');
     priceActionsSection.className = 'price-actions-section';
     
     const actions = document.createElement('div');
     actions.className = 'contact-actions';
 
-    // زر الاتصال
     const callBtn = document.createElement('a');
     callBtn.className = 'action-btn call';
     callBtn.href = phoneLink;
     callBtn.innerHTML = `<img src="${CALL_ICON}" alt="اتصال">`;
 
-    // زر الواتساب
     const whatsappBtn = document.createElement('a');
     whatsappBtn.className = 'action-btn whatsapp';
     whatsappBtn.href = whatsappLink;
@@ -844,16 +862,13 @@ function unitCard(u){
     actions.appendChild(callBtn);
     actions.appendChild(whatsappBtn);
     
-    // تجميع الأزرار
     priceActionsSection.appendChild(actions);
 
-    // تجميع البيانات الوصفية
     meta.appendChild(h); 
     meta.appendChild(small); 
     meta.appendChild(detailsSection); 
     meta.appendChild(priceActionsSection);
 
-    // تجميع البطاقة
     card.appendChild(images); 
     card.appendChild(meta);
     return card;
@@ -984,15 +999,14 @@ function unitCard(u){
         SUGGESTIONS_GRID.innerHTML = '';
         const frag = document.createDocumentFragment();
         suggestions.slice(0, 3).forEach(u => { // عرض 3 وحدات مقترحة كحد أقصى
-            // نستخدم نفس دالة unitCard المعرفة في النطاق العام
             if (typeof unitCard === 'function') {
                 frag.appendChild(unitCard(u));
             }
         });
         SUGGESTIONS_GRID.appendChild(frag);
     } else {
-        SUGGESTIONS_BOX.style.display = 'block'; // نعرض الصندوق
-        SUGGESTIONS_EMPTY.style.display = 'block'; // ونعرض رسالة الفراغ
+        SUGGESTIONS_BOX.style.display = 'block';
+        SUGGESTIONS_EMPTY.style.display = 'block';
     }
 })();
 
@@ -1005,6 +1019,7 @@ function unitCard(u){
     const nextBtn = document.getElementById('lightboxNext');
     const mediaLinks = document.querySelectorAll('.icon-link-item');
     
+    // 🌟 صور معرض المشروع
     const GALLERY_IMAGES = [
       'https://c.top4top.io/p_3564wfv960.jpg',
       'https://d.top4top.io/p_3564b0j821.jpeg',
@@ -1017,24 +1032,27 @@ function unitCard(u){
         lightboxContent.innerHTML = '';
         lightboxContent.appendChild(contentElement);
         lightbox.classList.add('open');
-        prevBtn.style.display = enableNav ? 'block' : 'none';
-        nextBtn.style.display = enableNav ? 'block' : 'none';
+        prevBtn.style.display = enableNav && GALLERY_IMAGES.length > 1 ? 'block' : 'none';
+        nextBtn.style.display = enableNav && GALLERY_IMAGES.length > 1 ? 'block' : 'none';
+        document.body.style.overflow = 'hidden'; // منع السكرول على الصفحة الرئيسية
     };
 
     const closeLightbox = () => {
         lightbox.classList.remove('open');
-        lightboxContent.innerHTML = ''; // إزالة المحتوى (وإيقاف الفيديو تلقائياً)
+        lightboxContent.innerHTML = '';
         prevBtn.style.display = 'none';
         nextBtn.style.display = 'none';
+        document.body.style.overflow = ''; // إعادة السكرول
     };
 
     const showImage = (index) => {
         currentImageIndex = (index + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
         const img = document.createElement('img');
         img.src = GALLERY_IMAGES[currentImageIndex];
+        img.alt = `صورة رقم ${currentImageIndex + 1}`;
         img.style.maxWidth = '90vw';
         img.style.maxHeight = '90vh';
-        openLightbox(img, true); // تفعيل أزرار التنقل
+        openLightbox(img, true);
     };
     
     const nextImage = () => showImage(currentImageIndex + 1);
@@ -1042,30 +1060,32 @@ function unitCard(u){
 
     closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) { closeLightbox(); }
+        // الإغلاق عند الضغط على الخلفية السوداء فقط
+        if (e.target === lightbox || e.target.id === 'lightbox') { closeLightbox(); }
     });
 
     prevBtn.addEventListener('click', prevImage);
     nextBtn.addEventListener('click', nextImage);
 
-    // دعم السحب (للجوال)
+    // دعم السحب (Swipe) لمعرض الصور
     let startX = 0;
-    let isSwiping = false;
-    lightboxContent.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isSwiping = true;
+    lightbox.addEventListener('touchstart', (e) => {
+        // تأكد أننا داخل Lightbox وأن الأزرار مرئية (أي معرض صور)
+        if (lightbox.classList.contains('open') && prevBtn.style.display === 'block') {
+            startX = e.touches[0].clientX;
+        }
     });
-    lightboxContent.addEventListener('touchend', (e) => {
-        if (!isSwiping) return;
+    lightbox.addEventListener('touchend', (e) => {
+        if (prevBtn.style.display !== 'block') return;
         const endX = e.changedTouches[0].clientX;
         const diff = endX - startX;
-        if (Math.abs(diff) > 50) { // اعتبارها سحبة إذا كانت المسافة > 50 بكسل
+        if (Math.abs(diff) > 50) { // اعتبارها سحبة
             if (diff > 0) { prevImage(); } // سحب لليمين
             else { nextImage(); } // سحب لليسار
         }
-        isSwiping = false;
     });
 
+    // ربط الروابط
     mediaLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1085,11 +1105,7 @@ function unitCard(u){
                 openLightbox(contentElement, false);
             } else if (type === 'map') {
                 contentElement = document.createElement('iframe');
-                // تم تحديث رابط Google Maps ليكون أكثر تحديدًا
-                contentElement.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.886026909472!2d32.5517336!3d29.6101918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532e8c2c192667%3A0x6b447a16f399d949!2sMurano%20Wadi%20Degla!5e0!3m2!1sen!2seg!4v1707070707070!5m2!1sen!2seg';
-                contentElement.style.width = '1000px';
-                contentElement.style.height = '600px';
-                contentElement.style.border = 'none';
+                contentElement.src = src; // رابط Embed لخريطة جوجل
                 contentElement.allowFullscreen = true;
                 contentElement.loading = 'lazy';
                 openLightbox(contentElement, false);
@@ -1110,8 +1126,8 @@ function getFormData() {
     const budget = document.getElementById('formBudget').value;
     const notes = document.getElementById('formNotes').value;
 
-    if (!name || !phone || phone.length < 11) {
-        alert('الرجاء إدخال الاسم ورقم الهاتف المحمول بشكل صحيح (11 رقم على الأقل).');
+    if (!name || !phone || phone.length < 11 || !/^[0-9]+$/.test(phone)) {
+        alert('الرجاء إدخال الاسم ورقم الهاتف المحمول بشكل صحيح (11 رقمًا على الأقل، أرقام فقط).');
         return null;
     }
 
