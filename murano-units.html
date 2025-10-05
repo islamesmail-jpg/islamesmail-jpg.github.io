@@ -22,6 +22,7 @@ permalink: /murano-units.html
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
+/* ... (Style remains unchanged as per request) ... */
 :root {
     --primary-color: #007BFF;
     --accent-color: #25D366;
@@ -330,56 +331,27 @@ h1.page-title {
     border-radius: 6px;
     font-family: inherit;
     font-size: 15px;
+    text-align: right; /* Ensure input text alignment is correct */
 }
 .contact-form-section input::placeholder,
 .contact-form-section textarea::placeholder {
     color: #aaa;
+    text-align: right;
+}
+.contact-form-section select {
+    appearance: none; /* Remove default arrow in some browsers */
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23000" d="M10.293 3.293L6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414z"/></svg>') no-repeat left 15px center;
 }
 
-.unit-type-selector {
-    position: relative;
-}
-.unit-type-display {
+/* New: Unit type selector as a simple select */
+.unit-type-group select {
+    text-align: right;
     width: 100%;
     padding: 12px 15px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    background: #fff;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.unit-type-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    margin-top: 5px;
-    max-height: 250px;
-    overflow-y: auto;
-    z-index: 100;
-    box-shadow: var(--shadow);
-}
-.unit-type-dropdown.show {
-    display: block;
-}
-.unit-type-option {
-    padding: 12px 15px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.unit-type-option:hover {
-    background: var(--bg-light);
-}
-.unit-type-option.selected {
-    background: #000;
-    color: #fff;
-    font-weight: 700;
+    font-family: inherit;
+    font-size: 15px;
 }
 
 .form-actions-buttons { display: flex; gap: 12px; margin-top: 20px; }
@@ -440,6 +412,7 @@ h1.page-title {
     .cards { grid-template-columns: 1fr; }
     .form-actions-buttons { flex-direction: column; }
 }
+/* ... (End of Style) ... */
 </style>
 </head>
 <body>
@@ -498,7 +471,10 @@ h1.page-title {
 
     <div style="display:none;" id="map-popup">
         <h3 style="text-align:center; padding:15px; background:#f1f1f1; margin:0;">موقع مشروع مورانو</h3>
-        <iframe src="https://maps.app.goo.gl/WiVMNq2FCEJEjUh36?g_st=awb" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11277.675604100523!2d32.42852264906963!3d29.58988226922241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532b260909f197%3A0x6a21e428c4608c02!2sMurano%20Wadi%20Degla%20Al%20Ain%20Al%20Sokhna!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p style="text-align:center; font-size:14px; padding:10px; margin:0; color:var(--text-muted);">
+            H8VR+554 Murano Wadi Degla Al Ain Al Sokhna, عتاقة، محافظة السويس 8128020
+        </p>
     </div>
 
     <div class="filters-section">
@@ -553,7 +529,7 @@ h1.page-title {
     </div>
 
     <div class="contact-form-section">
-        <h2>تحتاج إلى استشارة عقارية؟</h2>
+        <h2>تحتاج إلى مساعدة عقارية؟</h2>
         <p>املأ بياناتك وسنعاود الاتصال بك قريبًا لمعرفة أفضل العروض</p>
         
         <form id="contactForm">
@@ -566,21 +542,17 @@ h1.page-title {
                 <option value="Other">مشروع آخر</option>
             </select>
 
-            <div class="unit-type-selector">
-                <div class="unit-type-display" onclick="toggleUnitType()">
-                    <span id="selectedType">شاليه</span>
-                    <span>▼</span>
-                </div>
-                <div class="unit-type-dropdown" id="unitTypeDropdown">
-                    <div class="unit-type-option selected" onclick="selectType('شاليه', this)">شاليه</div>
-                    <div class="unit-type-option" onclick="selectType('فيلا', this)">فيلا</div>
-                    <div class="unit-type-option" onclick="selectType('استوديو', this)">استوديو</div>
-                    <div class="unit-type-option" onclick="selectType('توين هاوس', this)">توين هاوس</div>
-                    <div class="unit-type-option" onclick="selectType('تاون هاوس', this)">تاون هاوس</div>
-                    <div class="unit-type-option" onclick="selectType('شقة', this)">شقة</div>
-                </div>
+            <div class="unit-type-group">
+                <select id="formUnitType" required>
+                    <option value="شاليه" selected>شاليه</option>
+                    <option value="فيلا">فيلا</option>
+                    <option value="استوديو">استوديو</option>
+                    <option value="توين هاوس">توين هاوس</option>
+                    <option value="تاون هاوس">تاون هاوس</option>
+                    <option value="شقة">شقة</option>
+                    <option value="أخرى">نوع آخر من الوحدات</option>
+                </select>
             </div>
-
             <input type="text" id="formBudget" placeholder="مثال: من 2,500,000 إلى 4,000,000 ج.م">
             <textarea id="formNotes" placeholder="اذكر موعد التسليم أو نظام السداد المفضل" rows="3"></textarea>
 
@@ -606,7 +578,223 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Site-wide search functionality
+// Icon URLs (Used in card generation)
+const iconUrls = {
+    call: 'https://a.top4top.io/p_3564ztvhw0.png',
+    whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png',
+    rooms: 'https://d.top4top.io/p_35641185i3.png',
+    bathrooms: 'https://c.top4top.io/p_35640fjtw2.png',
+    area: 'https://e.top4top.io/p_3564f1o3b4.png',
+};
+
+let allUnits = []; // Holds all units data
+let allSuggestions = []; // Holds all suggestions data
+
+/**
+ * Creates the HTML markup for a single unit card.
+ * @param {object} unit - The unit data object.
+ */
+function createUnitCard(unit) {
+    const isResale = unit.type === 'resale';
+    const badgeText = isResale ? 'إعادة بيع' : 'المطور';
+    const badgeClass = isResale ? 'card-badge' : 'card-badge developer';
+    const whatsappLink = `https://wa.me/201050072527?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن الوحدة كود: ${unit.code || unit.id} في مورانو. الاسم المقترح للوحدة: ${unit.name || ''}`)}`;
+
+    // Ensure all detail fields exist with a default value
+    const rooms = unit.rooms || 0;
+    const bathrooms = unit.bathrooms || 0;
+    const size = unit.size || 'غير محدد';
+    const price = unit.price || 'عند الاتصال';
+
+    return `
+        <div class="unit-card" data-filter="${unit.type}">
+            <div class="card-header">
+                <img src="${unit.image}" alt="${unit.name}">
+                <span class="${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="card-body">
+                <h3>${unit.name}</h3>
+                <p class="card-location">${unit.location}</p>
+                <div class="card-details-row">
+                    <span class="card-detail">
+                        <img src="${iconUrls.area}" alt="Area"> 
+                        ${size} م²
+                    </span>
+                    <span class="card-detail">
+                        <img src="${iconUrls.rooms}" alt="Rooms"> 
+                        ${rooms} غرف
+                    </span>
+                    <span class="card-detail">
+                        <img src="${iconUrls.bathrooms}" alt="Bathrooms"> 
+                        ${bathrooms} حمام
+                    </span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="card-price">${price}</div>
+                <div class="card-actions">
+                    <a class="whatsapp" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
+                        <img src="${iconUrls.whatsapp}" alt="WhatsApp">
+                    </a>
+                    <a class="call" href="tel:+201050072527" title="اتصال مباشر">
+                        <img src="${iconUrls.call}" alt="Call">
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Creates the HTML markup for a single suggestion link.
+ * @param {object} unit - The suggestion data object.
+ */
+function createSuggestionLink(unit) {
+    return `
+        <a href="${unit.url || '#'}" class="suggestion-link" target="_blank" title="${unit.name}">
+            <h3>${unit.name} <small>(${unit.project})</small></h3>
+            <span>عرض التفاصيل »</span>
+        </a>
+    `;
+}
+
+/**
+ * Renders units or suggestions to a specific container.
+ * @param {Array<object>} data - List of unit/suggestion objects.
+ * @param {string} containerId - The ID of the HTML container element.
+ * @param {Function} cardCreator - Function to generate the HTML for each item.
+ */
+function renderData(data, containerId, cardCreator) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    if (!data || data.length === 0) {
+        container.innerHTML = '<div class="empty-state">عفواً، لا توجد وحدات متاحة حالياً.</div>';
+        return;
+    }
+
+    data.forEach(item => {
+        container.innerHTML += cardCreator(item);
+    });
+}
+
+/**
+ * Filters the main unit list based on the active tab and search text.
+ * @param {string} filter - The type filter ('all', 'developer', 'resale').
+ */
+function filterUnits(filter) {
+    document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+    const activeBtn = document.querySelector(`.tabs button[data-filter="${filter}"]`);
+    if(activeBtn) activeBtn.classList.add("active");
+    
+    document.getElementById('unitsFilter').value = ''; // Clear search when changing filter
+
+    let filtered = allUnits;
+    if (filter !== "all") {
+        filtered = allUnits.filter(u => u.type === filter);
+    }
+    
+    renderData(filtered, "units-container", createUnitCard);
+}
+
+/**
+ * Searches the currently displayed unit list based on text input.
+ */
+function searchUnits() {
+    const searchText = document.getElementById('unitsFilter').value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.tabs button.active')?.dataset.filter || 'all';
+    
+    let baseUnits = allUnits;
+    if (activeFilter !== 'all') {
+        baseUnits = allUnits.filter(u => u.type === activeFilter);
+    }
+    
+    const searched = baseUnits.filter(unit => 
+        (unit.name && unit.name.toLowerCase().includes(searchText)) ||
+        (unit.code && unit.code.toLowerCase().includes(searchText)) ||
+        (unit.location && unit.location.toLowerCase().includes(searchText)) ||
+        (unit.price && unit.price.toLowerCase().includes(searchText)) ||
+        (unit.type && unit.type.toLowerCase().includes(searchText))
+    );
+    
+    renderData(searched, "units-container", createUnitCard);
+}
+
+
+/**
+ * Sends the contact form data via WhatsApp or Email.
+ * @param {string} method - 'whatsapp' or 'email'.
+ */
+function sendForm(method) {
+    const name = document.getElementById('formName').value.trim();
+    const phone = document.getElementById('formPhone').value.trim();
+    const email = document.getElementById('formEmail').value.trim();
+    const project = document.getElementById('formProject').value;
+    const unitType = document.getElementById('formUnitType').value; // Updated ID
+    const budget = document.getElementById('formBudget').value.trim();
+    const notes = document.getElementById('formNotes').value.trim();
+    
+    const targetEmail = 'islammesmail@gmail.com';
+    const targetPhone = '01050072527';
+
+    if (!name || !phone || phone.length < 11 || !/^\+?([0-9]{11,})$/.test(phone)) {
+        alert('الرجاء إدخال الاسم ورقم الهاتف بشكل صحيح (11 رقم على الأقل).');
+        return;
+    }
+
+    const fullMessage = `
+*طلب مساعدة عقارية جديد* (من صفحة مورانو)
+------------------------------------
+الاسم: ${name}
+الهاتف: ${phone}
+البريد الإلكتروني: ${email || 'غير مُحدد'}
+المشروع محل الاهتمام: ${project}
+نوع الوحدة المطلوب: ${unitType}
+الميزانية التقريبية: ${budget || 'غير مُحدد'}
+الملاحظات/التسليم: ${notes || 'لا توجد ملاحظات إضافية.'}
+------------------------------------
+    `;
+
+    if (method === 'whatsapp') {
+        const whatsappLink = `https://wa.me/20${targetPhone}?text=${encodeURIComponent(fullMessage.trim())}`;
+        window.open(whatsappLink, '_blank');
+    } else if (method === 'email') {
+        const subject = encodeURIComponent(`مساعدة عقارية: ${name} - ${project}`);
+        const body = encodeURIComponent(fullMessage.trim());
+        window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+        alert('تم فتح تطبيق البريد الإلكتروني. يرجى مراجعة محتوى الرسالة وإرسالها.');
+    }
+
+    // Optional: Reset form after action
+    document.getElementById('contactForm').reset();
+}
+
+
+// Function to fetch data from JSON files
+async function loadData() {
+    try {
+        // Fetch Main Units Data (assuming murano-units.json exists in the root)
+        const unitsResponse = await fetch('/murano-units.json', {cache:'no-cache'});
+        const unitsJson = await unitsResponse.json();
+        
+        // Check if the data structure is correct (e.g., has 'units' and 'suggestions' properties)
+        allUnits = Array.isArray(unitsJson.units) ? unitsJson.units : [];
+        allSuggestions = Array.isArray(unitsJson.suggestions) ? unitsJson.suggestions : [];
+        
+        // Initial rendering
+        renderData(allUnits, "units-container", createUnitCard);
+        renderData(allSuggestions, "suggestions-container", createSuggestionLink);
+    } catch (error) {
+        console.error("Error loading units data:", error);
+        document.getElementById("units-container").innerHTML = '<div class="empty-state">عفواً، فشل تحميل الوحدات. الرجاء التأكد من ملف murano-units.json.</div>';
+        document.getElementById("suggestions-container").innerHTML = '<div class="empty-state">فشل تحميل الوحدات المقترحة.</div>';
+    }
+}
+
+
+// --- Site-wide search functionality (Added as requested) ---
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
@@ -633,4 +821,50 @@ h1.page-title {
         const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
         const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
         const inKeys  = hay.includes(q) ? 1 : 0;
-        return {...it, score: inTitle
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+// --- End of Site-wide search functionality ---
+
+
+// Initial Setup
+document.addEventListener("DOMContentLoaded", () => {
+    loadData(); // Load data from JSON
+
+    // Attach filter event listeners
+    document.querySelectorAll(".tabs button").forEach(btn => {
+        btn.addEventListener("click", () => filterUnits(btn.dataset.filter));
+    });
+    
+    // Attach search event listener
+    document.getElementById('unitsFilter').addEventListener('input', searchUnits);
+
+    // Initialize Fancybox
+    Fancybox.bind("[data-fancybox]", {});
+});
+</script>
+
+</body>
+</html>
