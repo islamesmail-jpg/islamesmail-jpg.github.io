@@ -22,6 +22,8 @@ permalink: /murano-units.html
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
+/* ... (CSS code remains unchanged) ... */
+
 :root {
     --primary-color: #007BFF;
     --accent-color: #25D366;
@@ -353,6 +355,13 @@ h1.page-title {
 }
 .suggestion-link {
     background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    padding: 15px;
+}
+.suggestion-link {
+    background: #fff;
     padding: 18px;
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
@@ -660,16 +669,17 @@ h1.page-title {
 const iconUrls = {
     call: 'https://a.top4top.io/p_3564ztvhw0.png',
     whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png',
-    rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      // NEW ROOMS ICON
-    bathrooms: 'https://f.top4top.io/p_3565iewc51.png', // NEW BATHROOMS ICON
-    area: 'https://g.top4top.io/p_3565j5ijc2.png',     // NEW AREA ICON
+    rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      
+    bathrooms: 'https://f.top4top.io/p_3565iewc51.png', 
+    area: 'https://g.top4top.io/p_3565j5ijc2.png',     
 };
 
-let allUnits = []; // Holds all units data
-let allSuggestions = []; // Holds all suggestions data (currently empty as per new JSON structure)
+let allUnits = []; 
+let allSuggestions = []; 
 const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
 const defaultDelivery = 'عند التسليم';
-const defaultUnitType = 'شاليه'; // نأخذها من العنوان لو لم تتوفر
+const specificDeliveryYear = '2028'; // القيمة المطلوبة
+const defaultUnitType = 'شاليه'; 
 
 /**
  * Creates the HTML markup for a single unit card (NEW LAYOUT).
@@ -689,7 +699,9 @@ function createUnitCard(unit) {
     const bathrooms = unit.bath || 0;
     const size = unit.area || 'غير محدد';
     const price = unit.price || 'عند الاتصال';
-    const delivery = unit.delivery_year || defaultDelivery; // Assuming delivery_year might be used
+    
+    // **MODIFIED:** Prioritize specificDeliveryYear if unit.delivery_year is missing
+    const delivery = unit.delivery_year || specificDeliveryYear; 
 
     const mainImage = Array.isArray(unit.images) && unit.images.length > 0 
                       ? unit.images[0] 
@@ -770,7 +782,6 @@ function renderData(data, containerId, cardCreator) {
     container.innerHTML = '';
     
     if (!data || data.length === 0) {
-        // Only show empty state if the container is for units and not the main units container
         if (containerId === "units-container") {
              container.innerHTML = '<div class="empty-state">عفواً، لا توجد وحدات متاحة حالياً تطابق البحث.</div>';
         } else if (containerId === "suggestions-container") {
@@ -793,11 +804,10 @@ function filterUnits(filter) {
     const activeBtn = document.querySelector(`.tabs button[data-filter="${filter}"]`);
     if(activeBtn) activeBtn.classList.add("active");
     
-    document.getElementById('unitsFilter').value = ''; // Clear search when changing filter
+    document.getElementById('unitsFilter').value = ''; 
 
     let filtered = allUnits;
     if (filter !== "all") {
-        // Note: The filter is based on unit.type in the new JSON structure
         filtered = allUnits.filter(u => u.type === filter);
     }
     
@@ -817,7 +827,7 @@ function searchUnits() {
     }
     
     const searched = baseUnits.filter(unit => 
-        (unit.title && unit.title.toLowerCase().includes(searchText)) || // Using 'title'
+        (unit.title && unit.title.toLowerCase().includes(searchText)) || 
         (unit.id && unit.id.toString().includes(searchText)) ||
         (unit.type && unit.type.toLowerCase().includes(searchText)) ||
         (unit.area && unit.area.toLowerCase().includes(searchText)) ||
@@ -877,20 +887,16 @@ function sendForm(method) {
 }
 
 
-// Function to fetch data from JSON file (MODIFIED)
+// Function to fetch data from JSON file (RETAINED LOGIC)
 async function loadData() {
     try {
-        // Fetch Main Units Data (assuming murano-units.json exists in the root)
         const unitsResponse = await fetch('/murano-units.json', {cache:'no-cache'});
         let unitsJson = await unitsResponse.json();
         
-        // **CRITICAL MODIFICATION:** // We expect the JSON content to be a direct Array of units, not an object with 'units' key.
-        // We also check if it's an object containing keys like 'units' or 'suggestions' (for compatibility).
         if (Array.isArray(unitsJson)) {
             allUnits = unitsJson.filter(unit => unit.status === 'available' && unit.type);
-            allSuggestions = []; // If the file is just an array of units, we assume no dedicated suggestions
+            allSuggestions = []; 
         } else if (unitsJson.units && Array.isArray(unitsJson.units)) {
-            // Fallback for old structure
             allUnits = unitsJson.units.filter(unit => unit.status === 'available' && unit.type);
             allSuggestions = Array.isArray(unitsJson.suggestions) ? unitsJson.suggestions : [];
         } else {
