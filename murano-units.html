@@ -196,7 +196,6 @@ h1.page-title {
 }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
 /* START: NEW CARD LAYOUT CSS */
 .unit-card { 
     background: #fff; 
@@ -207,31 +206,26 @@ h1.page-title {
     border: 1px solid var(--border-color);
     display: flex; 
     flex-direction: row-reverse; /* Horizontal layout for all screens */
-    min-height: 180px; /* Adjusted min height */
+    min-height: 200px; 
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
 /* --- Tighter Card Layout for Horizontal Consistency --- */
 .card-header { 
     position: relative; 
-    width: 38%; /* Image takes a fixed width */
+    width: 40%; /* Image takes a fixed width */
     min-width: 130px;
     overflow: hidden;
-    /* Force square aspect ratio */
-    padding-top: 38%; /* Maintain aspect ratio (1:1 for 38% width) */
-    position: relative;
 }
 .card-header a { /* Ensure the entire image is clickable */
     display: block;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100%;
 }
 .card-header img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    position: absolute;
-    top: 0; left: 0;
+    min-height: 180px;
 }
 .card-badge {
     position: absolute;
@@ -248,21 +242,21 @@ h1.page-title {
 .card-badge.developer { background: var(--primary-color); }
 
 .card-body { 
-    padding: 12px 15px; 
-    width: 62%; /* Details take the rest */
+    padding: 12px 15px; /* Slightly reduced padding */
+    width: 60%; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .card-body h3 { 
-    font-size: 16px; 
+    font-size: 16px; /* Slightly smaller font for mobile */
     font-weight: 700; 
     margin: 0 0 5px; 
     color: #000; 
     line-height: 1.2;
 }
 .card-location { 
-    font-size: 11px; 
+    font-size: 11px; /* Smaller location font */
     color: var(--text-muted); 
     margin-bottom: 5px; 
 }
@@ -277,7 +271,7 @@ h1.page-title {
 .card-details-row {
     display: flex;
     justify-content: space-between; 
-    gap: 5px; 
+    gap: 5px; /* Reduced gap */
     flex-wrap: wrap;
     padding: 8px 0;
     margin-bottom: 5px;
@@ -285,16 +279,16 @@ h1.page-title {
     border-bottom: 1px solid var(--border-color);
 }
 .card-detail { 
-    font-size: 12px; 
+    font-size: 12px; /* Smaller detail font */
     display: flex; 
     align-items: center; 
-    gap: 4px; 
+    gap: 4px; /* Reduced icon gap */
     font-weight: 600;
     flex: 1; 
-    min-width: 70px; 
+    min-width: 70px; /* Ensure minimum width for wrapping on small screens */
 }
 .card-detail img { 
-    width: 16px; 
+    width: 16px; /* Smaller icon size */
     height: 16px; 
 }
 
@@ -314,7 +308,7 @@ h1.page-title {
 }
 .card-price { 
     color: #dc3545; 
-    font-size: 16px; 
+    font-size: 16px; /* Smaller price font */
     font-weight: 900; 
 }
 .card-actions { 
@@ -322,7 +316,7 @@ h1.page-title {
     gap: 8px; 
 }
 .card-actions a {
-    width: 34px; 
+    width: 34px; /* Slightly smaller buttons */
     height: 34px;
     display: flex;
     justify-content: center;
@@ -331,43 +325,40 @@ h1.page-title {
     transition: transform 0.2s;
 }
 .card-actions a:hover { transform: scale(1.1); }
-.card-actions .whatsapp-btn-card { background: var(--accent-color); } /* New class for WhatsApp button */
-.card-actions .call { background: var(--primary-color); } /* Kept for general use if needed, but not used in createUnitCard */
+.card-actions .call { background: var(--primary-color); }
+.card-actions .whatsapp { background: var(--accent-color); }
 .card-actions img { width: 16px; height: 16px; }
 
 @media (max-width: 600px) {
+    /* **Keep the horizontal layout on mobile but adjust sizes** */
     .unit-card { 
-        min-height: 150px; 
+        flex-direction: row-reverse; 
+        min-height: 160px; /* Overall smaller card on mobile */
     }
     .card-header {
-        width: 40%; /* Adjusted for mobile */
-        min-width: 130px;
-        padding-top: 40%; /* Maintain square aspect ratio for 40% width */
+        width: 45%; 
+        min-width: 140px;
+    }
+    .card-header img { 
+        min-height: 160px;
     }
     .card-body { 
-        width: 60%; /* Adjusted for mobile */
+        width: 55%; 
         padding: 10px;
     }
     .card-body h3 {
-        font-size: 14px; /* Slightly smaller for tighter fit */
+        font-size: 15px;
     }
     .card-location, .card-type, .card-delivery, .card-detail {
-        font-size: 10px; /* Smaller font for mobile details */
+        font-size: 11px;
     }
     .card-price {
-        font-size: 14px;
+        font-size: 15px;
     }
     .card-details-row {
-        gap: 4px;
-        padding: 4px 0;
-    }
-    .card-actions a {
-        width: 30px; /* Even smaller buttons on very small screens */
-        height: 30px;
-    }
-    .card-actions img {
-        width: 14px;
-        height: 14px;
+        gap: 5px;
+        justify-content: flex-start;
+        padding: 5px 0;
     }
 }
 /* END: NEW CARD LAYOUT CSS */
@@ -691,10 +682,10 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Icon URLs (UPDATED: 'call' is now whatsapp to use in card actions)
+// Icon URLs
 const iconUrls = {
-    call: 'https://b.top4top.io/p_3564ixxjh1.png', // Changed to WhatsApp icon
-    whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png', // Main WhatsApp icon (if different needed)
+    call: 'https://a.top4top.io/p_3564ztvhw0.png',
+    whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png',
     rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      
     bathrooms: 'https://f.top4top.io/p_3565iewc51.png', 
     area: 'https://g.top4top.io/p_3565j5ijc2.png',     
@@ -723,7 +714,7 @@ function createUnitCard(unit) {
     const bathrooms = unit.bath || 0;
     const size = unit.area || 'غير محدد';
     const price = unit.price || 'عند الاتصال';
-    const link = unit.link || '#'; 
+    const link = unit.link || '#'; // Unit specific link for clicking
     
     // Use delivery_year if available, otherwise use default 2028
     const delivery = unit.delivery_year || specificDeliveryYear; 
@@ -767,11 +758,11 @@ function createUnitCard(unit) {
                 <div class="card-footer">
                     <div class="card-price">${price}</div>
                     <div class="card-actions">
-                        <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
+                        <a class="whatsapp" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
                             <img src="${iconUrls.whatsapp}" alt="WhatsApp">
                         </a>
-                        <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
-                            <img src="${iconUrls.call}" alt="WhatsApp"> 
+                        <a class="call" href="tel:+201050072527" title="اتصال مباشر">
+                            <img src="${iconUrls.call}" alt="Call">
                         </a>
                     </div>
                 </div>
