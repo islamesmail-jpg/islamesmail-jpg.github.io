@@ -17,7 +17,7 @@ permalink: /murano-units.html
 <meta property="og:title" content="وحدات مورانو وادي دجلة العين السخنة للبيع">
 <meta property="og:description" content="اكتشف أفضل الوحدات في مشروع مورانو وادي دجلة">
 <meta property="og:image" content="https://c.top4top.io/p_3564wfv960.jpg">
-<link rel="icon" type="image/png" href="https://a.top4top.io/p_3564oavf30.png">
+<link rel="icon" type="image/png" href="https://d.top4top.io/p_35653w8g80.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
@@ -42,6 +42,51 @@ body {
 }
 a { text-decoration: none; color: inherit; transition: all 0.3s; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+.site-search-bar {
+    background: var(--bg-light);
+    padding: 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.search-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+#siteSearch {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    font-family: inherit;
+    font-size: 15px;
+}
+#siteSearch:focus { border-color: #000; outline: none; }
+#suggest {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#suggest a {
+    display: block;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--bg-light);
+    transition: background 0.2s;
+}
+#suggest a:hover {
+    background: var(--bg-light);
+}
 
 .breadcrumb { 
     display: flex; 
@@ -401,6 +446,15 @@ h1.page-title {
 
 {% include header-ar.html %}
 
+<div class="site-search-bar">
+    <div class="container">
+        <div class="search-wrapper">
+            <input type="text" id="siteSearch" placeholder="ابحث في الموقع...">
+            <div id="suggest"></div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="breadcrumb">
         <a href="/">الرئيسية</a> <span>»</span>
@@ -444,7 +498,7 @@ h1.page-title {
 
     <div style="display:none;" id="map-popup">
         <h3 style="text-align:center; padding:15px; background:#f1f1f1; margin:0;">موقع مشروع مورانو</h3>
-        <iframe src="https://maps.app.goo.gl/fJTiUwZmyMoJdczD7" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://maps.app.goo.gl/WiVMNq2FCEJEjUh36?g_st=awb" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="filters-section">
@@ -552,50 +606,31 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-let allUnits = [];
-let selectedUnitType = 'شاليه';
+// Site-wide search functionality
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-const iconUrls = {
-    whatsapp: 'https://l.top4top.io/p_3564hewh21.png',
-    call: 'https://k.top4top.io/p_35641l0w90.png',
-    rooms: 'https://c.top4top.io/p_3564avpk54.png',
-    bathrooms: 'https://b.top4top.io/p_3564185wr3.png',
-    area: 'https://d.top4top.io/p_3564hxccu5.png',
-};
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-function createUnitCard(unit) {
-    const typeText = (unit.type||'').toLowerCase();
-    const isDev = typeText.includes('dev') || typeText.includes('مطور');
-    const badgeText = isDev ? 'المطور' : 'إعادة بيع';
-    const badgeClass = isDev ? 'card-badge developer' : 'card-badge';
-    const whatsappLink = `https://wa.me/201050072527?text=مرحباً، أود الاستفسار عن: ${unit.title||unit.name} (${unit.id||''})`;
-    const img = (unit.images && unit.images[0]) || unit.image || 'https://e.top4top.io/p_35645doza2.jpeg';
-    const price = unit.price ? `${unit.price} ج.م` : 'اتصل للسعر';
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
 
-    return `
-        <div class="unit-card" data-filter="${isDev ? 'developer' : 'resale'}">
-            <div class="card-header">
-                <img src="${img}" alt="${unit.title||unit.name}">
-                <span class="${badgeClass}">${badgeText}</span>
-            </div>
-            <div class="card-body">
-                <h3>${unit.title||unit.name}</h3>
-                <p class="card-location">${unit.city||unit.location||'العين السخنة'}</p>
-                <div class="card-details-row">
-                    ${unit.area ? `<span class="card-detail"><img src="${iconUrls.area}" alt="مساحة"> ${unit.area} م²</span>` : ''}
-                    ${unit.bed ? `<span class="card-detail"><img src="${iconUrls.rooms}" alt="غرف"> ${unit.bed} غرف</span>` : ''}
-                    ${unit.bath ? `<span class="card-detail"><img src="${iconUrls.bathrooms}" alt="حمام"> ${unit.bath} حمام</span>` : ''}
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="card-price">${price}</div>
-                <div class="card-actions">
-                    <a class="whatsapp" href="${whatsappLink}" target="_blank">
-                        <img src="${iconUrls.whatsapp}" alt="WhatsApp">
-                    </a>
-                    <a class="call" href="tel:+201050072527">
-                        <img src="${iconUrls.call}" alt="Call">
-                    </a>
-                </div>
-            </div>
-        </div>
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle
