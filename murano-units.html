@@ -19,7 +19,7 @@ permalink: /murano-units.html
 <meta property="og:image" content="https://c.top4top.io/p_3564wfv960.jpg">
 <link rel="icon" type="image/png" href="https://d.top4top.io/p_35653w8g80.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght400;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
 :root {
@@ -42,6 +42,8 @@ body {
 }
 a { text-decoration: none; color: inherit; transition: all 0.3s; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* ... (كود شريط البحث والـ Breadcrumb كما هو) ... */
 
 .site-search-bar {
     background: var(--bg-light);
@@ -197,7 +199,7 @@ h1.page-title {
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
-/* START: NEW CARD LAYOUT CSS - FORCING SQUARE IMAGE AND RECTANGULAR CARD */
+/* START: DESKTOP CARD LAYOUT (HORIZONTAL - IMPROVED) - Default setting */
 .unit-card { 
     background: #fff; 
     border-radius: var(--radius); 
@@ -206,18 +208,18 @@ h1.page-title {
     transition: all 0.3s;
     border: 1px solid var(--border-color);
     display: flex; 
-    flex-direction: row-reverse; /* Horizontal layout for all screens */
-    min-height: 180px; 
+    flex-direction: row-reverse; /* Horizontal stack: Image on the right */
+    min-height: 200px; /* Increased min-height for better look on desktop */
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
 .card-header { 
     position: relative; 
-    width: 38%; 
-    min-width: 130px;
+    width: 30%; /* Image width on desktop */
+    min-width: 180px;
     overflow: hidden;
-    /* Force square aspect ratio (1:1) */
-    padding-top: 38%; 
+    /* Maintain aspect ratio close to 1:1, but slightly taller for a modern look */
+    padding-top: 30%; 
     position: relative;
 }
 .card-header a { 
@@ -247,28 +249,28 @@ h1.page-title {
 .card-badge.developer { background: var(--primary-color); }
 
 .card-body { 
-    padding: 12px 15px; 
-    width: 62%; 
+    padding: 15px 20px; /* Slightly more padding for desktop */
+    width: 70%; /* Content width on desktop */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .card-body h3 { 
-    font-size: 16px; 
-    font-weight: 700; 
+    font-size: 18px; 
+    font-weight: 800; 
     margin: 0 0 5px; 
     color: #000; 
     line-height: 1.2;
 }
 .card-location { 
-    font-size: 11px; 
+    font-size: 13px; 
     color: var(--text-muted); 
     margin-bottom: 5px; 
 }
 .card-type {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
     color: #000;
 }
 
@@ -276,31 +278,29 @@ h1.page-title {
 .card-details-row {
     display: flex;
     justify-content: space-between; 
-    gap: 5px; 
+    gap: 15px; 
     flex-wrap: wrap;
-    padding: 8px 0;
-    margin-bottom: 5px;
+    padding: 10px 0;
+    margin-bottom: 10px;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 .card-detail { 
-    font-size: 12px; 
+    font-size: 13px; 
     display: flex; 
     align-items: center; 
     gap: 4px; 
     font-weight: 600;
-    flex: 1; 
-    min-width: 70px; 
 }
 .card-detail img { 
-    width: 16px; 
-    height: 16px; 
+    width: 18px; 
+    height: 18px; 
 }
 
 .card-delivery {
-    font-size: 12px; 
+    font-size: 14px; 
     color: var(--text-muted); 
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
@@ -313,16 +313,16 @@ h1.page-title {
 }
 .card-price { 
     color: #dc3545; 
-    font-size: 16px; 
+    font-size: 18px; 
     font-weight: 900; 
 }
 .card-actions { 
     display: flex; 
-    gap: 8px; 
+    gap: 10px; 
 }
 .card-actions a {
-    width: 34px; 
-    height: 34px;
+    width: 38px; 
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,36 +330,54 @@ h1.page-title {
     transition: transform 0.2s;
 }
 .card-actions a:hover { transform: scale(1.1); }
-.card-actions .whatsapp-btn-card { background: var(--accent-color); } /* الأخضر */
-.card-actions .call-btn-card { background: var(--primary-color); }   /* الأزرق */
+.card-actions .whatsapp-btn-card { background: var(--accent-color); } 
+.card-actions .call-btn-card { background: var(--primary-color); } 
+.card-actions img { width: 18px; height: 18px; }
+/* END: DESKTOP CARD LAYOUT */
 
-.card-actions img { width: 16px; height: 16px; }
 
-@media (max-width: 600px) {
+/* START: MOBILE CARD LAYOUT (HORIZONTAL - COMPACT) - Applies below 768px */
+@media (max-width: 768px) {
     .unit-card { 
         min-height: 150px; 
+        flex-direction: row-reverse; 
     }
+    
     .card-header {
         width: 40%; 
         min-width: 130px;
-        padding-top: 40%; /* Force square aspect ratio */
+        /* Force square aspect ratio (1:1) for mobile as requested */
+        padding-top: 40%; 
     }
+    
     .card-body { 
         width: 60%; 
         padding: 10px;
     }
+
+    /* Adjust font and details sizes for mobile */
     .card-body h3 {
         font-size: 14px; 
+        margin-bottom: 3px;
     }
     .card-location, .card-type, .card-delivery, .card-detail {
         font-size: 10px; 
     }
-    .card-price {
-        font-size: 14px;
-    }
+    .card-type { margin-bottom: 5px; }
+    .card-delivery { margin-bottom: 5px; }
+
     .card-details-row {
         gap: 4px;
         padding: 4px 0;
+        margin-bottom: 5px;
+    }
+    .card-detail img { 
+        width: 14px; 
+        height: 14px; 
+    }
+
+    .card-price {
+        font-size: 14px;
     }
     .card-actions a {
         width: 30px; 
@@ -370,9 +388,11 @@ h1.page-title {
         height: 14px;
     }
 }
-/* END: NEW CARD LAYOUT CSS */
+/* END: MOBILE CARD LAYOUT */
 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+
+/* ... (بقية الـ CSS لروابط الاقتراحات ونموذج الاتصال كما هو) ... */
 
 .suggestions-links {
     display: flex;
@@ -519,12 +539,8 @@ h1.page-title {
     line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-    h1.page-title { font-size: 20px; }
-    .breadcrumb { font-size: 11px; }
-    .cards { grid-template-columns: 1fr; }
-    .form-actions-buttons { flex-direction: column; }
-}
+/* ... (نهاية كود الـ CSS العام) ... */
+
 </style>
 </head>
 <body>
@@ -691,7 +707,7 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Icon URLs (UPDATED with the specific links you provided)
+// Icon URLs (Used in createUnitCard)
 const iconUrls = {
     call: 'https://g.top4top.io/p_356528fhl1.png',      // أيقونة الاتصال الزرقاء
     whatsapp: 'https://f.top4top.io/p_3565pjntb0.png', // أيقونة الواتساب الخضراء
@@ -705,7 +721,7 @@ let allSuggestions = [];
 const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
 const defaultUnitType = 'شاليه'; 
 const specificDeliveryYear = '2028'; 
-const contactPhoneNumber = '201050072527'; // رقم الهاتف لزر الاتصال والواتساب
+const contactPhoneNumber = '201050072527'; 
 
 /**
  * Creates the HTML markup for a single unit card (HORIZONTAL LAYOUT - ALL SCREENS).
