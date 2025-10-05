@@ -248,6 +248,7 @@ h1.page-title {
     font-weight: 700; 
     margin: 0 0 5px; 
     color: #000; 
+    line-height: 1.2;
 }
 .card-location { 
     font-size: 12px; 
@@ -574,7 +575,7 @@ h1.page-title {
     <h2 class="section-heading">وحدات مقترحة قد تهمك</h2>
     <div class="section-box">
         <div id="suggestions-container" class="suggestions-links">
-            <div class="empty-state">جاري التحميل...</div>
+            <div class="empty-state">لا توجد وحدات مقترحة محددة حاليًا.</div>
         </div>
     </div>
 
@@ -665,33 +666,43 @@ const iconUrls = {
 };
 
 let allUnits = []; // Holds all units data
-let allSuggestions = []; // Holds all suggestions data
+let allSuggestions = []; // Holds all suggestions data (currently empty as per new JSON structure)
+const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
+const defaultDelivery = 'عند التسليم';
+const defaultUnitType = 'شاليه'; // نأخذها من العنوان لو لم تتوفر
 
 /**
  * Creates the HTML markup for a single unit card (NEW LAYOUT).
  * @param {object} unit - The unit data object.
  */
 function createUnitCard(unit) {
+    // Mapping new JSON fields to expected card data
+    const unitType = unit.unitType || (unit.title.includes('شاليه') ? 'شاليه' : (unit.title.includes('فيلا') ? 'فيلا' : defaultUnitType));
     const isResale = unit.type === 'resale';
     const badgeText = isResale ? 'إعادة بيع' : 'المطور';
     const badgeClass = isResale ? 'card-badge' : 'card-badge developer';
-    const whatsappLink = `https://wa.me/201050072527?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن الوحدة كود: ${unit.code || unit.id} في مورانو. الاسم المقترح للوحدة: ${unit.name || ''}`)}`;
-
-    // Ensure all detail fields exist with a default value
-    const rooms = unit.rooms || 0;
-    const bathrooms = unit.bathrooms || 0;
-    const size = unit.size || 'غير محدد';
+    
+    // Fallback values for required fields
+    const unitId = unit.id || 'N/A';
+    const title = unit.title || `${unitType} - كود ${unitId}`;
+    const rooms = unit.bed || 0;
+    const bathrooms = unit.bath || 0;
+    const size = unit.area || 'غير محدد';
     const price = unit.price || 'عند الاتصال';
-    const delivery = unit.delivery || 'غير محدد';
-    const unitType = unit.unitType || 'شاليه';
-    const location = unit.location || 'العين السخنة، طريق الزعفرانة';
+    const delivery = unit.delivery_year || defaultDelivery; // Assuming delivery_year might be used
+
+    const mainImage = Array.isArray(unit.images) && unit.images.length > 0 
+                      ? unit.images[0] 
+                      : 'https://d.top4top.io/p_3564b0j821.jpeg'; // Fallback Image
+
+    const whatsappLink = `https://wa.me/201050072527?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`)}`;
 
     return `
         <div class="unit-card" data-filter="${unit.type}">
             <div class="card-body">
                 <div>
-                    <p class="card-location">${location}</p>
-                    <h3 title="${unit.name}">${unit.name || unitType} - ${unit.code || unit.id}</h3>
+                    <p class="card-location">${defaultUnitLocation}</p>
+                    <h3 title="${title}">${title}</h3>
                     <p class="card-type">${unitType}</p>
                     
                     <div class="card-details-row">
@@ -703,9 +714,9 @@ function createUnitCard(unit) {
                             <img src="${iconUrls.bathrooms}" alt="Bathrooms"> 
                             ${bathrooms} حمام
                         </span>
-                        <span class="card-detail" title="${size} م²">
+                        <span class="card-detail" title="${size}">
                             <img src="${iconUrls.area}" alt="Area"> 
-                            ${size} م²
+                            ${size}
                         </span>
                     </div>
 
@@ -726,7 +737,7 @@ function createUnitCard(unit) {
             </div>
             
             <div class="card-header">
-                <img src="${unit.image}" alt="${unit.name}">
+                <img src="${mainImage}" alt="${title}">
                 <span class="${badgeClass}">${badgeText}</span>
             </div>
         </div>
@@ -759,7 +770,12 @@ function renderData(data, containerId, cardCreator) {
     container.innerHTML = '';
     
     if (!data || data.length === 0) {
-        container.innerHTML = '<div class="empty-state">عفواً، لا توجد وحدات متاحة حالياً.</div>';
+        // Only show empty state if the container is for units and not the main units container
+        if (containerId === "units-container") {
+             container.innerHTML = '<div class="empty-state">عفواً، لا توجد وحدات متاحة حالياً تطابق البحث.</div>';
+        } else if (containerId === "suggestions-container") {
+             container.innerHTML = '<div class="empty-state">لا توجد وحدات مقترحة محددة حاليًا.</div>';
+        }
         return;
     }
 
@@ -781,6 +797,7 @@ function filterUnits(filter) {
 
     let filtered = allUnits;
     if (filter !== "all") {
+        // Note: The filter is based on unit.type in the new JSON structure
         filtered = allUnits.filter(u => u.type === filter);
     }
     
@@ -800,12 +817,11 @@ function searchUnits() {
     }
     
     const searched = baseUnits.filter(unit => 
-        (unit.name && unit.name.toLowerCase().includes(searchText)) ||
-        (unit.code && unit.code.toLowerCase().includes(searchText)) ||
-        (unit.location && unit.location.toLowerCase().includes(searchText)) ||
-        (unit.unitType && unit.unitType.toLowerCase().includes(searchText)) ||
-        (unit.price && unit.price.toLowerCase().includes(searchText)) ||
-        (unit.type && unit.type.toLowerCase().includes(searchText))
+        (unit.title && unit.title.toLowerCase().includes(searchText)) || // Using 'title'
+        (unit.id && unit.id.toString().includes(searchText)) ||
+        (unit.type && unit.type.toLowerCase().includes(searchText)) ||
+        (unit.area && unit.area.toLowerCase().includes(searchText)) ||
+        (unit.price && unit.price.toLowerCase().includes(searchText))
     );
     
     renderData(searched, "units-container", createUnitCard);
@@ -813,7 +829,7 @@ function searchUnits() {
 
 
 /**
- * Sends the contact form data via WhatsApp or Email.
+ * Sends the contact form data via WhatsApp or Email. (Retained)
  * @param {string} method - 'whatsapp' or 'email'.
  */
 function sendForm(method) {
@@ -861,16 +877,26 @@ function sendForm(method) {
 }
 
 
-// Function to fetch data from JSON files
+// Function to fetch data from JSON file (MODIFIED)
 async function loadData() {
     try {
         // Fetch Main Units Data (assuming murano-units.json exists in the root)
         const unitsResponse = await fetch('/murano-units.json', {cache:'no-cache'});
-        const unitsJson = await unitsResponse.json();
+        let unitsJson = await unitsResponse.json();
         
-        // Check if the data structure is correct (e.g., has 'units' and 'suggestions' properties)
-        allUnits = Array.isArray(unitsJson.units) ? unitsJson.units : [];
-        allSuggestions = Array.isArray(unitsJson.suggestions) ? unitsJson.suggestions : [];
+        // **CRITICAL MODIFICATION:** // We expect the JSON content to be a direct Array of units, not an object with 'units' key.
+        // We also check if it's an object containing keys like 'units' or 'suggestions' (for compatibility).
+        if (Array.isArray(unitsJson)) {
+            allUnits = unitsJson.filter(unit => unit.status === 'available' && unit.type);
+            allSuggestions = []; // If the file is just an array of units, we assume no dedicated suggestions
+        } else if (unitsJson.units && Array.isArray(unitsJson.units)) {
+            // Fallback for old structure
+            allUnits = unitsJson.units.filter(unit => unit.status === 'available' && unit.type);
+            allSuggestions = Array.isArray(unitsJson.suggestions) ? unitsJson.suggestions : [];
+        } else {
+             allUnits = [];
+             allSuggestions = [];
+        }
         
         // Initial rendering
         renderData(allUnits, "units-container", createUnitCard);
