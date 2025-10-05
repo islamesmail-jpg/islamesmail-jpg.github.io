@@ -22,7 +22,6 @@ permalink: /murano-units.html
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
-/* ... (Style remains unchanged as per request) ... */
 :root {
     --primary-color: #007BFF;
     --accent-color: #25D366;
@@ -197,6 +196,7 @@ h1.page-title {
 }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+/* START: NEW CARD LAYOUT CSS */
 .unit-card { 
     background: #fff; 
     border-radius: var(--radius); 
@@ -204,33 +204,73 @@ h1.page-title {
     overflow: hidden; 
     transition: all 0.3s;
     border: 1px solid var(--border-color);
+    display: flex; /* Enable flex for new horizontal layout */
+    flex-direction: row-reverse; /* Put image on the right in RTL */
+    min-height: 200px; /* Minimum height for better visibility */
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
-.card-header { position: relative; }
-.card-header img { width: 100%; height: 220px; object-fit: cover; }
+
+.card-header { 
+    position: relative; 
+    width: 35%; /* Image takes roughly one-third */
+    min-width: 120px;
+    overflow: hidden;
+}
+.card-header img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    min-height: 180px;
+}
 .card-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    right: 8px;
     background: #28a745;
     color: white;
-    padding: 6px 14px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12px;
+    z-index: 10;
 }
 .card-badge.developer { background: var(--primary-color); }
-.card-body { padding: 15px; }
-.card-body h3 { font-size: 19px; font-weight: 700; margin: 0 0 8px; color: #000; }
-.card-location { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+
+.card-body { 
+    padding: 15px; 
+    width: 65%; /* Details take the rest */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-body h3 { 
+    font-size: 17px; 
+    font-weight: 700; 
+    margin: 0 0 5px; 
+    color: #000; 
+}
+.card-location { 
+    font-size: 12px; 
+    color: var(--text-muted); 
+    margin-bottom: 8px; 
+}
+.card-type {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+/* Icons Row Layout */
 .card-details-row {
     display: flex;
-    justify-content: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Space out the 3 icons */
+    gap: 8px;
+    flex-wrap: nowrap;
+    padding: 8px 0;
+    margin-bottom: 8px;
     border-top: 1px solid var(--border-color);
-    padding-top: 10px;
-    margin-top: 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 .card-detail { 
     font-size: 13px; 
@@ -238,22 +278,39 @@ h1.page-title {
     align-items: center; 
     gap: 5px; 
     font-weight: 600;
+    flex: 1; /* Equal width for icons */
 }
-.card-detail img { width: 16px; height: 16px; }
+.card-detail img { 
+    width: 18px; 
+    height: 18px; 
+}
+
+.card-delivery {
+    font-size: 13px; 
+    color: var(--text-muted); 
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
 .card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
-    border-top: 1px solid var(--border-color);
-    padding-top: 12px;
+    margin-top: 5px;
+    padding-top: 5px;
 }
-.card-price { color: #dc3545; font-size: 22px; font-weight: 900; }
-.card-actions { display: flex; gap: 8px; }
+.card-price { 
+    color: #dc3545; 
+    font-size: 18px; 
+    font-weight: 900; 
+}
+.card-actions { 
+    display: flex; 
+    gap: 8px; 
+}
 .card-actions a {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,7 +320,28 @@ h1.page-title {
 .card-actions a:hover { transform: scale(1.1); }
 .card-actions .call { background: var(--primary-color); }
 .card-actions .whatsapp { background: var(--accent-color); }
-.card-actions img { width: 20px; height: 20px; }
+.card-actions img { width: 18px; height: 18px; }
+
+@media (max-width: 600px) {
+    .unit-card { 
+        flex-direction: column; /* Stack image and details vertically on small screens */
+    }
+    .card-header, .card-body { 
+        width: 100%; 
+        min-width: auto;
+    }
+    .card-header img { 
+        height: 200px; 
+    }
+    .card-details-row {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .card-detail {
+        flex: auto;
+    }
+}
+/* END: NEW CARD LAYOUT CSS */
 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); }
 
@@ -331,7 +409,7 @@ h1.page-title {
     border-radius: 6px;
     font-family: inherit;
     font-size: 15px;
-    text-align: right; /* Ensure input text alignment is correct */
+    text-align: right; 
 }
 .contact-form-section input::placeholder,
 .contact-form-section textarea::placeholder {
@@ -339,11 +417,10 @@ h1.page-title {
     text-align: right;
 }
 .contact-form-section select {
-    appearance: none; /* Remove default arrow in some browsers */
+    appearance: none; 
     background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23000" d="M10.293 3.293L6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0-1.414-1.414z"/></svg>') no-repeat left 15px center;
 }
 
-/* New: Unit type selector as a simple select */
 .unit-type-group select {
     text-align: right;
     width: 100%;
@@ -412,7 +489,6 @@ h1.page-title {
     .cards { grid-template-columns: 1fr; }
     .form-actions-buttons { flex-direction: column; }
 }
-/* ... (End of Style) ... */
 </style>
 </head>
 <body>
@@ -553,6 +629,7 @@ h1.page-title {
                     <option value="أخرى">نوع آخر من الوحدات</option>
                 </select>
             </div>
+
             <input type="text" id="formBudget" placeholder="مثال: من 2,500,000 إلى 4,000,000 ج.م">
             <textarea id="formNotes" placeholder="اذكر موعد التسليم أو نظام السداد المفضل" rows="3"></textarea>
 
@@ -578,20 +655,20 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Icon URLs (Used in card generation)
+// Icon URLs (Updated with new links for details)
 const iconUrls = {
     call: 'https://a.top4top.io/p_3564ztvhw0.png',
     whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png',
-    rooms: 'https://d.top4top.io/p_35641185i3.png',
-    bathrooms: 'https://c.top4top.io/p_35640fjtw2.png',
-    area: 'https://e.top4top.io/p_3564f1o3b4.png',
+    rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      // NEW ROOMS ICON
+    bathrooms: 'https://f.top4top.io/p_3565iewc51.png', // NEW BATHROOMS ICON
+    area: 'https://g.top4top.io/p_3565j5ijc2.png',     // NEW AREA ICON
 };
 
 let allUnits = []; // Holds all units data
 let allSuggestions = []; // Holds all suggestions data
 
 /**
- * Creates the HTML markup for a single unit card.
+ * Creates the HTML markup for a single unit card (NEW LAYOUT).
  * @param {object} unit - The unit data object.
  */
 function createUnitCard(unit) {
@@ -605,41 +682,52 @@ function createUnitCard(unit) {
     const bathrooms = unit.bathrooms || 0;
     const size = unit.size || 'غير محدد';
     const price = unit.price || 'عند الاتصال';
+    const delivery = unit.delivery || 'غير محدد';
+    const unitType = unit.unitType || 'شاليه';
+    const location = unit.location || 'العين السخنة، طريق الزعفرانة';
 
     return `
         <div class="unit-card" data-filter="${unit.type}">
+            <div class="card-body">
+                <div>
+                    <p class="card-location">${location}</p>
+                    <h3 title="${unit.name}">${unit.name || unitType} - ${unit.code || unit.id}</h3>
+                    <p class="card-type">${unitType}</p>
+                    
+                    <div class="card-details-row">
+                        <span class="card-detail" title="${rooms} غرف">
+                            <img src="${iconUrls.rooms}" alt="Rooms"> 
+                            ${rooms} غرف
+                        </span>
+                        <span class="card-detail" title="${bathrooms} حمام">
+                            <img src="${iconUrls.bathrooms}" alt="Bathrooms"> 
+                            ${bathrooms} حمام
+                        </span>
+                        <span class="card-detail" title="${size} م²">
+                            <img src="${iconUrls.area}" alt="Area"> 
+                            ${size} م²
+                        </span>
+                    </div>
+
+                    <p class="card-delivery">تسليم: ${delivery}</p>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="card-price">${price}</div>
+                    <div class="card-actions">
+                        <a class="whatsapp" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
+                            <img src="${iconUrls.whatsapp}" alt="WhatsApp">
+                        </a>
+                        <a class="call" href="tel:+201050072527" title="اتصال مباشر">
+                            <img src="${iconUrls.call}" alt="Call">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
             <div class="card-header">
                 <img src="${unit.image}" alt="${unit.name}">
                 <span class="${badgeClass}">${badgeText}</span>
-            </div>
-            <div class="card-body">
-                <h3>${unit.name}</h3>
-                <p class="card-location">${unit.location}</p>
-                <div class="card-details-row">
-                    <span class="card-detail">
-                        <img src="${iconUrls.area}" alt="Area"> 
-                        ${size} م²
-                    </span>
-                    <span class="card-detail">
-                        <img src="${iconUrls.rooms}" alt="Rooms"> 
-                        ${rooms} غرف
-                    </span>
-                    <span class="card-detail">
-                        <img src="${iconUrls.bathrooms}" alt="Bathrooms"> 
-                        ${bathrooms} حمام
-                    </span>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="card-price">${price}</div>
-                <div class="card-actions">
-                    <a class="whatsapp" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
-                        <img src="${iconUrls.whatsapp}" alt="WhatsApp">
-                    </a>
-                    <a class="call" href="tel:+201050072527" title="اتصال مباشر">
-                        <img src="${iconUrls.call}" alt="Call">
-                    </a>
-                </div>
             </div>
         </div>
     `;
@@ -715,6 +803,7 @@ function searchUnits() {
         (unit.name && unit.name.toLowerCase().includes(searchText)) ||
         (unit.code && unit.code.toLowerCase().includes(searchText)) ||
         (unit.location && unit.location.toLowerCase().includes(searchText)) ||
+        (unit.unitType && unit.unitType.toLowerCase().includes(searchText)) ||
         (unit.price && unit.price.toLowerCase().includes(searchText)) ||
         (unit.type && unit.type.toLowerCase().includes(searchText))
     );
@@ -732,7 +821,7 @@ function sendForm(method) {
     const phone = document.getElementById('formPhone').value.trim();
     const email = document.getElementById('formEmail').value.trim();
     const project = document.getElementById('formProject').value;
-    const unitType = document.getElementById('formUnitType').value; // Updated ID
+    const unitType = document.getElementById('formUnitType').value; 
     const budget = document.getElementById('formBudget').value.trim();
     const notes = document.getElementById('formNotes').value.trim();
     
@@ -788,13 +877,13 @@ async function loadData() {
         renderData(allSuggestions, "suggestions-container", createSuggestionLink);
     } catch (error) {
         console.error("Error loading units data:", error);
-        document.getElementById("units-container").innerHTML = '<div class="empty-state">عفواً، فشل تحميل الوحدات. الرجاء التأكد من ملف murano-units.json.</div>';
+        document.getElementById("units-container").innerHTML = '<div class="empty-state">عفواً، فشل تحميل الوحدات. الرجاء التأكد من ملف murano-units.json وصيغة البيانات.</div>';
         document.getElementById("suggestions-container").innerHTML = '<div class="empty-state">فشل تحميل الوحدات المقترحة.</div>';
     }
 }
 
 
-// --- Site-wide search functionality (Added as requested) ---
+// --- Site-wide search functionality (Retained) ---
 (function(){
   const INPUT = document.getElementById('siteSearch');
   const BOX   = document.getElementById('suggest');
