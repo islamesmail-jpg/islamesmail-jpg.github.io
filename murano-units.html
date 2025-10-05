@@ -19,12 +19,12 @@ permalink: /murano-units.html
 <meta property="og:image" content="https://c.top4top.io/p_3564wfv960.jpg">
 <link rel="icon" type="image/png" href="https://d.top4top.io/p_35653w8g80.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght400;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
 :root {
-    --primary-color: #007BFF;
-    --accent-color: #25D366;
+    --primary-color: #007BFF; /* أزرق للاتصال */
+    --accent-color: #25D366; /* أخضر للواتساب */
     --text-dark: #000;
     --text-muted: #666;
     --bg-light: #f9f9f9;
@@ -197,7 +197,7 @@ h1.page-title {
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
-/* START: NEW CARD LAYOUT CSS - FORCING SQUARE IMAGE */
+/* START: NEW CARD LAYOUT CSS - FORCING SQUARE IMAGE AND RECTANGULAR CARD */
 .unit-card { 
     background: #fff; 
     border-radius: var(--radius); 
@@ -206,7 +206,7 @@ h1.page-title {
     transition: all 0.3s;
     border: 1px solid var(--border-color);
     display: flex; 
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse; /* Horizontal layout for all screens */
     min-height: 180px; 
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
@@ -216,7 +216,7 @@ h1.page-title {
     width: 38%; 
     min-width: 130px;
     overflow: hidden;
-    /* Force square aspect ratio */
+    /* Force square aspect ratio (1:1) */
     padding-top: 38%; 
     position: relative;
 }
@@ -330,7 +330,9 @@ h1.page-title {
     transition: transform 0.2s;
 }
 .card-actions a:hover { transform: scale(1.1); }
-.card-actions .whatsapp-btn-card { background: var(--accent-color); } 
+.card-actions .whatsapp-btn-card { background: var(--accent-color); } /* الأخضر */
+.card-actions .call-btn-card { background: var(--primary-color); }   /* الأزرق */
+
 .card-actions img { width: 16px; height: 16px; }
 
 @media (max-width: 600px) {
@@ -689,10 +691,10 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Icon URLs (Both 'call' and 'whatsapp' now point to the WhatsApp icon)
+// Icon URLs (UPDATED with the specific links you provided)
 const iconUrls = {
-    call: 'https://b.top4top.io/p_3564ixxjh1.png', 
-    whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png', 
+    call: 'https://g.top4top.io/p_356528fhl1.png',      // أيقونة الاتصال الزرقاء
+    whatsapp: 'https://f.top4top.io/p_3565pjntb0.png', // أيقونة الواتساب الخضراء
     rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      
     bathrooms: 'https://f.top4top.io/p_3565iewc51.png', 
     area: 'https://g.top4top.io/p_3565j5ijc2.png',     
@@ -703,6 +705,7 @@ let allSuggestions = [];
 const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
 const defaultUnitType = 'شاليه'; 
 const specificDeliveryYear = '2028'; 
+const contactPhoneNumber = '201050072527'; // رقم الهاتف لزر الاتصال والواتساب
 
 /**
  * Creates the HTML markup for a single unit card (HORIZONTAL LAYOUT - ALL SCREENS).
@@ -730,7 +733,9 @@ function createUnitCard(unit) {
                       ? unit.images[0] 
                       : 'https://d.top4top.io/p_3564b0j821.jpeg'; 
 
-    const whatsappLink = `https://wa.me/201050072527?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`)}`;
+    const whatsappText = `مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`;
+    const whatsappLink = `https://wa.me/${contactPhoneNumber}?text=${encodeURIComponent(whatsappText)}`;
+    const callLink = `tel:+${contactPhoneNumber}`;
 
     return `
         <div class="unit-card" data-filter="${unit.type}">
@@ -768,8 +773,8 @@ function createUnitCard(unit) {
                         <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
                             <img src="${iconUrls.whatsapp}" alt="WhatsApp">
                         </a>
-                        <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
-                            <img src="${iconUrls.call}" alt="WhatsApp"> 
+                        <a class="call-btn-card" href="${callLink}" title="اتصال هاتفي">
+                            <img src="${iconUrls.call}" alt="Call"> 
                         </a>
                     </div>
                 </div>
@@ -876,7 +881,7 @@ function sendForm(method) {
     const notes = document.getElementById('formNotes').value.trim();
     
     const targetEmail = 'islammesmail@gmail.com';
-    const targetPhone = '01050072527';
+    const targetPhone = contactPhoneNumber;
 
     if (!name || !phone || phone.length < 11 || !/^\+?([0-9]{11,})$/.test(phone)) {
         alert('الرجاء إدخال الاسم ورقم الهاتف بشكل صحيح (11 رقم على الأقل).');
