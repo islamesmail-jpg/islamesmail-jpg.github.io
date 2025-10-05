@@ -209,7 +209,7 @@ h1.page-title {
     border: 1px solid var(--border-color);
     display: flex; 
     flex-direction: row-reverse; 
-    min-height: 160px;
+    min-height: 140px; /* **تعديل: تقليل الارتفاع على الديسكتوب** */
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
@@ -218,7 +218,7 @@ h1.page-title {
     width: 30%; 
     min-width: 160px; 
     overflow: hidden;
-    padding-top: 30%; 
+    padding-top: 25%; /* **تعديل: تقليل ارتفاع الصورة لتناسب الكارت النحيف** */
     position: relative;
 }
 .card-header a { 
@@ -279,8 +279,8 @@ h1.page-title {
     justify-content: space-between; 
     gap: 15px; 
     flex-wrap: wrap;
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 8px 0; /* تقليل البادينج قليلاً */
+    margin-bottom: 8px; /* تقليل المارجن قليلاً */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -299,7 +299,7 @@ h1.page-title {
 .card-delivery {
     font-size: 14px; 
     color: var(--text-muted); 
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* تقليل المارجن قليلاً */
     font-weight: 600;
 }
 
@@ -332,7 +332,7 @@ h1.page-title {
 .card-actions .whatsapp-btn-card { background: var(--accent-color); } 
 .card-actions .call-btn-card { background: var(--primary-color); } 
 .card-actions img { 
-    width: 16px; /* **التعديل هنا: تصغير الأيقونة لتناسب الدائرة على الديسكتوب** */
+    width: 16px; /* حجم أيقونة الديسكتوب لضمان التناسق داخل الدائرة */
     height: 16px; 
 }
 /* END: DESKTOP CARD LAYOUT */
@@ -348,7 +348,6 @@ h1.page-title {
     .card-header {
         width: 35%; 
         min-width: 110px;
-        /* جعل الصورة مستطيلة أفقياً أنحف */
         padding-top: 25%; 
     }
     
