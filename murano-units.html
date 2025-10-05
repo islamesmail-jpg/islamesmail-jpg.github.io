@@ -199,7 +199,7 @@ h1.page-title {
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
-/* START: DESKTOP CARD LAYOUT (HORIZONTAL - IMPROVED) - Default setting */
+/* START: DESKTOP CARD LAYOUT (HORIZONTAL - SLIMMER) - Default setting */
 .unit-card { 
     background: #fff; 
     border-radius: var(--radius); 
@@ -208,18 +208,17 @@ h1.page-title {
     transition: all 0.3s;
     border: 1px solid var(--border-color);
     display: flex; 
-    flex-direction: row-reverse; /* Horizontal stack: Image on the right */
-    min-height: 200px; /* Increased min-height for better look on desktop */
+    flex-direction: row-reverse; 
+    min-height: 160px; /* **التعديل هنا: جعل الكارت أقل ارتفاعاً** */
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
 .card-header { 
     position: relative; 
-    width: 30%; /* Image width on desktop */
-    min-width: 180px;
+    width: 30%; 
+    min-width: 160px; /* تقليل الحد الأدنى للعرض قليلاً */
     overflow: hidden;
-    /* Maintain aspect ratio close to 1:1, but slightly taller for a modern look */
-    padding-top: 30%; 
+    padding-top: 30%; /* **التعديل هنا: تقليل ارتفاع الصورة لتناسب الشكل الجديد** */
     position: relative;
 }
 .card-header a { 
@@ -249,8 +248,8 @@ h1.page-title {
 .card-badge.developer { background: var(--primary-color); }
 
 .card-body { 
-    padding: 15px 20px; /* Slightly more padding for desktop */
-    width: 70%; /* Content width on desktop */
+    padding: 15px 20px; 
+    width: 70%; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -346,7 +345,7 @@ h1.page-title {
     .card-header {
         width: 40%; 
         min-width: 130px;
-        /* Force square aspect ratio (1:1) for mobile as requested */
+        /* Force square aspect ratio (1:1) for mobile */
         padding-top: 40%; 
     }
     
@@ -538,8 +537,6 @@ h1.page-title {
     color: var(--text-muted);
     line-height: 1.7;
 }
-
-/* ... (نهاية كود الـ CSS العام) ... */
 
 </style>
 </head>
