@@ -209,7 +209,7 @@ h1.page-title {
     border: 1px solid var(--border-color);
     display: flex; 
     flex-direction: row-reverse; 
-    min-height: 160px; /* الارتفاع النحيف للديسكتوب */
+    min-height: 160px;
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
@@ -331,35 +331,39 @@ h1.page-title {
 .card-actions a:hover { transform: scale(1.1); }
 .card-actions .whatsapp-btn-card { background: var(--accent-color); } 
 .card-actions .call-btn-card { background: var(--primary-color); } 
+.card-actions img { 
+    width: 16px; /* **التعديل هنا: تصغير الأيقونة لتناسب الدائرة على الديسكتوب** */
+    height: 16px; 
+}
 /* END: DESKTOP CARD LAYOUT */
 
 
 /* START: MOBILE CARD LAYOUT (HORIZONTAL - SLIMMER) - Applies below 768px */
 @media (max-width: 768px) {
     .unit-card { 
-        min-height: 120px; /* **تعديل: جعل الارتفاع الأدنى أقل على الموبايل** */
+        min-height: 120px; 
         flex-direction: row-reverse; 
     }
     
     .card-header {
-        width: 35%; /* **تعديل: تصغير عرض الصورة** */
+        width: 35%; 
         min-width: 110px;
         /* جعل الصورة مستطيلة أفقياً أنحف */
-        padding-top: 25%; /* **تعديل: تقليل الارتفاع لتبدو مستطيلة أفقياً** */
+        padding-top: 25%; 
     }
     
     .card-body { 
-        width: 65%; /* **تعديل: زيادة عرض المحتوى** */
-        padding: 8px; /* تقليل البادينج */
+        width: 65%; 
+        padding: 8px; 
     }
 
     /* Adjust font and details sizes for mobile */
     .card-body h3 {
-        font-size: 13px; /* أصغر قليلاً */
+        font-size: 13px; 
         margin-bottom: 2px;
     }
     .card-location, .card-type, .card-delivery, .card-detail {
-        font-size: 9px; /* أصغر جداً للمساحة الضيقة */
+        font-size: 9px; 
     }
     .card-type { margin-bottom: 4px; }
     .card-delivery { margin-bottom: 4px; }
