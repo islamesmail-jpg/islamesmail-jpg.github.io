@@ -23,8 +23,8 @@ permalink: /murano-units.html
 
 <style>
 :root {
-    --primary-color: #007BFF;
-    --accent-color: #25D366;
+    --primary-color: #007BFF; /* أزرق للاتصال */
+    --accent-color: #25D366; /* أخضر للواتساب */
     --text-dark: #000;
     --text-muted: #666;
     --bg-light: #f9f9f9;
@@ -42,6 +42,8 @@ body {
 }
 a { text-decoration: none; color: inherit; transition: all 0.3s; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+/* ... (كود شريط البحث والـ Breadcrumb كما هو) ... */
 
 .site-search-bar {
     background: var(--bg-light);
@@ -196,7 +198,8 @@ h1.page-title {
 }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-/* START: NEW CARD LAYOUT CSS */
+
+/* START: DESKTOP CARD LAYOUT (HORIZONTAL - SLIMMER) - Default setting */
 .unit-card { 
     background: #fff; 
     border-radius: var(--radius); 
@@ -205,27 +208,30 @@ h1.page-title {
     transition: all 0.3s;
     border: 1px solid var(--border-color);
     display: flex; 
-    flex-direction: row-reverse; /* Horizontal layout for all screens */
-    min-height: 200px; 
+    flex-direction: row-reverse; 
+    min-height: 160px; /* الارتفاع النحيف للديسكتوب */
 }
 .unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
 
-/* --- Tighter Card Layout for Horizontal Consistency --- */
 .card-header { 
     position: relative; 
-    width: 40%; /* Image takes a fixed width */
-    min-width: 130px;
+    width: 30%; 
+    min-width: 160px; 
     overflow: hidden;
+    padding-top: 30%; 
+    position: relative;
 }
-.card-header a { /* Ensure the entire image is clickable */
+.card-header a { 
     display: block;
-    height: 100%;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
 }
 .card-header img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    min-height: 180px;
+    position: absolute;
+    top: 0; left: 0;
 }
 .card-badge {
     position: absolute;
@@ -242,28 +248,28 @@ h1.page-title {
 .card-badge.developer { background: var(--primary-color); }
 
 .card-body { 
-    padding: 12px 15px; /* Slightly reduced padding */
-    width: 60%; 
+    padding: 15px 20px; 
+    width: 70%; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .card-body h3 { 
-    font-size: 16px; /* Slightly smaller font for mobile */
-    font-weight: 700; 
+    font-size: 18px; 
+    font-weight: 800; 
     margin: 0 0 5px; 
     color: #000; 
     line-height: 1.2;
 }
 .card-location { 
-    font-size: 11px; /* Smaller location font */
+    font-size: 13px; 
     color: var(--text-muted); 
     margin-bottom: 5px; 
 }
 .card-type {
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
     color: #000;
 }
 
@@ -271,31 +277,29 @@ h1.page-title {
 .card-details-row {
     display: flex;
     justify-content: space-between; 
-    gap: 5px; /* Reduced gap */
+    gap: 15px; 
     flex-wrap: wrap;
-    padding: 8px 0;
-    margin-bottom: 5px;
+    padding: 10px 0;
+    margin-bottom: 10px;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
 .card-detail { 
-    font-size: 12px; /* Smaller detail font */
+    font-size: 13px; 
     display: flex; 
     align-items: center; 
-    gap: 4px; /* Reduced icon gap */
+    gap: 4px; 
     font-weight: 600;
-    flex: 1; 
-    min-width: 70px; /* Ensure minimum width for wrapping on small screens */
 }
 .card-detail img { 
-    width: 16px; /* Smaller icon size */
-    height: 16px; 
+    width: 18px; 
+    height: 18px; 
 }
 
 .card-delivery {
-    font-size: 12px; 
+    font-size: 14px; 
     color: var(--text-muted); 
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
@@ -308,16 +312,16 @@ h1.page-title {
 }
 .card-price { 
     color: #dc3545; 
-    font-size: 16px; /* Smaller price font */
+    font-size: 18px; 
     font-weight: 900; 
 }
 .card-actions { 
     display: flex; 
-    gap: 8px; 
+    gap: 10px; 
 }
 .card-actions a {
-    width: 34px; /* Slightly smaller buttons */
-    height: 34px;
+    width: 38px; 
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,45 +329,68 @@ h1.page-title {
     transition: transform 0.2s;
 }
 .card-actions a:hover { transform: scale(1.1); }
-.card-actions .call { background: var(--primary-color); }
-.card-actions .whatsapp { background: var(--accent-color); }
-.card-actions img { width: 16px; height: 16px; }
+.card-actions .whatsapp-btn-card { background: var(--accent-color); } 
+.card-actions .call-btn-card { background: var(--primary-color); } 
+/* END: DESKTOP CARD LAYOUT */
 
-@media (max-width: 600px) {
-    /* **Keep the horizontal layout on mobile but adjust sizes** */
+
+/* START: MOBILE CARD LAYOUT (HORIZONTAL - SLIMMER) - Applies below 768px */
+@media (max-width: 768px) {
     .unit-card { 
+        min-height: 120px; /* **تعديل: جعل الارتفاع الأدنى أقل على الموبايل** */
         flex-direction: row-reverse; 
-        min-height: 160px; /* Overall smaller card on mobile */
     }
+    
     .card-header {
-        width: 45%; 
-        min-width: 140px;
+        width: 35%; /* **تعديل: تصغير عرض الصورة** */
+        min-width: 110px;
+        /* جعل الصورة مستطيلة أفقياً أنحف */
+        padding-top: 25%; /* **تعديل: تقليل الارتفاع لتبدو مستطيلة أفقياً** */
     }
-    .card-header img { 
-        min-height: 160px;
-    }
+    
     .card-body { 
-        width: 55%; 
-        padding: 10px;
+        width: 65%; /* **تعديل: زيادة عرض المحتوى** */
+        padding: 8px; /* تقليل البادينج */
     }
+
+    /* Adjust font and details sizes for mobile */
     .card-body h3 {
-        font-size: 15px;
+        font-size: 13px; /* أصغر قليلاً */
+        margin-bottom: 2px;
     }
     .card-location, .card-type, .card-delivery, .card-detail {
-        font-size: 11px;
+        font-size: 9px; /* أصغر جداً للمساحة الضيقة */
     }
-    .card-price {
-        font-size: 15px;
-    }
+    .card-type { margin-bottom: 4px; }
+    .card-delivery { margin-bottom: 4px; }
+
     .card-details-row {
-        gap: 5px;
-        justify-content: flex-start;
-        padding: 5px 0;
+        gap: 4px;
+        padding: 3px 0;
+        margin-bottom: 4px;
+    }
+    .card-detail img { 
+        width: 13px; 
+        height: 13px; 
+    }
+
+    .card-price {
+        font-size: 13px;
+    }
+    .card-actions a {
+        width: 28px; 
+        height: 28px;
+    }
+    .card-actions img {
+        width: 13px;
+        height: 13px;
     }
 }
-/* END: NEW CARD LAYOUT CSS */
+/* END: MOBILE CARD LAYOUT */
 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+
+/* ... (بقية الـ CSS لروابط الاقتراحات ونموذج الاتصال كما هو) ... */
 
 .suggestions-links {
     display: flex;
@@ -510,12 +537,6 @@ h1.page-title {
     line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-    h1.page-title { font-size: 20px; }
-    .breadcrumb { font-size: 11px; }
-    .cards { grid-template-columns: 1fr; }
-    .form-actions-buttons { flex-direction: column; }
-}
 </style>
 </head>
 <body>
@@ -682,10 +703,10 @@ h1.page-title {
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 <script>
-// Icon URLs
+// Icon URLs (Used in createUnitCard)
 const iconUrls = {
-    call: 'https://a.top4top.io/p_3564ztvhw0.png',
-    whatsapp: 'https://b.top4top.io/p_3564ixxjh1.png',
+    call: 'https://g.top4top.io/p_356528fhl1.png',      // أيقونة الاتصال الزرقاء
+    whatsapp: 'https://f.top4top.io/p_3565pjntb0.png', // أيقونة الواتساب الخضراء
     rooms: 'https://e.top4top.io/p_3565cgz7n0.png',      
     bathrooms: 'https://f.top4top.io/p_3565iewc51.png', 
     area: 'https://g.top4top.io/p_3565j5ijc2.png',     
@@ -696,6 +717,7 @@ let allSuggestions = [];
 const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
 const defaultUnitType = 'شاليه'; 
 const specificDeliveryYear = '2028'; 
+const contactPhoneNumber = '201050072527'; 
 
 /**
  * Creates the HTML markup for a single unit card (HORIZONTAL LAYOUT - ALL SCREENS).
@@ -714,7 +736,7 @@ function createUnitCard(unit) {
     const bathrooms = unit.bath || 0;
     const size = unit.area || 'غير محدد';
     const price = unit.price || 'عند الاتصال';
-    const link = unit.link || '#'; // Unit specific link for clicking
+    const link = unit.link || '#'; 
     
     // Use delivery_year if available, otherwise use default 2028
     const delivery = unit.delivery_year || specificDeliveryYear; 
@@ -723,7 +745,9 @@ function createUnitCard(unit) {
                       ? unit.images[0] 
                       : 'https://d.top4top.io/p_3564b0j821.jpeg'; 
 
-    const whatsappLink = `https://wa.me/201050072527?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`)}`;
+    const whatsappText = `مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`;
+    const whatsappLink = `https://wa.me/${contactPhoneNumber}?text=${encodeURIComponent(whatsappText)}`;
+    const callLink = `tel:+${contactPhoneNumber}`;
 
     return `
         <div class="unit-card" data-filter="${unit.type}">
@@ -758,11 +782,11 @@ function createUnitCard(unit) {
                 <div class="card-footer">
                     <div class="card-price">${price}</div>
                     <div class="card-actions">
-                        <a class="whatsapp" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
-                            <img src="${iconUrls.whatsapp}" alt="WhatsApp">
+                        <a class="call-btn-card" href="${callLink}" title="اتصال هاتفي">
+                            <img src="${iconUrls.call}" alt="Call"> 
                         </a>
-                        <a class="call" href="tel:+201050072527" title="اتصال مباشر">
-                            <img src="${iconUrls.call}" alt="Call">
+                        <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
+                            <img src="${iconUrls.whatsapp}" alt="WhatsApp">
                         </a>
                     </div>
                 </div>
@@ -793,9 +817,6 @@ function createSuggestionLink(unit) {
 
 /**
  * Renders units or suggestions to a specific container.
- * @param {Array<object>} data - List of unit/suggestion objects.
- * @param {string} containerId - The ID of the HTML container element.
- * @param {Function} cardCreator - Function to generate the HTML for each item.
  */
 function renderData(data, containerId, cardCreator) {
     const container = document.getElementById(containerId);
@@ -819,7 +840,6 @@ function renderData(data, containerId, cardCreator) {
 
 /**
  * Filters the main unit list based on the active tab and search text.
- * @param {string} filter - The type filter ('all', 'developer', 'resale').
  */
 function filterUnits(filter) {
     document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
@@ -861,8 +881,7 @@ function searchUnits() {
 
 
 /**
- * Sends the contact form data via WhatsApp or Email. (Retained)
- * @param {string} method - 'whatsapp' or 'email'.
+ * Sends the contact form data via WhatsApp or Email.
  */
 function sendForm(method) {
     const name = document.getElementById('formName').value.trim();
@@ -874,7 +893,7 @@ function sendForm(method) {
     const notes = document.getElementById('formNotes').value.trim();
     
     const targetEmail = 'islammesmail@gmail.com';
-    const targetPhone = '01050072527';
+    const targetPhone = contactPhoneNumber;
 
     if (!name || !phone || phone.length < 11 || !/^\+?([0-9]{11,})$/.test(phone)) {
         alert('الرجاء إدخال الاسم ورقم الهاتف بشكل صحيح (11 رقم على الأقل).');
@@ -909,7 +928,7 @@ function sendForm(method) {
 }
 
 
-// Function to fetch data from JSON file (RETAINED LOGIC)
+// Function to fetch data from JSON file 
 async function loadData() {
     try {
         // IMPORTANT: Ensure this path is correct: /murano-units.json
