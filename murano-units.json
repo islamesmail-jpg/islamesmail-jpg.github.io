@@ -13,11 +13,10 @@
     "installment_amount": "408,199 ج.م (ربع سنوي)",
     "installment_years": 8,
     "installments_count": 32,
+    "delivery_year": "2028",  <-- **يجب إضافة هذا الحقل**
     "images": [
       "https://g.top4top.io/p_3563nwxqm0.jpg",
-      "https://h.top4top.io/p_3563r5o301.jpg",
-      "https://j.top4top.io/p_3563myq0h3.jpg",
-      "https://g.top4top.io/p_3563ttwox0.jpg"
+      // ...
     ]
   }
 ]
