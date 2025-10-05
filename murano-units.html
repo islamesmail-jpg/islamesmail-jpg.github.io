@@ -33,121 +33,152 @@ permalink: /murano-units.html
     --shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Cairo', sans-serif; background: #fff; color: var(--text-dark); direction: rtl; line-height: 1.6; }
+body { 
+    font-family: 'Cairo', sans-serif; 
+    background: #fff; 
+    color: var(--text-dark); 
+    direction: rtl;
+    line-height: 1.6;
+}
 a { text-decoration: none; color: inherit; transition: all 0.3s; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
-/* ... باقي CSS نفس ما هو ... */
-
-.tabs button.active {
-    background: #fff; 
-    color: #000; 
-    border-color: #000;
+.breadcrumb { 
+    display: flex; 
+    gap: 5px; 
+    align-items: center;
+    padding: 10px 0; 
+    font-size: 12px; 
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow-x: auto;
 }
-</style>
-</head>
-<body>
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--primary-color); }
 
-{% include header-ar.html %}
+h1.page-title { 
+    text-align: center; 
+    font-size: 26px; 
+    font-weight: 900; 
+    margin: 15px 0;
+    line-height: 1.3;
+}
+.separator { 
+    width: 60px; 
+    height: 4px; 
+    background: #000; 
+    margin: 10px auto 25px; 
+}
 
-<div class="container">
-    <div class="breadcrumb">
-        <a href="/">الرئيسية</a> <span>»</span>
-        <a href="/ain-sokhna">العين السخنة</a> <span>»</span>
-        <a href="/murano.html">مورانو</a> <span>»</span>
-        <span>وحدات متاحة</span>
-    </div>
+.icons-section { text-align: center; margin: 20px 0 35px; }
+.icons-row { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.icon-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.icon-item:hover { transform: translateY(-5px); }
+.icon-item .icon-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    transition: all 0.3s;
+}
+.icon-item:hover .icon-box {
+    background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.icon-item img { 
+    width: 32px; 
+    height: 32px; 
+    transition: filter 0.3s;
+}
+.icon-item:hover img { filter: invert(1); }
+.icon-item span { 
+    font-size: 13px; 
+    font-weight: 600; 
+}
 
-    <h1 class="page-title">وحدات متاحة للبيع في مشروع مورانو وادي دجلة - العين السخنة</h1>
-    <div class="separator"></div>
+.filters-section { text-align: center; margin: 25px 0; }
+.tabs { display: inline-flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.tabs button { 
+    padding: 10px 24px; 
+    border: 2px solid var(--border-color); 
+    border-radius: 25px; 
+    cursor: pointer; 
+    background: #fff; 
+    font-weight: 700;
+    transition: all 0.3s;
+    font-family: inherit;
+    font-size: 15px;
+}
+.tabs button:hover { border-color: #000; }
+.tabs button.active { background: #fff; color: var(--primary-color); border-color: var(--primary-color); border-width: 2px; }
 
-    <div class="icons-section">
-        <div class="icons-row">
-            <a class="icon-item" data-fancybox="gallery" href="#photos">
-                <div class="icon-box"><img src="https://c.top4top.io/p_3564sbc0d0.png" alt="صور"></div>
-                <span>الصور</span>
-            </a>
-            <a class="icon-item" data-fancybox href="https://i.top4top.io/m_3524euftk0.mp4">
-                <div class="icon-box"><img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو"></div>
-                <span>الفيديو</span>
-            </a>
-            <a class="icon-item" data-fancybox data-src="#map-popup" href="javascript:;">
-                <div class="icon-box"><img src="https://d.top4top.io/p_3564912551.png" alt="موقع"></div>
-                <span>الموقع</span>
-            </a>
-        </div>
-    </div>
+.units-search { max-width: 500px; margin: 0 auto 30px; }
+#unitsFilter {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    font-family: inherit;
+    font-size: 16px;
+}
+#unitsFilter:focus { border-color: #000; outline: none; }
 
-    <div style="display:none;" id="photos">
-        <a data-fancybox="gallery" href="https://c.top4top.io/p_3564wfv960.jpg"></a>
-        <!-- باقي الصور ... -->
-    </div>
+.section-heading {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 35px 0 20px;
+    color: #000;
+    text-align: right;
+}
 
-    <div style="display:none;" id="map-popup">
-        <h3 style="text-align:center; padding:15px; background:#f1f1f1; margin:0;">موقع مشروع مورانو</h3>
-        <iframe src="https://www.google.com/maps?q=loc:29.575,+32.328&output=embed" width="800" height="500" style="border:0;" allowfullscreen loading="lazy"></iframe>
-    </div>
+.section-box {
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: var(--radius);
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+}
 
-    <div class="filters-section">
-        <div class="tabs">
-            <button class="active" data-filter="all">الكل</button>
-            <button data-filter="developer">المطور</button>
-            <button data-filter="resale">إعادة البيع</button>
-        </div>
-        <div class="units-search">
-            <input type="text" id="unitsFilter" placeholder="ابحث باسم الوحدة أو الكود...">
-        </div>
-    </div>
-
-    <h2 class="section-heading">الوحدات المتاحة حالياً في مورانو</h2>
-    <div class="section-box">
-        <div id="units-container" class="cards">
-            <div class="empty-state">جاري تحميل الوحدات...</div>
-        </div>
-    </div>
-
-    <h2 class="section-heading">وحدات مقترحة قد تهمك</h2>
-    <div class="section-box">
-        <div id="suggestions-container" class="suggestions-links">
-            <div class="empty-state">جاري التحميل...</div>
-        </div>
-    </div>
-
-    <!-- FAQ + Form زي ما هو بالظبط -->
-</div>
-
-{% include footer-ar.html %}
-
-<a href="https://wa.me/201050072527?text=مرحباً، أود الاستفسار عن وحدات مورانو" class="whatsapp-float" target="_blank">
-    <img src="https://l.top4top.io/p_3564hewh21.png" alt="WhatsApp">
-</a>
-
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-<script>
-let allUnits = [];
-
-// جلب الوحدات من murano-units.json
-fetch('/murano-units.json')
-  .then(res => res.json())
-  .then(data => {
-    allUnits = data;
-    renderUnits(allUnits);
-  });
-
-// جلب المقترحات من suggestion.json
-fetch('/suggestion.json')
-  .then(res => res.json())
-  .then(suggestions => {
-    const container = document.getElementById('suggestions-container');
-    container.innerHTML = suggestions.map(s => `
-      <a class="suggestion-link" href="${s.url}">
-        <h3>${s.title}</h3>
-        <span>→</span>
-      </a>
-    `).join('');
-  });
-
-// باقي الكود renderUnits + الفلترة + البحث زي ما هو
-</script>
-</body>
-</html>
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.unit-card { 
+    background: #fff; 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow); 
+    overflow: hidden; 
+    transition: all 0.3s;
+    border: 1px solid var(--border-color);
+}
+.unit-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-5px); }
+.card-header { position: relative; }
+.card-header img { width: 100%; height: 220px; object-fit: cover; }
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #28a745;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 13px;
+}
+.card-badge.developer { background: var(--primary-color); }
+.card-body { padding: 15px; }
+.card-body h3 { font-size: 19px; font-weight: 700; margin: 0 0 8px; color: #000; }
+.card-location { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.card-details-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
