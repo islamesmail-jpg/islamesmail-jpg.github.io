@@ -2,54 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Home -->
-  <url><loc>https://islamesmail-jpg.github.io/index.html</loc><priority>1.0</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/index-en.html</loc><priority>1.0</priority></url>
+  <url><loc>https://islamproperty.com/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://islamproperty.com/index-en.html</loc><priority>1.0</priority></url>
 
   <!-- Main Sections -->
-  <url><loc>https://islamesmail-jpg.github.io/sokhna.html</loc><priority>0.9</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/sokhna-en.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/sokhna.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/sokhna-en.html</loc><priority>0.9</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/north.html</loc><priority>0.9</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/north-en.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/north.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/north-en.html</loc><priority>0.9</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/newcairo.html</loc><priority>0.9</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/newcairo-en.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/newcairo.html</loc><priority>0.9</priority></url>
+  <url><loc>https://islamproperty.com/newcairo-en.html</loc><priority>0.9</priority></url>
 
   <!-- Lead / Resale -->
-  <url><loc>https://islamesmail-jpg.github.io/list.html</loc><priority>0.8</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/list-en.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/list.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/list-en.html</loc><priority>0.8</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/resale.html</loc><priority>0.8</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/resale-en.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/resale.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/resale-en.html</loc><priority>0.8</priority></url>
 
   <!-- Ain Sokhna sub-sections -->
-  <url><loc>https://islamesmail-jpg.github.io/zafarana.html</loc><priority>0.8</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/zafarana-en.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/zafarana.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/zafarana-en.html</loc><priority>0.8</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/suez.html</loc><priority>0.8</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/suez-en.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/suez.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/suez-en.html</loc><priority>0.8</priority></url>
 
-  <!-- Projects (AR/EN where available) -->
-  <url><loc>https://islamesmail-jpg.github.io/murano.html</loc><priority>0.7</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/murano-en.html</loc><priority>0.7</priority></url>
+  <!-- Projects -->
+  <url><loc>https://islamproperty.com/murano.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/murano-en.html</loc><priority>0.7</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/lugano.html</loc><priority>0.7</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/lugano-en.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/lugano.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/lugano-en.html</loc><priority>0.7</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/einhills.html</loc><priority>0.7</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/einhills-en.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/einhills.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/einhills-en.html</loc><priority>0.7</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/lolybeach.html</loc><priority>0.7</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/lolybeach-en.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/lolybeach.html</loc><priority>0.7</priority></url>
+  <url><loc>https://islamproperty.com/lolybeach-en.html</loc><priority>0.7</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/dolphin.html</loc><priority>0.6</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/dolphin-en.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/dolphin.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/dolphin-en.html</loc><priority>0.6</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/hijaz.html</loc><priority>0.6</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/hijaz-en.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/hijaz.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/hijaz-en.html</loc><priority>0.6</priority></url>
 
-  <url><loc>https://islamesmail-jpg.github.io/sokhnahills.html</loc><priority>0.6</priority></url>
-  <url><loc>https://islamesmail-jpg.github.io/sokhnahills-en.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/sokhnahills.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/sokhnahills-en.html</loc><priority>0.6</priority></url>
 
-  <!-- Add new pages here as you create them -->
+  <!-- Example Units (زود عليهم كل murano-units اللي عندك) -->
+  <url><loc>https://islamproperty.com/murano-units.html</loc><priority>0.8</priority></url>
+  <url><loc>https://islamproperty.com/murano-units101.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/murano-units102.html</loc><priority>0.6</priority></url>
+  <url><loc>https://islamproperty.com/murano-units103.html</loc><priority>0.6</priority></url>
+
 </urlset>
