@@ -68,28 +68,33 @@ a:hover{color:#003d80}
     cursor: pointer;
 }
 
-/* UNIT SPECS ICONS - ضبط الحجم ليكون 28px */
+/* UNIT SPECS ICONS */
 .unit-specs{display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 25px;}
 .spec-item{text-align: center; width: 30%;}
-/* تعديل حجم الأيقونات هنا */
 .spec-item img{width: 28px; height: 28px; margin-bottom: 5px;} 
 .spec-item p{margin: 0; font-weight: 600;}
 
 /* PAYMENT & CONTACT */
-.payment-contact{display: flex; justify-content: space-between; align-items: center; padding: 15px 0; flex-wrap: wrap;}
+.payment-contact{display: flex; justify-content: space-between; align-items: center; padding: 15px 0; flex-wrap: wrap; border-top: 1px solid var(--line); margin-top: 20px;}
 .payment-details{font-size: 20px; font-weight: 700; color: var(--accent-red); width: 100%; margin-bottom: 10px;}
 .price-details{font-size: 24px; font-weight: 900; color: var(--ink); margin-left: 20px;}
 .contact-actions{display: flex; align-items: center;}
 .contact-buttons a{display: inline-flex; align-items: center; padding: 10px 15px; border-radius: 5px; margin-right: 10px; font-weight: 700;}
-/* تعديل الأيقونات لتستخدم Font Awesome مباشرة */
 .contact-buttons i{font-size: 18px; margin-left: 8px;} 
 .call-btn{background: var(--primary-blue); color: #fff;}
 .whatsapp-btn{background: var(--accent-green); color: #fff;}
 
 /* UNIT DATA TABLE */
 .data-table{width: 100%; border-collapse: collapse; margin-top: 15px;}
-.data-table td{padding: 10px 0; border-bottom: 1px dashed var(--line);}
+.data-table th, .data-table td{padding: 10px 0; border-bottom: 1px dashed var(--line);}
 .data-table td:first-child{font-weight: 700; width: 35%; color: var(--muted);}
+
+/* PAYMENT TABLE (NEW STYLE) */
+.payment-table{width: 100%; border-collapse: collapse; margin-top: 20px; text-align: right;}
+.payment-table th, .payment-table td{padding: 10px 10px; border: 1px solid var(--line);}
+.payment-table th{background: #f0f0f0; color: var(--primary-blue); font-weight: 700;}
+.payment-table td:first-child{font-weight: 600; width: 30%;}
+.payment-table .highlight{background: #e6f7e9; font-weight: 900; color: var(--accent-green);}
 
 /* SUGGESTED UNITS */
 .suggested-units-list{list-style: none; padding: 0;}
@@ -110,7 +115,6 @@ a:hover{color:#003d80}
 
 /* CONTACT FORM */
 .contact-form-box{padding: 25px; text-align: center;}
-.contact-form-box img{width: 60px; height: 60px; margin-bottom: 15px;}
 .form-group{margin-bottom: 15px; text-align: right;}
 .form-group label{display: block; font-weight: 600; margin-bottom: 5px;}
 .form-group input, .form-group select, .form-group textarea{width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 5px; font-family: inherit;}
@@ -183,14 +187,41 @@ a:hover{color:#003d80}
             <tr><td>**التشطيب**</td><td>سوبر لوكس</td></tr>
         </table>
 
+        <h2 style="font-size: 22px; margin-top: 30px; border-bottom: none; padding-bottom: 0;">خطة سداد الشاليه (نظام المطور)</h2>
+        <table class="payment-table">
+            <thead>
+                <tr>
+                    <th>بيان السداد</th>
+                    <th>القيمة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**السعر الإجمالي للوحدة**</td>
+                    <td>12,998,380 ج.م</td>
+                </tr>
+                <tr>
+                    <td>**المقدم**</td>
+                    <td class="highlight">0% (صفر جنيه)</td>
+                </tr>
+                <tr>
+                    <td>**مدة الأقساط**</td>
+                    <td>8 سنوات</td>
+                </tr>
+                <tr>
+                    <td>**عدد الأقساط**</td>
+                    <td>32 قسط (ربع سنوي)</td>
+                </tr>
+                <tr>
+                    <td>**قيمة القسط**</td>
+                    <td class="highlight">408,199 ج.م</td>
+                </tr>
+            </tbody>
+        </table>
+
         <div class="payment-contact">
-            <div class="payment-details">
-                مقدم **0%** وأقساط على **8 سنوات (32 قسط)**
-                <br>
-                قيمة القسط ربع السنوي: **408,199 ج.م**
-            </div>
+            <div class="price-details">12,998,380 جنيه</div>
             <div class="contact-actions">
-                <span class="price-details">12,998,380 جنيه</span>
                 <a href="tel:01050072527" class="call-btn">
                     <i class="fas fa-phone"></i>
                     اتصل بنا
@@ -357,59 +388,8 @@ a:hover{color:#003d80}
     <i class="fab fa-whatsapp"></i>
 </a>
 <script>
-// كود البحث المتقدم (Search Index Script)
-(function(){
-  const INPUT = document.getElementById('siteSearch');
-  const BOX   = document.getElementById('suggest');
-  if(!INPUT || !BOX) return;
-
-  let SITE_INDEX = [];
-  // ملاحظة: قد يكون هذا الطلب هو سبب مشكلة "المحتوى المختلط" إذا لم يتم تحميل الملف عبر HTTPS.
-  fetch('/search-index.json', {cache:'no-store'}) 
-    .then(r => r.json())
-    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-    .catch(() => SITE_INDEX = []);
-
-  const makeItem = it => {
-    const a = document.createElement('a');
-    a.href = it.url;
-    a.textContent = it.title;
-    return a;
-  };
-
-  function search(q){
-    q = (q || '').trim().toLowerCase();
-    if(!q) return [];
-    return SITE_INDEX
-      .map(it=>{
-        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
-        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
-        const inKeys  = hay.includes(q) ? 1 : 0;
-        return {...it, score: inTitle + inKeys};
-      })
-      .filter(x => x.score > 0)
-      .sort((a,b) => b.score - a.score)
-      .slice(0,8);
-  }
-
-  function render(list){
-    BOX.innerHTML = '';
-    if(list.length === 0){ BOX.style.display='none'; return; }
-    list.forEach(r => BOX.appendChild(makeItem(r)));
-    BOX.style.display = 'block';
-  }
-
-  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-  document.addEventListener('click', (e)=>{
-    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
-  });
-  INPUT.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter'){
-      const first = BOX.querySelector('a');
-      if(first){ window.location.href = first.href; }
-    }
-  });
-})();
+// تم تعطيل كود البحث بالكامل هنا لضمان عدم وجود أي طلب محتوى مختلط يسبب التحذير الأمني
+// (function(){...})() تم حذفه
 
 // وظيفة إرسال بيانات النموذج عبر واتساب
 function sendWhatsapp() {
