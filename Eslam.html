@@ -51,7 +51,7 @@ a:hover{color:#003d80}
 /* UNIT CAROUSEL/GALLERY (Horizontal scrolling for simulation) */
 .gallery-placeholder{
     display: flex; 
-    overflow-x: scroll; /* تمكين التمرير الأفقي */
+    overflow-x: scroll; 
     scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch;
     height: 400px; 
@@ -68,10 +68,11 @@ a:hover{color:#003d80}
     cursor: pointer;
 }
 
-/* UNIT SPECS ICONS */
+/* UNIT SPECS ICONS - ضبط الحجم ليكون 28px */
 .unit-specs{display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 25px;}
 .spec-item{text-align: center; width: 30%;}
-.spec-item img{width: 35px; height: 35px; margin-bottom: 5px;}
+/* تعديل حجم الأيقونات هنا */
+.spec-item img{width: 28px; height: 28px; margin-bottom: 5px;} 
 .spec-item p{margin: 0; font-weight: 600;}
 
 /* PAYMENT & CONTACT */
@@ -80,7 +81,8 @@ a:hover{color:#003d80}
 .price-details{font-size: 24px; font-weight: 900; color: var(--ink); margin-left: 20px;}
 .contact-actions{display: flex; align-items: center;}
 .contact-buttons a{display: inline-flex; align-items: center; padding: 10px 15px; border-radius: 5px; margin-right: 10px; font-weight: 700;}
-.contact-buttons img{width: 24px; height: 24px; margin-left: 8px;}
+/* تعديل الأيقونات لتستخدم Font Awesome مباشرة */
+.contact-buttons i{font-size: 18px; margin-left: 8px;} 
 .call-btn{background: var(--primary-blue); color: #fff;}
 .whatsapp-btn{background: var(--accent-green); color: #fff;}
 
@@ -190,11 +192,11 @@ a:hover{color:#003d80}
             <div class="contact-actions">
                 <span class="price-details">12,998,380 جنيه</span>
                 <a href="tel:01050072527" class="call-btn">
-                    <img src="https://f.top4top.io/p_35676vesw4.png" alt="أيقونة الهاتف">
+                    <i class="fas fa-phone"></i>
                     اتصل بنا
                 </a>
                 <a href="https://wa.me/201050072527?text=مرحباً، أرغب في الاستفسار عن شاليه مورانو كود 101 بسعر 12,998,380 ج.م" target="_blank" class="whatsapp-btn">
-                    <img src="https://e.top4top.io/p_3567tgonf3.png" alt="أيقونة واتساب">
+                    <i class="fab fa-whatsapp"></i>
                     واتساب
                 </a>
             </div>
@@ -303,7 +305,7 @@ a:hover{color:#003d80}
     </div>
     
     <div id="help-section" class="unit-data-box contact-form-box">
-        <img src="https://g.top4top.io/p_35672ag8p5.png" alt="أيقونة المساعدة">
+        <i class="fas fa-handshake" style="font-size: 60px; color: var(--primary-blue); margin-bottom: 15px;"></i>
         <h2>تحتاج إلى مساعده عقاريه؟</h2>
         <p style="color: var(--muted); margin-bottom: 25px;">املأ البيانات وسنتواصل معك فورًا لتقديم أفضل الخيارات والأسعار المناسبة لميزانيتك.</p>
         
@@ -362,7 +364,7 @@ a:hover{color:#003d80}
   if(!INPUT || !BOX) return;
 
   let SITE_INDEX = [];
-  // ملاحظة: يجب أن يكون ملف search-index.json موجودًا في الجذر
+  // ملاحظة: قد يكون هذا الطلب هو سبب مشكلة "المحتوى المختلط" إذا لم يتم تحميل الملف عبر HTTPS.
   fetch('/search-index.json', {cache:'no-store'}) 
     .then(r => r.json())
     .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
