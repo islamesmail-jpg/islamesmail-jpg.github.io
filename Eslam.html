@@ -10,7 +10,7 @@ permalink: /Eslam.html
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>شاليه للبيع أرضي بحديقة خاصة في مورانو وادي دجلة – كود #101 | Islam Real Estate</title>
-<meta name="description" content="شاليه فاخر للبيع (كود #101) في مورانو وادي دجلة العين السخنة - 145 م² وحديقة خاصة. 3 غرف نوم رئيسية + غرفة ناني، استلام فوري. نظام سداد استثنائي: 0% مقدم وأقساط حتى 8 سنوات. لاتفوت الفرصة، تواصل معنا عبر islamproperty.com">
+<meta name="description" content="شاليه فاخر للبيع (كود #101) في مورانو وادي دجلة العين السخنة - 145 م² وحديقة خاصة. 3 غرف نوم رئيسية + غرفة ناني، استلام 2028. نظام سداد استثنائي: 0% مقدم وأقساط حتى 8 سنوات. السعر الإجمالي 12,998,380 ج.م. تواصل معنا عبر islamproperty.com">
 <link rel="icon" href="https://f.top4top.io/p_35673l5p00.png" type="image/png">
 <link rel="canonical" href="https://islamproperty.com/Eslam.html"> 
 
@@ -48,9 +48,25 @@ a:hover{color:#003d80}
 /* BREADCRUMB */
 .breadcrumb{max-width: 1000px; margin: 15px auto; padding: 0 15px; font-size: 14px; color: var(--muted);}
 
-/* UNIT CAROUSEL/GALLERY (Simplified structure) */
-.gallery-placeholder{background: #ccc; height: 400px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 25px; font-size: 20px; font-weight: 700; color: #fff; position: relative;}
-.gallery-placeholder::after{content: "مكان معرض الصور التفاعلي (يجب استبداله بكود مكتبة مثل Swiper أو LightGallery)"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--ink); background: rgba(255,255,255,0.8); padding: 10px; border-radius: 5px; text-align: center;}
+/* UNIT CAROUSEL/GALLERY (Horizontal scrolling for simulation) */
+.gallery-placeholder{
+    display: flex; 
+    overflow-x: scroll; /* تمكين التمرير الأفقي */
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch;
+    height: 400px; 
+    border-radius: var(--radius); 
+    margin-bottom: 25px; 
+    background: #ccc;
+    box-shadow: var(--shadow);
+}
+.gallery-placeholder img{
+    min-width: 100%; /* كل صورة تأخذ عرض المعرض بالكامل */
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+    cursor: pointer;
+}
 
 /* UNIT SPECS ICONS */
 .unit-specs{display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 25px;}
@@ -59,8 +75,10 @@ a:hover{color:#003d80}
 .spec-item p{margin: 0; font-weight: 600;}
 
 /* PAYMENT & CONTACT */
-.payment-contact{display: flex; justify-content: space-between; align-items: center; padding: 15px 0;}
-.payment-details{font-size: 18px; font-weight: 700; color: var(--accent-red);}
+.payment-contact{display: flex; justify-content: space-between; align-items: center; padding: 15px 0; flex-wrap: wrap;}
+.payment-details{font-size: 20px; font-weight: 700; color: var(--accent-red); width: 100%; margin-bottom: 10px;}
+.price-details{font-size: 24px; font-weight: 900; color: var(--ink); margin-left: 20px;}
+.contact-actions{display: flex; align-items: center;}
 .contact-buttons a{display: inline-flex; align-items: center; padding: 10px 15px; border-radius: 5px; margin-right: 10px; font-weight: 700;}
 .contact-buttons img{width: 24px; height: 24px; margin-left: 8px;}
 .call-btn{background: var(--primary-blue); color: #fff;}
@@ -125,10 +143,13 @@ a:hover{color:#003d80}
 </header>
 <main class="content-section">
 
-    <h1 style="text-align: center; color: var(--ink); font-size: 32px; margin-bottom: 25px;">شاليه للبيع أرضي بحديقة خاصة في قرية مورانو وادي دجلة – العين السخنة</h1>
+    <h1 style="text-align: center; color: var(--ink); font-size: 32px; margin-bottom: 25px;">شاليه للبيع مشروع مورانو وادي دجلة (3 غرف + ناني) - كود #101</h1>
 
     <div id="unit-gallery" class="gallery-placeholder">
-        **معرض صور الوحدة (يدعم السحب و Lightbox)**
+        <img src="https://g.top4top.io/p_3563nwxqm0.jpg" alt="صورة شاليه مورانو 1">
+        <img src="https://h.top4top.io/p_3563r5o301.jpg" alt="صورة شاليه مورانو 2">
+        <img src="https://j.top4top.io/p_3563myq0h3.jpg" alt="صورة شاليه مورانو 3">
+        <img src="https://g.top4top.io/p_3563ttwox0.jpg" alt="صورة شاليه مورانو 4">
     </div>
 
     <div id="unit-details" class="unit-data-box" style="padding: 15px 25px;">
@@ -152,21 +173,25 @@ a:hover{color:#003d80}
         <table class="data-table">
             <tr><td>**كود الوحدة**</td><td>#101</td></tr>
             <tr><td>**النوع**</td><td>شاليه أرضي بحديقة خاصة (Ground Chalet)</td></tr>
-            <tr><td>**التسليم**</td><td>فوري - جاهز للمصيف</td></tr>
+            <tr><td>**المساحة**</td><td>145 م²</td></tr>
+            <tr><td>**التسليم**</td><td>عام 2028</td></tr>
+            <tr><td>**الصيانة**</td><td>10%</td></tr>
             <tr><td>**التشطيب**</td><td>سوبر لوكس</td></tr>
-            <tr><td>**غرفة ناني**</td><td>متاحة</td></tr>
         </table>
 
         <div class="payment-contact">
             <div class="payment-details">
-                مقدم **0%** وأقساط حتى **8 سنوات**
+                مقدم **0%** وأقساط على **8 سنوات (32 قسط)**
+                <br>
+                قيمة القسط ربع السنوي: **408,199 ج.م**
             </div>
-            <div class="contact-buttons">
+            <div class="contact-actions">
+                <span class="price-details">12,998,380 جنيه</span>
                 <a href="tel:01050072527" class="call-btn">
                     <img src="https://f.top4top.io/p_35676vesw4.png" alt="أيقونة الهاتف">
                     اتصل بنا
                 </a>
-                <a href="https://wa.me/201050072527?text=مرحباً، أرغب في الاستفسار عن شاليه مورانو كود 101" target="_blank" class="whatsapp-btn">
+                <a href="https://wa.me/201050072527?text=مرحباً، أرغب في الاستفسار عن شاليه مورانو كود 101 بسعر 12,998,380 ج.م" target="_blank" class="whatsapp-btn">
                     <img src="https://e.top4top.io/p_3567tgonf3.png" alt="أيقونة واتساب">
                     واتساب
                 </a>
@@ -240,7 +265,9 @@ a:hover{color:#003d80}
             <li>بلومار الساحل الشمالي</li>
             <li>نيوبوليس مدينة المستقبل</li>
             <li>بيراميدز ووك السادس من أكتوبر</li>
-            </ul>
+            <li>بروميناد السادس من أكتوبر</li>
+            <li>بروميناد القاهرة الجديدة</li>
+        </ul>
 
     </div>
     
@@ -259,7 +286,7 @@ a:hover{color:#003d80}
 
         <details class="faq-item">
             <summary>متى يكون استلام الوحدة وما هي حالة التشطيب؟</summary>
-            <p>الاستلام **فوري**، والوحدة تسلم **بتشطيب سوبر لوكس** كامل.</p>
+            <p>تسليم الوحدة المتاحة (كود #101) سيكون في عام **2028**، والوحدة تسلم **بتشطيب سوبر لوكس** كامل.</p>
         </details>
 
         <details class="faq-item">
