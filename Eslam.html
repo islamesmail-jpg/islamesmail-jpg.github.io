@@ -7,298 +7,189 @@ permalink: /Eslam.html
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>شاليه للبيع مشروع مورانو وادي دجلة العين السخنة - كود #101 | Islam Real Estate</title>
-  <meta name="description" content="شاليه فاخر 145 م² للبيع في مشروع مورانو وادي دجلة العين السخنة، 3 غرف نوم + غرفة مربية (ناني)، 2 حمام. مقدم 0% وأقساط حتى 8 سنوات. استلام فوري.">
-  <link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root{
-      --wrap:1180px; --line:#e5e7eb; --ink:#212529; --muted:#6c757d;
-      --primary-blue:#0056b3; --accent-green:#28a745; --accent-red:#dc3545;
-      --shadow:0 10px 25px rgba(0,0,0,.08); --radius:12px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;background:#f6f7f9;color:var(--ink);
-      font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;line-height:1.7;font-size:16px;
-    }
-    a{color:var(--primary-blue);text-decoration:none}
-    a:hover{color:#003d80;}
-
-    /* Search row */
-    .search-row{border-bottom:1px solid var(--line);padding:14px 0;background:#fff}
-    .search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
-    #siteSearch{width:100%;max-width:520px;padding:12px 18px;border:1px solid var(--line);border-radius:25px;font-weight:600;font-size:16px;box-shadow:0 2px 5px rgba(0,0,0,.04)}
-    #siteSearch:focus{outline:none;border-color:var(--primary-blue);box-shadow:0 0 0 3px rgba(0,86,179,.12)}
-    #suggest{position:absolute;left:0;right:0;top:calc(100% + 10px);background:#fff;border:1px solid var(--line);border-radius:10px;display:none;z-index:1200;overflow:hidden;box-shadow:var(--shadow)}
-    #suggest a{display:block;padding:12px 14px;font-weight:600;color:var(--ink)}
-    #suggest a:hover{background:#f1f3f5}
-
-    .container{max-width:var(--wrap);margin:22px auto;padding:0 15px}
-    .breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
-
-    /* Title one-line + code badge */
-    .unit-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .unit-title{font-size:26px;font-weight:900;color:var(--ink);margin:0}
-    .unit-code-badge{background:#e9ecef;padding:8px 12px;border-radius:10px;font-weight:800;color:var(--primary-blue);font-size:14px}
-    @media(max-width:720px){.unit-title{font-size:20px}}
-
-    /* dark small bar (rectangle) under title */
-    .unit-meta-bar{margin-top:12px;background:#eef3fb;padding:10px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .unit-meta-bar .meta-left{display:flex;gap:8px;align-items:center}
-    .unit-meta-bar img{height:38px;width:auto;display:block}
-    .unit-meta-bar .meta-text{font-weight:700;color:var(--muted);font-size:14px}
-
-    /* slider */
-    .media-row{display:flex;gap:20px;align-items:flex-start;margin-top:18px;flex-wrap:wrap}
-    .slider-wrap{flex:1 1 660px;min-width:320px;max-width:720px;position:relative}
-    .image-slider{position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#000}
-    .slide{width:100%;height:420px;object-fit:cover;display:none;cursor:pointer}
-    .slide.active{display:block}
-    .slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);color:#fff;border:none;padding:12px;font-size:20px;cursor:pointer;z-index:20;border-radius:50%}
-    .slider-arrow.left{right:12px}
-    .slider-arrow.right{left:12px}
-    .slider-arrow:hover{background:rgba(0,0,0,.65)}
-    .slider-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:20}
-    .dot{width:12px;height:12px;background:rgba(255,255,255,.5);border-radius:50%;cursor:pointer}
-    .dot.active{background:#fff}
-    @media(max-width:720px){.slide{height:260px}}
-
-    /* images card under slider */
-    .thumbs-row{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:6px}
-    .thumbs-row img{height:70px;width:auto;border-radius:8px;cursor:pointer;object-fit:cover;flex:0 0 auto;box-shadow:0 4px 8px rgba(0,0,0,.06)}
-    .thumbs-row img:focus{outline:3px solid rgba(0,86,179,.12)}
-
-    /* specs & price column */
-    .side-column{width:320px;min-width:240px;display:flex;flex-direction:column;gap:16px}
-    .specs-card{background:#fff;border-radius:12px;padding:16px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.03)}
-    .specs-grid{display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .spec-item{display:flex;gap:10px;align-items:center}
-    .spec-item img{width:36px;height:36px}
-    .spec-item .spec-text{font-weight:800}
-
-    .price-small{background:#fff;padding:10px 14px;border-radius:12px;border:1px solid var(--line);font-weight:900;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.03)}
-    .contact-buttons{display:flex;gap:10px;flex-direction:column}
-    .btn-contact{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px;border-radius:10px;font-weight:800;color:#fff;border:none;cursor:pointer}
-    .btn-phone{background:var(--primary-blue)}
-    .btn-wa{background:var(--accent-green)}
-    .btn-contact img{height:22px}
-
-    /* details table */
-    .details-section{margin-top:12px}
-    .details-table{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-radius:10px;overflow:hidden}
-    .detail-item{padding:12px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;font-weight:700}
-    .detail-item span{font-weight:600;color:var(--muted)}
-    .detail-item.alt{background:#f9fafb}
-
-    /* description & suggested & faq */
-    .content-block{margin-top:20px;background:#fff;border-radius:12px;padding:20px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.03)}
-    .content-block h2{font-size:20px;color:var(--primary-blue);margin-top:0}
-    .suggest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    @media(max-width:980px){.media-row{flex-direction:column}.side-column{width:100%}}
-    @media(max-width:720px){.suggest-grid{grid-template-columns:repeat(2,1fr)}}
-
-    .suggest-card{background:#fff;border:1px solid var(--line);padding:10px;border-radius:10px;display:flex;gap:10px;align-items:center}
-    .suggest-card img{width:80px;height:60px;object-fit:cover;border-radius:8px}
-    .suggest-card .smeta{font-weight:700;font-size:14px}
-
-    /* faq */
-    .faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:700;padding:12px;border-radius:8px;margin-top:10px;cursor:pointer;background:#f9f9fa;border:1px solid var(--line)}
-    .faq-a{padding:14px;margin-top:6px;background:#fff;border:1px solid var(--line);border-radius:8px;display:none}
-
-    /* help sticky */
-    .help{position:sticky;top:90px;padding:16px;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);text-align:right}
-    .help .help-icon{width:72px;height:72px;object-fit:contain;margin-bottom:8px}
-    .help label{display:block;font-weight:700;margin-top:8px}
-    .help input,.help select,.help textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;margin-top:6px;font-size:14px}
-
-    /* lightbox */
-    #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-    #lbImg{max-width:92%;max-height:92%;object-fit:contain;transition:transform .25s}
-    .lb-close{position:absolute;top:18px;left:18px;font-size:30px;color:#fff;background:none;border:none;cursor:pointer}
-    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:40px;color:#fff;cursor:pointer;padding:12px}
-    .lb-prev{right:24px}
-    .lb-next{left:24px}
-
-    /* floating wa */
-    .fab-wa{width:58px;height:58px;position:fixed;bottom:20px;right:20px;z-index:1100;border-radius:50%;background:var(--accent-green);box-shadow:0 6px 20px rgba(0,0,0,.16);display:flex;align-items:center;justify-content:center}
-    .fab-wa img{width:32px;height:32px;filter:invert(1)}
-
-    footer{margin-top:30px}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>شاليه للبيع مشروع مورانو وادي دجلة العين السخنة - كود #101 | Islam Real Estate</title>
+<meta name="description" content="شاليه فاخر 145 م² للبيع في مشروع مورانو وادي دجلة العين السخنة، 3 غرف نوم + غرفة مربية (ناني)، 2 حمام. مقدم 0% وأقساط حتى 8 سنوات (32 قسط). استلام فوري من المطور. احجز وحدتك الآن.">
+<link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --wrap:1180px; --line:#e5e7eb; 
+  --ink:#212529; 
+  --muted:#6c757d; 
+  --primary-blue:#0056b3; 
+  --accent-green:#28a745; 
+  --accent-red:#dc3545; 
+  --shadow:0 10px 25px rgba(0,0,0,.08); 
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#f8f9fa;color:var(--ink);font-family:"Cairo",system-ui,Segoe UI,Roboto,Arial;line-height:1.7;font-size:16px}
+a{color:var(--primary-blue);text-decoration:none;transition:color 0.3s}
+a:hover{color:#003d80}
+.search-row{border-bottom:1px solid var(--line);padding:15px 0;text-align:center;background:#fff}
+.search-wrap{max-width:980px;margin:0 auto;position:relative;padding:0 15px}
+#siteSearch{width:100%;max-width:520px;padding:12px 20px;border:1px solid var(--line);border-radius:25px;font-weight:600;font-size:16px;box-shadow:0 2px 5px rgba(0,0,0,.05);color:var(--ink)}
+#siteSearch:focus{border-color:var(--primary-blue);box-shadow:0 0 0 3px rgba(0,86,179,.2)}
+#suggest{position:absolute;left:0;right:0;top:calc(100% + 10px);background:#fff;border:1px solid var(--line);border-radius:var(--radius);display:none;z-index:1200;overflow:hidden;box-shadow:var(--shadow)}
+#suggest a{display:block;padding:12px 14px;font-weight:600;color:var(--ink);cursor:pointer}
+#suggest a:hover{background:#e9ecef}
+.container{max-width:var(--wrap);margin:24px auto;padding:0 15px}
+.breadcrumb{color:var(--muted);font-size:14px;text-align:right;margin-bottom:10px}
+.unit-title-block{text-align:center;margin-bottom:20px}
+.unit-title-block h1{margin:0;font-size:26px;font-weight:900;color:var(--ink)}
+.unit-title-block .small-text{color:var(--muted);font-size:15px;margin-top:5px}
+/* slider */
+.image-slider{position:relative;margin:0 auto;max-width:980px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000}
+.slide{width:100%;height:450px;object-fit:cover;display:none;cursor:pointer}
+.slide.active{display:block}
+.slider-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.dot{width:12px;height:12px;background:rgba(255,255,255,.5);border-radius:50%;cursor:pointer;transition:background 0.3s}
+.dot.active{background:#fff}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;padding:12px;font-size:20px;cursor:pointer;z-index:10;border-radius:50%;transition:background 0.2s}
+.slider-arrow.left{right:15px}
+.slider-arrow.right{left:15px}
+.slider-arrow:hover{background:rgba(0,0,0,.7)}
+@media(max-width:720px){.slide{height:250px}}
+/* specs single-line */
+.specs-section{display:flex;justify-content:center;align-items:center;gap:18px;padding:14px 18px;background:#fff;border-radius:var(--radius);border:1px solid var(--line);margin-top:20px;font-weight:700}
+.spec-item{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink)}
+.spec-sep{width:1px;height:22px;background:var(--line);opacity:.9}
+.spec-item img{width:24px;height:24px}
+/* price & contact row */
+.price-contact-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px}
+.price-small{background:#fff;border:1px solid var(--line);padding:10px 14px;border-radius:10px;font-weight:900;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.contact-group{display:flex;gap:8px;align-items:center}
+.contact-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:25px;font-weight:700;border:none;cursor:pointer}
+.contact-whatsapp{background:var(--accent-green);color:#fff}
+.contact-phone{background:var(--accent-red);color:#fff}
+.contact-fab{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+/* layout main grid */
+.main-content{display:grid;grid-template-columns:3fr 1fr;gap:30px;margin-top:20px}
+@media(max-width:980px){.main-content{grid-template-columns:1fr}}
+.right-column{display:flex;flex-direction:column;gap:20px}
+.section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 4px 10px rgba(0,0,0,.05);text-align:right}
+.section h2{font-size:22px;font-weight:800;color:var(--primary-blue);margin-top:0;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.section p, .section li{color:var(--ink);font-size:16px;line-height:1.8}
+/* details table compact */
+.details-table{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;font-size:15px}
+.detail-item{padding:10px 12px;background:#fff;display:flex;justify-content:space-between;align-items:center}
+.detail-item strong{font-weight:700;color:var(--ink)}
+.detail-item span{color:var(--muted);font-weight:600}
+.detail-item:nth-child(even){background:#f9f9f9}
+.detail-full{grid-column:span 2;background:#e9ecef}
+/* faq */
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:700;padding:12px 15px;border:1px solid var(--line);border-radius:8px;margin-top:10px;cursor:pointer;background:#f9f9fa;transition:background 0.2s;color:var(--ink)}
+.faq-q:hover{background:#e9ecef}
+.faq-q span{font-size:20px;transform:rotate(0);transition:transform 0.3s}
+.faq-item.open .faq-q span{transform:rotate(180deg)}
+.faq-a{padding:15px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 8px 8px;margin-top:-1px;display:none;font-size:15px;line-height:1.7;color:var(--ink)}
+/* help box sticky and compact */
+.help{position:sticky;top:90px;padding:14px;border-radius:var(--radius);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);text-align:center}
+.help-icon{width:72px;height:72px;object-fit:contain;margin-bottom:10px}
+.help h3{color:var(--primary-blue);margin:0;font-size:18px}
+.help p{font-size:14px;margin-bottom:12px}
+.help label{display:block;text-align:right;font-weight:600;font-size:13px;margin-top:10px;color:var(--ink)}
+.help input, .help select, .help textarea{width:100%;padding:9px;border:1px solid var(--line);border-radius:5px;margin-top:6px;font-size:14px;font-family:"Cairo",system-ui;color:var(--ink)}
+.help button{width:100%;padding:10px;border-radius:25px;font-weight:700;cursor:pointer;margin-top:10px;border:none;font-size:14px}
+#hWA{background:var(--accent-green);color:#fff;margin-bottom:6px}
+#hMail{background:var(--primary-blue);color:#fff}
+/* Lightbox */
+#lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#lbImg{max-width:95%;max-height:95%;object-fit:contain;transition:opacity 0.3s}
+.lb-close{position:absolute;top:20px;right:30px;font-size:30px;color:#fff;cursor:pointer;background:none;border:none;z-index:10000}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:60px;color:#fff;cursor:pointer;padding:10px;user-select:none;z-index:10000;opacity:0.9}
+.lb-prev:hover,.lb-next:hover{opacity:1}
+.lb-prev{right:20px}
+.lb-next{left:20px}
+/* floating whatsapp small for mobile */
+.fab-wa{display:none}
+@media(max-width:720px){.fab-wa{display:flex;width:58px;height:58px;position:fixed;bottom:20px;right:20px;z-index:1100;border-radius:50%;background:var(--accent-green);box-shadow:0 4px 12px rgba(0,0,0,.2);align-items:center;justify-content:center}}
+</style>
 </head>
 <body>
 
-  {% include header-ar.html %}
+{% include header-ar.html %}
 
-  <!-- Search row -->
-  <div class="search-row" role="search" aria-label="بحث الموقع">
-    <div class="search-wrap">
-      <input id="siteSearch" placeholder="أبحث عن مشروعك (اسم المشروع أو المدينة)" aria-label="أبحث عن مشروعك">
-      <div id="suggest" role="listbox"></div>
-    </div>
+<div class="search-row" role="search" aria-label="بحث الموقع">
+  <div class="search-wrap">
+    <input id="siteSearch" placeholder="أبحث عن مشروعك (اسم المشروع أو المدينة)" aria-label="أبحث عن مشروعك">
+    <div id="suggest" role="listbox"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="breadcrumb" aria-hidden="false">
+    <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/zafarana.html">الزعفرانة</a> » <a href="{{ site.baseurl }}/murano.html">مشروع مورانو</a> » <span>شاليه كود #101</span>
   </div>
 
-  <div class="container">
-    <!-- breadcrumb -->
-    <div class="breadcrumb" aria-hidden="false">
-      <a href="{{ site.baseurl }}/index.html">الرئيسية</a> » <a href="{{ site.baseurl }}/sokhna.html">العين السخنة</a> » <a href="{{ site.baseurl }}/zafarana.html">الزعفرانة</a> » <a href="{{ site.baseurl }}/murano.html">مشروع مورانو</a> » <span>شاليه كود #101</span>
+  <div class="unit-title-block">
+    <h1 id="unitTitle">شاليه للبيع مشروع مورانو وادي دجلة العين السخنة (3 غرف + ناني)</h1>
+    <div class="small-text">كود الوحدة: <strong id="unitCode" style="color:var(--primary-blue)">#MUR-101</strong></div>
+  </div>
+
+  <div id="imageSlider" class="image-slider" aria-label="معرض صور الوحدة">
+    <!-- images injected by JS -->
+    <button class="slider-arrow left" id="prevSlide" aria-label="الصورة السابقة">&#10094;</button>
+    <button class="slider-arrow right" id="nextSlide" aria-label="الصورة التالية">&#10095;</button>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+
+  <div class="specs-section" id="specsRow" aria-hidden="false">
+    <!-- specs injected -->
+  </div>
+
+  <div class="price-contact-row">
+    <div class="contact-group" id="contactGroup">
+      <!-- left: contact icons/buttons -->
+      <a id="telLink" class="contact-btn contact-phone" href="tel:+201050072527"><span class="contact-fab"><i class="fas fa-phone-alt"></i></span><span class="contact-text">اتصال مباشر</span></a>
+      <a id="waLink" class="contact-btn contact-whatsapp" target="_blank" rel="noopener" href="https://wa.me/201050072527"><span class="contact-fab"><i class="fab fa-whatsapp"></i></span><span class="contact-text">واتساب</span></a>
     </div>
+    <div class="price-small" id="priceSmall">—</div>
+  </div>
 
-    <!-- Title & code -->
-    <div class="unit-title-row">
-      <h1 class="unit-title" id="unitTitle">شاليه للبيع مشروع مورانو وادي دجلة العين السخنة (3 غرف + ناني)</h1>
-      <div class="unit-code-badge" id="unitCode">#MUR-101</div>
-    </div>
+  <div class="main-content">
+    <main class="right-column">
 
-    <!-- meta bar (darkish rectangle) -->
-    <div class="unit-meta-bar" aria-hidden="false">
-      <div class="meta-left">
-        <img src="https://g.top4top.io/p_3563nwxqm0.jpg" alt="صورة مصغرة للوحدة" id="metaThumb" onerror="this.onerror=null;this.src='https://picsum.photos/seed/unitthumb/200/120'">
-        <div class="meta-text" id="metaShort">شاليه مورانو 145 م² — 3 غرف + ناني — 2 حمام</div>
-      </div>
-      <div class="meta-right" style="text-align:left">
-        <small style="color:var(--muted);font-weight:700">احجز الآن بمقدم 0% وأنظمة سداد حتى 8 سنوات</small>
-      </div>
-    </div>
-
-    <!-- media + side column -->
-    <div class="media-row" role="region" aria-label="صور ومعلومات الوحدة">
-      <div class="slider-wrap">
-        <div class="image-slider" id="imageSlider" aria-live="polite">
-          <!-- slides populated dynamically -->
-        </div>
-
-        <button class="slider-arrow left" id="prevSlide" aria-label="الصورة السابقة">&#10094;</button>
-        <button class="slider-arrow right" id="nextSlide" aria-label="الصورة التالية">&#10095;</button>
-        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="نقاط الصور"></div>
-
-        <div class="thumbs-row" id="thumbsRow" aria-hidden="false">
-          <!-- thumbnails -->
+      <div class="section" id="paymentSection" style="padding:0">
+        <h2 style="padding:25px;margin-bottom:0">تفاصيل خطة سداد الوحدة</h2>
+        <div class="details-table" id="detailsTable">
+          <!-- items injected -->
         </div>
       </div>
 
-      <aside class="side-column" aria-label="معلومات وسعر">
-        <div class="specs-card" aria-hidden="false">
-          <div class="specs-grid">
-            <div class="spec-item">
-              <img id="iconRooms" src="https://j.top4top.io/p_3563c1mt61.png" alt="غرف">
-              <div>
-                <div class="spec-text" id="roomsText">3 غرف نوم + ناني</div>
-                <div style="font-size:13px;color:var(--muted)">عدد الغرف</div>
-              </div>
-            </div>
+      <div class="section" id="aboutSection">
+        <h2>عن مشروع مورانو وادي دجلة</h2>
+        <div id="aboutContent">
+          <!-- injected description -->
+        </div>
+      </div>
 
-            <div class="spec-item" style="justify-content:flex-end">
-              <img id="iconBaths" src="https://k.top4top.io/p_3563vaqnl2.png" alt="حمامات">
-              <div>
-                <div class="spec-text" id="bathsText">2 حمام</div>
-                <div style="font-size:13px;color:var(--muted)">الحمامات</div>
-              </div>
-            </div>
+      <div class="section">
+        <h2>الأسئلة الشائعة عن مشروع مورانو وادي دجلة</h2>
+        <div class="faq-list" id="faqList">
+          <!-- existing static FAQs kept -->
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هو موقع مشروع مورانو بالتحديد؟<span>&#9660;</span></div>
+            <div class="faq-a" aria-hidden="true" style="display:none;">يقع مشروع مورانو (Murano) في منطقة الزعفرانة بالعين السخنة، على بعد 90 دقيقة من القاهرة الجديدة وعلى طريق السويس مباشرة، مما يجعله سهل الوصول من العاصمة والمدن الرئيسية.</div>
           </div>
-
-          <hr style="margin:12px 0;border:none;border-top:1px solid var(--line)">
-
-          <div class="specs-grid" style="align-items:center">
-            <div class="spec-item">
-              <img id="iconSize" src="https://l.top4top.io/p_3563ijjuf3.png" alt="المساحة">
-              <div>
-                <div class="spec-text" id="sizeText">145 م²</div>
-                <div style="font-size:13px;color:var(--muted)">مساحة الوحدة</div>
-              </div>
-            </div>
-
-            <div style="text-align:left">
-              <div class="price-small" id="priceSmall">إجمالي السعر: 12,998,380 ج.م</div>
-            </div>
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هي أنواع الوحدات المتاحة في مورانو؟<span>&#9660;</span></div>
+            <div class="faq-a" aria-hidden="true" style="display:none;">يتضمن المشروع شاليهات، وشقق فندقية، بالإضافة إلى فيلات وشقق متنوعة الأحجام والتصميمات. تتوفر فيه خيارات استلام فوري أو تحت الإنشاء بأنظمة سداد ميسرة.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هي أنظمة السداد المتاحة لهذه الوحدة؟<span>&#9660;</span></div>
+            <div class="faq-a" aria-hidden="true" style="display:none;">هذا الشاليه تحديداً متاح بنظام سداد مميز بمقدم <strong>0%</strong> وفترة تقسيط تصل إلى <strong>8 سنوات</strong> (32 قسط ربع سنوي).</div>
           </div>
         </div>
-
-        <div class="specs-card contact-buttons" aria-hidden="false">
-          <a class="btn-contact btn-phone" id="callBtn" href="tel:+201050072527" title="اتصال مباشر"><img src="https://g.top4top.io/p_3566o2bui0.png" alt="اتصال"> اتصال مباشر</a>
-          <a class="btn-contact btn-wa" id="waBtn" target="_blank" rel="noopener" title="واتساب" href="https://wa.me/201050072527"><img src="https://h.top4top.io/p_3566h3l3d1.png" alt="واتساب"> واتساب (تواصل فوري)</a>
-        </div>
-
-        <div class="specs-card details-section" aria-hidden="false">
-          <h3 style="margin:0 0 10px 0">تفاصيل خطة السداد</h3>
-          <div id="detailsLoader" style="font-size:14px;color:var(--muted);">جاري تحميل تفاصيل خطة السداد...</div>
-          <div class="details-table" id="detailsTable" style="display:none">
-            <!-- rows injected -->
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <!-- description block -->
-    <div class="content-block" id="descriptionBlock">
-      <h2>عن مشروع مورانو وادي دجلة</h2>
-      <div id="fullDescription">
-        <!-- description filled from JSON or fallback -->
-        <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فعلى شواطئ البحر الأحمر تُقدم مورانو تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية. هذا الشاليه بمساحة <strong>145 م²</strong> يوفر مساحة مثالية للعائلات، بما في ذلك <strong>3 غرف نوم رئيسية بالإضافة إلى غرفة ناني (مربية)</strong>، مما يجعله خيارًا متميزًا للخصوصية والراحة. تم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
-
-        <h3>موقع قرية مورانو العين السخنة الاستراتيجي</h3>
-        <p>تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر. تبعد مورانو حوالي 136 كم عن القاهرة، 18 كم من طريق الجلالة، و14 كم من محطة قطار العين السخنة.</p>
-
-        <h3>أهم المرافق والخدمات الفاخرة في مورانو</h3>
-        <ul>
-          <li>حمامات سباحة متنوعة</li>
-          <li>شاطئ رملي خاص بطول 750 مترًا</li>
-          <li>منتجع فندقي 4 نجوم</li>
-          <li>سبا ونادي صحي</li>
-          <li>ملاعب رياضية ومناطق ترفيهية للأطفال</li>
-          <li>مطاعم ومقاهي ومحلات تجارية</li>
-          <li>ينابيع ماء ساخنة طبيعية</li>
-        </ul>
       </div>
-    </div>
 
-    <!-- suggested units -->
-    <div class="content-block" id="suggestedBlock">
-      <h2>وحدات مقترحة</h2>
-      <div id="suggestGrid" class="suggest-grid">
-        <!-- suggestion cards loaded via JS (max 4) -->
-      </div>
-    </div>
+    </main>
 
-    <!-- FAQ (5 questions) -->
-    <div class="content-block" id="faqBlock">
-      <h2>الأسئلة الشائعة عن مشروع مورانو وادي دجلة</h2>
-
-      <div class="faq-list" id="faqList">
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هو موقع مشروع مورانو بالتحديد؟<span>&#9660;</span></div>
-          <div class="faq-a">يقع مشروع مورانو (Murano) في منطقة الزعفرانة بالعين السخنة، على بعد حوالي 136 كم من القاهرة.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هي أنواع الوحدات المتاحة في مورانو؟<span>&#9660;</span></div>
-          <div class="faq-a">يتوفر بالشاليهات، شقق فندقية، دوبلكس، وفيلات بمساحات مختلفة وخيارات استلام فوري وتقسيط.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">هل توجد خدمة توصيل واتساب لحجز المعاينة؟<span>&#9660;</span></div>
-          <div class="faq-a">نعم، يوجد رقم واتساب للتواصل الفوري للحجز والاستفسار.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">ما هي فترة التقسيط المتاحة للوحدة؟<span>&#9660;</span></div>
-          <div class="faq-a">وفق بيانات الوحدة الحالية يمكن أن تكون حتى 8 سنوات (32 قسط ربع سنوي) بمقدم 0% بحسب المطور.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q" tabindex="0" role="button" aria-expanded="false">هل الوحدة جاهزة للاستلام؟<span>&#9660;</span></div>
-          <div class="faq-a">نعم، هذه الوحدة (كود #MUR-101) جاهزة للاستلام الفوري.</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Help sticky form -->
     <aside class="help" id="helpBox" aria-labelledby="helpTitle">
       <img src="https://c.top4top.io/p_3563kzyu40.png" alt="icon" class="help-icon" onerror="this.onerror=null;this.src='https://picsum.photos/seed/helpicon/120/120'">
       <h3 id="helpTitle">تحتاج إلى استشارة عقارية؟</h3>
@@ -312,381 +203,216 @@ permalink: /Eslam.html
         <input id="hPhone" placeholder="+20 10xxxxxxxx" required>
 
         <label for="hProject">الوحدة المحددة</label>
-        <select id="hProjectSelect" aria-label="اختر الوحدة أو اكتب">
-          <option value="شاليه مورانو كود #MUR-101 (145 م²)">شاليه مورانو كود #MUR-101 (145 م²)</option>
-          <option value="اكتب الوحدة...">أكتب الوحدة...</option>
-        </select>
-        <input id="hProject" value="شاليه مورانو كود #MUR-101 (145 م²)" style="display:none" readonly>
+        <input id="hProject" value="شاليه مورانو كود #MUR-101 (145 م²)" required>
 
         <label for="hBudget">السعر الأساسي</label>
-        <input id="hBudget" value="12,998,380 ج.م" readonly>
+        <input id="hBudget" value="12,998,380 ج.م" required>
 
         <label for="hNote">ملاحظة / تفاصيل إضافية</label>
         <textarea id="hNote" placeholder="اذكر موعد معاينة أو سؤال محدد..."></textarea>
 
-        <button id="hWA" title="إرسال عبر واتساب للمتابعة السريعة" style="background:var(--accent-green);color:#fff;padding:10px;border-radius:10px;border:none;margin-top:10px;font-weight:900">إرسال استفساري عبر واتساب</button>
-        <button id="hMail" title="إرسال التفاصيل عبر البريد الإلكتروني" style="background:var(--primary-blue);color:#fff;padding:10px;border-radius:10px;border:none;margin-top:8px;font-weight:900">إرسال عبر إيميل</button>
+        <button id="hWA" title="إرسال عبر واتساب للمتابعة السريعة">إرسال استفساري عبر واتساب</button>
+        <button id="hMail" title="إرسال التفاصيل عبر البريد الإلكتروني">إرسال عبر إيميل</button>
       </div>
     </aside>
 
-  </div> <!-- /container -->
-
-  <!-- Lightbox -->
-  <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lb-close" id="lbClose" aria-label="إغلاق">&#10006;</button>
-    <span class="lb-nav lb-next" id="lbNext" aria-label="التالي">&#10095;</span>
-    <img id="lbImg" src="" alt="عرض صورة" role="img">
-    <span class="lb-nav lb-prev" id="lbPrev" aria-label="السابق">&#10094;</span>
   </div>
+</div>
 
-  <!-- Floating WhatsApp -->
-  <a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp للتواصل السريع">
-    <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp icon">
-  </a>
+<div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="إغلاق">&#10006;</button>
+  <span class="lb-prev" id="lbPrev" aria-label="الصورة السابقة">&#10094;</span>
+  <img id="lbImg" src="" alt="عرض صورة" role="img">
+  <span class="lb-next" id="lbNext" aria-label="الصورة التالية">&#10095;</span>
+</div>
 
-  {% include footer-ar.html %}
+<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="WhatsApp للتواصل السريع">
+  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp icon">
+</a>
 
-  <script>
-  /* ---------------- SEARCH (ضع النسخة الموحدة التي زودتني بها) ---------------- */
-  (function(){
-    const INPUT = document.getElementById('siteSearch');
-    const BOX    = document.getElementById('suggest');
-    if(!INPUT || !BOX) return;
+{% include footer-ar.html %}
 
-    function ensureAbsolutePath(path){
-      if(!path) return '/';
-      if(path.startsWith('http') || path.startsWith('#')) return path;
-      let cleanedPath = path.startsWith('/') ? path : '/' + path;
-      return cleanedPath;
+<script>
+/* ---------- Utility & Defaults ---------- */
+const UNIT_CODE = 'MUR-101'; // key used to find the unit inside murano-units.json
+const BASEURL = '{{ site.baseurl }}';
+
+function safeText(s){ return (s||'').toString(); }
+
+/* ---------- Fetch unit data and render ---------- */
+fetch(`${BASEURL}/murano-units.json`, {cache:'no-store'})
+  .then(r => r.json())
+  .then(json => {
+    // try to find by code or id
+    let unit = null;
+    if(Array.isArray(json)){
+      unit = json.find(u => (u.code || u.id || '').toString().toUpperCase() === UNIT_CODE.toUpperCase() || (u.id && ('#'+u.id)===UNIT_CODE));
+      if(!unit) unit = json[0];
+    } else if(typeof json === 'object'){
+      unit = json[UNIT_CODE] || json['101'] || json;
     }
-
-    let SITE_INDEX = [];
-    fetch('/search-index.json', {cache:'no-store'})
-      .then(r => r.json())
-      .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
-      .catch(() => SITE_INDEX = []);
-
-    const makeItem = it => {
-      const a = document.createElement('a');
-      a.href = ensureAbsolutePath(it.url || it.permalink || ('/' + (it.slug||'')));
-      a.textContent = it.title || it.name || it.permalink || 'بدون عنوان';
-      return a;
-    };
-
-    function search(q){
-      q = (q || '').trim().toLowerCase();
-      if(!q) return [];
-      return SITE_INDEX
-        .map(it=>{
-          const hay = ((it.title||'') + ' ' + (it.keywords||'') + ' ' + (it.categories||'')).toLowerCase();
-          const inTitle = (it.title||'').toLowerCase().includes(q) ? 2 : 0;
-          const inKeys  = hay.includes(q) ? 1 : 0;
-          return {...it, score: inTitle + inKeys};
-        })
-        .filter(x => x.score > 0)
-        .sort((a,b) => b.score - a.score)
-        .slice(0,8);
-    }
-
-    function render(list){
-      BOX.innerHTML = '';
-      if(list.length === 0){ BOX.style.display='none'; return; }
-      list.forEach(r => BOX.appendChild(makeItem(r)));
-      BOX.style.display = 'block';
-    }
-
-    INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
-    document.addEventListener('click', (e)=>{
-      if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+    renderUnit(unit);
+  }).catch(err => {
+    console.warn('failed loading murano-units.json', err);
+    // fallback: render existing static values
+    renderUnit({
+      code: 'MUR-101',
+      title: 'شاليه مورانو كود #MUR-101',
+      area: '145 م²',
+      beds: '3',
+      baths: '2',
+      price: '12,998,380 ج.م',
+      images: [
+        'https://g.top4top.io/p_3563nwxqm0.jpg',
+        'https://h.top4top.io/p_3563r5o301.jpg',
+        'https://j.top4top.io/p_3563myq0h3.jpg',
+        'https://g.top4top.io/p_3563ttwox0.jpg'
+      ],
+      payment: {down:'0%', installments:'32 قسط', period:'8 سنوات', installment_value:'408,199 ج.م'},
+      delivery: '2029',
+      maintenance:'10%  ',
+      source:'من المطور',
+      description: document.getElementById('aboutContent').innerHTML
     });
-    INPUT.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter'){
-        const first = BOX.querySelector('a');
-        if(first){ window.location.href = first.href; }
-      }
-    });
-  })();
-  /* ---------------- END SEARCH ---------------- */
-
-  /* ---------------- Unit data loaders (murano-units.json & suggestion.json) ---------------- */
-  (function(){
-    const UNIT_ID = 'MUR-101'; // key to look up in JSON
-    const unitsPath = '/murano-units.json';       // ← عدل المسار لو لازم
-    const suggestPath = '/suggestion.json';       // ← عدل المسار لو لازم
-
-    // Elements
-    const titleEl = document.getElementById('unitTitle');
-    const codeEl = document.getElementById('unitCode');
-    const metaThumb = document.getElementById('metaThumb');
-    const metaShort = document.getElementById('metaShort');
-    const imageSlider = document.getElementById('imageSlider');
-    const sliderDots = document.getElementById('sliderDots');
-    const thumbsRow = document.getElementById('thumbsRow');
-    const detailsTable = document.getElementById('detailsTable');
-    const detailsLoader = document.getElementById('detailsLoader');
-    const priceSmall = document.getElementById('priceSmall');
-    const roomsText = document.getElementById('roomsText');
-    const bathsText = document.getElementById('bathsText');
-    const sizeText = document.getElementById('sizeText');
-    const fullDescription = document.getElementById('fullDescription');
-    const suggestGrid = document.getElementById('suggestGrid');
-
-    function createDetailRow(label, value, fullWidth){
-      const d = document.createElement('div');
-      d.className = 'detail-item' + (fullWidth ? ' alt' : '');
-      if(fullWidth){ d.style.gridColumn = 'span 2 / auto'; }
-      d.innerHTML = `<strong>${label}</strong> <span>${value}</span>`;
-      return d;
-    }
-
-    // fetch units JSON
-    fetch(unitsPath, {cache:'no-store'})
-      .then(r => r.json())
-      .then(json => {
-        // Expect json to be array or object keyed by id
-        let unit = null;
-        if(Array.isArray(json)){
-          unit = json.find(u => (u.code || u.id || u.unitCode) === UNIT_ID);
-        } else if(json && typeof json === 'object'){
-          // try keyed
-          unit = json[UNIT_ID] || json['MUR-101'] || Object.values(json).find(u => (u.code||u.id||u.unitCode) === UNIT_ID);
-        }
-        if(!unit) {
-          detailsLoader.textContent = 'تعذّر تحميل بيانات الوحدة من murano-units.json — ستُعرض البيانات الافتراضية.';
-          return;
-        }
-
-        // populate main fields
-        titleEl.textContent = unit.title || titleEl.textContent;
-        codeEl.textContent = unit.code || codeEl.textContent;
-        priceSmall.textContent = (unit.priceDisplay || unit.price || priceSmall.textContent);
-        roomsText.textContent = unit.rooms || roomsText.textContent;
-        bathsText.textContent = unit.bathrooms || bathsText.textContent;
-        sizeText.textContent = unit.size ? unit.size + ' م²' : sizeText.textContent;
-        metaShort.textContent = (unit.shortDesc || `${sizeText.textContent} — ${roomsText.textContent} — ${bathsText.textContent}`);
-
-        // description (if provided, replace content)
-        if(unit.descriptionHtml){
-          // if the json supplies html field
-          fullDescription.innerHTML = unit.descriptionHtml;
-        } else if(unit.description){
-          fullDescription.innerHTML = `<p>${unit.description}</p>`;
-        }
-
-        // images
-        const images = Array.isArray(unit.images) && unit.images.length ? unit.images : (unit.gallery || []);
-        if(images && images.length){
-          metaThumb.src = images[0];
-          // clear slider
-          imageSlider.innerHTML = '';
-          thumbsRow.innerHTML = '';
-          images.forEach((src, idx) => {
-            const img = document.createElement('img');
-            img.className = 'slide';
-            img.dataset.index = idx;
-            img.alt = unit.title + ' - صورة ' + (idx+1);
-            img.loading = (idx === 0 ? 'eager' : 'lazy');
-            img.src = src;
-            img.onclick = () => openLightbox(idx);
-            imageSlider.appendChild(img);
-
-            const thumb = document.createElement('img');
-            thumb.src = src;
-            thumb.alt = 'thumb ' + (idx+1);
-            thumb.tabIndex = 0;
-            thumb.onclick = () => showSlide(idx);
-            thumb.onkeypress = (e) => { if(e.key === 'Enter') showSlide(idx); };
-            thumbsRow.appendChild(thumb);
-          });
-          // init slider after images added
-          initSlider();
-        }
-
-        // payment details into details table
-        detailsTable.innerHTML = '';
-        detailsTable.appendChild(createDetailRow('السعر الإجمالي:', unit.priceDisplay || unit.price || '—', false));
-        detailsTable.appendChild(createDetailRow('المقدمة:', unit.deposit || unit.downPayment || '—', false));
-        detailsTable.appendChild(createDetailRow('قسط ربع سنوي:', unit.installmentQuarter || unit.quarterly || '—', false));
-        detailsTable.appendChild(createDetailRow('عدد الأقساط:', unit.installmentsCount || unit.numInstallments || '—', false));
-        detailsTable.appendChild(createDetailRow('مدة التقسيط:', unit.installmentPeriod || unit.period || '—', false));
-        detailsTable.appendChild(createDetailRow('الاستلام:', unit.delivery || unit.status || '—', false));
-        detailsTable.appendChild(createDetailRow('الصيانة:', unit.maintenance || unit.service || '—', false));
-        detailsTable.appendChild(createDetailRow('المصدر:', unit.source || 'من المطور', false));
-        detailsTable.appendChild(createDetailRow('كود الوحدة:', unit.code || UNIT_ID, true));
-
-        detailsLoader.style.display = 'none';
-        detailsTable.style.display = 'grid';
-      })
-      .catch(err => {
-        console.error('units json err', err);
-        detailsLoader.textContent = 'تعذّر الوصول إلى murano-units.json، سيتم عرض البيانات الافتراضية الموجودة في الصفحة.';
-      });
-
-    // suggestions
-    fetch(suggestPath, {cache:'no-store'})
-      .then(r => r.json())
-      .then(json => {
-        let items = Array.isArray(json) ? json : (json.items || Object.values(json || {}));
-        items = (items || []).slice(0,4);
-        suggestGrid.innerHTML = '';
-        items.forEach(it => {
-          // expect fields: title, image, link/permalink
-          const a = document.createElement('a');
-          a.href = it.permalink || it.url || ('/murano-units' + (it.code ? ('-' + it.code) : '') + '.html');
-          a.className = 'suggest-card';
-          a.innerHTML = `<img src="${it.image || it.thumb || 'https://picsum.photos/seed/suggest/200/140'}" alt="${(it.title||'وحدة مقترحة')}">
-                         <div class="smeta">${it.title || it.name || 'وحدة مقترحة'}</div>`;
-          suggestGrid.appendChild(a);
-        });
-      })
-      .catch(err => {
-        console.warn('suggestions load err', err);
-        // fall back: leave blank (page already has no critical break)
-      });
-
-  })();
-  /* ---------------- end data loaders ---------------- */
-
-  /* ---------------- Slider & Lightbox Implementation ---------------- */
-  let slides = [];
-  let currentSlide = 0;
-  function initSlider(){
-    slides = Array.from(document.querySelectorAll('#imageSlider .slide'));
-    const dotsContainer = document.getElementById('sliderDots');
-    dotsContainer.innerHTML = '';
-    slides.forEach((s,i)=>{
-      s.classList.remove('active');
-      const dot = document.createElement('span');
-      dot.className = 'dot';
-      dot.setAttribute('role','button');
-      dot.setAttribute('aria-label', `عرض الصورة ${i+1}`);
-      dot.onclick = () => showSlide(i);
-      dotsContainer.appendChild(dot);
-    });
-    if(slides.length){
-      showSlide(0);
-    }
-  }
-
-  function showSlide(n){
-    if(!slides.length) return;
-    currentSlide = ((n % slides.length) + slides.length) % slides.length;
-    slides.forEach((s,i)=> s.classList.toggle('active', i===currentSlide));
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((d,i)=> d.classList.toggle('active', i===currentSlide));
-  }
-
-  document.getElementById('prevSlide').addEventListener('click', ()=> showSlide(currentSlide - 1));
-  document.getElementById('nextSlide').addEventListener('click', ()=> showSlide(currentSlide + 1));
-
-  // swipe support
-  (function(el){
-    if(!el) return;
-    let startX = 0, isDown=false, moved=false;
-    el.addEventListener('pointerdown', (e)=>{
-      isDown = true; startX = e.clientX; el.setPointerCapture(e.pointerId); moved=false;
-    });
-    el.addEventListener('pointermove', (e)=>{
-      if(!isDown) return; moved = true;
-    });
-    el.addEventListener('pointerup', (e)=>{
-      if(!isDown) return; isDown=false;
-      const diff = e.clientX - startX;
-      const threshold = 50;
-      if(Math.abs(diff) < 10 && !moved){
-        openLightbox(currentSlide);
-      } else if(diff > threshold){
-        showSlide(currentSlide - 1);
-      } else if(diff < -threshold){
-        showSlide(currentSlide + 1);
-      }
-    });
-  })(document.getElementById('imageSlider'));
-
-  // keyboard navigation for slider
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'ArrowLeft') showSlide(currentSlide - 1);
-    if(e.key === 'ArrowRight') showSlide(currentSlide + 1);
   });
 
-  // Lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbClose = document.getElementById('lbClose');
-  const lbPrev = document.getElementById('lbPrev');
-  const lbNext = document.getElementById('lbNext');
-  let lbIndex = 0;
+function renderUnit(u){
+  if(!u) return;
+  // normalize fields
+  const code = safeText(u.code || u.id || 'MUR-101');
+  const title = safeText(u.title || `شاليه للبيع وحدة ${code}`);
+  const area = safeText(u.area || u.size || u['المساحة'] || '—');
+  const beds = safeText(u.beds || u.bedrooms || u['غرف'] || u.bed || '—');
+  const baths = safeText(u.baths || u.bathrooms || u['حمامات'] || '—');
+  const price = safeText(u.price || u['سعر'] || u.amount || '—');
+  const images = Array.isArray(u.images) && u.images.length ? u.images : (u.photos || u.pics || []);
+  const payment = u.payment || u.payment_plan || u.payment || {};
+  const delivery = safeText(u.delivery || u['استلام'] || u.status || '—');
+  const maintenance = safeText(u.maintenance || u['صيانة'] || '—');
+  const source = safeText(u.source || 'من المطور');
+  const description = safeText(u.description || u.desc || u['وصف'] || document.getElementById('aboutContent').innerHTML);
 
-  function openLightbox(i){
-    lbIndex = i;
-    const slidesArr = Array.from(document.querySelectorAll('#imageSlider .slide'));
-    if(!slidesArr[lbIndex]) return;
-    lbImg.src = slidesArr[lbIndex].src;
-    lb.style.display = 'flex';
-    lb.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    lb.style.display = 'none';
-    lb.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-  }
-  function changeLightbox(dir){
-    const slidesArr = Array.from(document.querySelectorAll('#imageSlider .slide'));
-    if(!slidesArr.length) return;
-    lbIndex = (lbIndex + dir + slidesArr.length) % slidesArr.length;
-    lbImg.src = slidesArr[lbIndex].src;
-  }
-  lbClose.addEventListener('click', closeLightbox);
-  lbPrev.addEventListener('click', ()=> changeLightbox(-1));
-  lbNext.addEventListener('click', ()=> changeLightbox(1));
-  lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLightbox(); });
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && lb.style.display === 'flex') closeLightbox();
-    if(e.key === 'ArrowLeft' && lb.style.display === 'flex') changeLightbox(-1);
-    if(e.key === 'ArrowRight' && lb.style.display === 'flex') changeLightbox(1);
-  });
+  // Title & code
+  document.getElementById('unitTitle').textContent = title;
+  document.getElementById('unitCode').textContent = code;
+  document.getElementById('hProject').value = `${title} (${area})`;
+  document.getElementById('hBudget').value = price;
 
-  /* ---------------- FAQ toggle ---------------- */
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList && e.target.classList.contains('faq-q')){
-      const q = e.target;
-      const parent = q.closest('.faq-item');
-      const a = parent.querySelector('.faq-a');
-      const open = a.style.display === 'block';
-      if(open){ a.style.display = 'none'; q.setAttribute('aria-expanded','false'); }
-      else { a.style.display = 'block'; q.setAttribute('aria-expanded','true'); }
-    }
-  });
-  // keyboard accessible
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') q.click(); });
-  });
+  // Price & contact links
+  document.getElementById('priceSmall').textContent = price;
+  const waHref = `https://wa.me/201050072527?text=${encodeURIComponent('مرحباً، أرجو تزويدي بتفاصيل الوحدة - '+code+' - السعر: '+price)}`;
+  document.getElementById('waLink').href = waHref;
+  document.getElementById('telLink').href = 'tel:+201050072527';
 
-  /* ---------------- Help form actions ---------------- */
-  function getVal(id){ return (document.getElementById(id)?.value || '').trim(); }
-  document.getElementById('hWA').addEventListener('click', ()=> {
-    const project = (document.getElementById('hProjectSelect').value === 'اكتب الوحدة...' ? getVal('hProject') : document.getElementById('hProjectSelect').value) || 'شاليه مورانو كود #MUR-101 (145 م²)';
-    const txt = `مرحباً، أرجو تزويدي بتفاصيل الوحدة - ${project} - الاسم: ${getVal('hName')} - الهاتف: ${getVal('hPhone')} - ملاحظة: ${getVal('hNote')}`;
-    window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`, '_blank');
-  });
-  document.getElementById('hMail').addEventListener('click', ()=> {
-    const project = (document.getElementById('hProjectSelect').value === 'اكتب الوحدة...' ? getVal('hProject') : document.getElementById('hProjectSelect').value) || 'شاليه مورانو كود #MUR-101 (145 م²)';
-    const subj = `استفسار عن وحدة - ${project} - ${getVal('hName')}`;
-    const body = `الاسم: ${getVal('hName')}\nالهاتف: ${getVal('hPhone')}\nالوحدة: ${project}\nالميزانية: ${getVal('hBudget')}\nملاحظات:\n${getVal('hNote')}`;
-    location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-  });
+  // Specs row (single-line)
+  const specsRow = document.getElementById('specsRow');
+  specsRow.innerHTML = '';
+  const createSpec = (icon, text) => {
+    const el = document.createElement('div'); el.className='spec-item';
+    const img = document.createElement('img'); img.src = icon; img.alt='';
+    el.appendChild(img);
+    const span = document.createElement('div'); span.textContent = text; el.appendChild(span);
+    return el;
+  };
+  specsRow.appendChild(createSpec('https://j.top4top.io/p_3563c1mt61.png', beds + ' غرف'));
+  specsRow.appendChild(document.createElement('div')).className='spec-sep';
+  specsRow.appendChild(createSpec('https://k.top4top.io/p_3563vaqnl2.png', baths + ' حمام'));
+  specsRow.appendChild(document.createElement('div')).className='spec-sep';
+  specsRow.appendChild(createSpec('https://l.top4top.io/p_3563ijjuf3.png', area));
 
-  // when user selects "اكتب الوحدة..." show the hidden input for custom value
-  document.getElementById('hProjectSelect').addEventListener('change', function(){
-    const val = this.value;
-    const ip = document.getElementById('hProject');
-    if(val === 'اكتب الوحدة...'){ ip.style.display = 'block'; ip.value = ''; ip.removeAttribute('readonly'); }
-    else { ip.style.display = 'none'; ip.value = val; ip.setAttribute('readonly','readonly'); }
-  });
+  // Images slider injection
+  setupSlider(images.length ? images : [
+    'https://g.top4top.io/p_3563nwxqm0.jpg',
+    'https://h.top4top.io/p_3563r5o301.jpg',
+    'https://j.top4top.io/p_3563myq0h3.jpg'
+  ]);
 
-  /* ---------------- small UX: make first dot active when images loaded later ---------------- */
-  // If slider images are dynamically added after page load (via JSON), initSlider() will be called by loader.
-  </script>
+  // Payment details table
+  const details = document.getElementById('detailsTable'); details.innerHTML = '';
+  const addDetail = (k,v,full) => {
+    const d = document.createElement('div'); d.className='detail-item'; if(full) d.className+=' detail-full';
+    d.innerHTML = `<strong>${k}</strong><span>${v}</span>`; details.appendChild(d);
+  };
+  addDetail('السعر الإجمالي:', price);
+  addDetail('المقدمة:', payment.down || down_payment || '0%');
+  addDetail('قسط ربع سنوي:', payment.installment_value || installment_amount || payment.installment || '—');
+  addDetail('عدد الأقساط:', payment.installments || installments_count || '—');
+  addDetail('مدة التقسيط:', installment_years || payment.duration || '—');
+  addDetail('الاستلام:', delivery_year);
+  addDetail('الصيانة:', maintenance);
+  addDetail('المصدر:', source || type);
+  addDetail('كود الوحدة:', code, true, id);
+
+  // About content
+  const aboutEl = document.getElementById('aboutContent');
+  aboutEl.innerHTML = description;
+}
+
+/* ---------- Slider & Lightbox Implementation (supports swipe & keyboard) ---------- */
+let SLIDER_IMAGES = [];
+let currentSlide = 0;
+
+function setupSlider(images){
+  SLIDER_IMAGES = images.slice();
+  const slider = document.getElementById('imageSlider');
+  slider.querySelectorAll('.slide')?.forEach(n=>n.remove());
+  const dots = document.getElementById('sliderDots'); dots.innerHTML='';
+
+  SLIDER_IMAGES.forEach((src,i)=>{
+    const img = document.createElement('img'); img.className='slide'; img.alt = `صورة ${i+1}`; img.loading = i===0?'eager':'lazy'; img.src = src;
+    img.addEventListener('click', ()=> openLightbox(i));
+    slider.insertBefore(img, document.getElementById('prevSlide'));
+
+    const dot = document.createElement('span'); dot.className='dot'; dot.setAttribute('role','button'); dot.setAttribute('aria-label',`عرض الصورة رقم ${i+1}`);
+    dot.onclick = ()=> showSlide(i);
+    dots.appendChild(dot);
+  });
+  // set first active
+  showSlide(0);
+}
+
+function showSlide(n){
+  const slides = document.querySelectorAll('#imageSlider .slide');
+  if(!slides.length) return;
+  currentSlide = (n + slides.length) % slides.length;
+  slides.forEach((s,idx)=> s.classList.toggle('active', idx===currentSlide));
+  const dots = document.querySelectorAll('#sliderDots .dot'); dots.forEach((d,idx)=> d.classList.toggle('active', idx===currentSlide));
+}
+
+document.getElementById('prevSlide').addEventListener('click', ()=> showSlide(currentSlide-1));
+document.getElementById('nextSlide').addEventListener('click', ()=> showSlide(currentSlide+1));
+
+// Swipe support
+(function(el){ if(!el) return; let startX=0, isDown=false, moved=false; el.addEventListener('pointerdown', e=>{isDown=true;startX=e.clientX;el.setPointerCapture(e.pointerId);moved=false}); el.addEventListener('pointermove', e=>{ if(!isDown) return; moved=true }); el.addEventListener('pointerup', e=>{ if(!isDown) return; isDown=false; const diff = e.clientX - startX; const thr=50; if(Math.abs(diff)<10 && !moved){ openLightbox(currentSlide); } else if(diff>thr){ showSlide(currentSlide-1); } else if(diff<-thr){ showSlide(currentSlide+1); } }); })(document.getElementById('imageSlider'));
+
+// Lightbox
+const lb = document.getElementById('lightbox'); const lbImg = document.getElementById('lbImg'); let lbIndex=0;
+function openLightbox(i){ lbIndex = i % SLIDER_IMAGES.length; lbImg.src = SLIDER_IMAGES[lbIndex]; lb.style.display='flex'; lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeLightbox(){ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+function changeLightbox(dir){ lbIndex = (lbIndex + dir + SLIDER_IMAGES.length) % SLIDER_IMAGES.length; lbImg.src = SLIDER_IMAGES[lbIndex]; }
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', ()=> changeLightbox(-1));
+document.getElementById('lbNext').addEventListener('click', ()=> changeLightbox(1));
+lb.addEventListener('click', function(e){ if(e.target===lb) closeLightbox(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lb.style.display==='flex') closeLightbox(); else if(e.key==='ArrowLeft' && lb.style.display==='flex') changeLightbox(-1); else if(e.key==='ArrowRight' && lb.style.display==='flex') changeLightbox(1); });
+
+/* ---------- FAQ Toggle ---------- */
+document.addEventListener('click', function(ev){ if(ev.target.matches('.faq-q') || ev.target.closest('.faq-q')){
+  const q = ev.target.closest('.faq-q'); const parent = q.closest('.faq-item'); const answer = parent.querySelector('.faq-a'); const isOpen = parent.classList.toggle('open'); q.setAttribute('aria-expanded', isOpen); answer.setAttribute('aria-hidden', !isOpen); answer.style.display = isOpen ? 'block' : 'none'; }});
+
+/* ---------- Help form actions ---------- */
+function getVal(id){ return (document.getElementById(id)?.value||'').trim(); }
+document.getElementById('hWA').addEventListener('click', ()=>{
+  const txt = `مرحباً، أرجو تزويدي بتفاصيل الوحدة - ${getVal('hProject')} - الاسم: ${getVal('hName')} - الهاتف: ${getVal('hPhone')} - ملاحظة: ${getVal('hNote')}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+});
+document.getElementById('hMail').addEventListener('click', ()=>{
+  const subj = `استفسار عن وحدة - ${getVal('hProject')} - ${getVal('hName')}`;
+  const body = `الاسم: ${getVal('hName')}\nالهاتف: ${getVal('hPhone')}\nالوحدة: ${getVal('hProject')}\nالميزانية: ${getVal('hBudget')}\nملاحظات:\n${getVal('hNote')}`;
+  location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+});
+
+</script>
 </body>
 </html>
