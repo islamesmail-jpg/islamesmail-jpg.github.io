@@ -1,18 +1,16 @@
-----
-----
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>شاليه للبيع أرضي بحديقة خاصة في مورانو وادي دجلة – كود #101 | Islam Real Estate</title>
-<meta name="description" content="شاليه فاخر للبيع (كود #101) في مورانو وادي دجلة العين السخنة - 145 م² وحديقة خاصة. 3 غرف نوم رئيسية + غرفة ناني، استلام 2028. نظام سداد استثنائي: 0% مقدم وأقساط حتى 8 سنوات. السعر الإجمالي 12,998,380 ج.م.">
+<meta name="description" content="شاليه فاخر للبيع (كود #101) في مورانو وادي دجلة العين السخنة - 145 م² وحديقة خاصة. 3 غرف نوم رئيسية + غرفة ناني، استلام 2028. نظام سداد استثنائي: 0% مقدم وأقساط حتى 8 سنوات.">
 <meta name="keywords" content="شاليه للبيع, مورانو وادي دجلة, العين السخنة, شاليهات السخنة, عقارات مصر, وحدات بالتقسيط, شاليه بحديقة">
 <meta name="author" content="Islam Real Estate">
 <link rel="icon" href="https://f.top4top.io/p_35673l5p00.png" type="image/png">
 <link rel="canonical" href="https://islamproperty.com/murano-units101.html">
 
-<!-- Open Graph Meta Tags -->
+<!-- Open Graph -->
 <meta property="og:title" content="شاليه للبيع في مورانو وادي دجلة - 145 م² + حديقة خاصة">
 <meta property="og:description" content="فرصة مميزة لامتلاك شاليه فاخر بنظام سداد استثنائي: 0% مقدم، تقسيط 8 سنوات. السعر 12,998,380 ج.م">
 <meta property="og:image" content="https://g.top4top.io/p_3563nwxqm0.jpg">
@@ -21,7 +19,7 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="شاليه للبيع في مورانو وادي دجلة">
+<meta name="twitter:title" content="شاليه للبيع في مورانو وادي دجله">
 <meta name="twitter:description" content="شاليه 145 م² + حديقة، 3 غرف + ناني، 0% مقدم">
 <meta name="twitter:image" content="https://g.top4top.io/p_3563nwxqm0.jpg">
 
@@ -29,7 +27,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
-<!-- Structured Data / Schema.org -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,9 +69,10 @@
   --shadow-md:0 4px 16px rgba(0,0,0,.12);
   --shadow-lg:0 10px 30px rgba(0,0,0,.15);
   --radius:10px;
-  --transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
+/* Reset & base */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -85,9 +84,10 @@ body{
   overflow-x:hidden;
 }
 
-a{text-decoration:none;color:inherit;transition:var(--transition)}
+/* Ensure header text black */
+header *{ color: #000 !important; }
 
-/* BREADCRUMB */
+/* Breadcrumb */
 .breadcrumb{
   max-width:1200px;
   margin:15px auto;
@@ -99,656 +99,102 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
   gap:8px;
   flex-wrap:wrap;
 }
-
-.breadcrumb a{
-  color:var(--text-muted);
-}
-
-.breadcrumb a:hover{
-  color:var(--primary-blue);
-}
-
-.breadcrumb i{
-  font-size:11px;
-}
-
-/* PAGE TITLE */
-.page-title-section{
-  max-width:1200px;
-  margin:0 auto 25px;
-  padding:0 20px;
-  text-align:center;
-}
-
-.page-title{
-  font-size:clamp(22px, 4vw, 32px);
-  font-weight:900;
-  color:var(--text-dark);
-  margin-bottom:8px;
-  line-height:1.4;
-}
-
-.unit-code{
-  display:inline-block;
-  background:linear-gradient(135deg, var(--accent-gold) 0%, #b8941e 100%);
-  color:#fff;
-  padding:5px 14px;
-  border-radius:18px;
-  font-size:13px;
-  font-weight:700;
-}
-
-/* GALLERY */
-.gallery-section{
-  max-width:1200px;
-  margin:0 auto 25px;
-  padding:0 20px;
-}
-
-.gallery-container{
-  position:relative;
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow-lg);
-  height:450px;
-  background:#000;
-  cursor:pointer;
-}
-
-.gallery-main{
-  width:100%;
-  height:100%;
-  position:relative;
-}
-
-.gallery-slide{
-  display:none;
-  width:100%;
-  height:100%;
-}
-
-.gallery-slide.active{
-  display:block;
-}
-
-.gallery-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.gallery-nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.6);
-  color:#fff;
-  border:none;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:var(--transition);
-  z-index:10;
-}
-
-.gallery-nav:hover{
-  background:rgba(0,0,0,0.85);
-  transform:translateY(-50%) scale(1.1);
-}
-
-.gallery-prev{left:15px}
-.gallery-next{right:15px}
-
-.gallery-counter{
-  position:absolute;
-  bottom:15px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,0.7);
-  color:#fff;
-  padding:8px 16px;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:600;
-  backdrop-filter:blur(10px);
-}
-
-.lightbox-trigger{
-  position:absolute;
-  top:15px;
-  right:15px;
-  background:rgba(0,0,0,0.7);
-  color:#fff;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:16px;
-  cursor:pointer;
-  transition:var(--transition);
-  backdrop-filter:blur(10px);
-}
-
-.lightbox-trigger:hover{
-  background:rgba(0,0,0,0.9);
-  transform:scale(1.1);
-}
-
-/* MAIN CONTENT */
-.content-wrapper{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 20px 40px;
-}
-
-/* INFO BOXES - مستطيلات أصغر */
-.info-box{
-  background:var(--bg-white);
-  border-radius:var(--radius);
-  padding:20px;
-  margin-bottom:20px;
-  box-shadow:var(--shadow-md);
-  border:1px solid var(--border-color);
-}
-
-.box-title{
-  font-size:20px;
-  font-weight:800;
-  color:var(--text-dark);
-  margin-bottom:15px;
-  padding-bottom:10px;
-  border-bottom:2px solid var(--primary-blue);
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.box-title i{
-  color:var(--primary-blue);
-  font-size:22px;
-}
-
-/* DETAILS GRID - مستطيلات أصغر */
-.details-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
-  gap:12px;
-}
-
-.detail-card{
-  background:linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding:15px;
-  border-radius:8px;
-  text-align:center;
-  transition:var(--transition);
-  border:2px solid transparent;
-}
-
-.detail-card:hover{
-  border-color:var(--primary-blue);
-  transform:translateY(-3px);
-  box-shadow:var(--shadow-sm);
-}
-
-.detail-icon{
-  width:45px;
-  height:45px;
-  background:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  margin:0 auto 10px;
-}
-
-.detail-label{
-  font-size:12px;
-  color:var(--text-muted);
-  font-weight:600;
-  margin-bottom:4px;
-}
-
-.detail-value{
-  font-size:16px;
-  font-weight:800;
-  color:var(--text-dark);
-}
-
-/* PAYMENT BOX - مستطيل أصغر */
-.payment-box{
-  background:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color:#fff;
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow-lg);
-}
-
-.payment-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.payment-item{
-  text-align:center;
-  padding:12px;
-  background:rgba(255,255,255,0.1);
-  border-radius:8px;
-  backdrop-filter:blur(10px);
-}
-
-.payment-item i{
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-.payment-label{
-  font-size:13px;
-  opacity:0.9;
-  margin-bottom:4px;
-}
-
-.payment-value{
-  font-size:18px;
-  font-weight:800;
-}
-
-.price-highlight{
-  text-align:center;
-  padding:15px;
-  background:rgba(255,255,255,0.15);
-  border-radius:8px;
-  margin-bottom:15px;
-}
-
-.price-label{
-  font-size:14px;
-  opacity:0.9;
-  margin-bottom:6px;
-}
-
-.price-value{
-  font-size:32px;
-  font-weight:900;
-  margin-bottom:6px;
-}
-
-.price-note{
-  font-size:13px;
-  opacity:0.85;
-}
-
-.contact-buttons{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
-  gap:10px;
-}
-
-.contact-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:12px 20px;
-  background:rgba(255,255,255,0.95);
-  color:var(--primary-blue);
-  border-radius:8px;
-  font-weight:700;
-  font-size:15px;
-  transition:var(--transition);
-  cursor:pointer;
-}
-
-.contact-btn:hover{
-  background:#fff;
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-md);
-}
-
-.contact-btn i{
-  font-size:18px;
-}
-
-.contact-btn.whatsapp{
-  background:#25d366;
-  color:#fff;
-}
-
-.contact-btn.whatsapp:hover{
-  background:#1fb855;
-}
-
-.contact-btn.phone{
-  background:var(--accent-green);
-  color:#fff;
-}
-
-.contact-btn.phone:hover{
-  background:#218838;
-}
-
-/* DESCRIPTION */
-.description-text{
-  font-size:16px;
-  line-height:1.8;
-  color:var(--text-dark);
-  text-align:justify;
-}
-
-.description-text p{
-  margin-bottom:12px;
-}
-
-/* FEATURES */
-.features-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:10px;
-  margin-top:12px;
-}
-
-.feature-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  background:var(--bg-light);
-  border-radius:8px;
-  border-right:3px solid var(--accent-green);
-  transition:var(--transition);
-  font-size:15px;
-}
-
-.feature-item:hover{
-  background:#e6f7ed;
-  transform:translateX(-3px);
-}
-
-.feature-item i{
-  color:var(--accent-green);
-  font-size:16px;
-}
-
-/* FAQ ACCORDION */
-.faq-container{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.faq-item{
-  background:var(--bg-white);
-  border:1px solid var(--border-color);
-  border-radius:8px;
-  overflow:hidden;
-  transition:var(--transition);
-}
-
-.faq-question{
-  padding:15px 18px;
-  font-size:16px;
-  font-weight:700;
-  color:var(--text-dark);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  cursor:pointer;
-  background:var(--bg-light);
-  transition:var(--transition);
-  user-select:none;
-}
-
-.faq-question:hover{
-  background:#e9ecef;
-}
-
-.faq-question i.fa-circle-question{
-  color:var(--primary-blue);
-  margin-left:10px;
-  font-size:18px;
-}
-
-.faq-question i.fa-chevron-down{
-  font-size:14px;
-  color:var(--text-muted);
-  transition:var(--transition);
-}
-
-.faq-item.active .faq-question i.fa-chevron-down{
-  transform:rotate(180deg);
-}
-
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  padding:0 18px;
-  font-size:15px;
-  color:var(--text-muted);
-  line-height:1.7;
-  transition:var(--transition);
-  background:var(--bg-white);
-}
-
-.faq-item.active .faq-answer{
-  max-height:500px;
-  padding:15px 18px;
-}
-
-/* SUGGESTED UNITS */
-.suggested-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-  gap:12px;
-}
-
-.suggested-card{
-  background:var(--bg-light);
-  padding:15px;
-  border-radius:8px;
-  transition:var(--transition);
-  border:2px solid transparent;
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.suggested-card:hover{
-  background:var(--bg-white);
-  border-color:var(--primary-blue);
-  box-shadow:var(--shadow-sm);
-  transform:translateY(-2px);
-}
-
-.suggested-icon{
-  width:45px;
-  height:45px;
-  background:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color:#fff;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-  flex-shrink:0;
-}
-
-.suggested-info{
-  flex:1;
-}
-
-.suggested-title{
-  font-size:15px;
-  font-weight:700;
-  color:var(--text-dark);
-  margin-bottom:3px;
-}
-
-.suggested-meta{
-  font-size:12px;
-  color:var(--text-muted);
-}
-
-/* CONSULTATION FORM BOX */
-.consultation-box{
-  background:linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius:var(--radius);
-  padding:30px;
-  margin-bottom:40px;
-  box-shadow:var(--shadow-lg);
-  text-align:center;
-  position:relative;
-  border:2px solid var(--border-color);
-}
-
-.consultation-icon{
-  width:70px;
-  height:70px;
-  background:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:32px;
-  margin:0 auto 20px;
-  box-shadow:var(--shadow-md);
-}
-
-.consultation-title{
-  font-size:24px;
-  font-weight:900;
-  color:var(--text-dark);
-  margin-bottom:10px;
-}
-
-.consultation-subtitle{
-  font-size:15px;
-  color:var(--text-muted);
-  margin-bottom:25px;
-  line-height:1.6;
-}
-
-.contact-form{
-  display:grid;
-  gap:12px;
-  max-width:600px;
-  margin:0 auto;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.form-input{
-  width:100%;
-  padding:13px 15px;
-  border:2px solid var(--border-color);
-  border-radius:8px;
-  font-family:"Cairo",sans-serif;
-  font-size:15px;
-  transition:var(--transition);
-  background:var(--bg-white);
-}
-
-.form-input:focus{
-  outline:none;
-  border-color:var(--primary-blue);
-  box-shadow:0 0 0 3px rgba(0,86,179,0.1);
-}
-
-.submit-btn{
-  background:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-  color:#fff;
-  padding:15px;
-  border:none;
-  border-radius:8px;
-  font-size:17px;
-  font-weight:700;
-  cursor:pointer;
-  transition:var(--transition);
-  font-family:"Cairo",sans-serif;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-
-.submit-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-lg);
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float{
-  position:fixed;
-  bottom:25px;
-  left:25px;
-  width:60px;
-  height:60px;
-  background:#25d366;
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:32px;
-  box-shadow:var(--shadow-lg);
-  z-index:999;
-  transition:var(--transition);
-  animation:pulse 2s infinite;
-}
-
-.whatsapp-float:hover{
-  transform:scale(1.1);
-  background:#1fb855;
-}
-
-@keyframes pulse{
-  0%, 100%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)}
-  50%{box-shadow:0 0 0 15px rgba(37,211,102,0)}
-}
-
-/* RESPONSIVE */
+.breadcrumb a{ color:var(--text-muted); }
+.breadcrumb a:hover{ color:var(--primary-blue); }
+
+/* Title */
+.page-title-section{ max-width:1200px; margin:0 auto 25px; padding:0 20px; text-align:center; }
+.page-title{ font-size:clamp(22px, 4vw, 32px); font-weight:900; color:var(--text-dark); margin-bottom:8px; line-height:1.4; }
+.unit-code{ display:inline-block; background:linear-gradient(135deg,var(--accent-gold) 0%,#b8941e 100%); color:#fff; padding:5px 14px; border-radius:18px; font-size:13px; font-weight:700; }
+
+/* Gallery */
+.gallery-section{ max-width:1200px; margin:0 auto 25px; padding:0 20px; }
+.gallery-container{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); height:450px; background:#000; cursor:pointer; }
+.gallery-main{ width:100%; height:100%; position:relative; display:flex; touch-action:pan-y; }
+.gallery-slide{ min-width:100%; height:100%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.gallery-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+.gallery-nav{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.6); color:#fff; border:none; width:45px; height:45px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; z-index:10; }
+.gallery-prev{ left:15px }
+.gallery-next{ right:15px }
+.gallery-counter{ position:absolute; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.7); color:#fff; padding:8px 16px; border-radius:20px; font-size:14px; font-weight:600; }
+.lightbox-trigger{ position:absolute; top:15px; right:15px; background:rgba(0,0,0,0.7); color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; cursor:pointer; z-index:10; }
+
+/* Layout */
+.content-wrapper{ max-width:1200px; margin:0 auto; padding:0 20px 40px; }
+
+/* Info boxes */
+.info-box{ background:var(--bg-white); border-radius:var(--radius); padding:20px; margin-bottom:20px; box-shadow:var(--shadow-md); border:1px solid var(--border-color); }
+.box-title{ font-size:20px; font-weight:800; color:var(--text-dark); margin-bottom:15px; padding-bottom:10px; border-bottom:2px solid var(--primary-blue); display:flex; align-items:center; gap:10px; }
+.box-title i{ color:var(--primary-blue); font-size:22px; }
+
+/* Details grid */
+.details-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; }
+.detail-card{ background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%); padding:15px; border-radius:8px; text-align:center; transition:var(--transition); border:2px solid transparent; }
+.detail-card:hover{ border-color:var(--primary-blue); transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+.detail-icon{ width:45px; height:45px; background:linear-gradient(135deg,var(--primary-blue) 0%,var(--primary-dark) 100%); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 10px; }
+.detail-label{ font-size:12px; color:var(--text-muted); font-weight:600; margin-bottom:4px; }
+.detail-value{ font-size:16px; font-weight:800; color:var(--text-dark); }
+
+/* Payment box */
+.payment-box{ background:linear-gradient(135deg,var(--primary-blue) 0%,var(--primary-dark) 100%); color:#fff; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow-lg); }
+.payment-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-bottom:18px; }
+.payment-item{ text-align:center; padding:12px; background:rgba(255,255,255,0.1); border-radius:8px; backdrop-filter:blur(10px); }
+.payment-label{ font-size:13px; opacity:0.9; margin-bottom:4px; }
+.payment-value{ font-size:18px; font-weight:800; }
+
+/* Price */
+.price-highlight{ text-align:center; padding:15px; background:rgba(255,255,255,0.15); border-radius:8px; margin-bottom:15px; }
+.price-value{ font-size:32px; font-weight:900; margin-bottom:6px; }
+.price-note{ font-size:13px; opacity:0.85; }
+
+/* Contact buttons */
+.contact-buttons{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; }
+.contact-btn{ display:flex; align-items:center; justify-content:center; gap:8px; padding:12px 20px; background:rgba(255,255,255,0.95); color:var(--primary-blue); border-radius:8px; font-weight:700; font-size:15px; cursor:pointer; text-decoration:none; }
+.contact-btn.whatsapp{ background:#25d366; color:#fff; }
+.contact-btn.phone{ background:var(--accent-green); color:#fff; }
+
+/* Description & features */
+.description-text{ font-size:16px; line-height:1.8; color:var(--text-dark); text-align:justify; }
+.features-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:12px; }
+.feature-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; background:var(--bg-light); border-radius:8px; border-right:3px solid var(--accent-green); font-size:15px; }
+
+/* FAQ */
+.faq-container{ display:flex; flex-direction:column; gap:10px; }
+.faq-item{ background:var(--bg-white); border:1px solid var(--border-color); border-radius:8px; overflow:hidden; transition:var(--transition); }
+.faq-question{ padding:15px 18px; font-size:16px; font-weight:700; color:var(--text-dark); display:flex; align-items:center; justify-content:space-between; cursor:pointer; background:var(--bg-light); user-select:none; }
+.faq-answer{ max-height:0; overflow:hidden; padding:0 18px; font-size:15px; color:var(--text-muted); line-height:1.7; transition:var(--transition); background:var(--bg-white); }
+.faq-item.active .faq-answer{ max-height:500px; padding:15px 18px; }
+
+/* Suggested units grid */
+.suggested-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+.suggested-card{ background:var(--bg-light); padding:15px; border-radius:8px; display:flex; align-items:center; gap:12px; border:2px solid transparent; }
+.suggested-card:hover{ background:var(--bg-white); border-color:var(--primary-blue); box-shadow:var(--shadow-sm); transform:translateY(-2px); }
+.suggested-icon{ width:45px; height:45px; background:linear-gradient(135deg,var(--primary-blue) 0%,var(--primary-dark) 100%); color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.suggested-title{ font-size:15px; font-weight:700; color:var(--text-dark); margin-bottom:3px; }
+.suggested-meta{ font-size:12px; color:var(--text-muted); }
+
+/* Consultation box & form */
+.consultation-box{ background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%); border-radius:var(--radius); padding:30px; margin-bottom:40px; box-shadow:var(--shadow-lg); text-align:center; border:2px solid var(--border-color); }
+.consultation-icon{ width:70px; height:70px; background:linear-gradient(135deg,var(--primary-blue) 0%,var(--primary-dark) 100%); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 20px; box-shadow:var(--shadow-md); }
+.consultation-title{ font-size:24px; font-weight:900; color:var(--text-dark); margin-bottom:10px; }
+.consultation-subtitle{ font-size:15px; color:var(--text-muted); margin-bottom:25px; line-height:1.6; }
+
+.contact-form{ display:grid; gap:12px; max-width:720px; margin:0 auto; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form-input{ width:100%; padding:13px 15px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; background:var(--bg-white); }
+.form-input:focus{ outline:none; border-color:var(--primary-blue); box-shadow:0 0 0 3px rgba(0,86,179,0.1); }
+.submit-btn{ background:linear-gradient(135deg,var(--primary-blue) 0%,var(--primary-dark) 100%); color:#fff; padding:15px; border:none; border-radius:8px; font-size:17px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; }
+
+/* WhatsApp float */
+.whatsapp-float{ position:fixed; bottom:25px; left:25px; width:60px; height:60px; background:#25d366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:var(--shadow-lg); z-index:999; animation:pulse 2s infinite; }
+@keyframes pulse{ 0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)} 50%{box-shadow:0 0 0 15px rgba(37,211,102,0)} }
+
+/* Responsive */
 @media(max-width:768px){
-  .gallery-container{
-    height:300px;
-  }
-  
-  .details-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-  
-  .payment-grid{
-    grid-template-columns:1fr;
-  }
-  
-  .price-value{
-    font-size:26px;
-  }
-  
-  .contact-buttons{
-    grid-template-columns:1fr;
-  }
-  
-  .form-row{
-    grid-template-columns:1fr;
-  }
-  
-  .features-grid{
-    grid-template-columns:1fr;
-  }
+  .gallery-container{ height:300px; }
+  .details-grid{ grid-template-columns:repeat(2,1fr); }
+  .payment-grid{ grid-template-columns:1fr; }
+  .form-row{ grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -777,31 +223,26 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
 
 <!-- GALLERY WITH SWIPE & LIGHTBOX -->
 <section class="gallery-section">
-  <div class="gallery-container" id="galleryContainer">
+  <div class="gallery-container" id="galleryContainer" aria-label="معرض الصور">
     <div class="gallery-main" id="galleryMain">
-      <div class="gallery-slide active">
-        <img src="https://g.top4top.io/p_3563nwxqm0.jpg" alt="شاليه مورانو - منظر خارجي">
+      <div class="gallery-slide" data-src="https://g.top4top.io/p_3563nwxqm0.jpg">
+        <a data-fancybox="gallery" href="https://g.top4top.io/p_3563nwxqm0.jpg" aria-label="عرض الصورة 1"><img src="https://g.top4top.io/p_3563nwxqm0.jpg" alt="شاليه مورانو - منظر خارجي"></a>
       </div>
-      <div class="gallery-slide">
-        <img src="https://h.top4top.io/p_3563r5o301.jpg" alt="شاليه مورانو - غرفة المعيشة">
+      <div class="gallery-slide" data-src="https://h.top4top.io/p_3563r5o301.jpg">
+        <a data-fancybox="gallery" href="https://h.top4top.io/p_3563r5o301.jpg" aria-label="عرض الصورة 2"><img src="https://h.top4top.io/p_3563r5o301.jpg" alt="شاليه مورانو - غرفة المعيشة"></a>
       </div>
-      <div class="gallery-slide">
-        <img src="https://j.top4top.io/p_3563myq0h3.jpg" alt="شاليه مورانو - غرفة النوم">
+      <div class="gallery-slide" data-src="https://j.top4top.io/p_3563myq0h3.jpg">
+        <a data-fancybox="gallery" href="https://j.top4top.io/p_3563myq0h3.jpg" aria-label="عرض الصورة 3"><img src="https://j.top4top.io/p_3563myq0h3.jpg" alt="شاليه مورانو - غرفة النوم"></a>
       </div>
-      <div class="gallery-slide">
-        <img src="https://g.top4top.io/p_3563ttwox0.jpg" alt="شاليه مورانو - الحديقة">
+      <div class="gallery-slide" data-src="https://g.top4top.io/p_3563ttwox0.jpg">
+        <a data-fancybox="gallery" href="https://g.top4top.io/p_3563ttwox0.jpg" aria-label="عرض الصورة 4"><img src="https://g.top4top.io/p_3563ttwox0.jpg" alt="شاليه مورانو - الحديقة"></a>
       </div>
     </div>
-    <button class="gallery-nav gallery-prev" onclick="changeSlide(-1)" aria-label="الصورة السابقة">
-      <i class="fas fa-chevron-right"></i>
-    </button>
-    <button class="gallery-nav gallery-next" onclick="changeSlide(1)" aria-label="الصورة التالية">
-      <i class="fas fa-chevron-left"></i>
-    </button>
+
+    <button class="gallery-nav gallery-prev" id="prevBtn" aria-label="الصورة السابقة"><i class="fas fa-chevron-right"></i></button>
+    <button class="gallery-nav gallery-next" id="nextBtn" aria-label="الصورة التالية"><i class="fas fa-chevron-left"></i></button>
     <div class="gallery-counter" id="galleryCounter">1 / 4</div>
-    <div class="lightbox-trigger" onclick="openLightbox()" title="عرض بملء الشاشة">
-      <i class="fas fa-expand"></i>
-    </div>
+    <div class="lightbox-trigger" id="lightboxBtn" title="عرض بملء الشاشة"><i class="fas fa-expand"></i></div>
   </div>
 </section>
 
@@ -809,11 +250,8 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
 <main class="content-wrapper">
 
   <!-- تفاصيل الوحدة -->
-  <article class="info-box">
-    <h2 class="box-title">
-      <i class="fas fa-info-circle"></i>
-      تفاصيل الوحدة
-    </h2>
+  <article class="info-box" aria-labelledby="detailsTitle">
+    <h2 id="detailsTitle" class="box-title"><i class="fas fa-info-circle"></i>تفاصيل الوحدة</h2>
     <div class="details-grid">
       <div class="detail-card">
         <div class="detail-icon"><i class="fas fa-ruler-combined"></i></div>
@@ -832,8 +270,8 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
       </div>
       <div class="detail-card">
         <div class="detail-icon"><i class="fas fa-building"></i></div>
-        <div class="detail-label">المصدر</div>
-        <div class="detail-value">مطور</div>
+        <div class="detail-label">النوع</div>
+        <div class="detail-value">شاليه (المطور)</div>
       </div>
       <div class="detail-card">
         <div class="detail-icon"><i class="fas fa-tree"></i></div>
@@ -842,32 +280,21 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
       </div>
       <div class="detail-card">
         <div class="detail-icon"><i class="fas fa-calendar-check"></i></div>
-        <div class="detail-label">الاستلام</div>
+        <div class="detail-label">التسليم</div>
         <div class="detail-value">2028</div>
       </div>
     </div>
   </article>
 
   <!-- نظام السداد والسعر -->
-  <section class="info-box payment-box">
+  <section class="info-box payment-box" aria-labelledby="paymentTitle">
+    <h2 id="paymentTitle" class="box-title"><i class="fas fa-wallet"></i>خطة السداد</h2>
     <div class="payment-grid">
-      <div class="payment-item">
-        <i class="fas fa-percent"></i>
-        <div class="payment-label">المقدم</div>
-        <div class="payment-value">0%</div>
-      </div>
-      <div class="payment-item">
-        <i class="fas fa-calendar-alt"></i>
-        <div class="payment-label">مدة التقسيط</div>
-        <div class="payment-value">8 سنوات</div>
-      </div>
-      <div class="payment-item">
-        <i class="fas fa-hand-holding-usd"></i>
-        <div class="payment-label">نظام السداد</div>
-        <div class="payment-value">مرن جداً</div>
-      </div>
+      <div class="payment-item"><i class="fas fa-percent"></i><div class="payment-label">المقدم</div><div class="payment-value">0%</div></div>
+      <div class="payment-item"><i class="fas fa-calendar-alt"></i><div class="payment-label">مدة التقسيط</div><div class="payment-value">8 سنوات</div></div>
+      <div class="payment-item"><i class="fas fa-money-bill-wave"></i><div class="payment-label">عدد الأقساط</div><div class="payment-value">32 قسط (ربع سنوي)</div></div>
     </div>
-    
+
     <div class="price-highlight">
       <div class="price-label">السعر الإجمالي</div>
       <div class="price-value">12,998,380 ج.م</div>
@@ -875,20 +302,302 @@ a{text-decoration:none;color:inherit;transition:var(--transition)}
     </div>
 
     <div class="contact-buttons">
-      <a href="https://wa.me/201050072527?text=مهتم بالوحدة كود #101 في مورانو" class="contact-btn whatsapp" target="_blank" rel="noopener">
-        <i class="fab fa-whatsapp"></i>
-        واتساب
-      </a>
-      <a href="tel:+201050072527" class="contact-btn phone">
-        <i class="fas fa-phone"></i>
-        اتصل بنا
-      </a>
-      <a href="#contact-form" class="contact-btn">
-        <i class="fas fa-envelope"></i>
-        استفسار
-      </a>
+      <a href="https://wa.me/201050072527?text=مهتم بالوحدة كود #101 في مورانو" class="contact-btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>واتساب</a>
+      <a href="tel:+201050072527" class="contact-btn phone"><i class="fas fa-phone"></i>اتصل بنا</a>
+      <a href="#contact-form" class="contact-btn"><i class="fas fa-envelope"></i>استفسار</a>
     </div>
   </section>
 
   <!-- وصف الشاليه -->
-  <article class="info-box
+  <article class="info-box" aria-labelledby="descTitle">
+    <h2 id="descTitle" class="box-title"><i class="fas fa-house-user"></i>وصف الشاليه</h2>
+    <div class="description-text">
+      <p>فرصة مميزة لامتلاك شاليه فاخر بحديقة خاصة ضمن مشروع مورانو وادي دجلة، واحد من أهم مشاريع العين السخنة. الشاليه بمساحة 145 م²، يضم 3 غرف نوم رئيسية بالإضافة إلى غرفة ناني، مع تشطيب سوبر لوكس وتصميم حديث يضمن الراحة والفخامة. المشروع يوفر إطلالة مميزة ومجموعة واسعة من الخدمات المتكاملة مثل حمامات السباحة، المناطق الترفيهية، والممشى السياحي.</p>
+      <p>الموقع متميز وقريب من المحاور الرئيسية، مما يتيح سهولة الوصول من القاهرة ومدن الجوار. النظام المقدم صفر والقسط مريح حتى 8 سنوات يجعل هذا العرض مناسباً للراغبين بالاستثمار أو السكن الصيفي.</p>
+    </div>
+  </article>
+
+  <!-- SUGGESTED UNITS (from suggestion.json) -->
+  <section id="suggestedSection" class="info-box" aria-labelledby="suggestedTitle">
+    <h2 id="suggestedTitle" class="box-title"><i class="fas fa-th-large"></i>وحدات مقترحة أخرى قد تهمك</h2>
+    <div id="suggestedContainer" class="suggested-grid" aria-live="polite">
+      <!-- ديناميكي -->
+      <div class="suggested-card"><div class="suggested-icon"><i class="fas fa-spinner fa-pulse"></i></div><div class="suggested-info"><div class="suggested-title">جاري التحميل...</div><div class="suggested-meta">برجاء الانتظار</div></div></div>
+    </div>
+    <p style="margin-top:12px;color:var(--text-muted);font-size:14px">العرض يظهر حتى 4 اقتراحات من بيانات suggestion.json — سيتم محاولة فلترة الاقتراحات ذات الصلة بمشروع "مورانو" أولاً.</p>
+  </section>
+
+  <!-- وصف مشروع مورانو وادي دجلة (النص كامل كما طلبت) -->
+  <section id="projectDescription" class="info-box" aria-labelledby="projectTitle">
+    <h2 id="projectTitle" class="box-title"><i class="fas fa-map-marked-alt"></i>وصف مشروع مورانو وادي دجلة</h2>
+    <div class="description-text">
+      <h3>1. عن مشروع مورانو وادي دجلة</h3>
+      <p>تُعد قرية مورانو العين السخنة ملاذاً هادئاً بعيدًا عن زحام وضوضاء المدينة وفي ذات الوقت تبعد مسافة ليست بالطويلة، فيمكن السفر منها وإليها بكل سهولة وفي وقت قياسي، فعلى شواطئ البحر الأحمر تُقدم <strong>مورانو</strong> تجربة فريدة تجمع بين سحر الطبيعة ورفاهية الحياة العصرية، وتم تصميم Murano Wadi Degla بعناية فائقة لتوفير بيئة استثنائية تُركز على الهدوء والسكينة، مع توفير كافة وسائل الراحة والترفيه حيث تتميز بموقعها الفريد ومرافقها المتنوعة، بالإضافة إلى وجود ينابيع مياه ساخنة طبيعية تُضيف لمسة مميزة إلى القرية.</p>
+
+      <h3>2. موقع قرية مورانو العين السخنة</h3>
+      <p>اهتمت وادي دجلة للتطوير العقاري باختيار موقع شديد التميز لـ Murano Wadi Degla حيث تقع قرية مورانو في منطقة من أفضل مناطق ساحل البحر الأحمر، في نهاية طريق العين السخنة وبداية طريق الزعفرانة، هذا الموقع يجعلها أقرب منطقة ساحلية للعاصمة، كما تتميز بقربها من الطرق والمحاور الرئيسية، مما يضمن سهولة الوصول إليها من مختلف أنحاء مصر.</p>
+
+      <h4>أهم الطرق والمحاور بالقرب من مورانو</h4>
+      <ul>
+        <li>يقع طريق <strong>الجلالة</strong> على بعد 18 كيلو فقط من قرية مورانو السخنة.</li>
+        <li>المسافة لمحطة قطار العين السخنة: 14 كيلو.</li>
+        <li>المسافة من القاهرة: حوالي 136 كيلو.</li>
+        <li>طريق القطامية على بعد 112 كيلو.</li>
+      </ul>
+
+      <h3>3. مساحة مورانو وادي دجلة</h3>
+      <p>اهتمت وادي دجلة للتطوير العقاري بإفراد مساحة واسعة لمشروع مورانو العين السخنة، وركزت على توزيع هذه المساحة بأفضل طريقة ممكنة لاستغلالها الاستغلال الأمثل والحصول على نتيجة نهائية ممتازة، كما جعلتها تضم العديد من المرافق والخدمات الترفيهية، بشكل يوفر تجربة سكنية فريدة من نوعها.</p>
+      <p>أدى اتساع مساحة <em>murano sokhna</em> وتقسيمتها المميزة إلى الجمع بين <strong>الخصوصية والراحة</strong> داخلها، مع توفير مساحات خضراء رحبة ومسطحات مائية جميلة تُضفي إحساساً بالهدوء والاسترخاء.</p>
+
+      <h3>4. ماستر بلان ومرافق قرية مورانو العين السخنة</h3>
+      <p>يعتمد تصميم قرية مورانو على مفهوم مبتكر يجمع بين الرفاهية والطبيعة، حيث تم تصميم المخطط العام للقرية بطريقة تضمن توفير تجربة متميزة لسكانها، فكل زاوية تُضفي جوّاً فريدًا، وتشمل مرافق <em>murano sokhna</em>:</p>
+      <ul class="features-grid" style="margin-top:10px;">
+        <li class="feature-item"><i class="fas fa-swimmer"></i> <span>حمامات السباحة: المتنوعة بمختلف الأحجام والمساحات لتلبي جميع الاحتياجات.</span></li>
+        <li class="feature-item"><i class="fas fa-child"></i> <span>مناطق ترفيهية للأطفال: بأعلى معايير السلامة.</span></li>
+        <li class="feature-item"><i class="fas fa-utensils"></i> <span>المطاعم والمقاهي: متنوعة بمستويات عالمية راقية.</span></li>
+        <li class="feature-item"><i class="fas fa-store"></i> <span>المحلات التجارية: لتلبية الاحتياجات دون الحاجة للخروج.</span></li>
+        <li class="feature-item"><i class="fas fa-walking"></i> <span>ممرات للمشي وركوب الدراجات: آمنة ومريحة.</span></li>
+        <li class="feature-item"><i class="fas fa-umbrella-beach"></i> <span>شاطئ رملي ممتد بطول 750 مترًا.</span></li>
+        <li class="feature-item"><i class="fas fa-anchor"></i> <span>مارينا بطول 100 متر.</span></li>
+        <li class="feature-item"><i class="fas fa-hotel"></i> <span>منتجع فندقي 4 نجوم.</span></li>
+        <li class="feature-item"><i class="fas fa-spa"></i> <span>سبا فاخر.</span></li>
+        <li class="feature-item"><i class="fas fa-basketball-ball"></i> <span>ملاعب رياضية متنوعة (كرة قدم الشاطئ، الكرة الطائرة).</span></li>
+        <li class="feature-item"><i class="fas fa-water"></i> <span>ينابيع ماء ساخنة طبيعية.</span></li>
+      </ul>
+
+      <h3>5. أنواع الوحدات في Murano Wadi Degla</h3>
+      <p>تتنوع وحدات قرية مورانو العين السخنة لتشمل: شقق وفلل، وتأتي بمساحات متنوعة لتناسب مختلف الأذواق والميزانيات. جميع الوحدات مصممة بعناية لتوفر راحة كاملة وتجربة سكنية مميزة.</p>
+
+      <h3>6. عن وادي دجلة للتطوير العقاري (المطور)</h3>
+      <p>تأسست شركة <strong>وادي دجلة للتطوير العقاري</strong> في عام 2005، وأصبحت رائدة في مجال التطوير العقاري على مدار السنوات الماضية، حيث يبلغ إجمالي مساحة مشاريعها ملايين الملليمترات المربعة وتضم محفظة مشاريع في القاهرة والساحل الشمالي والعين السخنة. تعمل وادي دجلة على تصميم وبناء مشاريع تلائم الأسرة المصرية مع توفير أعلى معايير الفخامة والبنية التحتية والخدمات المجتمعية.</p>
+
+      <h4>أهم مشروعات وادي دجلة للتطوير العقاري</h4>
+      <ul>
+        <li>بلومار دوم العين السخنة</li>
+        <li>مارينا وادي دجلة العين السخنة</li>
+        <li>بلومار الساحل الشمالي</li>
+        <li>نيوبوليس مدينة المستقبل</li>
+        <li>بيراميدز ووك السادس من أكتوبر</li>
+        <li>بروميناد السادس من أكتوبر</li>
+        <li>بروميناد القاهرة الجديدة</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ (5 أسئلة) -->
+  <section id="faqSection" class="info-box" aria-labelledby="faqTitle">
+    <h2 id="faqTitle" class="box-title"><i class="fas fa-question-circle"></i>الأسئلة الشائعة</h2>
+    <div class="faq-container" id="faqContainer">
+      <div class="faq-item">
+        <div class="faq-question">من هو المطور العقاري لمشروع مورانو العين السخنة؟ <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>المطور هو شركة <strong>وادي دجلة للتطوير العقاري</strong>، وهي إحدى الشركات الرائدة في مصر.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">هل يمكن شراء الشاليه بنظام تقسيط؟ <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>نعم، الشاليه متاح بنظام سداد مميز <strong>بمقدم 0%</strong> وتقسيط حتى <strong>8 سنوات</strong> (32 قسط ربع سنوي).</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">متى يكون استلام الوحدة وما هي حالة التشطيب؟ <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>تسليم الوحدة المتاحة (كود #101) سيكون في عام <strong>2028</strong>، والوحدة تسلم <strong>بتشطيب سوبر لوكس</strong> كامل.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">ما هي مميزات الشاليه الأرضي بحديقة خاصة؟ <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>يتميز الشاليه الأرضي بإمكانية الوصول المباشر للحديقة واستخدامها كمساحة ترفيهية خاصة، وهي ميزة نادرة في المشاريع الساحلية.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">كم تبعد قرية مورانو عن القاهرة؟ <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>تقع مورانو على بُعد حوالي <strong>136 كيلو</strong> من القاهرة، ما يعادل ساعة ونصف تقريباً، وتتميز بقربها من طريق الجلالة.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation form -->
+  <section id="consultation" class="consultation-box" aria-labelledby="consultTitle">
+    <div class="consultation-icon"><i class="fas fa-handshake"></i></div>
+    <h2 id="consultTitle" class="consultation-title">تحتاج إلى استشارة عقارية؟</h2>
+    <p class="consultation-subtitle">املأ بياناتك وسنعاود الاتصال بك قريبًا لمعرفة أفضل العروض.</p>
+
+    <form id="contact-form" class="contact-form" action="MAILTO:islammesmail@gmail.com" method="post" enctype="text/plain" onsubmit="handleContactForm(event)">
+      <div class="form-row">
+        <input class="form-input" type="text" name="الاسم_الكامل" placeholder="الاسم الكامل" required>
+        <input class="form-input" type="tel" name="الهاتف" placeholder="+20 10xxxxxxxx" pattern="^\+?\d{8,15}$" required>
+      </div>
+
+      <div class="form-row">
+        <input class="form-input" type="email" name="البريد_الإلكتروني" placeholder="you@example.com (اختياري)">
+        <input class="form-input" type="text" name="المشروع" value="Murano Wadi Degla Sokhna" readonly>
+      </div>
+
+      <div class="form-row">
+        <select class="form-input" name="نوع_الوحدة" required>
+          <option value="">-- نوع الوحدة المهتم بها --</option>
+          <option value="شاليه">شاليه</option>
+          <option value="شاليه بحديقة">شاليه بحديقة</option>
+          <option value="دوبلكس">دوبلكس</option>
+          <option value="تاون هاوس">تاون هاوس</option>
+          <option value="فيلا">فيلا</option>
+        </select>
+        <input class="form-input" type="text" name="الميزانية" placeholder="مثال: من 2,500,000 إلى 4,000,000 ج.م">
+      </div>
+
+      <textarea class="form-input" name="ملاحظات" rows="4" placeholder="اذكر موعد التسليم أو نظام السداد المفضل..."></textarea>
+
+      <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i>إرسال</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  {% include footer-ar.html %}
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/201050072527" class="whatsapp-float" aria-label="واتساب">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Fancybox -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+<script>
+// Gallery slider (touch + nav)
+(function(){
+  const galleryMain = document.getElementById('galleryMain');
+  const slides = Array.from(galleryMain.children);
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  const counter = document.getElementById('galleryCounter');
+  const lightboxBtn = document.getElementById('lightboxBtn');
+
+  let idx = 0;
+  function show(i){
+    idx = (i + slides.length) % slides.length;
+    galleryMain.style.transform = `translateX(-${idx * 100}%)`;
+    counter.textContent = `${idx+1} / ${slides.length}`;
+  }
+  show(0);
+
+  prev.addEventListener('click', ()=> show(idx-1));
+  next.addEventListener('click', ()=> show(idx+1));
+
+  // touch support (swipe)
+  let startX = 0, dx = 0;
+  galleryMain.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+  galleryMain.addEventListener('touchmove', e => { dx = e.touches[0].clientX - startX; });
+  galleryMain.addEventListener('touchend', e => {
+    if (dx > 50) show(idx-1);
+    else if (dx < -50) show(idx+1);
+    dx = 0;
+  });
+
+  // open current slide in Fancybox
+  lightboxBtn.addEventListener('click', ()=> {
+    const items = slides.map(s => ({ src: s.getAttribute('data-src'), type: 'image' }));
+    Fancybox.show(items, { startIndex: idx });
+  });
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-question');
+  q.addEventListener('click', ()=> {
+    item.classList.toggle('active');
+  });
+});
+
+// Load suggested units from suggestion.json (max 4). 
+// If objects have field "project" containing "murano" (case-insensitive) will prefer them.
+(function(){
+  const container = document.getElementById('suggestedContainer');
+  fetch('/suggestion.json')
+    .then(res => {
+      if(!res.ok) throw new Error('no-suggestion-json');
+      return res.json();
+    })
+    .then(data => {
+      // expect data to be array of units: [{title, link, project, meta}]
+      if(!Array.isArray(data) || data.length === 0) throw new Error('empty');
+      // try to pick relevant items (project contains murano) first
+      const preferred = data.filter(u => {
+        const p = (u.project || u.proj || u.project_name || '').toString().toLowerCase();
+        return p.includes('murano') || p.includes('مورانو') || (u.title || '').toString().toLowerCase().includes('murano') || (u.title || '').toString().toLowerCase().includes('مورانو');
+      });
+      const chosen = [];
+      (preferred.length ? preferred : data).some(u=>{
+        if(chosen.length < 4) chosen.push(u);
+        return chosen.length >= 4;
+      });
+      // fallback: if preferred less than 4, fill with others
+      if(chosen.length < 4){
+        for(const u of data){
+          if(chosen.indexOf(u) === -1){
+            chosen.push(u);
+            if(chosen.length>=4) break;
+          }
+        }
+      }
+
+      // render
+      container.innerHTML = '';
+      chosen.forEach(u => {
+        const card = document.createElement('a');
+        card.href = u.link || '#';
+        card.className = 'suggested-card';
+        card.innerHTML = `
+          <div class="suggested-icon"><i class="fas fa-home"></i></div>
+          <div class="suggested-info">
+            <div class="suggested-title">${u.title || 'وحدة مقترحة'}</div>
+            <div class="suggested-meta">${u.meta || (u.price ? u.price + ' ج.م' : '')}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err=>{
+      container.innerHTML = `<div style="grid-column:1/-1;color:var(--text-muted)">لا توجد وحدات مقترحة حالياً.</div>`;
+      console.warn('suggestion.json load error', err);
+    });
+})();
+
+// Contact form handler (opens WhatsApp with message OR sends mail via mailto)
+function handleContactForm(e){
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const name = data.get('الاسم_الكامل') || '';
+  const phone = data.get('الهاتف') || '';
+  const email = data.get('البريد_الإلكتروني') || '';
+  const project = data.get('المشروع') || '';
+  const unitType = data.get('نوع_الوحدة') || '';
+  const budget = data.get('الميزانية') || '';
+  const notes = data.get('ملاحظات') || '';
+
+  // prepare message
+  let msg = `*طلب استشارة عقارية*%0A%0A`;
+  msg += `الاسم: ${name}%0A`;
+  msg += `الهاتف: ${phone}%0A`;
+  if(email) msg += `البريد: ${email}%0A`;
+  msg += `المشروع: ${project}%0A`;
+  msg += `نوع الوحدة: ${unitType}%0A`;
+  if(budget) msg += `الميزانية: ${budget}%0A`;
+  if(notes) msg += `ملاحظات: ${notes}%0A`;
+
+  // open WhatsApp
+  const waUrl = `https://wa.me/201050072527?text=${msg}`;
+  window.open(waUrl, '_blank');
+
+  // optionally also trigger mailto (uncomment if desired)
+  // const mailto = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent('استشارة عقارية')}&body=${encodeURIComponent(msg.replace(/%0A/g,'\n'))}`;
+  // window.location.href = mailto;
+}
+
+// Optional: Improve accessibility focus outline for keyboard users
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Tab') document.body.classList.add('show-focus');
+});
+</script>
+
+</body>
+</html>
