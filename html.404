@@ -1,0 +1,1342 @@
+---
+layout: none
+title: "Murano Wadi Degla Ain Sokhna | Islam Real Estate"
+permalink: /murano-en.html
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Murano Wadi Degla Ain Sokhna - Chalets & Villas for Sale with Installments | Islam Real Estate</title>
+<meta name="description" content="Discover Murano Wadi Degla project in Ain Sokhna - Luxury chalets and villas on the Red Sea. Prime location, 750m private beach, flexible payment plans. Book your unit now">
+<meta name="keywords" content="Murano Wadi Degla, Ain Sokhna chalets, villas for sale, installment properties, Sokhna real estate, Murano village">
+<link rel="canonical" href="https://islamproperty.com/murano-en.html">
+<link rel="icon" href="https://f.top4top.io/p_3562107rr0.png" type="image/png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Murano Wadi Degla Ain Sokhna | Islam Real Estate">
+<meta property="og:description" content="Luxury chalets and villas for sale with installments in the best Red Sea locations">
+<meta property="og:image" content="https://c.top4top.io/p_35249hfap2.jpg">
+<meta property="og:url" content="https://islamproperty.com/murano-en.html">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Murano Wadi Degla Ain Sokhna">
+<meta name="twitter:description" content="Luxury chalets and villas with flexible payment plans">
+<meta name="twitter:image" content="https://c.top4top.io/p_35249hfap2.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Islam Real Estate - Murano Wadi Degla",
+  "description": "Chalets and villas for sale in Murano Wadi Degla Ain Sokhna",
+  "url": "https://islamproperty.com/murano-en.html",
+  "telephone": "+201050072527",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ain Sokhna",
+    "addressCountry": "EG"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --wrap:1140px;
+  --line:#e5e7eb;
+  --ink:#000000;
+  --muted:#374151;
+  --primary:#2563eb;
+  --accent:#25D366;
+  --bg:#ffffff;
+  --shadow:0 2px 8px rgba(0,0,0,.04);
+  --radius:8px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  user-select:none;
+}
+img{pointer-events:none;-webkit-user-drag:none}
+a{color:var(--primary);text-decoration:none;transition:color .2s}
+a:hover{color:#1d4ed8}
+
+/* Search */
+.search-row{
+  background:#f9fafb;
+  padding:15px 20px;
+  border-bottom:1px solid var(--line)
+}
+.search-wrap{
+  max-width:760px;
+  margin:0 auto;
+  position:relative
+}
+#siteSearch{
+  width:100%;
+  padding:12px 20px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  font-size:15px;
+  font-weight:600;
+  background:var(--bg);
+  color:var(--ink);
+  transition:all .2s
+}
+#siteSearch:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.1)
+}
+#suggest{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  right:0;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  display:none;
+  max-height:300px;
+  overflow-y:auto;
+  box-shadow:var(--shadow);
+  z-index:150
+}
+#suggest a{
+  display:block;
+  padding:12px 16px;
+  color:var(--ink);
+  font-weight:600;
+  font-size:14px;
+  border-bottom:1px solid var(--line)
+}
+#suggest a:last-child{border-bottom:none}
+#suggest a:hover{background:#f3f4f6}
+
+/* Container */
+.container{max-width:var(--wrap);margin:18px auto;padding:0 20px}
+
+/* Breadcrumb */
+.breadcrumb{
+  color:var(--ink);
+  font-size:14px;
+  margin-bottom:14px;
+  text-align:left
+}
+.breadcrumb a{color:var(--ink)}
+.breadcrumb a:hover{color:var(--primary)}
+
+/* Title */
+.title-block{
+  text-align:center;
+  margin-bottom:20px
+}
+.title-block h1{
+  font-size:26px;
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:14px;
+  line-height:1.3
+}
+.dev-center{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 18px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--bg);
+  box-shadow:var(--shadow);
+  transition:all .2s;
+  cursor:pointer
+}
+.dev-center:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.dev-logo{height:38px;width:auto}
+.dev-badge{font-weight:700;font-size:15px;color:var(--ink)}
+
+/* Units */
+.units-section{margin:20px 0}
+.units-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+  gap:14px;
+  flex-wrap:wrap
+}
+.units-header .title{
+  font-size:20px;
+  font-weight:800;
+  color:var(--ink)
+}
+.filter-group{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tablist{display:flex;gap:8px}
+.tab-btn{
+  padding:8px 16px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:#f9fafb;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  transition:all .2s;
+  color:var(--ink)
+}
+.tab-btn.active{
+  background:var(--primary);
+  color:#fff;
+  border-color:var(--primary)
+}
+.tab-btn:hover:not(.active){background:#f3f4f6}
+.show-all-link{
+  padding:8px 16px;
+  border-radius:20px;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  font-weight:700;
+  font-size:14px;
+  transition:all .2s
+}
+.show-all-link:hover{background:var(--primary);color:#fff}
+
+.units-box{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow)
+}
+.units-grid{
+  display:flex;
+  flex-direction:column;
+  gap:16px
+}
+
+/* Card - Horizontal Layout */
+.unit-card{
+  display:flex;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:var(--bg);
+  transition:all .2s;
+  cursor:pointer;
+  min-height:180px
+}
+.unit-card:hover{
+  box-shadow:var(--shadow);
+  transform:translateY(-2px)
+}
+.unit-images{
+  position:relative;
+  background:#000;
+  width:280px;
+  min-width:280px;
+  flex-shrink:0
+}
+.carousel-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:none
+}
+.carousel-img.active{display:block}
+.carousel-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  color:#fff;
+  border:none;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  font-size:16px;
+  cursor:pointer;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s
+}
+.carousel-arrow:hover{background:rgba(0,0,0,.8)}
+.carousel-arrow.left{left:8px}
+.carousel-arrow.right{right:8px}
+.unit-badges{
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  display:flex;
+  justify-content:space-between
+}
+.badge{
+  padding:4px 10px;
+  border-radius:5px;
+  color:#fff;
+  font-weight:700;
+  font-size:12px;
+  box-shadow:0 2px 4px rgba(0,0,0,.2)
+}
+.badge.type.dev{background:#2563eb}
+.badge.type.resale{background:#f59e0b}
+.badge.status.available{background:#10b981}
+.badge.status.sold{background:#dc2626}
+
+.unit-meta{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1
+}
+.unit-meta h4{
+  font-size:18px;
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:6px
+}
+.unit-meta .small{
+  color:var(--ink);
+  font-size:13px;
+  margin-bottom:12px
+}
+.spec-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  margin-top:auto
+}
+.spec-pill{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+  font-size:14px;
+  color:var(--ink)
+}
+.spec-pill img{width:18px;height:18px}
+.price-pill{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:6px;
+  background:#f3f4f6;
+  font-weight:800;
+  font-size:18px;
+  color:var(--primary);
+  margin-top:10px
+}
+
+/* Media */
+.media-wrap{margin:20px 0}
+.video-card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow)
+}
+.video-card h3{
+  font-size:19px;
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+  text-align:left
+}
+.video-card video{
+  width:100%;
+  border-radius:var(--radius);
+  box-shadow:0 2px 8px rgba(0,0,0,.06)
+}
+
+.section{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px
+}
+.section h3{
+  font-size:19px;
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:14px;
+  text-align:left
+}
+
+.slider-thumbs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:6px 0;
+  cursor:grab;
+  scrollbar-width:thin
+}
+.slider-thumbs:active{cursor:grabbing}
+.slider-thumbs img{
+  flex:0 0 260px;
+  height:170px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:all .2s
+}
+.slider-thumbs img:hover{
+  border-color:var(--primary);
+  transform:scale(1.02)
+}
+
+.share-row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  justify-content:center;
+  flex-wrap:wrap
+}
+.btn-share,.btn-copy{
+  padding:10px 20px;
+  border-radius:20px;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  background:var(--bg);
+  color:var(--ink);
+  border:1px solid var(--line);
+  transition:all .2s
+}
+.btn-share:hover,.btn-copy:hover{
+  background:#f3f4f6
+}
+
+.masterplan{
+  display:flex;
+  justify-content:center;
+  margin:18px 0
+}
+.master-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 22px;
+  border:1px solid var(--primary);
+  border-radius:22px;
+  background:var(--bg);
+  color:var(--primary);
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  transition:all .2s;
+  box-shadow:var(--shadow)
+}
+.master-btn:hover{background:#f3f4f6}
+.master-icon{height:20px;width:20px}
+
+/* Content */
+.wrap2{
+  display:grid;
+  gap:20px;
+  grid-template-columns:2.5fr 1fr;
+  margin:20px 0
+}
+
+.content-section{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow)
+}
+.content-section h2{
+  font-size:20px;
+  font-weight:800;
+  color:var(--ink);
+  margin:18px 0 10px 0;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--line);
+  text-align:left
+}
+.content-section h2:first-child{margin-top:0}
+.content-section h3{
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  margin:14px 0 8px 0;
+  text-align:left
+}
+.content-section p{
+  color:var(--ink);
+  line-height:1.8;
+  margin-bottom:10px;
+  font-size:15px
+}
+.content-section ul{
+  list-style:none;
+  padding-left:18px
+}
+.content-section li{
+  color:var(--ink);
+  line-height:1.8;
+  margin-bottom:7px;
+  position:relative;
+  font-size:15px
+}
+.content-section li:before{
+  content:'•';
+  position:absolute;
+  left:-18px;
+  color:var(--primary);
+  font-weight:700
+}
+
+/* FAQ */
+.faq-item{margin-top:10px}
+.faq-q{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#f9fafb;
+  cursor:pointer;
+  transition:all .2s;
+  font-weight:700;
+  color:var(--ink);
+  font-size:15px
+}
+.faq-q:hover{background:#f3f4f6}
+.faq-q span{
+  font-size:16px;
+  transition:transform .2s
+}
+.faq-item.open .faq-q span{transform:rotate(180deg)}
+.faq-a{
+  padding:14px;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-top:none;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-top:-1px;
+  display:none;
+  color:var(--ink);
+  line-height:1.8;
+  font-size:14px
+}
+
+/* Help */
+.help{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:80px;
+  text-align:center
+}
+.help-icon{width:65px;height:65px;margin-bottom:10px}
+.help h3{
+  color:var(--primary);
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:7px
+}
+.help p{
+  font-size:13px;
+  color:var(--ink);
+  margin-bottom:14px;
+  line-height:1.5
+}
+.help label{
+  display:block;
+  text-align:left;
+  font-weight:600;
+  font-size:13px;
+  margin-top:10px;
+  color:var(--ink)
+}
+.help input,.help select,.help textarea{
+  width:100%;
+  padding:9px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  margin-top:5px;
+  font-size:13px;
+  font-family:'Inter',sans-serif;
+  transition:all .2s;
+  color:var(--ink)
+}
+.help input:focus,.help select:focus,.help textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.1)
+}
+.help textarea{
+  resize:vertical;
+  min-height:70px
+}
+.help button{
+  width:100%;
+  padding:11px;
+  border-radius:22px;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  margin-top:10px;
+  border:none;
+  transition:opacity .2s
+}
+.help button:hover{opacity:.9}
+#hWA{background:var(--accent);color:#fff}
+#hMail{background:var(--primary);color:#fff}
+
+/* Lightbox */
+#lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.95);
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+#lbImg{
+  max-width:90%;
+  max-height:90%;
+  object-fit:contain;
+  border-radius:var(--radius);
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  transition:opacity .2s
+}
+.lb-close{
+  position:absolute;
+  top:18px;
+  right:26px;
+  font-size:32px;
+  color:#fff;
+  cursor:pointer;
+  background:rgba(0,0,0,.6);
+  border:none;
+  z-index:10000;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  transition:background .2s
+}
+.lb-close:hover{background:rgba(0,0,0,.8)}
+.lb-prev,.lb-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:44px;
+  color:#fff;
+  cursor:pointer;
+  user-select:none;
+  z-index:10000;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.6);
+  border-radius:50%;
+  transition:all .2s
+}
+.lb-prev:hover,.lb-next:hover{background:rgba(0,0,0,.8)}
+.lb-prev{left:18px}
+.lb-next{right:18px}
+
+/* Floating */
+.fab-wa{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .2s
+}
+.fab-wa:hover{transform:scale(1.08)}
+.fab-wa img{width:30px;height:30px;filter:invert(1)}
+
+.fab-call{
+  position:fixed;
+  bottom:84px;
+  right:18px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:var(--primary);
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .2s;
+  color:#fff;
+  font-size:24px
+}
+.fab-call:hover{transform:scale(1.08)}
+
+/* Mobile */
+@media(max-width:980px){
+  .wrap2{grid-template-columns:1fr}
+  .help{position:relative;top:0}
+}
+@media(max-width:768px){
+  .units-header{flex-direction:column;align-items:flex-start}
+  .filter-group{width:100%}
+  .tablist{width:100%;justify-content:space-between}
+  .tab-btn{flex:1;padding:7px 8px;font-size:13px}
+  .show-all-link{width:100%;text-align:center}
+  
+  .unit-card{flex-direction:column;min-height:auto}
+  .unit-images{width:100%;min-width:100%;height:200px}
+  
+  .slider-thumbs img{flex:0 0 200px;height:130px}
+  .title-block h1{font-size:22px}
+  .lb-prev,.lb-next{width:38px;height:38px;font-size:32px}
+  .lb-close{width:36px;height:36px;font-size:26px}
+}
+
+/* Disable */
+body *:not(input):not(textarea){
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  user-select:none
+}
+img,video{
+  pointer-events:none;
+  -webkit-user-drag:none
+}
+</style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+{% include header-en.html %}
+
+<!-- Search -->
+<div class="search-row">
+  <div class="search-wrap">
+    <input id="siteSearch" placeholder="Search for your project (project name or city)" autocomplete="off">
+    <div id="suggest"></div>
+  </div>
+</div>
+
+<!-- Container -->
+<div class="container">
+  
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="{{ site.baseurl }}/">Home</a> » 
+    <a href="{{ site.baseurl }}/sokhna-en">Ain Sokhna</a> » 
+    <a href="{{ site.baseurl }}/zafarana-en">Zafarana</a> » 
+    <span>Murano Project</span>
+  </div>
+
+  <!-- Title -->
+  <div class="title-block">
+    <h1>Murano Wadi Degla Ain Sokhna - Chalets & Villas for Sale with Installments</h1>
+    <a href="{{ site.baseurl }}/wadi-degla-en" class="dev-center">
+      <img src="https://e.top4top.io/p_3563069vg0.jpg" alt="Wadi Degla" class="dev-logo" onerror="this.src='https://f.top4top.io/p_3562107rr0.png'">
+      <div class="dev-badge">Developer: Wadi Degla Developments</div>
+    </a>
+  </div>
+
+  <!-- Units -->
+  <section class="units-section">
+    <div class="units-header">
+      <div class="title">Available Units in Murano Wadi Degla Project</div>
+      <div class="filter-group">
+        <div class="tablist">
+          <button class="tab-btn active" data-filter="all">All</button>
+          <button class="tab-btn" data-filter="developer">Developer</button>
+          <button class="tab-btn" data-filter="resale">Resale</button>
+        </div>
+        <a class="show-all-link" href="{{ site.baseurl }}/murano-units-en">View All</a>
+      </div>
+    </div>
+    <div class="units-box">
+      <div id="unitsGrid" class="units-grid">
+        <div style="text-align:center;color:var(--ink);padding:30px">Loading units...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media -->
+  <section class="media-wrap">
+    <div class="video-card">
+      <h3>Video about Murano Wadi Degla Project</h3>
+      <video controls playsinline preload="metadata" poster="https://c.top4top.io/p_35249hfap2.jpg" controlsList="nodownload" oncontextmenu="return false" disablePictureInPicture>
+        <source src="https://i.top4top.io/m_3524euftk0.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+
+    <div class="section">
+      <h3>Murano Ain Sokhna Project Photos</h3>
+      <div class="slider-thumbs" id="thumbs">
+        <img src="https://c.top4top.io/p_35249hfap2.jpg" alt="Murano 1" loading="lazy" onclick="openLB(0)">
+        <img src="https://b.top4top.io/p_3524bqo0h1.jpg" alt="Murano 2" loading="lazy" onclick="openLB(1)">
+        <img src="https://a.top4top.io/p_3524wj4b00.jpg" alt="Murano 3" loading="lazy" onclick="openLB(2)">
+        <img src="https://d.top4top.io/p_35241i6053.jpg" alt="Murano 4" loading="lazy" onclick="openLB(3)">
+        <img src="https://e.top4top.io/p_3524z9c0n4.jpg" alt="Murano 5" loading="lazy" onclick="openLB(4)">
+        <img src="https://f.top4top.io/p_3524tljl25.jpg" alt="Murano 6" loading="lazy" onclick="openLB(5)">
+      </div>
+      <div class="share-row">
+        <button class="btn-share" onclick="sharePage()">Share Page</button>
+        <button class="btn-copy" onclick="copyLink()">Copy Page Link</button>
+      </div>
+    </div>
+
+    <div class="masterplan">
+      <div class="master-btn" onclick="openMaster()">
+        <img src="https://i.top4top.io/p_3563id7jh0.png" alt="master" class="master-icon">
+        View Master Plan
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="wrap2">
+    <main class="content-section">
+      <h2>About Murano Wadi Degla Project</h2>
+      <p>Murano Ain Sokhna village is a peaceful retreat away from the hustle and bustle of the city, yet not too far, making travel to and from it easy and quick. On the shores of the Red Sea, Murano offers a unique experience that combines the charm of nature with the luxury of modern life. Murano Wadi Degla was carefully designed to provide an exceptional environment focused on tranquility and serenity, while providing all means of comfort and entertainment. It is distinguished by its unique location and diverse facilities, in addition to the presence of natural hot springs that add a distinctive touch to the village.</h2>
+
+      <h2>Murano Ain Sokhna Location</h2>
+      <p>Wadi Degla for Real Estate Development was keen on choosing a highly distinctive location for Murano Wadi Degla. Murano village is located in one of the best areas of the Red Sea coast, at the end of Ain Sokhna road and the beginning of Zafarana road. This location makes it the closest coastal area to the capital, and it is also close to main roads and axes, ensuring easy access from various parts of Egypt.</p>
+      
+      <h3>Key Roads and Axes Near Murano</h3>
+      <ul>
+        <li>Galala Road is only 18 km from Murano Sokhna village</li>
+        <li>The distance to Ain Sokhna train station is 14 km</li>
+        <li>The distance between Murano Ain Sokhna village and Cairo is 136 km</li>
+        <li>Katameya Road is 112 km away</li>
+      </ul>
+
+      <h2>Murano Wadi Degla Area</h2>
+      <p>Wadi Degla for Real Estate Development was keen to allocate a large area for the Murano Ain Sokhna project, and focused on distributing this area in the best possible way to exploit it optimally and obtain an excellent final result, and made it include many recreational facilities and services, in a way that provides a unique residential experience.</p>
+
+      <h2>Master Plan and Facilities of Murano Ain Sokhna Village</h2>
+      <p>The design of Murano village is based on an innovative concept that combines luxury and nature, where the general plan of the village was designed in a way that ensures providing a distinguished experience for its residents, and Murano Sokhna facilities include:</p>
+      <ul>
+        <li>Various swimming pools of different sizes and areas</li>
+        <li>Recreational areas for children with the highest safety standards</li>
+        <li>Various restaurants and cafes with high-class international standards</li>
+        <li>Commercial stores to meet your needs inside the village</li>
+        <li>Safe and comfortable walking and cycling paths</li>
+        <li>Sandy beach extending 750 meters in length</li>
+        <li>100-meter long marina for sea trips</li>
+        <li>4-star hotel resort with spacious rooms and international services</li>
+        <li>Luxury spa for relaxation and body care</li>
+        <li>Various sports fields for beach football and volleyball</li>
+        <li>Natural hot springs rich in minerals</li>
+      </ul>
+
+      <h2>Types of Units in Murano Wadi Degla</h2>
+      <p>The units of Murano Ain Sokhna village vary to include many patterns that meet the needs of all residents, taking into account many important factors in all units such as: distinctive views of the landscapes, quality of designs, and the availability of various services and facilities.</p>
+      <ul>
+        <li>Apartments in various sizes</li>
+        <li>Luxury villas with modern designs</li>
+      </ul>
+
+      <h2>About Wadi Degla for Real Estate Development</h2>
+      <p>Wadi Degla Real Estate Development Company was founded in 2005 and has become a leader in real estate development. The total area of its projects is 5.5 million square meters. Wadi Degla's portfolio extends to 16 projects, including 12 completed projects, comprising more than 10,000 residential units, distributed in Cairo, Giza, North Coast, and Ain Sokhna.</p>
+
+      <h3>Key Projects by Wadi Degla Real Estate Development</h3>
+      <ul>
+        <li>Blumar Dome Ain Sokhna</li>
+        <li>Marina Wadi Degla Ain Sokhna</li>
+        <li>Blumar North Coast</li>
+        <li>Neopolis Future City</li>
+        <li>Pyramids Walk 6th of October</li>
+      </ul>
+
+      <div style="margin-top:24px">
+        <h2>Frequently Asked Questions About Murano Wadi Degla Project</h2>
+        <p style="color:var(--ink);font-size:14px;margin-top:6px">Click on any question to view the answer</p>
+        <div id="faqList"></div>
+      </div>
+    </main>
+
+    <aside class="help">
+      <img src="https://c.top4top.io/p_3563kzyu40.png" alt="help" class="help-icon" onerror="this.src='https://f.top4top.io/p_3562107rr0.png'">
+      <h3>Need Real Estate Consultation?</h3>
+      <p>Fill in your details and we will contact you soon to learn about the best offers</p>
+
+      <div style="text-align:left">
+        <label for="hName">Full Name</label>
+        <input id="hName" placeholder="Full Name" required>
+
+        <label for="hPhone">Mobile Phone</label>
+        <input id="hPhone" placeholder="+20 10xxxxxxxx" required>
+
+        <label for="hEmail">Email (Optional)</label>
+        <input id="hEmail" placeholder="you@example.com">
+
+        <label for="hProject">Specific Project</label>
+        <input id="hProject" value="Murano Wadi Degla Sokhna" readonly>
+
+        <label for="hUnit">Unit Type Interested In</label>
+        <select id="hUnit">
+          <option>Chalet</option>
+          <option>Hotel Apartment</option>
+          <option>Villa</option>
+          <option>Twin House</option>
+          <option>Apartment</option>
+        </select>
+
+        <label for="hBudget">Approximate Budget</label>
+        <input id="hBudget" placeholder="Example: From 2,500,000 to 4,000,000 EGP">
+
+        <label for="hNote">Note / Additional Details</label>
+        <textarea id="hNote" placeholder="Mention delivery date or preferred payment system..."></textarea>
+
+        <button id="hWA">Send My Inquiry via WhatsApp</button>
+        <button id="hMail">Send via Email</button>
+      </div>
+    </aside>
+  </div>
+
+</div>
+
+{% include footer-en.html %}
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <button class="lb-close">×</button>
+  <span class="lb-prev">‹</span>
+  <img id="lbImg" src="" alt="preview">
+  <span class="lb-next">›</span>
+</div>
+
+<!-- Floating Buttons -->
+<a class="fab-wa" href="https://wa.me/201050072527" target="_blank" rel="noopener">
+  <img src="https://i.top4top.io/p_3537mv0672.png" alt="WhatsApp">
+</a>
+<a class="fab-call" href="tel:+201050072527">☎</a>
+
+<script>
+// Search
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
+
+  let SITE_INDEX = [];
+  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
+
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
+
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+
+// Units - Load from JSON
+(async function(){
+  const GRID = document.getElementById('unitsGrid');
+  
+  async function fetchJson(url){
+    try{
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw 0;
+      return await r.json();
+    }catch(e){
+      return null;
+    }
+  }
+  
+  let units = await fetchJson('{{ site.baseurl }}/murano-units.json') || [];
+  
+  // Fallback data
+  if(!units || !units.length){
+    units = [
+      {id:101, title:"2 Bedroom Chalet - Sea View", status:"available", type:"developer", link:"{{ site.baseurl }}/murano-units-en#101", price:"4,800,000", bed:2, bath:1, area:"105 sqm", images:["https://c.top4top.io/p_35249hfap2.jpg","https://b.top4top.io/p_3524bqo0h1.jpg"], city:"Ain Sokhna"},
+      {id:102, title:"1 Bedroom Hotel Apartment", status:"available", type:"resale", link:"{{ site.baseurl }}/murano-units-en#102", price:"2,750,000", bed:1, bath:1, area:"75 sqm", images:["https://a.top4top.io/p_3524wj4b00.jpg","https://d.top4top.io/p_35241i6053.jpg"], city:"Ain Sokhna"}
+    ];
+  }
+
+  function fmt(n){
+    try{
+      if(typeof n === 'string' && n.includes(',')) return n;
+      return new Intl.NumberFormat('en-US').format(Number(String(n).replace(/[^0-9.-]+/g,'')));
+    }catch(e){return n;}
+  }
+
+  function slide(imagesDiv, dir){
+    const imgs = imagesDiv.querySelectorAll('.carousel-img');
+    if(!imgs.length) return;
+    let idx = Array.from(imgs).findIndex(im=>im.classList.contains('active'));
+    if(idx<0) idx=0;
+    imgs[idx].classList.remove('active');
+    idx = (idx + dir + imgs.length) % imgs.length;
+    imgs[idx].classList.add('active');
+  }
+
+  function createCard(u){
+    const card = document.createElement('article');
+    card.className='unit-card';
+    card.onclick = ()=> { if(u.link) window.location.href = u.link; };
+
+    // Images
+    const images = document.createElement('div');
+    images.className='unit-images';
+    (u.images || []).slice(0,3).forEach((src,i)=>{
+      const img = document.createElement('img');
+      img.className='carousel-img' + (i===0 ? ' active' : '');
+      img.src = src;
+      img.alt = u.title;
+      img.loading = 'lazy';
+      img.onerror = function(){this.src='https://picsum.photos/seed/unit/800/600';};
+      images.appendChild(img);
+    });
+
+    if((u.images||[]).length > 1){
+      const left = document.createElement('button');
+      left.className='carousel-arrow left';
+      left.innerHTML='‹';
+      const right = document.createElement('button');
+      right.className='carousel-arrow right';
+      right.innerHTML='›';
+      left.onclick = (e)=>{e.stopPropagation(); slide(images,-1);};
+      right.onclick = (e)=>{e.stopPropagation(); slide(images,1);};
+      images.appendChild(left);
+      images.appendChild(right);
+    }
+
+    // Badges
+    const badges = document.createElement('div');
+    badges.className='unit-badges';
+    const typeBadge = document.createElement('div');
+    typeBadge.className = 'badge type ' + (u.type==='developer' ? 'dev' : 'resale');
+    typeBadge.textContent = (u.type==='developer' ? 'Developer' : 'Resale');
+    const statusBadge = document.createElement('div');
+    statusBadge.className = 'badge status ' + (u.status==='available' ? 'available' : 'sold');
+    statusBadge.textContent = (u.status==='available' ? 'Available' : 'Sold');
+    badges.appendChild(typeBadge);
+    badges.appendChild(statusBadge);
+    images.appendChild(badges);
+
+    // Meta
+    const meta = document.createElement('div');
+    meta.className='unit-meta';
+    const h = document.createElement('h4');
+    h.textContent = u.title;
+    const small = document.createElement('div');
+    small.className='small';
+    small.textContent = u.city || 'Ain Sokhna';
+
+    const specs = document.createElement('div');
+    specs.className='spec-row';
+    if(u.bed){
+      const pillBed = document.createElement('div');
+      pillBed.className='spec-pill';
+      pillBed.innerHTML = `<img src="https://j.top4top.io/p_3563c1mt61.png" alt="beds"> ${u.bed} Beds`;
+      specs.appendChild(pillBed);
+    }
+    if(u.bath){
+      const pillBath = document.createElement('div');
+      pillBath.className='spec-pill';
+      pillBath.innerHTML = `<img src="https://k.top4top.io/p_3563vaqnl2.png" alt="bath"> ${u.bath} Bath`;
+      specs.appendChild(pillBath);
+    }
+    if(u.area){
+      const pillArea = document.createElement('div');
+      pillArea.className='spec-pill';
+      pillArea.innerHTML = `<img src="https://l.top4top.io/p_3563ijjuf3.png" alt="area"> ${u.area}`;
+      specs.appendChild(pillArea);
+    }
+
+    const price = document.createElement('div');
+    price.className='price-pill';
+    price.textContent = (u.price ? ('EGP ' + fmt(u.price)) : 'Call for Price');
+
+    meta.appendChild(h);
+    meta.appendChild(small);
+    meta.appendChild(specs);
+    meta.appendChild(price);
+
+    card.appendChild(images);
+    card.appendChild(meta);
+
+    // Auto-rotate images
+    const imgs_ = images.querySelectorAll('.carousel-img');
+    if(imgs_.length > 1){
+      let cur = 0;
+      let timer = setInterval(()=>{
+        imgs_[cur].classList.remove('active');
+        cur = (cur + 1) % imgs_.length;
+        imgs_[cur].classList.add('active');
+      }, 3500);
+      images.addEventListener('mouseenter', ()=> clearInterval(timer));
+      images.addEventListener('mouseleave', ()=> {
+        timer = setInterval(()=>{
+          imgs_[cur].classList.remove('active');
+          cur = (cur + 1) % imgs_.length;
+          imgs_[cur].classList.add('active');
+        }, 3500);
+      });
+    }
+
+    return card;
+  }
+
+  function render(list){
+    GRID.innerHTML = '';
+    if(!list || !list.length){
+      GRID.innerHTML = '<div style="padding:30px;color:var(--ink);text-align:center">No units currently available</div>';
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    list.forEach(u => frag.appendChild(createCard(u)));
+    GRID.appendChild(frag);
+  }
+
+  render(units);
+
+  // Filters
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.tab-btn').forEach(b=> b.classList.remove('active'));
+      this.classList.add('active');
+      const f = this.getAttribute('data-filter');
+      if(f === 'all') return render(units);
+      render(units.filter(u => (u.type||'').toLowerCase() === f));
+    });
+  });
+})();
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const galleryImages = [
+  "https://c.top4top.io/p_35249hfap2.jpg",
+  "https://b.top4top.io/p_3524bqo0h1.jpg",
+  "https://a.top4top.io/p_3524wj4b00.jpg",
+  "https://d.top4top.io/p_35241i6053.jpg",
+  "https://e.top4top.io/p_3524z9c0n4.jpg",
+  "https://f.top4top.io/p_3524tljl25.jpg"
+];
+const masterImages = ["https://b.top4top.io/p_3563snvkk0.png"];
+let lbIndex = 0;
+let lbSet = galleryImages;
+
+function openLightbox(set, i){
+  lbSet = set;
+  lbIndex = i % lbSet.length;
+  lbImg.src = lbSet[lbIndex];
+  lb.style.display = 'flex';
+  
+  // Hide arrows for single image
+  const prev = document.querySelector('.lb-prev');
+  const next = document.querySelector('.lb-next');
+  if(lbSet.length <= 1){
+    prev.style.display = 'none';
+    next.style.display = 'none';
+  } else {
+    prev.style.display = 'flex';
+    next.style.display = 'flex';
+  }
+}
+
+function openLB(i){ openLightbox(galleryImages, i); }
+function openMaster(){ openLightbox(masterImages, 0); }
+
+function closeLightbox(){ lb.style.display='none'; }
+
+function changeLightbox(dir){
+  if(lbSet.length <= 1) return;
+  lbIndex = (lbIndex + dir + lbSet.length) % lbSet.length;
+  lbImg.src = lbSet[lbIndex];
+}
+
+document.querySelector('.lb-close').addEventListener('click', closeLightbox);
+document.querySelector('.lb-prev').addEventListener('click', ()=> changeLightbox(-1));
+document.querySelector('.lb-next').addEventListener('click', ()=> changeLightbox(1));
+lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+
+// Keyboard support
+document.addEventListener('keydown', (e)=>{
+  if(lb.style.display === 'flex'){
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') changeLightbox(1);
+    if(e.key === 'ArrowRight') changeLightbox(-1);
+  }
+});
+
+// Swipe support
+(function(){
+  let isDown = false, startX = 0;
+  lb.addEventListener('pointerdown', (e) => {
+    if(e.target !== lbImg) return;
+    isDown = true; startX = e.clientX;
+  });
+  lb.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+  });
+  lb.addEventListener('pointerup', (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const diff = e.clientX - startX, threshold = 80;
+    if (diff > threshold) changeLightbox(-1);
+    else if (diff < -threshold) changeLightbox(1);
+  });
+})();
+
+// Slider drag
+(function(){
+  const el = document.getElementById('thumbs');
+  if(!el) return;
+  let down=false,startX,sl;
+  el.addEventListener('pointerdown', e=>{down=true; startX=e.clientX; sl=el.scrollLeft;});
+  el.addEventListener('pointermove', e=>{if(!down) return; e.preventDefault(); el.scrollLeft = sl - (e.clientX - startX);});
+  ['pointerup','pointercancel'].forEach(ev=> el.addEventListener(ev, ()=> down=false));
+})();
+
+// Share & Copy
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href)
+    .then(()=> alert('✓ Page link copied successfully'))
+    .catch(()=> alert('Could not copy link'));
+}
+function sharePage(){
+  if(navigator.share){
+    navigator.share({title: document.title, url: window.location.href}).catch(()=>{});
+  } else {
+    copyLink();
+  }
+}
+
+// Help Form
+function getVal(id){ return (document.getElementById(id)?.value||'').trim(); }
+document.getElementById('hWA').addEventListener('click', ()=> {
+  const txt = `Hello, please provide me with details about ${getVal('hProject')} - Name: ${getVal('hName')} - Phone: ${getVal('hPhone')} - Email: ${getVal('hEmail')} - Unit Type: ${getVal('hUnit')} - Budget: ${getVal('hBudget')} - Note: ${getVal('hNote')}`;
+  window.open(`https://wa.me/201050072527?text=${encodeURIComponent(txt)}`,'_blank');
+});
+document.getElementById('hMail').addEventListener('click', ()=> {
+  const subj = `Inquiry about ${getVal('hProject')} - ${getVal('hName')}`;
+  const body = `Name: ${getVal('hName')}\nPhone: ${getVal('hPhone')}\nEmail: ${getVal('hEmail')}\nProject: ${getVal('hProject')}\nUnit Type: ${getVal('hUnit')}\nBudget: ${getVal('hBudget')}\nNotes:\n${getVal('hNote')}`;
+  location.href = `mailto:islammesmail@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+});
+
+// FAQ
+(function(){
+  const faqData = [
+    {q:"What is the exact location of Murano project?", a:"Murano project is located in the Zafarana area of Ain Sokhna, 90 minutes from New Cairo and directly on the Suez road."},
+    {q:"What is the name of the developer company of Murano project?", a:"The developer company is Wadi Degla Developments, a company with a strong reputation in developing coastal and residential projects."},
+    {q:"What types of units are available in Murano?", a:"The project includes chalets, hotel apartments, in addition to villas and apartments, with options for immediate delivery or under construction with flexible payment systems."},
+    {q:"What are the main facilities and services in Murano village?", a:"Murano offers a 750-meter private beach, marina, 4-star hotel resort, restaurants and cafes, commercial areas, luxury spa, sports fields, and natural hot springs."},
+    {q:"What are the available payment systems in Murano project?", a:"The project offers flexible payment systems including simple down payments and installments up to 8 years, with the possibility of immediate delivery for some units. For more details please contact us directly."}
+  ];
+
+  const faqList = document.getElementById('faqList');
+  const jsonLd = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[]};
+
+  faqData.forEach((item, index) => {
+    const faqItem = document.createElement('div');
+    faqItem.className = 'faq-item';
+    faqItem.innerHTML = `
+      <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+        ${item.q}
+        <span>▼</span>
+      </div>
+      <div class="faq-a">${item.a}</div>
+    `;
+    faqItem.querySelector('.faq-q').addEventListener('click', function() {
+      const isOpen = faqItem.classList.toggle('open');
+      const answer = faqItem.querySelector('.faq-a');
+      this.setAttribute('aria-expanded', isOpen);
+      answer.style.display = isOpen ? 'block' : 'none';
+    });
+    faqList.appendChild(faqItem);
+
+    jsonLd.mainEntity.push({
+      "@type":"Question",
+      "name":item.q,
+      "acceptedAnswer":{"@type":"Answer","text":item.a}
+    });
+  });
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+})();
+</script>
+</body>
+</html>
