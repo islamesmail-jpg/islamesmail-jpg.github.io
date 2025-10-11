@@ -1,32 +1,22 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "projects"
-    label: "المشاريع"
-    folder: "content/projects"
-    create: true
-    slug: "{{year}}-{{slug}}"
-    fields:
-      - { label: "اسم المشروع", name: "title", widget: "string" }
-      - { label: "وصف", name: "description", widget: "text" }
-      - { label: "الحالة", name: "status", widget: "string" }
-      - { label: "الصورة الرئيسية", name: "image", widget: "image" }
-      - { label: "تاريخ", name: "year", widget: "string" }
-
-  - name: "units"
-    label: "الوحدات"
-    folder: "content/units"
-    create: true
-    slug: "{{year}}-{{slug}}"
-    fields:
-      - { label: "عنوان الوحدة", name: "title", widget: "string" }
-      - { label: "وصف", name: "description", widget: "text" }
-      - { label: "السعر", name: "price", widget: "string" }
-      - { label: "المساحة", name: "area", widget: "string" }
-      - { label: "مشروع مرتبط (slug)", name: "project", widget: "string" }
-      - { label: "الصور", name: "image", widget: "image", multiple: true }
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>لوحة التحكم - Islam Real Estate</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/netlify-cms-app/dist/netlify-cms.js"></script>
+  </body>
+</html>
