@@ -1,12 +1,22 @@
 <!doctype html>
-<html>
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8" />
-    <title>لوحة تحكم الموقع</title>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <title>لوحة التحكم - Islam Real Estate</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <h2 style="text-align:center;margin-top:40px">Netlify CMS</h2>
-    <p style="text-align:center">لوحة تحكم الموقع</p>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/netlify-cms-app/dist/netlify-cms.js"></script>
   </body>
 </html>
