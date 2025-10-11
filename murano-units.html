@@ -42,7 +42,9 @@ body {
     direction:rtl;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    user-select:none;
 }
+img{pointer-events:none;-webkit-user-drag:none}
 a {text-decoration:none;color:inherit;transition:all .2s}
 .container {max-width:1200px;margin:0 auto;padding:0 20px}
 
@@ -120,48 +122,53 @@ h1.page-title {
     margin:10px auto 25px; 
 }
 
-/* Icons Section */
-.icons-section {text-align:center;margin:20px 0 30px}
-.icons-row {display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
-.icon-item { 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    cursor:pointer;
-    transition:transform .2s;
+/* Gallery Section */
+.gallery-section {
+    margin:25px 0;
+    text-align:center;
 }
-.icon-item:hover {transform:translateY(-3px)}
-.icon-item .icon-box {
-    width:60px;
-    height:60px;
+.gallery-grid {
     display:flex;
     justify-content:center;
-    align-items:center;
-    background:var(--bg);
-    border:2px solid var(--ink);
+    gap:15px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+.gallery-item {
+    position:relative;
+    overflow:hidden;
     border-radius:var(--radius);
-    margin-bottom:8px;
+    cursor:pointer;
+    border:2px solid var(--border);
     transition:all .2s;
+    width:200px;
+    height:150px;
 }
-.icon-item:hover .icon-box {
-    background:var(--ink);
-    box-shadow:0 4px 12px rgba(0,0,0,.2);
+.gallery-item:hover {
+    border-color:var(--primary);
+    transform:scale(1.05);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-.icon-item img { 
-    width:32px; 
-    height:32px; 
-    transition:filter .2s;
+.gallery-item img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
-.icon-item:hover img {filter:invert(1)}
-.icon-item span { 
-    font-size:13px; 
+.gallery-label {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,.8);
+    color:#fff;
+    padding:10px;
+    font-size:14px;
     font-weight:700;
-    color:var(--ink);
 }
 
 /* Filters */
 .filters-section {text-align:center;margin:25px 0}
-.tabs {display:inline-flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.tabs {display:inline-flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
 .tabs button { 
     padding:10px 24px; 
     border:1px solid var(--border); 
@@ -356,6 +363,8 @@ h1.page-title {
     .card-price {font-size:15px}
     .card-actions a {width:32px;height:32px}
     .card-actions img {width:15px;height:15px}
+    
+    .gallery-grid {grid-template-columns:repeat(2,1fr)}
 }
 
 /* Empty State */
@@ -502,7 +511,7 @@ h1.page-title {
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
 {% include header-ar.html %}
 
@@ -526,42 +535,22 @@ h1.page-title {
     <h1 class="page-title">وحدات متاحة للبيع في مشروع مورانو وادي دجلة - العين السخنة</h1>
     <div class="separator"></div>
 
-    <div class="icons-section">
-        <div class="icons-row">
-            <a class="icon-item" data-fancybox="gallery" href="#photos">
-                <div class="icon-box"><img src="https://c.top4top.io/p_3564sbc0d0.png" alt="صور"></div>
-                <span>الصور</span>
-            </a>
-            <a class="icon-item" data-fancybox href="https://i.top4top.io/m_3524euftk0.mp4">
-                <div class="icon-box"><img src="https://e.top4top.io/p_356445xj32.png" alt="فيديو"></div>
-                <span>الفيديو</span>
-            </a>
-            <a class="icon-item" data-fancybox data-src="#map-popup" href="javascript:;">
-                <div class="icon-box"><img src="https://d.top4top.io/p_3564912551.png" alt="موقع"></div>
-                <span>الموقع</span>
-            </a>
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openGallery()">
+                <img src="https://c.top4top.io/p_3564wfv960.jpg" alt="صور المشروع">
+                <div class="gallery-label">📷 صور المشروع</div>
+            </div>
+            <div class="gallery-item" onclick="openVideo()">
+                <img src="https://c.top4top.io/p_35249hfap2.jpg" alt="فيديو المشروع">
+                <div class="gallery-label">🎥 فيديو المشروع</div>
+            </div>
+            <div class="gallery-item" onclick="openMap()">
+                <img src="https://d.top4top.io/p_35241i6053.jpg" alt="موقع المشروع">
+                <div class="gallery-label">📍 موقع المشروع</div>
+            </div>
         </div>
-    </div>
-
-    <div style="display:none;" id="photos">
-        <a data-fancybox="gallery" href="https://c.top4top.io/p_3564wfv960.jpg"></a>
-        <a data-fancybox="gallery" href="https://d.top4top.io/p_3564b0j821.jpeg"></a>
-        <a data-fancybox="gallery" href="https://e.top4top.io/p_35645doza2.jpeg"></a>
-        <a data-fancybox="gallery" href="https://f.top4top.io/p_35645oxjc3.jpg"></a>
-        <a data-fancybox="gallery" href="https://g.top4top.io/p_3564whend4.jpg"></a>
-        <a data-fancybox="gallery" href="https://h.top4top.io/p_356488equ5.jpg"></a>
-        <a data-fancybox="gallery" href="https://i.top4top.io/p_3564fopx66.jpg"></a>
-        <a data-fancybox="gallery" href="https://j.top4top.io/p_35648q42a7.jpg"></a>
-        <a data-fancybox="gallery" href="https://k.top4top.io/p_3564p17n68.jpg"></a>
-        <a data-fancybox="gallery" href="https://l.top4top.io/p_35642y2h19.jpg"></a>
-    </div>
-
-    <div style="display:none;" id="map-popup">
-        <h3 style="text-align:center;padding:15px;background:#f1f1f1;margin:0;">موقع مشروع مورانو</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11277.675604100523!2d32.42852264906963!3d29.58988226922241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532b260909f197%3A0x6a21e428c4608c02!2sMurano%20Wadi%20Degla%20Al%20Ain%20Al%20Sokhna!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        <p style="text-align:center;font-size:14px;padding:10px;margin:0;color:var(--ink);">
-            H8VR+554 Murano Wadi Degla Al Ain Al Sokhna, عتاقة، محافظة السويس 8128020
-        </p>
     </div>
 
     <div class="filters-section">
@@ -641,3 +630,354 @@ h1.page-title {
 
             <input type="text" id="formBudget" placeholder="مثال: من 2,500,000 إلى 4,000,000 ج.م">
             <textarea id="formNotes" placeholder="اذكر موعد التسليم أو نظام السداد المفضل" rows="3"></textarea>
+
+            <div class="form-actions-buttons">
+                <button type="button" class="whatsapp-btn" onclick="sendForm('whatsapp')">
+                    إرسال عبر واتساب
+                </button>
+                <button type="button" class="email-btn" onclick="sendForm('email')">
+                    إرسال عبر إيميل
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% include footer-ar.html %}
+
+<a href="https://wa.me/201050072527?text=مرحباً، أود الاستفسار عن وحدات مورانو" class="whatsapp-float" target="_blank">
+    <img src="https://l.top4top.io/p_3564hewh21.png" alt="WhatsApp">
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+<script>
+// Icon URLs
+const iconUrls = {
+    call: 'https://g.top4top.io/p_356528fhl1.png',
+    whatsapp: 'https://f.top4top.io/p_3565pjntb0.png',
+    rooms: 'https://e.top4top.io/p_3565cgz7n0.png',
+    bathrooms: 'https://f.top4top.io/p_3565iewc51.png',
+    area: 'https://g.top4top.io/p_3565j5ijc2.png',
+};
+
+// Gallery Images
+const galleryImages = [
+    "https://c.top4top.io/p_3564wfv960.jpg",
+    "https://d.top4top.io/p_3564b0j821.jpeg",
+    "https://e.top4top.io/p_35645doza2.jpeg",
+    "https://f.top4top.io/p_35645oxjc3.jpg",
+    "https://g.top4top.io/p_3564whend4.jpg",
+    "https://h.top4top.io/p_356488equ5.jpg",
+    "https://i.top4top.io/p_3564fopx66.jpg",
+    "https://j.top4top.io/p_35648q42a7.jpg",
+    "https://k.top4top.io/p_3564p17n68.jpg",
+    "https://l.top4top.io/p_35642y2h19.jpg"
+];
+
+function openGallery() {
+    Fancybox.show(galleryImages.map(src => ({src, type: 'image'})), {
+        Toolbar: {display: ['counter', 'zoom', 'close']},
+        Thumbs: {autoStart: true}
+    });
+}
+
+function openVideo() {
+    Fancybox.show([{
+        src: 'https://i.top4top.io/m_3524euftk0.mp4',
+        type: 'video'
+    }]);
+}
+
+function openMap() {
+    Fancybox.show([{
+        src: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11277.675604100523!2d32.42852264906963!3d29.58988226922241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14532b260909f197%3A0x6a21e428c4608c02!2sMurano%20Wadi%20Degla%20Al%20Ain%20Al%20Sokhna!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+        type: 'iframe'
+    }]);
+}
+
+let allUnits = [];
+let allSuggestions = [];
+const defaultUnitLocation = 'العين السخنة، طريق الزعفرانة';
+const defaultUnitType = 'شاليه';
+const specificDeliveryYear = '2028';
+const contactPhoneNumber = '201050072527';
+
+function createUnitCard(unit) {
+    const unitType = unit.unitType || (unit.title.includes('شاليه') ? 'شاليه' : (unit.title.includes('فيلا') ? 'فيلا' : defaultUnitType));
+    const isResale = unit.type === 'resale';
+    const badgeText = isResale ? 'إعادة بيع' : 'المطور';
+    const badgeClass = isResale ? 'card-badge' : 'card-badge developer';
+    
+    const unitId = unit.id || 'N/A';
+    const title = unit.title || `${unitType} - كود ${unitId}`;
+    const rooms = unit.bed || 0;
+    const bathrooms = unit.bath || 0;
+    const size = unit.area || 'غير محدد';
+    const price = unit.price || 'عند الاتصال';
+    const link = unit.link || '#';
+    
+    const delivery = unit.delivery_year || specificDeliveryYear;
+
+    const mainImage = Array.isArray(unit.images) && unit.images.length > 0 
+                      ? unit.images[0] 
+                      : 'https://d.top4top.io/p_3564b0j821.jpeg';
+
+    const whatsappText = `مرحباً، أود الاستفسار عن الوحدة كود: ${unitId} في مورانو. العنوان: ${title}`;
+    const whatsappLink = `https://wa.me/${contactPhoneNumber}?text=${encodeURIComponent(whatsappText)}`;
+    const callLink = `tel:+${contactPhoneNumber}`;
+
+    return `
+        <div class="unit-card" data-filter="${unit.type}">
+            <div class="card-body">
+                <div>
+                    <p class="card-location">${defaultUnitLocation}</p>
+                    
+                    <a href="${link}" title="${title}">
+                        <h3>${title}</h3>
+                    </a>
+                    
+                    <p class="card-type">${unitType}</p>
+                    
+                    <div class="card-details-row">
+                        <span class="card-detail" title="${rooms} غرف">
+                            <img src="${iconUrls.rooms}" alt="Rooms"> 
+                            ${rooms} غرف
+                        </span>
+                        <span class="card-detail" title="${bathrooms} حمام">
+                            <img src="${iconUrls.bathrooms}" alt="Bathrooms"> 
+                            ${bathrooms} حمام
+                        </span>
+                        <span class="card-detail" title="${size}">
+                            <img src="${iconUrls.area}" alt="Area"> 
+                            ${size}
+                        </span>
+                    </div>
+
+                    <p class="card-delivery">تسليم: ${delivery}</p>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="card-price">${price}</div>
+                    <div class="card-actions">
+                        <a class="call-btn-card" href="${callLink}" title="اتصال هاتفي">
+                            <img src="${iconUrls.call}" alt="Call"> 
+                        </a>
+                        <a class="whatsapp-btn-card" href="${whatsappLink}" target="_blank" title="تواصل واتساب">
+                            <img src="${iconUrls.whatsapp}" alt="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-header">
+                <a href="${link}" title="${title}">
+                    <img src="${mainImage}" alt="${title}">
+                </a>
+                <span class="${badgeClass}">${badgeText}</span>
+            </div>
+        </div>
+    `;
+}
+
+function createSuggestionLink(unit) {
+    return `
+        <a href="${unit.url || '#'}" class="suggestion-link" target="_blank" title="${unit.name}">
+            <h3>${unit.name} <small>(${unit.project})</small></h3>
+            <span>عرض التفاصيل »</span>
+        </a>
+    `;
+}
+
+function renderData(data, containerId, cardCreator) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    if (!data || data.length === 0) {
+        if (containerId === "units-container") {
+             container.innerHTML = '<div class="empty-state">عفواً، لا توجد وحدات متاحة حالياً تطابق البحث.</div>';
+        } else if (containerId === "suggestions-container") {
+             container.innerHTML = '<div class="empty-state">لا توجد وحدات مقترحة محددة حاليًا.</div>';
+        }
+        return;
+    }
+
+    data.forEach(item => {
+        container.innerHTML += cardCreator(item);
+    });
+}
+
+function filterUnits(filter) {
+    document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+    const activeBtn = document.querySelector(`.tabs button[data-filter="${filter}"]`);
+    if(activeBtn) activeBtn.classList.add("active");
+    
+    document.getElementById('unitsFilter').value = '';
+
+    let filtered = allUnits;
+    if (filter !== "all") {
+        filtered = allUnits.filter(u => u.type === filter);
+    }
+    
+    renderData(filtered, "units-container", createUnitCard);
+}
+
+function searchUnits() {
+    const searchText = document.getElementById('unitsFilter').value.toLowerCase().trim();
+    const activeFilter = document.querySelector('.tabs button.active')?.dataset.filter || 'all';
+    
+    let baseUnits = allUnits;
+    if (activeFilter !== 'all') {
+        baseUnits = allUnits.filter(u => u.type === activeFilter);
+    }
+    
+    const searched = baseUnits.filter(unit => 
+        (unit.title && unit.title.toLowerCase().includes(searchText)) || 
+        (unit.id && unit.id.toString().includes(searchText)) ||
+        (unit.type && unit.type.toLowerCase().includes(searchText)) ||
+        (unit.area && unit.area.toLowerCase().includes(searchText)) ||
+        (unit.price && unit.price.toLowerCase().includes(searchText))
+    );
+    
+    renderData(searched, "units-container", createUnitCard);
+}
+
+function sendForm(method) {
+    const name = document.getElementById('formName').value.trim();
+    const phone = document.getElementById('formPhone').value.trim();
+    const email = document.getElementById('formEmail').value.trim();
+    const project = document.getElementById('formProject').value;
+    const unitType = document.getElementById('formUnitType').value;
+    const budget = document.getElementById('formBudget').value.trim();
+    const notes = document.getElementById('formNotes').value.trim();
+    
+    const targetEmail = 'islammesmail@gmail.com';
+    const targetPhone = contactPhoneNumber;
+
+    if (!name || !phone || phone.length < 11 || !/^\+?([0-9]{11,})$/.test(phone)) {
+        alert('الرجاء إدخال الاسم ورقم الهاتف بشكل صحيح (11 رقم على الأقل).');
+        return;
+    }
+
+    const fullMessage = `
+*طلب مساعدة عقارية جديد* (من صفحة مورانو)
+------------------------------------
+الاسم: ${name}
+الهاتف: ${phone}
+البريد الإلكتروني: ${email || 'غير مُحدد'}
+المشروع محل الاهتمام: ${project}
+نوع الوحدة المطلوب: ${unitType}
+الميزانية التقريبية: ${budget || 'غير مُحدد'}
+الملاحظات/التسليم: ${notes || 'لا توجد ملاحظات إضافية.'}
+------------------------------------
+    `;
+
+    if (method === 'whatsapp') {
+        const whatsappLink = `https://wa.me/${targetPhone}?text=${encodeURIComponent(fullMessage.trim())}`;
+        window.open(whatsappLink, '_blank');
+    } else if (method === 'email') {
+        const subject = encodeURIComponent(`مساعدة عقارية: ${name} - ${project}`);
+        const body = encodeURIComponent(fullMessage.trim());
+        window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+    }
+
+    document.getElementById('contactForm').reset();
+}
+
+async function loadData() {
+    try {
+        const unitsResponse = await fetch('{{ site.baseurl }}/murano-units.json', {cache:'no-cache'});
+        let unitsJson = await unitsResponse.json();
+        
+        if (Array.isArray(unitsJson)) {
+            allUnits = unitsJson.filter(unit => unit.status === 'available' && unit.type);
+            allSuggestions = [];
+        } else if (unitsJson.units && Array.isArray(unitsJson.units)) {
+            allUnits = unitsJson.units.filter(unit => unit.status === 'available' && unit.type);
+            allSuggestions = Array.isArray(unitsJson.suggestions) ? unitsJson.suggestions : [];
+        } else {
+             allUnits = [];
+             allSuggestions = [];
+        }
+        
+        renderData(allUnits, "units-container", createUnitCard);
+        renderData(allSuggestions, "suggestions-container", createSuggestionLink);
+    } catch (error) {
+        console.error("Error loading units data:", error);
+        document.getElementById("units-container").innerHTML = '<div class="empty-state">عفواً، فشل تحميل الوحدات. الرجاء المحاولة لاحقاً.</div>';
+        document.getElementById("suggestions-container").innerHTML = '<div class="empty-state">فشل تحميل الوحدات المقترحة.</div>';
+    }
+}
+
+// Site-wide search
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
+
+  let SITE_INDEX = [];
+  fetch('{{ site.baseurl }}/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
+
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
+
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
+
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
+
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+
+// Initial Setup
+document.addEventListener("DOMContentLoaded", () => {
+    loadData();
+
+    document.querySelectorAll(".tabs button").forEach(btn => {
+        btn.addEventListener("click", () => filterUnits(btn.dataset.filter));
+    });
+    
+    document.getElementById('unitsFilter').addEventListener('input', searchUnits);
+
+    Fancybox.bind("[data-fancybox]", {});
+});
+</script>
+
+</body>
+</html>
