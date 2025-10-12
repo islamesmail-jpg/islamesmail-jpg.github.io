@@ -1,16 +1,19 @@
 backend:
-  name: git-gateway
-  branch: main
-  
-publish_mode: editorial_workflow
-locale: 'ar'
+  # 🛑 التعديل: نستخدم 'github' بدلاً من 'git-gateway'
+  name: github 
+  # يجب أن يكون هذا اسم مستودعك بالكامل (اسم المستخدم/اسم المستودع)
+  repo: islamesmail-jpg/islamesmail-jpg.github.io 
+  branch: main # يجب أن يكون اسم الفرع الرئيسي لديك
 
-# 🛑 مسارات رفع الوسائط. نستخدم المسار الأكثر موثوقية.
+publish_mode: editorial_workflow
+locale: 'ar' # دعم اللغة العربية
+
+# 🛑 مسارات رفع الوسائط: تم تغييرها إلى المسار الأكثر موثوقية
 media_folder: "static/media/uploads"
 public_folder: "/static/media/uploads"
 
 collections:
-  # 🏙️ المناطق (regions)
+  # 🏙️ 1. المناطق (regions)
   - name: "regions"
     label: "1. المناطق العقارية"
     folder: "content/regions"
@@ -21,7 +24,7 @@ collections:
       - { label: "الوصف", name: "description", widget: "text", required: false }
       - { label: "صورة المنطقة", name: "image", widget: "image", required: false }
 
-  # 🏗️ المشاريع (projects)
+  # 🏗️ 2. المشاريع (projects)
   - name: "projects"
     label: "2. المشاريع العقارية"
     folder: "content/projects"
@@ -36,7 +39,7 @@ collections:
       - { label: "وصف المشروع", name: "description", widget: "markdown" }
       - { label: "حالة المشروع", name: "status", widget: "select", options: ["متاح للبيع", "اكتمل", "قريبًا"] }
 
-  # 🏠 الوحدات (units)
+  # 🏠 3. الوحدات (units)
   - name: "units"
     label: "3. الوحدات العقارية"
     folder: "content/units"
