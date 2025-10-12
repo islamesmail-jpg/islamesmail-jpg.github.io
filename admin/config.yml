@@ -1,11 +1,11 @@
 backend:
-  # 🛑 التعديل: نستخدم 'github' بدلاً من 'git-gateway'
+  # نستخدم 'github' لتجنب مشاكل Netlify
   name: github 
-  # يجب أن يكون هذا اسم مستودعك بالكامل 
+  # تأكد من أن هذا هو اسم مستودعك بالكامل 
   repo: islamesmail-jpg/islamesmail-jpg.github.io 
   branch: main 
 
-  # 🛑 الإضافات النهائية لتسجيل الدخول عبر GitHub OAuth 
+  # 🛑 إعدادات الاتصال بـ GitHub OAuth 
   base_url: https://api.github.com
   auth_base_url: https://github.com/login/oauth
   # يجب وضع المفتاح الذي حصلت عليه من إعدادات GitHub OAuth هنا
