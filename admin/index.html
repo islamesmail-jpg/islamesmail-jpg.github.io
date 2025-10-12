@@ -11,20 +11,22 @@
     <script src="https://unpkg.com/netlify-cms-app/dist/netlify-cms-app.js"></script>
     
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
-    <script>
-      // كود تشغيل Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
+  
   </head>
   <body>
+
+    <script>
+      // 🛑 الإضافة الحاسمة: تهيئة CMS باستخدام Client ID لتسجيل الدخول بـ GitHub
+      // قم باستبدال 'Ov23li3Sq6jJLRxkRYa4' بالمفتاح الذي نسخته من GitHub
+      CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            client_id: 'Ov23li3Sq6jJLRxkRYa4'
+          }
+        }
+      });
+    </script>
+    
   </body>
 </html>
