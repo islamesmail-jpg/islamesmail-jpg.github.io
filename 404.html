@@ -2,14 +2,8 @@
 <html>
 <head>
   <script>
-    // هذا الكود يعيد توجيه المتصفح إلى مسار الـ CMS الصحيح
-    var path = window.location.pathname;
-    if (path.indexOf('/admin/') !== -1) {
-      window.location.replace('/admin/');
-    } else {
-      // يمكن هنا إضافة توجيهات أخرى للموقع
-      window.location.replace('/');
-    }
+    // إجبار المتصفح على التحويل إلى المسار /admin/ مع علامة الـ Hash #
+    window.location.replace('/admin/#/');
   </script>
 </head>
 <body>
