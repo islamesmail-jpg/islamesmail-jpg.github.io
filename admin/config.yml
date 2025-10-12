@@ -9,7 +9,7 @@ backend:
   base_url: https://api.github.com
   auth_base_url: https://github.com/login/oauth
   # يجب وضع المفتاح الذي حصلت عليه من إعدادات GitHub OAuth هنا
-  client_id: 'YOUR_CLIENT_ID_HERE' 
+  client_id: 'Ov23li3Sq6jJLRxkRYa4' 
 
 publish_mode: editorial_workflow
 locale: 'ar' 
