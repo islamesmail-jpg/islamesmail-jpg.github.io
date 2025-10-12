@@ -1,20 +1,21 @@
 backend:
-  # 🛑 نستخدم 'github'
+  # نستخدم 'github' للمصادقة عبر GitHub OAuth
   name: github 
-  # اسم مستودعك بالكامل 
+  # يجب أن يكون هذا اسم مستودعك بالكامل (اسم المستخدم/اسم المستودع)
   repo: islamesmail-jpg/islamesmail-jpg.github.io 
-  branch: main 
+  branch: main # اسم الفرع الرئيسي لديك
 
-  # 🛑 إعدادات تسجيل الدخول عبر GitHub OAuth 
-  base_url: https://api.github.com
+  # 🛑 قاعدة العنوان الأساسي (ضرورية لـ GitHub Pages مع نطاق خاص)
+  base_url: https://islamproperty.com 
+  # عنوان OAuth لتحويل المستخدمين لتسجيل الدخول
   auth_base_url: https://github.com/login/oauth
-  # Client ID الذي تم نسخه من إعدادات التطبيق realestatecms
+  # ضع مفتاح Client ID الخاص بك الذي حصلت عليه من GitHub
   client_id: '0v23113Sq053lJRxRYa4' 
 
 publish_mode: editorial_workflow
 locale: 'ar' # دعم اللغة العربية
 
-# مسارات رفع الوسائط: 
+# 🛑 مسارات رفع الوسائط: 
 media_folder: "static/media/uploads"
 public_folder: "/static/media/uploads"
 
