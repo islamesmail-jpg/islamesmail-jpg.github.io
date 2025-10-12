@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "title": "مشروع الياسمين",
+    "description": "كمبوند سكني فاخر في قلب التجمع الخامس",
+    "area": "التجمع الخامس",
+    "price": "2,500,000",
+    "priceFrom": 2500000,
+    "priceTo": 3500000,
+    "status": "متاح",
+    "type": "سكني",
+    "image": "https://via.placeholder.com/800x600?text=Project+Image",
+    "gallery": [
+      "https://via.placeholder.com/800x600?text=Gallery+1",
+      "https://via.placeholder.com/800x600?text=Gallery+2"
+    ],
+    "features": [
+      "حمام سباحة",
+      "نادي رياضي",
+      "أمن وحراسة 24 ساعة",
+      "مساحات خضراء",
+      "موقف سيارات"
+    ],
+    "mapLink": "",
+    "video": "",
+    "date": "2024-01-15",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "كمبوند الريحان",
+    "description": "مشروع متميز في 6 أكتوبر بإطلالات رائعة",
+    "area": "6 أكتوبر",
+    "price": "1,800,000",
+    "priceFrom": 1800000,
+    "priceTo": 2800000,
+    "status": "متاح",
+    "type": "سكني",
+    "image": "https://via.placeholder.com/800x600?text=Project+Image+2",
+    "gallery": [
+      "https://via.placeholder.com/800x600?text=Gallery+1",
+      "https://via.placeholder.com/800x600?text=Gallery+2"
+    ],
+    "features": [
+      "حمام سباحة أوليمبي",
+      "ملاعب رياضية",
+      "كافيهات ومطاعم",
+      "منطقة ألعاب أطفال"
+    ],
+    "mapLink": "",
+    "video": "",
+    "date": "2024-01-10",
+    "featured": false
+  }
+]
