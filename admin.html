@@ -1,518 +1,0 @@
-import React, { useState, useEffect } from 'react';
-import { Plus, Edit2, Trash2, Save, X, FolderPlus, MapPin, Home } from 'lucide-react';
-
-export default function GitHubAdminDashboard() {
-  const [activeTab, setActiveTab] = useState('projects');
-  const [githubToken, setGithubToken] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [projects, setProjects] = useState([]);
-  const [areas, setAreas] = useState([]);
-  const [units, setUnits] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const [editingItem, setEditingItem] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const REPO_OWNER = 'islamesmail-jpg';
-  const REPO_NAME = 'islamesmail-jpg.github.io';
-
-  // Form states
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    area: '',
-    price: '',
-    image: '',
-    status: 'متاح',
-    features: ''
-  });
-
-  const handleLogin = () => {
-    if (githubToken.trim()) {
-      // Store in memory only (not localStorage)
-      setIsAuthenticated(true);
-    }
-  };
-
-  const handleLogout = () => {
-    setGithubToken('');
-    setIsAuthenticated(false);
-  };
-
-  // GitHub API Helper
-  const githubAPI = async (endpoint, method = 'GET', body = null) => {
-    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/${endpoint}`;
-    const options = {
-      method,
-      headers: {
-        'Authorization': `token ${githubToken}`,
-        'Content-Type': 'application/json',
-      }
-    };
-    
-    if (body) {
-      options.body = JSON.stringify(body);
-    }
-
-    const response = await fetch(url, options);
-    return response.json();
-  };
-
-  // Load data from GitHub
-  const loadData = async () => {
-    setLoading(true);
-    try {
-      // This is a simplified version - you would read from actual files in your repo
-      // For demo purposes, we'll use in-memory storage
-      setProjects([
-        { id: 1, title: 'مشروع الياسمين', area: 'التجمع الخامس', price: '2,500,000', status: 'متاح' },
-        { id: 2, title: 'كمبوند الريحان', area: '6 أكتوبر', price: '1,800,000', status: 'متاح' }
-      ]);
-      setAreas([
-        { id: 1, name: 'التجمع الخامس', count: 15 },
-        { id: 2, name: '6 أكتوبر', count: 12 },
-        { id: 3, name: 'الشيخ زايد', count: 8 }
-      ]);
-      setUnits([
-        { id: 1, number: '101', project: 'مشروع الياسمين', type: 'شقة', area: '120', rooms: 3 },
-        { id: 2, number: '202', project: 'كمبوند الريحان', type: 'فيلا', area: '250', rooms: 4 }
-      ]);
-    } catch (error) {
-      console.error('Error loading data:', error);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      loadData();
-    }
-  }, [isAuthenticated]);
-
-  // Add/Edit Project
-  const saveProject = async () => {
-    setLoading(true);
-    try {
-      if (editingItem) {
-        // Update existing
-        setProjects(projects.map(p => p.id === editingItem.id ? { ...editingItem, ...formData } : p));
-      } else {
-        // Add new
-        const newProject = {
-          id: Date.now(),
-          ...formData
-        };
-        setProjects([...projects, newProject]);
-      }
-      
-      // Here you would commit to GitHub
-      // const content = btoa(JSON.stringify(projects));
-      // await githubAPI('contents/data/projects.json', 'PUT', {
-      //   message: 'Update projects',
-      //   content: content,
-      //   sha: 'file_sha_here'
-      // });
-      
-      setShowForm(false);
-      setEditingItem(null);
-      setFormData({ title: '', description: '', area: '', price: '', image: '', status: 'متاح', features: '' });
-    } catch (error) {
-      console.error('Error saving project:', error);
-    }
-    setLoading(false);
-  };
-
-  const deleteProject = (id) => {
-    if (confirm('هل أنت متأكد من حذف هذا المشروع؟')) {
-      setProjects(projects.filter(p => p.id !== id));
-    }
-  };
-
-  const editProject = (project) => {
-    setEditingItem(project);
-    setFormData(project);
-    setShowForm(true);
-  };
-
-  // Render Login Screen
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
-          <div className="text-center mb-8">
-            <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Home className="text-white" size={32} />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">لوحة التحكم</h1>
-            <p className="text-gray-600">إدارة العقارات والمشاريع</p>
-          </div>
-          
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
-                GitHub Personal Access Token
-              </label>
-              <input
-                type="password"
-                value={githubToken}
-                onChange={(e) => setGithubToken(e.target.value)}
-                placeholder="ghp_xxxxxxxxxxxx"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                dir="ltr"
-              />
-            </div>
-            
-            <button
-              onClick={handleLogin}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              تسجيل الدخول
-            </button>
-
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-              <p className="text-sm text-blue-800 text-right">
-                <strong>كيفية الحصول على Token:</strong><br/>
-                1. اذهب إلى GitHub Settings<br/>
-                2. Developer settings → Personal access tokens<br/>
-                3. Generate new token (classic)<br/>
-                4. اختر الصلاحيات: repo
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Render Dashboard
-  return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center">
-              <Home className="text-white" size={24} />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-800">لوحة تحكم العقارات</h1>
-              <p className="text-sm text-gray-500">إدارة المشاريع والوحدات</p>
-            </div>
-          </div>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-          >
-            تسجيل الخروج
-          </button>
-        </div>
-      </header>
-
-      {/* Tabs */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-2">
-            <button
-              onClick={() => setActiveTab('projects')}
-              className={`px-6 py-3 font-semibold border-b-2 transition-colors ${
-                activeTab === 'projects'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <FolderPlus className="inline ml-2" size={20} />
-              المشاريع
-            </button>
-            <button
-              onClick={() => setActiveTab('areas')}
-              className={`px-6 py-3 font-semibold border-b-2 transition-colors ${
-                activeTab === 'areas'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <MapPin className="inline ml-2" size={20} />
-              المناطق
-            </button>
-            <button
-              onClick={() => setActiveTab('units')}
-              className={`px-6 py-3 font-semibold border-b-2 transition-colors ${
-                activeTab === 'units'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              <Home className="inline ml-2" size={20} />
-              الوحدات
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        {/* Projects Tab */}
-        {activeTab === 'projects' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة المشاريع</h2>
-              <button
-                onClick={() => {
-                  setShowForm(true);
-                  setEditingItem(null);
-                  setFormData({ title: '', description: '', area: '', price: '', image: '', status: 'متاح', features: '' });
-                }}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
-              >
-                <Plus size={20} />
-                إضافة مشروع جديد
-              </button>
-            </div>
-
-            {/* Projects List */}
-            <div className="grid gap-4">
-              {projects.map(project => (
-                <div key={project.id} className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                        <span>📍 {project.area}</span>
-                        <span>💰 {project.price} جنيه</span>
-                        <span className={`px-3 py-1 rounded-full ${
-                          project.status === 'متاح' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
-                        }`}>
-                          {project.status}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => editProject(project)}
-                        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                      >
-                        <Edit2 size={20} />
-                      </button>
-                      <button
-                        onClick={() => deleteProject(project.id)}
-                        className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                      >
-                        <Trash2 size={20} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Areas Tab */}
-        {activeTab === 'areas' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة المناطق</h2>
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <Plus size={20} />
-                إضافة منطقة جديدة
-              </button>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-4">
-              {areas.map(area => (
-                <div key={area.id} className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{area.name}</h3>
-                  <p className="text-gray-600">{area.count} مشروع</p>
-                  <div className="flex gap-2 mt-4">
-                    <button className="flex-1 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                      تعديل
-                    </button>
-                    <button className="flex-1 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                      حذف
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Units Tab */}
-        {activeTab === 'units' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة الوحدات</h2>
-              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
-                <Plus size={20} />
-                إضافة وحدة جديدة
-              </button>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b">
-                  <tr>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">رقم الوحدة</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">المشروع</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">النوع</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">المساحة</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">الغرف</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-700">الإجراءات</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {units.map(unit => (
-                    <tr key={unit.id} className="border-b hover:bg-gray-50">
-                      <td className="px-6 py-4 text-gray-800">{unit.number}</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.project}</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.type}</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.area} م²</td>
-                      <td className="px-6 py-4 text-gray-600">{unit.rooms}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex gap-2">
-                          <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg">
-                            <Edit2 size={18} />
-                          </button>
-                          <button className="p-2 text-red-600 hover:bg-red-50 rounded-lg">
-                            <Trash2 size={18} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-      </main>
-
-      {/* Add/Edit Form Modal */}
-      {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
-              <h3 className="text-xl font-bold text-gray-800">
-                {editingItem ? 'تعديل المشروع' : 'إضافة مشروع جديد'}
-              </h3>
-              <button
-                onClick={() => {
-                  setShowForm(false);
-                  setEditingItem(null);
-                }}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            <div className="p-6 space-y-4">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">اسم المشروع</label>
-                <input
-                  type="text"
-                  value={formData.title}
-                  onChange={(e) => setFormData({...formData, title: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="مثال: كمبوند الياسمين"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">الوصف</label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) => setFormData({...formData, description: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  rows="4"
-                  placeholder="وصف مختصر للمشروع..."
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">المنطقة</label>
-                  <select
-                    value={formData.area}
-                    onChange={(e) => setFormData({...formData, area: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">اختر المنطقة</option>
-                    <option value="التجمع الخامس">التجمع الخامس</option>
-                    <option value="6 أكتوبر">6 أكتوبر</option>
-                    <option value="الشيخ زايد">الشيخ زايد</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">السعر</label>
-                  <input
-                    type="text"
-                    value={formData.price}
-                    onChange={(e) => setFormData({...formData, price: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="2,500,000"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">رابط الصورة</label>
-                <input
-                  type="text"
-                  value={formData.image}
-                  onChange={(e) => setFormData({...formData, image: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="https://example.com/image.jpg"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">الحالة</label>
-                <select
-                  value={formData.status}
-                  onChange={(e) => setFormData({...formData, status: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="متاح">متاح</option>
-                  <option value="قريباً">قريباً</option>
-                  <option value="مكتمل">مكتمل</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">المميزات (افصل بفاصلة)</label>
-                <input
-                  type="text"
-                  value={formData.features}
-                  onChange={(e) => setFormData({...formData, features: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="حمام سباحة, نادي رياضي, أمن 24 ساعة"
-                />
-              </div>
-            </div>
-
-            <div className="sticky bottom-0 bg-gray-50 px-6 py-4 flex gap-3 border-t">
-              <button
-                onClick={saveProject}
-                disabled={loading}
-                className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                <Save size={20} />
-                {loading ? 'جاري الحفظ...' : 'حفظ'}
-              </button>
-              <button
-                onClick={() => {
-                  setShowForm(false);
-                  setEditingItem(null);
-                }}
-                className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-              >
-                إلغاء
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
