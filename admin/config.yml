@@ -1,19 +1,58 @@
 backend:
   name: git-gateway
   branch: main
+  
+publish_mode: editorial_workflow # يفضل استخدام سير عمل المراجعة
+locale: 'ar' # لتحديد اللغة العربية لواجهة الـ CMS
 
-publish_mode: editorial_workflow
+# إعدادات رفع الوسائط. هذا المسار يجب أن يكون موجوداً في جذر المشروع.
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-# إعدادات رفع الوسائط. سنفترض أن مسار رفع الصور هو static/media/uploads (يجب التأكد من وجوده)
-media_folder: "static/media/uploads"
-public_folder: "/static/media/uploads"
+# ----------------- المجموعات (Collections) -----------------
 
 collections:
-  - name: "test_config"
-    label: "إعداد اختبار"
-    files:
-      - file: "index.html" # نشير إلى ملف موجود للتأكد من الاتصال
-        label: "الصفحة الرئيسية (تجريبي)"
-        name: "homepage_test"
-        fields:
-          - {label: "عنوان رئيسي", name: "title", widget: "string"}
+  # 🏙️ المناطق (regions)
+  - name: "regions"
+    label: "1. المناطق العقارية"
+    folder: "content/regions"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "اسم المنطقة", name: "title", widget: "string" }
+      - { label: "الوصف", name: "description", widget: "text", required: false }
+      - { label: "صورة المنطقة (خلفية)", name: "image", widget: "image", required: false }
+
+  # 🏗️ المشاريع (projects)
+  - name: "projects"
+    label: "2. المشاريع العقارية"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "اسم المشروع", name: "title", widget: "string" }
+      - { label: "المطور العقاري", name: "developer", widget: "string", required: false }
+      - { label: "المنطقة التابع لها", name: "region", widget: "relation", collection: "regions", search_fields: ["title"], value_field: "title", display_fields: ["title"], hint: "اختر المنطقة التي يقع بها المشروع" }
+      - { label: "لوجو المطور", name: "developer_logo", widget: "image", required: false }
+      - { label: "صور المشروع (قائمة)", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
+      - { label: "ماستر بلان", name: "master_plan", widget: "image", required: false }
+      - { label: "وصف المشروع", name: "description", widget: "markdown" }
+      - { label: "حالة المشروع", name: "status", widget: "select", options: ["متاح للبيع", "اكتمل", "قريبًا"] }
+
+  # 🏠 الوحدات (units)
+  - name: "units"
+    label: "3. الوحدات العقارية"
+    folder: "content/units"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان الوحدة", name: "title", widget: "string" }
+      - { label: "المشروع التابع له", name: "project", widget: "relation", collection: "projects", search_fields: ["title"], value_field: "title", display_fields: ["title"], hint: "اختر المشروع الذي تنتمي إليه الوحدة" }
+      - { label: "المساحة (متر مربع)", name: "area", widget: "number", value_type: "float" }
+      - { label: "عدد الغرف", name: "bedrooms", widget: "number", default: 1 }
+      - { label: "عدد الحمامات", name: "bathrooms", widget: "number", default: 1 }
+      - { label: "السعر (جنيه مصري)", name: "price", widget: "number", value_type: "int" }
+      - { label: "حالة الوحدة", name: "unit_status", widget: "select", options: ["متاحة", "مباعة", "إعادة بيع"] }
+      - { label: "تاريخ التسليم", name: "delivery_date", widget: "string", required: false }
+      - { label: "وصف تفصيلي", name: "description", widget: "markdown", required: false }
+      - { label: "صور الوحدة (قائمة)", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
