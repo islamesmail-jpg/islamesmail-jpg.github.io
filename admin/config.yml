@@ -1,21 +1,20 @@
 backend:
   name: git-gateway
-  branch: main # تأكد من أن الفرع هو 'main'
+  branch: main # يجب أن يكون اسم الفرع الرئيسي لديك هو 'main'
 
-media_folder: "static/media/uploads"
-public_folder: "/static/media/uploads"
+publish_mode: editorial_workflow # يفضل استخدام سير عمل مراجعة النشر
 
+# هذه المسارات يجب أن تكون موجودة في المشروع (والتي قمت بإنشائها مسبقاً)
+media_folder: "content/images/uploads"
+public_folder: "/content/images/uploads"
+
+# مجموعة واحدة فقط للتجربة (المناطق)
 collections:
-  - name: "general"
-    label: "الإعدادات العامة"
-    files:
-      - file: "_data/settings.json" # نستخدم ملف بيانات افتراضي للتجربة
-        label: "إعدادات الموقع"
-        name: "site_settings"
-        fields:
-          - label: "عنوان الموقع"
-            name: "site_title"
-            widget: "string"
-          - label: "الوصف"
-            name: "site_description"
-            widget: "text"
+  - name: "regions"
+    label: "المناطق العقارية"
+    folder: "content/regions" # المسار الذي أنشأته
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "الاسم", name: "title", widget: "string"}
+      - {label: "الوصف", name: "description", widget: "text"}
