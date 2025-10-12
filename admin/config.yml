@@ -2,14 +2,12 @@ backend:
   name: git-gateway
   branch: main
   
-publish_mode: editorial_workflow # يفضل استخدام سير عمل المراجعة
-locale: 'ar' # لتحديد اللغة العربية لواجهة الـ CMS
+publish_mode: editorial_workflow
+locale: 'ar'
 
-# إعدادات رفع الوسائط. هذا المسار يجب أن يكون موجوداً في جذر المشروع.
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-# ----------------- المجموعات (Collections) -----------------
+# 🛑 مسارات رفع الوسائط. نستخدم المسار الأكثر موثوقية.
+media_folder: "static/media/uploads"
+public_folder: "/static/media/uploads"
 
 collections:
   # 🏙️ المناطق (regions)
@@ -21,7 +19,7 @@ collections:
     fields:
       - { label: "اسم المنطقة", name: "title", widget: "string" }
       - { label: "الوصف", name: "description", widget: "text", required: false }
-      - { label: "صورة المنطقة (خلفية)", name: "image", widget: "image", required: false }
+      - { label: "صورة المنطقة", name: "image", widget: "image", required: false }
 
   # 🏗️ المشاريع (projects)
   - name: "projects"
@@ -32,10 +30,9 @@ collections:
     fields:
       - { label: "اسم المشروع", name: "title", widget: "string" }
       - { label: "المطور العقاري", name: "developer", widget: "string", required: false }
-      - { label: "المنطقة التابع لها", name: "region", widget: "relation", collection: "regions", search_fields: ["title"], value_field: "title", display_fields: ["title"], hint: "اختر المنطقة التي يقع بها المشروع" }
+      - { label: "المنطقة التابع لها", name: "region", widget: "relation", collection: "regions", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
       - { label: "لوجو المطور", name: "developer_logo", widget: "image", required: false }
       - { label: "صور المشروع (قائمة)", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
-      - { label: "ماستر بلان", name: "master_plan", widget: "image", required: false }
       - { label: "وصف المشروع", name: "description", widget: "markdown" }
       - { label: "حالة المشروع", name: "status", widget: "select", options: ["متاح للبيع", "اكتمل", "قريبًا"] }
 
@@ -47,12 +44,8 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "عنوان الوحدة", name: "title", widget: "string" }
-      - { label: "المشروع التابع له", name: "project", widget: "relation", collection: "projects", search_fields: ["title"], value_field: "title", display_fields: ["title"], hint: "اختر المشروع الذي تنتمي إليه الوحدة" }
+      - { label: "المشروع التابع له", name: "project", widget: "relation", collection: "projects", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
       - { label: "المساحة (متر مربع)", name: "area", widget: "number", value_type: "float" }
-      - { label: "عدد الغرف", name: "bedrooms", widget: "number", default: 1 }
-      - { label: "عدد الحمامات", name: "bathrooms", widget: "number", default: 1 }
       - { label: "السعر (جنيه مصري)", name: "price", widget: "number", value_type: "int" }
       - { label: "حالة الوحدة", name: "unit_status", widget: "select", options: ["متاحة", "مباعة", "إعادة بيع"] }
-      - { label: "تاريخ التسليم", name: "delivery_date", widget: "string", required: false }
-      - { label: "وصف تفصيلي", name: "description", widget: "markdown", required: false }
       - { label: "صور الوحدة (قائمة)", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
