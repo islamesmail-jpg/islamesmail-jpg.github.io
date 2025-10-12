@@ -1,20 +1,19 @@
 backend:
   name: git-gateway
-  branch: main # يجب أن يكون اسم الفرع الرئيسي لديك هو 'main'
+  branch: main
 
-publish_mode: editorial_workflow # يفضل استخدام سير عمل مراجعة النشر
+publish_mode: editorial_workflow
 
-# هذه المسارات يجب أن تكون موجودة في المشروع (والتي قمت بإنشائها مسبقاً)
-media_folder: "content/images/uploads"
-public_folder: "/content/images/uploads"
+# إعدادات رفع الوسائط. سنفترض أن مسار رفع الصور هو static/media/uploads (يجب التأكد من وجوده)
+media_folder: "static/media/uploads"
+public_folder: "/static/media/uploads"
 
-# مجموعة واحدة فقط للتجربة (المناطق)
 collections:
-  - name: "regions"
-    label: "المناطق العقارية"
-    folder: "content/regions" # المسار الذي أنشأته
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "الاسم", name: "title", widget: "string"}
-      - {label: "الوصف", name: "description", widget: "text"}
+  - name: "test_config"
+    label: "إعداد اختبار"
+    files:
+      - file: "index.html" # نشير إلى ملف موجود للتأكد من الاتصال
+        label: "الصفحة الرئيسية (تجريبي)"
+        name: "homepage_test"
+        fields:
+          - {label: "عنوان رئيسي", name: "title", widget: "string"}
