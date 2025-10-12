@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "التجمع الخامس",
+    "description": "منطقة راقية في القاهرة الجديدة",
+    "image": "https://via.placeholder.com/400x300?text=Fifth+Settlement",
+    "count": 15,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "name": "6 أكتوبر",
+    "description": "مدينة متطورة غرب القاهرة",
+    "image": "https://via.placeholder.com/400x300?text=6th+October",
+    "count": 12,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "name": "الشيخ زايد",
+    "description": "منطقة سكنية راقية",
+    "image": "https://via.placeholder.com/400x300?text=Sheikh+Zayed",
+    "count": 8,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "name": "العاصمة الإدارية",
+    "description": "عاصمة مصر الجديدة",
+    "image": "https://via.placeholder.com/400x300?text=New+Capital",
+    "count": 10,
+    "order": 4
+  }
+]
