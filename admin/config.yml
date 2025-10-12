@@ -1,57 +1,21 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # تأكد من أن الفرع هو 'main'
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
-site_url: "https://islamproperty.com"
+media_folder: "static/media/uploads"
+public_folder: "/static/media/uploads"
 
 collections:
-  # 🏙️ المناطق (regions)
-  - name: "regions"
-    label: "المناطق"
-    folder: "content/regions"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "اسم المنطقة", name: "title", widget: "string" }
-      - { label: "الوصف", name: "description", widget: "text", required: false }
-
-  # 🏗️ المشاريع
-  - name: "projects"
-    label: "المشاريع"
-    folder: "content/projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "اسم المشروع", name: "title", widget: "string" }
-      - { label: "المطور", name: "developer", widget: "string" }
-      - { label: "لوجو المطور", name: "developer_logo", widget: "image", required: false }
-      - { label: "صور المشروع", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
-      - { label: "فيديو المشروع", name: "video", widget: "string", required: false }
-      - { label: "ماستر بلان", name: "master_plan", widget: "image", required: false }
-      - { label: "موقع المشروع", name: "location_map", widget: "string", required: false }
-      - { label: "المنطقة", name: "region", widget: "relation", collection: "regions", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
-      - { label: "وصف المشروع", name: "description", widget: "text" }
-      - { label: "الحالة", name: "status", widget: "select", options: ["متاح", "مكتمل", "قريبًا"] }
-
-  # 🏠 الوحدات
-  - name: "units"
-    label: "الوحدات"
-    folder: "content/units"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "كود الوحدة", name: "code", widget: "string" }
-      - { label: "العنوان", name: "title", widget: "string" }
-      - { label: "المشروع", name: "project", widget: "relation", collection: "projects", search_fields: ["title"], value_field: "title", display_fields: ["title"] }
-      - { label: "المصدر", name: "source", widget: "select", options: ["مطور", "إعادة بيع"] }
-      - { label: "الحالة", name: "status", widget: "select", options: ["متاحة", "مباعة"] }
-      - { label: "عدد الغرف", name: "bedrooms", widget: "number" }
-      - { label: "عدد الحمامات", name: "bathrooms", widget: "number" }
-      - { label: "المساحة", name: "area", widget: "number" }
-      - { label: "الدور", name: "floor", widget: "string", required: false }
-      - { label: "مساحة الجاردن", name: "garden_area", widget: "string", required: false }
-      - { label: "وصف الوحدة", name: "description", widget: "text" }
-      - { label: "صور الوحدة", name: "images", widget: "list", field: { label: "صورة", name: "image", widget: "image" } }
+  - name: "general"
+    label: "الإعدادات العامة"
+    files:
+      - file: "_data/settings.json" # نستخدم ملف بيانات افتراضي للتجربة
+        label: "إعدادات الموقع"
+        name: "site_settings"
+        fields:
+          - label: "عنوان الموقع"
+            name: "site_title"
+            widget: "string"
+          - label: "الوصف"
+            name: "site_description"
+            widget: "text"
