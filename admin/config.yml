@@ -1,14 +1,15 @@
 backend:
   # 🛑 نستخدم 'github'
   name: github 
-  # هذا هو اسم مستودعك بالكامل 
+  # اسم مستودعك بالكامل 
   repo: islamesmail-jpg/islamesmail-jpg.github.io 
   branch: main 
 
-  # 🛑 إعدادات تسجيل الدخول النهائية باستخدام Client ID الخاص بك
+  # 🛑 إعدادات تسجيل الدخول عبر GitHub OAuth 
   base_url: https://api.github.com
   auth_base_url: https://github.com/login/oauth
-  client_id: 'Ov23li3Sq6jJLRxkRYa4' 
+  # Client ID الذي تم نسخه من إعدادات التطبيق realestatecms
+  client_id: '0v23113Sq053lJRxRYa4' 
 
 publish_mode: editorial_workflow
 locale: 'ar' # دعم اللغة العربية
