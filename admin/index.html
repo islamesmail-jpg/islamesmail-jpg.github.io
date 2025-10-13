@@ -1,748 +1,0 @@
-import React, { useState } from 'react';
-import { Plus, Edit2, Trash2, Upload, Save, X, MapPin, Image, Video, FileText, DollarSign, Home } from 'lucide-react';
-
-const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('regions');
-  const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState('');
-  const [editingItem, setEditingItem] = useState(null);
-
-  // البيانات الأساسية
-  const [regions, setRegions] = useState([
-    {
-      id: 1,
-      name: 'العين السخنة',
-      slug: 'ain-sokhna',
-      description: 'منطقة ساحلية راقية على البحر الأحمر',
-      images: [],
-      video: '',
-      roads: ['طريق الزعفرانة', 'طريق السويس'],
-      projects: []
-    },
-    {
-      id: 2,
-      name: 'الساحل الشمالي',
-      slug: 'north-coast',
-      description: 'أفخم المنتجعات الساحلية على البحر المتوسط',
-      images: [],
-      video: '',
-      roads: ['رأس الحكمة', 'العلمين', 'سيدي حنيش', 'الضبعة', 'سيدي عبد الرحمن'],
-      projects: []
-    },
-    {
-      id: 3,
-      name: 'القاهرة الجديدة',
-      slug: 'new-cairo',
-      description: 'مدينة حديثة ومتطورة شرق القاهرة',
-      images: [],
-      video: '',
-      roads: ['التجمع الخامس', 'التجمع الأول', 'القطامية'],
-      projects: []
-    },
-    {
-      id: 4,
-      name: 'العاصمة الإدارية',
-      slug: 'new-capital',
-      description: 'عاصمة مصر الجديدة',
-      images: [],
-      video: '',
-      roads: ['محور محمد بن زايد', 'الطريق الدائري الأوسطي'],
-      projects: []
-    },
-    {
-      id: 5,
-      name: 'مدينة المستقبل',
-      slug: 'future-city',
-      description: 'مدينة سكنية متكاملة',
-      images: [],
-      video: '',
-      roads: ['طريق السويس', 'طريق الإسماعيلية'],
-      projects: []
-    },
-    {
-      id: 6,
-      name: 'هليوبوليس الجديدة',
-      slug: 'new-heliopolis',
-      description: 'امتداد عصري لمصر الجديدة',
-      images: [],
-      video: '',
-      roads: ['طريق مصر الإسماعيلية'],
-      projects: []
-    }
-  ]);
-
-  const [projects, setProjects] = useState([]);
-  const [roads, setRoads] = useState([]);
-  const [units, setUnits] = useState([]);
-
-  const [formData, setFormData] = useState({
-    name: '',
-    slug: '',
-    description: '',
-    regionId: '',
-    images: [],
-    video: '',
-    masterplan: '',
-    location: '',
-    price: '',
-    area: '',
-    rooms: '',
-    bathrooms: '',
-    paymentPlan: '',
-    features: ''
-  });
-
-  const openModal = (type, item = null) => {
-    setModalType(type);
-    setEditingItem(item);
-    if (item) {
-      setFormData({ ...item });
-    } else {
-      setFormData({
-        name: '',
-        slug: '',
-        description: '',
-        regionId: '',
-        images: [],
-        video: '',
-        masterplan: '',
-        location: '',
-        price: '',
-        area: '',
-        rooms: '',
-        bathrooms: '',
-        paymentPlan: '',
-        features: ''
-      });
-    }
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setEditingItem(null);
-    setFormData({});
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const generateSlug = (name) => {
-    return name
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w\-]+/g, '')
-      .replace(/\-\-+/g, '-');
-  };
-
-  const handleSave = () => {
-    const slug = formData.slug || generateSlug(formData.name);
-    const newItem = { ...formData, slug, id: editingItem?.id || Date.now() };
-
-    if (modalType === 'region') {
-      if (editingItem) {
-        setRegions(regions.map(r => r.id === editingItem.id ? newItem : r));
-      } else {
-        setRegions([...regions, newItem]);
-      }
-    } else if (modalType === 'project') {
-      if (editingItem) {
-        setProjects(projects.map(p => p.id === editingItem.id ? newItem : p));
-      } else {
-        setProjects([...projects, newItem]);
-      }
-    } else if (modalType === 'road') {
-      if (editingItem) {
-        setRoads(roads.map(r => r.id === editingItem.id ? newItem : r));
-      } else {
-        setRoads([...roads, newItem]);
-      }
-    } else if (modalType === 'unit') {
-      if (editingItem) {
-        setUnits(units.map(u => u.id === editingItem.id ? newItem : u));
-      } else {
-        setUnits([...units, newItem]);
-      }
-    }
-
-    closeModal();
-  };
-
-  const handleDelete = (type, id) => {
-    if (!confirm('هل أنت متأكد من الحذف؟')) return;
-    
-    if (type === 'region') {
-      setRegions(regions.filter(r => r.id !== id));
-    } else if (type === 'project') {
-      setProjects(projects.filter(p => p.id !== id));
-    } else if (type === 'road') {
-      setRoads(roads.filter(r => r.id !== id));
-    } else if (type === 'unit') {
-      setUnits(units.filter(u => u.id !== id));
-    }
-  };
-
-  const generatePageLink = (slug, type) => {
-    const baseUrl = 'https://islamproperty.com';
-    if (type === 'region') return `${baseUrl}/regions/${slug}`;
-    if (type === 'project') return `${baseUrl}/projects/${slug}`;
-    if (type === 'road') return `${baseUrl}/roads/${slug}`;
-    if (type === 'unit') return `${baseUrl}/units/${slug}`;
-    return '';
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 shadow-lg">
-        <h1 className="text-3xl font-bold">لوحة تحكم إسلام العقارية</h1>
-        <p className="text-blue-100 mt-2">نظام إدارة المحتوى المتكامل</p>
-      </div>
-
-      {/* Navigation Tabs */}
-      <div className="bg-white shadow-md">
-        <div className="flex gap-2 p-4 overflow-x-auto">
-          {[
-            { id: 'regions', label: 'المناطق', icon: MapPin },
-            { id: 'projects', label: 'المشاريع', icon: Home },
-            { id: 'roads', label: 'الطرق', icon: MapPin },
-            { id: 'units', label: 'الوحدات', icon: DollarSign }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all ${
-                activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              <tab.icon size={20} />
-              <span className="font-semibold">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="p-6">
-        {/* Regions Tab */}
-        {activeTab === 'regions' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة المناطق</h2>
-              <button
-                onClick={() => openModal('region')}
-                className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
-              >
-                <Plus size={20} />
-                <span>إضافة منطقة جديدة</span>
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {regions.map(region => (
-                <div key={region.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
-                  <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                    {region.images?.length > 0 ? (
-                      <img src={region.images[0]} alt={region.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <MapPin size={64} className="text-white opacity-50" />
-                    )}
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{region.name}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{region.description}</p>
-                    <div className="mb-4">
-                      <p className="text-sm text-gray-500 mb-2">الطرق الرئيسية:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {region.roads?.map((road, idx) => (
-                          <span key={idx} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
-                            {road}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded-lg mb-4">
-                      <p className="text-xs text-gray-500 mb-1">رابط الصفحة:</p>
-                      <p className="text-sm text-blue-600 break-all">{generatePageLink(region.slug, 'region')}</p>
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => openModal('region', region)}
-                        className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
-                      >
-                        <Edit2 size={16} />
-                        <span>تعديل</span>
-                      </button>
-                      <button
-                        onClick={() => handleDelete('region', region.id)}
-                        className="flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all"
-                      >
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Projects Tab */}
-        {activeTab === 'projects' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة المشاريع</h2>
-              <button
-                onClick={() => openModal('project')}
-                className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
-              >
-                <Plus size={20} />
-                <span>إضافة مشروع جديد</span>
-              </button>
-            </div>
-
-            {projects.length === 0 ? (
-              <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-                <Home size={64} className="mx-auto text-gray-300 mb-4" />
-                <p className="text-gray-500 text-lg">لا توجد مشاريع حالياً</p>
-                <p className="text-gray-400 mt-2">اضغط على "إضافة مشروع جديد" لبدء الإضافة</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {projects.map(project => {
-                  const region = regions.find(r => r.id === project.regionId);
-                  return (
-                    <div key={project.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
-                      <div className="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
-                        {project.images?.length > 0 ? (
-                          <img src={project.images[0]} alt={project.name} className="w-full h-full object-cover" />
-                        ) : (
-                          <Home size={64} className="text-white opacity-50" />
-                        )}
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">{project.name}</h3>
-                        <p className="text-sm text-blue-600 mb-2">المنطقة: {region?.name || 'غير محدد'}</p>
-                        <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-                        <div className="bg-gray-50 p-3 rounded-lg mb-4">
-                          <p className="text-xs text-gray-500 mb-1">رابط الصفحة:</p>
-                          <p className="text-sm text-blue-600 break-all">{generatePageLink(project.slug, 'project')}</p>
-                        </div>
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => openModal('project', project)}
-                            className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
-                          >
-                            <Edit2 size={16} />
-                            <span>تعديل</span>
-                          </button>
-                          <button
-                            onClick={() => handleDelete('project', project.id)}
-                            className="flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all"
-                          >
-                            <Trash2 size={16} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Roads Tab */}
-        {activeTab === 'roads' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة الطرق</h2>
-              <button
-                onClick={() => openModal('road')}
-                className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
-              >
-                <Plus size={20} />
-                <span>إضافة طريق جديد</span>
-              </button>
-            </div>
-
-            {roads.length === 0 ? (
-              <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-                <MapPin size={64} className="mx-auto text-gray-300 mb-4" />
-                <p className="text-gray-500 text-lg">لا توجد طرق حالياً</p>
-                <p className="text-gray-400 mt-2">اضغط على "إضافة طريق جديد" لبدء الإضافة</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {roads.map(road => (
-                  <div key={road.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{road.name}</h3>
-                      <p className="text-gray-600 mb-4">{road.description}</p>
-                      <div className="bg-gray-50 p-3 rounded-lg mb-4">
-                        <p className="text-xs text-gray-500 mb-1">رابط الصفحة:</p>
-                        <p className="text-sm text-blue-600 break-all">{generatePageLink(road.slug, 'road')}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => openModal('road', road)}
-                          className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
-                        >
-                          <Edit2 size={16} />
-                          <span>تعديل</span>
-                        </button>
-                        <button
-                          onClick={() => handleDelete('road', road.id)}
-                          className="flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Units Tab */}
-        {activeTab === 'units' && (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">إدارة الوحدات</h2>
-              <button
-                onClick={() => openModal('unit')}
-                className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
-              >
-                <Plus size={20} />
-                <span>إضافة وحدة جديدة</span>
-              </button>
-            </div>
-
-            {units.length === 0 ? (
-              <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-                <DollarSign size={64} className="mx-auto text-gray-300 mb-4" />
-                <p className="text-gray-500 text-lg">لا توجد وحدات حالياً</p>
-                <p className="text-gray-400 mt-2">اضغط على "إضافة وحدة جديدة" لبدء الإضافة</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {units.map(unit => (
-                  <div key={unit.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
-                    <div className="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
-                      {unit.images?.length > 0 ? (
-                        <img src={unit.images[0]} alt={unit.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <Home size={64} className="text-white opacity-50" />
-                      )}
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{unit.name}</h3>
-                      <div className="grid grid-cols-2 gap-3 mb-4">
-                        <div className="bg-blue-50 p-3 rounded-lg">
-                          <p className="text-xs text-gray-500">المساحة</p>
-                          <p className="text-lg font-bold text-blue-700">{unit.area} م²</p>
-                        </div>
-                        <div className="bg-green-50 p-3 rounded-lg">
-                          <p className="text-xs text-gray-500">السعر</p>
-                          <p className="text-lg font-bold text-green-700">{unit.price}</p>
-                        </div>
-                      </div>
-                      <div className="bg-gray-50 p-3 rounded-lg mb-4">
-                        <p className="text-xs text-gray-500 mb-1">كود الوحدة:</p>
-                        <p className="text-sm font-mono text-gray-800">{unit.slug}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => openModal('unit', unit)}
-                          className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-all"
-                        >
-                          <Edit2 size={16} />
-                          <span>تعديل</span>
-                        </button>
-                        <button
-                          onClick={() => handleDelete('unit', unit.id)}
-                          className="flex items-center justify-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all"
-                        >
-                          <Trash2 size={16} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={closeModal}>
-          <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-bold">
-                {editingItem ? 'تعديل' : 'إضافة'} {
-                  modalType === 'region' ? 'منطقة' :
-                  modalType === 'project' ? 'مشروع' :
-                  modalType === 'road' ? 'طريق' : 'وحدة'
-                }
-              </h3>
-              <button onClick={closeModal} className="text-white hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition-all">
-                <X size={24} />
-              </button>
-            </div>
-
-            <div className="p-6 space-y-6">
-              {/* Basic Info */}
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">الاسم *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name || ''}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder={`اسم ال${modalType === 'region' ? 'منطقة' : modalType === 'project' ? 'مشروع' : modalType === 'road' ? 'طريق' : 'وحدة'}`}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">الوصف *</label>
-                  <textarea
-                    name="description"
-                    value={formData.description || ''}
-                    onChange={handleInputChange}
-                    rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="وصف تفصيلي..."
-                  />
-                </div>
-
-                {modalType === 'project' && (
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">المنطقة *</label>
-                    <select
-                      name="regionId"
-                      value={formData.regionId || ''}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      <option value="">اختر المنطقة</option>
-                      {regions.map(region => (
-                        <option key={region.id} value={region.id}>{region.name}</option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-
-                {modalType === 'unit' && (
-                  <>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">المساحة (م²) *</label>
-                        <input
-                          type="text"
-                          name="area"
-                          value={formData.area || ''}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="مثال: 120"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">السعر *</label>
-                        <input
-                          type="text"
-                          name="price"
-                          value={formData.price || ''}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="مثال: 2,500,000 جنيه"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">عدد الغرف</label>
-                        <input
-                          type="text"
-                          name="rooms"
-                          value={formData.rooms || ''}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="مثال: 3"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">عدد الحمامات</label>
-                        <input
-                          type="text"
-                          name="bathrooms"
-                          value={formData.bathrooms || ''}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          placeholder="مثال: 2"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">نظام الدفع</label>
-                      <textarea
-                        name="paymentPlan"
-                        value={formData.paymentPlan || ''}
-                        onChange={handleInputChange}
-                        rows="3"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="مثال: مقدم 10% - تقسيط على 5 سنوات"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">المميزات</label>
-                      <textarea
-                        name="features"
-                        value={formData.features || ''}
-                        onChange={handleInputChange}
-                        rows="3"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="أذكر مميزات الوحدة (كل ميزة في سطر)"
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
-
-              {/* Media Section */}
-              <div className="border-t pt-6 space-y-4">
-                <h4 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                  <Image size={20} />
-                  الصور والفيديوهات
-                </h4>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">رابط الصور (كل رابط في سطر)</label>
-                  <textarea
-                    name="images"
-                    value={Array.isArray(formData.images) ? formData.images.join('\n') : formData.images || ''}
-                    onChange={(e) => {
-                      const images = e.target.value.split('\n').filter(img => img.trim());
-                      setFormData(prev => ({ ...prev, images }));
-                    }}
-                    rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">💡 ضع كل رابط صورة في سطر منفصل</p>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">رابط الفيديو (YouTube/Vimeo)</label>
-                  <input
-                    type="text"
-                    name="video"
-                    value={formData.video || ''}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://www.youtube.com/watch?v=..."
-                  />
-                </div>
-              </div>
-
-              {/* Additional Info for Projects */}
-              {modalType === 'project' && (
-                <div className="border-t pt-6 space-y-4">
-                  <h4 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <FileText size={20} />
-                    معلومات إضافية
-                  </h4>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">رابط الماستر بلان</label>
-                    <input
-                      type="text"
-                      name="masterplan"
-                      value={formData.masterplan || ''}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="https://example.com/masterplan.jpg"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">رابط الموقع (Google Maps)</label>
-                    <input
-                      type="text"
-                      name="location"
-                      value={formData.location || ''}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="https://maps.google.com/..."
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Generated Link Preview */}
-              <div className="border-t pt-6">
-                <h4 className="text-lg font-bold text-gray-800 mb-3">رابط الصفحة المولد تلقائياً</h4>
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
-                  <p className="text-sm text-gray-600 mb-2">سيتم إنشاء الصفحة على الرابط التالي:</p>
-                  <p className="text-blue-700 font-mono text-lg break-all">
-                    {generatePageLink(formData.slug || generateSlug(formData.name || 'new-item'), modalType)}
-                  </p>
-                </div>
-                <p className="text-xs text-gray-500 mt-2">
-                  💡 يتم توليد الرابط تلقائياً من الاسم. يمكنك تخصيصه لاحقاً من الإعدادات المتقدمة
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="border-t pt-6 flex gap-3">
-                <button
-                  onClick={handleSave}
-                  disabled={!formData.name || !formData.description}
-                  className="flex-1 flex items-center justify-center gap-2 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-all disabled:bg-gray-300 disabled:cursor-not-allowed shadow-lg"
-                >
-                  <Save size={20} />
-                  <span className="font-semibold">حفظ البيانات</span>
-                </button>
-                <button
-                  onClick={closeModal}
-                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all"
-                >
-                  إلغاء
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Info Box */}
-      <div className="fixed bottom-6 left-6 bg-white rounded-xl shadow-2xl p-6 max-w-sm border-l-4 border-blue-600">
-        <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-          <FileText size={20} className="text-blue-600" />
-          معلومات مهمة
-        </h4>
-        <ul className="text-sm text-gray-600 space-y-2">
-          <li>✅ جميع الصفحات تُنشأ تلقائياً مع روابط فريدة</li>
-          <li>✅ يمكنك تعديل أي بيانات في أي وقت</li>
-          <li>✅ الصور والفيديوهات اختيارية لكن مُنصح بها</li>
-          <li>✅ المشاريع مرتبطة بالمناطق تلقائياً</li>
-          <li>✅ كل وحدة لها كود فريد للمشاركة</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-export default AdminDashboard;
