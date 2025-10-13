@@ -8,11 +8,20 @@
     <style>
         * { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { direction: rtl; }
-        .modal { display: none; }
-        .modal.active { display: flex; }
+        .modal { display: none; position: fixed; inset: 0; z-index: 50; }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .loader { border: 3px solid #f3f3f3; border-top: 3px solid #3b82f6; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .alert { padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+        .alert-success { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
+        .alert-error { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+        .alert-info { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }
     </style>
 </head>
 <body class="bg-gray-50">
+
+    <!-- Alert Container -->
+    <div id="alertContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999; max-width: 400px;"></div>
 
     <!-- Login Screen -->
     <div id="loginScreen" class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -49,12 +58,12 @@
                 </button>
 
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-                    <p class="text-sm text-blue-800 text-right">
+                    <p class="text-sm text-blue-800 text-right leading-relaxed">
                         <strong>كيفية الحصول على Token:</strong><br/>
                         1. اذهب إلى GitHub Settings<br/>
                         2. Developer settings → Personal access tokens<br/>
                         3. Generate new token (classic)<br/>
-                        4. اختر الصلاحيات: repo
+                        4. اختر الصلاحيات: <strong>repo</strong>
                     </p>
                 </div>
             </div>
@@ -64,7 +73,7 @@
     <!-- Dashboard -->
     <div id="dashboard" style="display: none;">
         <!-- Header -->
-        <header class="bg-white shadow-sm border-b">
+        <header class="bg-white shadow-sm border-b sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center">
@@ -79,25 +88,33 @@
                 </div>
                 <button
                     onclick="handleLogout()"
-                    class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+                    class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm"
                 >
                     تسجيل الخروج
                 </button>
             </div>
         </header>
 
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9998; align-items: center; justify-content: center;">
+            <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                <div class="loader mx-auto mb-4"></div>
+                <p class="text-gray-700 font-semibold">جاري التحميل...</p>
+            </div>
+        </div>
+
         <!-- Tabs -->
-        <div class="bg-white border-b">
+        <div class="bg-white border-b sticky top-16 z-30">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="flex gap-2">
-                    <button onclick="switchTab('projects')" id="tabProjects" class="px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600">
-                        المشاريع
+                <div class="flex gap-2 overflow-x-auto">
+                    <button onclick="switchTab('projects')" id="tabProjects" class="px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 whitespace-nowrap">
+                        📁 المشاريع
                     </button>
-                    <button onclick="switchTab('areas')" id="tabAreas" class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700">
-                        المناطق
+                    <button onclick="switchTab('areas')" id="tabAreas" class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                        📍 المناطق
                     </button>
-                    <button onclick="switchTab('units')" id="tabUnits" class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700">
-                        الوحدات
+                    <button onclick="switchTab('units')" id="tabUnits" class="px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                        🏠 الوحدات
                     </button>
                 </div>
             </div>
@@ -107,7 +124,7 @@
         <main class="max-w-7xl mx-auto px-4 py-8">
             <!-- Projects Tab -->
             <div id="projectsTab">
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
                     <h2 class="text-2xl font-bold text-gray-800">إدارة المشاريع</h2>
                     <button
                         onclick="openAddProject()"
@@ -116,18 +133,18 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
-                        إضافة مشروع جديد
+                        إضافة مشروع
                     </button>
                 </div>
 
                 <div id="projectsList" class="grid gap-4">
-                    <!-- Projects will be loaded here -->
+                    <!-- Projects loaded here -->
                 </div>
             </div>
 
             <!-- Areas Tab -->
             <div id="areasTab" style="display: none;">
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
                     <h2 class="text-2xl font-bold text-gray-800">إدارة المناطق</h2>
                     <button
                         onclick="openAddArea()"
@@ -136,18 +153,18 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
-                        إضافة منطقة جديدة
+                        إضافة منطقة
                     </button>
                 </div>
 
-                <div id="areasList" class="grid md:grid-cols-3 gap-4">
-                    <!-- Areas will be loaded here -->
+                <div id="areasList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Areas loaded here -->
                 </div>
             </div>
 
             <!-- Units Tab -->
             <div id="unitsTab" style="display: none;">
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
                     <h2 class="text-2xl font-bold text-gray-800">إدارة الوحدات</h2>
                     <button
                         onclick="openAddUnit()"
@@ -156,24 +173,25 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>
-                        إضافة وحدة جديدة
+                        إضافة وحدة
                     </button>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-sm border overflow-x-auto">
-                    <table class="w-full" id="unitsTable">
+                    <table class="w-full">
                         <thead class="bg-gray-50 border-b">
                             <tr>
                                 <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">رقم الوحدة</th>
                                 <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">المشروع</th>
                                 <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">النوع</th>
                                 <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">المساحة</th>
-                                <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">الغرف</th>
+                                <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">السعر</th>
+                                <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">الحالة</th>
                                 <th class="px-6 py-3 text-right text-sm font-semibold text-gray-700">الإجراءات</th>
                             </tr>
                         </thead>
                         <tbody id="unitsTableBody">
-                            <!-- Units will be loaded here -->
+                            <!-- Units loaded here -->
                         </tbody>
                     </table>
                 </div>
@@ -181,12 +199,13 @@
         </main>
     </div>
 
-    <!-- Add/Edit Project Modal -->
-    <div id="projectModal" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="fixed inset-0 bg-black bg-opacity-50" onclick="closeProjectModal()"></div>
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto mx-4 relative z-10">
             <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
                 <h3 class="text-xl font-bold text-gray-800" id="projectModalTitle">إضافة مشروع جديد</h3>
-                <button onclick="closeProjectModal()" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <button onclick="closeProjectModal()" class="p-2 hover:bg-gray-100 rounded-lg">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -194,47 +213,211 @@
             </div>
 
             <form id="projectForm" class="p-6 space-y-4" onsubmit="saveProject(event)">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">اسم المشروع</label>
-                    <input type="text" id="projectTitle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="مثال: كمبوند الياسمين" />
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">الوصف</label>
-                    <textarea id="projectDescription" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" rows="4" placeholder="وصف مختصر للمشروع..."></textarea>
-                </div>
-
                 <div class="grid md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">اسم المشروع *</label>
+                        <input type="text" id="projectTitle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="كمبوند الياسمين" />
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">الوصف *</label>
+                        <textarea id="projectDescription" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="وصف مختصر للمشروع..."></textarea>
+                    </div>
+
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">المنطقة</label>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">المنطقة *</label>
                         <input type="text" id="projectArea" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="التجمع الخامس" />
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">السعر</label>
-                        <input type="text" id="projectPrice" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="2,500,000" />
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">النوع</label>
+                        <select id="projectType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="سكني">سكني</option>
+                            <option value="تجاري">تجاري</option>
+                            <option value="إداري">إداري</option>
+                            <option value="ساحلي">ساحلي</option>
+                        </select>
                     </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">السعر من (جنيه)</label>
+                        <input type="number" id="projectPriceFrom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="2500000" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">السعر إلى (جنيه)</label>
+                        <input type="number" id="projectPriceTo" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="3500000" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">الحالة</label>
+                        <select id="projectStatus" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="متاح">متاح</option>
+                            <option value="قريباً">قريباً</option>
+                            <option value="مكتمل">مكتمل</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">مشروع مميز؟</label>
+                        <input type="checkbox" id="projectFeatured" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
+                        <span class="mr-2 text-sm text-gray-600">عرض في الصفحة الرئيسية</span>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">رابط الصورة الرئيسية</label>
+                        <input type="url" id="projectImage" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="https://example.com/image.jpg" />
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">المميزات (كل ميزة في سطر)</label>
+                        <textarea id="projectFeatures" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="حمام سباحة&#10;نادي رياضي&#10;أمن 24 ساعة"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4 border-t">
+                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
+                        💾 حفظ
+                    </button>
+                    <button type="button" onclick="closeProjectModal()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300">
+                        إلغاء
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Area Modal -->
+    <div id="areaModal" class="modal">
+        <div class="fixed inset-0 bg-black bg-opacity-50" onclick="closeAreaModal()"></div>
+        <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto mx-4 relative z-10">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800" id="areaModalTitle">إضافة منطقة جديدة</h3>
+                <button onclick="closeAreaModal()" class="p-2 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="areaForm" class="p-6 space-y-4" onsubmit="saveArea(event)">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">اسم المنطقة *</label>
+                    <input type="text" id="areaName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="التجمع الخامس" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">الوصف</label>
+                    <textarea id="areaDescription" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="وصف المنطقة..."></textarea>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">رابط الصورة</label>
-                    <input type="url" id="projectImage" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="https://example.com/image.jpg" />
+                    <input type="url" id="areaImage" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="https://example.com/image.jpg" />
                 </div>
 
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">الحالة</label>
-                    <select id="projectStatus" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <option value="متاح">متاح</option>
-                        <option value="قريباً">قريباً</option>
-                        <option value="مكتمل">مكتمل</option>
-                    </select>
-                </div>
-
-                <div class="sticky bottom-0 bg-gray-50 px-6 py-4 flex gap-3 border-t -mx-6 -mb-6">
-                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                        حفظ
+                <div class="flex gap-3 pt-4 border-t">
+                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
+                        💾 حفظ
                     </button>
-                    <button type="button" onclick="closeProjectModal()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+                    <button type="button" onclick="closeAreaModal()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300">
+                        إلغاء
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Unit Modal -->
+    <div id="unitModal" class="modal">
+        <div class="fixed inset-0 bg-black bg-opacity-50" onclick="closeUnitModal()"></div>
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto mx-4 relative z-10">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800" id="unitModalTitle">إضافة وحدة جديدة</h3>
+                <button onclick="closeUnitModal()" class="p-2 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="unitForm" class="p-6 space-y-4" onsubmit="saveUnit(event)">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">رقم الوحدة *</label>
+                        <input type="text" id="unitNumber" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="101" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">المشروع *</label>
+                        <select id="unitProject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">اختر المشروع</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">النوع *</label>
+                        <select id="unitType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="شقة">شقة</option>
+                            <option value="فيلا">فيلا</option>
+                            <option value="دوبلكس">دوبلكس</option>
+                            <option value="بنتهاوس">بنتهاوس</option>
+                            <option value="استوديو">استوديو</option>
+                            <option value="محل">محل</option>
+                            <option value="مكتب">مكتب</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">المساحة (م²) *</label>
+                        <input type="number" id="unitArea" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="120" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">عدد الغرف</label>
+                        <input type="number" id="unitRooms" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="3" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">عدد الحمامات</label>
+                        <input type="number" id="unitBathrooms" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="2" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">السعر (جنيه) *</label>
+                        <input type="number" id="unitPrice" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="2500000" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">الحالة</label>
+                        <select id="unitStatus" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="متاح">متاح</option>
+                            <option value="محجوز">محجوز</option>
+                            <option value="مباع">مباع</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">الدور</label>
+                        <input type="text" id="unitFloor" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="الأول" />
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">الوصف</label>
+                        <textarea id="unitDescription" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="وصف الوحدة..."></textarea>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">المميزات (كل ميزة في سطر)</label>
+                        <textarea id="unitFeatures" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="تشطيب سوبر لوكس&#10;مطبخ مجهز&#10;بلكونة واسعة"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4 border-t">
+                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
+                        💾 حفظ
+                    </button>
+                    <button type="button" onclick="closeUnitModal()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300">
                         إلغاء
                     </button>
                 </div>
@@ -243,107 +426,240 @@
     </div>
 
     <script>
+        // Configuration
+        const CONFIG = {
+            REPO_OWNER: 'islamesmail-jpg',
+            REPO_NAME: 'islamesmail-jpg.github.io',
+            BRANCH: 'main'
+        };
+
+        // State
         let githubToken = '';
         let projects = [];
         let areas = [];
         let units = [];
         let currentEditId = null;
-        const REPO_OWNER = 'islamesmail-jpg';
-        const REPO_NAME = 'islamesmail-jpg.github.io';
+        let currentEditType = null;
+        let fileSHAs = {};
 
-        // Login
-        function handleLogin() {
+        // ==================== UTILITY FUNCTIONS ====================
+
+        function showAlert(message, type = 'success') {
+            const alertEl = document.createElement('div');
+            alertEl.className = `alert alert-${type}`;
+            alertEl.textContent = message;
+            
+            const container = document.getElementById('alertContainer');
+            container.appendChild(alertEl);
+            
+            setTimeout(() => {
+                alertEl.style.opacity = '0';
+                alertEl.style.transition = 'opacity 0.3s';
+                setTimeout(() => alertEl.remove(), 300);
+            }, 3000);
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat('ar-EG').format(price);
+        }
+
+        // ==================== GITHUB API FUNCTIONS ====================
+
+        async function githubAPI(endpoint, method = 'GET', body = null) {
+            const url = `https://api.github.com/repos/${CONFIG.REPO_OWNER}/${CONFIG.REPO_NAME}/${endpoint}`;
+            const options = {
+                method,
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json',
+                }
+            };
+            
+            if (body) {
+                options.body = JSON.stringify(body);
+            }
+
+            const response = await fetch(url, options);
+            
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'GitHub API Error');
+            }
+            
+            return response.json();
+        }
+
+        async function getFileContent(path) {
+            try {
+                const data = await githubAPI(`contents/${path}?ref=${CONFIG.BRANCH}`);
+                fileSHAs[path] = data.sha;
+                return JSON.parse(atob(data.content));
+            } catch (error) {
+                console.error(`Error loading ${path}:`, error);
+                return [];
+            }
+        }
+
+        async function updateFile(path, content, message) {
+            const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+            
+            const body = {
+                message: message,
+                content: encodedContent,
+                branch: CONFIG.BRANCH
+            };
+            
+            if (fileSHAs[path]) {
+                body.sha = fileSHAs[path];
+            }
+            
+            const result = await githubAPI(`contents/${path}`, 'PUT', body);
+            fileSHAs[path] = result.content.sha;
+            return result;
+        }
+
+        // ==================== AUTH FUNCTIONS ====================
+
+        async function handleLogin() {
             const token = document.getElementById('tokenInput').value.trim();
-            if (token) {
+            if (!token) {
+                showAlert('الرجاء إدخال GitHub Token', 'error');
+                return;
+            }
+
+            showLoading();
+            
+            try {
+                // Test token by getting user info
+                const response = await fetch('https://api.github.com/user', {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Token غير صحيح');
+                }
+                
                 githubToken = token;
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
-                loadData();
-            } else {
-                alert('الرجاء إدخال GitHub Token');
+                
+                await loadAllData();
+                showAlert('تم تسجيل الدخول بنجاح! 🎉');
+            } catch (error) {
+                showAlert('خطأ في تسجيل الدخول: ' + error.message, 'error');
+            } finally {
+                hideLoading();
             }
         }
 
         function handleLogout() {
-            githubToken = '';
-            document.getElementById('loginScreen').style.display = 'flex';
-            document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('tokenInput').value = '';
+            if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                githubToken = '';
+                projects = [];
+                areas = [];
+                units = [];
+                fileSHAs = {};
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('dashboard').style.display = 'none';
+                document.getElementById('tokenInput').value = '';
+            }
         }
 
-        // Tab Switching
+        // ==================== DATA LOADING ====================
+
+        async function loadAllData() {
+            showLoading();
+            try {
+                projects = await getFileContent('data/projects.json');
+                areas = await getFileContent('data/areas.json');
+                units = await getFileContent('data/units.json');
+                
+                renderProjects();
+                renderAreas();
+                renderUnits();
+                
+                showAlert('تم تحميل البيانات بنجاح!', 'success');
+            } catch (error) {
+                showAlert('خطأ في تحميل البيانات: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // ==================== TAB SWITCHING ====================
+
         function switchTab(tab) {
-            // Hide all tabs
             document.getElementById('projectsTab').style.display = 'none';
             document.getElementById('areasTab').style.display = 'none';
             document.getElementById('unitsTab').style.display = 'none';
 
-            // Remove active class from all buttons
-            document.getElementById('tabProjects').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700';
-            document.getElementById('tabAreas').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700';
-            document.getElementById('tabUnits').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700';
+            document.getElementById('tabProjects').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap';
+            document.getElementById('tabAreas').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap';
+            document.getElementById('tabUnits').className = 'px-6 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap';
 
-            // Show selected tab
             if (tab === 'projects') {
                 document.getElementById('projectsTab').style.display = 'block';
-                document.getElementById('tabProjects').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600';
+                document.getElementById('tabProjects').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 whitespace-nowrap';
             } else if (tab === 'areas') {
                 document.getElementById('areasTab').style.display = 'block';
-                document.getElementById('tabAreas').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600';
+                document.getElementById('tabAreas').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 whitespace-nowrap';
             } else if (tab === 'units') {
                 document.getElementById('unitsTab').style.display = 'block';
-                document.getElementById('tabUnits').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600';
+                document.getElementById('tabUnits').className = 'px-6 py-3 font-semibold border-b-2 border-blue-600 text-blue-600 whitespace-nowrap';
             }
         }
 
-        // Load Data
-        function loadData() {
-            // Sample data for demonstration
-            projects = [
-                { id: 1, title: 'مشروع الياسمين', description: 'كمبوند سكني فاخر', area: 'التجمع الخامس', price: '2,500,000', status: 'متاح', image: '' },
-                { id: 2, title: 'كمبوند الريحان', description: 'مشروع متميز', area: '6 أكتوبر', price: '1,800,000', status: 'متاح', image: '' }
-            ];
+        // ==================== PROJECTS ====================
 
-            areas = [
-                { id: 1, name: 'التجمع الخامس', count: 15 },
-                { id: 2, name: '6 أكتوبر', count: 12 },
-                { id: 3, name: 'الشيخ زايد', count: 8 }
-            ];
-
-            units = [
-                { id: 1, number: '101', project: 'مشروع الياسمين', type: 'شقة', area: '120', rooms: 3 },
-                { id: 2, number: '202', project: 'كمبوند الريحان', type: 'فيلا', area: '250', rooms: 4 }
-            ];
-
-            renderProjects();
-            renderAreas();
-            renderUnits();
-        }
-
-        // Render Projects
         function renderProjects() {
             const container = document.getElementById('projectsList');
+            
+            if (projects.length === 0) {
+                container.innerHTML = '<div class="text-center py-12 text-gray-500">لا توجد مشاريع حتى الآن. ابدأ بإضافة مشروع جديد!</div>';
+                return;
+            }
+            
             container.innerHTML = projects.map(project => `
                 <div class="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                    <div class="flex justify-between items-start">
+                    <div class="flex justify-between items-start gap-4">
+                        ${project.image ? `<img src="${project.image}" alt="${project.title}" class="w-24 h-24 object-cover rounded-lg" />` : ''}
                         <div class="flex-1">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">${project.title}</h3>
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">${project.title}</h3>
+                                ${project.featured ? '<span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">⭐ مميز</span>' : ''}
+                            </div>
                             <p class="text-gray-600 mb-3">${project.description}</p>
-                            <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                            <div class="flex flex-wrap gap-3 text-sm text-gray-600">
                                 <span>📍 ${project.area}</span>
-                                <span>💰 ${project.price} جنيه</span>
-                                <span class="px-3 py-1 rounded-full ${project.status === 'متاح' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}">
+                                <span>🏷️ ${project.type || 'سكني'}</span>
+                                <span>💰 ${formatPrice(project.priceFrom || 0)} - ${formatPrice(project.priceTo || 0)} جنيه</span>
+                                <span class="px-3 py-1 rounded-full ${project.status === 'متاح' ? 'bg-green-100 text-green-700' : project.status === 'قريباً' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700'}">
                                     ${project.status}
                                 </span>
                             </div>
+                            ${project.features && project.features.length > 0 ? `
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    ${project.features.slice(0, 3).map(f => `<span class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded">✓ ${f}</span>`).join('')}
+                                    ${project.features.length > 3 ? `<span class="text-xs text-gray-500">+${project.features.length - 3} المزيد</span>` : ''}
+                                </div>
+                            ` : ''}
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="editProject(${project.id})" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                            <button onclick="editProject(${project.id})" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="تعديل">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                                 </svg>
                             </button>
-                            <button onclick="deleteProject(${project.id})" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+                            <button onclick="deleteProject(${project.id})" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="حذف">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                 </svg>
@@ -354,14 +670,386 @@
             `).join('');
         }
 
-        // Render Areas
+        function openAddProject() {
+            currentEditId = null;
+            currentEditType = 'project';
+            document.getElementById('projectModalTitle').textContent = 'إضافة مشروع جديد';
+            document.getElementById('projectForm').reset();
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function editProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+            
+            currentEditId = id;
+            currentEditType = 'project';
+            document.getElementById('projectModalTitle').textContent = 'تعديل المشروع';
+            
+            document.getElementById('projectTitle').value = project.title || '';
+            document.getElementById('projectDescription').value = project.description || '';
+            document.getElementById('projectArea').value = project.area || '';
+            document.getElementById('projectType').value = project.type || 'سكني';
+            document.getElementById('projectPriceFrom').value = project.priceFrom || '';
+            document.getElementById('projectPriceTo').value = project.priceTo || '';
+            document.getElementById('projectStatus').value = project.status || 'متاح';
+            document.getElementById('projectFeatured').checked = project.featured || false;
+            document.getElementById('projectImage').value = project.image || '';
+            document.getElementById('projectFeatures').value = (project.features || []).join('\n');
+            
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            currentEditId = null;
+            currentEditType = null;
+        }
+
+        async function saveProject(e) {
+            e.preventDefault();
+            
+            const projectData = {
+                title: document.getElementById('projectTitle').value,
+                description: document.getElementById('projectDescription').value,
+                area: document.getElementById('projectArea').value,
+                type: document.getElementById('projectType').value,
+                priceFrom: parseInt(document.getElementById('projectPriceFrom').value) || 0,
+                priceTo: parseInt(document.getElementById('projectPriceTo').value) || 0,
+                price: document.getElementById('projectPriceFrom').value ? `${formatPrice(document.getElementById('projectPriceFrom').value)}` : '',
+                status: document.getElementById('projectStatus').value,
+                featured: document.getElementById('projectFeatured').checked,
+                image: document.getElementById('projectImage').value,
+                features: document.getElementById('projectFeatures').value.split('\n').filter(f => f.trim()),
+                date: new Date().toISOString().split('T')[0],
+                gallery: [],
+                mapLink: '',
+                video: ''
+            };
+
+            showLoading();
+            
+            try {
+                if (currentEditId) {
+                    const index = projects.findIndex(p => p.id === currentEditId);
+                    if (index !== -1) {
+                        projects[index] = { ...projects[index], ...projectData };
+                    }
+                } else {
+                    projectData.id = Date.now();
+                    projects.push(projectData);
+                }
+
+                await updateFile('data/projects.json', projects, currentEditId ? `تحديث مشروع: ${projectData.title}` : `إضافة مشروع: ${projectData.title}`);
+                
+                renderProjects();
+                closeProjectModal();
+                showAlert(currentEditId ? 'تم تحديث المشروع بنجاح! ✅' : 'تم إضافة المشروع بنجاح! ✅');
+            } catch (error) {
+                showAlert('خطأ في حفظ المشروع: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function deleteProject(id) {
+            if (!confirm('هل أنت متأكد من حذف هذا المشروع؟')) return;
+            
+            showLoading();
+            
+            try {
+                const project = projects.find(p => p.id === id);
+                projects = projects.filter(p => p.id !== id);
+                
+                await updateFile('data/projects.json', projects, `حذف مشروع: ${project.title}`);
+                
+                renderProjects();
+                showAlert('تم حذف المشروع بنجاح! 🗑️');
+            } catch (error) {
+                showAlert('خطأ في حذف المشروع: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // ==================== AREAS ====================
+
         function renderAreas() {
             const container = document.getElementById('areasList');
+            
+            if (areas.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center py-12 text-gray-500">لا توجد مناطق حتى الآن.</div>';
+                return;
+            }
+            
             container.innerHTML = areas.map(area => `
-                <div class="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-lg font-bold text-gray-800 mb-2">${area.name}</h3>
-                    <p class="text-gray-600">${area.count} مشروع</p>
-                    <div class="flex gap-2 mt-4">
-                        <button class="flex-1 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">تعديل</button>
-                        <button class="flex-1 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors">حذف</button>
+                <div class="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
+                    ${area.image ? `<img src="${area.image}" alt="${area.name}" class="w-full h-40 object-cover" />` : '<div class="w-full h-40 bg-gray-200 flex items-center justify-center text-gray-400">📍</div>'}
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">${area.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3">${area.description || ''}</p>
+                        <p class="text-blue-600 font-semibold">${area.count || 0} مشروع</p>
+                        <div class="flex gap-2 mt-4">
+                            <button onclick="editArea(${area.id})" class="flex-1 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors text-sm">تعديل</button>
+                            <button onclick="deleteArea(${area.id})" class="flex-1 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors text-sm">حذف</button>
+                        </div>
                     </div>
+                </div>
+            `).join('');
+        }
+
+        function openAddArea() {
+            currentEditId = null;
+            currentEditType = 'area';
+            document.getElementById('areaModalTitle').textContent = 'إضافة منطقة جديدة';
+            document.getElementById('areaForm').reset();
+            document.getElementById('areaModal').classList.add('active');
+        }
+
+        function editArea(id) {
+            const area = areas.find(a => a.id === id);
+            if (!area) return;
+            
+            currentEditId = id;
+            currentEditType = 'area';
+            document.getElementById('areaModalTitle').textContent = 'تعديل المنطقة';
+            
+            document.getElementById('areaName').value = area.name || '';
+            document.getElementById('areaDescription').value = area.description || '';
+            document.getElementById('areaImage').value = area.image || '';
+            
+            document.getElementById('areaModal').classList.add('active');
+        }
+
+        function closeAreaModal() {
+            document.getElementById('areaModal').classList.remove('active');
+            currentEditId = null;
+            currentEditType = null;
+        }
+
+        async function saveArea(e) {
+            e.preventDefault();
+            
+            const areaData = {
+                name: document.getElementById('areaName').value,
+                description: document.getElementById('areaDescription').value,
+                image: document.getElementById('areaImage').value,
+                count: 0,
+                order: areas.length + 1
+            };
+
+            showLoading();
+            
+            try {
+                if (currentEditId) {
+                    const index = areas.findIndex(a => a.id === currentEditId);
+                    if (index !== -1) {
+                        areas[index] = { ...areas[index], ...areaData };
+                    }
+                } else {
+                    areaData.id = Date.now();
+                    areas.push(areaData);
+                }
+
+                await updateFile('data/areas.json', areas, currentEditId ? `تحديث منطقة: ${areaData.name}` : `إضافة منطقة: ${areaData.name}`);
+                
+                renderAreas();
+                closeAreaModal();
+                showAlert(currentEditId ? 'تم تحديث المنطقة بنجاح! ✅' : 'تم إضافة المنطقة بنجاح! ✅');
+            } catch (error) {
+                showAlert('خطأ في حفظ المنطقة: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function deleteArea(id) {
+            if (!confirm('هل أنت متأكد من حذف هذه المنطقة؟')) return;
+            
+            showLoading();
+            
+            try {
+                const area = areas.find(a => a.id === id);
+                areas = areas.filter(a => a.id !== id);
+                
+                await updateFile('data/areas.json', areas, `حذف منطقة: ${area.name}`);
+                
+                renderAreas();
+                showAlert('تم حذف المنطقة بنجاح! 🗑️');
+            } catch (error) {
+                showAlert('خطأ في حذف المنطقة: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // ==================== UNITS ====================
+
+        function renderUnits() {
+            const tbody = document.getElementById('unitsTableBody');
+            
+            if (units.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-12 text-gray-500">لا توجد وحدات حتى الآن. ابدأ بإضافة وحدة جديدة!</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = units.map(unit => `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 text-gray-800 font-semibold">${unit.number}</td>
+                    <td class="px-6 py-4 text-gray-600">${unit.project}</td>
+                    <td class="px-6 py-4 text-gray-600">${unit.type}</td>
+                    <td class="px-6 py-4 text-gray-600">${unit.area} م²</td>
+                    <td class="px-6 py-4 text-gray-800 font-semibold">${formatPrice(unit.price)}</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-sm ${
+                            unit.status === 'متاح' ? 'bg-green-100 text-green-700' : 
+                            unit.status === 'محجوز' ? 'bg-yellow-100 text-yellow-700' : 
+                            'bg-gray-100 text-gray-700'
+                        }">
+                            ${unit.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="flex gap-2">
+                            <button onclick="editUnit(${unit.id})" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg" title="تعديل">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                            </button>
+                            <button onclick="deleteUnit(${unit.id})" class="p-2 text-red-600 hover:bg-red-50 rounded-lg" title="حذف">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openAddUnit() {
+            currentEditId = null;
+            currentEditType = 'unit';
+            document.getElementById('unitModalTitle').textContent = 'إضافة وحدة جديدة';
+            document.getElementById('unitForm').reset();
+            
+            // Populate projects dropdown
+            const projectSelect = document.getElementById('unitProject');
+            projectSelect.innerHTML = '<option value="">اختر المشروع</option>' + 
+                projects.map(p => `<option value="${p.title}" data-id="${p.id}">${p.title}</option>`).join('');
+            
+            document.getElementById('unitModal').classList.add('active');
+        }
+
+        function editUnit(id) {
+            const unit = units.find(u => u.id === id);
+            if (!unit) return;
+            
+            currentEditId = id;
+            currentEditType = 'unit';
+            document.getElementById('unitModalTitle').textContent = 'تعديل الوحدة';
+            
+            // Populate projects dropdown
+            const projectSelect = document.getElementById('unitProject');
+            projectSelect.innerHTML = '<option value="">اختر المشروع</option>' + 
+                projects.map(p => `<option value="${p.title}" data-id="${p.id}">${p.title}</option>`).join('');
+            
+            document.getElementById('unitNumber').value = unit.number || '';
+            document.getElementById('unitProject').value = unit.project || '';
+            document.getElementById('unitType').value = unit.type || 'شقة';
+            document.getElementById('unitArea').value = unit.area || '';
+            document.getElementById('unitRooms').value = unit.rooms || '';
+            document.getElementById('unitBathrooms').value = unit.bathrooms || '';
+            document.getElementById('unitPrice').value = unit.price || '';
+            document.getElementById('unitStatus').value = unit.status || 'متاح';
+            document.getElementById('unitFloor').value = unit.floor || '';
+            document.getElementById('unitDescription').value = unit.description || '';
+            document.getElementById('unitFeatures').value = (unit.features || []).join('\n');
+            
+            document.getElementById('unitModal').classList.add('active');
+        }
+
+        function closeUnitModal() {
+            document.getElementById('unitModal').classList.remove('active');
+            currentEditId = null;
+            currentEditType = null;
+        }
+
+        async function saveUnit(e) {
+            e.preventDefault();
+            
+            const selectedProject = document.getElementById('unitProject');
+            const projectId = selectedProject.selectedOptions[0]?.dataset.id;
+            
+            const unitData = {
+                number: document.getElementById('unitNumber').value,
+                project: selectedProject.value,
+                projectId: parseInt(projectId) || 0,
+                type: document.getElementById('unitType').value,
+                area: parseInt(document.getElementById('unitArea').value),
+                rooms: parseInt(document.getElementById('unitRooms').value) || 0,
+                bathrooms: parseInt(document.getElementById('unitBathrooms').value) || 0,
+                price: parseInt(document.getElementById('unitPrice').value),
+                status: document.getElementById('unitStatus').value,
+                floor: document.getElementById('unitFloor').value,
+                description: document.getElementById('unitDescription').value,
+                features: document.getElementById('unitFeatures').value.split('\n').filter(f => f.trim()),
+                images: []
+            };
+
+            showLoading();
+            
+            try {
+                if (currentEditId) {
+                    const index = units.findIndex(u => u.id === currentEditId);
+                    if (index !== -1) {
+                        units[index] = { ...units[index], ...unitData };
+                    }
+                } else {
+                    unitData.id = Date.now();
+                    units.push(unitData);
+                }
+
+                await updateFile('data/units.json', units, currentEditId ? `تحديث وحدة: ${unitData.number}` : `إضافة وحدة: ${unitData.number}`);
+                
+                renderUnits();
+                closeUnitModal();
+                showAlert(currentEditId ? 'تم تحديث الوحدة بنجاح! ✅' : 'تم إضافة الوحدة بنجاح! ✅');
+            } catch (error) {
+                showAlert('خطأ في حفظ الوحدة: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function deleteUnit(id) {
+            if (!confirm('هل أنت متأكد من حذف هذه الوحدة؟')) return;
+            
+            showLoading();
+            
+            try {
+                const unit = units.find(u => u.id === id);
+                units = units.filter(u => u.id !== id);
+                
+                await updateFile('data/units.json', units, `حذف وحدة: ${unit.number}`);
+                
+                renderUnits();
+                showAlert('تم حذف الوحدة بنجاح! 🗑️');
+            } catch (error) {
+                showAlert('خطأ في حذف الوحدة: ' + error.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // ==================== INITIALIZATION ====================
+
+        // Allow Enter key to login
+        document.getElementById('tokenInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        });
+    </script>
+</body>
+</html>
