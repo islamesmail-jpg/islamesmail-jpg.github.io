@@ -1,0 +1,897 @@
+import React, { useState, useEffect } from 'react';
+import { Plus, Edit2, Trash2, Save, X, Home, MapPin, Map, Building2, Settings, FileText } from 'lucide-react';
+
+export default function AdminDashboard() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [githubToken, setGithubToken] = useState('');
+  const [repoName, setRepoName] = useState('islamesmail-jpg/islamesmail-jpg.github.io');
+  const [activeTab, setActiveTab] = useState('projects');
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(null);
+
+  const [projects, setProjects] = useState([]);
+  const [areas, setAreas] = useState([]);
+  const [roads, setRoads] = useState([]);
+  const [units, setUnits] = useState([]);
+  const [pages, setPages] = useState([]);
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('');
+  const [editingItem, setEditingItem] = useState(null);
+
+  const [formData, setFormData] = useState({});
+
+  // المناطق الافتراضية
+  const defaultAreas = [
+    { id: 'ain-sokhna', name: 'العين السخنة', slug: 'ain-sokhna', description: 'منطقة ساحلية على البحر الأحمر', images: [], video: '' },
+    { id: 'north-coast', name: 'الساحل الشمالي', slug: 'north-coast', description: 'شواطئ البحر المتوسط', images: [], video: '' },
+    { id: 'new-cairo', name: 'القاهرة الجديدة', slug: 'new-cairo', description: 'منطقة سكنية راقية', images: [], video: '' },
+    { id: 'new-capital', name: 'العاصمة الإدارية', slug: 'new-capital', description: 'عاصمة مصر الجديدة', images: [], video: '' },
+    { id: 'future-city', name: 'مدينة المستقبل', slug: 'future-city', description: 'مدينة حديثة', images: [], video: '' },
+    { id: 'new-heliopolis', name: 'هليوبوليس الجديدة', slug: 'new-heliopolis', description: 'امتداد راقي', images: [], video: '' }
+  ];
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      loadAllData();
+    }
+  }, [isLoggedIn]);
+
+  const showAlert = (type, message) => {
+    setAlert({ type, message });
+    setTimeout(() => setAlert(null), 3000);
+  };
+
+  const login = () => {
+    if (!githubToken || !repoName) {
+      showAlert('error', 'يرجى إدخال GitHub Token واسم المستودع');
+      return;
+    }
+    setIsLoggedIn(true);
+    showAlert('success', 'تم تسجيل الدخول بنجاح! 🎉');
+  };
+
+  const logout = () => {
+    if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+      setIsLoggedIn(false);
+      setGithubToken('');
+    }
+  };
+
+  const loadAllData = async () => {
+    setLoading(true);
+    try {
+      const [projectsData, areasData, roadsData, unitsData] = await Promise.all([
+        fetchFromGitHub('data/projects.json'),
+        fetchFromGitHub('data/areas.json'),
+        fetchFromGitHub('data/roads.json'),
+        fetchFromGitHub('data/units.json')
+      ]);
+      setProjects(projectsData || []);
+      setAreas(areasData && areasData.length > 0 ? areasData : defaultAreas);
+      setRoads(roadsData || []);
+      setUnits(unitsData || []);
+    } catch (error) {
+      console.error('خطأ في تحميل البيانات:', error);
+      setAreas(defaultAreas);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchFromGitHub = async (path) => {
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repoName}/contents/${path}`, {
+        headers: {
+          'Authorization': `token ${githubToken}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      if (!response.ok) throw new Error('فشل في تحميل البيانات');
+      const data = await response.json();
+      const content = atob(data.content);
+      return JSON.parse(content);
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const saveToGitHub = async (path, data, message) => {
+    setLoading(true);
+    try {
+      let sha = '';
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repoName}/contents/${path}`, {
+          headers: {
+            'Authorization': `token ${githubToken}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+        if (response.ok) {
+          const fileData = await response.json();
+          sha = fileData.sha;
+        }
+      } catch (e) {}
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+      const response = await fetch(`https://api.github.com/repos/${repoName}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${githubToken}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github.v3+json'
+        },
+        body: JSON.stringify({
+          message: message,
+          content: content,
+          sha: sha || undefined
+        })
+      });
+
+      if (!response.ok) throw new Error('فشل في الحفظ');
+      showAlert('success', 'تم الحفظ بنجاح! ✅');
+      await loadAllData();
+    } catch (error) {
+      showAlert('error', 'حدث خطأ أثناء الحفظ');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const openModal = (type, item = null) => {
+    setModalType(type);
+    setEditingItem(item);
+    if (item) {
+      setFormData({ ...item });
+    } else {
+      setFormData({});
+    }
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setEditingItem(null);
+    setFormData({});
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newData = {
+      ...formData,
+      id: editingItem?.id || `${modalType}-${Date.now()}`,
+      createdAt: editingItem?.createdAt || new Date().toISOString()
+    };
+
+    let updatedList, path, message;
+    switch (modalType) {
+      case 'project':
+        updatedList = editingItem 
+          ? projects.map(p => p.id === editingItem.id ? newData : p)
+          : [...projects, newData];
+        setProjects(updatedList);
+        path = 'data/projects.json';
+        message = editingItem ? 'تحديث مشروع' : 'إضافة مشروع جديد';
+        break;
+      case 'area':
+        updatedList = editingItem 
+          ? areas.map(a => a.id === editingItem.id ? newData : a)
+          : [...areas, newData];
+        setAreas(updatedList);
+        path = 'data/areas.json';
+        message = editingItem ? 'تحديث منطقة' : 'إضافة منطقة جديدة';
+        break;
+      case 'road':
+        updatedList = editingItem 
+          ? roads.map(r => r.id === editingItem.id ? newData : r)
+          : [...roads, newData];
+        setRoads(updatedList);
+        path = 'data/roads.json';
+        message = editingItem ? 'تحديث طريق' : 'إضافة طريق جديد';
+        break;
+      case 'unit':
+        updatedList = editingItem 
+          ? units.map(u => u.id === editingItem.id ? newData : u)
+          : [...units, newData];
+        setUnits(updatedList);
+        path = 'data/units.json';
+        message = editingItem ? 'تحديث وحدة' : 'إضافة وحدة جديدة';
+        break;
+    }
+
+    await saveToGitHub(path, updatedList, message);
+    closeModal();
+  };
+
+  const handleDelete = async (type, id) => {
+    if (!confirm('هل أنت متأكد من الحذف؟')) return;
+
+    let updatedList, path;
+    switch (type) {
+      case 'project':
+        updatedList = projects.filter(p => p.id !== id);
+        setProjects(updatedList);
+        path = 'data/projects.json';
+        break;
+      case 'area':
+        updatedList = areas.filter(a => a.id !== id);
+        setAreas(updatedList);
+        path = 'data/areas.json';
+        break;
+      case 'road':
+        updatedList = roads.filter(r => r.id !== id);
+        setRoads(updatedList);
+        path = 'data/roads.json';
+        break;
+      case 'unit':
+        updatedList = units.filter(u => u.id !== id);
+        setUnits(updatedList);
+        path = 'data/units.json';
+        break;
+    }
+
+    await saveToGitHub(path, updatedList, 'حذف عنصر');
+  };
+
+  const renderForm = () => {
+    switch (modalType) {
+      case 'project':
+        return (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              placeholder="اسم المشروع *"
+              value={formData.name || ''}
+              onChange={(e) => setFormData({...formData, name: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-')})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            />
+            <input
+              type="text"
+              placeholder="رابط الصفحة (slug)"
+              value={formData.slug || ''}
+              onChange={(e) => setFormData({...formData, slug: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="text"
+              placeholder="عنوان الصفحة"
+              value={formData.title || ''}
+              onChange={(e) => setFormData({...formData, title: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <select
+              value={formData.area || ''}
+              onChange={(e) => setFormData({...formData, area: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            >
+              <option value="">اختر المنطقة</option>
+              {areas.map(area => (
+                <option key={area.id} value={area.id}>{area.name}</option>
+              ))}
+            </select>
+            <textarea
+              placeholder="وصف المشروع"
+              value={formData.description || ''}
+              onChange={(e) => setFormData({...formData, description: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg h-32"
+            />
+            <input
+              type="url"
+              placeholder="رابط صورة المشروع"
+              value={formData.image || ''}
+              onChange={(e) => setFormData({...formData, image: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="url"
+              placeholder="رابط فيديو المشروع"
+              value={formData.video || ''}
+              onChange={(e) => setFormData({...formData, video: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="url"
+              placeholder="رابط الماستر بلان"
+              value={formData.masterplan || ''}
+              onChange={(e) => setFormData({...formData, masterplan: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="url"
+              placeholder="رابط اللوكيشن (Google Maps)"
+              value={formData.location || ''}
+              onChange={(e) => setFormData({...formData, location: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <div className="flex gap-3">
+              <button type="submit" className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold hover:shadow-lg">
+                <Save className="inline mr-2" size={18} />
+                حفظ المشروع
+              </button>
+              <button type="button" onClick={closeModal} className="px-6 bg-gray-500 text-white py-3 rounded-lg">
+                إلغاء
+              </button>
+            </div>
+          </form>
+        );
+
+      case 'area':
+        return (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              placeholder="اسم المنطقة *"
+              value={formData.name || ''}
+              onChange={(e) => setFormData({...formData, name: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-')})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            />
+            <textarea
+              placeholder="وصف المنطقة"
+              value={formData.description || ''}
+              onChange={(e) => setFormData({...formData, description: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg h-32"
+            />
+            <input
+              type="url"
+              placeholder="رابط صورة المنطقة"
+              value={formData.image || ''}
+              onChange={(e) => setFormData({...formData, image: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="url"
+              placeholder="رابط فيديو المنطقة"
+              value={formData.video || ''}
+              onChange={(e) => setFormData({...formData, video: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <div className="flex gap-3">
+              <button type="submit" className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold">
+                <Save className="inline mr-2" size={18} />
+                حفظ المنطقة
+              </button>
+              <button type="button" onClick={closeModal} className="px-6 bg-gray-500 text-white py-3 rounded-lg">
+                إلغاء
+              </button>
+            </div>
+          </form>
+        );
+
+      case 'road':
+        return (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              placeholder="اسم الطريق *"
+              value={formData.name || ''}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            />
+            <select
+              value={formData.area || ''}
+              onChange={(e) => setFormData({...formData, area: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            >
+              <option value="">اختر المنطقة</option>
+              {areas.map(area => (
+                <option key={area.id} value={area.id}>{area.name}</option>
+              ))}
+            </select>
+            <textarea
+              placeholder="وصف الطريق"
+              value={formData.description || ''}
+              onChange={(e) => setFormData({...formData, description: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg h-32"
+            />
+            <input
+              type="url"
+              placeholder="رابط صورة الطريق"
+              value={formData.image || ''}
+              onChange={(e) => setFormData({...formData, image: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <textarea
+              placeholder="المواصفات والمميزات"
+              value={formData.features || ''}
+              onChange={(e) => setFormData({...formData, features: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <div className="flex gap-3">
+              <button type="submit" className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold">
+                <Save className="inline mr-2" size={18} />
+                حفظ الطريق
+              </button>
+              <button type="button" onClick={closeModal} className="px-6 bg-gray-500 text-white py-3 rounded-lg">
+                إلغاء
+              </button>
+            </div>
+          </form>
+        );
+
+      case 'unit':
+        return (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              placeholder="كود الوحدة *"
+              value={formData.code || ''}
+              onChange={(e) => setFormData({...formData, code: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            />
+            <input
+              type="text"
+              placeholder="عنوان الوحدة *"
+              value={formData.title || ''}
+              onChange={(e) => setFormData({...formData, title: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-')})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            />
+            <select
+              value={formData.project || ''}
+              onChange={(e) => setFormData({...formData, project: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            >
+              <option value="">اختر المشروع</option>
+              {projects.map(project => (
+                <option key={project.id} value={project.id}>{project.name}</option>
+              ))}
+            </select>
+            <select
+              value={formData.type || ''}
+              onChange={(e) => setFormData({...formData, type: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+              required
+            >
+              <option value="">نوع الوحدة</option>
+              <option value="apartment">شقة</option>
+              <option value="villa">فيلا</option>
+              <option value="duplex">دوبلكس</option>
+              <option value="penthouse">بنتهاوس</option>
+              <option value="studio">استوديو</option>
+              <option value="townhouse">تاون هاوس</option>
+              <option value="chalet">شاليه</option>
+            </select>
+            <textarea
+              placeholder="وصف الوحدة"
+              value={formData.description || ''}
+              onChange={(e) => setFormData({...formData, description: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg h-32"
+            />
+            <div className="grid grid-cols-2 gap-3">
+              <input
+                type="number"
+                placeholder="المساحة (م²)"
+                value={formData.area || ''}
+                onChange={(e) => setFormData({...formData, area: e.target.value})}
+                className="p-3 border-2 rounded-lg"
+              />
+              <input
+                type="number"
+                placeholder="عدد الغرف"
+                value={formData.rooms || ''}
+                onChange={(e) => setFormData({...formData, rooms: e.target.value})}
+                className="p-3 border-2 rounded-lg"
+              />
+              <input
+                type="number"
+                placeholder="السعر"
+                value={formData.price || ''}
+                onChange={(e) => setFormData({...formData, price: e.target.value})}
+                className="p-3 border-2 rounded-lg"
+              />
+              <input
+                type="number"
+                placeholder="المقدم"
+                value={formData.downPayment || ''}
+                onChange={(e) => setFormData({...formData, downPayment: e.target.value})}
+                className="p-3 border-2 rounded-lg"
+              />
+            </div>
+            <textarea
+              placeholder="تفاصيل السداد"
+              value={formData.paymentDetails || ''}
+              onChange={(e) => setFormData({...formData, paymentDetails: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <input
+              type="url"
+              placeholder="رابط صورة الوحدة"
+              value={formData.image || ''}
+              onChange={(e) => setFormData({...formData, image: e.target.value})}
+              className="w-full p-3 border-2 rounded-lg"
+            />
+            <div className="flex gap-3">
+              <button type="submit" className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold">
+                <Save className="inline mr-2" size={18} />
+                حفظ الوحدة
+              </button>
+              <button type="button" onClick={closeModal} className="px-6 bg-gray-500 text-white py-3 rounded-lg">
+                إلغاء
+              </button>
+            </div>
+          </form>
+        );
+    }
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-600 to-purple-900 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
+          <h1 className="text-3xl font-bold text-center text-purple-700 mb-6">🏢 لوحة التحكم</h1>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-bold mb-2 text-right">رمز GitHub Token:</label>
+              <input
+                type="password"
+                value={githubToken}
+                onChange={(e) => setGithubToken(e.target.value)}
+                className="w-full p-3 border-2 rounded-lg"
+                placeholder="أدخل GitHub Token"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-bold mb-2 text-right">اسم المستودع:</label>
+              <input
+                type="text"
+                value={repoName}
+                onChange={(e) => setRepoName(e.target.value)}
+                className="w-full p-3 border-2 rounded-lg"
+              />
+            </div>
+            <button
+              onClick={login}
+              className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold hover:shadow-lg"
+            >
+              تسجيل الدخول 🚀
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-purple-600 to-purple-900 text-white p-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold">🏢 لوحة التحكم الشاملة</h1>
+            <p className="text-sm opacity-90">{repoName}</p>
+          </div>
+          <button onClick={logout} className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700">
+            تسجيل الخروج
+          </button>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="max-w-7xl mx-auto p-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-gradient-to-br from-purple-500 to-purple-700 text-white p-6 rounded-xl text-center">
+            <div className="text-3xl font-bold">{projects.length}</div>
+            <div className="text-sm">المشاريع</div>
+          </div>
+          <div className="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-6 rounded-xl text-center">
+            <div className="text-3xl font-bold">{areas.length}</div>
+            <div className="text-sm">المناطق</div>
+          </div>
+          <div className="bg-gradient-to-br from-green-500 to-green-700 text-white p-6 rounded-xl text-center">
+            <div className="text-3xl font-bold">{units.length}</div>
+            <div className="text-sm">الوحدات</div>
+          </div>
+          <div className="bg-gradient-to-br from-orange-500 to-orange-700 text-white p-6 rounded-xl text-center">
+            <div className="text-3xl font-bold">{roads.length}</div>
+            <div className="text-sm">الطرق</div>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="flex overflow-x-auto border-b">
+            {[
+              { id: 'projects', label: 'المشاريع', icon: Home },
+              { id: 'areas', label: 'المناطق', icon: MapPin },
+              { id: 'roads', label: 'الطرق', icon: Map },
+              { id: 'units', label: 'الوحدات', icon: Building2 },
+              { id: 'pages', label: 'الصفحات', icon: FileText },
+              { id: 'settings', label: 'الإعدادات', icon: Settings }
+            ].map(tab => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-4 font-bold whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? 'bg-purple-100 text-purple-700 border-b-2 border-purple-700'
+                      : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <Icon size={20} />
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            {/* Projects Tab */}
+            {activeTab === 'projects' && (
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold">إدارة المشاريع</h2>
+                  <button
+                    onClick={() => openModal('project')}
+                    className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex items-center gap-2"
+                  >
+                    <Plus size={20} />
+                    إضافة مشروع
+                  </button>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {projects.map(project => (
+                    <div key={project.id} className="border-2 rounded-xl p-4 hover:shadow-lg">
+                      {project.image && <img src={project.image} alt={project.name} className="w-full h-40 object-cover rounded-lg mb-3" />}
+                      <h3 className="font-bold text-lg mb-2">{project.name}</h3>
+                      <p className="text-sm text-gray-600 mb-2">المنطقة: {areas.find(a => a.id === project.area)?.name || 'غير محدد'}</p>
+                      <p className="text-sm text-gray-700 mb-3">{project.description?.substring(0, 100)}...</p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => openModal('project', project)}
+                          className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-1"
+                        >
+                          <Edit2 size={16} />
+                          تعديل
+                        </button>
+                        <button
+                          onClick={() => handleDelete('project', project.id)}
+                          className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 flex items-center justify-center gap-1"
+                        >
+                          <Trash2 size={16} />
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {projects.length === 0 && (
+                  <div className="text-center py-12 text-gray-500">
+                    <Home size={48} className="mx-auto mb-3 opacity-50" />
+                    <p>لا توجد مشاريع حالياً. ابدأ بإضافة مشروع جديد!</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Areas Tab */}
+            {activeTab === 'areas' && (
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold">إدارة المناطق</h2>
+                  <button
+                    onClick={() => openModal('area')}
+                    className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex items-center gap-2"
+                  >
+                    <Plus size={20} />
+                    إضافة منطقة
+                  </button>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {areas.map(area => (
+                    <div key={area.id} className="border-2 rounded-xl p-4 hover:shadow-lg">
+                      {area.image && <img src={area.image} alt={area.name} className="w-full h-40 object-cover rounded-lg mb-3" />}
+                      <h3 className="font-bold text-lg mb-2">{area.name}</h3>
+                      <p className="text-sm text-gray-700 mb-3">{area.description}</p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => openModal('area', area)}
+                          className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-1"
+                        >
+                          <Edit2 size={16} />
+                          تعديل
+                        </button>
+                        <button
+                          onClick={() => handleDelete('area', area.id)}
+                          className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 flex items-center justify-center gap-1"
+                        >
+                          <Trash2 size={16} />
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Roads Tab */}
+            {activeTab === 'roads' && (
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold">إدارة الطرق</h2>
+                  <button
+                    onClick={() => openModal('road')}
+                    className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex items-center gap-2"
+                  >
+                    <Plus size={20} />
+                    إضافة طريق
+                  </button>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {roads.map(road => (
+                    <div key={road.id} className="border-2 rounded-xl p-4 hover:shadow-lg">
+                      {road.image && <img src={road.image} alt={road.name} className="w-full h-40 object-cover rounded-lg mb-3" />}
+                      <h3 className="font-bold text-lg mb-2">{road.name}</h3>
+                      <p className="text-sm text-gray-600 mb-2">المنطقة: {areas.find(a => a.id === road.area)?.name || 'غير محدد'}</p>
+                      <p className="text-sm text-gray-700 mb-3">{road.description}</p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => openModal('road', road)}
+                          className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-1"
+                        >
+                          <Edit2 size={16} />
+                          تعديل
+                        </button>
+                        <button
+                          onClick={() => handleDelete('road', road.id)}
+                          className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 flex items-center justify-center gap-1"
+                        >
+                          <Trash2 size={16} />
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {roads.length === 0 && (
+                  <div className="text-center py-12 text-gray-500">
+                    <Map size={48} className="mx-auto mb-3 opacity-50" />
+                    <p>لا توجد طرق حالياً. ابدأ بإضافة طريق جديد!</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Units Tab */}
+            {activeTab === 'units' && (
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-2xl font-bold">إدارة الوحدات</h2>
+                  <button
+                    onClick={() => openModal('unit')}
+                    className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 flex items-center gap-2"
+                  >
+                    <Plus size={20} />
+                    إضافة وحدة
+                  </button>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {units.map(unit => (
+                    <div key={unit.id} className="border-2 rounded-xl p-4 hover:shadow-lg">
+                      {unit.image && <img src={unit.image} alt={unit.title} className="w-full h-40 object-cover rounded-lg mb-3" />}
+                      <h3 className="font-bold text-lg mb-2">{unit.title}</h3>
+                      <p className="text-sm text-gray-600 mb-1">الكود: {unit.code}</p>
+                      <p className="text-sm text-gray-600 mb-1">المشروع: {projects.find(p => p.id === unit.project)?.name || 'غير محدد'}</p>
+                      <p className="text-sm text-gray-600 mb-1">النوع: {unit.type}</p>
+                      <p className="text-sm text-gray-600 mb-1">المساحة: {unit.area} م²</p>
+                      <p className="text-sm font-bold text-purple-700 mb-3">السعر: {Number(unit.price).toLocaleString('ar-EG')} جنيه</p>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => openModal('unit', unit)}
+                          className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center gap-1"
+                        >
+                          <Edit2 size={16} />
+                          تعديل
+                        </button>
+                        <button
+                          onClick={() => handleDelete('unit', unit.id)}
+                          className="flex-1 bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 flex items-center justify-center gap-1"
+                        >
+                          <Trash2 size={16} />
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {units.length === 0 && (
+                  <div className="text-center py-12 text-gray-500">
+                    <Building2 size={48} className="mx-auto mb-3 opacity-50" />
+                    <p>لا توجد وحدات حالياً. ابدأ بإضافة وحدة جديدة!</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Pages Tab */}
+            {activeTab === 'pages' && (
+              <div className="text-center py-12 text-gray-500">
+                <FileText size={48} className="mx-auto mb-3 opacity-50" />
+                <p>قسم إدارة الصفحات قيد التطوير</p>
+              </div>
+            )}
+
+            {/* Settings Tab */}
+            {activeTab === 'settings' && (
+              <div className="max-w-2xl mx-auto">
+                <h2 className="text-2xl font-bold mb-6">إعدادات الموقع</h2>
+                <div className="bg-gray-50 p-6 rounded-xl space-y-4">
+                  <div>
+                    <label className="block text-sm font-bold mb-2 text-right">اسم الموقع:</label>
+                    <input type="text" defaultValue="Islam Property" className="w-full p-3 border-2 rounded-lg" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold mb-2 text-right">وصف الموقع:</label>
+                    <textarea defaultValue="موقع عقارات احترافي" className="w-full p-3 border-2 rounded-lg h-24" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold mb-2 text-right">رقم الهاتف:</label>
+                    <input type="text" defaultValue="+20 123 456 7890" className="w-full p-3 border-2 rounded-lg" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold mb-2 text-right">البريد الإلكتروني:</label>
+                    <input type="email" defaultValue="info@islamproperty.com" className="w-full p-3 border-2 rounded-lg" />
+                  </div>
+                  <button className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg font-bold hover:shadow-lg">
+                    💾 حفظ الإعدادات
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-white rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6 pb-4 border-b-2">
+              <h2 className="text-2xl font-bold text-purple-700">
+                {editingItem ? 'تعديل' : 'إضافة'} {
+                  modalType === 'project' ? 'مشروع' :
+                  modalType === 'area' ? 'منطقة' :
+                  modalType === 'road' ? 'طريق' :
+                  modalType === 'unit' ? 'وحدة' : ''
+                }
+              </h2>
+              <button onClick={closeModal} className="text-red-600 hover:text-red-800 text-3xl">
+                <X size={32} />
+              </button>
+            </div>
+            {renderForm()}
+          </div>
+        </div>
+      )}
+
+      {/* Loading Spinner */}
+      {loading && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-2xl text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-purple-200 border-t-purple-600 mx-auto mb-4"></div>
+            <p className="font-bold text-lg">جاري التحميل...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Alert */}
+      {alert && (
+        <div className={`fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg ${
+          alert.type === 'success' ? 'bg-green-600' : 'bg-red-600'
+        } text-white font-bold`}>
+          {alert.message}
+        </div>
+      )}
+    </div>
+  );
+}
