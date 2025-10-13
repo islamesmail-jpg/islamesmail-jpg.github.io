@@ -1,76 +1,0 @@
-[
-  {
-    "id": 1,
-    "title": "ÙØ´Ø±ÙØ¹ Ø§ÙÙØ§Ø³ÙÙÙ",
-    "description": "ÙÙØ¨ÙÙØ¯ Ø³ÙÙÙ ÙØ§Ø®Ø± ÙÙ ÙÙØ¨ Ø§ÙØªØ¬ÙØ¹ Ø§ÙØ®Ø§ÙØ³",
-    "area": "Ø§ÙØªØ¬ÙØ¹ Ø§ÙØ®Ø§ÙØ³",
-    "price": "2,500,000",
-    "priceFrom": 2500000,
-    "priceTo": 3500000,
-    "status": "ÙØªØ§Ø­",
-    "type": "Ø³ÙÙÙ",
-    "image": "https://via.placeholder.com/800x600?text=Project+Image",
-    "gallery": [
-      "https://via.placeholder.com/800x600?text=Gallery+1",
-      "https://via.placeholder.com/800x600?text=Gallery+2"
-    ],
-    "features": [
-      "Ø­ÙØ§Ù Ø³Ø¨Ø§Ø­Ø©",
-      "ÙØ§Ø¯Ù Ø±ÙØ§Ø¶Ù",
-      "Ø£ÙÙ ÙØ­Ø±Ø§Ø³Ø© 24 Ø³Ø§Ø¹Ø©",
-      "ÙØ³Ø§Ø­Ø§Øª Ø®Ø¶Ø±Ø§Ø¡",
-      "ÙÙÙÙ Ø³ÙØ§Ø±Ø§Øª"
-    ],
-    "mapLink": "",
-    "video": "",
-    "date": "2024-01-15",
-    "featured": true
-  },
-  {
-    "id": 2,
-    "title": "ÙÙØ¨ÙÙØ¯ Ø§ÙØ±ÙØ­Ø§Ù",
-    "description": "ÙØ´Ø±ÙØ¹ ÙØªÙÙØ² ÙÙ 6 Ø£ÙØªÙØ¨Ø± Ø¨Ø¥Ø·ÙØ§ÙØ§Øª Ø±Ø§Ø¦Ø¹Ø©",
-    "area": "6 Ø£ÙØªÙØ¨Ø±",
-    "price": "1,800,000",
-    "priceFrom": 1800000,
-    "priceTo": 2800000,
-    "status": "ÙØªØ§Ø­",
-    "type": "Ø³ÙÙÙ",
-    "image": "https://via.placeholder.com/800x600?text=Project+Image+2",
-    "gallery": [
-      "https://via.placeholder.com/800x600?text=Gallery+1",
-      "https://via.placeholder.com/800x600?text=Gallery+2"
-    ],
-    "features": [
-      "Ø­ÙØ§Ù Ø³Ø¨Ø§Ø­Ø© Ø£ÙÙÙÙØ¨Ù",
-      "ÙÙØ§Ø¹Ø¨ Ø±ÙØ§Ø¶ÙØ©",
-      "ÙØ§ÙÙÙØ§Øª ÙÙØ·Ø§Ø¹Ù",
-      "ÙÙØ·ÙØ© Ø£ÙØ¹Ø§Ø¨ Ø£Ø·ÙØ§Ù"
-    ],
-    "mapLink": "",
-    "video": "",
-    "date": "2024-01-10",
-    "featured": false
-  },
-  {
-    "title": "بورتو السخنه",
-    "description": "بورتو السخنه للاستثمار السياحي ",
-    "area": "العين السخنه ",
-    "type": "ساحلي",
-    "priceFrom": 1500000,
-    "priceTo": 2500000,
-    "price": "١٬٥٠٠٬٠٠٠",
-    "status": "قريباً",
-    "featured": true,
-    "image": "https://i.top4top.io/p_3572z6upq0.jpg",
-    "features": [
-      "حمام السباحه ",
-      "شاطئ خاص"
-    ],
-    "date": "2025-10-13",
-    "gallery": [],
-    "mapLink": "",
-    "video": "",
-    "id": 1760314410646
-  }
-]
