@@ -1,930 +1,406 @@
+---
+---
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - إدارة العقارات</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+<!-- ===== Core SEO ===== -->
+<title>Find Your Home | Islam Esmail</title>
+<meta name="description" content="Islam Real Estate — Search and compare top projects in Ain Sokhna, North Coast, and New Cairo. Ready resale, list your unit easily, and contact us directly via phone or WhatsApp." />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#ffffff" />
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
+<!-- Keywords (for indexing; not shown to users) -->
+<meta name="keywords" content="Islam Real Estate, Egypt property, Ain Sokhna, North Coast, New Cairo, Zafarana Road, apartments, chalets, villas, resale, list your unit, sell your unit, hot offers, installments, ready to move, projects Egypt, real estate Egypt" />
 
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
+<!-- Canonical & Hreflang -->
+<link rel="canonical" href="https://islamesmail-jpg.github.io/index-en.html"/>
+<link rel="alternate" hreflang="en" href="https://islamesmail-jpg.github.io/index-en.html"/>
+<link rel="alternate" hreflang="ar" href="https://islamesmail-jpg.github.io/"/>
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+<!-- Open Graph -->
+<meta property="og:title" content="Find Your Home | Islam Esmail" />
+<meta property="og:description" content="Find your home easily — trusted projects in Ain Sokhna, North Coast, and New Cairo, plus ready resale and direct contact." />
+<meta property="og:url" content="https://islamesmail-jpg.github.io/index-en.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Islam Real Estate" />
+<meta property="og:image" content="https://g.top4top.io/p_3536gqqv70.png" />
+<meta property="og:image:alt" content="Islam Real Estate logo" />
+<meta property="og:locale" content="en_US" />
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 30px;
-            background: #f8f9fa;
-        }
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Find Your Home | Islam Esmail">
+<meta name="twitter:description" content="Ain Sokhna, North Coast, New Cairo — buy, invest, or list your unit with confidence.">
+<meta name="twitter:image" content="https://g.top4top.io/p_3536gqqv70.png">
 
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
+<!-- App Icon / Favicon -->
+<link rel="icon" type="image/png" href="https://i.top4top.io/p_3536599nr0.png" sizes="32x32">
+<link rel="apple-touch-icon" href="https://i.top4top.io/p_3536599nr0.png">
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        .stat-card h3 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+<!-- Schema.org JSON-LD (WebSite) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Islam Real Estate",
+  "url":"https://islamesmail-jpg.github.io/",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://islamesmail-jpg.github.io/search.html?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
 
-        .stat-card p {
-            color: #666;
-            font-size: 1.1em;
-        }
+<!-- Schema.org JSON-LD (Organization) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Islam Real Estate",
+  "url":"https://islamesmail-jpg.github.io/",
+  "logo":"https://g.top4top.io/p_3536gqqv70.png",
+  "sameAs":["https://twitter.com/","https://facebook.com/","https://www.youtube.com/"],
+  "contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+201050072527","areaServed":"EG"}]
+}
+</script>
 
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            padding: 0 30px;
-            border-bottom: 2px solid #dee2e6;
-        }
+<style>
+:root{
+  --bg:#fff; --text:#0f172a; --muted:#64748b; --line:#e5e7eb;
+  --primary:#0b3a5e; --soft:#f7fafc; --wrap:1200px; --nav-h:64px;
+  --logo-h:45px; --logo-img-h:45px;
+  --radius:16px; --shadow:0 10px 22px rgba(0,0,0,.06);
+  --hero-img:url('https://a.top4top.io/p_3529a9wb71.jpg');
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.8}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{max-width:var(--wrap);margin:auto;padding:0 16px}
 
-        .tab {
-            padding: 15px 30px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 1.1em;
-            color: #666;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
+/* HERO */
+.hero{padding:0}
+.hero-visual{
+  position:relative;
+  min-height:clamp(280px,42vw,520px);
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.15)),
+    var(--hero-img);
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  background-attachment:fixed;display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+}
+.hero-visual .inner{width:100%}
+.hero-visual .hero-content{max-width:var(--wrap);margin:auto;padding:18px 16px 24px;text-align:center;color:#fff}
+.hero-visual h1{margin:0 0 8px;font-size:clamp(1.8rem,3.6vw,2.4rem);line-height:1.3}
+.hero-visual .sub{color:#e2e8f0;margin:0 auto 14px;font-size:clamp(0.95rem,1.2vw,1.05rem)}
+.search-wrap{max-width:780px;margin:0 auto;position:relative}
+.search{
+  display:flex;gap:10px;background:rgba(255,255,255,.96);
+  border:1px solid var(--line);border-radius:999px;padding:10px;
+  box-shadow:var(--shadow)
+}
+.search input{flex:1;border:0;outline:0;font-size:1rem;background:transparent;padding:10px 12px}
+.search button{border:0;background:#0b3a5e;color:#fff;font-weight:800;border-radius:140px;padding:12px 22px;cursor:pointer}
 
-        .tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-            font-weight: bold;
-        }
+/* Suggestions */
+.sugg{position:absolute;top:calc(100% + 8px);right:0;left:0;background:#fff;border:1px solid var(--line);border-radius:16px;display:none;max-height:320px;overflow:auto;box-shadow:var(--shadow);text-align:left;z-index:90}
+.sugg a{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line);color:#000}
+.sugg a:hover{background:var(--soft)}
+.kbd{font-weight:800;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:2px 6px}
+@media (max-width:900px){.hero-visual{background-attachment:scroll}}
 
-        .tab:hover {
-            color: #667eea;
-        }
+/* WHY */
+.why{max-width:900px;margin:18px auto 22px}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.why-card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;text-align:center}
+.why-card b{display:block;margin-bottom:6px}
+.why-card small{color:var(--muted)}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.why-grid{grid-template-columns:1fr}}
 
-        .content {
-            padding: 30px;
-        }
+/* SECTION */
+.section{padding:28px 0}
+.section h2{font-size:1.25rem;margin:0 0 12px}
 
-        .section {
-            display: none;
-        }
+/* Quick tiles (2x2 fixed) */
+.quick-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease;
+  min-height:90px;
+}
+.tile:hover{transform:translateY(-2px)}
+.tile .ico{
+  width:48px;height:48px;flex:0 0 48px;border-radius:50%;
+  object-fit:cover;overflow:hidden;border:1px solid var(--line);background:#fff
+}
+.tile .text{display:flex;flex-direction:column;gap:2px}
+.tile .text b{font-size:.95rem;line-height:1.25;font-weight:800;color:var(--text)}
+.tile .text .sub{font-size:.85rem;line-height:1.25;color:var(--muted)}
 
-        .section.active {
-            display: block;
-        }
+/* Horizontal cards */
+.hbar{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory}
+.hbar::-webkit-scrollbar{height:8px}
+.hbar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px}
+.card{scroll-snap-align:start;flex:0 0 300px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.card .thumb{position:relative;background:#eef2f7}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.85rem;padding:6px 10px;border-radius:12px}
+.card .body{padding:12px 14px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
 
-        .add-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
+.area-chip{scroll-snap-align:start;flex:0 0 220px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:12px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.area-chip img{width:56px;height:56px;border-radius:50%;object-fit:cover}
 
-        .add-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
+/* CONTACT */
+.contact-box{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px;position:relative}
+.contact-box h2{text-align:center;margin-top:8px}
+.lead-top-img{display:block;margin:0 auto 8px;height:56px;width:auto}
 
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
+/* FORM */
+.field{display:flex;flex-direction:column;margin-bottom:12px}
+.field label{font-weight:700;margin-bottom:6px}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:720px){.row{grid-template-columns:1fr}}
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.submit{background:#0b3a5e;color:#fff;border:0;border-radius:14px;padding:12px 20px;font-weight:800;cursor:pointer}
+.call{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 20px;font-weight:800}
 
-        .item-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-
-        .item-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .item-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .item-card-body {
-            padding: 20px;
-        }
-
-        .item-card h3 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.3em;
-        }
-
-        .item-card p {
-            color: #666;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .item-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s;
-        }
-
-        .btn-edit {
-            background: #ffc107;
-            color: white;
-        }
-
-        .btn-edit:hover {
-            background: #e0a800;
-        }
-
-        .btn-delete {
-            background: #dc3545;
-            color: white;
-        }
-
-        .btn-delete:hover {
-            background: #c82333;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
-            margin-bottom: 25px;
-        }
-
-        .modal-header h2 {
-            color: #667eea;
-            font-size: 2em;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn-save {
-            flex: 1;
-            background: #28a745;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-
-        .btn-save:hover {
-            background: #218838;
-        }
-
-        .btn-cancel {
-            flex: 1;
-            background: #6c757d;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-
-        .btn-cancel:hover {
-            background: #5a6268;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-        }
-
-        .empty-state svg {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        .empty-state h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-    </style>
+/* Floating WhatsApp Button */
+.fab-whatsapp{
+  position:fixed; left:14px; bottom:14px; z-index:120;
+  width:56px; height:56px; border-radius:50%;
+  display:grid; place-items:center;
+  background:#25D366; color:#fff; font-size:28px;
+  box-shadow:0 10px 22px rgba(0,0,0,.18);
+  text-decoration:none;
+}
+.fab-whatsapp:hover{transform:translateY(-2px)}
+.fab-whatsapp .sr{position:absolute;left:-9999px}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🏢 لوحة التحكم الشاملة</h1>
-            <p>إدارة موقع العقارات</p>
-        </header>
 
-        <div class="stats">
-            <div class="stat-card">
-                <h3 id="projectsCount">0</h3>
-                <p>المشاريع</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="areasCount">0</h3>
-                <p>المناطق</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="roadsCount">0</h3>
-                <p>الطرق</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="unitsCount">0</h3>
-                <p>الوحدات</p>
-            </div>
+<!-- ===== Header include ===== -->
+{% include header-en.html %}
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-visual" role="img" aria-label="Panoramic coastal projects image">
+    <div class="inner">
+      <div class="hero-content">
+        <h1>Find Your Home</h1>
+        <p class="sub">Search and compare the best projects & compounds in Ain Sokhna, North Coast, and New Cairo — buy, invest, or list your unit with confidence.</p>
+
+        <div class="search-wrap" role="search">
+          <form class="search" aria-label="Site search" onsubmit="return false;">
+            <input id="siteSearch" type="text" placeholder="Search by project, area, developer, or unit type" autocomplete="off" aria-label="Search field">
+            <button id="searchBtn" type="button" aria-label="Run search">Search</button>
+          </form>
+          <div class="sugg" id="suggest" role="listbox" aria-label="Search suggestions"></div>
         </div>
-
-        <div class="tabs">
-            <button class="tab active" onclick="switchTab('projects')">المشاريع</button>
-            <button class="tab" onclick="switchTab('areas')">المناطق</button>
-            <button class="tab" onclick="switchTab('roads')">الطرق</button>
-            <button class="tab" onclick="switchTab('units')">الوحدات</button>
-        </div>
-
-        <div class="content">
-            <!-- المشاريع -->
-            <div id="projects" class="section active">
-                <button class="add-button" onclick="openModal('project')">➕ إضافة مشروع جديد</button>
-                <div id="projectsList" class="items-grid"></div>
-            </div>
-
-            <!-- المناطق -->
-            <div id="areas" class="section">
-                <button class="add-button" onclick="openModal('area')">➕ إضافة منطقة جديدة</button>
-                <div id="areasList" class="items-grid"></div>
-            </div>
-
-            <!-- الطرق -->
-            <div id="roads" class="section">
-                <button class="add-button" onclick="openModal('road')">➕ إضافة طريق جديد</button>
-                <div id="roadsList" class="items-grid"></div>
-            </div>
-
-            <!-- الوحدات -->
-            <div id="units" class="section">
-                <button class="add-button" onclick="openModal('unit')">➕ إضافة وحدة جديدة</button>
-                <div id="unitsList" class="items-grid"></div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Modal للمشاريع -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="projectModalTitle">إضافة مشروع جديد</h2>
-            </div>
-            <form id="projectForm">
-                <div class="form-group">
-                    <label>اسم المشروع *</label>
-                    <input type="text" id="projectName" required>
-                </div>
-                <div class="form-group">
-                    <label>رابط الصورة</label>
-                    <input type="url" id="projectImage" placeholder="https://example.com/image.jpg">
-                </div>
-                <div class="form-group">
-                    <label>الوصف</label>
-                    <textarea id="projectDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-save">💾 حفظ</button>
-                    <button type="button" class="btn-cancel" onclick="closeModal('project')">✖ إلغاء</button>
-                </div>
-            </form>
-        </div>
+  <!-- WHY US -->
+  <div class="container">
+    <div class="why" aria-label="Why choose us">
+      <div class="why-grid">
+        <div class="why-card"><b>Smart Match</b><small>Fast filters by area, developer, and unit type.</small></div>
+        <div class="why-card"><b>Fair Negotiation</b><small>Real offers with fair terms.</small></div>
+        <div class="why-card"><b>Trusted Handover</b><small>Certified partners & follow-up till delivery.</small></div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Modal للمناطق -->
-    <div id="areaModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="areaModalTitle">إضافة منطقة جديدة</h2>
-            </div>
-            <form id="areaForm">
-                <div class="form-group">
-                    <label>اسم المنطقة *</label>
-                    <input type="text" id="areaName" required>
-                </div>
-                <div class="form-group">
-                    <label>رابط الصورة</label>
-                    <input type="url" id="areaImage" placeholder="https://example.com/image.jpg">
-                </div>
-                <div class="form-group">
-                    <label>الوصف</label>
-                    <textarea id="areaDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-save">💾 حفظ</button>
-                    <button type="button" class="btn-cancel" onclick="closeModal('area')">✖ إلغاء</button>
-                </div>
-            </form>
-        </div>
+<!-- QUICK TILES -->
+<section class="section">
+  <div class="container">
+    <div class="quick-tiles" aria-label="Quick links">
+      <a class="tile" href="zafarana-en.html">
+        <img class="ico" src="https://c.top4top.io/p_3529com4g0.gif" alt="New projects under construction" loading="lazy">
+        <div class="text"><b>Under Construction</b><span class="sub">New launches</span></div>
+      </a>
+      <a class="tile" href="list-en.html">
+        <img class="ico" src="https://g.top4top.io/p_3529q7vag0.gif" alt="List your unit" loading="lazy">
+        <div class="text"><b>Sell Your Unit</b><span class="sub">Sell faster</span></div>
+      </a>
+      <a class="tile" href="resale-en.html">
+        <img class="ico" src="https://f.top4top.io/p_3529n8g7t3.gif" alt="Resale" loading="lazy">
+        <div class="text"><b>Resale</b><span class="sub">Ready to move</span></div>
+      </a>
+      <a class="tile" href="offers-en.html">
+        <img class="ico" src="https://e.top4top.io/p_3529qupm22.gif" alt="Hot offers" loading="lazy">
+        <div class="text"><b>Hot Offers</b><span class="sub">Discounts & plans</span></div>
+      </a>
     </div>
+  </div>
+</section>
 
-    <!-- Modal للطرق -->
-    <div id="roadModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="roadModalTitle">إضافة طريق جديد</h2>
-            </div>
-            <form id="roadForm">
-                <div class="form-group">
-                    <label>اسم الطريق *</label>
-                    <input type="text" id="roadName" required>
-                </div>
-                <div class="form-group">
-                    <label>المنطقة *</label>
-                    <select id="roadArea" required>
-                        <option value="">اختر المنطقة</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>رابط الصورة</label>
-                    <input type="url" id="roadImage" placeholder="https://example.com/image.jpg">
-                </div>
-                <div class="form-group">
-                    <label>الوصف</label>
-                    <textarea id="roadDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-save">💾 حفظ</button>
-                    <button type="button" class="btn-cancel" onclick="closeModal('road')">✖ إلغاء</button>
-                </div>
-            </form>
-        </div>
+<!-- AREAS -->
+<section class="section">
+  <div class="container">
+    <h2>Top Areas</h2>
+    <div class="hbar">
+      <a class="area-chip" href="sokhna-en.html"><img src="https://l.top4top.io/p_3529ruzpm0.jpeg" alt="Ain Sokhna" loading="lazy"><div><b>Ain Sokhna</b><div class="sub">Zafarana / Suez axis</div></div></a>
+      <a class="area-chip" href="north-en.html"><img src="https://a.top4top.io/p_35291f2zr1.jpeg" alt="North Coast" loading="lazy"><div><b>North Coast</b><div class="sub">Ras El Hekma — Sidi Abdelrahman</div></div></a>
+      <a class="area-chip" href="Cairo-en.html"><img src="https://b.top4top.io/p_352921mkm2.jpeg" alt="New Cairo" loading="lazy"><div><b>New Cairo</b><div class="sub">5th Settlement — NAC — Mostakbal</div></div></a>
     </div>
+  </div>
+</section>
 
-    <!-- Modal للوحدات -->
-    <div id="unitModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="unitModalTitle">إضافة وحدة جديدة</h2>
-            </div>
-            <form id="unitForm">
-                <div class="form-group">
-                    <label>عنوان الوحدة *</label>
-                    <input type="text" id="unitTitle" required>
-                </div>
-                <div class="form-group">
-                    <label>الكود *</label>
-                    <input type="text" id="unitCode" required>
-                </div>
-                <div class="form-group">
-                    <label>المشروع *</label>
-                    <select id="unitProject" required>
-                        <option value="">اختر المشروع</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>السعر (جنيه) *</label>
-                    <input type="number" id="unitPrice" required>
-                </div>
-                <div class="form-group">
-                    <label>رابط الصورة</label>
-                    <input type="url" id="unitImage" placeholder="https://example.com/image.jpg">
-                </div>
-                <div class="form-group">
-                    <label>الوصف</label>
-                    <textarea id="unitDescription"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-save">💾 حفظ</button>
-                    <button type="button" class="btn-cancel" onclick="closeModal('unit')">✖ إلغاء</button>
-                </div>
-            </form>
-        </div>
+<!-- NEW PROJECTS -->
+<section class="section">
+  <div class="container">
+    <h2>New Projects</h2>
+    <div class="hbar">
+      <a class="card" href="lugano-en.html"><div class="thumb"><img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="Lugano El Galala" loading="lazy"><span class="badge">New Phase</span></div><div class="body"><h3>Lugano El Galala</h3><p>Details & delivery timelines</p></div></a>
+      <a class="card" href="sokhnahills-en.html"><div class="thumb"><img src="https://d.top4top.io/p_3529o4l6o1.jpeg" alt="Sokhna Hills" loading="lazy"><span class="badge">Masterplan</span></div><div class="body"><h3>Sokhna Hills</h3><p>Prime location & flexible plans</p></div></a>
+      <a class="card" href="porto-sokhna-en.html"><div class="thumb"><img src="https://c.top4top.io/p_3529xatvs0.jpeg" alt="Porto Sokhna" loading="lazy"><span class="badge">Ready</span></div><div class="body"><h3>Porto Sokhna</h3><p>Immediate delivery</p></div></a>
     </div>
+  </div>
+</section>
 
-    <script>
-        // البيانات المخزنة
-        let projects = [];
-        let areas = [];
-        let roads = [];
-        let units = [];
-        let editingId = null;
-        let editingType = null;
+<!-- MOST SEARCHED -->
+<section class="section">
+  <div class="container">
+    <h2>Trending Searches</h2>
+    <div class="hbar">
+      <a class="card" href="porto-sokhna-en.html"><div class="thumb"><img src="https://c.top4top.io/p_3529xatvs0.jpeg" alt="Porto Sokhna — Ain Sokhna" loading="lazy"><span class="badge">Ready</span></div><div class="body"><h3>Porto Sokhna</h3><p>Ain Sokhna</p></div></a>
+      <a class="card" href="sokhnahills-en.html"><div class="thumb"><img src="https://d.top4top.io/p_3529o4l6o1.jpeg" alt="Sokhna Hills — Zafarana" loading="lazy"><span class="badge">Plan</span></div><div class="body"><h3>Sokhna Hills</h3><p>Zafarana</p></div></a>
+      <a class="card" href="lugano-en.html"><div class="thumb"><img src="https://e.top4top.io/p_35299vm0x2.jpg" alt="Lugano — El Galala" loading="lazy"><span class="badge">Soon</span></div><div class="body"><h3>Lugano El Galala</h3><p>El Galala</p></div></a>
+    </div>
+  </div>
+</section>
 
-        // تحميل البيانات عند بدء التشغيل
-        window.onload = function() {
-            loadData();
-            renderAll();
-        };
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <img src="https://a.top4top.io/p_3529ou9hw0.png" alt="Contact us" class="lead-top-img" loading="lazy">
+      <h2>Need Real-Estate Help?</h2>
+      <form onsubmit="return sendLead()" aria-label="Contact form">
+        <div class="row">
+          <div class="field"><label for="name">Full name</label><input id="name" required placeholder="Write your name"></div>
+          <div class="field"><label for="loc">Preferred area</label>
+            <select id="loc" required>
+              <option value="" selected disabled>Choose area</option>
+              <option>Ain Sokhna</option><option>North Coast</option><option>New Cairo</option><option>New Capital</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="projName">Project</label><input id="projName" placeholder="e.g., Lugano El Galala"></div>
+          <div class="field"><label for="cphone">Mobile</label><input id="cphone" required inputmode="tel" placeholder="01xxxxxxxxx"></div>
+        </div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" rows="3" placeholder="Budget, delivery, payment plan…"></textarea></div>
+        <div class="actions">
+          <button class="submit" type="submit">Send</button>
+          <a class="call" href="tel:01050072527">Call now</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
-        // تحميل البيانات من المتغيرات
-        function loadData() {
-            // يمكن هنا تحميل البيانات من API أو قاعدة بيانات
-        }
+<!-- Floating WhatsApp -->
+<a class="fab-whatsapp" href="https://wa.me/201050072527" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="sr">WhatsApp</span>💬
+</a>
 
-        // حفظ البيانات
-        function saveData() {
-            // يمكن هنا حفظ البيانات إلى API أو قاعدة بيانات
-            updateStats();
-        }
+<!-- ===== Footer include ===== -->
+{% include footer-en.html %}
 
-        // تحديث الإحصائيات
-        function updateStats() {
-            document.getElementById('projectsCount').textContent = projects.length;
-            document.getElementById('areasCount').textContent = areas.length;
-            document.getElementById('roadsCount').textContent = roads.length;
-            document.getElementById('unitsCount').textContent = units.length;
-        }
+<!-- ===== Search script ===== -->
+<script>
+(function(){
+  const INPUT = document.getElementById('siteSearch');
+  const BOX   = document.getElementById('suggest');
+  if(!INPUT || !BOX) return;
 
-        // التبديل بين التبويبات
-        function switchTab(tabName) {
-            // إخفاء جميع الأقسام
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            
-            // إظهار القسم المحدد
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }
+  let SITE_INDEX = [];
+  fetch('/search-index.json', {cache:'no-store'})
+    .then(r => r.json())
+    .then(json => SITE_INDEX = Array.isArray(json) ? json : [])
+    .catch(() => SITE_INDEX = []);
 
-        // فتح نافذة الإضافة/التعديل
-        function openModal(type, id = null) {
-            editingId = id;
-            editingType = type;
-            
-            const modal = document.getElementById(type + 'Modal');
-            modal.classList.add('active');
-            
-            if (id !== null) {
-                // وضع التعديل
-                document.getElementById(type + 'ModalTitle').textContent = 'تعديل ' + getTypeName(type);
-                fillForm(type, id);
-            } else {
-                // وضع الإضافة
-                document.getElementById(type + 'ModalTitle').textContent = 'إضافة ' + getTypeName(type) + ' جديد';
-                document.getElementById(type + 'Form').reset();
-            }
-            
-            // تحديث القوائم المنسدلة
-            updateDropdowns();
-        }
+  const makeItem = it => {
+    const a = document.createElement('a');
+    a.href = it.url;
+    a.textContent = it.title;
+    return a;
+  };
 
-        // إغلاق النافذة
-        function closeModal(type) {
-            document.getElementById(type + 'Modal').classList.remove('active');
-            editingId = null;
-            editingType = null;
-        }
+  function search(q){
+    q = (q || '').trim().toLowerCase();
+    if(!q) return [];
+    return SITE_INDEX
+      .map(it=>{
+        const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
+        const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
+        const inKeys  = hay.includes(q) ? 1 : 0;
+        return {...it, score: inTitle + inKeys};
+      })
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0,8);
+  }
 
-        // الحصول على اسم النوع
-        function getTypeName(type) {
-            const names = {
-                project: 'المشروع',
-                area: 'المنطقة',
-                road: 'الطريق',
-                unit: 'الوحدة'
-            };
-            return names[type];
-        }
+  function render(list){
+    BOX.innerHTML = '';
+    if(list.length === 0){ BOX.style.display='none'; return; }
+    list.forEach(r => BOX.appendChild(makeItem(r)));
+    BOX.style.display = 'block';
+  }
 
-        // ملء النموذج بالبيانات عند التعديل
-        function fillForm(type, id) {
-            let item;
-            if (type === 'project') item = projects.find(p => p.id === id);
-            else if (type === 'area') item = areas.find(a => a.id === id);
-            else if (type === 'road') item = roads.find(r => r.id === id);
-            else if (type === 'unit') item = units.find(u => u.id === id);
-            
-            if (!item) return;
-            
-            if (type === 'project') {
-                document.getElementById('projectName').value = item.name;
-                document.getElementById('projectImage').value = item.image || '';
-                document.getElementById('projectDescription').value = item.description || '';
-            } else if (type === 'area') {
-                document.getElementById('areaName').value = item.name;
-                document.getElementById('areaImage').value = item.image || '';
-                document.getElementById('areaDescription').value = item.description || '';
-            } else if (type === 'road') {
-                document.getElementById('roadName').value = item.name;
-                document.getElementById('roadArea').value = item.area;
-                document.getElementById('roadImage').value = item.image || '';
-                document.getElementById('roadDescription').value = item.description || '';
-            } else if (type === 'unit') {
-                document.getElementById('unitTitle').value = item.title;
-                document.getElementById('unitCode').value = item.code;
-                document.getElementById('unitProject').value = item.project;
-                document.getElementById('unitPrice').value = item.price;
-                document.getElementById('unitImage').value = item.image || '';
-                document.getElementById('unitDescription').value = item.description || '';
-            }
-        }
+  INPUT.addEventListener('input', ()=> render(search(INPUT.value)));
+  document.addEventListener('click', (e)=>{
+    if(!BOX.contains(e.target) && e.target !== INPUT) BOX.style.display='none';
+  });
+  INPUT.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const first = BOX.querySelector('a');
+      if(first){ window.location.href = first.href; }
+    }
+  });
+})();
+</script>
 
-        // تحديث القوائم المنسدلة
-        function updateDropdowns() {
-            // تحديث قائمة المناطق في الطرق
-            const roadAreaSelect = document.getElementById('roadArea');
-            roadAreaSelect.innerHTML = '<option value="">اختر المنطقة</option>';
-            areas.forEach(area => {
-                roadAreaSelect.innerHTML += `<option value="${area.id}">${area.name}</option>`;
-            });
-            
-            // تحديث قائمة المشاريع في الوحدات
-            const unitProjectSelect = document.getElementById('unitProject');
-            unitProjectSelect.innerHTML = '<option value="">اختر المشروع</option>';
-            projects.forEach(project => {
-                unitProjectSelect.innerHTML += `<option value="${project.id}">${project.name}</option>`;
-            });
-        }
+<!-- Button click opens first suggestion -->
+<script>
+document.getElementById('searchBtn')?.addEventListener('click', ()=>{
+  const first = document.querySelector('#suggest a');
+  if(first){ window.location.href = first.href; }
+});
+</script>
 
-        // معالجات النماذج
-        document.getElementById('projectForm').onsubmit = function(e) {
-            e.preventDefault();
-            saveProject();
-        };
-
-        document.getElementById('areaForm').onsubmit = function(e) {
-            e.preventDefault();
-            saveArea();
-        };
-
-        document.getElementById('roadForm').onsubmit = function(e) {
-            e.preventDefault();
-            saveRoad();
-        };
-
-        document.getElementById('unitForm').onsubmit = function(e) {
-            e.preventDefault();
-            saveUnit();
-        };
-
-        // حفظ المشروع
-        function saveProject() {
-            const data = {
-                id: editingId || Date.now(),
-                name: document.getElementById('projectName').value,
-                image: document.getElementById('projectImage').value,
-                description: document.getElementById('projectDescription').value
-            };
-            
-            if (editingId) {
-                const index = projects.findIndex(p => p.id === editingId);
-                projects[index] = data;
-            } else {
-                projects.push(data);
-            }
-            
-            closeModal('project');
-            renderProjects();
-            saveData();
-        }
-
-        // حفظ المنطقة
-        function saveArea() {
-            const data = {
-                id: editingId || Date.now(),
-                name: document.getElementById('areaName').value,
-                image: document.getElementById('areaImage').value,
-                description: document.getElementById('areaDescription').value
-            };
-            
-            if (editingId) {
-                const index = areas.findIndex(a => a.id === editingId);
-                areas[index] = data;
-            } else {
-                areas.push(data);
-            }
-            
-            closeModal('area');
-            renderAreas();
-            saveData();
-        }
-
-        // حفظ الطريق
-        function saveRoad() {
-            const data = {
-                id: editingId || Date.now(),
-                name: document.getElementById('roadName').value,
-                area: document.getElementById('roadArea').value,
-                image: document.getElementById('roadImage').value,
-                description: document.getElementById('roadDescription').value
-            };
-            
-            if (editingId) {
-                const index = roads.findIndex(r => r.id === editingId);
-                roads[index] = data;
-            } else {
-                roads.push(data);
-            }
-            
-            closeModal('road');
-            renderRoads();
-            saveData();
-        }
-
-        // حفظ الوحدة
-        function saveUnit() {
-            const data = {
-                id: editingId || Date.now(),
-                title: document.getElementById('unitTitle').value,
-                code: document.getElementById('unitCode').value,
-                project: document.getElementById('unitProject').value,
-                price: document.getElementById('unitPrice').value,
-                image: document.getElementById('unitImage').value,
-                description: document.getElementById('unitDescription').value
-            };
-            
-            if (editingId) {
-                const index = units.findIndex(u => u.id === editingId);
-                units[index] = data;
-            } else {
-                units.push(data);
-            }
-            
-            closeModal('unit');
-            renderUnits();
-            saveData();
-        }
-
-        // حذف عنصر
-        function deleteItem(type, id) {
-            if (!confirm('هل أنت متأكد من الحذف؟')) return;
-            
-            if (type === 'project') {
-                projects = projects.filter(p => p.id !== id);
-                renderProjects();
-            } else if (type === 'area') {
-                areas = areas.filter(a => a.id !== id);
-                renderAreas();
-            } else if (type === 'road') {
-                roads = roads.filter(r => r.id !== id);
-                renderRoads();
-            } else if (type === 'unit') {
-                units = units.filter(u => u.id !== id);
-                renderUnits();
-            }
-            
-            saveData();
-        }
-
-        // عرض المشاريع
-        function renderProjects() {
-            const container = document.getElementById('projectsList');
-            
-            if (projects.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>لا توجد مشاريع حالياً</h3>
-                        <p>ابدأ بإضافة مشروع جديد!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = projects.map(p => `
-                <div class="item-card">
-                    ${p.image ? `<img src="${p.image}" alt="${p.name}">` : ''}
-                    <div class="item-card-body">
-                        <h3>${p.name}</h3>
-                        <p>${p.description || 'لا يوجد وصف'}</p>
-                        <div class="item-actions">
-                            <button class="btn btn-edit" onclick="openModal('project', ${p.id})">✏️ تعديل</button>
-                            <button class="btn btn-delete" onclick="deleteItem('project', ${p.id})">🗑️ حذف</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // عرض المناطق
-        function renderAreas() {
-            const container = document.getElementById('areasList');
-            
-            if (areas.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>لا توجد مناطق حالياً</h3>
-                        <p>ابدأ بإضافة منطقة جديدة!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = areas.map(a => `
-                <div class="item-card">
-                    ${a.image ? `<img src="${a.image}" alt="${a.name}">` : ''}
-                    <div class="item-card-body">
-                        <h3>${a.name}</h3>
-                        <p>${a.description || 'لا يوجد وصف'}</p>
-                        <div class="item-actions">
-                            <button class="btn btn-edit" onclick="openModal('area', ${a.id})">✏️ تعديل</button>
-                            <button class="btn btn-delete" onclick="deleteItem('area', ${a.id})">🗑️ حذف</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // عرض الطرق
-        function renderRoads() {
-            const container = document.getElementById('roadsList');
-            
-            if (roads.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>لا توجد طرق حالياً</h3>
-                        <p>ابدأ بإضافة طريق جديد!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = roads.map(r => {
-                const area = areas.find(a => a.id == r.area);
-                return `
-                    <div class="item-card">
-                        ${r.image ? `<img src="${r.image}" alt="${r.name}">` : ''}
-                        <div class="item-card-body">
-                            <h3>${r.name}</h3>
-                            <p><strong>المنطقة:</strong> ${area ? area.name : 'غير محدد'}</p>
-                            <p>${r.description || 'لا يوجد وصف'}</p>
-                            <div class="item-actions">
-                                <button class="btn btn-edit" onclick="openModal('road', ${r.id})">✏️ تعديل</button>
-                                <button class="btn btn-delete" onclick="deleteItem('road', ${r.id})">🗑️ حذف</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // عرض الوحدات
-        function renderUnits() {
-            const container = document.getElementById('unitsList');
-            
-            if (units.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>لا توجد وحدات حالياً</h3>
-                        <p>ابدأ بإضافة وحدة جديدة!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = units.map(u => {
-                const project = projects.find(p => p.id == u.project);
-                return `
-                    <div class="item-card">
-                        ${u.image ? `<img src="${u.image}" alt="${u.title}">` : ''}
-                        <div class="item-card-body">
-                            <h3>${u.title}</h3>
-                            <p><strong>الكود:</strong> ${u.code}</p>
-                            <p><strong>المشروع:</strong> ${project ? project.name : 'غير محدد'}</p>
-                            <p><strong>السعر:</strong> ${Number(u.price || 0).toLocaleString('ar-EG')} جنيه</p>
-                            <p>${u.description || 'لا يوجد وصف'}</p>
-                            <div class="item-actions">
-                                <button class="btn btn-edit" onclick="openModal('unit', ${u.id})">✏️ تعديل</button>
-                                <button class="btn btn-delete" onclick="deleteItem('unit', ${u.id})">🗑️ حذف</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // عرض كل شيء
-        function renderAll() {
-            renderProjects();
-            renderAreas();
-            renderRoads();
-            renderUnits();
-            updateStats();
-        }
-
-        // إغلاق النافذة عند النقر خارجها
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                }
-            });
-        });
-    </script>
+<!-- WhatsApp lead -->
+<script>
+function sendLead(){
+  const name=(document.getElementById('name').value||"").trim();
+  const loc=(document.getElementById('loc').value||"").trim();
+  const proj=(document.getElementById('projName').value||"").trim();
+  const phone=(document.getElementById('cphone').value||"").trim();
+  const extra=(document.getElementById('msg').value||"").trim();
+  const text = `👤 Name: ${name}%0A📍 Area: ${loc}%0A🏘️ Project: ${proj}%0A📞 Mobile: ${phone}%0A✍️ Notes: ${extra}`;
+  window.open(`https://wa.me/201050072527?text=${text}`,"_blank");
+  return false;
+}
+</script>
 </body>
 </html>
