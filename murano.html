@@ -392,7 +392,9 @@ a:hover{color:#1d4ed8}
   overflow-x:auto;
   padding:6px 0;
   cursor:grab;
-  scrollbar-width:thin
+  scrollbar-width:thin;
+  user-select:none;
+  -webkit-user-select:none;
 }
 .slider-thumbs:active{cursor:grabbing}
 .slider-thumbs img{
@@ -402,7 +404,8 @@ a:hover{color:#1d4ed8}
   border-radius:var(--radius);
   cursor:pointer;
   border:2px solid transparent;
-  transition:all .2s
+  transition:all .2s;
+  pointer-events:auto;
 }
 .slider-thumbs img:hover{
   border-color:var(--primary);
@@ -633,7 +636,9 @@ a:hover{color:#1d4ed8}
   object-fit:contain;
   border-radius:var(--radius);
   box-shadow:0 10px 40px rgba(0,0,0,.5);
-  transition:opacity .2s
+  transition:opacity .2s;
+  pointer-events:auto;
+  user-select:none;
 }
 .lb-close{
   position:absolute;
@@ -740,10 +745,6 @@ body *:not(input):not(textarea){
   -webkit-user-select:none;
   -moz-user-select:none;
   user-select:none
-}
-img,video{
-  pointer-events:none;
-  -webkit-user-drag:none
 }
 </style>
 </head>
@@ -1238,7 +1239,7 @@ document.addEventListener('keydown', (e)=>{
   }
 });
 
-// Swipe support
+// Swipe support for Lightbox
 (function(){
   let isDown = false, startX = 0;
   lb.addEventListener('pointerdown', (e) => {
@@ -1258,14 +1259,26 @@ document.addEventListener('keydown', (e)=>{
   });
 })();
 
-// Slider drag
+// Slider drag for thumbnails
 (function(){
   const el = document.getElementById('thumbs');
   if(!el) return;
   let down=false,startX,sl;
-  el.addEventListener('pointerdown', e=>{down=true; startX=e.clientX; sl=el.scrollLeft;});
-  el.addEventListener('pointermove', e=>{if(!down) return; e.preventDefault(); el.scrollLeft = sl - (e.clientX - startX);});
-  ['pointerup','pointercancel'].forEach(ev=> el.addEventListener(ev, ()=> down=false));
+  el.addEventListener('pointerdown', e=>{
+    down=true; 
+    startX=e.clientX; 
+    sl=el.scrollLeft;
+    el.style.cursor='grabbing';
+  });
+  el.addEventListener('pointermove', e=>{
+    if(!down) return; 
+    e.preventDefault(); 
+    el.scrollLeft = sl - (e.clientX - startX);
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=> el.addEventListener(ev, ()=> {
+    down=false;
+    el.style.cursor='grab';
+  }));
 })();
 
 // Share & Copy
