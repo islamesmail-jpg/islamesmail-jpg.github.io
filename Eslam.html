@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
@@ -6,80 +6,92 @@
   <title>خريطة العين السخنة | اسلام اسماعيل</title>
 
   <!-- مكتبة Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha512-sA+e2sxHL5czHkCj9d7QOvjXDmS3fTu5Hx6KdvHfNJv2sO6P8h1mIvmc0lS0rM7Y+S2F9N6C0+E2z4TtZTI8AA=="
+    crossorigin=""
+  />
 
   <style>
     html, body {
       height: 100%;
       margin: 0;
       font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-      background: #f7f8fa;
-    }
-    #map {
-      width: 100%;
-      height: 100vh;
     }
 
-    /* تنسيق اللوجو */
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* صندوق اللوجو */
     .logo-container {
       position: absolute;
       top: 15px;
       right: 15px;
-      z-index: 1000;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 12px;
-      padding: 8px 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 1000;
     }
+
     .logo-container img {
-      height: 45px;
-      width: auto;
+      width: 60px;
+      height: auto;
       display: block;
     }
 
-    /* تحسين مظهر أدوات التكبير */
+    /* تحسين شكل أزرار التكبير */
     .leaflet-control-zoom {
       margin: 20px 15px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
-    /* اخفاء حقوق المصدر (اختياري - لكن يفضل تركها مفعّلة قانونيًا) */
+    /* إخفاء النص الصغير اللي تحت */
     .leaflet-control-attribution {
       display: none !important;
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- اللوجو -->
   <div class="logo-container">
-    <img src="logo-islam-esmail.png" alt="Islam Ismail Logo" />
+    <img src="logo.png" alt="Islam Ismail Logo" />
   </div>
 
   <!-- الخريطة -->
   <div id="map"></div>
 
   <!-- مكتبة Leaflet -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha512-vPtnzZ6NfhQim+7E5LtVd9z0JfQ1u2Z8E1S9prcDEn6XrBaHCr0qJuv1Xc9yCk8B8EwYvQqFQl06cZKMmWZ3Ew=="
+    crossorigin="">
+  </script>
 
   <script>
-    // إعداد مركز الخريطة (العين السخنة)
+    // مركز الخريطة (العين السخنة)
+    const sokhnaLatLng = [29.6007, 32.3160];
+
+    // إنشاء الخريطة
     const map = L.map('map', {
-      center: [29.6007, 32.3160], // إحداثيات العين السخنة
+      center: sokhnaLatLng,
       zoom: 12,
       zoomControl: true,
       attributionControl: false
     });
 
-    // طبقة الخريطة (خلفية نظيفة)
-    L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
-      subdomains: 'abcd',
-      maxZoom: 20
+    // طبقة الخلفية (خريطة نظيفة)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19
     }).addTo(map);
 
-    // ماركر بسيط لموقع العين السخنة
-    const marker = L.marker([29.6007, 32.3160]).addTo(map);
+    // ماركر على العين السخنة
+    const marker = L.marker(sokhnaLatLng).addTo(map);
     marker.bindPopup("<b>العين السخنة</b><br>Islam Ismail Real Estate").openPopup();
   </script>
 </body>
