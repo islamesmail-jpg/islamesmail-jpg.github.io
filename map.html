@@ -2,14 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>خريطة العين السخنة | اسلام اسماعيل</title>
 
   <!-- مكتبة Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha512-sA+e2sxHL5czHkCj9d7QOvjXDmS3fTu5Hx6KdvHfNJv2sO6P8h1mIvmc0lS0rM7Y+S2F9N6C0+E2z4TtZTI8AA=="
     crossorigin=""
   />
 
@@ -25,32 +24,32 @@
       width: 100%;
     }
 
-    /* صندوق اللوجو */
+    /* اللوجو */
     .logo-container {
       position: absolute;
       top: 15px;
       right: 15px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
-      padding: 8px;
+      padding: 6px 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       z-index: 1000;
     }
 
     .logo-container img {
-      width: 60px;
+      width: 55px;
       height: auto;
       display: block;
     }
 
-    /* تحسين شكل أزرار التكبير */
+    /* شكل أزرار التكبير */
     .leaflet-control-zoom {
       margin: 20px 15px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
-    /* إخفاء النص الصغير اللي تحت */
+    /* إخفاء النص الصغير في الأسفل */
     .leaflet-control-attribution {
       display: none !important;
     }
@@ -67,31 +66,28 @@
   <div id="map"></div>
 
   <!-- مكتبة Leaflet -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha512-vPtnzZ6NfhQim+7E5LtVd9z0JfQ1u2Z8E1S9prcDEn6XrBaHCr0qJuv1Xc9yCk8B8EwYvQqFQl06cZKMmWZ3Ew=="
-    crossorigin="">
-  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
   <script>
     // مركز الخريطة (العين السخنة)
-    const sokhnaLatLng = [29.6007, 32.3160];
+    const sokhna = [29.6007, 32.3160];
 
     // إنشاء الخريطة
     const map = L.map('map', {
-      center: sokhnaLatLng,
+      center: sokhna,
       zoom: 12,
       zoomControl: true,
       attributionControl: false
     });
 
-    // طبقة الخلفية (خريطة نظيفة)
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // طبقة الخلفية (Carto Light - تعمل في مصر بدون مشاكل)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      subdomains: 'abcd',
       maxZoom: 19
     }).addTo(map);
 
-    // ماركر على العين السخنة
-    const marker = L.marker(sokhnaLatLng).addTo(map);
+    // ماركر العين السخنة
+    const marker = L.marker(sokhna).addTo(map);
     marker.bindPopup("<b>العين السخنة</b><br>Islam Ismail Real Estate").openPopup();
   </script>
 </body>
