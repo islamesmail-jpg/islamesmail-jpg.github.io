@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>خريطة العين السخنة | اسلام اسماعيل</title>
+  <title>قرى العين السخنة | اسلام اسماعيل</title>
 
-  <!-- مكتبة Leaflet -->
+  <!-- Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -16,8 +16,8 @@
     html, body {
       height: 100%;
       margin: 0;
-      font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
-      background: #f2f3f7;
+      font-family: "Cairo", sans-serif;
+      background: #f4f5f7;
     }
 
     #map {
@@ -43,14 +43,12 @@
       display: block;
     }
 
-    /* شكل أزرار التكبير */
     .leaflet-control-zoom {
       margin: 20px 15px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
-    /* إخفاء النص الصغير أسفل الخريطة */
     .leaflet-control-attribution {
       display: none !important;
     }
@@ -58,38 +56,47 @@
 </head>
 
 <body>
-  <!-- اللوجو -->
   <div class="logo-container">
     <img src="https://e.top4top.io/p_3603halzf1.png" alt="Islam Ismail Logo" />
   </div>
 
-  <!-- الخريطة -->
   <div id="map"></div>
 
-  <!-- مكتبة Leaflet -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
   <script>
-    // مركز الخريطة (العين السخنة)
+    // مركز العين السخنة
     const sokhna = [29.6007, 32.3160];
 
-    // إنشاء الخريطة
     const map = L.map('map', {
       center: sokhna,
-      zoom: 11,
+      zoom: 12,
       zoomControl: true,
       attributionControl: false
     });
 
-    // ✅ طبقة خرائط تظهر القرى فقط (ستايل احترافي من Carto Voyager)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
+    // ✅ خريطة فيها المبانى والبحيرات واللاندسكيب (من OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 20,
     }).addTo(map);
 
-    // ماركر على العين السخنة
-    const marker = L.marker(sokhna).addTo(map);
-    marker.bindPopup("<b>العين السخنة</b><br>Islam Ismail Real Estate");
+    // ✅ بيانات القرى
+    const villages = [
+      { name: "ستيلا دي ماري", coords: [29.558, 32.370] },
+      { name: "بورتو السخنة", coords: [29.586, 32.352] },
+      { name: "منتجع الجلالة", coords: [29.611, 32.317] },
+      { name: "قرية تلال", coords: [29.596, 32.335] },
+      { name: "عين هيلز", coords: [29.601, 32.327] },
+      { name: "كورونادو", coords: [29.575, 32.345] },
+      { name: "بلومار السخنة", coords: [29.594, 32.325] },
+      { name: "لاجونا باي", coords: [29.582, 32.341] },
+    ];
+
+    // ✅ إضافة الدبابيس
+    villages.forEach(v => {
+      const marker = L.marker(v.coords).addTo(map);
+      marker.bindPopup(`<b>قرية ${v.name}</b><br>| اسلام اسماعيل`);
+    });
   </script>
 </body>
 </html>
