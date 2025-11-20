@@ -1,522 +1,539 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>العين السخنة — عقارات | اسلام اسماعيل</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>بورتو العين السخنة — صفحة المشروع الاحترافية</title>
 
-  <!-- Font (Arabic) & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --accent:#0b6fb2;
-      --accent-dark:#075985;
-      --muted:#6b7280;
-      --card-bg: #fff;
-      --bg:#f6f9fb;
-      --glass: rgba(255,255,255,0.6);
-      --shadow: 0 6px 18px rgba(10, 20, 30, 0.08);
-      --radius: 14px;
-    }
-    *{box-sizing:border-box;font-family:'Cairo',sans-serif}
-    html,body{height:100%;margin:0;background:var(--bg);color:#0f1724}
-    a{color:inherit;text-decoration:none}
-    header{
-      background: linear-gradient(90deg, rgba(11,111,178,0.95), rgba(7,89,133,0.95)), url('https://e.top4top.io/p_36047u0b91.png') center/cover no-repeat;
-      padding:28px 20px;
-      border-bottom-left-radius:24px;
-      border-bottom-right-radius:24px;
-      color:white;
-      box-shadow:var(--shadow);
-    }
-    .container{max-width:1200px;margin:0 auto;padding:18px}
-    .topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand h1{font-size:20px;margin:0;font-weight:700}
-    .brand p{margin:0;font-size:13px;opacity:0.95}
-    .searchbar{display:flex;gap:8px;align-items:center;background:rgba(255,255,255,0.12);padding:8px;border-radius:12px}
-    .searchbar input{border:0;background:transparent;color:white;outline:none;padding:8px;width:320px}
-    .searchbar button{background:transparent;border:1px solid rgba(255,255,255,0.18);padding:8px 12px;border-radius:10px;color:white;cursor:pointer}
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b3a5e;
+  --accent-2:#1a8f7a;
+  --glass: rgba(255,255,255,0.85);
+  --radius:14px;
+  --shadow: 0 8px 30px rgba(11,58,94,0.08);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:#12202b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.65;
+}
 
-    main{margin-top:18px;padding-bottom:60px}
-    .grid{display:grid;grid-template-columns: 1fr 360px;gap:18px;align-items:start}
-    /* left column */
-    .card{background:var(--card-bg);padding:14px;border-radius:12px;box-shadow:var(--shadow)}
-    .tabs{display:flex;gap:8px;margin-bottom:12px}
-    .tabs button{padding:8px 12px;border-radius:10px;border:0;background:transparent;cursor:pointer}
-    .tabs button.active{background:var(--accent);color:white}
-    .projects-list{display:grid;gap:12px}
-    .project-item{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;border:1px solid #eef3f7}
-    .project-thumb{width:120px;height:80px;border-radius:10px;background:#eee;flex-shrink:0;overflow:hidden}
-    .project-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .project-info h3{margin:0;font-size:16px}
-    .project-info p{margin:6px 0 0;color:var(--muted);font-size:13px}
-    .badge{display:inline-block;padding:6px 8px;border-radius:8px;font-size:12px;background:#eef7ff;color:var(--accent)}
-    .meta{display:flex;gap:8px;margin-top:8px;align-items:center;font-size:13px;color:var(--muted)}
+/* ===== Header / Hero ===== */
+.header {
+  position:fixed;
+  top:0; left:0; right:0;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 28px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.80));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(15,20,25,0.06);
+  z-index:999;
+}
+.brand {display:flex;align-items:center;gap:12px}
+.brand img{height:44px;border-radius:8px}
+.header .actions{display:flex;gap:12px;align-items:center}
+.btn {
+  display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;
+  background:var(--accent);color:#fff;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(11,58,94,0.12)
+}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(11,58,94,0.08)}
 
-    /* right column */
-    .sticky{position:sticky;top:20px}
-    .region-desc{line-height:1.6;color:#0b1b2b}
-    .map{width:100%;height:200px;border-radius:10px;overflow:hidden;margin-top:10px}
-    .form{display:flex;flex-direction:column;gap:10px}
-    .form input,.form select,.form textarea{padding:10px;border-radius:8px;border:1px solid #e6eef6;outline:none}
-    .btn{background:var(--accent);color:white;border:none;padding:10px;border-radius:10px;cursor:pointer}
+/* HERO */
+.hero {
+  margin-top:72px;
+  height:48vh;
+  min-height:360px;
+  background-image:linear-gradient(to bottom, rgba(6,20,30,0.25), rgba(6,20,30,0.45)), url('https://k.top4top.io/p_361155dw02.jpg');
+  background-size:cover; background-position:center;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  color:#fff; padding:40px 20px;
+}
+.hero .wrap {
+  max-width:1200px; width:100%;
+  display:grid; grid-template-columns:1fr 420px; gap:24px; align-items:center;
+}
+@media(max-width:980px){ .hero .wrap{ grid-template-columns:1fr; padding:10px } }
+.hero h1{font-size:2.4rem;margin-bottom:8px; font-weight:800; letter-spacing:0.6px}
+.hero p{opacity:0.95;color:#f1f5f8}
 
-    /* best units */
-    .units-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .unit-card{padding:10px;border-radius:10px;border:1px solid #eef3f7;background:linear-gradient(180deg,#fff,#fbfeff)}
-    .unit-card h4{margin:0;font-size:14px}
-    .unit-meta{font-size:13px;color:var(--muted);margin-top:6px}
+/* SEARCH / FINDER BOX (right side in hero) */
+.finder {
+  background:rgba(255,255,255,0.95);
+  padding:18px;border-radius:14px;box-shadow:var(--shadow); text-align:right;
+}
+.finder h4{margin:0 0 8px;font-weight:800;color:var(--accent)}
+.finder .row{display:flex;gap:10px;margin-bottom:10px}
+.finder .row input, .finder .row select {
+  flex:1;padding:10px;border-radius:10px;border:1px solid #e6eef4;font-size:14px
+}
+.finder .row .small{width:80px;padding:10px;text-align:center;border-radius:10px;border:1px solid #e6eef4;background:#f8fafb}
 
-    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:13px;padding:18px 0}
+/* MAIN CONTAINER */
+.container{max-width:1200px;margin:28px auto;padding:0 18px}
 
-    /* responsive */
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .searchbar input{width:160px}
-      .units-grid{grid-template-columns:1fr}
-      .project-thumb{width:100px;height:70px}
-    }
-  </style>
+/* PROJECT SUMMARY */
+.summary {
+  display:grid; grid-template-columns:1fr 340px; gap:20px; align-items:start;
+}
+@media(max-width:980px){ .summary{grid-template-columns:1fr} }
+.card {
+  background:var(--card); padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(10,20,30,0.03)
+}
+.project-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.meta-item{background:#f8fafc;padding:10px 12px;border-radius:10px;font-weight:700;color:var(--accent)}
+
+/* GALLERY (lightbox) */
+.gallery {display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:980px){ .gallery{ grid-template-columns:repeat(2,1fr) } }
+.gallery img{
+  width:100%; height:160px; object-fit:cover; border-radius:10px; cursor:pointer; display:block;
+  transition:transform .25s ease;
+}
+.gallery img:hover{ transform:scale(1.03) }
+
+/* LIGHTBOX */
+.lightbox {
+  position:fixed; inset:0; display:none; place-items:center; background: rgba(3,6,12,0.85); z-index:2000;
+}
+.lightbox img{ max-width:94%; max-height:90%; border-radius:10px; box-shadow:0 12px 40px rgba(0,0,0,0.6) }
+
+/* PHASES DETAIL */
+.phases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:16px}
+.phase-card{border-radius:12px;overflow:hidden;background:#fff;border:1px solid #eef4f7;box-shadow:0 8px 30px rgba(9,23,34,0.03)}
+.phase-card img{width:100%;height:160px;object-fit:cover}
+.phase-card .body{padding:14px}
+.phase-card h4{margin:0 0 8px;color:var(--accent);font-weight:800}
+.phase-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+/* UNITS – Property-finder style cards */
+.units-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+.units-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:1100px){ .units-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:720px){ .units-grid{grid-template-columns:1fr} }
+
+.unit {
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:12px; overflow:hidden; border:1px solid #e7eef4; box-shadow:0 8px 30px rgba(11,58,94,0.05); transition:transform .28s;
+}
+.unit:hover{transform:translateY(-8px)}
+.unit .thumb{width:100%;height:200px;overflow:hidden}
+.unit .thumb img{width:100%;height:100%;object-fit:cover}
+.unit .info{padding:14px}
+.unit .title{font-weight:800;color:var(--accent);font-size:18px;margin-bottom:6px}
+.unit .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-weight:700;font-size:13px}
+.unit .price{margin-top:10px;color:#c53030;font-weight:800;font-size:18px}
+.unit .actions{display:flex;gap:10px;margin-top:12px}
+.unit .actions a{flex:1;padding:10px;border-radius:10px;text-align:center;text-decoration:none;font-weight:800}
+.unit .actions a.view{background:transparent;border:1px solid rgba(11,58,94,0.08);color:var(--accent)}
+.unit .actions a.cta{background:var(--accent-2);color:#fff}
+
+/* FLOATING HELP BOX (assistant) */
+.helper {
+  position:fixed; left:18px; bottom:18px; width:320px; background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:18px;padding:16px;box-shadow:0 18px 50px rgba(11,58,94,0.12); z-index:1500;
+}
+.helper h4{margin:0 0 8px;color:var(--accent);font-weight:800}
+.helper .field{margin-bottom:10px}
+.helper input, .helper select{width:100%;padding:10px;border-radius:10px;border:1px solid #e7eef4}
+
+/* MAP */
+.map {height:380px;border-radius:12px;overflow:hidden;border:1px solid #e7eef4;box-shadow:0 8px 30px rgba(11,58,94,0.05)}
+
+/* Footer */
+footer{margin-top:40px;padding:36px 18px;color:#fff;background:linear-gradient(90deg,var(--accent), #123e57); border-radius:12px; max-width:1200px;margin-left:auto;margin-right:auto}
+footer .cols{display:flex;gap:20px;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,0.9);text-decoration:none}
+.small{font-size:13px;color:var(--muted)}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <div style="width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:700">
-          <i class="fas fa-city" style="font-size:22px"></i>
+<!-- HEADER -->
+<div class="header" role="banner">
+  <div class="brand">
+    <img src="https://j.top4top.io/p_36113dp9m1.jpg" alt="logo">
+    <div>
+      <div style="font-weight:800">بورتو — العين السخنة</div>
+      <div class="small">منتجع متكامل — Porto Group</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="btn ghost" href="#phases">المراحل</a>
+    <a class="btn" href="#units">عرض الوحدات</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="هيدر المشروع">
+  <div class="wrap">
+    <div style="text-align:right">
+      <h1>عيش تجربة بورتو — العين السخنة</h1>
+      <p>شواطئ خاصة، مارينا، لاغون، أنشطة مائية وخدمات فندقية — وحدات جاهزة وتسليم فوري</p>
+      <div style="margin-top:18px;display:flex;gap:10px;justify-content:flex-end">
+        <a class="btn" href="#units">شاهد الوحدات</a>
+        <a class="btn ghost" href="#gallery">المعرض</a>
+      </div>
+    </div>
+
+    <aside class="finder" aria-labelledby="finder-title">
+      <h4 id="finder-title">ابحث عن وحدتك</h4>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">اعثر سريعاً — نوع، غرف، سعر</div>
+
+      <div class="row">
+        <select id="filterType"><option value="">نوع الوحدة</option><option value="شاليه">شاليه</option><option value="شقة">شقة</option><option value="فيلا">فيلا</option></select>
+        <select id="filterBeds"><option value="">غرف</option><option>استوديو</option><option>1</option><option>2</option><option>3</option><option>4+</option></select>
+      </div>
+
+      <div class="row">
+        <input id="filterMin" placeholder="اقل سعر (ج)" />
+        <input id="filterMax" placeholder="اقصى سعر (ج)" />
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:6px">
+        <button class="btn" id="applyFilter" style="flex:1">عرض النتائج</button>
+        <button class="btn ghost" id="clearFilter" style="flex:1">مسح</button>
+      </div>
+
+      <div style="margin-top:10px;font-size:13px;color:var(--muted)">او تواصل معنا فوراً عبر الواتساب</div>
+      <a class="btn" href="https://wa.me/201050072527" style="margin-top:10px;display:block;text-align:center">واتساب</a>
+    </aside>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" id="main">
+
+  <!-- SUMMARY + GALLERY -->
+  <section class="card" aria-labelledby="summary-title">
+    <div class="summary">
+      <div>
+        <h2 id="summary-title" style="margin:0 0 6px">نبذة عن مشروع بورتو — العين السخنة</h2>
+        <div class="small" style="margin-bottom:12px">منتجع متكامل — موقع استراتيجي — أنظمة تقسيط داخلية</div>
+        <p class="project-desc">بورتو العين السخنة منتجع متكامل يضم شواطئ خاصة، مارينا، لاغون، مناطق ترفيه ومرافق متكاملة. تم تقسيم المشروع إلى مراحل منفصلة كل منها يقدم طابعاً مختلفاً — من الوحدات العائلية الهادئة إلى المناطق الحيوية المطلة على البحر والأنشطة.</p>
+
+        <div class="project-meta" style="margin-top:18px">
+          <div class="meta-item">المطور: Porto Group</div>
+          <div class="meta-item">الموقع: الزعفرانة — محور السويس</div>
+          <div class="meta-item">نوع العقار: شاليهات / فيلات / بنتهاوس</div>
+          <div class="meta-item">التسليم: فورى / حسب المرحلة</div>
         </div>
-        <div>
-          <h1>العين السخنة — عقارات</h1>
-          <p>قائمة المشاريع والوحدات الأفضل في العين السخنة — islamproperty.com</p>
+
+        <!-- Gallery -->
+        <h3 style="margin-top:20px;color:var(--accent);font-size:18px">معرض الصور</h3>
+        <div class="gallery" id="gallery" aria-label="معرض الصور">
+          <!-- صور افتراضية — استبدل بالروابط الحقيقية -->
+          <img data-src="https://placehold.co/800x600?text=Porto+1" alt="porto1" loading="lazy">
+          <img data-src="https://placehold.co/800x600?text=Porto+2" alt="porto2" loading="lazy">
+          <img data-src="https://placehold.co/800x600?text=Porto+3" alt="porto3" loading="lazy">
+          <img data-src="https://placehold.co/800x600?text=Porto+4" alt="porto4" loading="lazy">
+        </div>
+
+      </div>
+
+      <!-- Right column: quick contact / highlights -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card" style="text-align:right">
+          <h4 style="margin:0 0 8px;color:var(--accent)">معلومات سريعة</h4>
+          <p class="small">الموقع: ~120 كم من القاهرة — وصول عن طريق محور السويس.</p>
+          <p class="small">خدمات: مطاعم، مارينا، ملاعب جولف، حدائق، أندية عائلية.</p>
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <a class="btn" href="#contact">للطلب</a>
+            <a class="btn ghost" href="#map">الموقع</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:12px">
+          <div style="display:flex;gap:10px;align-items:center">
+            <img src="https://placehold.co/90x70" alt="map thumbnail" style="width:90px;height:70px;object-fit:cover;border-radius:8px">
+            <div style="flex:1;text-align:right">
+              <div style="font-weight:800;color:var(--accent)">الموقع على الخريطة</div>
+              <div class="small">زر لعرض الموقع التفصيلي</div>
+            </div>
+          </div>
+          <a class="btn" href="#map" style="margin-top:10px">عرض الخريطة</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- UNITS -->
+  <section id="units" style="margin-top:22px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h2 style="margin:0">الوحدات المتاحة</h2>
+      <div class="small">عرض <span id="unitsCount">0</span> وحدة</div>
+    </div>
+
+    <div class="card">
+      <div class="units-toolbar">
+        <div class="small">اعرض بحسب: <strong id="sortLabel">الأحدث</strong></div>
+        <div style="display:flex;gap:10px">
+          <select id="sortSelect" style="padding:8px;border-radius:8px;border:1px solid #e6eef4">
+            <option value="new">الأحدث</option>
+            <option value="price_asc">السعر: الأقل أولا</option>
+            <option value="price_desc">السعر: الأعلى أولا</option>
+          </select>
         </div>
       </div>
 
-      <div class="searchbar" role="search" aria-label="بحث مشاريع">
-        <input id="searchInput" placeholder="ابحث عن مشروع أو وحدة..." />
-        <button id="searchBtn"><i class="fas fa-search"></i></button>
-        <button class="btn" id="addSampleBtn" title="أضف مشروع تجريبي">أضف مشروع</button>
+      <div class="units-grid" id="unitsGrid" aria-live="polite">
+        <!-- كروت الوحدات تولد بواسطة JS -->
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <div class="grid">
-      <!-- Left: Projects & Best Units list -->
-      <section>
-        <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h2 style="margin:0">مشاريع العين السخنة</h2>
-            <div class="tabs" role="tablist" aria-label="تصفية المشاريع">
-              <button class="active" data-filter="all">الكل</button>
-              <button data-filter="developer">المطور</button>
-              <button data-filter="resale">إعادة البيع</button>
-            </div>
-          </div>
-
-          <div style="margin-top:10px" id="projectsContainer" class="projects-list">
-            <!-- populated by JS -->
-          </div>
-
-          <div style="margin-top:12px;display:flex;justify-content:center">
-            <button id="loadMore" class="btn" style="background:var(--accent-dark)">تحميل المزيد</button>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:14px">
-          <h3 style="margin:0 0 8px 0">نتائج البحث</h3>
-          <div id="searchResults" class="projects-list"></div>
-        </div>
-
-      </section>
-
-      <!-- Right: Sidebar -->
-      <aside>
-        <div class="sticky">
-          <div class="card">
-            <h3 style="margin-top:0">لماذا العين السخنة؟</h3>
-            <p class="region-desc">
-              العين السخنة من أهم مناطق البحر الأحمر الاستثمارية والسياحية في مصر — قريبة من القاهرة، مطوّرة بالبنية التحتية، وتناسب شراء شاليهات ووحدات استثمارية وريادة أعمال الضيافة. الصفحة تجمع مشاريع متاحة ووحدات مميزة لتسهيل البحث والاتصال بالمطور أو صاحب الوحدة.
-            </p>
-
-            <div class="map" id="map">
-              <!-- iframe map -->
-              <iframe
-                src="https://www.google.com/maps?q=ain+sokhna+egypt&output=embed"
-                style="border:0;width:100%;height:100%" allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-
-          <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">أفضل الوحدات الآن</h3>
-            <div id="unitsContainer" class="units-grid">
-              <!-- populated by JS -->
-            </div>
-            <div style="margin-top:10px">
-              <a href="#units" style="font-size:13px;color:var(--accent)">عرض كل الوحدات</a>
-            </div>
-          </div>
-
-          <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">عرض مشروع جديد</h3>
-            <form id="projectForm" class="form" onsubmit="return false">
-              <input id="proj_name" placeholder="اسم المشروع" required />
-              <input id="proj_dev" placeholder="المطور" />
-              <input id="proj_area" placeholder="المنطقة (مثلاً: العين السخنة)" />
-              <textarea id="proj_desc" placeholder="وصف مختصر للمشروع (سطرين)"></textarea>
-              <input id="proj_thumb" placeholder="رابط صورة (اختياري)" />
-              <button id="submitProject" class="btn">أرسل المشروع</button>
-            </form>
-          </div>
-
-          <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">اعرض وحدتك</h3>
-            <form id="unitForm" class="form" onsubmit="return false">
-              <input id="unit_title" placeholder="عنوان الوحدة (مثال: شاليه 2 غرف)" required />
-              <input id="unit_project" placeholder="تابع لأي مشروع" />
-              <input id="unit_price" placeholder="السعر (EGP)" />
-              <select id="unit_type">
-                <option value="sale">للبيع</option>
-                <option value="rent">للإيجار</option>
-              </select>
-              <textarea id="unit_notes" placeholder="ملاحظات عن الوحدة"></textarea>
-              <button id="submitUnit" class="btn">أرسل الوحدة</button>
-            </form>
-          </div>
-
-        </div>
-      </aside>
+  <!-- MAP -->
+  <section id="map" style="margin-top:30px">
+    <h2 style="margin-bottom:12px">موقع المشروع</h2>
+    <div class="card map">
+      <iframe width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55239.36987643345!2d32.310799!3d29.603600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14563e30e98e65bd%3A0x1c046feaed4ff2!2sPorto%20Sokhna!5e0!3m2!1sar!2seg!4v1698092282389"></iframe>
     </div>
+  </section>
 
-    <footer>
-      تم إنشاء الصفحة تلقائيًا — islamproperty.com — لوصل API استخدم: <code>/api/projects</code> و <code>/api/units</code>
-    </footer>
-  </main>
+  <!-- PHASES DETAILED (UNDER ALL) -->
+  <section id="phases" style="margin-top:34px">
+    <h2 style="margin-bottom:12px">تفاصيل المراحل</h2>
 
-  <script>
-    // ===== بيانات تجريبية أولية (fallback) =====
-    const SAMPLE_PROJECTS = [
-      {
-        id: 'p1',
-        name: 'قرية زيد ريزورت',
-        developer: 'مطور ألف',
-        type: 'developer', // developer | resale
-        area: 'العين السخنة',
-        desc: 'مشروع متكامل شاليهات ومرافق سياحية وقريب من البحر.',
-        thumb: 'https://via.placeholder.com/400x300?text=Zaed+Resort'
-      },
-      {
-        id: 'p2',
-        name: 'ميفيدا ريزيدنس',
-        developer: 'شركة البحر',
-        type: 'developer',
-        area: 'العين السخنة',
-        desc: 'مجمع سكني راقٍ مع خدمات فندقية وإطلالات بحرية.',
-        thumb: 'https://via.placeholder.com/400x300?text=Mafida+Residence'
-      },
-      {
-        id: 'p3',
-        name: 'شاليه للبيع - ملاك',
-        developer: 'إعادة البيع',
-        type: 'resale',
-        area: 'العين السخنة',
-        desc: 'شاليه 2 غرف جاهز للسكن، قريب من المول.',
-        thumb: 'https://via.placeholder.com/400x300?text=Resale+Chalet'
-      }
-    ];
+    <div class="phases-grid" id="phasesGrid">
+      <!-- تولد بواسطة JS: صور + وصف + المظهر -->
+    </div>
+  </section>
 
-    const SAMPLE_UNITS = [
-      { id:'u1', title:'شاليه 2 غرف في زيد', project:'قرية زيد ريزورت', price: '2,400,000', type:'sale', featured:true, notes:'اطلالة بحرية' },
-      { id:'u2', title:'شقة استوديو', project:'ميفيدا ريزيدنس', price: '700,000', type:'sale', featured:false, notes:'إطلالة داخلية' },
-      { id:'u3', title:'شاليه دوبلكس', project:'ميفيدا ريزيدنس', price: '3,100,000', type:'sale', featured:true, notes:'جاهز للاستلام' }
-    ];
+  <!-- CONTACT -->
+  <section id="contact" style="margin-top:26px">
+    <div class="card" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <h3 style="margin:0 0 6px">هل تحتاج مساعدة؟</h3>
+        <p class="small">اترك بياناتك وسنتواصل معك خلال دقائق</p>
+      </div>
+      <form id="contactForm" style="flex:1;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input required name="name" placeholder="الاسم الكامل" style="padding:12px;border-radius:10px;border:1px solid #e6eef4;flex:1" />
+        <input required name="phone" placeholder="رقم الموبايل" style="padding:12px;border-radius:10px;border:1px solid #e6eef4;width:220px" />
+        <button class="btn" type="submit" style="width:160px">ارسل طلبك</button>
+      </form>
+    </div>
+  </section>
 
-    // ===== تغيير هنا لو عندك API حقيقي =====
-    const API_PROJECTS = '/api/projects'; // GET returns array of projects
-    const API_UNITS    = '/api/units';    // GET returns array of units
-    const API_SUBMIT_PROJECT = '/submit-project'; // POST to create project (optional)
-    const API_SUBMIT_UNIT    = '/submit-unit';    // POST to create unit (optional)
+</main>
 
-    // ===== عناصر DOM =====
-    const projectsContainer = document.getElementById('projectsContainer');
-    const unitsContainer = document.getElementById('unitsContainer');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const searchResults = document.getElementById('searchResults');
-    const tabs = document.querySelectorAll('.tabs button');
+<!-- FLOATING HELPER BOX -->
+<div class="helper" role="dialog" aria-label="مساعدة سريعة">
+  <h4>مساعدة سريعة</h4>
+  <div class="field"><input id="h_name" placeholder="الاسم" /></div>
+  <div class="field"><input id="h_phone" placeholder="رقم الموبايل" /></div>
+  <div class="field">
+    <select id="h_budget">
+      <option value="">الميزانية المتوقعة</option>
+      <option value="1-2">1 - 2 مليون</option>
+      <option value="2-4">2 - 4 مليون</option>
+      <option value="4+">أكثر من 4 مليون</option>
+    </select>
+  </div>
+  <button id="h_send">أحتاج مساعدة</button>
+</div>
 
-    // ===== بيانات في الذاكرة =====
-    let projects = [];
-    let units = [];
-    let currentFilter = 'all';
-    let itemsToShow = 6;
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <img id="lightboxImg" alt="صورة">
+</div>
 
-    // ===== تحميل البيانات: يحاول الـ API أولا ثم fallback =====
-    async function fetchData(){
-      // try fetch projects
-      try {
-        const [pjRes, unRes] = await Promise.all([
-          fetch(API_PROJECTS).then(r => r.ok ? r.json() : Promise.reject('no projects api')),
-          fetch(API_UNITS).then(r => r.ok ? r.json() : Promise.reject('no units api'))
-        ]);
-        projects = Array.isArray(pjRes) ? pjRes : SAMPLE_PROJECTS;
-        units = Array.isArray(unRes) ? unRes : SAMPLE_UNITS;
-      } catch (err) {
-        // إذا لم يوجد API — استعمل العينات أو localStorage
-        const storedP = localStorage.getItem('islam_projects');
-        const storedU = localStorage.getItem('islam_units');
-        projects = storedP ? JSON.parse(storedP) : SAMPLE_PROJECTS;
-        units = storedU ? JSON.parse(storedU) : SAMPLE_UNITS;
-      }
-      renderProjects();
-      renderUnits();
-    }
+<!-- SCRIPTS -->
+<script>
+/* ========== DATA (عدلها حسب حاجتك أو حمّل من units.json) ========== */
+const unitsData = [
+  { id:'u001', title:'استوديو أمام البحر', type:'شاليه', beds:'استوديو', area:55, price:1850000, img:'https://placehold.co/800x600?text=Unit+1', tags:['Front','Sea View'], date:'2025-08-01' },
+  { id:'u002', title:'شاليه 2 نوم — بانوراما', type:'شاليه', beds:2, area:95, price:3250000, img:'https://placehold.co/800x600?text=Unit+2', tags:['Panorama'], date:'2025-07-10' },
+  { id:'u003', title:'بنتهاوس 3 نوم — جولف باي', type:'بنتهاوس', beds:3, area:180, price:6800000, img:'https://placehold.co/800x600?text=Unit+3', tags:['Golf'], date:'2025-06-20' },
+  { id:'u004', title:'فيلا مستقلة 4 نوم', type:'فيلا', beds:4, area:220, price:12500000, img:'https://placehold.co/800x600?text=Unit+4', tags:['Private Pool'], date:'2025-05-04' }
+];
 
-    // ===== Render projects list =====
-    function renderProjects(){
-      projectsContainer.innerHTML = '';
-      const filtered = projects.filter(p => {
-        if (currentFilter === 'all') return true;
-        if (currentFilter === 'developer') return p.type === 'developer';
-        if (currentFilter === 'resale') return p.type === 'resale';
-        return true;
-      }).slice(0, itemsToShow);
+const phasesData = [
+  { id:'Pyarmids', title:'Pyarmids', img:'https://placehold.co/800x600?text=Pyarmids', short:'مبانٍ متدرجة تشبه الأهرامات مع إطلالات بانورامية', desc:'تصميم فندقي متدرج، واجهات حجرية مع مساحات خضراء وممشى أمامي. مناسب للعائلات ويقدم إطلالات واسعة.' },
+  { id:'Panorama', title:'Panorama', img:'https://placehold.co/800x600?text=Panorama', short:'منطقة بنتهاوس وبانوراما مطلة', desc:'شقق وبنتهاوس مع تصميم داخلي مودرن ونوافذ بانورامية لالتقاط أفضل منظر بحر.' },
+  { id:'HandVilla1', title:'Hand Villa 1', img:'https://placehold.co/800x600?text=Hand+Villa+1', short:'فلل عائلية بتشطيبات فاخرة', desc:'فلل مستقلة مع حدائق شخصية وحلول تشطيب راقية، مناسبة للاستثمار والسكن الطويل.' },
+  { id:'HandVilla2', title:'Hand Villa 2', img:'https://placehold.co/800x600?text=Hand+Villa+2', short:'فلل وتصميم عصري', desc:'نسخة مكملة من هاند فيلا 1 مع تصميم معماري عصري وتركيز على الخصوصية.' },
+  { id:'WaterFront', title:'Water Front', img:'https://placehold.co/800x600?text=Waterfront', short:'واجهات بحرية وممشى مطاعم', desc:'منطقة الكورنيش البحري، مطاعم، كافيهات وممشى بطول الشاطئ.' },
+  { id:'PortoIsland1', title:'Porto Island 1', img:'https://placehold.co/800x600?text=Porto+Island+1', short:'جزر داخل المشروع', desc:'مناطق فيلات وشاليهات على جزر داخلية مع طابع خاص وأنماط منازل استوائية.' },
+  { id:'PortoIsland2', title:'Porto Island 2', img:'https://placehold.co/800x600?text=Porto+Island+2', short:'جزر إضافية', desc:'امتداد للايلند 1 بمساحات أكبر وممرات مياه داخلية.' },
+  { id:'HangingGardens', title:'Hanging Gardens', img:'https://placehold.co/800x600?text=Hanging+Gardens', short:'حدائق معلقة ومساحات خضراء', desc:'مساحات خضراء عمودية وممرات ومناطق استرخاء.' },
+  { id:'Caribbean1', title:'Caribbean 1', img:'https://placehold.co/800x600?text=Caribbean+1', short:'تصميم استوائي', desc:'مبانٍ بطابع استوائي مع لاندسكيب وتفاصيل خشبية.' },
+  { id:'Caribbean2', title:'Caribbean 2', img:'https://placehold.co/800x600?text=Caribbean+2', short:'استكمال الكاريبيان', desc:'مناطق ترفيهية وعائلية بطابع الكاريبي.' },
+  { id:'Bahames', title:'Bahames', img:'https://placehold.co/800x600?text=Bahames', short:'منطقة بطابع بهامز', desc:'مناطق ترفيهية وواجهات مائية بمظهر استوائي.' },
+  { id:'Hawaian', title:'Hawaian', img:'https://placehold.co/800x600?text=Hawaian', short:'شاطئ وأنشطة', desc:'منطقة أنشطة شاطئية وانغماس رياضي وترفيهي على البحر.' },
+  { id:'GolfBay', title:'Golf Bay', img:'https://placehold.co/800x600?text=Golf+Bay', short:'منطقة الجولف', desc:'ملاعب جولف ومجمعات سكنية تطل على ملاعب خضراء.' }
+];
 
-      if (filtered.length === 0) {
-        projectsContainer.innerHTML = '<p style="color:var(--muted)">لم تُسجّل مشاريع بعد.</p>';
-        return;
-      }
+/* ========== UTILITIES ========== */
+function formatPrice(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ج'; }
 
-      filtered.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'project-item';
-        div.innerHTML = `
-          <div class="project-thumb"><img src="${p.thumb || 'https://via.placeholder.com/400x300?text=No+Image'}" alt="${escapeHtml(p.name)}"></div>
-          <div class="project-info" style="flex:1">
-            <h3>${escapeHtml(p.name)} <span class="badge">${p.area || ''}</span></h3>
-            <p>${escapeHtml(p.desc || '')}</p>
-            <div class="meta">
-              <div><i class="fas fa-building"></i> ${escapeHtml(p.developer || '')}</div>
-              <div style="margin-left:auto"><button class="btn" onclick='openProject("${p.id}")'>عرض المشروع</button></div>
-            </div>
-          </div>
-        `;
-        projectsContainer.appendChild(div);
-      });
-    }
+/* ========== Render Gallery (lazy load images data-src -> src) ========== */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const galleryImgs = document.querySelectorAll('#gallery img');
+  galleryImgs.forEach(img=>{
+    img.src = img.dataset.src || img.getAttribute('src');
+    img.addEventListener('click', ()=> openLightbox(img.src));
+  });
 
-    // ===== Render units (best units pick featured first) =====
-    function renderUnits(){
-      unitsContainer.innerHTML = '';
-      const featured = units.filter(u => u.featured).slice(0,4);
-      const rest = units.filter(u => !u.featured).slice(0,4);
-      const combined = featured.concat(rest).slice(0,4);
+  // render phases
+  const phasesGrid = document.getElementById('phasesGrid');
+  phasesData.forEach(p=>{
+    const div = document.createElement('div'); div.className = 'phase-card card';
+    div.innerHTML = `<img src="${p.img}" alt="${p.title}"><div class="body"><h4>${p.title}</h4><p>${p.short}</p><p style="margin-top:8px" class="small">${p.desc}</p></div>`;
+    phasesGrid.appendChild(div);
+  });
 
-      if (combined.length === 0) {
-        unitsContainer.innerHTML = '<p style="color:var(--muted)">لا يوجد وحدات مميزة الآن.</p>';
-        return;
-      }
+  // render units
+  renderUnits(unitsData);
+});
 
-      combined.forEach(u => {
-        const card = document.createElement('div');
-        card.className = 'unit-card';
-        card.innerHTML = `
-          <h4>${escapeHtml(u.title)}</h4>
-          <div class="unit-meta">${escapeHtml(u.project || '')} — ${u.price ? escapeHtml(u.price)+' EGP' : ''}</div>
-          <div style="margin-top:8px;font-size:13px;color:var(--muted)">${escapeHtml(u.notes || '')}</div>
-          <div style="margin-top:8px"><button class="btn" onclick='contactForUnit("${escapeJs(u.id)}")'>اطلب تفاصيل</button></div>
-        `;
-        unitsContainer.appendChild(card);
-      });
-    }
+/* ========== LIGHTBOX ========== */
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  img.src = src;
+  lb.style.display = 'grid';
+}
+function closeLightbox(e){
+  if(e.target.id === 'lightbox' || e.target.id === 'lightboxImg'){ // click background or image
+    if(e.target.id === 'lightboxImg') return; // don't close when clicking the image itself
+  }
+  document.getElementById('lightbox').style.display = 'none';
+}
+document.getElementById('lightbox').addEventListener('click',(e)=>{ if(e.target.id==='lightbox') document.getElementById('lightbox').style.display='none'; });
 
-    // ===== Search =====
-    function performSearch(q){
-      const ql = q.trim().toLowerCase();
-      if (!ql) { searchResults.innerHTML = '<p style="color:var(--muted)">اكتب اسم مشروع أو كلمة للبحث.</p>'; return; }
-      const projMatches = projects.filter(p => 
-        (p.name||'').toLowerCase().includes(ql) ||
-        (p.desc||'').toLowerCase().includes(ql) ||
-        (p.developer||'').toLowerCase().includes(ql)
-      );
-      const unitMatches = units.filter(u =>
-        (u.title||'').toLowerCase().includes(ql) ||
-        (u.project||'').toLowerCase().includes(ql) ||
-        (u.notes||'').toLowerCase().includes(ql)
-      );
-
-      const html = [];
-      if (projMatches.length){
-        html.push('<div><h4>مشاريع مطابقة</h4>');
-        projMatches.forEach(p=>{
-          html.push(`<div class="project-item" style="margin-top:8px">
-            <div class="project-thumb"><img src="${p.thumb||'https://via.placeholder.com/400x300?text=No+Image'}" alt=""></div>
-            <div class="project-info"><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.desc||'')}</p><div class="meta"><div>${escapeHtml(p.developer||'')}</div></div></div>
-          </div>`);
-        });
-        html.push('</div>');
-      }
-
-      if (unitMatches.length){
-        html.push('<div style="margin-top:8px"><h4>وحدات مطابقة</h4>');
-        unitMatches.forEach(u=>{
-          html.push(`<div class="project-item" style="margin-top:8px">
-            <div class="project-thumb"><img src="https://via.placeholder.com/400x300?text=Unit" alt=""></div>
-            <div class="project-info"><h3>${escapeHtml(u.title)}</h3><p>${escapeHtml(u.notes||'')}</p><div class="meta"><div>${escapeHtml(u.project||'')}</div><div style="margin-left:auto">${u.price?escapeHtml(u.price)+' EGP':''}</div></div></div>
-          </div>`);
-        });
-        html.push('</div>');
-      }
-
-      if (html.length === 0) searchResults.innerHTML = '<p style="color:var(--muted)">لا توجد نتائج مطابقة.</p>';
-      else searchResults.innerHTML = html.join('');
-    }
-
-    // ===== Helpers =====
-    function escapeHtml(s){ if(!s) return ''; return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m] }) }
-    function escapeJs(s){ return (s||'').replace(/"/g,'\\"').replace(/'/g,"\\'"); }
-
-    // ===== Open project (عرض تفاصيل) =====
-    function openProject(id){
-      const p = projects.find(x=>x.id==id);
-      if (!p) return alert('لم أجد المشروع.');
-      // عرض تفصيلي سريع — يمكنك استبداله بصفحة منفصلة
-      const html = `
-        <div style="padding:12px">
-          <h2>${escapeHtml(p.name)}</h2>
-          <p><strong>المطور:</strong> ${escapeHtml(p.developer||'-')}</p>
-          <p><strong>المنطقة:</strong> ${escapeHtml(p.area||'-')}</p>
-          <p>${escapeHtml(p.desc||'')}</p>
-          <p><a href="#" onclick="return false" style="color:var(--accent)">اتصل بالمطور</a></p>
+/* ========== UNITS RENDER + FILTERS ========== */
+const unitsGrid = document.getElementById('unitsGrid');
+const unitsCount = document.getElementById('unitsCount');
+function renderUnits(list){
+  unitsGrid.innerHTML = '';
+  unitsCount.textContent = list.length;
+  if(list.length === 0){
+    unitsGrid.innerHTML = '<div class="small">لا توجد وحدات حالياً للعرض</div>';
+    return;
+  }
+  list.forEach(u=>{
+    const el = document.createElement('div');
+    el.className = 'unit';
+    el.innerHTML = `
+      <div class="thumb"><img src="${u.img}" alt="${u.title}"></div>
+      <div class="info">
+        <div class="title">${u.title}</div>
+        <div class="meta">${u.type} • ${u.beds} • ${u.area} م²</div>
+        <div class="price">${formatPrice(u.price)}</div>
+        <div class="actions">
+          <a class="view" href="#" onclick="viewUnit('${u.id}');return false">عرض</a>
+          <a class="cta" href="https://wa.me/201050072527?text=اريد+تفاصيل+عن+${encodeURIComponent(u.title)}" target="_blank">استفسر</a>
         </div>
-      `;
-      const w = window.open('', '_blank', 'width=700,height=600');
-      w.document.write('<meta charset="utf-8"><title>تفاصيل المشروع</title>'+html);
-      w.document.close();
-    }
+      </div>
+    `;
+    unitsGrid.appendChild(el);
+  });
+}
 
-    // ===== Contact button for unit =====
-    function contactForUnit(id){
-      const u = units.find(x=>x.id==id);
-      if (!u) return alert('لم أجد الوحدة.');
-      const body = `أنا مهتم بالوحدة: ${u.title}\\nالمشروع: ${u.project}\\nالسعر: ${u.price||'-'}`;
-      // هنا ترسل الإيميل أو تفتح نافذة اتصال؛ نستخدم mailto كمثال
-      window.location.href = 'mailto:info@islamproperty.com?subject='+encodeURIComponent('اهتمام بوحدة')+'&body='+encodeURIComponent(body);
-    }
+// initial
+renderUnits(unitsData);
 
-    // ===== Submit project form (يحفظ محليًا ثم يحاول POST للـ API) =====
-    document.getElementById('submitProject').addEventListener('click', async () => {
-      const name = document.getElementById('proj_name').value.trim();
-      if (!name) return alert('اكتب اسم المشروع');
-      const newP = {
-        id: 'p_local_'+Date.now(),
-        name,
-        developer: document.getElementById('proj_dev').value.trim(),
-        area: document.getElementById('proj_area').value.trim() || 'العين السخنة',
-        desc: document.getElementById('proj_desc').value.trim(),
-        thumb: document.getElementById('proj_thumb').value.trim()
-      };
-      // add locally and save
-      projects.unshift(newP);
-      localStorage.setItem('islam_projects', JSON.stringify(projects));
-      renderProjects();
-      alert('تم إضافة المشروع محليًا. إذا كان لديك API، سيتم إرسال الطلب أيضًا.');
-      // try send to API (best-effort)
-      try {
-        await fetch(API_SUBMIT_PROJECT, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify(newP)
-        });
-      } catch(e){
-        // ignore - best effort
-      }
-      // clear form
-      document.getElementById('proj_name').value='';
-      document.getElementById('proj_dev').value='';
-      document.getElementById('proj_area').value='';
-      document.getElementById('proj_desc').value='';
-      document.getElementById('proj_thumb').value='';
-    });
+// Filter logic
+document.getElementById('applyFilter').addEventListener('click', ()=>{
+  const type = document.getElementById('filterType').value;
+  const beds = document.getElementById('filterBeds').value;
+  const min = Number((document.getElementById('filterMin').value || 0));
+  const max = Number((document.getElementById('filterMax').value || 9999999999));
+  let filtered = unitsData.filter(u=>{
+    if(type && u.type !== type) return false;
+    if(beds && String(u.beds) !== String(beds)) return false;
+    if(min && u.price < min) return false;
+    if(max && u.price > (max || 9999999999)) return false;
+    return true;
+  });
+  renderUnits(filtered);
+});
 
-    // ===== Submit unit form =====
-    document.getElementById('submitUnit').addEventListener('click', async () => {
-      const title = document.getElementById('unit_title').value.trim();
-      if (!title) return alert('اكتب عنوان الوحدة');
-      const newU = {
-        id: 'u_local_'+Date.now(),
-        title,
-        project: document.getElementById('unit_project').value.trim(),
-        price: document.getElementById('unit_price').value.trim(),
-        type: document.getElementById('unit_type').value,
-        notes: document.getElementById('unit_notes').value.trim(),
-        featured: false
-      };
-      units.unshift(newU);
-      localStorage.setItem('islam_units', JSON.stringify(units));
-      renderUnits();
-      alert('تم إضافة الوحدة محليًا. سيتم محاولة إرسالها إلى API إن وُجد.');
-      try {
-        await fetch(API_SUBMIT_UNIT, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify(newU)
-        });
-      } catch(e){}
-      document.getElementById('unit_title').value='';
-      document.getElementById('unit_project').value='';
-      document.getElementById('unit_price').value='';
-      document.getElementById('unit_notes').value='';
-    });
+document.getElementById('clearFilter').addEventListener('click', ()=>{
+  document.getElementById('filterType').value='';
+  document.getElementById('filterBeds').value='';
+  document.getElementById('filterMin').value='';
+  document.getElementById('filterMax').value='';
+  renderUnits(unitsData);
+});
 
-    // ===== Tabs filter =====
-    tabs.forEach(btn=>{
-      btn.addEventListener('click', () => {
-        tabs.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        renderProjects();
-      });
-    });
+// sort
+document.getElementById('sortSelect').addEventListener('change', (e)=>{
+  const v = e.target.value;
+  let arr = [...unitsData];
+  if(v === 'price_asc') arr.sort((a,b)=>a.price-b.price);
+  else if(v === 'price_desc') arr.sort((a,b)=>b.price-a.price);
+  else if(v === 'new') arr.sort((a,b)=> new Date(b.date) - new Date(a.date));
+  renderUnits(arr);
+  document.getElementById('sortLabel').textContent = e.target.selectedOptions[0].textContent;
+});
 
-    // ===== Search events =====
-    searchBtn.addEventListener('click', ()=> performSearch(searchInput.value));
-    searchInput.addEventListener('keydown', (e)=> { if (e.key==='Enter') performSearch(searchInput.value); });
+function viewUnit(id){
+  const u = unitsData.find(x=>x.id===id);
+  if(!u) return alert('الوحدة غير موجودة');
+  // عرض نافذة سريعة — يمكن توسيعها لصفحة تفاصيل
+  alert(`${u.title}\\nالمساحة: ${u.area} م²\\nالسعر: ${formatPrice(u.price)}\\nنوع: ${u.type}`);
+}
 
-    // ===== Load more =====
-    document.getElementById('loadMore').addEventListener('click', ()=>{
-      itemsToShow += 6;
-      renderProjects();
-    });
+/* ========== Helper Box actions ========== */
+document.getElementById('h_send').addEventListener('click', ()=>{
+  const n = document.getElementById('h_name').value.trim();
+  const p = document.getElementById('h_phone').value.trim();
+  const b = document.getElementById('h_budget').value;
+  if(!n || !p){ alert('من فضلك اكتب الاسم ورقم الموبايل'); return; }
+  // يفتح رسالة واتساب مع البيانات (يمكن تعديل النص)
+  const text = `👤 الاسم: ${n}%0A📞 جوال: ${p}%0A💰 ميزانية: ${b || 'غير محددة'}`;
+  window.open(`https://wa.me/201050072527?text=${text}`,'_blank');
+});
 
-    // ===== Add sample project button (تجريبي سريع) =====
-    document.getElementById('addSampleBtn').addEventListener('click', ()=>{
-      const sample = {
-        id: 'p_sample_'+Date.now(),
-        name: 'مشروع تجريبي جديد',
-        developer: 'مطور تجريبي',
-        type: 'developer',
-        area: 'العين السخنة',
-        desc: 'هذا مشروع مُضاف تلقائياً للتجربة.',
-        thumb: 'https://via.placeholder.com/400x300?text=Sample'
-      };
-      projects.unshift(sample);
-      localStorage.setItem('islam_projects', JSON.stringify(projects));
-      renderProjects();
-    });
+/* Contact form */
+document.getElementById('contactForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value.trim();
+  const phone = form.phone.value.trim();
+  if(!name || !phone){ alert('املأ الحقول'); return; }
+  window.open(`https://wa.me/201050072527?text=طلب+اتصال:%0Aالاسم:${encodeURIComponent(name)}%0Aرقم:${encodeURIComponent(phone)}`,'_blank');
+});
+</script>
 
-    // ===== start =====
-    fetchData();
+<!-- FOOTER -->
+<footer>
+  <div class="cols">
+    <div style="flex:1;min-width:220px">
+      <div style="font-weight:800;font-size:18px">اسلام اسماعيل — تسويق عقاري</div>
+      <div class="small" style="margin-top:8px">01050072527 • العين السخنة — Porto</div>
+    </div>
+    <div style="min-width:220px">
+      <div style="font-weight:800;margin-bottom:8px">روابط سريعة</div>
+      <div><a href="#units">الوحدات</a></div>
+      <div><a href="#phases">المراحل</a></div>
+      <div><a href="#map">الموقع</a></div>
+    </div>
+    <div style="min-width:260px">
+      <div style="font-weight:800;margin-bottom:8px">تابعنا</div>
+      <div class="small">فيسبوك • إنستجرام • يوتيوب</div>
+    </div>
+  </div>
+</footer>
 
-    // ===== keyboard shortcuts: / focus البحث =====
-    window.addEventListener('keypress', (e)=> {
-      if (e.key === '/') { e.preventDefault(); searchInput.focus(); }
-    });
-
-    // ===== small note: لو عندك API أعدّل المسارات أعلاه =====
-  </script>
 </body>
 </html>
