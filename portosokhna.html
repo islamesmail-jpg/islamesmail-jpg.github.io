@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -42,7 +44,7 @@
         .breadcrumbs{margin: -8px 0 16px; font-size: 14px; color: var(--muted);}
 
         /* Search Box */
-        .search-box{position:relative; margin-bottom: 20px;} /* Added margin-bottom after moving */
+        .search-box{position:relative; margin-bottom: 20px;}
         .search-box input{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e8eb;font-size:15px;box-sizing: border-box;}
         #suggest, #suggest-desktop {
             display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);background:white;border-radius:8px;border:1px solid #e6e8eb;padding:6px;box-shadow:0 10px 30px rgba(12,12,12,0.06);z-index:50;max-height:280px;overflow:auto
@@ -187,22 +189,22 @@
             font-size: 14px;
         }
 
-        /* Mobile Order Flow Adjustments (Updated for search bar removal from flow) */
+        /* Mobile Order Flow Adjustments (Updated for search bar) */
         #quick-nav-section { order: 1; display: block; }
         #hero-description-card { order: 2; }
-        #mobile-project-images { order: 3; display: block; } 
-        /* #search-section (Moved to main container) */
-        #units-section { order: 4; } 
-        #disclaimer-section { order: 5; }
-        #description-and-plans { order: 6; }
-        #faq-section { order: 7; }
-        #contact-form-section { order: 8; }
-        #developer-info-section { order: 9; }
-        #map-section { order: 10; }
+        #search-section { order: 3; display: block; } /* NEW POSITION */
+        #mobile-project-images { order: 4; display: block; } /* SHIFTED */
+        #units-section { order: 5; } /* SHIFTED */
+        #disclaimer-section { order: 6; } /* SHIFTED */
+        #description-and-plans { order: 7; } /* SHIFTED */
+        #faq-section { order: 8; } /* SHIFTED */
+        #contact-form-section { order: 9; } /* SHIFTED */
+        #developer-info-section { order: 10; } /* SHIFTED */
+        #map-section { order: 11; } /* SHIFTED */
         
         /* Hide desktop-only elements on mobile */
         #hero-desktop-wrapper { display: none !important; }
-        #developer-info-section-desktop, #map-section-desktop, #search-section-desktop { display: none !important; }
+        #developer-info-section-desktop, #map-section-desktop { display: none !important; }
         .sidebar-sticky { order: initial; }
 
 
@@ -246,6 +248,7 @@
             #quick-nav-section { display: none !important; }
             #hero-description-card { display: none !important; }
             #mobile-project-images { display: none !important; } /* HIDE ON DESKTOP */
+            #search-section { display: none !important; } /* HIDE MOBILE SEARCH ON DESKTOP */
             
             /* Show Desktop Sidebar Content */
             #developer-info-section-desktop, #map-section-desktop { display: block !important; }
@@ -366,11 +369,6 @@
             <a href="#">الرئيسية</a><i class="fa-solid fa-chevron-left"></i><a href="#">العين السخنة</a><i class="fa-solid fa-chevron-left"></i><span aria-current="page">بورتو السخنة</span>
         </nav>
 
-        <div class="search-box card" id="search-section">
-            <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
-            <div id="suggest" role="listbox"></div>
-        </div>
-
         <div class="main-content-wrapper">
 
             <div id="hero-desktop-wrapper" class="card" style="padding:0; box-shadow:0 8px 30px rgba(12,12,12,0.06); background:linear-gradient(180deg,#fff,#fbfcff);">
@@ -409,6 +407,11 @@
                         <p style="color:var(--muted);margin:6px 0 12px">منتجع متكامل في العين السخنة يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، ومساحات استثمارية وتجارية.</p>
                     </div>
                 </section>
+
+                <div class="search-box card" id="search-section" style="margin-bottom: 0;">
+                    <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
+                    <div id="suggest" role="listbox"></div>
+                </div>
                 
                 <section class="card" id="mobile-project-images">
                     <h3 style="margin-top:0; font-size:18px;">صور المشروع 📸</h3>
@@ -849,6 +852,15 @@
         
         function toggleLayoutVisibility() {
             const isDesktop = window.innerWidth >= 1100;
+            
+            // Search Bar Visibility
+            const mobileSearch = document.getElementById('search-section');
+            const desktopSearchInHero = document.getElementById('search-section-desktop');
+
+            // Hide/Show correct search bar based on screen size
+            if (mobileSearch) mobileSearch.style.display = isDesktop ? 'none' : 'block';
+            // Note: The visibility of the desktop search bar is already controlled by its parent's desktop display mode (inside #hero-desktop-wrapper), but we'll manage the input itself.
+            if (desktopSearchInHero) desktopSearchInHero.style.display = isDesktop ? 'block' : 'none'; 
 
             // Mobile-Only Sections Visibility (Inside Main Content Wrapper)
             document.getElementById('developer-info-section').style.display = isDesktop ? 'none' : 'block';
@@ -858,20 +870,12 @@
             if (document.getElementById('hero-description-card')) {
                 document.getElementById('hero-description-card').style.display = isDesktop ? 'none' : 'block';
             }
-            
-            // Global Search Section (Now outside main wrapper)
-            const globalSearchCard = document.getElementById('search-section');
-            if (globalSearchCard) globalSearchCard.style.display = isDesktop ? 'none' : 'block';
-
 
             // Desktop-Only Sections Visibility
             document.getElementById('developer-info-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('map-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('hero-desktop-wrapper').style.display = isDesktop ? 'block' : 'none';
-            
-            // Desktop Hero Search Input (Inside hero-desktop-wrapper)
-            const desktopSearchInput = document.getElementById('search-section-desktop');
-            if (desktopSearchInput) desktopSearchInput.style.display = isDesktop ? 'block' : 'none';
+
         }
         
         window.addEventListener('load', toggleLayoutVisibility);
