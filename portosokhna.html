@@ -44,7 +44,7 @@
         .breadcrumbs{margin: -8px 0 16px; font-size: 14px; color: var(--muted);}
 
         /* Search Box */
-        .search-box{position:relative;}
+        .search-box{position:relative; margin-bottom: 20px;} /* Added margin-bottom after moving */
         .search-box input{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e8eb;font-size:15px;box-sizing: border-box;}
         #suggest, #suggest-desktop {
             display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);background:white;border-radius:8px;border:1px solid #e6e8eb;padding:6px;box-shadow:0 10px 30px rgba(12,12,12,0.06);z-index:50;max-height:280px;overflow:auto
@@ -59,14 +59,15 @@
             background: #f1f5f9;
         }
 
-        /* Map Iframe Styling (Enhanced) */
-        .map-section iframe { 
+        /* Map Image Styling (Updated from iframe to img) */
+        .map-section img { /* Targetting the new image tag */
             width: 100%; 
             height: 400px; 
             border-radius: 10px; 
             display: block; 
             border: 3px solid #e6e8eb; 
             margin-top: 15px; 
+            object-fit: cover; /* Ensures the image covers the area nicely */
         }
         
         /* Map Overlay/Branding CSS */
@@ -188,18 +189,18 @@
             font-size: 14px;
         }
 
-        /* Mobile Order Flow Adjustments (Confirmed) */
+        /* Mobile Order Flow Adjustments (Updated for search bar removal from flow) */
         #quick-nav-section { order: 1; display: block; }
         #hero-description-card { order: 2; }
         #mobile-project-images { order: 3; display: block; } 
-        #search-section { order: 4; } /* SEARCH BAR LOCATION */
-        #units-section { order: 5; } 
-        #disclaimer-section { order: 6; }
-        #description-and-plans { order: 7; }
-        #faq-section { order: 8; }
-        #contact-form-section { order: 9; }
-        #developer-info-section { order: 10; }
-        #map-section { order: 11; }
+        /* #search-section (Moved to main container) */
+        #units-section { order: 4; } 
+        #disclaimer-section { order: 5; }
+        #description-and-plans { order: 6; }
+        #faq-section { order: 7; }
+        #contact-form-section { order: 8; }
+        #developer-info-section { order: 9; }
+        #map-section { order: 10; }
         
         /* Hide desktop-only elements on mobile */
         #hero-desktop-wrapper { display: none !important; }
@@ -314,7 +315,7 @@
             .sticky-footer-cta{ display: flex; }
             .floating-contact { display: none !important; }
             /* Adjust map positioning on mobile due to sticky footer */
-            .map-section iframe {
+            .map-section img { /* Changed iframe to img */
                  height: 300px;
             }
         }
@@ -367,6 +368,11 @@
             <a href="#">الرئيسية</a><i class="fa-solid fa-chevron-left"></i><a href="#">العين السخنة</a><i class="fa-solid fa-chevron-left"></i><span aria-current="page">بورتو السخنة</span>
         </nav>
 
+        <div class="search-box card" id="search-section">
+            <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
+            <div id="suggest" role="listbox"></div>
+        </div>
+
         <div class="main-content-wrapper">
 
             <div id="hero-desktop-wrapper" class="card" style="padding:0; box-shadow:0 8px 30px rgba(12,12,12,0.06); background:linear-gradient(180deg,#fff,#fbfcff);">
@@ -374,7 +380,7 @@
                     <div class="hero-left-desktop">
                         <h1>بورتو السخنة — Porto Sokhna</h1>
                         <p style="color:var(--muted);margin:6px 0 12px">منتجع متكامل يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، ومساحات استثمارية وترفيهية.</p>
-                        <div class="search-box" id="search-section-desktop" style="margin-top:20px;">
+                        <div class="search-box" id="search-section-desktop" style="margin-top:20px; margin-bottom: 0;">
                             <input id="siteSearch-desktop" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
                             <div id="suggest-desktop" role="listbox"></div>
                         </div>
@@ -414,11 +420,6 @@
                     </div>
                 </section>
                 
-                <div class="search-box card" id="search-section">
-                    <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
-                    <div id="suggest" role="listbox"></div>
-                </div>
-
                 <section class="card" id="units-section">
                     <h2>الوحدات المتاحة</h2>
                     <div id="unitsGrid" class="units-grid" aria-live="polite">
@@ -511,15 +512,10 @@
                         <div class="map-overlay">
                              <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
                         </div>
-                        <iframe 
-                            src="https://maps.google.com/maps?q=CFQP%2BXP4%20Porto%20Sokhna&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" 
-                            height="400" 
-                            style="border:0;"
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <img 
+                            src="https://l.top4top.io/p_3616eynbv1.png"
+                            alt="موقع بورتو السخنة على الخريطة" 
+                            style="width:100%; height: 400px; border-radius: 10px; display: block; border: 3px solid #e6e8eb; margin-top: 15px; object-fit: cover;">
                     </div>
                 </div>
             </div> <div class="sidebar-sticky">
@@ -562,15 +558,10 @@
                         <div class="map-overlay">
                              <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
                         </div>
-                        <iframe 
-                            src="https://maps.google.com/maps?q=CFQP%2BXP4%20Porto%20Sokhna&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                            width="100%" 
-                            height="400" 
-                            style="border:0;"
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <img 
+                            src="https://l.top4top.io/p_3616eynbv1.png"
+                            alt="موقع بورتو السخنة على الخريطة" 
+                            style="width:100%; height: 400px; border-radius: 10px; display: block; border: 3px solid #e6e8eb; margin-top: 15px; object-fit: cover;">
                     </div>
                 </div>
 
@@ -670,7 +661,7 @@
     });
     
     // ===========================
-    // Units Data Fetching Script (Dynamic Simulation)
+    // Units Data Fetching Script (Dynamic Fetch from JSON)
     // ===========================
     const unitsGrid = document.getElementById('unitsGrid');
     const loadMoreBtn = document.getElementById('loadMore');
@@ -678,22 +669,6 @@
     let allUnits = [];
     let unitsPerPage = 6; 
     let currentPage = 0;
-
-    // بيانات وهمية (Mock Data) لمحاكاة ملف JSON مع إضافة unit_url
-    const MOCK_UNITS_DATA = [
-        { title: "شاليه مطل على البحر", type: "شاليه", status: "جاهز", area: 100, rooms: 2, price: 2500000, image_url: "https://via.placeholder.com/300x170?text=Chalet_1", unit_url: "unit-page-1.html" },
-        { title: "استوديو فندقي", type: "استوديو", status: "المطور", area: 60, rooms: 1, price: 1300000, image_url: "https://via.placeholder.com/300x170?text=Studio_1", unit_url: "unit-page-2.html" },
-        { title: "شاليه بورتو جاردنز", type: "شاليه", status: "جاهز", area: 85, rooms: 2, price: 1950000, image_url: "https://via.placeholder.com/300x170?text=Chalet_2", unit_url: "unit-page-3.html" },
-        { title: "فيلا بورتو ساوث", type: "فيلا", status: "المطور", area: 250, rooms: 4, price: 7800000, image_url: "https://via.placeholder.com/300x170?text=Villa_1", unit_url: "unit-page-4.html" },
-        { title: "شقة فندقية كبيرة", type: "شقة", status: "جاهز", area: 120, rooms: 3, price: 3200000, image_url: "https://via.placeholder.com/300x170?text=Apartment_1", unit_url: "unit-page-5.html" },
-        { title: "شاليه علوي بتراس", type: "شاليه", status: "جاهز", area: 90, rooms: 2, price: 2350000, image_url: "https://via.placeholder.com/300x170?text=Chalet_3", unit_url: "unit-page-6.html" },
-        { title: "استوديو صغير", type: "استوديو", status: "المطور", area: 55, rooms: 1, price: 1100000, image_url: "https://via.placeholder.com/300x170?text=Studio_2", unit_url: "unit-page-7.html" },
-        { title: "شاليه دور أرضي", type: "شاليه", status: "جاهز", area: 110, rooms: 3, price: 2800000, image_url: "https://via.placeholder.com/300x170?text=Chalet_4", unit_url: "unit-page-8.html" },
-        { title: "تاون هاوس", type: "فيلا", status: "جاهز", area: 180, rooms: 3, price: 5500000, image_url: "https://via.placeholder.com/300x170?text=Townhouse_1", unit_url: "unit-page-9.html" },
-        { title: "استوديو جديد", type: "استوديو", status: "المطور", area: 50, rooms: 1, price: 950000, image_url: "https://via.placeholder.com/300x170?text=Studio_3", unit_url: "unit-page-10.html" },
-
-    ];
-
 
     // دالة لبناء بطاقة الوحدة بناءً على بيانات JSON
     function createUnitCard(unit) {
@@ -747,19 +722,32 @@
         }
     }
 
-    // دالة لجلب البيانات من ملف JSON
+    // دالة لجلب البيانات من ملف JSON (UPDATED TO FETCH EXTERNAL FILE)
     function fetchUnitsData() {
         if (unitsGrid) {
             unitsGrid.innerHTML = '<p style="text-align:center; color:var(--muted);">جارٍ تحميل الوحدات...</p>';
         }
         currentPage = 0; // إعادة تعيين الصفحة
         
-        // استخدام البيانات الوهمية لضمان عمل الكود في بيئة العرض
-        setTimeout(() => {
-            allUnits = MOCK_UNITS_DATA; 
-            if (unitsGrid) unitsGrid.innerHTML = ''; // مسح رسالة التحميل
-            displayUnits();
-        }, 500); 
+        // جلب البيانات من data/portosokhnaunit.json
+        fetch('data/portosokhnaunit.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok, status: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                allUnits = Array.isArray(data) ? data : []; 
+                if (unitsGrid) unitsGrid.innerHTML = ''; // مسح رسالة التحميل
+                displayUnits();
+            })
+            .catch(error => {
+                console.error('Error fetching units data:', error);
+                if (unitsGrid) {
+                    unitsGrid.innerHTML = '<p style="text-align:center; color:red;">تعذر تحميل الوحدات. يُرجى التواصل معنا مباشرة للاستفسار.</p>';
+                }
+            });
     }
 
     if (loadMoreBtn) {
@@ -858,23 +846,24 @@
 
         
         // ===========================
-        // Layout Toggle Script (Kept for mobile/desktop view handling)
+        // Layout Toggle Script (Controls visibility of search bars, etc.)
         // ===========================
         
         function toggleLayoutVisibility() {
             const isDesktop = window.innerWidth >= 1100;
 
-            // Mobile-Only Sections Visibility
+            // Mobile-Only Sections Visibility (Inside Main Content Wrapper)
             document.getElementById('developer-info-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('map-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('quick-nav-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('mobile-project-images').style.display = isDesktop ? 'none' : 'block'; 
-            
-            const mobileSearchCard = document.getElementById('search-section');
-            if (mobileSearchCard) mobileSearchCard.style.display = isDesktop ? 'none' : 'block';
             if (document.getElementById('hero-description-card')) {
                 document.getElementById('hero-description-card').style.display = isDesktop ? 'none' : 'block';
             }
+            
+            // Global Search Section (Now outside main wrapper)
+            const globalSearchCard = document.getElementById('search-section');
+            if (globalSearchCard) globalSearchCard.style.display = isDesktop ? 'none' : 'block';
 
 
             // Desktop-Only Sections Visibility
@@ -882,6 +871,7 @@
             document.getElementById('map-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('hero-desktop-wrapper').style.display = isDesktop ? 'block' : 'none';
             
+            // Desktop Hero Search Input (Inside hero-desktop-wrapper)
             const desktopSearchInput = document.getElementById('search-section-desktop');
             if (desktopSearchInput) desktopSearchInput.style.display = isDesktop ? 'block' : 'none';
         }
