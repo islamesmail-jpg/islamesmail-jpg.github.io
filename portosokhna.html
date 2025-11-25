@@ -70,24 +70,9 @@
             object-fit: cover; /* Ensures the image covers the area nicely */
         }
         
-        /* Map Overlay/Branding CSS */
+        /* Map Container CSS */
         .map-container {
             position: relative; 
-        }
-        .map-overlay {
-            position: absolute;
-            top: 25px; 
-            right: 25px; /* تم تغيير الموقع إلى اليمين */
-            z-index: 10;
-            background: white;
-            padding: 5px 10px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-        .map-logo {
-            height: 20px; /* حجم مصغر */
-            width: auto;
-            display: block;
         }
 
         /* Developer Info */
@@ -189,18 +174,18 @@
             font-size: 14px;
         }
 
-        /* Mobile Order Flow Adjustments (Updated for search bar) */
+        /* Mobile Order Flow Adjustments */
         #quick-nav-section { order: 1; display: block; }
         #hero-description-card { order: 2; }
-        #search-section { order: 3; display: block; } /* NEW POSITION */
-        #mobile-project-images { order: 4; display: block; } /* SHIFTED */
-        #units-section { order: 5; } /* SHIFTED */
-        #disclaimer-section { order: 6; } /* SHIFTED */
-        #description-and-plans { order: 7; } /* SHIFTED */
-        #faq-section { order: 8; } /* SHIFTED */
-        #contact-form-section { order: 9; } /* SHIFTED */
-        #developer-info-section { order: 10; } /* SHIFTED */
-        #map-section { order: 11; } /* SHIFTED */
+        #search-section { order: 3; display: block; }
+        #mobile-project-images { order: 4; display: block; }
+        #units-section { order: 5; }
+        #disclaimer-section { order: 6; }
+        #description-and-plans { order: 7; }
+        #faq-section { order: 8; }
+        #contact-form-section { order: 9; }
+        #developer-info-section { order: 10; }
+        #map-section { order: 11; }
         
         /* Hide desktop-only elements on mobile */
         #hero-desktop-wrapper { display: none !important; }
@@ -247,7 +232,7 @@
             /* Hide Mobile-Only Content */
             #quick-nav-section { display: none !important; }
             #hero-description-card { display: none !important; }
-            #mobile-project-images { display: none !important; } /* HIDE ON DESKTOP */
+            #mobile-project-images { display: none !important; }
             #search-section { display: none !important; } /* HIDE MOBILE SEARCH ON DESKTOP */
             
             /* Show Desktop Sidebar Content */
@@ -510,9 +495,6 @@
                     <h3>موقع بورتو السخنة 📍</h3>
                     <p style="color:var(--muted); margin-bottom: 15px; font-size: 14px;">موقع المشروع استراتيجي يضمن سهولة الوصول إليه من القاهرة والجيزة في وقت قياسي.</p>
                     <div class="map-container">
-                        <div class="map-overlay">
-                             <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
-                        </div>
                         <img 
                             src="https://l.top4top.io/p_3616eynbv1.png"
                             alt="موقع بورتو السخنة على الخريطة" 
@@ -556,9 +538,6 @@
                     <h3>موقع بورتو السخنة 📍</h3>
                     <p style="color:var(--muted); margin-bottom: 15px; font-size: 14px;">موقع المشروع استراتيجي يضمن سهولة الوصول إليه من القاهرة والجيزة في وقت قياسي.</p>
                     <div class="map-container">
-                        <div class="map-overlay">
-                             <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
-                        </div>
                         <img 
                             src="https://l.top4top.io/p_3616eynbv1.png"
                             alt="موقع بورتو السخنة على الخريطة" 
