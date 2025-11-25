@@ -1,0 +1,50 @@
+[
+  {
+    "id": "u1",
+    "title": "شاليه 62 م² - إطلالة جزئية على البحر",
+    "type": "شاليه",
+    "listing_type": "developer",
+    "area": 62,
+    "bed": 1,
+    "bath": 1,
+    "price": 1700000,
+    "image": "https://l.top4top.io/p_3616sicqg3.png",
+    "url": "/units/porto-u1.html"
+  },
+  {
+    "id": "u2",
+    "title": "شاليه 100 م² - غرفتين نوم",
+    "type": "شاليه",
+    "listing_type": "resale",
+    "area": 100,
+    "bed": 2,
+    "bath": 2,
+    "price": 4032139,
+    "image": "https://j.top4top.io/p_361686zoo1.jpg",
+    "url": "/units/porto-u2.html"
+  },
+  {
+    "id": "u3",
+    "title": "استوديو 46 م² - مناسب للاستثمار",
+    "type": "استوديو",
+    "listing_type": "developer",
+    "area": 46,
+    "bed": 0,
+    "bath": 1,
+    "price": 2100000,
+    "image": "https://k.top4top.io/p_3616qt1oi2.jpg",
+    "url": "/units/porto-u3.html"
+  },
+  {
+    "id": "u4",
+    "title": "فيلا 240 م² - خاص - إطلالة بانورامية",
+    "type": "فيلا",
+    "listing_type": "developer",
+    "area": 240,
+    "bed": 4,
+    "bath": 4,
+    "price": 4900000,
+    "image": "https://a.top4top.io/p_3616ewulc4.jpg",
+    "url": "/units/porto-u4.html"
+  }
+]
