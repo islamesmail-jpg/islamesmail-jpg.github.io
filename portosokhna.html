@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>قرية بورتو السخنة | Islam Property</title>
+
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ---------------------------- */
+/*      GENERAL STYLE           */
+/* ---------------------------- */
+body {
+  font-family: 'Cairo', sans-serif;
+  background:#fff;
+  margin:0;
+  padding:0;
+}
+
+/* HERO */
+.hero-slider {
+  width:100%;
+  height:380px;
+  overflow:hidden;
+  position:relative;
+}
+.hero-slider img {
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  position:absolute;
+  animation:fade 18s infinite;
+  opacity:0;
+}
+.hero-slider img:nth-child(1){animation-delay:0s;}
+.hero-slider img:nth-child(2){animation-delay:6s;}
+.hero-slider img:nth-child(3){animation-delay:12s;}
+
+@keyframes fade {
+  0%{opacity:0;}
+  10%{opacity:1;}
+  30%{opacity:1;}
+  40%{opacity:0;}
+  100%{opacity:0;}
+}
+
+/* TITLE */
+.project-title {
+  text-align:center;
+  padding:30px 10px;
+}
+.project-title h1 {
+  font-size:32px;
+  margin-bottom:10px;
+}
+.project-title p {
+  color:#555;
+  font-size:17px;
+}
+
+/* GALLERY */
+.gallery {
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:15px;
+}
+.gallery img {
+  width:320px;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+  flex-shrink:0;
+}
+
+/* TABS */
+.tabs {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:25px 0;
+}
+.tabs button {
+  padding:10px 25px;
+  border-radius:25px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+  font-size:15px;
+  transition:.3s;
+}
+.tabs button.active {
+  background:#000;
+  color:#fff;
+  border-color:#000;
+}
+
+/* GRID OF UNITS */
+.units-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.unit-card {
+  border:1px solid #eee;
+  border-radius:10px;
+  overflow:hidden;
+  background:#fff;
+  transition:.3s;
+}
+.unit-card:hover {
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.unit-card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.unit-body {
+  padding:15px;
+}
+.unit-body h3 {
+  font-size:18px;
+  margin:0 0 10px;
+}
+.unit-body .info {
+  color:#666;
+  font-size:14px;
+  margin-bottom:8px;
+}
+.price {
+  font-size:18px;
+  font-weight:bold;
+  color:#0a7acc;
+  margin:10px 0;
+}
+.unit-body a {
+  display:block;
+  text-align:center;
+  padding:10px;
+  background:#000;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  margin-top:10px;
+}
+
+/* Floating Help Box */
+.floating-help {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:260px;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+  z-index:999;
+}
+.floating-help h4 {
+  margin:0 0 10px;
+  font-size:18px;
+}
+.floating-help input,
+.floating-help select {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ddd;
+  border-radius:6px;
+}
+.floating-help button {
+  width:100%;
+  padding:10px;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+{% include header-ar.html %}
+
+<!-- HERO SLIDER -->
+<div class="hero-slider">
+  <img src="https://k.top4top.io/p_3616qt1oi2.jpg">
+  <img src="https://a.top4top.io/p_3616ewulc4.jpg">
+  <img src="https://j.top4top.io/p_361686zoo1.jpg">
+</div>
+
+<!-- TITLE -->
+<div class="project-title">
+  <h1>بورتو السخنة - Porto Sokhna</h1>
+  <p>أفضل منتجع في العين السخنة بإطلالات مذهلة على البحر ومجموعة متنوعة من الوحدات المناسبة للاستثمار والسكن.</p>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <img src="https://k.top4top.io/p_3616qt1oi2.jpg">
+  <img src="https://a.top4top.io/p_3616ewulc4.jpg">
+  <img src="https://j.top4top.io/p_361686zoo1.jpg">
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" data-type="all">الكل</button>
+  <button class="tab-btn" data-type="developer">المطور</button>
+  <button class="tab-btn" data-type="resale">إعادة البيع</button>
+</div>
+
+<!-- UNITS -->
+<div id="unitsContainer" class="units-grid"></div>
+
+<!-- HELP BOX -->
+<div class="floating-help">
+  <h4><i class="fa-solid fa-headset"></i> تحتاج مساعدة؟</h4>
+  <input type="text" placeholder="الاسم">
+  <input type="tel" placeholder="رقم الموبايل">
+  <select>
+    <option>الميزانية</option>
+    <option>- من 1m إلى 2m</option>
+    <option>- من 2m إلى 4m</option>
+    <option>- أكثر من 4m</option>
+  </select>
+  <button>اطلب مكالمة</button>
+</div>
+
+{% include footer-ar.html %}
+
+<!-- SEARCH SCRIPT (YOUR ORIGINAL SCRIPT) -->
+<script>
+{{YOUR_SEARCH_SCRIPT_HERE}}
+</script>
+
+<!-- FETCH UNITS -->
+<script>
+let unitsData = [];
+
+fetch("/portosokhnaunits.json")
+  .then(r=>r.json())
+  .then(json=>{
+    unitsData = json.units;
+    renderUnits("all");
+  });
+
+function renderUnits(type){
+  const box = document.getElementById("unitsContainer");
+  box.innerHTML = "";
+
+  unitsData
+    .filter(u => type === "all" ? true : u.listing_type === type)
+    .forEach(u=>{
+      box.innerHTML += `
+        <div class="unit-card">
+          <img src="${u.image}">
+          <div class="unit-body">
+            <h3>${u.title}</h3>
+            <div class="info"><i class="fa-solid fa-ruler-combined"></i> ${u.area} م²</div>
+            <div class="info"><i class="fa-solid fa-bed"></i> ${u.bed} غرف — <i class="fa-solid fa-bath"></i> ${u.bath}</div>
+            <div class="price">${u.price.toLocaleString()} ج.م</div>
+            <a href="${u.url}">عرض التفاصيل</a>
+          </div>
+        </div>
+      `;
+    });
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelector(".tab-btn.active").classList.remove("active");
+    btn.classList.add("active");
+    renderUnits(btn.dataset.type);
+  });
+});
+</script>
+
+</body>
+</html>
