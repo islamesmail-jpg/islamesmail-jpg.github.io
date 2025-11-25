@@ -46,8 +46,17 @@
         /* Search Box */
         .search-box{position:relative;}
         .search-box input{width:100%;padding:12px;border-radius:10px;border:1px solid #e6e8eb;font-size:15px;box-sizing: border-box;}
-        #suggest {
+        #suggest, #suggest-desktop {
             display:none;position:absolute;left:0;right:0;top:calc(100% + 8px);background:white;border-radius:8px;border:1px solid #e6e8eb;padding:6px;box-shadow:0 10px 30px rgba(12,12,12,0.06);z-index:50;max-height:280px;overflow:auto
+        }
+        #suggest a, #suggest-desktop a {
+            display: block; 
+            padding: 8px 10px; 
+            color: #0b1b2b; 
+            border-radius: 4px;
+        }
+        #suggest a:hover, #suggest-desktop a:hover {
+            background: #f1f5f9;
         }
 
         /* Map Iframe Styling (Enhanced) */
@@ -60,6 +69,26 @@
             margin-top: 15px; 
         }
         
+        /* Map Overlay/Branding CSS */
+        .map-container {
+            position: relative; 
+        }
+        .map-overlay {
+            position: absolute;
+            top: 25px; 
+            left: 25px; 
+            z-index: 10;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .map-logo {
+            height: 30px; 
+            width: auto;
+            display: block;
+        }
+
         /* Developer Info */
         .developer-info-inner { display:flex;gap:12px;align-items:flex-start; }
         .developer-info-inner img { width:64px;height:64px;object-fit:cover;border-radius:8px;border:1px solid #eee; }
@@ -84,7 +113,7 @@
 
         /* ==================================== UNITS STYLING & LINK WRAPPER ==================================== */
         .unit-card-link {
-            display: block; /* Make the whole link block level for clickability */
+            display: block; 
             text-decoration: none;
             color: inherit;
         }
@@ -106,7 +135,7 @@
             border-radius: var(--radius);
             overflow: hidden;
             background: white; 
-            transition: all 0.2s; /* For hover effect */
+            transition: all 0.2s; 
         }
         .unit-media{ 
             width: 120px; 
@@ -133,22 +162,24 @@
         }
         
         /* Hero Mobile Style */
-        .hero-info-card img {
+        .hero-image-wrapper img {
             width: 100%;
             height: auto;
             max-height: 250px;
             object-fit: cover;
             border-radius: var(--radius);
-            margin-bottom: 10px;
-            cursor: pointer;
+            display: block;
         }
         .hero-image-wrapper { 
             position: relative;
-            order: 0; 
+            cursor: pointer;
+            border: 1px solid #eef2f6; 
+            border-radius: var(--radius);
+            overflow: hidden;
         }
         .hero-image-wrapper span {
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             right: 15px;
             background: rgba(0, 0, 0, 0.65);
             color: white;
@@ -156,18 +187,19 @@
             border-radius: 8px;
             font-size: 14px;
         }
-        
-        /* Mobile Order (No change needed) */
+
+        /* Mobile Order Flow Adjustments (Confirmed) */
         #quick-nav-section { order: 1; display: block; }
         #hero-description-card { order: 2; }
-        #units-section { order: 3; } 
-        #search-section { order: 4; }
-        #disclaimer-section { order: 5; }
-        #description-and-plans { order: 6; }
-        #faq-section { order: 7; }
-        #contact-form-section { order: 8; }
-        #developer-info-section { order: 9; }
-        #map-section { order: 10; }
+        #mobile-project-images { order: 3; display: block; } 
+        #search-section { order: 4; } /* SEARCH BAR LOCATION */
+        #units-section { order: 5; } 
+        #disclaimer-section { order: 6; }
+        #description-and-plans { order: 7; }
+        #faq-section { order: 8; }
+        #contact-form-section { order: 9; }
+        #developer-info-section { order: 10; }
+        #map-section { order: 11; }
         
         /* Hide desktop-only elements on mobile */
         #hero-desktop-wrapper { display: none !important; }
@@ -203,17 +235,18 @@
             /* Sidebar items - STICKY! */
             .sidebar-sticky {
                 grid-column: 2 / 3; 
-                position: sticky; /* Sticky feature enabled */
-                top: 20px; /* Space from the top of the viewport */
+                position: sticky; 
+                top: 20px; 
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                align-self: flex-start; /* Important for sticky behavior */
+                align-self: flex-start; 
             }
             
             /* Hide Mobile-Only Content */
             #quick-nav-section { display: none !important; }
             #hero-description-card { display: none !important; }
+            #mobile-project-images { display: none !important; } /* HIDE ON DESKTOP */
             
             /* Show Desktop Sidebar Content */
             #developer-info-section-desktop, #map-section-desktop { display: block !important; }
@@ -280,9 +313,9 @@
         @media (max-width: 1099px) {
             .sticky-footer-cta{ display: flex; }
             .floating-contact { display: none !important; }
-            /* Ensure the mobile contact/developer/map elements flow correctly */
-            #contact-form-section, #developer-info-section, #map-section { 
-                 display: block !important; 
+            /* Adjust map positioning on mobile due to sticky footer */
+            .map-section iframe {
+                 height: 300px;
             }
         }
         
@@ -290,7 +323,7 @@
         .whatsapp-cta{background-color: #25d366;}
         .phone-cta{background-color: var(--accent);}
 
-        /* ==================================== LIGHTBOX STYLING (NEW) ==================================== */
+        /* ==================================== LIGHTBOX STYLING ==================================== */
         .lightbox-nav-btn {
             background: rgba(0, 0, 0, 0.5); 
             border: none; 
@@ -343,6 +376,7 @@
                         <p style="color:var(--muted);margin:6px 0 12px">منتجع متكامل يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، ومساحات استثمارية وترفيهية.</p>
                         <div class="search-box" id="search-section-desktop" style="margin-top:20px;">
                             <input id="siteSearch-desktop" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
+                            <div id="suggest-desktop" role="listbox"></div>
                         </div>
                     </div>
                     <div class="hero-right-image" onclick="showLightbox(0)">
@@ -366,16 +400,25 @@
                 </section>
 
                 <section class="card hero-info-card" id="hero-description-card" style="margin-top:0; padding: 20px;">
-                    <div style="order:1;">
+                    <div>
                         <h1>بورتو السخنة — Porto Sokhna</h1>
                         <p style="color:var(--muted);margin:6px 0 12px">منتجع متكامل في العين السخنة يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، ومساحات استثمارية وتجارية.</p>
                     </div>
-                    <div class="hero-image-wrapper" onclick="showLightbox(0)">
+                </section>
+                
+                <section class="card" id="mobile-project-images">
+                    <h3 style="margin-top:0; font-size:18px;">صور المشروع 📸</h3>
+                    <div class="hero-image-wrapper" onclick="showLightbox(0)" style="margin-top:10px;">
                         <img src="https://k.top4top.io/p_3616qt1oi2.jpg" alt="Porto Sokhna hero image preview">
-                        <span>صور المشروع 📸</span>
+                        <span>عرض كل الصور</span>
                     </div>
                 </section>
                 
+                <div class="search-box card" id="search-section">
+                    <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
+                    <div id="suggest" role="listbox"></div>
+                </div>
+
                 <section class="card" id="units-section">
                     <h2>الوحدات المتاحة</h2>
                     <div id="unitsGrid" class="units-grid" aria-live="polite">
@@ -383,11 +426,6 @@
                     </div>
                     <div style="text-align:center;margin-top:12px"><button id="loadMore" class="btn">تحميل المزيد</button></div>
                 </section>
-
-                <div class="search-box card" id="search-section">
-                    <input id="siteSearch" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
-                    <div id="suggest" role="listbox"></div>
-                </div>
 
                 <div class="card" id="disclaimer-section" style="padding:15px; border-left: 4px solid #ffab00; background: #fffaf0;">
                     <h3 style="margin:0; font-size:16px; color:#c77700;"><i class="fa-solid fa-triangle-exclamation" style="margin-left: 6px;"></i> إخلاء مسؤولية</h3>
@@ -470,10 +508,14 @@
                     <h3>موقع بورتو السخنة 📍</h3>
                     <p style="color:var(--muted); margin-bottom: 15px; font-size: 14px;">موقع المشروع استراتيجي يضمن سهولة الوصول إليه من القاهرة والجيزة في وقت قياسي.</p>
                     <div class="map-container">
+                        <div class="map-overlay">
+                             <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
+                        </div>
                         <iframe 
-                            src="https://www.google.com/maps/search/%D8%A8%D9%88%D8%B1%D8%AA%D9%88+%D8%A7%D9%84%D8%B3%D8%AE%D9%86%D9%87%E2%80%AD/@29.4385868,32.47901,1639m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" 
+                            src="https://maps.google.com/maps?q=CFQP%2BXP4%20Porto%20Sokhna&t=&z=14&ie=UTF8&iwloc=&output=embed" 
                             width="100%" 
                             height="400" 
+                            style="border:0;"
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -492,7 +534,7 @@
                         <input placeholder="رقم الموبايل" style="margin-bottom: 8px; padding:10px; border-radius:8px; border:1px solid #e7eaee; font-size:14px; width:100%; box-sizing:border-box;" />
                         <button class="btn" style="width: 100%; margin-top: 10px;">اطلب اتصال</button>
                     </div>
-                    <div style="margin-top:12px; border-top: 1px solid #eee; padding-top: 12px;"><strong>اتصل سريعاً: 0102602107</strong></div>
+                    <div style="margin-top:12px; border-top: 1px solid #eee; padding-top: 12px;"><strong>اتصل سريعاً: 01026021077</strong></div>
                 </div>
 
                 <div class="card" id="developer-info-section-desktop">
@@ -517,10 +559,14 @@
                     <h3>موقع بورتو السخنة 📍</h3>
                     <p style="color:var(--muted); margin-bottom: 15px; font-size: 14px;">موقع المشروع استراتيجي يضمن سهولة الوصول إليه من القاهرة والجيزة في وقت قياسي.</p>
                     <div class="map-container">
+                        <div class="map-overlay">
+                             <img src="https://via.placeholder.com/100x40?text=IslamProperty" alt="Logo" class="map-logo">
+                        </div>
                         <iframe 
-                            src="https://www.google.com/maps/search/%D8%A8%D9%88%D8%B1%D8%AA%D9%88+%D8%A7%D9%84%D8%B3%D8%AE%D9%86%D9%87%E2%80%AD/@29.4385868,32.47901,1639m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" 
+                            src="https://maps.google.com/maps?q=CFQP%2BXP4%20Porto%20Sokhna&t=&z=14&ie=UTF8&iwloc=&output=embed"
                             width="100%" 
                             height="400" 
+                            style="border:0;"
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -532,26 +578,26 @@
     </main>
 
     <div id="projectLightbox" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; backdrop-filter: blur(5px);">
-        <button id="closeLightbox" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10000;">&times;</button>
+        <button id="closeLightbox" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10000;">×</button>
         <div id="lightboxContent" style="width: 90%; max-width: 900px; height: 90%; margin: 5% auto; display: flex; align-items: center; justify-content: center; position: relative;">
-            <button id="prevImage" class="lightbox-nav-btn" style="position: absolute; right: auto; left: 10px; z-index: 10;">&lt;</button>
+            <button id="prevImage" class="lightbox-nav-btn" style="position: absolute; right: auto; left: 10px; z-index: 10;"><</button>
             <img id="currentImage" src="" alt="صورة المشروع" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;">
-            <button id="nextImage" class="lightbox-nav-btn" style="position: absolute; left: auto; right: 10px; z-index: 10;">&gt;</button>
+            <button id="nextImage" class="lightbox-nav-btn" style="position: absolute; left: auto; right: 10px; z-index: 10;">></button>
             <div id="imageCaption" style="position: absolute; bottom: 5%; color: white; background: rgba(0, 0, 0, 0.6); padding: 8px 15px; border-radius: 8px; font-size: 16px;"></div>
         </div>
     </div>
     <div class="footer-placeholder" style="margin-top:20px;">{% include footer-ar.html %}</div>
 
     <div class="floating-contact">
-        <a href="https://wa.me/20102602107" target="_blank" class="whatsapp" title="تواصل واتساب" style="background-color: #25d366;"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+20102602107" class="phone" title="اتصال مباشر" style="background-color: var(--accent);"><i class="fa-solid fa-phone-volume"></i></a>
+        <a href="https://wa.me/201026021077" target="_blank" class="whatsapp" title="تواصل واتساب" style="background-color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+201026021077" class="phone" title="اتصال مباشر" style="background-color: var(--accent);"><i class="fa-solid fa-phone-volume"></i></a>
     </div>
     
     <div class="sticky-footer-cta">
-        <a href="https://wa.me/20102602107" target="_blank" class="cta-btn whatsapp-cta">
+        <a href="https://wa.me/201026021077" target="_blank" class="cta-btn whatsapp-cta">
             <i class="fab fa-whatsapp"></i> واتساب
         </a>
-        <a href="tel:+20102602107" class="cta-btn phone-cta">
+        <a href="tel:+201026021077" class="cta-btn phone-cta">
             <i class="fa-solid fa-phone-volume"></i> اتصال الآن
         </a>
     </div>
@@ -588,7 +634,7 @@
 
     // Function called from HTML elements (Hero images)
     function showLightbox(startIndex) {
-        currentImageIndex = startIndex % allImages.length; // Ensure index is valid
+        currentImageIndex = startIndex % allImages.length; 
         updateLightboxImage();
         lightbox.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent scrolling background
@@ -623,13 +669,9 @@
         }
     });
     
-    // Note to user about swiping feature complexity
-    console.log("ملاحظة للمطور: تم تفعيل معرض الصور (Lightbox) مع أزرار التنقل. تتطلب ميزة السحب (Swiping) على الموبايل كود JavaScript أكثر تعقيداً أو مكتبة خارجية (مثل Swiper.js أو TouchSwipe) غير متاحة في هذا النطاق، لكن الهيكل الأساسي للتصفح أصبح جاهزاً.");
-
     // ===========================
     // Units Data Fetching Script (Dynamic Simulation)
     // ===========================
-    const UNITS_API_URL = 'data/portosokhnaunit.json'; 
     const unitsGrid = document.getElementById('unitsGrid');
     const loadMoreBtn = document.getElementById('loadMore');
     
@@ -653,7 +695,7 @@
     ];
 
 
-    // دالة لبناء بطاقة الوحدة بناءً على بيانات JSON (مُحدّثة لتدعم الرابط)
+    // دالة لبناء بطاقة الوحدة بناءً على بيانات JSON
     function createUnitCard(unit) {
         const formattedPrice = unit.price ? unit.price.toLocaleString('en-US', { style: 'decimal', minimumFractionDigits: 0 }) : 'يُرجى الاتصال';
         const imageUrl = unit.image_url || 'https://via.placeholder.com/300x170?text=Unit_Image';
@@ -725,89 +767,123 @@
     }
     
     // ===========================
-    // Other Scripts
+    // Search Script (USER PROVIDED LOGIC)
     // ===========================
-    
-    // Mobile/Desktop Layout Toggle (Handles which sections are shown/hidden)
-    (function(){
-        const INPUT = document.getElementById('siteSearch');
-        const DESKTOP_INPUT = document.getElementById('siteSearch-desktop');
+    (function(){  
+        const INPUT_MOBILE = document.getElementById('siteSearch');  
+        const INPUT_DESKTOP = document.getElementById('siteSearch-desktop');
         const BOX = document.getElementById('suggest');
+        const BOX_DESKTOP = document.getElementById('suggest-desktop');
         
-        let SITE_INDEX = [
-            { title: "شاليه بورتو جاردنز", keywords: "شاليه، استوديو، للبيع، 60م، جاردنز", url: "#unit1" },
-            { title: "فيلا بورتو ساوث بيتش", keywords: "فيلا، 250م، ساوث بيتش، للبيع", url: "#unit2" },
-            { title: "شقة فندقية بورتو بيراميدز", keywords: "شقة، فندقية، بيراميدز، 120م، تقسيط", url: "#unit3" },
-        ];
+        if(!INPUT_MOBILE || !BOX) return;  
+
+        let SITE_INDEX = [];  
         
-        const makeItem = it => {
-            const a = document.createElement('a');
-            a.href = it.url;
-            a.textContent = it.title;
-            return a;
-        };
-
-        function search(q){
-            q = (q || '').trim().toLowerCase();
-            if(!q) return [];
-            return SITE_INDEX
-                .map(it=>{
-                    const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();
-                    const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;
-                    const inKeys = hay.includes(q) ? 1 : 0;
-                    return {...it, score: inTitle + inKeys};
-                })
-                .filter(x => x.score > 0)
-                .sort((a,b) => b.score - a.score)
-                .slice(0,8);
+        // ** Fetch Logic (as provided by user) **
+        fetch('/search-index.json', {cache:'no-store'})  
+            .then(r => r.json())  
+            .then(json => SITE_INDEX = Array.isArray(json) ? json : [])  
+            .catch(() => {
+                // Mock data in case fetch fails
+                SITE_INDEX = [ 
+                    { title: "شاليه بورتو جاردنز", keywords: "شاليه، استوديو، للبيع، 60م، جاردنز", url: "#unit1" },
+                    { title: "فيلا بورتو ساوث بيتش", keywords: "فيلا، 250م، ساوث بيتش، للبيع", url: "#unit2" },
+                    { title: "شقة فندقية بورتو بيراميدز", keywords: "شقة، فندقية، بيراميدز، 120م، تقسيط", url: "#unit3" },
+                ];
+            });  
+        
+        const makeItem = it => {  
+            const a = document.createElement('a');  
+            a.href = it.url;  
+            a.textContent = it.title;  
+            return a;  
+        };  
+        
+        function search(q){  
+            q = (q || '').trim().toLowerCase();  
+            if(!q) return [];  
+            return SITE_INDEX  
+                .map(it=>{  
+                    const hay = (it.title + ' ' + (it.keywords||'')).toLowerCase();  
+                    const inTitle = it.title.toLowerCase().includes(q) ? 2 : 0;  
+                    const inKeys  = hay.includes(q) ? 1 : 0;  
+                    return {...it, score: inTitle + inKeys};  
+                })  
+                .filter(x => x.score > 0)  
+                .sort((a,b) => b.score - a.score)  
+                .slice(0,8);  
+        }  
+        
+        function render(list, activeBox){  
+            if(!activeBox) return;
+            activeBox.innerHTML = '';  
+            if(list.length === 0){ activeBox.style.display='none'; return; }  
+            list.forEach(r => activeBox.appendChild(makeItem(r)));  
+            activeBox.style.display = 'block';  
+        }  
+        
+        function handleInput(e, inputElement, suggestBox) {
+            render(search(inputElement.value), suggestBox);
         }
 
-        function render(list, activeInput) {
-            if(!BOX) return;
-            BOX.innerHTML = '';
-            if(list.length === 0 || !activeInput.value) { 
-                BOX.style.display='none'; 
-                return; 
-            }
-            list.forEach(r => BOX.appendChild(makeItem(r)));
-            BOX.style.display = 'block';
+        // Event listeners for Inputs (Mobile & Desktop)
+        INPUT_MOBILE.addEventListener('input', (e) => handleInput(e, INPUT_MOBILE, BOX));
+        if (INPUT_DESKTOP && BOX_DESKTOP) {
+            INPUT_DESKTOP.addEventListener('input', (e) => handleInput(e, INPUT_DESKTOP, BOX_DESKTOP));
         }
 
-        function handleInput(e) {
-            render(search(e.target.value), e.target);
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e)=>{  
+            if(!BOX.contains(e.target) && e.target !== INPUT_MOBILE) BOX.style.display='none';  
+            if(INPUT_DESKTOP && BOX_DESKTOP && !BOX_DESKTOP.contains(e.target) && e.target !== INPUT_DESKTOP) BOX_DESKTOP.style.display='none';
+        }); 
+
+        // Handle Enter key for Mobile
+        INPUT_MOBILE.addEventListener('keydown', (e)=>{  
+            if(e.key === 'Enter'){  
+                const first = BOX.querySelector('a');  
+                if(first){ window.location.href = first.href; }  
+            }  
+        });  
+        
+        // Handle Enter key for Desktop
+        if (INPUT_DESKTOP && BOX_DESKTOP) {
+            INPUT_DESKTOP.addEventListener('keydown', (e)=>{  
+                if(e.key === 'Enter'){  
+                    const first = BOX_DESKTOP.querySelector('a');  
+                    if(first){ window.location.href = first.href; }  
+                }  
+            }); 
         }
 
-        // Attach listeners to both inputs
-        if(INPUT) INPUT.addEventListener('input', handleInput);
-        if(DESKTOP_INPUT) DESKTOP_INPUT.addEventListener('input', handleInput);
-
-        document.addEventListener('click', (e)=>{
-            if(!BOX.contains(e.target) && e.target !== INPUT && e.target !== DESKTOP_INPUT) BOX.style.display='none';
-        });
+        
+        // ===========================
+        // Layout Toggle Script (Kept for mobile/desktop view handling)
+        // ===========================
         
         function toggleLayoutVisibility() {
             const isDesktop = window.innerWidth >= 1100;
 
+            // Mobile-Only Sections Visibility
             document.getElementById('developer-info-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('map-section').style.display = isDesktop ? 'none' : 'block';
-            document.getElementById('siteSearch').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('quick-nav-section').style.display = isDesktop ? 'none' : 'block';
+            document.getElementById('mobile-project-images').style.display = isDesktop ? 'none' : 'block'; 
             
+            const mobileSearchCard = document.getElementById('search-section');
+            if (mobileSearchCard) mobileSearchCard.style.display = isDesktop ? 'none' : 'block';
+            if (document.getElementById('hero-description-card')) {
+                document.getElementById('hero-description-card').style.display = isDesktop ? 'none' : 'block';
+            }
+
+
+            // Desktop-Only Sections Visibility
             document.getElementById('developer-info-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('map-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('hero-desktop-wrapper').style.display = isDesktop ? 'block' : 'none';
             
-            const mobileSearchCard = document.getElementById('search-section');
             const desktopSearchInput = document.getElementById('search-section-desktop');
-
-            if (mobileSearchCard) mobileSearchCard.style.display = isDesktop ? 'none' : 'block';
             if (desktopSearchInput) desktopSearchInput.style.display = isDesktop ? 'block' : 'none';
-            
-            if (isDesktop) {
-                document.getElementById('hero-description-card').style.display = 'none';
-            } else {
-                document.getElementById('hero-description-card').style.display = 'flex';
-            }
         }
         
         window.addEventListener('load', toggleLayoutVisibility);
@@ -816,7 +892,6 @@
         // Initial calls
         toggleLayoutVisibility();
         fetchUnitsData(); 
-
     })();
     </script>
 
