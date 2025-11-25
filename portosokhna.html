@@ -27,9 +27,16 @@
         }
         html,body{margin:0;padding:0;background:var(--bg);color:#0b1b2b;}
         a{color:var(--accent);text-decoration:none}
-        h1,h2,h3,h4 {color: #0b1b2b; font-weight: 700;}
+        h1,h2,h3,h4 {color: #000; font-weight: 700;} /* تم التعديل إلى الأسود #000 */
 
         .container{max-width:1180px;margin:22px auto;padding:0 16px}
+
+        /* Breadcrumbs */
+        .breadcrumbs{margin: -8px 0 16px; font-size: 14px; color: var(--muted);}
+        .breadcrumbs a{color: var(--muted); text-decoration: none;}
+        .breadcrumbs a:hover{color: var(--accent);}
+        .breadcrumbs i{font-size: 10px; margin: 0 8px;}
+        .breadcrumbs [aria-current="page"]{color: #0b1b2b; font-weight: 600;}
 
         /* ==================================== HERO SECTION ==================================== */
         .hero{border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(12,12,12,0.06);background:linear-gradient(180deg,#fff,#fbfcff)}
@@ -51,16 +58,45 @@
 
         .hero-right img{width:100%;height:300px;object-fit:cover;border-radius:10px}
 
-        /* Gallery */
+        /* Gallery - PC/Tablet */
         .gallery{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-        .gallery img{width:calc(33.333% - 6px);border-radius:10px;height:110px;object-fit:cover;border:1px solid #eee;cursor:pointer;opacity:0.9;}
+        .gallery img{width:calc(33.333% - 6px);border-radius:10px;height:110px;object-fit:cover;border:1px solid #eee;cursor:pointer;opacity:0.9; flex-shrink: 0;} /* Added flex-shrink: 0 */
         .gallery img:hover {opacity: 1;}
-        @media(max-width:640px){.gallery img{width:calc(50% - 6px); height: 80px;}}
+
+        /* Gallery - MOBILE: Horizontal Scroll/Swipeable */
+        @media(max-width:640px){
+            .gallery{
+                display: flex; /* Use flex for horizontal layout */
+                flex-wrap: nowrap; /* Prevent wrapping */
+                overflow-x: scroll; /* Enable horizontal scrolling/swiping */
+                -webkit-overflow-scrolling: touch; /* Enhance scrolling on iOS */
+                padding-bottom: 8px; /* Breathing room */
+            }
+            .gallery img{
+                width: 150px; /* Fixed width for swipeable items */
+                height: 100px;
+                margin-left: 8px; /* Space between images */
+            }
+            /* Hide the last image margin on RTL */
+            .gallery img:last-child { margin-left: 0; }
+        }
+
 
         /* ==================================== LAYOUT & CARDS ==================================== */
         .layout{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:20px}
         @media(max-width:1100px){.layout{grid-template-columns:1fr}}
         
+        /* Mobile Layout Order Change: Units first, then Description/Features */
+        @media(max-width:1100px){
+            .layout > div:first-child { 
+                display: flex; 
+                flex-direction: column; 
+            }
+            .units-section { order: 1; }
+            .description-section { order: 2; }
+            .faq-section { order: 3; }
+        }
+
         .card{background:white;border-radius:var(--radius);padding:20px;border:1px solid #eef2f6;box-shadow:0 6px 18px rgba(12,12,12,0.03)}
         .card h2 {font-size: 24px; margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;}
 
@@ -69,10 +105,39 @@
         .tab{padding:8px 14px;border-radius:999px;background:transparent;border:1px solid var(--accent);color:var(--accent);cursor:pointer;font-weight:600;font-family: inherit; transition: all .2s;}
         .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
         
-        /* Units Grid */
+        /* Units Grid - PC/Tablet */
         .units-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
         @media(max-width:1000px){.units-grid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:640px){.units-grid{grid-template-columns:1fr}}
+
+        /* Units Card - Mobile Horizontal Layout */
+        @media(max-width:640px){
+            .unit-card{
+                display: flex; /* Horizontal structure */
+                border: 1px solid #eef2f6; /* Ensure border visibility */
+            }
+            .unit-media{
+                width: 120px; /* Fixed image width */
+                height: auto; /* Allow height to adjust */
+                border-bottom: none;
+                border-left: 1px solid #eee; /* Separator */
+            }
+            .unit-media img {
+                height: 100%;
+                object-fit: cover;
+                border-radius: var(--radius) 0 0 var(--radius); /* Top-right & Bottom-right radius only for RTL */
+            }
+            .unit-body{
+                padding: 12px;
+                flex-grow: 1;
+            }
+            /* Fix meta layout for tight space */
+            .meta { font-size: 12px; gap: 6px; }
+            .unit-body h3 { font-size: 16px; margin-top: 0; margin-bottom: 4px; }
+            .price { font-size: 16px; }
+            .unit-body .btn { font-size: 13px !important; padding: 6px 10px !important; }
+        }
+        /* End Unit Card - Mobile Horizontal Layout */
         
         .unit-card{border-radius:var(--radius);overflow:hidden;border:1px solid #eef2f6;background:#fff;transition:all .2s}
         .unit-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(12,12,12,0.08)}
@@ -127,7 +192,7 @@
         /* Footer */
         footer.small{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
         
-        /* ==================================== FLOATING WIDGETS ==================================== */
+        /* ==================================== WIDGETS (Desktop/Mobile Handling) ==================================== */
         .floating-contact {
             position: fixed;
             left: 20px;
@@ -150,8 +215,45 @@
         }
 
         .floating-contact a:hover { transform: scale(1.1); }
-        .floating-contact .whatsapp { background-color: #25d366; } /* WhatsApp Green */
+        .floating-contact .whatsapp { background-color: #25d366; } 
         .floating-contact .phone { background-color: var(--accent); }
+
+        /* STICKY CTA (Mobile Only) */
+        .sticky-footer-cta{
+            display: none; /* Hide by default */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px 16px;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            justify-content: space-around;
+            gap: 10px;
+        }
+        @media (max-width: 640px) {
+            .sticky-footer-cta{
+                display: flex; /* Show only on mobile */
+            }
+            .floating-contact { display: none !important; } /* Hide floating circles on mobile */
+        }
+
+        .cta-btn{
+            flex: 1;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .cta-btn i{margin-left: 6px;}
+        .whatsapp-cta{background-color: #25d366;}
+        .phone-cta{background-color: var(--accent);}
+        
     </style>
 </head>
 <body>
@@ -159,12 +261,20 @@
     {% include header-ar.html %}
 
     <main class="container">
+        <nav class="breadcrumbs">
+            <a href="https://islamproperty.com/index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <a href="https://islamproperty.com/sokhna.html">العين السخنة</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span aria-current="page">بورتو السخنة</span>
+        </nav>
+
         <section class="hero card">
             <div class="hero-inner">
                 <div class="hero-left">
                     <h1>بورتو السخنة — Porto Sokhna</h1>
                     <p>منتجع متكامل في العين السخنة يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، حمامات سباحة، ومساحات استثمارية وتجارية — تجربة منتجعية متكاملة للمقيمين والمستثمرين.</p>
-
+                    
                     <div class="kpis" style="margin-top:12px">
                         <div class="kpi">
                             <i class="fa-solid fa-expand" style="color:var(--accent);"></i>
@@ -192,6 +302,8 @@
                         <img src="https://k.top4top.io/p_3616qt1oi2.jpg" alt="porto small1">
                         <img src="https://a.top4top.io/p_3616ewulc4.jpg" alt="porto small2">
                         <img src="https://j.top4top.io/p_361686zoo1.jpg" alt="porto small3">
+                        <img src="https://i.top4top.io/p_3616z5d3s0.jpg" alt="porto small4">
+                        <img src="https://h.top4top.io/p_3616u2k9g9.jpg" alt="porto small5">
                     </div>
                 </div>
 
@@ -205,7 +317,20 @@
 
             <div>
                 
-                <section class="card" style="margin-bottom:14px">
+                <section class="card units-section">
+                    <h2>الوحدات المتاحة</h2>
+                    <div class="tabs">
+                        <button class="tab active" data-filter="all">الكل</button>
+                        <button class="tab" data-filter="developer">المطور</button>
+                        <button class="tab" data-filter="resale">إعادة البيع</button>
+                    </div>
+                    <div id="unitsGrid" class="units-grid" aria-live="polite"></div>
+                    <div style="text-align:center;margin-top:12px">
+                        <button id="loadMore" class="btn">تحميل المزيد</button>
+                    </div>
+                </section>
+
+                <section class="card description-section" style="margin-bottom:14px">
                     <h2>عن بورتو السخنة</h2>
                     <p style="color:var(--muted);line-height:1.6">
                         يقع منتجع <strong>بورتو السخنة</strong> في قلب العين السخنة، ويمزج بين الإطلالات البحرية والتضاريس الجبلية ليمنح سكانه مناظر بانورامية فريدة. يمتد المشروع على مساحة واسعة ويضم شواطئ خاصة، أكوا بارك، فنادق، مرافق رياضية ومناطق تجارية وترفيهية. يوفر المشروع وحدات متنوعة (استوديو، شاليه، شقق فندقية، فيلات) مصممة لتناسب العائلات والمستثمرين الباحثين عن دخل إيجاري مستقر أو ملاذ عطلات فاخرة.
@@ -294,20 +419,12 @@
 
                 </section>
 
-                <section class="card">
-                    <h2>الوحدات المتاحة</h2>
-                    <div class="tabs">
-                        <button class="tab active" data-filter="all">الكل</button>
-                        <button class="tab" data-filter="developer">المطور</button>
-                        <button class="tab" data-filter="resale">إعادة البيع</button>
-                    </div>
-                    <div id="unitsGrid" class="units-grid" aria-live="polite"></div>
-                    <div style="text-align:center;margin-top:12px">
-                        <button id="loadMore" class="btn">تحميل المزيد</button>
-                    </div>
-                </section>
-
-                <section class="card faq" style="margin-top:12px">
+                <div class="card legal-disclaimer faq-section" style="margin-top:20px; padding:15px; border-left: 4px solid #ffab00; background: #fffaf0;">
+                    <h3 style="margin:0; font-size:16px; color:#c77700;"><i class="fa-solid fa-triangle-exclamation" style="margin-left: 6px;"></i> إخلاء مسؤولية</h3>
+                    <p style="color:var(--muted); font-size:13px; margin: 8px 0 0;">الأسعار ومخططات الدفع المذكورة عرضة للتغيير من قبل المطور دون إشعار مسبق. يُرجى التواصل معنا للتأكد من أحدث التفاصيل والتوافر.</p>
+                </div>
+                
+                <section class="card faq faq-section" style="margin-top:12px">
                     <h2>الأسئلة الشائعة</h2>
 
                     <details class="q"><summary>أين تقع بورتو السخنة؟</summary>
@@ -378,14 +495,6 @@
                         </div>
                     </div>
 
-                    <div class="card" style="margin-top:12px;text-align:center">
-                        <h4>تحميل الكاتالوج</h4>
-                        <p style="color:var(--muted);font-size:14px">دليل المشروع والأسعار (PDF)</p>
-                        <a href="#" onclick="alert('يُرجى استبدال هذا الرابط برابط ملف PDF الخاص بالكتالوج.'); return false;" download="Porto-Sokhna-Brochure.pdf" class="btn">
-                             <i class="fa-solid fa-download" style="margin-left: 5px;"></i> تحميل الكاتالوج
-                        </a>
-                    </div>
-
                 </div>
             </aside>
 
@@ -402,7 +511,16 @@
             <i class="fa-solid fa-phone-volume"></i>
         </a>
     </div>
-
+    
+    <div class="sticky-footer-cta">
+        <a href="https://wa.me/20102602107" target="_blank" class="cta-btn whatsapp-cta">
+            <i class="fab fa-whatsapp"></i> واتساب
+        </a>
+        <a href="tel:+20102602107" class="cta-btn phone-cta">
+            <i class="fa-solid fa-phone-volume"></i> اتصال الآن
+        </a>
+    </div>
+    
     <script>
     (function(){
         const INPUT = document.getElementById('siteSearch');
@@ -568,9 +686,9 @@
 
     <script>
     (function(){
-        // Coordinates for Porto Sokhna: ~29.5667, 32.3167
-        const center = [29.5667, 32.3167]; 
-        const map = L.map('map', {center:center, zoom:12, layers:[]});
+        // Coordinates for Porto Sokhna: Slightly adjusted based on user feedback
+        const center = [29.563, 32.315]; 
+        const map = L.map('map', {center:center, zoom:13, layers:[]});
 
         // OSM layer
         const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
