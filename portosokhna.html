@@ -82,6 +82,49 @@
         }
 
 
+        /* ==================================== UNITS STYLING & LINK WRAPPER ==================================== */
+        .unit-card-link {
+            display: block; /* Make the whole link block level for clickability */
+            text-decoration: none;
+            color: inherit;
+        }
+        .unit-card-link:hover .unit-card {
+            box-shadow: 0 8px 20px rgba(12,12,12,0.1);
+            transform: translateY(-2px);
+            transition: all 0.2s;
+        }
+
+        /* Units Card (MOBILE: Rectangular/Horizontal) */
+        .units-grid { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
+        .unit-card{
+            display: flex; 
+            border: 1px solid #eef2f6; 
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white; 
+            transition: all 0.2s; /* For hover effect */
+        }
+        .unit-media{ 
+            width: 120px; 
+            flex-shrink: 0; 
+            height: auto;
+        }
+        .unit-media img { 
+            height: 100%; 
+            width: 100%; 
+            object-fit: cover; 
+            border-radius: var(--radius) 0 0 var(--radius); 
+        }
+        .unit-body{ 
+            padding: 12px; 
+            flex-grow: 1; 
+        }
+        
+
         /* ==================================== MOBILE-FIRST LAYOUT (Flex Flow) ==================================== */
         .main-content-wrapper {
             display: flex;
@@ -112,35 +155,6 @@
             padding: 5px 12px;
             border-radius: 8px;
             font-size: 14px;
-        }
-
-        /* Units Card (MOBILE: Rectangular/Horizontal) */
-        .units-grid { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 16px; 
-        }
-        .unit-card{
-            display: flex; 
-            border: 1px solid #eef2f6; 
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: white; /* Important for dynamic content */
-        }
-        .unit-media{ 
-            width: 120px; 
-            flex-shrink: 0; 
-            height: auto;
-        }
-        .unit-media img { 
-            height: 100%; 
-            width: 100%; 
-            object-fit: cover; 
-            border-radius: var(--radius) 0 0 var(--radius); 
-        }
-        .unit-body{ 
-            padding: 12px; 
-            flex-grow: 1; 
         }
         
         /* Mobile Order (No change needed) */
@@ -275,6 +289,40 @@
         .cta-btn{ flex: 1; padding: 10px 0; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; color: white; }
         .whatsapp-cta{background-color: #25d366;}
         .phone-cta{background-color: var(--accent);}
+
+        /* ==================================== LIGHTBOX STYLING (NEW) ==================================== */
+        .lightbox-nav-btn {
+            background: rgba(0, 0, 0, 0.5); 
+            border: none; 
+            color: white; 
+            font-size: 30px; 
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.2s;
+            line-height: 1;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            #lightboxContent {
+                width: 95%; 
+                height: 80%;
+                margin-top: 10%;
+            }
+            .lightbox-nav-btn {
+                font-size: 20px;
+                width: 40px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -297,7 +345,7 @@
                             <input id="siteSearch-desktop" placeholder="ابحث عن وحده، مساحة، رقم..." autocomplete="off" />
                         </div>
                     </div>
-                    <div class="hero-right-image" onclick="showLightbox(this)">
+                    <div class="hero-right-image" onclick="showLightbox(0)">
                         <img src="https://k.top4top.io/p_3616qt1oi2.jpg" alt="Porto Sokhna hero image preview">
                         <span>صور المشروع 📸</span>
                     </div>
@@ -322,7 +370,7 @@
                         <h1>بورتو السخنة — Porto Sokhna</h1>
                         <p style="color:var(--muted);margin:6px 0 12px">منتجع متكامل في العين السخنة يجمع بين الشاطئ والجبل، مرافق فندقية، أكوا بارك، ومساحات استثمارية وتجارية.</p>
                     </div>
-                    <div class="hero-image-wrapper" onclick="showLightbox(this)">
+                    <div class="hero-image-wrapper" onclick="showLightbox(0)">
                         <img src="https://k.top4top.io/p_3616qt1oi2.jpg" alt="Porto Sokhna hero image preview">
                         <span>صور المشروع 📸</span>
                     </div>
@@ -483,6 +531,15 @@
             </div> </div>
     </main>
 
+    <div id="projectLightbox" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); z-index: 9999; backdrop-filter: blur(5px);">
+        <button id="closeLightbox" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; z-index: 10000;">&times;</button>
+        <div id="lightboxContent" style="width: 90%; max-width: 900px; height: 90%; margin: 5% auto; display: flex; align-items: center; justify-content: center; position: relative;">
+            <button id="prevImage" class="lightbox-nav-btn" style="position: absolute; right: auto; left: 10px; z-index: 10;">&lt;</button>
+            <img id="currentImage" src="" alt="صورة المشروع" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;">
+            <button id="nextImage" class="lightbox-nav-btn" style="position: absolute; left: auto; right: 10px; z-index: 10;">&gt;</button>
+            <div id="imageCaption" style="position: absolute; bottom: 5%; color: white; background: rgba(0, 0, 0, 0.6); padding: 8px 15px; border-radius: 8px; font-size: 16px;"></div>
+        </div>
+    </div>
     <div class="footer-placeholder" style="margin-top:20px;">{% include footer-ar.html %}</div>
 
     <div class="floating-contact">
@@ -502,57 +559,127 @@
     <script>
     
     // ===========================
+    // Image Lightbox Script (Functional Gallery)
+    // ===========================
+    
+    const allImages = [
+        { src: "https://k.top4top.io/p_3616qt1oi2.jpg", alt: "صورة الشاطئ والمارينا" },
+        { src: "https://j.top4top.io/p_361686zoo1.jpg", alt: "صورة لحوض السباحة الرئيسي" },
+        { src: "https://a.top4top.io/p_3616ewulc4.jpg", alt: "صورة التلفريك والمناظر البانورامية" },
+        { src: "https://i.top4top.io/p_3616z5d3s0.jpg", alt: "صورة للوحدات المطلة على البحر" },
+        { src: "https://h.top4top.io/p_3616u2k9g9.jpg", alt: "صورة داخلية لأحد الشاليهات" },
+    ];
+    let currentImageIndex = 0;
+
+    const lightbox = document.getElementById('projectLightbox');
+    const currentImage = document.getElementById('currentImage');
+    const imageCaption = document.getElementById('imageCaption');
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
+    const closeBtn = document.getElementById('closeLightbox');
+
+
+    function updateLightboxImage() {
+        const image = allImages[currentImageIndex];
+        currentImage.src = image.src;
+        currentImage.alt = image.alt;
+        imageCaption.textContent = image.alt + ` (${currentImageIndex + 1} من ${allImages.length})`;
+    }
+
+    // Function called from HTML elements (Hero images)
+    function showLightbox(startIndex) {
+        currentImageIndex = startIndex % allImages.length; // Ensure index is valid
+        updateLightboxImage();
+        lightbox.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling background
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % allImages.length;
+        updateLightboxImage();
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+        updateLightboxImage();
+    }
+    
+    // Event Listeners for Lightbox Controls
+    if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if(nextBtn) nextBtn.addEventListener('click', nextImage);
+    if(prevBtn) prevBtn.addEventListener('click', prevImage);
+    
+    // Close on Escape Key
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'block') {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        }
+    });
+    
+    // Note to user about swiping feature complexity
+    console.log("ملاحظة للمطور: تم تفعيل معرض الصور (Lightbox) مع أزرار التنقل. تتطلب ميزة السحب (Swiping) على الموبايل كود JavaScript أكثر تعقيداً أو مكتبة خارجية (مثل Swiper.js أو TouchSwipe) غير متاحة في هذا النطاق، لكن الهيكل الأساسي للتصفح أصبح جاهزاً.");
+
+    // ===========================
     // Units Data Fetching Script (Dynamic Simulation)
     // ===========================
-    const UNITS_API_URL = 'data/portosokhnaunit.json'; // هذا هو المسار الذي سيتم سحب البيانات منه فعلياً
+    const UNITS_API_URL = 'data/portosokhnaunit.json'; 
     const unitsGrid = document.getElementById('unitsGrid');
     const loadMoreBtn = document.getElementById('loadMore');
     
     let allUnits = [];
-    let unitsPerPage = 6; // عدد الوحدات التي تظهر في كل مرة
+    let unitsPerPage = 6; 
     let currentPage = 0;
 
-    // بيانات وهمية (Mock Data) لمحاكاة ملف JSON في بيئة العرض هذه
+    // بيانات وهمية (Mock Data) لمحاكاة ملف JSON مع إضافة unit_url
     const MOCK_UNITS_DATA = [
-        { title: "شاليه مطل على البحر", type: "شاليه", status: "جاهز", area: 100, rooms: 2, price: 2500000, image_url: "https://via.placeholder.com/300x170?text=Chalet_1" },
-        { title: "استوديو فندقي", type: "استوديو", status: "المطور", area: 60, rooms: 1, price: 1300000, image_url: "https://via.placeholder.com/300x170?text=Studio_1" },
-        { title: "شاليه بورتو جاردنز", type: "شاليه", status: "جاهز", area: 85, rooms: 2, price: 1950000, image_url: "https://via.placeholder.com/300x170?text=Chalet_2" },
-        { title: "فيلا بورتو ساوث", type: "فيلا", status: "المطور", area: 250, rooms: 4, price: 7800000, image_url: "https://via.placeholder.com/300x170?text=Villa_1" },
-        { title: "شقة فندقية كبيرة", type: "شقة", status: "جاهز", area: 120, rooms: 3, price: 3200000, image_url: "https://via.placeholder.com/300x170?text=Apartment_1" },
-        { title: "شاليه علوي بتراس", type: "شاليه", status: "جاهز", area: 90, rooms: 2, price: 2350000, image_url: "https://via.placeholder.com/300x170?text=Chalet_3" },
-        { title: "استوديو صغير", type: "استوديو", status: "المطور", area: 55, rooms: 1, price: 1100000, image_url: "https://via.placeholder.com/300x170?text=Studio_2" },
-        { title: "شاليه دور أرضي", type: "شاليه", status: "جاهز", area: 110, rooms: 3, price: 2800000, image_url: "https://via.placeholder.com/300x170?text=Chalet_4" },
-        { title: "تاون هاوس", type: "فيلا", status: "جاهز", area: 180, rooms: 3, price: 5500000, image_url: "https://via.placeholder.com/300x170?text=Townhouse_1" },
+        { title: "شاليه مطل على البحر", type: "شاليه", status: "جاهز", area: 100, rooms: 2, price: 2500000, image_url: "https://via.placeholder.com/300x170?text=Chalet_1", unit_url: "unit-page-1.html" },
+        { title: "استوديو فندقي", type: "استوديو", status: "المطور", area: 60, rooms: 1, price: 1300000, image_url: "https://via.placeholder.com/300x170?text=Studio_1", unit_url: "unit-page-2.html" },
+        { title: "شاليه بورتو جاردنز", type: "شاليه", status: "جاهز", area: 85, rooms: 2, price: 1950000, image_url: "https://via.placeholder.com/300x170?text=Chalet_2", unit_url: "unit-page-3.html" },
+        { title: "فيلا بورتو ساوث", type: "فيلا", status: "المطور", area: 250, rooms: 4, price: 7800000, image_url: "https://via.placeholder.com/300x170?text=Villa_1", unit_url: "unit-page-4.html" },
+        { title: "شقة فندقية كبيرة", type: "شقة", status: "جاهز", area: 120, rooms: 3, price: 3200000, image_url: "https://via.placeholder.com/300x170?text=Apartment_1", unit_url: "unit-page-5.html" },
+        { title: "شاليه علوي بتراس", type: "شاليه", status: "جاهز", area: 90, rooms: 2, price: 2350000, image_url: "https://via.placeholder.com/300x170?text=Chalet_3", unit_url: "unit-page-6.html" },
+        { title: "استوديو صغير", type: "استوديو", status: "المطور", area: 55, rooms: 1, price: 1100000, image_url: "https://via.placeholder.com/300x170?text=Studio_2", unit_url: "unit-page-7.html" },
+        { title: "شاليه دور أرضي", type: "شاليه", status: "جاهز", area: 110, rooms: 3, price: 2800000, image_url: "https://via.placeholder.com/300x170?text=Chalet_4", unit_url: "unit-page-8.html" },
+        { title: "تاون هاوس", type: "فيلا", status: "جاهز", area: 180, rooms: 3, price: 5500000, image_url: "https://via.placeholder.com/300x170?text=Townhouse_1", unit_url: "unit-page-9.html" },
+        { title: "استوديو جديد", type: "استوديو", status: "المطور", area: 50, rooms: 1, price: 950000, image_url: "https://via.placeholder.com/300x170?text=Studio_3", unit_url: "unit-page-10.html" },
+
     ];
 
 
-    // دالة لبناء بطاقة الوحدة بناءً على بيانات JSON
+    // دالة لبناء بطاقة الوحدة بناءً على بيانات JSON (مُحدّثة لتدعم الرابط)
     function createUnitCard(unit) {
-        // تنسيق السعر بفاصل الآلاف (لغرض العرض الجمالي)
         const formattedPrice = unit.price ? unit.price.toLocaleString('en-US', { style: 'decimal', minimumFractionDigits: 0 }) : 'يُرجى الاتصال';
-        
-        // تعديل الصورة في حال عدم وجود رابط
         const imageUrl = unit.image_url || 'https://via.placeholder.com/300x170?text=Unit_Image';
+        const unitUrl = unit.unit_url || '#';
 
         return `
-            <article class="unit-card">
-                <div class="unit-media">
-                    <img src="${imageUrl}" alt="${unit.title}">
-                </div>
-                <div class="unit-body">
-                    <h3>${unit.title}</h3>
-                    <div style="color:var(--muted);font-size:13px;">
-                        <strong>${unit.type}</strong> <span style="font-size: 12px;">(${unit.status})</span>
+            <a href="${unitUrl}" class="unit-card-link" title="عرض تفاصيل ${unit.title}">
+                <article class="unit-card">
+                    <div class="unit-media">
+                        <img src="${imageUrl}" alt="${unit.title}">
                     </div>
-                    <div style="color:var(--muted);font-size:13px;margin-top:6px">
-                        <i class="fa-solid fa-ruler-combined"></i> ${unit.area} م² 
-                        <i class="fa-solid fa-bed"></i> ${unit.rooms} غرف
+                    <div class="unit-body">
+                        <h3>${unit.title}</h3>
+                        <div style="color:var(--muted);font-size:13px;">
+                            <strong>${unit.type}</strong> <span style="font-size: 12px;">(${unit.status})</span>
+                        </div>
+                        <div style="color:var(--muted);font-size:13px;margin-top:6px">
+                            <i class="fa-solid fa-ruler-combined"></i> ${unit.area} م² 
+                            <i class="fa-solid fa-bed"></i> ${unit.rooms} غرف
+                        </div>
+                        <div class="price" style="color:var(--accent-dark);font-weight:800;font-size: 18px;">
+                            ج.م ${formattedPrice}
+                        </div>
                     </div>
-                    <div class="price" style="color:var(--accent-dark);font-weight:800;font-size: 18px;">
-                        ج.م ${formattedPrice}
-                    </div>
-                </div>
-            </article>
+                </article>
+            </a>
         `;
     }
 
@@ -585,26 +712,12 @@
         }
         currentPage = 0; // إعادة تعيين الصفحة
         
-        // محاكاة الاتصال الفعلي بالخادم
+        // استخدام البيانات الوهمية لضمان عمل الكود في بيئة العرض
         setTimeout(() => {
-            // هنا يمكنك تبديل MOCK_UNITS_DATA باتصال fetch الفعلي إذا كان الملف متوفراً على السيرفر
-            // Example of actual fetch:
-            /*
-            fetch(UNITS_API_URL).then(r => r.json()).then(data => {
-                allUnits = data;
-                unitsGrid.innerHTML = '';
-                displayUnits();
-            }).catch(e => {
-                unitsGrid.innerHTML = '<p style="color:red; text-align:center;">تعذر تحميل بيانات الوحدات.</p>';
-            });
-            */
-            
-            // استخدام البيانات الوهمية لضمان عمل الكود
             allUnits = MOCK_UNITS_DATA; 
             if (unitsGrid) unitsGrid.innerHTML = ''; // مسح رسالة التحميل
             displayUnits();
-            
-        }, 500); // محاكاة تأخير 500ms للشبكة
+        }, 500); 
     }
 
     if (loadMoreBtn) {
@@ -614,28 +727,8 @@
     // ===========================
     // Other Scripts
     // ===========================
-
-    // Mockup for Lightbox functionality with all images
-    function showLightbox(element) {
-        const allImages = [
-            { src: "https://k.top4top.io/p_3616qt1oi2.jpg", alt: "صورة الشاطئ والمارينا" },
-            { src: "https://a.top4top.io/p_3616ewulc4.jpg", alt: "صورة التلفريك والمناظر البانورامية" },
-            { src: "https://j.top4top.io/p_361686zoo1.jpg", alt: "صورة لحوض السباحة الرئيسي" },
-            { src: "https://i.top4top.io/p_3616z5d3s0.jpg", alt: "صورة للوحدات المطلة على البحر" },
-            { src: "https://h.top4top.io/p_3616u2k9g9.jpg", alt: "صورة داخلية لأحد الشاليهات" },
-        ];
-        
-        let imagesList = allImages.map(img => img.alt).join(', ');
-
-        alert(
-            'تم النقر على صورة المعاينة.' + 
-            '\n\n*الآن سيتم فتح الـ LightBox (ملء الشاشة)*' +
-            '\n\n**يحتوي المعرض على الصور التالية:**\n' + imagesList + 
-            '\n\n(هذا المعرض يحتاج تنفيذ JavaScript إضافي لدعم السحب والأسهم، لكن الهيكل الآن جاهز لاستقباله.)'
-        );
-    }
     
-    // Search script 
+    // Mobile/Desktop Layout Toggle (Handles which sections are shown/hidden)
     (function(){
         const INPUT = document.getElementById('siteSearch');
         const DESKTOP_INPUT = document.getElementById('siteSearch-desktop');
@@ -692,29 +785,24 @@
             if(!BOX.contains(e.target) && e.target !== INPUT && e.target !== DESKTOP_INPUT) BOX.style.display='none';
         });
         
-        // Mobile/Desktop Layout Toggle (Handles which sections are shown/hidden)
         function toggleLayoutVisibility() {
             const isDesktop = window.innerWidth >= 1100;
 
-            // Mobile-Only Sections 
             document.getElementById('developer-info-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('map-section').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('siteSearch').style.display = isDesktop ? 'none' : 'block';
             document.getElementById('quick-nav-section').style.display = isDesktop ? 'none' : 'block';
             
-            // Desktop-Only Sections 
             document.getElementById('developer-info-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('map-section-desktop').style.display = isDesktop ? 'block' : 'none';
             document.getElementById('hero-desktop-wrapper').style.display = isDesktop ? 'block' : 'none';
             
-            // Manage visibility of the search input fields
             const mobileSearchCard = document.getElementById('search-section');
             const desktopSearchInput = document.getElementById('search-section-desktop');
 
             if (mobileSearchCard) mobileSearchCard.style.display = isDesktop ? 'none' : 'block';
             if (desktopSearchInput) desktopSearchInput.style.display = isDesktop ? 'block' : 'none';
             
-            // On desktop, the mobile hero card is hidden (style in CSS)
             if (isDesktop) {
                 document.getElementById('hero-description-card').style.display = 'none';
             } else {
@@ -727,7 +815,7 @@
 
         // Initial calls
         toggleLayoutVisibility();
-        fetchUnitsData(); // Start fetching units on load
+        fetchUnitsData(); 
 
     })();
     </script>
